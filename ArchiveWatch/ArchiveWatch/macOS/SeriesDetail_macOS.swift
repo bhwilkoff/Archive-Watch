@@ -222,7 +222,7 @@ struct SeriesDetailView: View {
             return String(s)
         }()
         let eps = (series?.episodesCount ?? card.episodesCount).map { "\($0) episodes" }
-        let line = [yr, eps].compactMap { $0 }.joined(separator: " · ")
+        let line = [yr, eps, card.ratingLine].compactMap { $0 }.joined(separator: " · ")
         return line.isEmpty ? nil : line
     }
 }

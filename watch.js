@@ -753,6 +753,15 @@
     return tier * 2 + (r[5] ? 0 : 1);
   }
 
+  /** "IMDb 7.8", or "TVmaze 8.9" for a series IMDb does not rate: a rating
+   *  named by the crowd that gave it (Decision 171). archive.org's reviewers
+   *  have their own stats row. */
+  function ratingLine(imdb, tvmaze) {
+    if (imdb > 0) return `IMDb ${imdb.toFixed(1)}`;
+    if (tvmaze > 0) return `TVmaze ${tvmaze.toFixed(1)}`;
+    return null;
+  }
+
   /** Up to two real genres for the Detail meta line. */
   function metaGenres(genres) {
     if (!genres) return [];
@@ -1607,9 +1616,16 @@
       if (sort === 'new') return [...rows].sort((a, b) => (b[2] || 0) - (a[2] || 0));
       if (sort === 'old') return [...rows].sort((a, b) => (a[2] || 9999) - (b[2] || 9999));
       if (sort === 'rate') {
-        // A film's score needs 100 votes to count (a 9.8 from six people is
-        // noise). A series carries TVmaze's rating and no votes at all, so its
-        // rating counts as it is. Ties fall to votes, then title.
+        // The pipeline's rank, column 19 (Decision 171): the largest crowd's
+        // rating against that crowd's own average, discounted for a small
+        // crowd. Unrated rows last; ties fall to votes, then title.
+        if (rows.some(r => r.length > 19)) {
+          const k = r => (r[19] == null ? -Infinity : r[19]);
+          return [...rows].sort((a, b) =>
+            (k(b) - k(a)) || ((b[11] || 0) - (a[11] || 0)) || t(a[1], b[1]));
+        }
+        // An index from before the rank: a film's score needs 100 votes to
+        // count (a 9.8 from six people is noise); a series counts as it is.
         const score = r => {
           if (r[10] == null) return -1;
           return r[3] === 'tv-series' || (r[11] || 0) >= 100 ? r[10] : -1;
@@ -3137,6 +3153,7 @@
           // not, so the lowercase ones are dropped rather than Title-Cased.
           ...metaGenres(det.genres),
           det.director && `Dir. ${det.director}`,
+          ratingLine(row[10] != null ? row[10] / 10 : null),
         ].filter(Boolean).join(' · ');
         if (meta) $('item-meta').textContent = meta;
         // "Also known as" (Decision 100) — shown only when the film's primary
@@ -3567,7 +3584,8 @@
         : null;
       const eps = (series.seasons || []).flatMap(s => s.episodes || [])
         .filter(e => e.downloadURL);
-      $('series-meta').textContent = [yr, `${eps.length} playable episode${eps.length === 1 ? '' : 's'}`]
+      $('series-meta').textContent = [yr, `${eps.length} playable episode${eps.length === 1 ? '' : 's'}`,
+        ratingLine(series.imdbRating, series.tvmazeRating)]
         .filter(Boolean).join(' · ');
       // Cut at the last sentence that fits, never mid-word ("a sashaying m").
       const ov = stripHTML(series.overview || '');

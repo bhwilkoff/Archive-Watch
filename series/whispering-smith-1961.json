@@ -1,544 +1,545 @@
 {
-  "version": 2,
-  "seriesID": "whispering-smith-1961",
-  "tvmazeID": 16099,
-  "title": "Whispering Smith",
-  "yearStart": 1961,
-  "yearEnd": 1961,
-  "overview": "Whispering Smith was a detective on the Denver, Colorado Police Department in the 1870s. This show took case histories from Smith's adventures. George Romack was Smith's partner and John Richards was the police chief.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/70778-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Western"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "whispering-smith-1961",
+ "tvmazeID": 16099,
+ "title": "Whispering Smith",
+ "yearStart": 1961,
+ "yearEnd": 1961,
+ "overview": "Whispering Smith was a detective on the Denver, Colorado Police Department in the 1870s. This show took case histories from Smith's adventures. George Romack was Smith's partner and John Richards was the police chief.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/70778-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Western"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e01",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Blind Gun",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E01%20The%20Blind%20Gun_000689.jpg",
-          "airDate": "1961-05-08",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E01 The Blind Gun.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 97431519,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E01%20The%20Blind%20Gun.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e02",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Grudge",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E02%20The%20Grudge_000681.jpg",
-          "airDate": "1961-05-15",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E02 The Grudge.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 109426442,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E02%20The%20Grudge.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e03",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Devil's Share",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E03%20The%20Devil%27s%20Share_000685.jpg",
-          "airDate": "1961-05-21",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E03 The Devil's Share.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 110014741,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E03%20The%20Devil%27s%20Share.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e04",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Stakeout",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E04%20Stake%20Out_000689.jpg",
-          "airDate": "1961-05-29",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E04 Stake Out.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 114117499,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E04%20Stake%20Out.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e05",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Safety Value",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E05%20Safety%20Valve_000683.jpg",
-          "airDate": "1961-06-05",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E05 Safety Valve.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 104981666,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E05%20Safety%20Valve.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e06",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Stain of Justice",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E06%20Stain%20of%20justice_000685.jpg",
-          "airDate": "1961-06-12",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E06 Stain of justice.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 101728472,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E06%20Stain%20of%20justice.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e07",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Deadliest Weapon",
-          "overview": "Ralph receives a threatening letter and asks the Denver police department to protect him from whoever sent the note; Smith and Romack are assigned to act as Ralph's bodyguards but a poisoned drink complicates their task.",
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E07%20The%20Deadliest%20Weapon_000686.jpg",
-          "airDate": "1961-06-19",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E07 The Deadliest Weapon.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 91725658,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E07%20The%20Deadliest%20Weapon.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e08",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "The Quest",
-          "overview": "A young woman arrives in Denver hoping to reunite with her mother, a former Mississippi riverboat entertainer, who sent the girl to live with her cousin many years earlier; Smith and Romack take an interest in her plight.",
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E08%20The%20Quest_000645.jpg",
-          "airDate": "1961-06-26",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E08 The Quest.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 73486418,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E08%20The%20Quest.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e09",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Three for One",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E09%20Three%20for%20One_000680.jpg",
-          "airDate": "1961-07-03",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E09 Three for One.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 92528111,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E09%20Three%20for%20One.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e10",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Death at Even Money",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E10%20Death%20at%20Even%20Money_000687.jpg",
-          "airDate": "1961-07-10",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E10 Death at Even Money.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 116823519,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E10%20Death%20at%20Even%20Money.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e11",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Hemp Reeger Case",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E11%20The%20Hemp%20Reeger%20Case_000672.jpg",
-          "airDate": "1961-07-17",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E11 The Hemp Reeger Case.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 107324753,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E11%20The%20Hemp%20Reeger%20Case.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e12",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Mortal Coil",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E12%20This%20Mortal%20Coil_000683.jpg",
-          "airDate": "1961-07-24",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E12 This Mortal Coil.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 108320831,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E12%20This%20Mortal%20Coil.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e13",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Cross Cut",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E13%20Cross%20Cut_000686.jpg",
-          "airDate": "1961-07-31",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E13 Cross Cut.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 110164220,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E13%20Cross%20Cut.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e14",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Double Edge",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E14%20Double%20Edge_000684.jpg",
-          "airDate": "1961-08-07",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E14 Double Edge.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 115157038,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E14%20Double%20Edge.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e15",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Trademark",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E15%20Trademark_000677.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1517,
-          "videoFile": {
-            "name": "Whispering Smith S01E15 Trademark.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 104909037,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E15%20Trademark.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e16",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Jodie Tyler Story",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E16%20The%20Jodie%20Tyler%20Story_000678.jpg",
-          "airDate": "1961-08-21",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E16 The Jodie Tyler Story.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 114324076,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E16%20The%20Jodie%20Tyler%20Story.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e17",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Poet and Peasant Case",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E17%20Poet%20and%20Peasant%20Case_000677.jpg",
-          "airDate": "1961-08-28",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E17 Poet and Peasant Case.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 112409579,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E17%20Poet%20and%20Peasant%20Case.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e18",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Dark Circle",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E18%20Dark%20Circle_000683.jpg",
-          "airDate": "1961-09-04",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E18 Dark Circle.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 99189401,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E18%20Dark%20Circle.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e19",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Swift Justice",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E19%20Swift%20Justice_000680.jpg",
-          "airDate": "1961-09-11",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E19 Swift Justice.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 119266262,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E19%20Swift%20Justice.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e20",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "The Idol",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E20%20The%20Idol_000684.jpg",
-          "airDate": "1961-09-18",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E20 The Idol.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 107725985,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E20%20The%20Idol.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e21",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "String of Circumstances",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E21%20String%20of%20Circumstances_000684.jpg",
-          "airDate": "1961-09-25",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E21 String of Circumstances.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 115047491,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E21%20String%20of%20Circumstances.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e22",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The Interpreter",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E22%20The%20Interpreter_000682.jpg",
-          "airDate": "1961-10-02",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E22 The Interpreter.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 89576222,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E22%20The%20Interpreter.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e23",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "The Homeless Wind",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E23%20The%20Homeless%20Wind_000679.jpg",
-          "airDate": "1961-10-09",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E23 The Homeless Wind.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 104843232,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E23%20The%20Homeless%20Wind.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e24",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Trial of the Avengers",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E24%20Trial%20Of%20The%20Avengers_000679.jpg",
-          "airDate": "1961-10-16",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E24 Trial Of The Avengers.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 104888410,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E24%20Trial%20Of%20The%20Avengers.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e25",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Prayer of a Chance",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E25%20Prayer%20of%20a%20Chance_000682.jpg",
-          "airDate": "1961-10-23",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E25 Prayer of a Chance.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 77608005,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E25%20Prayer%20of%20a%20Chance.mp4"
-        },
-        {
-          "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e26",
-          "sourceID": "whispering-smith-s-01-e-19-swift-justice",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "Hired to Die",
-          "overview": null,
-          "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E26%20Hired%20To%20Die_000680.jpg",
-          "airDate": "1961-10-30",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Whispering Smith S01E26 Hired To Die.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 96329324,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E26%20Hired%20To%20Die.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 26,
-  "canonicalEpisodesCount": 26,
-  "tvmazeRating": null,
-  "tvdbID": "70778",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Sam Buffington",
-      "character": "John Richards",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/4071.jpg"
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e01",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Blind Gun",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E01%20The%20Blind%20Gun_000689.jpg",
+     "airDate": "1961-05-08",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E01 The Blind Gun.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 97431519,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E01%20The%20Blind%20Gun.mp4"
     },
     {
-      "name": "Guy Mitchell",
-      "character": "George Romack",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/4072.jpg"
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e02",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Grudge",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E02%20The%20Grudge_000681.jpg",
+     "airDate": "1961-05-15",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E02 The Grudge.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 109426442,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E02%20The%20Grudge.mp4"
     },
     {
-      "name": "Audie Murphy",
-      "character": "Tom 'Whispering' Smith",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/276603/primary.jpg"
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e03",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Devil's Share",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E03%20The%20Devil%27s%20Share_000685.jpg",
+     "airDate": "1961-05-21",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E03 The Devil's Share.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 110014741,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E03%20The%20Devil%27s%20Share.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e04",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Stakeout",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E04%20Stake%20Out_000689.jpg",
+     "airDate": "1961-05-29",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E04 Stake Out.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 114117499,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E04%20Stake%20Out.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e05",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Safety Value",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E05%20Safety%20Valve_000683.jpg",
+     "airDate": "1961-06-05",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E05 Safety Valve.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104981666,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E05%20Safety%20Valve.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e06",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Stain of Justice",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E06%20Stain%20of%20justice_000685.jpg",
+     "airDate": "1961-06-12",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E06 Stain of justice.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 101728472,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E06%20Stain%20of%20justice.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e07",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Deadliest Weapon",
+     "overview": "Ralph receives a threatening letter and asks the Denver police department to protect him from whoever sent the note; Smith and Romack are assigned to act as Ralph's bodyguards but a poisoned drink complicates their task.",
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E07%20The%20Deadliest%20Weapon_000686.jpg",
+     "airDate": "1961-06-19",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E07 The Deadliest Weapon.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 91725658,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E07%20The%20Deadliest%20Weapon.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e08",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "The Quest",
+     "overview": "A young woman arrives in Denver hoping to reunite with her mother, a former Mississippi riverboat entertainer, who sent the girl to live with her cousin many years earlier; Smith and Romack take an interest in her plight.",
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E08%20The%20Quest_000645.jpg",
+     "airDate": "1961-06-26",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E08 The Quest.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 73486418,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E08%20The%20Quest.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e09",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Three for One",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E09%20Three%20for%20One_000680.jpg",
+     "airDate": "1961-07-03",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E09 Three for One.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 92528111,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E09%20Three%20for%20One.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e10",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Death at Even Money",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E10%20Death%20at%20Even%20Money_000687.jpg",
+     "airDate": "1961-07-10",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E10 Death at Even Money.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 116823519,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E10%20Death%20at%20Even%20Money.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e11",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Hemp Reeger Case",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E11%20The%20Hemp%20Reeger%20Case_000672.jpg",
+     "airDate": "1961-07-17",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E11 The Hemp Reeger Case.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 107324753,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E11%20The%20Hemp%20Reeger%20Case.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e12",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Mortal Coil",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E12%20This%20Mortal%20Coil_000683.jpg",
+     "airDate": "1961-07-24",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E12 This Mortal Coil.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 108320831,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E12%20This%20Mortal%20Coil.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e13",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Cross Cut",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E13%20Cross%20Cut_000686.jpg",
+     "airDate": "1961-07-31",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E13 Cross Cut.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 110164220,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E13%20Cross%20Cut.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e14",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Double Edge",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E14%20Double%20Edge_000684.jpg",
+     "airDate": "1961-08-07",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E14 Double Edge.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 115157038,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E14%20Double%20Edge.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e15",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Trademark",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E15%20Trademark_000677.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1517,
+     "videoFile": {
+      "name": "Whispering Smith S01E15 Trademark.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104909037,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E15%20Trademark.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e16",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Jodie Tyler Story",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E16%20The%20Jodie%20Tyler%20Story_000678.jpg",
+     "airDate": "1961-08-21",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E16 The Jodie Tyler Story.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 114324076,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E16%20The%20Jodie%20Tyler%20Story.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e17",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Poet and Peasant Case",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E17%20Poet%20and%20Peasant%20Case_000677.jpg",
+     "airDate": "1961-08-28",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E17 Poet and Peasant Case.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 112409579,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E17%20Poet%20and%20Peasant%20Case.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e18",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Dark Circle",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E18%20Dark%20Circle_000683.jpg",
+     "airDate": "1961-09-04",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E18 Dark Circle.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 99189401,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E18%20Dark%20Circle.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e19",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Swift Justice",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E19%20Swift%20Justice_000680.jpg",
+     "airDate": "1961-09-11",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E19 Swift Justice.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 119266262,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E19%20Swift%20Justice.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e20",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Idol",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E20%20The%20Idol_000684.jpg",
+     "airDate": "1961-09-18",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E20 The Idol.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 107725985,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E20%20The%20Idol.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e21",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "String of Circumstances",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E21%20String%20of%20Circumstances_000684.jpg",
+     "airDate": "1961-09-25",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E21 String of Circumstances.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 115047491,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E21%20String%20of%20Circumstances.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e22",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Interpreter",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E22%20The%20Interpreter_000682.jpg",
+     "airDate": "1961-10-02",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E22 The Interpreter.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 89576222,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E22%20The%20Interpreter.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e23",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "The Homeless Wind",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E23%20The%20Homeless%20Wind_000679.jpg",
+     "airDate": "1961-10-09",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E23 The Homeless Wind.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104843232,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E23%20The%20Homeless%20Wind.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e24",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Trial of the Avengers",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E24%20Trial%20Of%20The%20Avengers_000679.jpg",
+     "airDate": "1961-10-16",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E24 Trial Of The Avengers.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104888410,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E24%20Trial%20Of%20The%20Avengers.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e25",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Prayer of a Chance",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E25%20Prayer%20of%20a%20Chance_000682.jpg",
+     "airDate": "1961-10-23",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E25 Prayer of a Chance.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 77608005,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E25%20Prayer%20of%20a%20Chance.mp4"
+    },
+    {
+     "archiveID": "whispering-smith-s-01-e-19-swift-justice@s1e26",
+     "sourceID": "whispering-smith-s-01-e-19-swift-justice",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Hired to Die",
+     "overview": null,
+     "stillURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/whispering-smith-s-01-e-19-swift-justice.thumbs/Whispering%20Smith%20S01E26%20Hired%20To%20Die_000680.jpg",
+     "airDate": "1961-10-30",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Whispering Smith S01E26 Hired To Die.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 96329324,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E26%20Hired%20To%20Die.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 26,
+ "canonicalEpisodesCount": 26,
+ "tvmazeRating": null,
+ "tvdbID": "70778",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Sam Buffington",
+   "character": "John Richards",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/4071.jpg"
+  },
+  {
+   "name": "Guy Mitchell",
+   "character": "George Romack",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/4072.jpg"
+  },
+  {
+   "name": "Audie Murphy",
+   "character": "Tom 'Whispering' Smith",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/276603/primary.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0054578"
 }

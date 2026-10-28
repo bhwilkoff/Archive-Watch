@@ -1,116 +1,117 @@
 {
-  "version": 2,
-  "seriesID": "the-californians-1957",
-  "tvmazeID": 26277,
-  "title": "The Californians",
-  "yearStart": 1957,
-  "yearEnd": 1959,
-  "overview": "In 1850s California at the height of the gold rush, the people of San Francisco try to bring some order to their wild city. In season 1, a crusading reporter and a storekeeper form a group of vigilantes. In season 2, the action shifts to the new city marshal as he organizes a police force.",
-  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/77412/posters/64fced51d8453.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Western"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-californians-1957",
+ "tvmazeID": 26277,
+ "title": "The Californians",
+ "yearStart": 1957,
+ "yearEnd": 1959,
+ "overview": "In 1850s California at the height of the gold rush, the people of San Francisco try to bring some order to their wild city. In season 1, a crusading reporter and a storekeeper form a group of vigilantes. In season 2, the action shifts to the new city marshal as he organizes a police force.",
+ "posterURL": "https://artworks.thetvdb.com/banners/v4/series/77412/posters/64fced51d8453.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Western"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-californians-tv-1957-colorized-s01e07-the-regulators",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Regulators",
-          "overview": "To silence witnesses against their boss, outlaws kidnap McGivern's wife, Martha.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/885396.jpg",
-          "airDate": "1957-11-05",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Californians TV 1957 colorized s01e07 The Regulators.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 175497675,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-californians-tv-1957-colorized-s01e07-the-regulators/The%20Californians%20TV%201957%20colorized%20s01e07%20The%20Regulators.mp4"
-        },
-        {
-          "archiveID": "the-californians-tv-1958-s01e25-death-by-proxy",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Death by Proxy",
-          "overview": "A Chinese laundryman confesses to a murder to get money for his family.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/885414.jpg",
-          "airDate": "1958-03-18",
-          "year": 1958,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Californians TV 1958 colorized s01e25 Death by Proxy.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 182714680,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-californians-tv-1958-s01e25-death-by-proxy/The%20Californians%20TV%201958%20colorized%20s01e25%20Death%20by%20Proxy.mp4"
-        }
-      ]
+     "archiveID": "the-californians-tv-1957-colorized-s01e07-the-regulators",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Regulators",
+     "overview": "To silence witnesses against their boss, outlaws kidnap McGivern's wife, Martha.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/885396.jpg",
+     "airDate": "1957-11-05",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Californians TV 1957 colorized s01e07 The Regulators.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 175497675,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-californians-tv-1957-colorized-s01e07-the-regulators/The%20Californians%20TV%201957%20colorized%20s01e07%20The%20Regulators.mp4"
+    },
+    {
+     "archiveID": "the-californians-tv-1958-s01e25-death-by-proxy",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Death by Proxy",
+     "overview": "A Chinese laundryman confesses to a murder to get money for his family.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/885414.jpg",
+     "airDate": "1958-03-18",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Californians TV 1958 colorized s01e25 Death by Proxy.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 182714680,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-californians-tv-1958-s01e25-death-by-proxy/The%20Californians%20TV%201958%20colorized%20s01e25%20Death%20by%20Proxy.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 69,
-  "tvmazeRating": null,
-  "tvdbID": "77412",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Adam Kennedy",
-      "character": "Dion Patrick",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "Richard Coogan",
-      "character": "Matt Wayne",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Art Fleming",
-      "character": "Jeremy Pitt",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Nan Leslie",
-      "character": "Martha McGivern",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "Carole Mathews",
-      "character": "Wilma Fansler",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260466/photo/62d9c7d1a73c2.jpg"
-    },
-    {
-      "name": "Howard Caine",
-      "character": "Schaab",
-      "order": 5,
-      "profilePath": null
-    },
-    {
-      "name": "Sean McClory",
-      "character": "Jack McGivern",
-      "order": 6,
-      "profilePath": null
-    },
-    {
-      "name": "Herbert Rudley",
-      "character": "Sam Brennan",
-      "order": 7,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 69,
+ "tvmazeRating": null,
+ "tvdbID": "77412",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Adam Kennedy",
+   "character": "Dion Patrick",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "Richard Coogan",
+   "character": "Matt Wayne",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Art Fleming",
+   "character": "Jeremy Pitt",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Nan Leslie",
+   "character": "Martha McGivern",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "Carole Mathews",
+   "character": "Wilma Fansler",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260466/photo/62d9c7d1a73c2.jpg"
+  },
+  {
+   "name": "Howard Caine",
+   "character": "Schaab",
+   "order": 5,
+   "profilePath": null
+  },
+  {
+   "name": "Sean McClory",
+   "character": "Jack McGivern",
+   "order": 6,
+   "profilePath": null
+  },
+  {
+   "name": "Herbert Rudley",
+   "character": "Sam Brennan",
+   "order": 7,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0050002"
 }

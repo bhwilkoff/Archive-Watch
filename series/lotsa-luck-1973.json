@@ -1,480 +1,483 @@
 {
-  "version": 2,
-  "seriesID": "lotsa-luck-1973",
-  "tvmazeID": 24245,
-  "title": "Lotsa Luck",
-  "yearStart": 1973,
-  "yearEnd": 1974,
-  "overview": "The trials and tribulations of Stanley Belmont, a clerk in the lost-'n-found department of the New York City Bus Lines.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/70586-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "lotsa-luck-1973",
+ "tvmazeID": 24245,
+ "title": "Lotsa Luck",
+ "yearStart": 1973,
+ "yearEnd": 1974,
+ "overview": "The trials and tribulations of Stanley Belmont, a clerk in the lost-'n-found department of the New York City Bus Lines.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/70586-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "lotsa-luck@s1e01",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Olive's Present",
-          "overview": "When Olive breaks the toilet, Stanley decides to use money he'd earmarked for her birthday gift to fix it, so Olive demands a custom fixture.",
-          "stillURL": "https://archive.org/download/lotsa-luck/lotsa-luck.thumbs/s01e01%20-%20Olive%60s%20Present_000576.jpg",
-          "airDate": "1973-09-10",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e01 - Olive`s Present.mp4",
-            "format": "h.264",
-            "sizeBytes": 147092786,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e01%20-%20Olive%60s%20Present.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e02",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Bare Facts",
-          "overview": "Arthur appears to be stepping out on his wife Olive.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266864.jpg",
-          "airDate": "1973-09-17",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e02 - The Bare Facts.mp4",
-            "format": "h.264",
-            "sizeBytes": 146539121,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e02%20-%20The%20Bare%20Facts.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e03",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Trial Separation",
-          "overview": "Arthur and Olive fight and that causes Stan and Arthur to have to share a bedroom.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266868.jpg",
-          "airDate": "1973-09-24",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e03 - Trial Separation.mp4",
-            "format": "h.264",
-            "sizeBytes": 146569562,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e03%20-%20Trial%20Separation.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e04",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Librarian",
-          "overview": "Ma arranges a date for Stanley with a librarian who may have a secret.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266869.jpg",
-          "airDate": "1973-10-01",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e04 - The Librarian.mp4",
-            "format": "h.264",
-            "sizeBytes": 147251094,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e04%20-%20The%20Librarian.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e05",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Suit",
-          "overview": "Arthur finally has a job interview and Stanley loans him a suit from the lost and found department.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266871.jpg",
-          "airDate": "1973-10-08",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e05 - The Suit.mp4",
-            "format": "h.264",
-            "sizeBytes": 147774312,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e05%20-%20The%20Suit.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e06",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Mom's Secret",
-          "overview": "Mom is excited to be dating again but hides her romance from the family.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266872.jpg",
-          "airDate": "1973-10-15",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e06 - Mom`s Secret.mp4",
-            "format": "h.264",
-            "sizeBytes": 146629805,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e06%20-%20Mom%60s%20Secret.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e07",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Winning Purse",
-          "overview": "Stanley bets money found on a bus on a sure thing.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266873.jpg",
-          "airDate": "1973-10-19",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e07 - The Winning Purse.mp4",
-            "format": "h.264",
-            "sizeBytes": 144025751,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e07%20-%20The%20Winning%20Purse.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e08",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "The Family Plot",
-          "overview": "The family has to move Pop's remains since the cemetery is to become an airport runway.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266881.jpg",
-          "airDate": "1973-10-29",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e08 - The Family Plot.mp4",
-            "format": "h.264",
-            "sizeBytes": 146337914,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e08%20-%20The%20Family%20Plot.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e09",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Shrink",
-          "overview": "Stan seeks help with a psychiatrist when he has trouble sleeping.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266882.jpg",
-          "airDate": "1973-11-05",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e09 - The Shrink.mp4",
-            "format": "h.264",
-            "sizeBytes": 146947643,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e09%20-%20The%20Shrink.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e10",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "The New Stan",
-          "overview": "Stanley wants to change his image to improve his chances with the ladies.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266883.jpg",
-          "airDate": "1973-11-12",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e10 - The New Stan.mp4",
-            "format": "h.264",
-            "sizeBytes": 146334596,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e10%20-%20The%20New%20Stan.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e11",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Arthur's Inheritance",
-          "overview": "Arthur finds out he is to receive an inheritance.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266892.jpg",
-          "airDate": "1973-11-26",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e11 - Arthur`s Inheritance.mp4",
-            "format": "h.264",
-            "sizeBytes": 145841270,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e11%20-%20Arthur%60s%20Inheritance.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e12",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Belmont Connection",
-          "overview": "A frightened Stanley works with the police to catch a drug dealer.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266893.jpg",
-          "airDate": "1973-12-03",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e12 - The Belmont Connection.mp4",
-            "format": "h.264",
-            "sizeBytes": 146218782,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e12%20-%20The%20Belmont%20Connection.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e13",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Will You Marry Me?",
-          "overview": "Stan's steady is a modern woman who wants Stan to move in with her.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266896.jpg",
-          "airDate": "1973-12-10",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e13 - Will You Marry Me.mp4",
-            "format": "h.264",
-            "sizeBytes": 146432363,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e13%20-%20Will%20You%20Marry%20Me.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e14",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Do Me a Favor",
-          "overview": "A family friend from the past is now a famous singer and visits the family.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266903.jpg",
-          "airDate": "1974-01-11",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e14 - Do Me A Favor.mp4",
-            "format": "h.264",
-            "sizeBytes": 145875138,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e14%20-%20Do%20Me%20A%20Favor.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e15",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Stan and the Wealthy Widow",
-          "overview": "Stan is approached by a marriage seeking widow.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266905.jpg",
-          "airDate": "1974-01-18",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e15 - Stan and the Wealthy Widow.mp4",
-            "format": "h.264",
-            "sizeBytes": 149331189,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e15%20-%20Stan%20and%20the%20Wealthy%20Widow.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e16",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Talent Show",
-          "overview": "Stanley and Bummy compete with others in a talent show to win a trip to Florida.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266907.jpg",
-          "airDate": "1974-01-25",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e16 - The Talent Show.mp4",
-            "format": "h.264",
-            "sizeBytes": 148754198,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e16%20-%20The%20Talent%20Show.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e17",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "A Little Order of Law and Order",
-          "overview": "Stanley puts in a do-it-yourself burglar alarm.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266911.jpg",
-          "airDate": "1974-02-01",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e17 - A Little Order of Law and Order.mp4",
-            "format": "h.264",
-            "sizeBytes": 148722751,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e17%20-%20A%20Little%20Order%20of%20Law%20and%20Order.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e18",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "You Oughta Be in Pictures",
-          "overview": "Stanley competes to be the bus company's public image 'Driver Dan'.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266913.jpg",
-          "airDate": "1974-02-08",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e18 - You Oughta Be in Pictures.mp4",
-            "format": "h.264",
-            "sizeBytes": 145777628,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e18%20-%20You%20Oughta%20Be%20in%20Pictures.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e19",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Stan's Assistant",
-          "overview": "Arthur takes over the lost and found office while Stan is at home with the flu.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266915.jpg",
-          "airDate": "1974-02-15",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e19 - Stan`s Assistant.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 141596544,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e19%20-%20Stan%60s%20Assistant.ia.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e20",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Arthur Makes His Move",
-          "overview": "A visiting friend convinces Arthur to rebel against Stan's insults and move out of the house.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266927.jpg",
-          "airDate": "1974-02-22",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e20 - Arthur Makes His Move.mp4",
-            "format": "h.264",
-            "sizeBytes": 149580760,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e20%20-%20Arthur%20Makes%20His%20Move.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e21",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Bummy's Girl",
-          "overview": "Bummy needs Stanley to keep an eye on his girl while Bummy is in Boston.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266931.jpg",
-          "airDate": "1974-03-08",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e21 - Bummy`s Girl.mp4",
-            "format": "h.264",
-            "sizeBytes": 147028840,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e21%20-%20Bummy%60s%20Girl.mp4"
-        },
-        {
-          "archiveID": "lotsa-luck@s1e22",
-          "sourceID": "lotsa-luck",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "Get Off My Back",
-          "overview": "Stan hurts his back at home and Bummy tries to help him make it look like he has an accident at work.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266939.jpg",
-          "airDate": "1974-03-15",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e22 - Get Off My Back.mp4",
-            "format": "h.264",
-            "sizeBytes": 159296743,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lotsa-luck/s01e22%20-%20Get%20Off%20My%20Back.mp4"
-        }
-      ]
+     "archiveID": "lotsa-luck@s1e01",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Olive's Present",
+     "overview": "When Olive breaks the toilet, Stanley decides to use money he'd earmarked for her birthday gift to fix it, so Olive demands a custom fixture.",
+     "stillURL": "https://archive.org/download/lotsa-luck/lotsa-luck.thumbs/s01e01%20-%20Olive%60s%20Present_000576.jpg",
+     "airDate": "1973-09-10",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e01 - Olive`s Present.mp4",
+      "format": "h.264",
+      "sizeBytes": 147092786,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e01%20-%20Olive%60s%20Present.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e02",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Bare Facts",
+     "overview": "Arthur appears to be stepping out on his wife Olive.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266864.jpg",
+     "airDate": "1973-09-17",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e02 - The Bare Facts.mp4",
+      "format": "h.264",
+      "sizeBytes": 146539121,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e02%20-%20The%20Bare%20Facts.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e03",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Trial Separation",
+     "overview": "Arthur and Olive fight and that causes Stan and Arthur to have to share a bedroom.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266868.jpg",
+     "airDate": "1973-09-24",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e03 - Trial Separation.mp4",
+      "format": "h.264",
+      "sizeBytes": 146569562,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e03%20-%20Trial%20Separation.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e04",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Librarian",
+     "overview": "Ma arranges a date for Stanley with a librarian who may have a secret.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266869.jpg",
+     "airDate": "1973-10-01",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e04 - The Librarian.mp4",
+      "format": "h.264",
+      "sizeBytes": 147251094,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e04%20-%20The%20Librarian.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e05",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Suit",
+     "overview": "Arthur finally has a job interview and Stanley loans him a suit from the lost and found department.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266871.jpg",
+     "airDate": "1973-10-08",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e05 - The Suit.mp4",
+      "format": "h.264",
+      "sizeBytes": 147774312,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e05%20-%20The%20Suit.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e06",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Mom's Secret",
+     "overview": "Mom is excited to be dating again but hides her romance from the family.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266872.jpg",
+     "airDate": "1973-10-15",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e06 - Mom`s Secret.mp4",
+      "format": "h.264",
+      "sizeBytes": 146629805,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e06%20-%20Mom%60s%20Secret.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e07",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Winning Purse",
+     "overview": "Stanley bets money found on a bus on a sure thing.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266873.jpg",
+     "airDate": "1973-10-19",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e07 - The Winning Purse.mp4",
+      "format": "h.264",
+      "sizeBytes": 144025751,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e07%20-%20The%20Winning%20Purse.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e08",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "The Family Plot",
+     "overview": "The family has to move Pop's remains since the cemetery is to become an airport runway.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266881.jpg",
+     "airDate": "1973-10-29",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e08 - The Family Plot.mp4",
+      "format": "h.264",
+      "sizeBytes": 146337914,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e08%20-%20The%20Family%20Plot.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e09",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Shrink",
+     "overview": "Stan seeks help with a psychiatrist when he has trouble sleeping.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266882.jpg",
+     "airDate": "1973-11-05",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e09 - The Shrink.mp4",
+      "format": "h.264",
+      "sizeBytes": 146947643,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e09%20-%20The%20Shrink.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e10",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "The New Stan",
+     "overview": "Stanley wants to change his image to improve his chances with the ladies.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266883.jpg",
+     "airDate": "1973-11-12",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e10 - The New Stan.mp4",
+      "format": "h.264",
+      "sizeBytes": 146334596,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e10%20-%20The%20New%20Stan.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e11",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Arthur's Inheritance",
+     "overview": "Arthur finds out he is to receive an inheritance.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266892.jpg",
+     "airDate": "1973-11-26",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e11 - Arthur`s Inheritance.mp4",
+      "format": "h.264",
+      "sizeBytes": 145841270,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e11%20-%20Arthur%60s%20Inheritance.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e12",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Belmont Connection",
+     "overview": "A frightened Stanley works with the police to catch a drug dealer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266893.jpg",
+     "airDate": "1973-12-03",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e12 - The Belmont Connection.mp4",
+      "format": "h.264",
+      "sizeBytes": 146218782,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e12%20-%20The%20Belmont%20Connection.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e13",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Will You Marry Me?",
+     "overview": "Stan's steady is a modern woman who wants Stan to move in with her.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266896.jpg",
+     "airDate": "1973-12-10",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e13 - Will You Marry Me.mp4",
+      "format": "h.264",
+      "sizeBytes": 146432363,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e13%20-%20Will%20You%20Marry%20Me.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e14",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Do Me a Favor",
+     "overview": "A family friend from the past is now a famous singer and visits the family.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266903.jpg",
+     "airDate": "1974-01-11",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e14 - Do Me A Favor.mp4",
+      "format": "h.264",
+      "sizeBytes": 145875138,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e14%20-%20Do%20Me%20A%20Favor.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e15",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Stan and the Wealthy Widow",
+     "overview": "Stan is approached by a marriage seeking widow.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266905.jpg",
+     "airDate": "1974-01-18",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e15 - Stan and the Wealthy Widow.mp4",
+      "format": "h.264",
+      "sizeBytes": 149331189,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e15%20-%20Stan%20and%20the%20Wealthy%20Widow.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e16",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Talent Show",
+     "overview": "Stanley and Bummy compete with others in a talent show to win a trip to Florida.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266907.jpg",
+     "airDate": "1974-01-25",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e16 - The Talent Show.mp4",
+      "format": "h.264",
+      "sizeBytes": 148754198,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e16%20-%20The%20Talent%20Show.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e17",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "A Little Order of Law and Order",
+     "overview": "Stanley puts in a do-it-yourself burglar alarm.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266911.jpg",
+     "airDate": "1974-02-01",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e17 - A Little Order of Law and Order.mp4",
+      "format": "h.264",
+      "sizeBytes": 148722751,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e17%20-%20A%20Little%20Order%20of%20Law%20and%20Order.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e18",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "You Oughta Be in Pictures",
+     "overview": "Stanley competes to be the bus company's public image 'Driver Dan'.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266913.jpg",
+     "airDate": "1974-02-08",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e18 - You Oughta Be in Pictures.mp4",
+      "format": "h.264",
+      "sizeBytes": 145777628,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e18%20-%20You%20Oughta%20Be%20in%20Pictures.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e19",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Stan's Assistant",
+     "overview": "Arthur takes over the lost and found office while Stan is at home with the flu.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266915.jpg",
+     "airDate": "1974-02-15",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e19 - Stan`s Assistant.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 141596544,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e19%20-%20Stan%60s%20Assistant.ia.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e20",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Arthur Makes His Move",
+     "overview": "A visiting friend convinces Arthur to rebel against Stan's insults and move out of the house.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266927.jpg",
+     "airDate": "1974-02-22",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e20 - Arthur Makes His Move.mp4",
+      "format": "h.264",
+      "sizeBytes": 149580760,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e20%20-%20Arthur%20Makes%20His%20Move.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e21",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Bummy's Girl",
+     "overview": "Bummy needs Stanley to keep an eye on his girl while Bummy is in Boston.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266931.jpg",
+     "airDate": "1974-03-08",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e21 - Bummy`s Girl.mp4",
+      "format": "h.264",
+      "sizeBytes": 147028840,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e21%20-%20Bummy%60s%20Girl.mp4"
+    },
+    {
+     "archiveID": "lotsa-luck@s1e22",
+     "sourceID": "lotsa-luck",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "Get Off My Back",
+     "overview": "Stan hurts his back at home and Bummy tries to help him make it look like he has an accident at work.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266939.jpg",
+     "airDate": "1974-03-15",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "s01e22 - Get Off My Back.mp4",
+      "format": "h.264",
+      "sizeBytes": 159296743,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lotsa-luck/s01e22%20-%20Get%20Off%20My%20Back.mp4"
     }
-  ],
-  "episodesCount": 22,
-  "canonicalEpisodesCount": 22,
-  "tvmazeRating": null,
-  "tvdbID": "70586",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Dom DeLuise",
-      "character": "Stanley Belmont",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254317/photo/63abe5182e373.jpg"
-    },
-    {
-      "name": "Kathleen Freeman",
-      "character": "Iris Belmont",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259084/photo/613c00e4b5aa5.jpg"
-    },
-    {
-      "name": "Wynn Irwin",
-      "character": "Arthur Swann",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264549/photo/68cf67ac751a5.jpg"
-    },
-    {
-      "name": "Beverly Sanders",
-      "character": "Olive Swann",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261590/photo/68cf683820e0c.jpg"
-    },
-    {
-      "name": "Jack Knight",
-      "character": "Bumny Pfitzer",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252144/photo/68cf68b611345.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 22,
+ "canonicalEpisodesCount": 22,
+ "tvmazeRating": null,
+ "tvdbID": "70586",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Dom DeLuise",
+   "character": "Stanley Belmont",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254317/photo/63abe5182e373.jpg"
+  },
+  {
+   "name": "Kathleen Freeman",
+   "character": "Iris Belmont",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259084/photo/613c00e4b5aa5.jpg"
+  },
+  {
+   "name": "Wynn Irwin",
+   "character": "Arthur Swann",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264549/photo/68cf67ac751a5.jpg"
+  },
+  {
+   "name": "Beverly Sanders",
+   "character": "Olive Swann",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261590/photo/68cf683820e0c.jpg"
+  },
+  {
+   "name": "Jack Knight",
+   "character": "Bumny Pfitzer",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252144/photo/68cf68b611345.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0069603",
+ "imdbRating": 6.2,
+ "imdbVotes": 270
 }

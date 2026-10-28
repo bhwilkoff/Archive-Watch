@@ -1,793 +1,796 @@
 {
-  "version": 2,
-  "seriesID": "doctor-who-1963",
-  "tvmazeID": 766,
-  "title": "Doctor Who",
-  "yearStart": 1963,
-  "yearEnd": 1996,
-  "overview": "Doctor Who is the longest-running science fiction TV series in history, airing initially from 1963 to 1989. Doctor Who is about ideas. It pioneered sophisticated mixed-level storytelling. Its format was the key to its longevity: the Doctor, a mysterious traveller in space and time, travels in his ship, the TARDIS. The TARDIS can take him and his companions anywhere in time and space. Inevitably he finds evil at work wherever he goes..",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/76107-4.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "doctor-who-1963",
+ "tvmazeID": 766,
+ "title": "Doctor Who",
+ "yearStart": 1963,
+ "yearEnd": 1996,
+ "overview": "Doctor Who is the longest-running science fiction TV series in history, airing initially from 1963 to 1989. Doctor Who is about ideas. It pioneered sophisticated mixed-level storytelling. Its format was the key to its longevity: the Doctor, a mysterious traveller in space and time, travels in his ship, the TARDIS. The TARDIS can take him and his companions anywhere in time and space. Inevitably he finds evil at work wherever he goes..",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/76107-4.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "iPod-Doctor-Who-1963-S1@s1e01",
-          "sourceID": "iPod-Doctor-Who-1963-S1",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "An Unearthly Child (An Unearthly Child, Part One)",
-          "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55779.jpg",
-          "airDate": "1963-11-23",
-          "year": 1963,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Season 1 (Colorized)/Doctor Who - S01E01 - An Unearthly Child.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 78483150,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/iPod-Doctor-Who-1963-S1/Season%201%20%28Colorized%29/Doctor%20Who%20-%20S01E01%20-%20An%20Unearthly%20Child.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e01",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "colorzi",
-          "overview": null,
-          "stillURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd.thumbs/doctor%20who-1963-s1e1-colorzied%20serial-720p-hd_000534.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1450,
-          "videoFile": {
-            "name": "doctor who-1963-s1e1-colorzied serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 137521367,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e1-colorzied%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-the-underwater-menace-1967-surviving-prints",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Cave of Skulls (An Unearthly Child, Part Two)",
-          "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/50/125284.jpg",
-          "airDate": "1963-11-30",
-          "year": 1963,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Episode 2.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 491623044,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-the-underwater-menace-1967-surviving-prints/Episode%202.ia.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e03",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Forest of Fear (An Unearthly Child, Part Three)",
-          "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/50/125433.jpg",
-          "airDate": "1963-12-07",
-          "year": 1963,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e3-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 141373765,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e3-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "celestial-toymaker-4",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Firemaker (An Unearthly Child, Part Four)",
-          "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/50/125760.jpg",
-          "airDate": "1963-12-14",
-          "year": 1963,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Celestial Toymaker 4.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 54825322,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/celestial-toymaker-4/Celestial%20Toymaker%204.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e05",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Dead Planet (The Daleks, Part One)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55782.jpg",
-          "airDate": "1963-12-21",
-          "year": 1963,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e5-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 145672391,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e5-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e06",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Survivors (The Daleks, Part Two)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55787.jpg",
-          "airDate": "1963-12-28",
-          "year": 1963,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e6-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 147228793,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e6-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e07",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Escape (The Daleks, Part Three)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55788.jpg",
-          "airDate": "1964-01-04",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e7-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 150532724,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e7-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e08",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "The Ambush (The Daleks, Part Four)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55789.jpg",
-          "airDate": "1964-01-11",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e8-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 146726981,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e8-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e09",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Expedition (The Daleks, Part Five)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55790.jpg",
-          "airDate": "1964-01-18",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e9-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 145761973,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e9-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e10",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "The Ordeal (The Daleks, Part Six)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55791.jpg",
-          "airDate": "1964-01-25",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e10-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 156722664,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e10-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e11",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Rescue (The Daleks, Part Seven)",
-          "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55792.jpg",
-          "airDate": "1964-02-01",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e11-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 133697178,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e11-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e12",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Edge of Destruction (The Edge of Destruction, Part One)",
-          "overview": "As they slowly recover from the shock of being thrown to the TARDIS floor,the Doctor, Susan, Ian and Barbara all seem to be acting strangely. Unexplained events occur and suspicions are raised that an alien force may have entered the ship. The Doctor even accuses Ian and Barbara of sabotage.It gradually dawns on the travellers that what they have been experiencing is an attempt by the TARDIS itself to warn them of something. The Doctor finally realises the fast return switch he used when leaving Skaro has stuck, and the ship has been plunging back to the beginning of time and its own destruction.Once the problem — a faulty spring — is corrected, the TARDIS returns to normal and the Doctor has to make some apologies for his behaviour.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55793.jpg",
-          "airDate": "1964-02-08",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e12-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 149220589,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e12-colorized%20serial-720p-hd.mp4"
-        },
-        {
-          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e13",
-          "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "The Brink of Disaster (The Edge of Destruction, Part Two)",
-          "overview": "As they slowly recover from the shock of being thrown to the TARDIS floor,the Doctor, Susan, Ian and Barbara all seem to be acting strangely. Unexplained events occur and suspicions are raised that an alien force may have entered the ship. The Doctor even accuses Ian and Barbara of sabotage.It gradually dawns on the travellers that what they have been experiencing is an attempt by the TARDIS itself to warn them of something. The Doctor finally realises the fast return switch he used when leaving Skaro has stuck, and the ship has been plunging back to the beginning of time and its own destruction.Once the problem — a faulty spring — is corrected, the TARDIS returns to normal and the Doctor has to make some apologies for his behaviour.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55794.jpg",
-          "airDate": "1964-02-15",
-          "year": 1964,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "doctor who-1963-s1e13-colorized serial-720p-hd.mp4",
-            "format": "h.264",
-            "sizeBytes": 133347081,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e13-colorized%20serial-720p-hd.mp4"
-        }
-      ]
+     "archiveID": "iPod-Doctor-Who-1963-S1@s1e01",
+     "sourceID": "iPod-Doctor-Who-1963-S1",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "An Unearthly Child (An Unearthly Child, Part One)",
+     "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55779.jpg",
+     "airDate": "1963-11-23",
+     "year": 1963,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Season 1 (Colorized)/Doctor Who - S01E01 - An Unearthly Child.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 78483150,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/iPod-Doctor-Who-1963-S1/Season%201%20%28Colorized%29/Doctor%20Who%20-%20S01E01%20-%20An%20Unearthly%20Child.mp4"
     },
     {
-      "seasonNumber": 7,
-      "episodes": [
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e01",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 2,
-          "title": "Spearhead from Space, Part Two",
-          "overview": "UNIT's attempts to locate the meteorites are hampered by the mysterious plastic Autons, being constructed by Channing at a nearby factory, while the Doctor makes another attempt to escape from the hospital.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281973.jpg",
-          "airDate": "1970-01-10",
-          "year": 1970,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Doctor Who - S07E01 - Spearhead from Space (1).mp4",
-            "format": "h.264",
-            "sizeBytes": 137369706,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E01%20-%20Spearhead%20from%20Space%20%281%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e05",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 5,
-          "title": "Doctor Who and the Silurians (1)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E05%20-%20Doctor%20Who%20and%20the%20Silurians%20%281%29_000718.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1459,
-          "videoFile": {
-            "name": "Doctor Who - S07E05 - Doctor Who and the Silurians (1).mp4",
-            "format": "h.264",
-            "sizeBytes": 140942445,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E05%20-%20Doctor%20Who%20and%20the%20Silurians%20%281%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e06",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 6,
-          "title": "Doctor Who and the Silurians (2",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E06%20-%20Doctor%20Who%20and%20the%20Silurians%20%282_000686.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1394,
-          "videoFile": {
-            "name": "Doctor Who - S07E06 - Doctor Who and the Silurians (2.mp4",
-            "format": "h.264",
-            "sizeBytes": 134979987,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E06%20-%20Doctor%20Who%20and%20the%20Silurians%20%282.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e07",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 7,
-          "title": "Doctor Who and the Silurians (3",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E07%20-%20Doctor%20Who%20and%20the%20Silurians%20%283_000690.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1403,
-          "videoFile": {
-            "name": "Doctor Who - S07E07 - Doctor Who and the Silurians (3.mp4",
-            "format": "h.264",
-            "sizeBytes": 135916134,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E07%20-%20Doctor%20Who%20and%20the%20Silurians%20%283.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e08",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 8,
-          "title": "Doctor Who and the Silurians (4",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E08%20-%20Doctor%20Who%20and%20the%20Silurians%20%284_000740.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1504,
-          "videoFile": {
-            "name": "Doctor Who - S07E08 - Doctor Who and the Silurians (4.mp4",
-            "format": "h.264",
-            "sizeBytes": 145808048,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E08%20-%20Doctor%20Who%20and%20the%20Silurians%20%284.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e09",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 9,
-          "title": "Doctor Who and the Silurians (5)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E09%20-%20Doctor%20Who%20and%20the%20Silurians%20%285%29_000708.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1439,
-          "videoFile": {
-            "name": "Doctor Who - S07E09 - Doctor Who and the Silurians (5).mp4",
-            "format": "h.264",
-            "sizeBytes": 139484943,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E09%20-%20Doctor%20Who%20and%20the%20Silurians%20%285%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e10",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 10,
-          "title": "Doctor Who and the Silurians (6)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E10%20-%20Doctor%20Who%20and%20the%20Silurians%20%286%29_000718.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1458,
-          "videoFile": {
-            "name": "Doctor Who - S07E10 - Doctor Who and the Silurians (6).mp4",
-            "format": "h.264",
-            "sizeBytes": 141075371,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E10%20-%20Doctor%20Who%20and%20the%20Silurians%20%286%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e11",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 11,
-          "title": "Doctor Who and the Silurians (7)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E11%20-%20Doctor%20Who%20and%20the%20Silurians%20%287%29_000724.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1470,
-          "videoFile": {
-            "name": "Doctor Who - S07E11 - Doctor Who and the Silurians (7).mp4",
-            "format": "h.264",
-            "sizeBytes": 141566837,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E11%20-%20Doctor%20Who%20and%20the%20Silurians%20%287%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e12",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 13,
-          "title": "The Ambassadors of Death, Part Two",
-          "overview": "UNIT retrieve the returned Recovery 7 but then Carrington hijacks it while the Doctor and Liz try to decode the signal he sent.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/285327.jpg",
-          "airDate": "1970-03-28",
-          "year": 1970,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Doctor Who - S07E12 - The Ambassadors Of Death (1).mp4",
-            "format": "h.264",
-            "sizeBytes": 146221350,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E12%20-%20The%20Ambassadors%20Of%20Death%20%281%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e19",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 19,
-          "title": "Inferno (1)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E19%20-%20Inferno%20%281%29_000691.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1405,
-          "videoFile": {
-            "name": "Doctor Who - S07E19 - Inferno (1).mp4",
-            "format": "h.264",
-            "sizeBytes": 136241807,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E19%20-%20Inferno%20%281%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e20",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 20,
-          "title": "Inferno (2)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E20%20-%20Inferno%20%282%29_000653.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1328,
-          "videoFile": {
-            "name": "Doctor Who - S07E20 - Inferno (2).mp4",
-            "format": "h.264",
-            "sizeBytes": 128556622,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E20%20-%20Inferno%20%282%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e21",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 21,
-          "title": "Inferno (3)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E21%20-%20Inferno%20%283%29_000727.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1477,
-          "videoFile": {
-            "name": "Doctor Who - S07E21 - Inferno (3).mp4",
-            "format": "h.264",
-            "sizeBytes": 143383860,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E21%20-%20Inferno%20%283%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e22",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 22,
-          "title": "Inferno (4)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E22%20-%20Inferno%20%284%29_000725.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1474,
-          "videoFile": {
-            "name": "Doctor Who - S07E22 - Inferno (4).mp4",
-            "format": "h.264",
-            "sizeBytes": 142874712,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E22%20-%20Inferno%20%284%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e23",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 23,
-          "title": "Inferno (5)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E23%20-%20Inferno%20%285%29_000701.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1425,
-          "videoFile": {
-            "name": "Doctor Who - S07E23 - Inferno (5).mp4",
-            "format": "h.264",
-            "sizeBytes": 138425371,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E23%20-%20Inferno%20%285%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e24",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 24,
-          "title": "Inferno (6)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E24%20-%20Inferno%20%286%29_000696.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1415,
-          "videoFile": {
-            "name": "Doctor Who - S07E24 - Inferno (6).mp4",
-            "format": "h.264",
-            "sizeBytes": 137350688,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E24%20-%20Inferno%20%286%29.mp4"
-        },
-        {
-          "archiveID": "70s-Doctor-Who-AI-Remastered@s7e25",
-          "sourceID": "70s-Doctor-Who-AI-Remastered",
-          "seasonNumber": 7,
-          "episodeNumber": 25,
-          "title": "Inferno (7)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E25%20-%20Inferno%20%287%29_000725.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1474,
-          "videoFile": {
-            "name": "Doctor Who - S07E25 - Inferno (7).mp4",
-            "format": "h.264",
-            "sizeBytes": 142536020,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E25%20-%20Inferno%20%287%29.mp4"
-        }
-      ]
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e01",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "colorzi",
+     "overview": null,
+     "stillURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd.thumbs/doctor%20who-1963-s1e1-colorzied%20serial-720p-hd_000534.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1450,
+     "videoFile": {
+      "name": "doctor who-1963-s1e1-colorzied serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 137521367,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e1-colorzied%20serial-720p-hd.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "doctor-who-the-web-of-fear@e03",
-          "sourceID": "doctor-who-the-web-of-fear",
-          "seasonNumber": null,
-          "episodeNumber": 3,
-          "title": "[ANIMATED]",
-          "overview": null,
-          "stillURL": "https://archive.org/download/doctor-who-the-web-of-fear/doctor-who-the-web-of-fear.thumbs/Episode%203%20%5BANIMATED%5D_000542.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1567,
-          "videoFile": {
-            "name": "Episode 3 [ANIMATED].ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 516035474,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who-the-web-of-fear/Episode%203%20%5BANIMATED%5D.ia.mp4"
-        },
-        {
-          "archiveID": "the-daleks-master-plan-episodes-2-5-10",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Episode 2 - Day of Armageddeon",
-          "overview": "The enigmatic Doctor, afraid that schoolteachers Ian Chesterton and Barbara Wright will reveal his secrets to the people of 20th century Earth, has taken them and his granddaughter Susan back to the dawn of human history. There, the four travellers are dragged into the savage politics of a tribe of cavemen who have lost the secret of making fire…",
-          "stillURL": "https://image.tmdb.org/t/p/w300/svg8CUTdkVVNqaJKWp6vd999ahO.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Episode 2 - Day of Armageddeon.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 478818077,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-daleks-master-plan-episodes-2-5-10/Episode%202%20-%20Day%20of%20Armageddeon.ia.mp4"
-        },
-        {
-          "archiveID": "doctorwho_s03_v2",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "season 3 doctor 1/Doctor Who - S03E02 - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 Bonus - Mission to the Unknown Reunion",
-          "overview": "Missing episode -animated recreation released by BBC.The Doctor, Vicki and Steven arrive on an arid planet where they meet the beautiful Drahvins and the hideous Rills. Each has crash-landed after a confrontation in space. The Rills are friendly, compassionate explorers. The Drahvins are dull-witted, cloned soldiers, terrorised by the intelligent, warlike matriarch Maaga.Both ships are damaged. The Drahvins' craft is irreparable, but the Rills' is almost ready to take off. Although unable to breathe the oxygen atmosphere, they employ efficient robot drones, which Vicki nicknames \"Chumblies\". Despite numerous offers by the Rills to take Maaga and her crew to safety, she refuses their aid. When the planet is discovered to be on the point of disintegration, Maaga tries to force the time travellers to help her steal the Rills' ship and kill the Rills. Instead, the Doctor allows the Rills to draw power from the TARDIS to refuel and escape, leaving the Drahvins to their fate.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56269.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "season 3 doctor 1/Doctor Who - S03E02 (019) - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 (019) Bonus - Mission to the Unknown Reunion.mp4",
-            "format": "h.264",
-            "sizeBytes": 442947947,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctorwho_s03_v2/season%203%20doctor%201/Doctor%20Who%20-%20S03E02%20%28019%29%20-%20Mission%20to%20the%20Unknown%20-%20Parts%201-1/Doctor%20Who%20-%20S03E02%20%28019%29%20Bonus%20-%20Mission%20to%20the%20Unknown%20Reunion.mp4"
-        },
-        {
-          "archiveID": "doctorwho_s04",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "season 4 doctor 1,2/Doctor Who - S04E04 - The Highlanders - Parts 1-4/Doctor Who - S04E04 Bonus - Interview with actor Michael Elwyn",
-          "overview": "The Doctor and his friends are at the mercy of Cherub, who is now seeking Avery's treasure for himself, while Pike prepares to attack the village.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "season 4 doctor 1,2/Doctor Who - S04E04 (031) - The Highlanders - Parts 1-4/Doctor Who - S04E04 (031) Bonus - Interview with actor Michael Elwyn.mp4",
-            "format": "h.264",
-            "sizeBytes": 310015895,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctorwho_s04/season%204%20doctor%201%2C2/Doctor%20Who%20-%20S04E04%20%28031%29%20-%20The%20Highlanders%20-%20Parts%201-4/Doctor%20Who%20-%20S04E04%20%28031%29%20Bonus%20-%20Interview%20with%20actor%20Michael%20Elwyn.mp4"
-        }
-      ]
+     "archiveID": "doctor-who-the-underwater-menace-1967-surviving-prints",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Cave of Skulls (An Unearthly Child, Part Two)",
+     "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/50/125284.jpg",
+     "airDate": "1963-11-30",
+     "year": 1963,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Episode 2.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 491623044,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-the-underwater-menace-1967-surviving-prints/Episode%202.ia.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e03",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Forest of Fear (An Unearthly Child, Part Three)",
+     "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/50/125433.jpg",
+     "airDate": "1963-12-07",
+     "year": 1963,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e3-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 141373765,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e3-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "celestial-toymaker-4",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Firemaker (An Unearthly Child, Part Four)",
+     "overview": "Barbara Wright and Ian Chesterton, two humble teachers during 1963, are surprised by a bright student named Susan Foreman. Feeling inquisitive of her upbringing, they seek out her residence to learn who nurtured such a genius. There, they discover a junkyard inhabited by her grandfather, simply known as \"the Doctor\", and he doesn't want them lurking about.When the teachers refuse to leave, they discover that an ordinary police box is actually bigger on the inside. The Doctor decides they know too much about his and Susan's otherworldly origins and takes them on a journey across space and time in his TARDIS, the place he and Susan now call home.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/50/125760.jpg",
+     "airDate": "1963-12-14",
+     "year": 1963,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Celestial Toymaker 4.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 54825322,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/celestial-toymaker-4/Celestial%20Toymaker%204.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e05",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Dead Planet (The Daleks, Part One)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55782.jpg",
+     "airDate": "1963-12-21",
+     "year": 1963,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e5-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 145672391,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e5-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e06",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Survivors (The Daleks, Part Two)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55787.jpg",
+     "airDate": "1963-12-28",
+     "year": 1963,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e6-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 147228793,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e6-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e07",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Escape (The Daleks, Part Three)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55788.jpg",
+     "airDate": "1964-01-04",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e7-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 150532724,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e7-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e08",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "The Ambush (The Daleks, Part Four)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55789.jpg",
+     "airDate": "1964-01-11",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e8-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 146726981,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e8-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e09",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Expedition (The Daleks, Part Five)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55790.jpg",
+     "airDate": "1964-01-18",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e9-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 145761973,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e9-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e10",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "The Ordeal (The Daleks, Part Six)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55791.jpg",
+     "airDate": "1964-01-25",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e10-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 156722664,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e10-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e11",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Rescue (The Daleks, Part Seven)",
+     "overview": "The TARDIS has brought the travellers to the planet Skaro where they meet two indigenous races — the Daleks, malicious mutant creatures encased in armoured travel machines, and the Thals, beautiful humanoids with pacifist principles. They convince the Thals of the need to fight for their own survival.Joining forces with them and braving Skaro's many dangers, they launch a two-pronged attack on the Dalek city. The Daleks are all killed when, during the course of the fighting, their power supply is cut off.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55792.jpg",
+     "airDate": "1964-02-01",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e11-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 133697178,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e11-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e12",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Edge of Destruction (The Edge of Destruction, Part One)",
+     "overview": "As they slowly recover from the shock of being thrown to the TARDIS floor,the Doctor, Susan, Ian and Barbara all seem to be acting strangely. Unexplained events occur and suspicions are raised that an alien force may have entered the ship. The Doctor even accuses Ian and Barbara of sabotage.It gradually dawns on the travellers that what they have been experiencing is an attempt by the TARDIS itself to warn them of something. The Doctor finally realises the fast return switch he used when leaving Skaro has stuck, and the ship has been plunging back to the beginning of time and its own destruction.Once the problem — a faulty spring — is corrected, the TARDIS returns to normal and the Doctor has to make some apologies for his behaviour.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55793.jpg",
+     "airDate": "1964-02-08",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e12-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 149220589,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e12-colorized%20serial-720p-hd.mp4"
+    },
+    {
+     "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd@s1e13",
+     "sourceID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "The Brink of Disaster (The Edge of Destruction, Part Two)",
+     "overview": "As they slowly recover from the shock of being thrown to the TARDIS floor,the Doctor, Susan, Ian and Barbara all seem to be acting strangely. Unexplained events occur and suspicions are raised that an alien force may have entered the ship. The Doctor even accuses Ian and Barbara of sabotage.It gradually dawns on the travellers that what they have been experiencing is an attempt by the TARDIS itself to warn them of something. The Doctor finally realises the fast return switch he used when leaving Skaro has stuck, and the ship has been plunging back to the beginning of time and its own destruction.Once the problem — a faulty spring — is corrected, the TARDIS returns to normal and the Doctor has to make some apologies for his behaviour.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55794.jpg",
+     "airDate": "1964-02-15",
+     "year": 1964,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "doctor who-1963-s1e13-colorized serial-720p-hd.mp4",
+      "format": "h.264",
+      "sizeBytes": 133347081,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor%20who-1963-s1e13-colorized%20serial-720p-hd.mp4"
     }
-  ],
-  "episodesCount": 34,
-  "canonicalEpisodesCount": 700,
-  "tvmazeRating": 8.4,
-  "tvdbID": "76107",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 7,
+   "episodes": [
     {
-      "name": "Paul McGann",
-      "character": "The Eighth Doctor",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/290360/5ebd55ba0a276.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e01",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 2,
+     "title": "Spearhead from Space, Part Two",
+     "overview": "UNIT's attempts to locate the meteorites are hampered by the mysterious plastic Autons, being constructed by Channing at a nearby factory, while the Doctor makes another attempt to escape from the hospital.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281973.jpg",
+     "airDate": "1970-01-10",
+     "year": 1970,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Doctor Who - S07E01 - Spearhead from Space (1).mp4",
+      "format": "h.264",
+      "sizeBytes": 137369706,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E01%20-%20Spearhead%20from%20Space%20%281%29.mp4"
     },
     {
-      "name": "Lalla Ward",
-      "character": "Romana II",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401485/photo/630a10300656b.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e05",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 5,
+     "title": "Doctor Who and the Silurians (1)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E05%20-%20Doctor%20Who%20and%20the%20Silurians%20%281%29_000718.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1459,
+     "videoFile": {
+      "name": "Doctor Who - S07E05 - Doctor Who and the Silurians (1).mp4",
+      "format": "h.264",
+      "sizeBytes": 140942445,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E05%20-%20Doctor%20Who%20and%20the%20Silurians%20%281%29.mp4"
     },
     {
-      "name": "Janet Fielding",
-      "character": "Tegan Jovanka",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/43181.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e06",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 6,
+     "title": "Doctor Who and the Silurians (2",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E06%20-%20Doctor%20Who%20and%20the%20Silurians%20%282_000686.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1394,
+     "videoFile": {
+      "name": "Doctor Who - S07E06 - Doctor Who and the Silurians (2.mp4",
+      "format": "h.264",
+      "sizeBytes": 134979987,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E06%20-%20Doctor%20Who%20and%20the%20Silurians%20%282.mp4"
     },
     {
-      "name": "Peter Davison",
-      "character": "The Fifth Doctor",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/313429/5eab060ea3652.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e07",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 7,
+     "title": "Doctor Who and the Silurians (3",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E07%20-%20Doctor%20Who%20and%20the%20Silurians%20%283_000690.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1403,
+     "videoFile": {
+      "name": "Doctor Who - S07E07 - Doctor Who and the Silurians (3.mp4",
+      "format": "h.264",
+      "sizeBytes": 135916134,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E07%20-%20Doctor%20Who%20and%20the%20Silurians%20%283.mp4"
     },
     {
-      "name": "Katy Manning",
-      "character": "Josephine \"Jo\" Grant",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401486/photo/627e088aa7d28.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e08",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 8,
+     "title": "Doctor Who and the Silurians (4",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E08%20-%20Doctor%20Who%20and%20the%20Silurians%20%284_000740.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1504,
+     "videoFile": {
+      "name": "Doctor Who - S07E08 - Doctor Who and the Silurians (4.mp4",
+      "format": "h.264",
+      "sizeBytes": 145808048,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E08%20-%20Doctor%20Who%20and%20the%20Silurians%20%284.mp4"
     },
     {
-      "name": "Louise Jameson",
-      "character": "Leela",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262466/photo/65f1d32b8edb4.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e09",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 9,
+     "title": "Doctor Who and the Silurians (5)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E09%20-%20Doctor%20Who%20and%20the%20Silurians%20%285%29_000708.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1439,
+     "videoFile": {
+      "name": "Doctor Who - S07E09 - Doctor Who and the Silurians (5).mp4",
+      "format": "h.264",
+      "sizeBytes": 139484943,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E09%20-%20Doctor%20Who%20and%20the%20Silurians%20%285%29.mp4"
     },
     {
-      "name": "Caroline John",
-      "character": "Liz Shaw",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/43185.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e10",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 10,
+     "title": "Doctor Who and the Silurians (6)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E10%20-%20Doctor%20Who%20and%20the%20Silurians%20%286%29_000718.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1458,
+     "videoFile": {
+      "name": "Doctor Who - S07E10 - Doctor Who and the Silurians (6).mp4",
+      "format": "h.264",
+      "sizeBytes": 141075371,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E10%20-%20Doctor%20Who%20and%20the%20Silurians%20%286%29.mp4"
     },
     {
-      "name": "Nicola Bryant",
-      "character": "Perpugilliam \"Peri\" Brown",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/376634/photo/63f24fa9ef289.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e11",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 11,
+     "title": "Doctor Who and the Silurians (7)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E11%20-%20Doctor%20Who%20and%20the%20Silurians%20%287%29_000724.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1470,
+     "videoFile": {
+      "name": "Doctor Who - S07E11 - Doctor Who and the Silurians (7).mp4",
+      "format": "h.264",
+      "sizeBytes": 141566837,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E11%20-%20Doctor%20Who%20and%20the%20Silurians%20%287%29.mp4"
     },
     {
-      "name": "Mary Tamm",
-      "character": "Romana I",
-      "order": 8,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/319216/photo/634d9772dadbb.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e12",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 13,
+     "title": "The Ambassadors of Death, Part Two",
+     "overview": "UNIT retrieve the returned Recovery 7 but then Carrington hijacks it while the Doctor and Liz try to decode the signal he sent.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/285327.jpg",
+     "airDate": "1970-03-28",
+     "year": 1970,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Doctor Who - S07E12 - The Ambassadors Of Death (1).mp4",
+      "format": "h.264",
+      "sizeBytes": 146221350,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E12%20-%20The%20Ambassadors%20Of%20Death%20%281%29.mp4"
     },
     {
-      "name": "Bonnie Langford",
-      "character": "Melanie \"Mel\" Bush",
-      "order": 9,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/323055/photo/61f9ba81079c5.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e19",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 19,
+     "title": "Inferno (1)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E19%20-%20Inferno%20%281%29_000691.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1405,
+     "videoFile": {
+      "name": "Doctor Who - S07E19 - Inferno (1).mp4",
+      "format": "h.264",
+      "sizeBytes": 136241807,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E19%20-%20Inferno%20%281%29.mp4"
     },
     {
-      "name": "Mark Strickson",
-      "character": "Vislor Turlough",
-      "order": 10,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/43189.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e20",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 20,
+     "title": "Inferno (2)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E20%20-%20Inferno%20%282%29_000653.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1328,
+     "videoFile": {
+      "name": "Doctor Who - S07E20 - Inferno (2).mp4",
+      "format": "h.264",
+      "sizeBytes": 128556622,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E20%20-%20Inferno%20%282%29.mp4"
     },
     {
-      "name": "Sylvester McCoy",
-      "character": "The Seventh Doctor",
-      "order": 11,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269354/photo/6153a64a02e71.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e21",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 21,
+     "title": "Inferno (3)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E21%20-%20Inferno%20%283%29_000727.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1477,
+     "videoFile": {
+      "name": "Doctor Who - S07E21 - Inferno (3).mp4",
+      "format": "h.264",
+      "sizeBytes": 143383860,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E21%20-%20Inferno%20%283%29.mp4"
     },
     {
-      "name": "William Hartnell",
-      "character": "The First Doctor",
-      "order": 12,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401488/photo/630d2423c4f60.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e22",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 22,
+     "title": "Inferno (4)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E22%20-%20Inferno%20%284%29_000725.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1474,
+     "videoFile": {
+      "name": "Doctor Who - S07E22 - Inferno (4).mp4",
+      "format": "h.264",
+      "sizeBytes": 142874712,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E22%20-%20Inferno%20%284%29.mp4"
     },
     {
-      "name": "Maureen O'Brien",
-      "character": "Vicki Pallister",
-      "order": 13,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/384000/photo/63efbc3573933.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e23",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 23,
+     "title": "Inferno (5)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E23%20-%20Inferno%20%285%29_000701.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1425,
+     "videoFile": {
+      "name": "Doctor Who - S07E23 - Inferno (5).mp4",
+      "format": "h.264",
+      "sizeBytes": 138425371,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E23%20-%20Inferno%20%285%29.mp4"
     },
     {
-      "name": "Carole Ann Ford",
-      "character": "Susan Foreman",
-      "order": 14,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401489/photo/669f3111d5223.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e24",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 24,
+     "title": "Inferno (6)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E24%20-%20Inferno%20%286%29_000696.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1415,
+     "videoFile": {
+      "name": "Doctor Who - S07E24 - Inferno (6).mp4",
+      "format": "h.264",
+      "sizeBytes": 137350688,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E24%20-%20Inferno%20%286%29.mp4"
     },
     {
-      "name": "Jacqueline Hill",
-      "character": "Barbara Wright",
-      "order": 15,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401490/photo/669f31a7a7b89.jpg"
-    },
-    {
-      "name": "William Russell",
-      "character": "Ian Chesterton",
-      "order": 16,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401491/photo/62d9809f551a5.jpg"
-    },
-    {
-      "name": "Elisabeth Sladen",
-      "character": "Sarah Jane Smith",
-      "order": 17,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/349096/5f1575d3b0fed.jpg"
+     "archiveID": "70s-Doctor-Who-AI-Remastered@s7e25",
+     "sourceID": "70s-Doctor-Who-AI-Remastered",
+     "seasonNumber": 7,
+     "episodeNumber": 25,
+     "title": "Inferno (7)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/70s-Doctor-Who-AI-Remastered.thumbs/Doctor%20Who%20-%20S07E25%20-%20Inferno%20%287%29_000725.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1474,
+     "videoFile": {
+      "name": "Doctor Who - S07E25 - Inferno (7).mp4",
+      "format": "h.264",
+      "sizeBytes": 142536020,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E25%20-%20Inferno%20%287%29.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "doctor-who-the-web-of-fear@e03",
+     "sourceID": "doctor-who-the-web-of-fear",
+     "seasonNumber": null,
+     "episodeNumber": 3,
+     "title": "[ANIMATED]",
+     "overview": null,
+     "stillURL": "https://archive.org/download/doctor-who-the-web-of-fear/doctor-who-the-web-of-fear.thumbs/Episode%203%20%5BANIMATED%5D_000542.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1567,
+     "videoFile": {
+      "name": "Episode 3 [ANIMATED].ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 516035474,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctor-who-the-web-of-fear/Episode%203%20%5BANIMATED%5D.ia.mp4"
+    },
+    {
+     "archiveID": "the-daleks-master-plan-episodes-2-5-10",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Episode 2 - Day of Armageddeon",
+     "overview": "The enigmatic Doctor, afraid that schoolteachers Ian Chesterton and Barbara Wright will reveal his secrets to the people of 20th century Earth, has taken them and his granddaughter Susan back to the dawn of human history. There, the four travellers are dragged into the savage politics of a tribe of cavemen who have lost the secret of making fire…",
+     "stillURL": "https://image.tmdb.org/t/p/w300/svg8CUTdkVVNqaJKWp6vd999ahO.jpg",
+     "airDate": null,
+     "year": 1965,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Episode 2 - Day of Armageddeon.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 478818077,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-daleks-master-plan-episodes-2-5-10/Episode%202%20-%20Day%20of%20Armageddeon.ia.mp4"
+    },
+    {
+     "archiveID": "doctorwho_s03_v2",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "season 3 doctor 1/Doctor Who - S03E02 - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 Bonus - Mission to the Unknown Reunion",
+     "overview": "Missing episode -animated recreation released by BBC.The Doctor, Vicki and Steven arrive on an arid planet where they meet the beautiful Drahvins and the hideous Rills. Each has crash-landed after a confrontation in space. The Rills are friendly, compassionate explorers. The Drahvins are dull-witted, cloned soldiers, terrorised by the intelligent, warlike matriarch Maaga.Both ships are damaged. The Drahvins' craft is irreparable, but the Rills' is almost ready to take off. Although unable to breathe the oxygen atmosphere, they employ efficient robot drones, which Vicki nicknames \"Chumblies\". Despite numerous offers by the Rills to take Maaga and her crew to safety, she refuses their aid. When the planet is discovered to be on the point of disintegration, Maaga tries to force the time travellers to help her steal the Rills' ship and kill the Rills. Instead, the Doctor allows the Rills to draw power from the TARDIS to refuel and escape, leaving the Drahvins to their fate.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56269.jpg",
+     "airDate": null,
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "season 3 doctor 1/Doctor Who - S03E02 (019) - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 (019) Bonus - Mission to the Unknown Reunion.mp4",
+      "format": "h.264",
+      "sizeBytes": 442947947,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctorwho_s03_v2/season%203%20doctor%201/Doctor%20Who%20-%20S03E02%20%28019%29%20-%20Mission%20to%20the%20Unknown%20-%20Parts%201-1/Doctor%20Who%20-%20S03E02%20%28019%29%20Bonus%20-%20Mission%20to%20the%20Unknown%20Reunion.mp4"
+    },
+    {
+     "archiveID": "doctorwho_s04",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "season 4 doctor 1,2/Doctor Who - S04E04 - The Highlanders - Parts 1-4/Doctor Who - S04E04 Bonus - Interview with actor Michael Elwyn",
+     "overview": "The Doctor and his friends are at the mercy of Cherub, who is now seeking Avery's treasure for himself, while Pike prepares to attack the village.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "season 4 doctor 1,2/Doctor Who - S04E04 (031) - The Highlanders - Parts 1-4/Doctor Who - S04E04 (031) Bonus - Interview with actor Michael Elwyn.mp4",
+      "format": "h.264",
+      "sizeBytes": 310015895,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doctorwho_s04/season%204%20doctor%201%2C2/Doctor%20Who%20-%20S04E04%20%28031%29%20-%20The%20Highlanders%20-%20Parts%201-4/Doctor%20Who%20-%20S04E04%20%28031%29%20Bonus%20-%20Interview%20with%20actor%20Michael%20Elwyn.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 34,
+ "canonicalEpisodesCount": 700,
+ "tvmazeRating": 8.4,
+ "tvdbID": "76107",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Paul McGann",
+   "character": "The Eighth Doctor",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/290360/5ebd55ba0a276.jpg"
+  },
+  {
+   "name": "Lalla Ward",
+   "character": "Romana II",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401485/photo/630a10300656b.jpg"
+  },
+  {
+   "name": "Janet Fielding",
+   "character": "Tegan Jovanka",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/43181.jpg"
+  },
+  {
+   "name": "Peter Davison",
+   "character": "The Fifth Doctor",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/313429/5eab060ea3652.jpg"
+  },
+  {
+   "name": "Katy Manning",
+   "character": "Josephine \"Jo\" Grant",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401486/photo/627e088aa7d28.jpg"
+  },
+  {
+   "name": "Louise Jameson",
+   "character": "Leela",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262466/photo/65f1d32b8edb4.jpg"
+  },
+  {
+   "name": "Caroline John",
+   "character": "Liz Shaw",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/43185.jpg"
+  },
+  {
+   "name": "Nicola Bryant",
+   "character": "Perpugilliam \"Peri\" Brown",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/376634/photo/63f24fa9ef289.jpg"
+  },
+  {
+   "name": "Mary Tamm",
+   "character": "Romana I",
+   "order": 8,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/319216/photo/634d9772dadbb.jpg"
+  },
+  {
+   "name": "Bonnie Langford",
+   "character": "Melanie \"Mel\" Bush",
+   "order": 9,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/323055/photo/61f9ba81079c5.jpg"
+  },
+  {
+   "name": "Mark Strickson",
+   "character": "Vislor Turlough",
+   "order": 10,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/43189.jpg"
+  },
+  {
+   "name": "Sylvester McCoy",
+   "character": "The Seventh Doctor",
+   "order": 11,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269354/photo/6153a64a02e71.jpg"
+  },
+  {
+   "name": "William Hartnell",
+   "character": "The First Doctor",
+   "order": 12,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401488/photo/630d2423c4f60.jpg"
+  },
+  {
+   "name": "Maureen O'Brien",
+   "character": "Vicki Pallister",
+   "order": 13,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/384000/photo/63efbc3573933.jpg"
+  },
+  {
+   "name": "Carole Ann Ford",
+   "character": "Susan Foreman",
+   "order": 14,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401489/photo/669f3111d5223.jpg"
+  },
+  {
+   "name": "Jacqueline Hill",
+   "character": "Barbara Wright",
+   "order": 15,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401490/photo/669f31a7a7b89.jpg"
+  },
+  {
+   "name": "William Russell",
+   "character": "Ian Chesterton",
+   "order": 16,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/401491/photo/62d9809f551a5.jpg"
+  },
+  {
+   "name": "Elisabeth Sladen",
+   "character": "Sarah Jane Smith",
+   "order": 17,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/349096/5f1575d3b0fed.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0056751",
+ "imdbRating": 8.4,
+ "imdbVotes": 41626
 }

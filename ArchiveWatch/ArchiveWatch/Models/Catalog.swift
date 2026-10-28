@@ -256,9 +256,12 @@ struct Catalog: Decodable, Sendable {
         // Decision-012 adult filter with a real MPAA/TV signal.
         let imdbRating: Double?
         let imdbVotes: Int?
-        /// A series card's TVmaze rating (0–10), Top Rated's order where no
-        /// IMDb rating exists. Not shown: it is not IMDb's.
+        /// A series card's TVmaze rating (0–10). Shown only where IMDb has
+        /// none, and named as TVmaze's (Decision 171).
         let tvmazeRating: Double?
+        /// The Top Rated sort key the pipeline computes (Decision 171,
+        /// tools/best_rating.py); nil when unrated or from an older DB.
+        let ratingRank: Double?
         let contentRating: String?
         let synopsisSource: String?
 
@@ -494,6 +497,28 @@ struct Catalog: Decodable, Sendable {
         var imdbRatingDisplay: String? {
             guard let r = imdbRating, r > 0 else { return nil }
             return String(format: "%.1f", r)
+        }
+
+        /// "IMDb 7.8", or "TVmaze 8.9" for a series IMDb does not rate: the
+        /// rating a text meta line shows, named by the crowd that gave it
+        /// (Decision 171). archive.org's reviewers have their own row.
+        var ratingLine: String? {
+            if let r = imdbRatingDisplay { return "IMDb \(r)" }
+            if let t = tvmazeRating, t > 0 { return String(format: "TVmaze %.1f", t) }
+            return nil
+        }
+
+        /// Top Rated order (Decision 171): the pipeline's rank first; an older
+        /// DB without one falls back to the raw rating, then votes. nil when
+        /// the two are level, so each caller breaks the tie its own way.
+        static func ratedBefore(_ a: Item, _ b: Item) -> Bool? {
+            let ka = a.ratingRank ?? -Double.infinity, kb = b.ratingRank ?? -Double.infinity
+            if ka != kb { return ka > kb }
+            let ra = a.imdbRating ?? a.tvmazeRating ?? -1, rb = b.imdbRating ?? b.tvmazeRating ?? -1
+            if ra != rb { return ra > rb }
+            let va = a.imdbVotes ?? 0, vb = b.imdbVotes ?? 0
+            if va != vb { return va > vb }
+            return nil
         }
 
         /// Compact vote count, e.g. "149K", "21K", "1.4K", "302".

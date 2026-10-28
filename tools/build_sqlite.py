@@ -43,6 +43,9 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import best_rating  # noqa: E402  (Decision 171: one rating rule for the DB and the index)
+
 REPO = Path(__file__).resolve().parent.parent
 FULL_CATALOG = REPO / "catalog.json"
 FEATURED = REPO / "featured.json"
@@ -1091,7 +1094,12 @@ def create_schema(db):
       noRecommend INTEGER,
       -- A series card's TVmaze rating (0-10), the Top Rated order where no
       -- IMDb rating exists. Never shown as IMDb's (2026-10-27).
-      tvmazeRating REAL
+      tvmazeRating REAL,
+      -- The Top Rated sort key (Decision 171, tools/best_rating.py): the
+      -- largest crowd's rating against that crowd's own average, discounted
+      -- for a small crowd. NULL = unrated, sorted last. Computed here, never
+      -- in a client, because the scale is the pipeline's (Decision 050).
+      ratingRank REAL
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
@@ -1205,8 +1213,9 @@ def _playable_episode_aids(cards=None):
     return aids
 
 
-def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
+def populate_items(db, items, rotate_seed="0", skip_aids=frozenset(), rating_stats=None):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
+    rating_stats = rating_stats if rating_stats is not None else best_rating.crowd_stats(items)
     tv_shelf_series: dict[str, list[str]] = {}
     gem_suppressed = set()      # archive.org asked us not to feature these
     kw_rows, studio_rows = [], []   # metadata-expansion facets (Decision 046)
@@ -1250,10 +1259,16 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             0,                      # hiddenGem — filled by _mark_hidden_gems below
             1 if it.get("noRecommend") else 0,
             it.get("tvmazeRating"),
+            (rk := best_rating.rank(it, rating_stats)),
         ))
         if _gem_suppressed(it) or it.get("noRecommend"):
             gem_suppressed.add(aid)
-        json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
+        blob = _slim_for_blob(it)
+        if rk is not None:
+            # In the blob too: the Apple apps sort a decoded list (series cards)
+            # in memory, and decode Catalog.Item from this, not from `items`.
+            blob = {**blob, "ratingRank": rk}
+        json_rows.append((aid, json.dumps(blob, ensure_ascii=False,
                                           separators=(",", ":"))))
         for g in (it.get("genres") or []):
             if g:
@@ -1317,7 +1332,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
                   "rightsStatus", "rightsBucket", "contentRating", "language", "network", "director",
                   "seriesID", "yearEnd", "seasonsCount", "episodesCount", "isAdult",
                   "numFavorites", "numReviews", "avgRating", "views30d", "playable",
-                  "hiddenGem", "noRecommend", "tvmazeRating"]
+                  "hiddenGem", "noRecommend", "tvmazeRating", "ratingRank"]
     col = {name: i for i, name in enumerate(_ITEM_COLS)}
     assert len(item_rows) == 0 or len(item_rows[0]) == len(_ITEM_COLS), \
         f"items tuple has {len(item_rows[0])} fields, _ITEM_COLS has {len(_ITEM_COLS)}"
@@ -1509,6 +1524,7 @@ def populate_series(db, materialize_episode_items=True):
                     0,      # hiddenGem — a gem is a film claim; episodes never qualify
                     0,      # noRecommend — Decision 149 flags catalog items only
                     None,   # tvmazeRating — a series card's, never an episode's
+                    None,   # ratingRank — episodes are not ranked
                 ))
                 ep_json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
                                                      separators=(",", ":"))))
@@ -1662,7 +1678,11 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
         out_db.unlink()
     db = sqlite3.connect(out_db)
     create_schema(db)
-    n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=spine_aids)
+    # The crowds' averages are measured over the catalog as published, the
+    # same population build_catalog_index measures, so the web and Roku rank
+    # exactly as the apps do.
+    n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=spine_aids,
+                             rating_stats=best_rating.crowd_stats(cat["items"]))
     # BOTH dedup paths, chased as one union so a cross-path hop resolves.
     aliases = dict(getattr(dedupe_by_imdb, "aliases", {}) or {})
     aliases.update(getattr(merge_film_duplicates, "aliases", {}) or {})

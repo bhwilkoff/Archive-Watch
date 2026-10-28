@@ -1,299 +1,302 @@
 {
-  "version": 2,
-  "seriesID": "gemini-man-1976",
-  "tvmazeID": 3659,
-  "title": "Gemini Man",
-  "yearStart": 1976,
-  "yearEnd": 1976,
-  "overview": "Sam Casey is an agent for INTERSECT, a government think-tank and operations center specilizing in secret missions. While on a diving assignment, Sam was affected by the radiation from an underwater explosion. The radiation rendered him invisible, but INTERSECT devised a way to control his invisibility, by fitting him with a computerized watch that kept him visible. He could, however, shut it off, and become invisible again, for short periods of time. If he did this for more than 15 minutes in any 24 hour period he would die. This ability to become invisible made him a very effective agent.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77198-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "gemini-man-1976",
+ "tvmazeID": 3659,
+ "title": "Gemini Man",
+ "yearStart": 1976,
+ "yearEnd": 1976,
+ "overview": "Sam Casey is an agent for INTERSECT, a government think-tank and operations center specilizing in secret missions. While on a diving assignment, Sam was affected by the radiation from an underwater explosion. The radiation rendered him invisible, but INTERSECT devised a way to control his invisibility, by fitting him with a computerized watch that kept him visible. He could, however, shut it off, and become invisible again, for short periods of time. If he did this for more than 15 minutes in any 24 hour period he would die. This ability to become invisible made him a very effective agent.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/77198-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e00",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 0,
-          "title": "Pilot",
-          "overview": null,
-          "stillURL": "https://archive.org/download/gemini-man-complete-series-1976/gemini-man-complete-series-1976.thumbs/Gemini%20Man%20S01E00%20-%20Pilot_002233.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 5621,
-          "videoFile": {
-            "name": "Gemini Man S01E00 - Pilot.mp4",
-            "format": "h.264",
-            "sizeBytes": 537527257,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E00%20-%20Pilot.mp4"
-        },
-        {
-          "archiveID": "geminiman_202203@s1e00",
-          "sourceID": "geminiman_202203",
-          "seasonNumber": 1,
-          "episodeNumber": 0,
-          "title": "The Gemini Man Pilot",
-          "overview": null,
-          "stillURL": "https://archive.org/download/geminiman_202203/geminiman_202203.thumbs/The%20Gemini%20Man%20S01E00%20Pilot_002002.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 5621,
-          "videoFile": {
-            "name": "The Gemini Man S01E00 Pilot.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 212534381,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/geminiman_202203/The%20Gemini%20Man%20S01E00%20Pilot.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e01",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Smithereens",
-          "overview": "Special agent Sam Casey poses as a truck driver to safely transport a top secret liquid cargo, unaware that it has been replaced by a highly volatile chemical.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117301.jpg",
-          "airDate": "1976-09-23",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E01 - Smithereens.mp4",
-            "format": "h.264",
-            "sizeBytes": 270479978,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E01%20-%20Smithereens.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e02",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Minotaur",
-          "overview": "Sam goes up against a computerized robot with IR sensors that can neutralize his invisibility, attempting to stop a scientist who plans to use his creation to blackmail INTERSECT into giving him $500 million.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/600/1502220.jpg",
-          "airDate": "1976-09-30",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E02 - Minotaur.mp4",
-            "format": "h.264",
-            "sizeBytes": 269867775,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E02%20-%20Minotaur.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e03",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Sam Casey, Sam Casey",
-          "overview": "An agent using plastic surgery to look like Sam penetrates INTERSECT's security to steal top secret files. Meanwhile, his superiors arrange for Sam's death to cover the imposter's tracks.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117303.jpg",
-          "airDate": "1976-10-07",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E03 - Sam Casey Sam Casey.mp4",
-            "format": "h.264",
-            "sizeBytes": 268448811,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E03%20-%20Sam%20Casey%20Sam%20Casey.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e04",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Night Train to Dallas",
-          "overview": "The sudden death of a top level government scientist embroils his unsuspecting former secretary in a race against time between Sam Casey and foreign interests seeking top secret data about her former employer's work.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117304.jpg",
-          "airDate": "1976-10-14",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E04 - Night Train to Dallas.mp4",
-            "format": "h.264",
-            "sizeBytes": 261784670,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E04%20-%20Night%20Train%20to%20Dallas.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e05",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Run Sam, Run",
-          "overview": "Sam is being hunted for the apparent murder of an Intersect agent, and there is video tape to prove it. Only Sam doesn't remember doing it and while on the run, attempts to clear his name.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117305.jpg",
-          "airDate": "1976-10-28",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E05 - Run Sam Run.mp4",
-            "format": "h.264",
-            "sizeBytes": 267807327,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E05%20-%20Run%20Sam%20Run.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e08",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Escape Hatch",
-          "overview": "A shipping tycoon is held hostage aboard her own ocean liner, villains demand she sign over her oil super tankers to hostile foreign powers.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117306.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E08 - Escape Hatch.mp4",
-            "format": "h.264",
-            "sizeBytes": 268337571,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E08%20-%20Escape%20Hatch.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e09",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Eight-Nine-Ten You're Dead",
-          "overview": "Sam Casey must help out a champion boxer who is being forced to throw a fight, as a nefarious fight promoter has kidnapped the boxer's father.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117309.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E09 - Eight-Nine-Ten Youre Dead.mp4",
-            "format": "h.264",
-            "sizeBytes": 268694305,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E09%20-%20Eight-Nine-Ten%20Youre%20Dead.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e06",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Targets",
-          "overview": "Casey's attempt to help a noted female scientist defect from an Iron Curtain country is hampered by the woman's daughter, whose attachment to a double-crosser jeopardizes the trio's escape.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117311.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E06 - Targets.mp4",
-            "format": "h.264",
-            "sizeBytes": 267903448,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E06%20-%20Targets.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e11",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Suspect Your Local Police",
-          "overview": "Gemini Man Sam Casey goes undercover as an LAPD trainee to investigate a decorated officer who may be a sleeper Soviet assassin.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117312.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E11 - Suspect Your Local Police.mp4",
-            "format": "h.264",
-            "sizeBytes": 271903403,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E11%20-%20Suspect%20Your%20Local%20Police.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e07",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Buffalo Bill Rides Again",
-          "overview": "Leonard Driscoll summons Sam Casey to unmask Robert Denby who he suspects of sabotaging the U.S. defense system.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117314.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E07 - Buffalo Bill Rides Again.mp4",
-            "format": "h.264",
-            "sizeBytes": 267637505,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E07%20-%20Buffalo%20Bill%20Rides%20Again.mp4"
-        },
-        {
-          "archiveID": "gemini-man-complete-series-1976@s1e10",
-          "sourceID": "gemini-man-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Return of the Lion",
-          "overview": "Sam is assigned to protect and help a deposed African leader known as The Lion return to his country in order to end the ongoing civil war. During the journey both men's personalities are drawn, and Casey imbues The Lion with ideas about the sociological reality of his people.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117317.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Gemini Man S01E10 - Return of the Lion.mp4",
-            "format": "h.264",
-            "sizeBytes": 268776103,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E10%20-%20Return%20of%20the%20Lion.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 13,
-  "canonicalEpisodesCount": 11,
-  "tvmazeRating": null,
-  "tvdbID": "77198",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Katherine Crawford",
-      "character": "",
-      "order": 0,
-      "profilePath": null
+     "archiveID": "gemini-man-complete-series-1976@s1e00",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 0,
+     "title": "Pilot",
+     "overview": null,
+     "stillURL": "https://archive.org/download/gemini-man-complete-series-1976/gemini-man-complete-series-1976.thumbs/Gemini%20Man%20S01E00%20-%20Pilot_002233.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5621,
+     "videoFile": {
+      "name": "Gemini Man S01E00 - Pilot.mp4",
+      "format": "h.264",
+      "sizeBytes": 537527257,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E00%20-%20Pilot.mp4"
     },
     {
-      "name": "William Sylvester",
-      "character": "",
-      "order": 1,
-      "profilePath": null
+     "archiveID": "geminiman_202203@s1e00",
+     "sourceID": "geminiman_202203",
+     "seasonNumber": 1,
+     "episodeNumber": 0,
+     "title": "The Gemini Man Pilot",
+     "overview": null,
+     "stillURL": "https://archive.org/download/geminiman_202203/geminiman_202203.thumbs/The%20Gemini%20Man%20S01E00%20Pilot_002002.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5621,
+     "videoFile": {
+      "name": "The Gemini Man S01E00 Pilot.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 212534381,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/geminiman_202203/The%20Gemini%20Man%20S01E00%20Pilot.mp4"
     },
     {
-      "name": "Ben Murphy",
-      "character": "",
-      "order": 2,
-      "profilePath": null
+     "archiveID": "gemini-man-complete-series-1976@s1e01",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Smithereens",
+     "overview": "Special agent Sam Casey poses as a truck driver to safely transport a top secret liquid cargo, unaware that it has been replaced by a highly volatile chemical.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117301.jpg",
+     "airDate": "1976-09-23",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E01 - Smithereens.mp4",
+      "format": "h.264",
+      "sizeBytes": 270479978,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E01%20-%20Smithereens.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e02",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Minotaur",
+     "overview": "Sam goes up against a computerized robot with IR sensors that can neutralize his invisibility, attempting to stop a scientist who plans to use his creation to blackmail INTERSECT into giving him $500 million.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/600/1502220.jpg",
+     "airDate": "1976-09-30",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E02 - Minotaur.mp4",
+      "format": "h.264",
+      "sizeBytes": 269867775,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E02%20-%20Minotaur.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e03",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Sam Casey, Sam Casey",
+     "overview": "An agent using plastic surgery to look like Sam penetrates INTERSECT's security to steal top secret files. Meanwhile, his superiors arrange for Sam's death to cover the imposter's tracks.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117303.jpg",
+     "airDate": "1976-10-07",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E03 - Sam Casey Sam Casey.mp4",
+      "format": "h.264",
+      "sizeBytes": 268448811,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E03%20-%20Sam%20Casey%20Sam%20Casey.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e04",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Night Train to Dallas",
+     "overview": "The sudden death of a top level government scientist embroils his unsuspecting former secretary in a race against time between Sam Casey and foreign interests seeking top secret data about her former employer's work.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117304.jpg",
+     "airDate": "1976-10-14",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E04 - Night Train to Dallas.mp4",
+      "format": "h.264",
+      "sizeBytes": 261784670,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E04%20-%20Night%20Train%20to%20Dallas.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e05",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Run Sam, Run",
+     "overview": "Sam is being hunted for the apparent murder of an Intersect agent, and there is video tape to prove it. Only Sam doesn't remember doing it and while on the run, attempts to clear his name.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117305.jpg",
+     "airDate": "1976-10-28",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E05 - Run Sam Run.mp4",
+      "format": "h.264",
+      "sizeBytes": 267807327,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E05%20-%20Run%20Sam%20Run.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e08",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Escape Hatch",
+     "overview": "A shipping tycoon is held hostage aboard her own ocean liner, villains demand she sign over her oil super tankers to hostile foreign powers.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117306.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E08 - Escape Hatch.mp4",
+      "format": "h.264",
+      "sizeBytes": 268337571,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E08%20-%20Escape%20Hatch.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e09",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Eight-Nine-Ten You're Dead",
+     "overview": "Sam Casey must help out a champion boxer who is being forced to throw a fight, as a nefarious fight promoter has kidnapped the boxer's father.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117309.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E09 - Eight-Nine-Ten Youre Dead.mp4",
+      "format": "h.264",
+      "sizeBytes": 268694305,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E09%20-%20Eight-Nine-Ten%20Youre%20Dead.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e06",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Targets",
+     "overview": "Casey's attempt to help a noted female scientist defect from an Iron Curtain country is hampered by the woman's daughter, whose attachment to a double-crosser jeopardizes the trio's escape.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117311.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E06 - Targets.mp4",
+      "format": "h.264",
+      "sizeBytes": 267903448,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E06%20-%20Targets.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e11",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Suspect Your Local Police",
+     "overview": "Gemini Man Sam Casey goes undercover as an LAPD trainee to investigate a decorated officer who may be a sleeper Soviet assassin.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117312.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E11 - Suspect Your Local Police.mp4",
+      "format": "h.264",
+      "sizeBytes": 271903403,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E11%20-%20Suspect%20Your%20Local%20Police.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e07",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Buffalo Bill Rides Again",
+     "overview": "Leonard Driscoll summons Sam Casey to unmask Robert Denby who he suspects of sabotaging the U.S. defense system.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117314.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E07 - Buffalo Bill Rides Again.mp4",
+      "format": "h.264",
+      "sizeBytes": 267637505,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E07%20-%20Buffalo%20Bill%20Rides%20Again.mp4"
+    },
+    {
+     "archiveID": "gemini-man-complete-series-1976@s1e10",
+     "sourceID": "gemini-man-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Return of the Lion",
+     "overview": "Sam is assigned to protect and help a deposed African leader known as The Lion return to his country in order to end the ongoing civil war. During the journey both men's personalities are drawn, and Casey imbues The Lion with ideas about the sociological reality of his people.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117317.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Gemini Man S01E10 - Return of the Lion.mp4",
+      "format": "h.264",
+      "sizeBytes": 268776103,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini%20Man%20S01E10%20-%20Return%20of%20the%20Lion.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 13,
+ "canonicalEpisodesCount": 11,
+ "tvmazeRating": null,
+ "tvdbID": "77198",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Katherine Crawford",
+   "character": "",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "William Sylvester",
+   "character": "",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Ben Murphy",
+   "character": "",
+   "order": 2,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0073994",
+ "imdbRating": 6.2,
+ "imdbVotes": 406
 }

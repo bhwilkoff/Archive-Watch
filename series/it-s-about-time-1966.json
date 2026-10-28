@@ -1,575 +1,578 @@
 {
-  "version": 2,
-  "seriesID": "it-s-about-time-1966",
-  "tvmazeID": 15850,
-  "title": "It's About Time",
-  "yearStart": 1966,
-  "yearEnd": 1967,
-  "overview": "It's about time, it's about space, about strange people in the strangest place. That is what this show is about. Hector and Mac are two astronauts who break the time barrier and travel back in time to the prehistoric period. Gronk is a cave man with his wife Shadd. In the middle of its run due to low ratings, the creators reversed the concept so that Hector and Mac made it to the twentieth century. They brought with them the prehistoric group.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77540-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "it-s-about-time-1966",
+ "tvmazeID": 15850,
+ "title": "It's About Time",
+ "yearStart": 1966,
+ "yearEnd": 1967,
+ "overview": "It's about time, it's about space, about strange people in the strangest place. That is what this show is about. Hector and Mac are two astronauts who break the time barrier and travel back in time to the prehistoric period. Gronk is a cave man with his wife Shadd. In the middle of its run due to low ratings, the creators reversed the concept so that Hector and Mac made it to the twentieth century. They brought with them the prehistoric group.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/77540-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e01",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "And Then I Wrote Happy Birthday to You",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-09-11",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E01 - And Then I Wrote Happy Birthday to You - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144237573,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E01%20-%20And%20Then%20I%20Wrote%20Happy%20Birthday%20to%20You%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e02",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Copper Caper",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-09-18",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E02 - The Copper Caper - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145038551,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E02%20-%20The%20Copper%20Caper%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e03",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Initiation",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-09-25",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E03 - The Initiation - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144995727,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E03%20-%20The%20Initiation%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e04",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Tailor Made Hero",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-10-02",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E04 - Tailor Made Hero - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 141532528,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E04%20-%20Tailor%20Made%20Hero%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e05",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Rainmakers",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-10-09",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E05 - The Rainmakers - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145542988,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E05%20-%20The%20Rainmakers%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e06",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Courtship of Miles Gronk",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1513,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E06 - The Courtship of Miles Gronk - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145511793,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E06%20-%20The%20Courtship%20of%20Miles%20Gronk%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e07",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Champ",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-10-23",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E07 - The Champ - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144540906,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E07%20-%20The%20Champ%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e08",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Mark Your Ballots",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-10-30",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E08 - Mark Your Ballots - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145883887,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E08%20-%20Mark%20Your%20Ballots%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e09",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Have I Got a Girl for You",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-11-06",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E09 - Have I Got a Girl for You - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 147640268,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E09%20-%20Have%20I%20Got%20a%20Girl%20for%20You%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e10",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Cave Movies",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-11-13",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E10 - Cave Movies - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 143398701,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E10%20-%20Cave%20Movies%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e11",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Androcles and Clon",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-11-20",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E11 - Androcles and Clon - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144477359,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E11%20-%20Androcles%20and%20Clon%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e12",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Love Me, Love My Gnook",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-11-27",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E12 - Love Me, Love My Gnook - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145026318,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E12%20-%20Love%20Me%2C%20Love%20My%20Gnook%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e13",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "The Broken Idol",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-12-04",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E13 - The Broken Idol - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145943263,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E13%20-%20The%20Broken%20Idol%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e14",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "The Sacrifice",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-12-11",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E14 - The Sacrifice - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145712933,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E14%20-%20The%20Sacrifice%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e15",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "King Hec",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1966-12-18",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E15 - King Hec - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144270920,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E15%20-%20King%20Hec%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e16",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Mother-in-Law",
-          "overview": "The cavemen deal with Gronk's mother-in-law as she pays her family a visit.",
-          "stillURL": null,
-          "airDate": "1966-12-25",
-          "year": 1966,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E16 - The Mother-in-Law - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144656769,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E16%20-%20The%20Mother-in-Law%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e17",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Which Doctor's Witch?",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-01-01",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E17 - Which Doctor's Witch - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144226955,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E17%20-%20Which%20Doctor%27s%20Witch%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e18",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "To Catch a Thief",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-01-08",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E18 - To Catch a Thief - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 142220073,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E18%20-%20To%20Catch%20a%20Thief%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e19",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "The Stowaway",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-04-02",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E19 - The Stowaway - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145477899,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E19%20-%20The%20Stowaway%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e20",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "20th Century Here We Come",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-01-22",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E20 - 20th Century Here We Come - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145845166,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E20%20-%2020th%20Century%20Here%20We%20Come%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e21",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Shad Rack and Other Tortures",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-01-29",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E21 - Shad Rack and Other Tortures - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 146807799,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E21%20-%20Shad%20Rack%20and%20Other%20Tortures%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e22",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The Cave Family Swingers",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-02-05",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E22 - The Cave Family Swingers - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 143668677,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E22%20-%20The%20Cave%20Family%20Swingers%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e23",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "To Sign or Not to Sign",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-02-19",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E23 - To Sign or Not to Sign - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 144545669,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E23%20-%20To%20Sign%20or%20Not%20to%20Sign%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e24",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "School Days, School Days",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-02-26",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E24 - School Days, School Days - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145612466,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E24%20-%20School%20Days%2C%20School%20Days%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e25",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Our Brothers' Keepers",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-03-05",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E25 - Our Brothers' Keepers - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 145323912,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E25%20-%20Our%20Brothers%27%20Keepers%20-%20480p%201.0%20HDTV%20h265.mp4"
-        },
-        {
-          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e26",
-          "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "The Stone Age Diplomats",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-03-12",
-          "year": 1967,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "It's About Time/Season 01/It's About Time (1966) - S01E26 - The Stone Age Diplomats - 480p 1.0 HDTV h265.mp4",
-            "format": "h.264",
-            "sizeBytes": 146382094,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E26%20-%20The%20Stone%20Age%20Diplomats%20-%20480p%201.0%20HDTV%20h265.mp4"
-        }
-      ]
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e01",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "And Then I Wrote Happy Birthday to You",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-09-11",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E01 - And Then I Wrote Happy Birthday to You - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144237573,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E01%20-%20And%20Then%20I%20Wrote%20Happy%20Birthday%20to%20You%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e02",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Copper Caper",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-09-18",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E02 - The Copper Caper - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145038551,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E02%20-%20The%20Copper%20Caper%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e03",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Initiation",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-09-25",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E03 - The Initiation - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144995727,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E03%20-%20The%20Initiation%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e04",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Tailor Made Hero",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-10-02",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E04 - Tailor Made Hero - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 141532528,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E04%20-%20Tailor%20Made%20Hero%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e05",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Rainmakers",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-10-09",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E05 - The Rainmakers - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145542988,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E05%20-%20The%20Rainmakers%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e06",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Courtship of Miles Gronk",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1513,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E06 - The Courtship of Miles Gronk - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145511793,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E06%20-%20The%20Courtship%20of%20Miles%20Gronk%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e07",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Champ",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-10-23",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E07 - The Champ - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144540906,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E07%20-%20The%20Champ%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e08",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Mark Your Ballots",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-10-30",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E08 - Mark Your Ballots - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145883887,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E08%20-%20Mark%20Your%20Ballots%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e09",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Have I Got a Girl for You",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-11-06",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E09 - Have I Got a Girl for You - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 147640268,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E09%20-%20Have%20I%20Got%20a%20Girl%20for%20You%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e10",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Cave Movies",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-11-13",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E10 - Cave Movies - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 143398701,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E10%20-%20Cave%20Movies%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e11",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Androcles and Clon",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-11-20",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E11 - Androcles and Clon - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144477359,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E11%20-%20Androcles%20and%20Clon%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e12",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Love Me, Love My Gnook",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-11-27",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E12 - Love Me, Love My Gnook - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145026318,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E12%20-%20Love%20Me%2C%20Love%20My%20Gnook%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e13",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "The Broken Idol",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-12-04",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E13 - The Broken Idol - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145943263,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E13%20-%20The%20Broken%20Idol%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e14",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "The Sacrifice",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-12-11",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E14 - The Sacrifice - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145712933,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E14%20-%20The%20Sacrifice%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e15",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "King Hec",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1966-12-18",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E15 - King Hec - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144270920,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E15%20-%20King%20Hec%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e16",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Mother-in-Law",
+     "overview": "The cavemen deal with Gronk's mother-in-law as she pays her family a visit.",
+     "stillURL": null,
+     "airDate": "1966-12-25",
+     "year": 1966,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E16 - The Mother-in-Law - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144656769,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E16%20-%20The%20Mother-in-Law%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e17",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Which Doctor's Witch?",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-01-01",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E17 - Which Doctor's Witch - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144226955,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E17%20-%20Which%20Doctor%27s%20Witch%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e18",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "To Catch a Thief",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-01-08",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E18 - To Catch a Thief - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 142220073,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E18%20-%20To%20Catch%20a%20Thief%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e19",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "The Stowaway",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-04-02",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E19 - The Stowaway - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145477899,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E19%20-%20The%20Stowaway%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e20",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "20th Century Here We Come",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-01-22",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E20 - 20th Century Here We Come - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145845166,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E20%20-%2020th%20Century%20Here%20We%20Come%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e21",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Shad Rack and Other Tortures",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-01-29",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E21 - Shad Rack and Other Tortures - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 146807799,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E21%20-%20Shad%20Rack%20and%20Other%20Tortures%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e22",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Cave Family Swingers",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-02-05",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E22 - The Cave Family Swingers - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 143668677,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E22%20-%20The%20Cave%20Family%20Swingers%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e23",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "To Sign or Not to Sign",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-02-19",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E23 - To Sign or Not to Sign - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 144545669,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E23%20-%20To%20Sign%20or%20Not%20to%20Sign%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e24",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "School Days, School Days",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-02-26",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E24 - School Days, School Days - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145612466,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E24%20-%20School%20Days%2C%20School%20Days%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e25",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Our Brothers' Keepers",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-03-05",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E25 - Our Brothers' Keepers - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 145323912,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E25%20-%20Our%20Brothers%27%20Keepers%20-%20480p%201.0%20HDTV%20h265.mp4"
+    },
+    {
+     "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265@s1e26",
+     "sourceID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "The Stone Age Diplomats",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-03-12",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "It's About Time/Season 01/It's About Time (1966) - S01E26 - The Stone Age Diplomats - 480p 1.0 HDTV h265.mp4",
+      "format": "h.264",
+      "sizeBytes": 146382094,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E26%20-%20The%20Stone%20Age%20Diplomats%20-%20480p%201.0%20HDTV%20h265.mp4"
     }
-  ],
-  "episodesCount": 26,
-  "canonicalEpisodesCount": 26,
-  "tvmazeRating": null,
-  "tvdbID": "77540",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Jack Mullaney",
-      "character": "Hector",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265690/photo/64943c801a66b.jpg"
-    },
-    {
-      "name": "Pat Cardi",
-      "character": "Breer",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Mary Grace",
-      "character": "Mlor",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Cliff Norton",
-      "character": "Boss",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "Imogene Coca",
-      "character": "Shadd",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257516/photo/64b9a4d94b07b.jpg"
-    },
-    {
-      "name": "Joe E. Ross",
-      "character": "Gronk",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276907/photo/63f9f9aa0a5c3.jpg"
-    },
-    {
-      "name": "Frank Aletter",
-      "character": "Mac",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256881/photo/63b34f41a43df.jpg"
-    },
-    {
-      "name": "Mike Mazurki",
-      "character": "Clon",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265071/photo/6493b21276b9b.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 26,
+ "canonicalEpisodesCount": 26,
+ "tvmazeRating": null,
+ "tvdbID": "77540",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Jack Mullaney",
+   "character": "Hector",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265690/photo/64943c801a66b.jpg"
+  },
+  {
+   "name": "Pat Cardi",
+   "character": "Breer",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Mary Grace",
+   "character": "Mlor",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Cliff Norton",
+   "character": "Boss",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "Imogene Coca",
+   "character": "Shadd",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257516/photo/64b9a4d94b07b.jpg"
+  },
+  {
+   "name": "Joe E. Ross",
+   "character": "Gronk",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276907/photo/63f9f9aa0a5c3.jpg"
+  },
+  {
+   "name": "Frank Aletter",
+   "character": "Mac",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256881/photo/63b34f41a43df.jpg"
+  },
+  {
+   "name": "Mike Mazurki",
+   "character": "Clon",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265071/photo/6493b21276b9b.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0059997",
+ "imdbRating": 6.0,
+ "imdbVotes": 588
 }

@@ -1,304 +1,307 @@
 {
-  "version": 2,
-  "seriesID": "monster-squad-1976",
-  "tvmazeID": 11227,
-  "title": "Monster Squad",
-  "yearStart": 1976,
-  "yearEnd": 1976,
-  "overview": "Dracula is alive. In fact, he plans to rule the world and that is why he seeks the help of other legendary monsters. However, a bunch of kids regarded by their peers as losers uncover the devious plan and prepare for a counter strike.",
-  "posterURL": "https://artworks.thetvdb.com/banners/series/76972/posters/62031505.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "monster-squad-1976",
+ "tvmazeID": 11227,
+ "title": "Monster Squad",
+ "yearStart": 1976,
+ "yearEnd": 1976,
+ "overview": "Dracula is alive. In fact, he plans to rule the world and that is why he seeks the help of other legendary monsters. However, a bunch of kids regarded by their peers as losers uncover the devious plan and prepare for a counter strike.",
+ "posterURL": "https://artworks.thetvdb.com/banners/series/76972/posters/62031505.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e01",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Queen Bee",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E01%20-%20Queen%20Bee_000499.jpg",
-          "airDate": "1976-09-11",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E01 - Queen Bee.mp4",
-            "format": "h.264",
-            "sizeBytes": 135835884,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E01%20-%20Queen%20Bee.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e02",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Mr. Mephisto",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E02%20-%20Mr.%20Mephisto_000495.jpg",
-          "airDate": "1976-09-18",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E02 - Mr. Mephisto.mp4",
-            "format": "h.264",
-            "sizeBytes": 135354242,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E02%20-%20Mr.%20Mephisto.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e03",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Tickler",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E03%20-%20The%20Tickler_000565.jpg",
-          "airDate": "1976-09-25",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E03 - The Tickler.mp4",
-            "format": "h.264",
-            "sizeBytes": 134792638,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E03%20-%20The%20Tickler.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e04",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Ringmaster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E04%20-%20The%20Ringmaster_000500.jpg",
-          "airDate": "1976-10-02",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E04 - The Ringmaster.mp4",
-            "format": "h.264",
-            "sizeBytes": 135131130,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E04%20-%20The%20Ringmaster.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e05",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Music Man",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E05%20-%20Music%20Mane_000501.jpg",
-          "airDate": "1976-10-09",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E05 - Music Mane.mp4",
-            "format": "h.264",
-            "sizeBytes": 134739409,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E05%20-%20Music%20Mane.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e06",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "No Face",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E06%20-No%20Facee_000496.jpg",
-          "airDate": "1976-10-16",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E06 -No Facee.mp4",
-            "format": "h.264",
-            "sizeBytes": 134679758,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E06%20-No%20Facee.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e07",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Astrologer",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E07%20-%20The%20Astrologer_000508.jpg",
-          "airDate": "1976-10-23",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E07 - The Astrologer.mp4",
-            "format": "h.264",
-            "sizeBytes": 138641125,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E07%20-%20The%20Astrologer.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e08",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Ultra Witch",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E08%20-%20Ultra%20Witch_000499.jpg",
-          "airDate": "1976-10-30",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E08 - Ultra Witch.mp4",
-            "format": "h.264",
-            "sizeBytes": 135156102,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E08%20-%20Ultra%20Witch.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e09",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Wizard",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E09%20-%20The%20Wizard_000503.jpg",
-          "airDate": "1976-11-16",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E09 - The Wizard.mp4",
-            "format": "h.264",
-            "sizeBytes": 135318947,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E09%20-%20The%20Wizard.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e10",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "The Skull",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E10%20-%20The%20Skull_000500.jpg",
-          "airDate": "1976-11-13",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E10 - The Skull.mp4",
-            "format": "h.264",
-            "sizeBytes": 134834858,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E10%20-%20The%20Skull.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e11",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Weatherman",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E11%20-%20The%20Weatherman_000496.jpg",
-          "airDate": "1976-11-20",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E11 - The Weatherman.mp4",
-            "format": "h.264",
-            "sizeBytes": 135954449,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E11%20-%20The%20Weatherman.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e12",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Lawrence of Moravia",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E12%20-%20Lawrence%20of%20Moravia_000499.jpg",
-          "airDate": "1976-11-27",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E12 - Lawrence of Moravia.mp4",
-            "format": "h.264",
-            "sizeBytes": 135140700,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E12%20-%20Lawrence%20of%20Moravia.mp4"
-        },
-        {
-          "archiveID": "monster-squad-complete-series-1976@s1e13",
-          "sourceID": "monster-squad-complete-series-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Albert/Alberta",
-          "overview": null,
-          "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E13%20-%20Albert-Alberta_000511.jpg",
-          "airDate": "1976-12-04",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Monster Squad S01E13 - Albert-Alberta.mp4",
-            "format": "h.264",
-            "sizeBytes": 138530673,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E13%20-%20Albert-Alberta.mp4"
-        }
-      ]
+     "archiveID": "monster-squad-complete-series-1976@s1e01",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Queen Bee",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E01%20-%20Queen%20Bee_000499.jpg",
+     "airDate": "1976-09-11",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E01 - Queen Bee.mp4",
+      "format": "h.264",
+      "sizeBytes": 135835884,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E01%20-%20Queen%20Bee.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e02",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Mr. Mephisto",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E02%20-%20Mr.%20Mephisto_000495.jpg",
+     "airDate": "1976-09-18",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E02 - Mr. Mephisto.mp4",
+      "format": "h.264",
+      "sizeBytes": 135354242,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E02%20-%20Mr.%20Mephisto.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e03",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Tickler",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E03%20-%20The%20Tickler_000565.jpg",
+     "airDate": "1976-09-25",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E03 - The Tickler.mp4",
+      "format": "h.264",
+      "sizeBytes": 134792638,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E03%20-%20The%20Tickler.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e04",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Ringmaster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E04%20-%20The%20Ringmaster_000500.jpg",
+     "airDate": "1976-10-02",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E04 - The Ringmaster.mp4",
+      "format": "h.264",
+      "sizeBytes": 135131130,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E04%20-%20The%20Ringmaster.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e05",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Music Man",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E05%20-%20Music%20Mane_000501.jpg",
+     "airDate": "1976-10-09",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E05 - Music Mane.mp4",
+      "format": "h.264",
+      "sizeBytes": 134739409,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E05%20-%20Music%20Mane.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e06",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "No Face",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E06%20-No%20Facee_000496.jpg",
+     "airDate": "1976-10-16",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E06 -No Facee.mp4",
+      "format": "h.264",
+      "sizeBytes": 134679758,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E06%20-No%20Facee.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e07",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Astrologer",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E07%20-%20The%20Astrologer_000508.jpg",
+     "airDate": "1976-10-23",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E07 - The Astrologer.mp4",
+      "format": "h.264",
+      "sizeBytes": 138641125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E07%20-%20The%20Astrologer.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e08",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Ultra Witch",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E08%20-%20Ultra%20Witch_000499.jpg",
+     "airDate": "1976-10-30",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E08 - Ultra Witch.mp4",
+      "format": "h.264",
+      "sizeBytes": 135156102,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E08%20-%20Ultra%20Witch.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e09",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Wizard",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E09%20-%20The%20Wizard_000503.jpg",
+     "airDate": "1976-11-16",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E09 - The Wizard.mp4",
+      "format": "h.264",
+      "sizeBytes": 135318947,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E09%20-%20The%20Wizard.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e10",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "The Skull",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E10%20-%20The%20Skull_000500.jpg",
+     "airDate": "1976-11-13",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E10 - The Skull.mp4",
+      "format": "h.264",
+      "sizeBytes": 134834858,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E10%20-%20The%20Skull.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e11",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Weatherman",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E11%20-%20The%20Weatherman_000496.jpg",
+     "airDate": "1976-11-20",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E11 - The Weatherman.mp4",
+      "format": "h.264",
+      "sizeBytes": 135954449,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E11%20-%20The%20Weatherman.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e12",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Lawrence of Moravia",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E12%20-%20Lawrence%20of%20Moravia_000499.jpg",
+     "airDate": "1976-11-27",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E12 - Lawrence of Moravia.mp4",
+      "format": "h.264",
+      "sizeBytes": 135140700,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E12%20-%20Lawrence%20of%20Moravia.mp4"
+    },
+    {
+     "archiveID": "monster-squad-complete-series-1976@s1e13",
+     "sourceID": "monster-squad-complete-series-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Albert/Alberta",
+     "overview": null,
+     "stillURL": "https://archive.org/download/monster-squad-complete-series-1976/monster-squad-complete-series-1976.thumbs/Monster%20Squad%20S01E13%20-%20Albert-Alberta_000511.jpg",
+     "airDate": "1976-12-04",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Monster Squad S01E13 - Albert-Alberta.mp4",
+      "format": "h.264",
+      "sizeBytes": 138530673,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/monster-squad-complete-series-1976/Monster%20Squad%20S01E13%20-%20Albert-Alberta.mp4"
     }
-  ],
-  "episodesCount": 13,
-  "canonicalEpisodesCount": 13,
-  "tvmazeRating": null,
-  "tvdbID": "76972",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Buck Kartalian",
-      "character": "Bruce W. Wolf",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1486519.jpg"
-    },
-    {
-      "name": "Henry Polic II",
-      "character": "Dracula",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/70611.jpg"
-    },
-    {
-      "name": "Mike Lane",
-      "character": "Frank N. Stein",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/78/196695.jpg"
-    },
-    {
-      "name": "Fred Grandy",
-      "character": "Walter",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/67269.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 13,
+ "canonicalEpisodesCount": 13,
+ "tvmazeRating": null,
+ "tvdbID": "76972",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Buck Kartalian",
+   "character": "Bruce W. Wolf",
+   "order": 0,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1486519.jpg"
+  },
+  {
+   "name": "Henry Polic II",
+   "character": "Dracula",
+   "order": 1,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/70611.jpg"
+  },
+  {
+   "name": "Mike Lane",
+   "character": "Frank N. Stein",
+   "order": 2,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/78/196695.jpg"
+  },
+  {
+   "name": "Fred Grandy",
+   "character": "Walter",
+   "order": 3,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/67269.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0128000",
+ "imdbRating": 7.2,
+ "imdbVotes": 274
 }

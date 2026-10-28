@@ -57,7 +57,8 @@ class CatalogDatabase private constructor(
             "i.director,i.numFavorites,i.avgRating"
         /** A grid's ORDER BY over `items i` (Apple `CatalogDB.browseSQL`).
          *  `demote` is the editorial demotion prefix (empty or ending ", "). */
-        fun orderSQL(sort: BrowseSort, hasTVmazeRating: Boolean, demote: String = ""): String =
+        fun orderSQL(sort: BrowseSort, hasTVmazeRating: Boolean, demote: String = "",
+                     hasRatingRank: Boolean = false): String =
             when (sort) {
                 // Designed (professional) artwork first, then popularity; series
                 // cards have NULL popularityScore, so episodesCount breaks their ties.
@@ -65,11 +66,17 @@ class CatalogDatabase private constructor(
                     "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
                     "COALESCE(i.popularityScore, 0) DESC, " +
                     "COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"
-                // A series card carries TVmaze's rating (no series has IMDb's).
-                // Every tie is broken: with none, ~400 unrated series came back
-                // in insertion (slug) order and read as A–Z (2026-10-25).
+                // The pipeline's rank (Decision 171): the largest crowd's rating
+                // against that crowd's own average, discounted for a small crowd,
+                // so an 8.6 from 90,000 votes leads a 9.2 from 13. An older DB
+                // orders by the raw rating. Every tie is broken: with none, ~400
+                // unrated series came back in slug order and read as A–Z.
                 BrowseSort.RATING -> {
-                    val r = if (hasTVmazeRating) "COALESCE(i.imdbRating, i.tvmazeRating)" else "i.imdbRating"
+                    val r = when {
+                        hasRatingRank -> "i.ratingRank"
+                        hasTVmazeRating -> "COALESCE(i.imdbRating, i.tvmazeRating)"
+                        else -> "i.imdbRating"
+                    }
                     demote + "$r IS NULL, $r DESC, COALESCE(i.imdbVotes, 0) DESC, " +
                         "COALESCE(i.episodesCount, 0) DESC, i.title COLLATE NOCASE ASC"
                 }
@@ -288,9 +295,14 @@ class CatalogDatabase private constructor(
         false
     }
 
-    /** `tvmazeRating` is the newest column; a cached older DB lacks it. */
+    /** `tvmazeRating` and `ratingRank` are the newest columns; a cached older DB lacks them. */
     private val hasTVmazeRatingColumn: Boolean = try {
         queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("tvmazeRating")
+    } catch (_: Throwable) {
+        false
+    }
+    private val hasRatingRankColumn: Boolean = try {
+        queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("ratingRank")
     } catch (_: Throwable) {
         false
     }
@@ -427,7 +439,7 @@ class CatalogDatabase private constructor(
         val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, heroOnly, runtime)
         val where = where0 + docAnd + (if (recommendOnly) noRecAnd else "")
         val (joins, joinBinds) = facetJoins(gn, keyword, studio)
-        val order = orderSQL(sort, hasTVmazeRatingColumn, demoteOrder)
+        val order = orderSQL(sort, hasTVmazeRatingColumn, demoteOrder, hasRatingRankColumn)
         // `full` decodes the per-item blob: only for callers that need fields a
         // list row does not carry (downloadURL, colorMode, synopsis) — Party
         // Play and Cartoon Mode build PLAYABLE lineups and filter on colour, so
@@ -640,7 +652,7 @@ class CatalogDatabase private constructor(
      *  (a 500 cap ended A–Z partway: 489 TVmaze spines + 141 one-item series, Decision 166). */
     suspend fun seriesCards(sort: BrowseSort? = null, limit: Int = 2000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE i.contentType = 'tv-series'$adultAnd$typeAnd" +
-            " ORDER BY " + (sort?.let { orderSQL(it, hasTVmazeRatingColumn, demoteOrder) }
+            " ORDER BY " + (sort?.let { orderSQL(it, hasTVmazeRatingColumn, demoteOrder, hasRatingRankColumn) }
                 ?: ("$demoteOrder(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC," +
                     " i.episodesCount DESC")) + " LIMIT ?",
         listOf(limit),

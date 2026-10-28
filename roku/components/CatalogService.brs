@@ -77,6 +77,7 @@ end sub
 ' Index row order (build_catalog_index.py fields):
 '   0 id  1 title  2 year  3 contentType  4 poster  5 pro  6 search  7 backdrop
 '   8 playable  9 documentary  10 rating10  11 votes  12 director  13 genres
+'   ... 18 noRecommend  19 ratingRank100 (schema 16, Decision 171)
 '
 ' Columns 10-13 arrived at schema 10. EVERY read of them is guarded, because a
 ' device that has cached an older index must keep working — the catalog is
@@ -771,6 +772,12 @@ sub runQuery()
         if not awSkip then hits.Push(r)
     end for
 
+    ' Whether this index carries the rank (schema 16). Decided before the
+    ' chain: an empty result has no first row to ask.
+    hasRank = false
+    if hits.Count() > 0
+        if hits[0].Count() > 19 then hasRank = true
+    end if
     ' §6.2 — professional posters lead. This is the Home gate (Decision 097)
     ' relaxed into an ORDERING for Browse, where hiding a film the viewer
     ' explicitly filtered for would be worse than showing a plain card.
@@ -785,10 +792,33 @@ sub runQuery()
         hits = sorted
     else if sort = "newest" or sort = "oldest"
         hits = sortByYear(hits, sort = "oldest")
+    else if sort = "rating" and hasRank
+        ' Top Rated by the pipeline's rank, index column 19 (Decision 171): the
+        ' largest crowd's rating against that crowd's own average, discounted
+        ' for a small crowd, so a single 10/10 cannot outrank Citizen Kane and
+        ' no vote floor is needed. Unrated titles stay at the tail, as in the
+        ' apps, in the order they arrived.
+        rated = []
+        rest = []
+        for each r in hits
+            if r[19] <> invalid
+                rated.Push({ s: Int(r[19]), r: r })
+            else
+                rest.Push(r)
+            end if
+        end for
+        rated.SortBy("s", "r")
+        hits = []
+        for each w in rated
+            hits.Push(w.r)
+        end for
+        for each r in rest
+            hits.Push(r)
+        end for
     else if sort = "rating"
-        ' Top Rated. A vote floor is not optional: without it a single 10/10
-        ' rating outranks Citizen Kane, which is the exact bug Decision 050
-        ' records on the apps.
+        ' Top Rated on an index from before the rank. A vote floor is not
+        ' optional: without it a single 10/10 rating outranks Citizen Kane,
+        ' which is the exact bug Decision 050 records on the apps.
         ' A series has no IMDb votes; its rating is TVmaze's (2026-10-27), a
         ' different scale's average, so the floor that keeps a dozen-vote film
         ' below Citizen Kane does not apply to it.

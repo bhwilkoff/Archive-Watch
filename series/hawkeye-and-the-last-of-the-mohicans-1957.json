@@ -1,171 +1,174 @@
 {
-  "version": 2,
-  "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
-  "tvmazeID": 28385,
-  "title": "Hawkeye and the Last of the Mohicans",
-  "yearStart": 1957,
-  "yearEnd": 1957,
-  "overview": "Hawkeye and the Last of the Mohicans is a western series set in the 1750's during the French and Indian War in the Hudson Valley. The two main characters were Nat \"Hawkeye\" Cutler, a scout and first of the \"long rifles\" and his Indian blood brother Chingachgook, the last living member of the Mohican tribe. Together, they fight to protect settlers against the raiding Huron Indians.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78331-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Adventure",
-    "Western"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+ "tvmazeID": 28385,
+ "title": "Hawkeye and the Last of the Mohicans",
+ "yearStart": 1957,
+ "yearEnd": 1957,
+ "overview": "Hawkeye and the Last of the Mohicans is a western series set in the 1750's during the French and Indian War in the Hudson Valley. The two main characters were Nat \"Hawkeye\" Cutler, a scout and first of the \"long rifles\" and his Indian blood brother Chingachgook, the last living member of the Mohican tribe. Together, they fight to protect settlers against the raiding Huron Indians.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/78331-2.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Adventure",
+  "Western"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e01-hawkeyes-homecoming",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Hawkeye's Homecoming",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e01-hawkeyes-homecoming",
-          "airDate": "1957-04-03",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e01 Hawkeyes Homecoming.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 238453268,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e01-hawkeyes-homecoming/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e01%20Hawkeyes%20Homecoming.mp4"
-        },
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e02-the-threat",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Threat",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e02-the-threat",
-          "airDate": "1957-04-10",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e02 The Threat.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 289695993,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e02-the-threat/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e02%20The%20Threat.mp4"
-        },
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e03-the-franklin-story",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Franklin Story",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e03-the-franklin-story",
-          "airDate": "1957-04-17",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e03 The Franklin Story.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 193331603,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e03-the-franklin-story/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e03%20The%20Franklin%20Story.mp4"
-        },
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e04-the-wild-one",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Wild One",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e04-the-wild-one",
-          "airDate": "1957-04-24",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e04 The Wild One.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 185960630,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e04-the-wild-one/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e04%20The%20Wild%20One.mp4"
-        },
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e05-the-delaware-hoax",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Delaware Hoax",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e05-the-delaware-hoax",
-          "airDate": "1957-05-01",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e05 The Delaware Hoax.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 255292172,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e05-the-delaware-hoax/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e05%20The%20Delaware%20Hoax.mp4"
-        },
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e06-the-coward",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Coward",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e06-the-coward",
-          "airDate": "1957-05-08",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e06 The Coward.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 249676924,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e06-the-coward/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e06%20The%20Coward.mp4"
-        },
-        {
-          "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e07-the-ethan-allen-story",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Ethan Allen Story",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e07-the-ethan-allen-story",
-          "airDate": "1957-05-15",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e07 The Ethan Allen Story.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 229257629,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e07-the-ethan-allen-story/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e07%20The%20Ethan%20Allen%20Story.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 7,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": null,
-  "tvdbID": "78331",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Lon Chaney Jr.",
-      "character": "",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260611/photo/6233e37562702.jpg"
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e01-hawkeyes-homecoming",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Hawkeye's Homecoming",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e01-hawkeyes-homecoming",
+     "airDate": "1957-04-03",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e01 Hawkeyes Homecoming.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 238453268,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e01-hawkeyes-homecoming/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e01%20Hawkeyes%20Homecoming.mp4"
     },
     {
-      "name": "John Hart",
-      "character": "",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264478/photo/62ed51353e0da.jpg"
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e02-the-threat",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Threat",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e02-the-threat",
+     "airDate": "1957-04-10",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e02 The Threat.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 289695993,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e02-the-threat/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e02%20The%20Threat.mp4"
+    },
+    {
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e03-the-franklin-story",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Franklin Story",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e03-the-franklin-story",
+     "airDate": "1957-04-17",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e03 The Franklin Story.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 193331603,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e03-the-franklin-story/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e03%20The%20Franklin%20Story.mp4"
+    },
+    {
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e04-the-wild-one",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Wild One",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e04-the-wild-one",
+     "airDate": "1957-04-24",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e04 The Wild One.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 185960630,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e04-the-wild-one/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e04%20The%20Wild%20One.mp4"
+    },
+    {
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e05-the-delaware-hoax",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Delaware Hoax",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e05-the-delaware-hoax",
+     "airDate": "1957-05-01",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e05 The Delaware Hoax.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 255292172,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e05-the-delaware-hoax/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e05%20The%20Delaware%20Hoax.mp4"
+    },
+    {
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e06-the-coward",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Coward",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e06-the-coward",
+     "airDate": "1957-05-08",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e06 The Coward.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 249676924,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e06-the-coward/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e06%20The%20Coward.mp4"
+    },
+    {
+     "archiveID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e07-the-ethan-allen-story",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Ethan Allen Story",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e07-the-ethan-allen-story",
+     "airDate": "1957-05-15",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Hawkeye and the Last of the Mohicans TV 1957 colorized s01e07 The Ethan Allen Story.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 229257629,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/hawkeye-and-the-last-of-the-mohicans-tv-1957-s01e07-the-ethan-allen-story/Hawkeye%20and%20the%20Last%20of%20the%20Mohicans%20TV%201957%20colorized%20s01e07%20The%20Ethan%20Allen%20Story.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 7,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": null,
+ "tvdbID": "78331",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Lon Chaney Jr.",
+   "character": "",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260611/photo/6233e37562702.jpg"
+  },
+  {
+   "name": "John Hart",
+   "character": "",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264478/photo/62ed51353e0da.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0050026",
+ "imdbRating": 7.3,
+ "imdbVotes": 267
 }

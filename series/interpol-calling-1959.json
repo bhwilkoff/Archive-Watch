@@ -1,810 +1,813 @@
 {
-  "version": 2,
-  "seriesID": "interpol-calling-1959",
-  "tvmazeID": 42815,
-  "title": "Interpol Calling",
-  "yearStart": 1959,
-  "yearEnd": 1960,
-  "overview": "Follow the adventures of Interpol policemen Duval and Mornay as they fight against international drug-running, homicide, robbery and forgery. Opening titles voice-over: \"Crime knows no frontiers. To combat the growing menace of the international criminal, the police forces of the world have opened up their own national boundaries. At their headquarters in Paris, scientifically equipped to match the speed of the jet age, sixty-three nations have linked together to form the International Criminal Police Organization, INTERPOL!\"",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/73828-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Crime"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "interpol-calling-1959",
+ "tvmazeID": 42815,
+ "title": "Interpol Calling",
+ "yearStart": 1959,
+ "yearEnd": 1960,
+ "overview": "Follow the adventures of Interpol policemen Duval and Mornay as they fight against international drug-running, homicide, robbery and forgery. Opening titles voice-over: \"Crime knows no frontiers. To combat the growing menace of the international criminal, the police forces of the world have opened up their own national boundaries. At their headquarters in Paris, scientifically equipped to match the speed of the jet age, sixty-three nations have linked together to form the International Criminal Police Organization, INTERPOL!\"",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/73828-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e01",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Thirteen Innocents",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E01%20-%20The%20Thirteen%20Innocents_000844.jpg",
-          "airDate": "1959-09-13",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E01 - The Thirteen Innocents.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 250831922,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E01%20-%20The%20Thirteen%20Innocents.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e02",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Money Game",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E02%20-%20The%20Money%20Game_000849.jpg",
-          "airDate": "1959-09-20",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E02 - The Money Game.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 218441705,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E02%20-%20The%20Money%20Game.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e03",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Sleeping Giant",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E03%20-%20The%20Sleeping%20Giant_000845.jpg",
-          "airDate": "1959-09-27",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E03 - The Sleeping Giant.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 236771068,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E03%20-%20The%20Sleeping%20Giant.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e04",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Two-Headed Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E04%20-%20The%20Two-Headed%20Monster_000844.jpg",
-          "airDate": "1959-10-04",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E04 - The Two-Headed Monster.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 244397883,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E04%20-%20The%20Two-Headed%20Monster.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e05",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Long Weekend",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E05%20-%20The%20Long%20Weekend_000842.jpg",
-          "airDate": "1959-10-11",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E05 - The Long Weekend.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 241020019,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E05%20-%20The%20Long%20Weekend.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e06",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "You Can't Die Twice",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E06%20-%20You%20Can%27t%20Die%20Twice_000842.jpg",
-          "airDate": "1959-10-18",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E06 - You Can't Die Twice.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 246527415,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E06%20-%20You%20Can%27t%20Die%20Twice.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e07",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Diamond S.O.S.",
-          "overview": "A young woman masquerading as a wealthy celebrity, along with her partners pretending to be detectives, has orchestrated a series of bold heists targeting high-end gemstones. News of this clever con reaches Inspector Duval.",
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E07%20-%20Diamond%20S.O.S._000842.jpg",
-          "airDate": "1959-10-25",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E07 - Diamond S.O.S..mp4",
-            "format": "MPEG4",
-            "sizeBytes": 227750257,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E07%20-%20Diamond%20S.O.S..mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e08",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Private View",
-          "overview": "A group of valuable paintings is stolen from a London penthouse.",
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E08%20-%20Private%20View_000844.jpg",
-          "airDate": "1959-11-01",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E08 - Private View.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 177710341,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E08%20-%20Private%20View.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e09",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Dead on Arrival",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E09%20-%20Dead%20on%20Arrival_000840.jpg",
-          "airDate": "1959-11-08",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E09 - Dead on Arrival.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 271716869,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E09%20-%20Dead%20on%20Arrival.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e10",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Air Switch",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E10%20-%20Air%20Switch_000845.jpg",
-          "airDate": "1959-11-15",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E10 - Air Switch.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 233999127,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E10%20-%20Air%20Switch.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e11",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Angola Brights",
-          "overview": "Martin Bekker, a Dutch national working at a diamond mine in Angola, steals four uncut matched diamonds. To facilitate his escape, he detonates explosives in the mine, resulting in the deaths of many employees. Inspector Duval is tasked with investigating the case.",
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E11%20-%20The%20Angola%20Brights_000840.jpg",
-          "airDate": "1959-11-22",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E11 - The Angola Brights.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 261272131,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E11%20-%20The%20Angola%20Brights.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e12",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Chinese Mask",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E12%20-%20The%20Chinese%20Mask_000845.jpg",
-          "airDate": "1959-11-29",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E12 - The Chinese Mask.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 253380574,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E12%20-%20The%20Chinese%20Mask.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e13",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Slave Ship",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E13%20-%20Slave%20Ship_000842.jpg",
-          "airDate": "1959-12-06",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E13 - Slave Ship.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 190606074,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E13%20-%20Slave%20Ship.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e14",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "The Man's a Clown",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E14%20-%20The%20Man%27s%20a%20Clown_000851.jpg",
-          "airDate": "1959-12-13",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E14 - The Man's a Clown.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 323515981,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E14%20-%20The%20Man%27s%20a%20Clown.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e15",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Last Man Lucky",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E15%20-%20Last%20Man%20Lucky_000848.jpg",
-          "airDate": "1959-12-20",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E15 - Last Man Lucky.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 245553045,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E15%20-%20Last%20Man%20Lucky.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e16",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "No Flowers for Onno",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E16%20-%20No%20Flowers%20for%20Onno_000846.jpg",
-          "airDate": "1959-12-27",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E16 - No Flowers for Onno.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 180953894,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E16%20-%20No%20Flowers%20for%20Onno.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e17",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Mr. George",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E17%20-%20Mr.%20George_000844.jpg",
-          "airDate": "1960-01-03",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E17 - Mr. George.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 244229378,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E17%20-%20Mr.%20George.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e18",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "The Thousand Mile Alibi",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E18%20-%20The%20Thousand%20Mile%20Alibi_000843.jpg",
-          "airDate": "1960-01-10",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E18 - The Thousand Mile Alibi.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 273674449,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E18%20-%20The%20Thousand%20Mile%20Alibi.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e19",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Act of Piracy",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E19%20-%20Act%20of%20Piracy_000843.jpg",
-          "airDate": "1960-01-17",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E19 - Act of Piracy.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 218419922,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E19%20-%20Act%20of%20Piracy.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e20",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Game for Three Hands",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E20%20-%20Game%20for%20Three%20Hands_000847.jpg",
-          "airDate": "1960-01-24",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E20 - Game for Three Hands.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 258768014,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E20%20-%20Game%20for%20Three%20Hands.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e21",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "The Collector",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E21%20-%20The%20Collector_000845.jpg",
-          "airDate": "1960-01-31",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E21 - The Collector.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 213596210,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E21%20-%20The%20Collector.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e22",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The Heiress",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E22%20-%20The%20Heiress_000851.jpg",
-          "airDate": "1960-02-07",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E22 - The Heiress.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 267641303,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E22%20-%20The%20Heiress.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e23",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Payment in Advance",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E23%20-%20Payment%20in%20Advance_000837.jpg",
-          "airDate": "1960-02-14",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E23 - Payment in Advance.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 246910944,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E23%20-%20Payment%20in%20Advance.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e24",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Checkmate",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E24%20-%20Checkmate_000845.jpg",
-          "airDate": "1960-02-21",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E24 - Checkmate.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 232039601,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E24%20-%20Checkmate.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e25",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Fingers of Guilt",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E25%20-%20Fingers%20of%20Guilt_000842.jpg",
-          "airDate": "1960-02-28",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E25 - Fingers of Guilt.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 222249451,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E25%20-%20Fingers%20of%20Guilt.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e26",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "The Girl with Grey Hair",
-          "overview": "A beautiful girl with grey hair holds the key to the mysterious disappearance of a famous artist: Duval scours Europe in search of her.",
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E26%20-%20The%20Girl%20with%20Grey%20Hair_000845.jpg",
-          "airDate": "1960-03-06",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E26 - The Girl with Grey Hair.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 252163585,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E26%20-%20The%20Girl%20with%20Grey%20Hair.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e27",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 27,
-          "title": "Trial at Cranby's Creek",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E27%20-%20Trial%20at%20Cranby%27s%20Creek_000839.jpg",
-          "airDate": "1960-03-13",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E27 - Trial at Cranby's Creek.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 229912882,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E27%20-%20Trial%20at%20Cranby%27s%20Creek.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e28",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "Ascent to Murder",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E28%20-%20Ascent%20to%20Murder_000850.jpg",
-          "airDate": "1960-03-20",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E28 - Ascent to Murder.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 211366812,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E28%20-%20Ascent%20to%20Murder.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e29",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 29,
-          "title": "Slow Boat to Amsterdam",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E29%20-%20Slow%20Boat%20to%20Amsterdam_000843.jpg",
-          "airDate": "1960-03-27",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E29 - Slow Boat to Amsterdam.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 224644558,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E29%20-%20Slow%20Boat%20to%20Amsterdam.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e30",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "White Blackmail",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E30%20-%20White%20Blackmail_000847.jpg",
-          "airDate": "1960-04-03",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E30 - White Blackmail.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 237908454,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E30%20-%20White%20Blackmail.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e31",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 31,
-          "title": "A Foreign Body",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E31%20-%20A%20Foreign%20Body_000847.jpg",
-          "airDate": "1960-04-10",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E31 - A Foreign Body.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 284169850,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E31%20-%20A%20Foreign%20Body.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e32",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 32,
-          "title": "In the Swim",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E32%20-%20In%20the%20Swim_000841.jpg",
-          "airDate": "1960-04-17",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E32 - In the Swim.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 213352807,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E32%20-%20In%20the%20Swim.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e33",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 33,
-          "title": "The Three Keys",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E33%20-%20The%20Three%20Keys_000848.jpg",
-          "airDate": "1960-04-24",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E33 - The Three Keys.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 235530723,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E33%20-%20The%20Three%20Keys.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e34",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 34,
-          "title": "Eight Days Inclusive",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E34%20-%20Eight%20Days%20Inclusive_000849.jpg",
-          "airDate": "1960-05-01",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E34 - Eight Days Inclusive.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 249882703,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E34%20-%20Eight%20Days%20Inclusive.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e35",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 35,
-          "title": "Dressed to Kill",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E35%20-%20Dressed%20to%20Kill_000845.jpg",
-          "airDate": "1960-05-08",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E35 - Dressed to Kill.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 246989381,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E35%20-%20Dressed%20to%20Kill.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e36",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 36,
-          "title": "Cargo of Death",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E36%20-%20Cargo%20of%20Death_000849.jpg",
-          "airDate": "1960-05-15",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E36 - Cargo of Death.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 241047739,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E36%20-%20Cargo%20of%20Death.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e37",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 37,
-          "title": "Desert Hi-Jack",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E37%20-%20Desert%20Hi-Jack_000838.jpg",
-          "airDate": "1960-05-22",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E37 - Desert Hi-Jack.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 311959926,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E37%20-%20Desert%20Hi-Jack.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e38",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 38,
-          "title": "Pipeline",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E38%20-%20Pipeline_000844.jpg",
-          "airDate": "1960-05-29",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E38 - Pipeline.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 282580375,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E38%20-%20Pipeline.mp4"
-        },
-        {
-          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e39",
-          "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
-          "seasonNumber": 1,
-          "episodeNumber": 39,
-          "title": "The Absent Assassin",
-          "overview": null,
-          "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E39%20-%20The%20Absent%20Assassin_000841.jpg",
-          "airDate": "1960-06-05",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Interpol Calling - S01E39 - The Absent Assassin.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 256891449,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E39%20-%20The%20Absent%20Assassin.mp4"
-        }
-      ]
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e01",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Thirteen Innocents",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E01%20-%20The%20Thirteen%20Innocents_000844.jpg",
+     "airDate": "1959-09-13",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E01 - The Thirteen Innocents.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 250831922,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E01%20-%20The%20Thirteen%20Innocents.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e02",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Money Game",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E02%20-%20The%20Money%20Game_000849.jpg",
+     "airDate": "1959-09-20",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E02 - The Money Game.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 218441705,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E02%20-%20The%20Money%20Game.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e03",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Sleeping Giant",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E03%20-%20The%20Sleeping%20Giant_000845.jpg",
+     "airDate": "1959-09-27",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E03 - The Sleeping Giant.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 236771068,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E03%20-%20The%20Sleeping%20Giant.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e04",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Two-Headed Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E04%20-%20The%20Two-Headed%20Monster_000844.jpg",
+     "airDate": "1959-10-04",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E04 - The Two-Headed Monster.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 244397883,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E04%20-%20The%20Two-Headed%20Monster.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e05",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Long Weekend",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E05%20-%20The%20Long%20Weekend_000842.jpg",
+     "airDate": "1959-10-11",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E05 - The Long Weekend.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 241020019,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E05%20-%20The%20Long%20Weekend.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e06",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "You Can't Die Twice",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E06%20-%20You%20Can%27t%20Die%20Twice_000842.jpg",
+     "airDate": "1959-10-18",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E06 - You Can't Die Twice.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 246527415,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E06%20-%20You%20Can%27t%20Die%20Twice.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e07",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Diamond S.O.S.",
+     "overview": "A young woman masquerading as a wealthy celebrity, along with her partners pretending to be detectives, has orchestrated a series of bold heists targeting high-end gemstones. News of this clever con reaches Inspector Duval.",
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E07%20-%20Diamond%20S.O.S._000842.jpg",
+     "airDate": "1959-10-25",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E07 - Diamond S.O.S..mp4",
+      "format": "MPEG4",
+      "sizeBytes": 227750257,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E07%20-%20Diamond%20S.O.S..mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e08",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Private View",
+     "overview": "A group of valuable paintings is stolen from a London penthouse.",
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E08%20-%20Private%20View_000844.jpg",
+     "airDate": "1959-11-01",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E08 - Private View.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 177710341,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E08%20-%20Private%20View.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e09",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Dead on Arrival",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E09%20-%20Dead%20on%20Arrival_000840.jpg",
+     "airDate": "1959-11-08",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E09 - Dead on Arrival.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 271716869,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E09%20-%20Dead%20on%20Arrival.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e10",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Air Switch",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E10%20-%20Air%20Switch_000845.jpg",
+     "airDate": "1959-11-15",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E10 - Air Switch.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 233999127,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E10%20-%20Air%20Switch.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e11",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Angola Brights",
+     "overview": "Martin Bekker, a Dutch national working at a diamond mine in Angola, steals four uncut matched diamonds. To facilitate his escape, he detonates explosives in the mine, resulting in the deaths of many employees. Inspector Duval is tasked with investigating the case.",
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E11%20-%20The%20Angola%20Brights_000840.jpg",
+     "airDate": "1959-11-22",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E11 - The Angola Brights.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 261272131,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E11%20-%20The%20Angola%20Brights.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e12",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Chinese Mask",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E12%20-%20The%20Chinese%20Mask_000845.jpg",
+     "airDate": "1959-11-29",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E12 - The Chinese Mask.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 253380574,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E12%20-%20The%20Chinese%20Mask.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e13",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Slave Ship",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E13%20-%20Slave%20Ship_000842.jpg",
+     "airDate": "1959-12-06",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E13 - Slave Ship.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 190606074,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E13%20-%20Slave%20Ship.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e14",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "The Man's a Clown",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E14%20-%20The%20Man%27s%20a%20Clown_000851.jpg",
+     "airDate": "1959-12-13",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E14 - The Man's a Clown.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 323515981,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E14%20-%20The%20Man%27s%20a%20Clown.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e15",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Last Man Lucky",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E15%20-%20Last%20Man%20Lucky_000848.jpg",
+     "airDate": "1959-12-20",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E15 - Last Man Lucky.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 245553045,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E15%20-%20Last%20Man%20Lucky.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e16",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "No Flowers for Onno",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E16%20-%20No%20Flowers%20for%20Onno_000846.jpg",
+     "airDate": "1959-12-27",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E16 - No Flowers for Onno.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 180953894,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E16%20-%20No%20Flowers%20for%20Onno.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e17",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Mr. George",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E17%20-%20Mr.%20George_000844.jpg",
+     "airDate": "1960-01-03",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E17 - Mr. George.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 244229378,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E17%20-%20Mr.%20George.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e18",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "The Thousand Mile Alibi",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E18%20-%20The%20Thousand%20Mile%20Alibi_000843.jpg",
+     "airDate": "1960-01-10",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E18 - The Thousand Mile Alibi.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 273674449,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E18%20-%20The%20Thousand%20Mile%20Alibi.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e19",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Act of Piracy",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E19%20-%20Act%20of%20Piracy_000843.jpg",
+     "airDate": "1960-01-17",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E19 - Act of Piracy.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 218419922,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E19%20-%20Act%20of%20Piracy.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e20",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Game for Three Hands",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E20%20-%20Game%20for%20Three%20Hands_000847.jpg",
+     "airDate": "1960-01-24",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E20 - Game for Three Hands.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 258768014,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E20%20-%20Game%20for%20Three%20Hands.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e21",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "The Collector",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E21%20-%20The%20Collector_000845.jpg",
+     "airDate": "1960-01-31",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E21 - The Collector.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 213596210,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E21%20-%20The%20Collector.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e22",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Heiress",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E22%20-%20The%20Heiress_000851.jpg",
+     "airDate": "1960-02-07",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E22 - The Heiress.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 267641303,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E22%20-%20The%20Heiress.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e23",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Payment in Advance",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E23%20-%20Payment%20in%20Advance_000837.jpg",
+     "airDate": "1960-02-14",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E23 - Payment in Advance.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 246910944,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E23%20-%20Payment%20in%20Advance.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e24",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Checkmate",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E24%20-%20Checkmate_000845.jpg",
+     "airDate": "1960-02-21",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E24 - Checkmate.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 232039601,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E24%20-%20Checkmate.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e25",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Fingers of Guilt",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E25%20-%20Fingers%20of%20Guilt_000842.jpg",
+     "airDate": "1960-02-28",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E25 - Fingers of Guilt.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 222249451,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E25%20-%20Fingers%20of%20Guilt.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e26",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "The Girl with Grey Hair",
+     "overview": "A beautiful girl with grey hair holds the key to the mysterious disappearance of a famous artist: Duval scours Europe in search of her.",
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E26%20-%20The%20Girl%20with%20Grey%20Hair_000845.jpg",
+     "airDate": "1960-03-06",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E26 - The Girl with Grey Hair.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 252163585,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E26%20-%20The%20Girl%20with%20Grey%20Hair.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e27",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 27,
+     "title": "Trial at Cranby's Creek",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E27%20-%20Trial%20at%20Cranby%27s%20Creek_000839.jpg",
+     "airDate": "1960-03-13",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E27 - Trial at Cranby's Creek.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 229912882,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E27%20-%20Trial%20at%20Cranby%27s%20Creek.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e28",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "Ascent to Murder",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E28%20-%20Ascent%20to%20Murder_000850.jpg",
+     "airDate": "1960-03-20",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E28 - Ascent to Murder.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 211366812,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E28%20-%20Ascent%20to%20Murder.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e29",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Slow Boat to Amsterdam",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E29%20-%20Slow%20Boat%20to%20Amsterdam_000843.jpg",
+     "airDate": "1960-03-27",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E29 - Slow Boat to Amsterdam.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 224644558,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E29%20-%20Slow%20Boat%20to%20Amsterdam.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e30",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 30,
+     "title": "White Blackmail",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E30%20-%20White%20Blackmail_000847.jpg",
+     "airDate": "1960-04-03",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E30 - White Blackmail.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 237908454,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E30%20-%20White%20Blackmail.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e31",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 31,
+     "title": "A Foreign Body",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E31%20-%20A%20Foreign%20Body_000847.jpg",
+     "airDate": "1960-04-10",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E31 - A Foreign Body.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 284169850,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E31%20-%20A%20Foreign%20Body.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e32",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 32,
+     "title": "In the Swim",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E32%20-%20In%20the%20Swim_000841.jpg",
+     "airDate": "1960-04-17",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E32 - In the Swim.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 213352807,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E32%20-%20In%20the%20Swim.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e33",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 33,
+     "title": "The Three Keys",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E33%20-%20The%20Three%20Keys_000848.jpg",
+     "airDate": "1960-04-24",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E33 - The Three Keys.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 235530723,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E33%20-%20The%20Three%20Keys.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e34",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 34,
+     "title": "Eight Days Inclusive",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E34%20-%20Eight%20Days%20Inclusive_000849.jpg",
+     "airDate": "1960-05-01",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E34 - Eight Days Inclusive.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 249882703,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E34%20-%20Eight%20Days%20Inclusive.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e35",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 35,
+     "title": "Dressed to Kill",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E35%20-%20Dressed%20to%20Kill_000845.jpg",
+     "airDate": "1960-05-08",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E35 - Dressed to Kill.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 246989381,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E35%20-%20Dressed%20to%20Kill.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e36",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "Cargo of Death",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E36%20-%20Cargo%20of%20Death_000849.jpg",
+     "airDate": "1960-05-15",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E36 - Cargo of Death.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 241047739,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E36%20-%20Cargo%20of%20Death.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e37",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 37,
+     "title": "Desert Hi-Jack",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E37%20-%20Desert%20Hi-Jack_000838.jpg",
+     "airDate": "1960-05-22",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E37 - Desert Hi-Jack.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 311959926,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E37%20-%20Desert%20Hi-Jack.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e38",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 38,
+     "title": "Pipeline",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E38%20-%20Pipeline_000844.jpg",
+     "airDate": "1960-05-29",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E38 - Pipeline.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 282580375,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E38%20-%20Pipeline.mp4"
+    },
+    {
+     "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown@s1e39",
+     "sourceID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+     "seasonNumber": 1,
+     "episodeNumber": 39,
+     "title": "The Absent Assassin",
+     "overview": null,
+     "stillURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/interpol-calling-s-01-e-14-the-mans-a-clown.thumbs/Interpol%20Calling%20-%20S01E39%20-%20The%20Absent%20Assassin_000841.jpg",
+     "airDate": "1960-06-05",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Interpol Calling - S01E39 - The Absent Assassin.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 256891449,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol%20Calling%20-%20S01E39%20-%20The%20Absent%20Assassin.mp4"
     }
-  ],
-  "episodesCount": 39,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": null,
-  "tvdbID": "73828",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Edwin Richfield",
-      "character": "Inspector Mornay",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "Charles Korvin",
-      "character": "Inspector Duval",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Roland Bartrop",
-      "character": "Amiel",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "George Pastell",
-      "character": "Pagano",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "John Crawford",
-      "character": "Ben Stack",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287735/photo/63da9b1720331.jpg"
-    },
-    {
-      "name": "Richard Leech",
-      "character": "Finn",
-      "order": 5,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 39,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": null,
+ "tvdbID": "73828",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Edwin Richfield",
+   "character": "Inspector Mornay",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "Charles Korvin",
+   "character": "Inspector Duval",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Roland Bartrop",
+   "character": "Amiel",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "George Pastell",
+   "character": "Pagano",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "John Crawford",
+   "character": "Ben Stack",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287735/photo/63da9b1720331.jpg"
+  },
+  {
+   "name": "Richard Leech",
+   "character": "Finn",
+   "order": 5,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0052475",
+ "imdbRating": 7.4,
+ "imdbVotes": 122
 }

@@ -1,1319 +1,1322 @@
 {
-  "version": 2,
-  "seriesID": "spectreman-1971",
-  "tvmazeID": 9669,
-  "title": "Spectreman",
-  "yearStart": 1971,
-  "yearEnd": 1972,
-  "overview": "Banished from the peaceful simian Planet E, the mad scientist Dr. Gori and his brutish assistant Karras [Rah in the Japanese version] search for a new planet to rule after Gori's plot to conquer Planet E had been foiled by its government. Coming across the Earth, Gori is captivated by its beauty, but is appalled by its inhabitants' misuse of its environment, leading to severe pollution (a huge topic back when this series was made, since Tokyo was the most polluted city in the world at the time), so mankind must be quickly conquered if this planet is to be inhabitable, so he plots to, ironically, use the very same pollution that's plaguing the Earth to create horrible giant rampaging monsters to wipe out and/or enslave mankind. Fortunately, hope comes in the form of the Nebula 71 Star, a Saturn-like artificial satellite that observes the Earth incognito. Fearing that Gori may eventually...",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/152381-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "Fuji TV"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "spectreman-1971",
+ "tvmazeID": 9669,
+ "title": "Spectreman",
+ "yearStart": 1971,
+ "yearEnd": 1972,
+ "overview": "Banished from the peaceful simian Planet E, the mad scientist Dr. Gori and his brutish assistant Karras [Rah in the Japanese version] search for a new planet to rule after Gori's plot to conquer Planet E had been foiled by its government. Coming across the Earth, Gori is captivated by its beauty, but is appalled by its inhabitants' misuse of its environment, leading to severe pollution (a huge topic back when this series was made, since Tokyo was the most polluted city in the world at the time), so mankind must be quickly conquered if this planet is to be inhabitable, so he plots to, ironically, use the very same pollution that's plaguing the Earth to create horrible giant rampaging monsters to wipe out and/or enslave mankind. Fortunately, hope comes in the form of the Nebula 71 Star, a Saturn-like artificial satellite that observes the Earth incognito. Fearing that Gori may eventually...",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/152381-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "Fuji TV"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "spectreman@e01",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Gori Targets the Earth!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP01_000723.jpg",
-          "airDate": "1971-01-02",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP01.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 100173276,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP01.ia.mp4"
-        },
-        {
-          "archiveID": "spectreman@e02",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Destroy the Pollution Monster Hedoron!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP02_000721.jpg",
-          "airDate": "1971-01-09",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP02.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 72166849,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP02.ia.mp4"
-        },
-        {
-          "archiveID": "spectreman@e03",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Terror of the Blue Scum",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP03_000720.jpg",
-          "airDate": "1971-01-16",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP03.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 69570412,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP03.ia.mp4"
-        },
-        {
-          "archiveID": "spectreman@e04",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Rah Search Among the Earthlings",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP04_000719.jpg",
-          "airDate": "1971-01-23",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP04.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 162836262,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP04.ia.mp4"
-        },
-        {
-          "archiveID": "spectreman@e05",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Terrifying Pollution People!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP05_000700.jpg",
-          "airDate": "1971-01-30",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP05.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 157915949,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP05.ia.mp4"
-        },
-        {
-          "archiveID": "spectreman@e06",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Save the Beautiful Earth!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP06_000720.jpg",
-          "airDate": "1971-02-06",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP06.mp4",
-            "format": "h.264",
-            "sizeBytes": 157360000,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP06.mp4"
-        },
-        {
-          "archiveID": "spectreman@e07",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Black Terror",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP07_000717.jpg",
-          "airDate": "1971-02-13",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP07.mp4",
-            "format": "h.264",
-            "sizeBytes": 155899938,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP07.mp4"
-        },
-        {
-          "archiveID": "spectreman@e08",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Duel!! Gokinosaurus",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP08_000713.jpg",
-          "airDate": "1971-02-20",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP08.mp4",
-            "format": "h.264",
-            "sizeBytes": 155514308,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP08.mp4"
-        },
-        {
-          "archiveID": "spectreman@e09",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Terror of Nezubirdon",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP09_000717.jpg",
-          "airDate": "1971-02-27",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP09.mp4",
-            "format": "h.264",
-            "sizeBytes": 156488695,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP09.mp4"
-        },
-        {
-          "archiveID": "spectreman@e10",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Stop the Monster Train!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP10_000713.jpg",
-          "airDate": "1971-03-06",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP10.mp4",
-            "format": "h.264",
-            "sizeBytes": 153757084,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP10.mp4"
-        },
-        {
-          "archiveID": "spectreman@e11",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Titanic Monster Dustman Appears!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP11_000721.jpg",
-          "airDate": "1971-03-13",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP11.mp4",
-            "format": "h.264",
-            "sizeBytes": 156917419,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP11.mp4"
-        },
-        {
-          "archiveID": "spectreman@e12",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Terror Rises from the Dead!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP12_000728.jpg",
-          "airDate": "1971-03-20",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP12.mp4",
-            "format": "h.264",
-            "sizeBytes": 156760185,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP12.mp4"
-        },
-        {
-          "archiveID": "spectreman@e13",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Great Hedoron Strikes Back (Part 1)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP13_000721.jpg",
-          "airDate": "1971-03-27",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP13.mp4",
-            "format": "h.264",
-            "sizeBytes": 156682389,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP13.mp4"
-        },
-        {
-          "archiveID": "spectreman@e14",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Great Hedoron Strikes Back (Part 2)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP14_000718.jpg",
-          "airDate": "1971-04-03",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP14.mp4",
-            "format": "h.264",
-            "sizeBytes": 156357800,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP14.mp4"
-        },
-        {
-          "archiveID": "spectreman@e15",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Massive Earthquake Levels Tokyo!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP15_000719.jpg",
-          "airDate": "1971-04-10",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP15.mp4",
-            "format": "h.264",
-            "sizeBytes": 156741702,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP15.mp4"
-        },
-        {
-          "archiveID": "spectreman@e16",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Retailation of Mogunetudon!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP16_000720.jpg",
-          "airDate": "1971-04-17",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP16.mp4",
-            "format": "h.264",
-            "sizeBytes": 156938058,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP16.mp4"
-        },
-        {
-          "archiveID": "spectreman@e17",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Thunder-Gei: The Flying Whale",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP17_000724.jpg",
-          "airDate": "1971-04-24",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP17.mp4",
-            "format": "h.264",
-            "sizeBytes": 156881059,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP17.mp4"
-        },
-        {
-          "archiveID": "spectreman@e18",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Infiltrate Monster Island!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP18_000721.jpg",
-          "airDate": "1971-05-01",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP18.mp4",
-            "format": "h.264",
-            "sizeBytes": 156679854,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP18.mp4"
-        },
-        {
-          "archiveID": "spectreman@e19",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Blood-Drinking Monster Bakulah Appears!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP19_000721.jpg",
-          "airDate": "1971-05-08",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP19.mp4",
-            "format": "h.264",
-            "sizeBytes": 156687886,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP19.mp4"
-        },
-        {
-          "archiveID": "spectreman@e20",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Find Bakulah's Nest!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP20_000719.jpg",
-          "airDate": "1971-05-15",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP20.mp4",
-            "format": "h.264",
-            "sizeBytes": 156614044,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP20.mp4"
-        },
-        {
-          "archiveID": "spectreman@e21",
-          "sourceID": "spectreman",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "The Mysterious Alien Zunou vs. Gilagind",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP21_000721.jpg",
-          "airDate": "1971-05-22",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP21.mp4",
-            "format": "h.264",
-            "sizeBytes": 156774412,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP21.mp4"
-        }
-      ]
+     "archiveID": "spectreman@e01",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Gori Targets the Earth!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP01_000723.jpg",
+     "airDate": "1971-01-02",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP01.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 100173276,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP01.ia.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "spectreman@e22",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Violent Charge of the Dual-Blanded Monster Gilagind!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP22_000725.jpg",
-          "airDate": "1971-05-29",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP22.mp4",
-            "format": "h.264",
-            "sizeBytes": 156484282,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP22.mp4"
-        },
-        {
-          "archiveID": "spectreman@e23",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Traffic Accident Monster Kuruma-Nikuras!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP23_000720.jpg",
-          "airDate": "1971-06-05",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP23.mp4",
-            "format": "h.264",
-            "sizeBytes": 156776627,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP23.mp4"
-        },
-        {
-          "archiveID": "spectreman@e24",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Danger!! Kuruma-Nikuras",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP24_000723.jpg",
-          "airDate": "1971-06-12",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP24.mp4",
-            "format": "h.264",
-            "sizeBytes": 157437752,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP24.mp4"
-        },
-        {
-          "archiveID": "spectreman@e25",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Grand Double Operation: Magulah and Satan-King!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP25_000719.jpg",
-          "airDate": "1971-06-19",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP25.mp4",
-            "format": "h.264",
-            "sizeBytes": 156738010,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP25.mp4"
-        },
-        {
-          "archiveID": "spectreman@e26",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Two Giant Monsters Battle in Tokyo!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP26_000719.jpg",
-          "airDate": "1971-06-19",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP26.mp4",
-            "format": "h.264",
-            "sizeBytes": 156710178,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP26.mp4"
-        },
-        {
-          "archiveID": "spectreman@e27",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Titanic Battle!! Seven Giant Monsters",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP27_000724.jpg",
-          "airDate": "1971-07-03",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP27.mp4",
-            "format": "h.264",
-            "sizeBytes": 156466652,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP27.mp4"
-        },
-        {
-          "archiveID": "spectreman@e28",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "The Terrifying Attack of Salamandar!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP28_000717.jpg",
-          "airDate": "1971-07-10",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP28.mp4",
-            "format": "h.264",
-            "sizeBytes": 156611593,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP28.mp4"
-        },
-        {
-          "archiveID": "spectreman@e29",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "Kill the Vicious Monster Salamandar!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP29_000718.jpg",
-          "airDate": "1971-07-17",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP29.mp4",
-            "format": "h.264",
-            "sizeBytes": 156733797,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP29.mp4"
-        },
-        {
-          "archiveID": "spectreman@e30",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "Terror Comes Ashore: Monster Tag-Match!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP30_000721.jpg",
-          "airDate": "1971-07-24",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP30.mp4",
-            "format": "h.264",
-            "sizeBytes": 156826435,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP30.mp4"
-        },
-        {
-          "archiveID": "spectreman@e31",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "Protect the Lighthouse!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP31_000719.jpg",
-          "airDate": "1971-07-31",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP31.mp4",
-            "format": "h.264",
-            "sizeBytes": 156920271,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP31.mp4"
-        },
-        {
-          "archiveID": "spectreman@e32",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "The Three-Headed Dragon Rises Again!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP32_000720.jpg",
-          "airDate": "1971-08-07",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP32.mp4",
-            "format": "h.264",
-            "sizeBytes": 156881298,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP32.mp4"
-        },
-        {
-          "archiveID": "spectreman@e33",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "SOS!! The Undersea Oil Field",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP33_000719.jpg",
-          "airDate": "1971-08-14",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP33.mp4",
-            "format": "h.264",
-            "sizeBytes": 156518329,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP33.mp4"
-        },
-        {
-          "archiveID": "spectreman@e34",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 13,
-          "title": "The Wrath of Moonthunder!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP34_000722.jpg",
-          "airDate": "1971-08-21",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP34.mp4",
-            "format": "h.264",
-            "sizeBytes": 156361651,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP34.mp4"
-        },
-        {
-          "archiveID": "spectreman@e35",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 14,
-          "title": "Is Spectreman Dead?!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP35_000707.jpg",
-          "airDate": "1971-08-28",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP35.mp4",
-            "format": "h.264",
-            "sizeBytes": 154208746,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP35.mp4"
-        },
-        {
-          "archiveID": "spectreman@e36",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 15,
-          "title": "Death-Match!! G-Men vs. Monster Vegaron",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP36_000722.jpg",
-          "airDate": "1971-09-04",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP36.mp4",
-            "format": "h.264",
-            "sizeBytes": 156693005,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP36.mp4"
-        },
-        {
-          "archiveID": "spectreman@e37",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
-          "title": "Operation: Destroy Gori's Saucer Base!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP37_000719.jpg",
-          "airDate": "1971-09-11",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP37.mp4",
-            "format": "h.264",
-            "sizeBytes": 156619268,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP37.mp4"
-        },
-        {
-          "archiveID": "spectreman@e38",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 17,
-          "title": "Advance Towards the Sphinx",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP38_000712.jpg",
-          "airDate": "1971-09-18",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP38.mp4",
-            "format": "h.264",
-            "sizeBytes": 155699915,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP38.mp4"
-        },
-        {
-          "archiveID": "spectreman@e39",
-          "sourceID": "spectreman",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "Operation: Break Into the Monster Zone!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP39_000715.jpg",
-          "airDate": "1971-09-25",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP39.mp4",
-            "format": "h.264",
-            "sizeBytes": 155345286,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP39.mp4"
-        }
-      ]
+     "archiveID": "spectreman@e02",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Destroy the Pollution Monster Hedoron!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP02_000721.jpg",
+     "airDate": "1971-01-09",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP02.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 72166849,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP02.ia.mp4"
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "spectreman@e40",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 1,
-          "title": "The Grass-Whistling Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP40_000709.jpg",
-          "airDate": "1971-10-02",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP40.mp4",
-            "format": "h.264",
-            "sizeBytes": 155069679,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP40.mp4"
-        },
-        {
-          "archiveID": "spectreman@e41",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 2,
-          "title": "Vapor Monster Dies at Dawn!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP41_000715.jpg",
-          "airDate": "1971-10-09",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP41.mp4",
-            "format": "h.264",
-            "sizeBytes": 156533438,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP41.mp4"
-        },
-        {
-          "archiveID": "spectreman@e42",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 3,
-          "title": "Solar Mask Arrives from Space",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP42_000716.jpg",
-          "airDate": "1971-10-16",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP42.mp4",
-            "format": "h.264",
-            "sizeBytes": 155945665,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP42.mp4"
-        },
-        {
-          "archiveID": "spectreman@e43",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 4,
-          "title": "Appearance of the Monster Kabagon!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP43_000718.jpg",
-          "airDate": "1970-12-23",
-          "year": 1970,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP43.mp4",
-            "format": "h.264",
-            "sizeBytes": 155570438,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP43.mp4"
-        },
-        {
-          "archiveID": "spectreman@e44",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 5,
-          "title": "Alien Kyudora: Cosmic Plunderer",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP44_000717.jpg",
-          "airDate": "1971-10-30",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP44.mp4",
-            "format": "h.264",
-            "sizeBytes": 155430008,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP44.mp4"
-        },
-        {
-          "archiveID": "spectreman@e45",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 6,
-          "title": "Alien Pal Forever!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP45_000713.jpg",
-          "airDate": "1971-11-06",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP45.mp4",
-            "format": "h.264",
-            "sizeBytes": 155575197,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP45.mp4"
-        },
-        {
-          "archiveID": "spectreman@e46",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 7,
-          "title": "Invitation From the Dead",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP46_000714.jpg",
-          "airDate": "1971-11-13",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP46.mp4",
-            "format": "h.264",
-            "sizeBytes": 155461936,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP46.mp4"
-        },
-        {
-          "archiveID": "spectreman@e47",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 8,
-          "title": "Alien Gama Commence the Attack!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP47_000713.jpg",
-          "airDate": "1971-11-20",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP47.mp4",
-            "format": "h.264",
-            "sizeBytes": 155611724,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP47.mp4"
-        },
-        {
-          "archiveID": "spectreman@e48",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 9,
-          "title": "Bobby, Dont Become a Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP48_000713.jpg",
-          "airDate": "1971-11-27",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP48.mp4",
-            "format": "h.264",
-            "sizeBytes": 155583212,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP48.mp4"
-        },
-        {
-          "archiveID": "spectreman@e49",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 10,
-          "title": "Noman: The Tragic Genius Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP49_000720.jpg",
-          "airDate": "1971-12-04",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP49.mp4",
-            "format": "h.264",
-            "sizeBytes": 155699903,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP49.mp4"
-        },
-        {
-          "archiveID": "spectreman@e50",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 11,
-          "title": "Smash Alien Igorl!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP50_000712.jpg",
-          "airDate": "1971-12-11",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP50.mp4",
-            "format": "h.264",
-            "sizeBytes": 155422467,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP50.mp4"
-        },
-        {
-          "archiveID": "spectreman@e51",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 12,
-          "title": "Riddle of the Cobalt Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP51_000713.jpg",
-          "airDate": "1971-12-18",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP51.mp4",
-            "format": "h.264",
-            "sizeBytes": 155450132,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP51.mp4"
-        },
-        {
-          "archiveID": "spectreman@e52",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 13,
-          "title": "Operation: Capture Monster Mound-Dragon",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP52_000719.jpg",
-          "airDate": "1971-12-25",
-          "year": 1971,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP52.mp4",
-            "format": "h.264",
-            "sizeBytes": 155495871,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP52.mp4"
-        },
-        {
-          "archiveID": "spectreman@e53",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 14,
-          "title": "The Iron Claws of Horror",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP53_000711.jpg",
-          "airDate": "1972-01-01",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP53.mp4",
-            "format": "h.264",
-            "sizeBytes": 155474362,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP53.mp4"
-        },
-        {
-          "archiveID": "spectreman@e54",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 15,
-          "title": "Pulverize the Computer-Monster!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP54_000716.jpg",
-          "airDate": "1972-01-08",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP54.mp4",
-            "format": "h.264",
-            "sizeBytes": 155682110,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP54.mp4"
-        },
-        {
-          "archiveID": "spectreman@e55",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 16,
-          "title": "Order: Assassinate Spectreman!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP55_000710.jpg",
-          "airDate": "1972-01-15",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP55.mp4",
-            "format": "h.264",
-            "sizeBytes": 154511653,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP55.mp4"
-        },
-        {
-          "archiveID": "spectreman@e56",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 17,
-          "title": "Cosmic Hitman: Comet Mask",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP56_000713.jpg",
-          "airDate": "1972-01-22",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP56.mp4",
-            "format": "h.264",
-            "sizeBytes": 155491330,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP56.mp4"
-        },
-        {
-          "archiveID": "spectreman@e57",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 18,
-          "title": "Resurrection of the Witch: Great Satan",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP57_000715.jpg",
-          "airDate": "1972-01-29",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP57.mp4",
-            "format": "h.264",
-            "sizeBytes": 155610360,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP57.mp4"
-        },
-        {
-          "archiveID": "spectreman@e58",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 19,
-          "title": "Gorda: The Phantom Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP58_000719.jpg",
-          "airDate": "1972-02-05",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP58.mp4",
-            "format": "h.264",
-            "sizeBytes": 156000281,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP58.mp4"
-        },
-        {
-          "archiveID": "spectreman@e59",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 20,
-          "title": "Alien Genos: The Messenger From Hell",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP59_000716.jpg",
-          "airDate": "1972-02-26",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP59.mp4",
-            "format": "h.264",
-            "sizeBytes": 155987180,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP59.mp4"
-        },
-        {
-          "archiveID": "spectreman@e60",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 21,
-          "title": "Deadly Dance of the Monster Dokuron",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP60_000720.jpg",
-          "airDate": "1972-03-04",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP60.mp4",
-            "format": "h.264",
-            "sizeBytes": 156077284,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP60.mp4"
-        },
-        {
-          "archiveID": "spectreman@e61",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 22,
-          "title": "The Terrifying Monster Show",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP61_000716.jpg",
-          "airDate": "1972-03-11",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP61.mp4",
-            "format": "h.264",
-            "sizeBytes": 156102880,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP61.mp4"
-        },
-        {
-          "archiveID": "spectreman@e62",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 23,
-          "title": "This is Gori's Final Death-Match!!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP62_000720.jpg",
-          "airDate": "1972-03-18",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP62.mp4",
-            "format": "h.264",
-            "sizeBytes": 156315972,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP62.mp4"
-        },
-        {
-          "archiveID": "spectreman@e63",
-          "sourceID": "spectreman",
-          "seasonNumber": 3,
-          "episodeNumber": 24,
-          "title": "Goodbye Spectreman",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP63_000715.jpg",
-          "airDate": "1972-03-25",
-          "year": 1972,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "SpectremanEP63.mp4",
-            "format": "h.264",
-            "sizeBytes": 156092327,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP63.mp4"
-        }
-      ]
+     "archiveID": "spectreman@e03",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Terror of the Blue Scum",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP03_000720.jpg",
+     "airDate": "1971-01-16",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP03.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 69570412,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP03.ia.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "spectreman-complete-series-1971@e09",
-          "sourceID": "spectreman-complete-series-1971",
-          "seasonNumber": null,
-          "episodeNumber": 9,
-          "title": "The Terrifying Nezubirdon",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman-complete-series-1971/spectreman-complete-series-1971.thumbs/Spectreman%2009%20The%20Terrifying%20Nezubirdon_001023.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1409,
-          "videoFile": {
-            "name": "Spectreman 09 The Terrifying Nezubirdon.mp4",
-            "format": "h.264",
-            "sizeBytes": 136036078,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2009%20The%20Terrifying%20Nezubirdon.mp4"
-        },
-        {
-          "archiveID": "spectreman-1971-tshs-episode-49-7-db-13867",
-          "seasonNumber": null,
-          "episodeNumber": 48,
-          "title": "Episode 48-49",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/spectreman-1971-tshs-episode-49-7-db-13867",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1497,
-          "videoFile": {
-            "name": "Spectreman (1971) [TSHS] episode 49 [7DB13867].mp4",
-            "format": "MPEG4",
-            "sizeBytes": 311393995,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman-1971-tshs-episode-49-7-db-13867/Spectreman%20%281971%29%20%5BTSHS%5D%20episode%2049%20%5B7DB13867%5D.mp4"
-        },
-        {
-          "archiveID": "spectreman-complete-series-1971@e49",
-          "sourceID": "spectreman-complete-series-1971",
-          "seasonNumber": null,
-          "episodeNumber": 49,
-          "title": "Tragic Genius Monster Noman",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman-complete-series-1971/spectreman-complete-series-1971.thumbs/Spectreman%2049%20Tragic%20Genius%20Monster%20Noman_001026.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1412,
-          "videoFile": {
-            "name": "Spectreman 49 Tragic Genius Monster Noman.mp4",
-            "format": "h.264",
-            "sizeBytes": 135972826,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2049%20Tragic%20Genius%20Monster%20Noman.mp4"
-        },
-        {
-          "archiveID": "spectreman-complete-series-1971@e57",
-          "sourceID": "spectreman-complete-series-1971",
-          "seasonNumber": null,
-          "episodeNumber": 57,
-          "title": "Ressurection of Great Satan The Witch",
-          "overview": null,
-          "stillURL": "https://archive.org/download/spectreman-complete-series-1971/spectreman-complete-series-1971.thumbs/Spectreman%2057%20Ressurection%20of%20Great%20Satan%20The%20Witch_001044.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1440,
-          "videoFile": {
-            "name": "Spectreman 57 Ressurection of Great Satan The Witch.mp4",
-            "format": "h.264",
-            "sizeBytes": 138753663,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2057%20Ressurection%20of%20Great%20Satan%20The%20Witch.mp4"
-        }
-      ]
+     "archiveID": "spectreman@e04",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Rah Search Among the Earthlings",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP04_000719.jpg",
+     "airDate": "1971-01-23",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP04.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 162836262,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP04.ia.mp4"
+    },
+    {
+     "archiveID": "spectreman@e05",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Terrifying Pollution People!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP05_000700.jpg",
+     "airDate": "1971-01-30",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP05.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 157915949,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP05.ia.mp4"
+    },
+    {
+     "archiveID": "spectreman@e06",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Save the Beautiful Earth!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP06_000720.jpg",
+     "airDate": "1971-02-06",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP06.mp4",
+      "format": "h.264",
+      "sizeBytes": 157360000,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP06.mp4"
+    },
+    {
+     "archiveID": "spectreman@e07",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Black Terror",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP07_000717.jpg",
+     "airDate": "1971-02-13",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP07.mp4",
+      "format": "h.264",
+      "sizeBytes": 155899938,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP07.mp4"
+    },
+    {
+     "archiveID": "spectreman@e08",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Duel!! Gokinosaurus",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP08_000713.jpg",
+     "airDate": "1971-02-20",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP08.mp4",
+      "format": "h.264",
+      "sizeBytes": 155514308,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP08.mp4"
+    },
+    {
+     "archiveID": "spectreman@e09",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Terror of Nezubirdon",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP09_000717.jpg",
+     "airDate": "1971-02-27",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP09.mp4",
+      "format": "h.264",
+      "sizeBytes": 156488695,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP09.mp4"
+    },
+    {
+     "archiveID": "spectreman@e10",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Stop the Monster Train!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP10_000713.jpg",
+     "airDate": "1971-03-06",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP10.mp4",
+      "format": "h.264",
+      "sizeBytes": 153757084,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP10.mp4"
+    },
+    {
+     "archiveID": "spectreman@e11",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Titanic Monster Dustman Appears!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP11_000721.jpg",
+     "airDate": "1971-03-13",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP11.mp4",
+      "format": "h.264",
+      "sizeBytes": 156917419,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP11.mp4"
+    },
+    {
+     "archiveID": "spectreman@e12",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Terror Rises from the Dead!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP12_000728.jpg",
+     "airDate": "1971-03-20",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP12.mp4",
+      "format": "h.264",
+      "sizeBytes": 156760185,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP12.mp4"
+    },
+    {
+     "archiveID": "spectreman@e13",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Great Hedoron Strikes Back (Part 1)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP13_000721.jpg",
+     "airDate": "1971-03-27",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP13.mp4",
+      "format": "h.264",
+      "sizeBytes": 156682389,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP13.mp4"
+    },
+    {
+     "archiveID": "spectreman@e14",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Great Hedoron Strikes Back (Part 2)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP14_000718.jpg",
+     "airDate": "1971-04-03",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP14.mp4",
+      "format": "h.264",
+      "sizeBytes": 156357800,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP14.mp4"
+    },
+    {
+     "archiveID": "spectreman@e15",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Massive Earthquake Levels Tokyo!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP15_000719.jpg",
+     "airDate": "1971-04-10",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP15.mp4",
+      "format": "h.264",
+      "sizeBytes": 156741702,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP15.mp4"
+    },
+    {
+     "archiveID": "spectreman@e16",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Retailation of Mogunetudon!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP16_000720.jpg",
+     "airDate": "1971-04-17",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP16.mp4",
+      "format": "h.264",
+      "sizeBytes": 156938058,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP16.mp4"
+    },
+    {
+     "archiveID": "spectreman@e17",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Thunder-Gei: The Flying Whale",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP17_000724.jpg",
+     "airDate": "1971-04-24",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP17.mp4",
+      "format": "h.264",
+      "sizeBytes": 156881059,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP17.mp4"
+    },
+    {
+     "archiveID": "spectreman@e18",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Infiltrate Monster Island!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP18_000721.jpg",
+     "airDate": "1971-05-01",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP18.mp4",
+      "format": "h.264",
+      "sizeBytes": 156679854,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP18.mp4"
+    },
+    {
+     "archiveID": "spectreman@e19",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Blood-Drinking Monster Bakulah Appears!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP19_000721.jpg",
+     "airDate": "1971-05-08",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP19.mp4",
+      "format": "h.264",
+      "sizeBytes": 156687886,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP19.mp4"
+    },
+    {
+     "archiveID": "spectreman@e20",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Find Bakulah's Nest!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP20_000719.jpg",
+     "airDate": "1971-05-15",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP20.mp4",
+      "format": "h.264",
+      "sizeBytes": 156614044,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP20.mp4"
+    },
+    {
+     "archiveID": "spectreman@e21",
+     "sourceID": "spectreman",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "The Mysterious Alien Zunou vs. Gilagind",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP21_000721.jpg",
+     "airDate": "1971-05-22",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP21.mp4",
+      "format": "h.264",
+      "sizeBytes": 156774412,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP21.mp4"
     }
-  ],
-  "episodesCount": 67,
-  "canonicalEpisodesCount": 63,
-  "tvmazeRating": null,
-  "tvdbID": "152381",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "spectreman@e22",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Violent Charge of the Dual-Blanded Monster Gilagind!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP22_000725.jpg",
+     "airDate": "1971-05-29",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP22.mp4",
+      "format": "h.264",
+      "sizeBytes": 156484282,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP22.mp4"
+    },
+    {
+     "archiveID": "spectreman@e23",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Traffic Accident Monster Kuruma-Nikuras!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP23_000720.jpg",
+     "airDate": "1971-06-05",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP23.mp4",
+      "format": "h.264",
+      "sizeBytes": 156776627,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP23.mp4"
+    },
+    {
+     "archiveID": "spectreman@e24",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Danger!! Kuruma-Nikuras",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP24_000723.jpg",
+     "airDate": "1971-06-12",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP24.mp4",
+      "format": "h.264",
+      "sizeBytes": 157437752,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP24.mp4"
+    },
+    {
+     "archiveID": "spectreman@e25",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Grand Double Operation: Magulah and Satan-King!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP25_000719.jpg",
+     "airDate": "1971-06-19",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP25.mp4",
+      "format": "h.264",
+      "sizeBytes": 156738010,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP25.mp4"
+    },
+    {
+     "archiveID": "spectreman@e26",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Two Giant Monsters Battle in Tokyo!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP26_000719.jpg",
+     "airDate": "1971-06-19",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP26.mp4",
+      "format": "h.264",
+      "sizeBytes": 156710178,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP26.mp4"
+    },
+    {
+     "archiveID": "spectreman@e27",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Titanic Battle!! Seven Giant Monsters",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP27_000724.jpg",
+     "airDate": "1971-07-03",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP27.mp4",
+      "format": "h.264",
+      "sizeBytes": 156466652,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP27.mp4"
+    },
+    {
+     "archiveID": "spectreman@e28",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "The Terrifying Attack of Salamandar!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP28_000717.jpg",
+     "airDate": "1971-07-10",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP28.mp4",
+      "format": "h.264",
+      "sizeBytes": 156611593,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP28.mp4"
+    },
+    {
+     "archiveID": "spectreman@e29",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "Kill the Vicious Monster Salamandar!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP29_000718.jpg",
+     "airDate": "1971-07-17",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP29.mp4",
+      "format": "h.264",
+      "sizeBytes": 156733797,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP29.mp4"
+    },
+    {
+     "archiveID": "spectreman@e30",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "Terror Comes Ashore: Monster Tag-Match!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP30_000721.jpg",
+     "airDate": "1971-07-24",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP30.mp4",
+      "format": "h.264",
+      "sizeBytes": 156826435,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP30.mp4"
+    },
+    {
+     "archiveID": "spectreman@e31",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "Protect the Lighthouse!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP31_000719.jpg",
+     "airDate": "1971-07-31",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP31.mp4",
+      "format": "h.264",
+      "sizeBytes": 156920271,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP31.mp4"
+    },
+    {
+     "archiveID": "spectreman@e32",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "The Three-Headed Dragon Rises Again!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP32_000720.jpg",
+     "airDate": "1971-08-07",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP32.mp4",
+      "format": "h.264",
+      "sizeBytes": 156881298,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP32.mp4"
+    },
+    {
+     "archiveID": "spectreman@e33",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "SOS!! The Undersea Oil Field",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP33_000719.jpg",
+     "airDate": "1971-08-14",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP33.mp4",
+      "format": "h.264",
+      "sizeBytes": 156518329,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP33.mp4"
+    },
+    {
+     "archiveID": "spectreman@e34",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "The Wrath of Moonthunder!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP34_000722.jpg",
+     "airDate": "1971-08-21",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP34.mp4",
+      "format": "h.264",
+      "sizeBytes": 156361651,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP34.mp4"
+    },
+    {
+     "archiveID": "spectreman@e35",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 14,
+     "title": "Is Spectreman Dead?!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP35_000707.jpg",
+     "airDate": "1971-08-28",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP35.mp4",
+      "format": "h.264",
+      "sizeBytes": 154208746,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP35.mp4"
+    },
+    {
+     "archiveID": "spectreman@e36",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 15,
+     "title": "Death-Match!! G-Men vs. Monster Vegaron",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP36_000722.jpg",
+     "airDate": "1971-09-04",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP36.mp4",
+      "format": "h.264",
+      "sizeBytes": 156693005,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP36.mp4"
+    },
+    {
+     "archiveID": "spectreman@e37",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 16,
+     "title": "Operation: Destroy Gori's Saucer Base!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP37_000719.jpg",
+     "airDate": "1971-09-11",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP37.mp4",
+      "format": "h.264",
+      "sizeBytes": 156619268,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP37.mp4"
+    },
+    {
+     "archiveID": "spectreman@e38",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "Advance Towards the Sphinx",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP38_000712.jpg",
+     "airDate": "1971-09-18",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP38.mp4",
+      "format": "h.264",
+      "sizeBytes": 155699915,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP38.mp4"
+    },
+    {
+     "archiveID": "spectreman@e39",
+     "sourceID": "spectreman",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "Operation: Break Into the Monster Zone!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP39_000715.jpg",
+     "airDate": "1971-09-25",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP39.mp4",
+      "format": "h.264",
+      "sizeBytes": 155345286,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP39.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "spectreman@e40",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "The Grass-Whistling Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP40_000709.jpg",
+     "airDate": "1971-10-02",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP40.mp4",
+      "format": "h.264",
+      "sizeBytes": 155069679,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP40.mp4"
+    },
+    {
+     "archiveID": "spectreman@e41",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 2,
+     "title": "Vapor Monster Dies at Dawn!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP41_000715.jpg",
+     "airDate": "1971-10-09",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP41.mp4",
+      "format": "h.264",
+      "sizeBytes": 156533438,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP41.mp4"
+    },
+    {
+     "archiveID": "spectreman@e42",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 3,
+     "title": "Solar Mask Arrives from Space",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP42_000716.jpg",
+     "airDate": "1971-10-16",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP42.mp4",
+      "format": "h.264",
+      "sizeBytes": 155945665,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP42.mp4"
+    },
+    {
+     "archiveID": "spectreman@e43",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 4,
+     "title": "Appearance of the Monster Kabagon!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP43_000718.jpg",
+     "airDate": "1970-12-23",
+     "year": 1970,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP43.mp4",
+      "format": "h.264",
+      "sizeBytes": 155570438,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP43.mp4"
+    },
+    {
+     "archiveID": "spectreman@e44",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 5,
+     "title": "Alien Kyudora: Cosmic Plunderer",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP44_000717.jpg",
+     "airDate": "1971-10-30",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP44.mp4",
+      "format": "h.264",
+      "sizeBytes": 155430008,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP44.mp4"
+    },
+    {
+     "archiveID": "spectreman@e45",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 6,
+     "title": "Alien Pal Forever!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP45_000713.jpg",
+     "airDate": "1971-11-06",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP45.mp4",
+      "format": "h.264",
+      "sizeBytes": 155575197,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP45.mp4"
+    },
+    {
+     "archiveID": "spectreman@e46",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 7,
+     "title": "Invitation From the Dead",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP46_000714.jpg",
+     "airDate": "1971-11-13",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP46.mp4",
+      "format": "h.264",
+      "sizeBytes": 155461936,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP46.mp4"
+    },
+    {
+     "archiveID": "spectreman@e47",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 8,
+     "title": "Alien Gama Commence the Attack!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP47_000713.jpg",
+     "airDate": "1971-11-20",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP47.mp4",
+      "format": "h.264",
+      "sizeBytes": 155611724,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP47.mp4"
+    },
+    {
+     "archiveID": "spectreman@e48",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 9,
+     "title": "Bobby, Dont Become a Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP48_000713.jpg",
+     "airDate": "1971-11-27",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP48.mp4",
+      "format": "h.264",
+      "sizeBytes": 155583212,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP48.mp4"
+    },
+    {
+     "archiveID": "spectreman@e49",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 10,
+     "title": "Noman: The Tragic Genius Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP49_000720.jpg",
+     "airDate": "1971-12-04",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP49.mp4",
+      "format": "h.264",
+      "sizeBytes": 155699903,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP49.mp4"
+    },
+    {
+     "archiveID": "spectreman@e50",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 11,
+     "title": "Smash Alien Igorl!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP50_000712.jpg",
+     "airDate": "1971-12-11",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP50.mp4",
+      "format": "h.264",
+      "sizeBytes": 155422467,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP50.mp4"
+    },
+    {
+     "archiveID": "spectreman@e51",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 12,
+     "title": "Riddle of the Cobalt Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP51_000713.jpg",
+     "airDate": "1971-12-18",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP51.mp4",
+      "format": "h.264",
+      "sizeBytes": 155450132,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP51.mp4"
+    },
+    {
+     "archiveID": "spectreman@e52",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 13,
+     "title": "Operation: Capture Monster Mound-Dragon",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP52_000719.jpg",
+     "airDate": "1971-12-25",
+     "year": 1971,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP52.mp4",
+      "format": "h.264",
+      "sizeBytes": 155495871,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP52.mp4"
+    },
+    {
+     "archiveID": "spectreman@e53",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 14,
+     "title": "The Iron Claws of Horror",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP53_000711.jpg",
+     "airDate": "1972-01-01",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP53.mp4",
+      "format": "h.264",
+      "sizeBytes": 155474362,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP53.mp4"
+    },
+    {
+     "archiveID": "spectreman@e54",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "Pulverize the Computer-Monster!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP54_000716.jpg",
+     "airDate": "1972-01-08",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP54.mp4",
+      "format": "h.264",
+      "sizeBytes": 155682110,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP54.mp4"
+    },
+    {
+     "archiveID": "spectreman@e55",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 16,
+     "title": "Order: Assassinate Spectreman!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP55_000710.jpg",
+     "airDate": "1972-01-15",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP55.mp4",
+      "format": "h.264",
+      "sizeBytes": 154511653,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP55.mp4"
+    },
+    {
+     "archiveID": "spectreman@e56",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 17,
+     "title": "Cosmic Hitman: Comet Mask",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP56_000713.jpg",
+     "airDate": "1972-01-22",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP56.mp4",
+      "format": "h.264",
+      "sizeBytes": 155491330,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP56.mp4"
+    },
+    {
+     "archiveID": "spectreman@e57",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 18,
+     "title": "Resurrection of the Witch: Great Satan",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP57_000715.jpg",
+     "airDate": "1972-01-29",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP57.mp4",
+      "format": "h.264",
+      "sizeBytes": 155610360,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP57.mp4"
+    },
+    {
+     "archiveID": "spectreman@e58",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 19,
+     "title": "Gorda: The Phantom Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP58_000719.jpg",
+     "airDate": "1972-02-05",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP58.mp4",
+      "format": "h.264",
+      "sizeBytes": 156000281,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP58.mp4"
+    },
+    {
+     "archiveID": "spectreman@e59",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 20,
+     "title": "Alien Genos: The Messenger From Hell",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP59_000716.jpg",
+     "airDate": "1972-02-26",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP59.mp4",
+      "format": "h.264",
+      "sizeBytes": 155987180,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP59.mp4"
+    },
+    {
+     "archiveID": "spectreman@e60",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 21,
+     "title": "Deadly Dance of the Monster Dokuron",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP60_000720.jpg",
+     "airDate": "1972-03-04",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP60.mp4",
+      "format": "h.264",
+      "sizeBytes": 156077284,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP60.mp4"
+    },
+    {
+     "archiveID": "spectreman@e61",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 22,
+     "title": "The Terrifying Monster Show",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP61_000716.jpg",
+     "airDate": "1972-03-11",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP61.mp4",
+      "format": "h.264",
+      "sizeBytes": 156102880,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP61.mp4"
+    },
+    {
+     "archiveID": "spectreman@e62",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 23,
+     "title": "This is Gori's Final Death-Match!!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP62_000720.jpg",
+     "airDate": "1972-03-18",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP62.mp4",
+      "format": "h.264",
+      "sizeBytes": 156315972,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP62.mp4"
+    },
+    {
+     "archiveID": "spectreman@e63",
+     "sourceID": "spectreman",
+     "seasonNumber": 3,
+     "episodeNumber": 24,
+     "title": "Goodbye Spectreman",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman/spectreman.thumbs/SpectremanEP63_000715.jpg",
+     "airDate": "1972-03-25",
+     "year": 1972,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "SpectremanEP63.mp4",
+      "format": "h.264",
+      "sizeBytes": 156092327,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP63.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "spectreman-complete-series-1971@e09",
+     "sourceID": "spectreman-complete-series-1971",
+     "seasonNumber": null,
+     "episodeNumber": 9,
+     "title": "The Terrifying Nezubirdon",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman-complete-series-1971/spectreman-complete-series-1971.thumbs/Spectreman%2009%20The%20Terrifying%20Nezubirdon_001023.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1409,
+     "videoFile": {
+      "name": "Spectreman 09 The Terrifying Nezubirdon.mp4",
+      "format": "h.264",
+      "sizeBytes": 136036078,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2009%20The%20Terrifying%20Nezubirdon.mp4"
+    },
+    {
+     "archiveID": "spectreman-1971-tshs-episode-49-7-db-13867",
+     "seasonNumber": null,
+     "episodeNumber": 48,
+     "title": "Episode 48-49",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/spectreman-1971-tshs-episode-49-7-db-13867",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1497,
+     "videoFile": {
+      "name": "Spectreman (1971) [TSHS] episode 49 [7DB13867].mp4",
+      "format": "MPEG4",
+      "sizeBytes": 311393995,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman-1971-tshs-episode-49-7-db-13867/Spectreman%20%281971%29%20%5BTSHS%5D%20episode%2049%20%5B7DB13867%5D.mp4"
+    },
+    {
+     "archiveID": "spectreman-complete-series-1971@e49",
+     "sourceID": "spectreman-complete-series-1971",
+     "seasonNumber": null,
+     "episodeNumber": 49,
+     "title": "Tragic Genius Monster Noman",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman-complete-series-1971/spectreman-complete-series-1971.thumbs/Spectreman%2049%20Tragic%20Genius%20Monster%20Noman_001026.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1412,
+     "videoFile": {
+      "name": "Spectreman 49 Tragic Genius Monster Noman.mp4",
+      "format": "h.264",
+      "sizeBytes": 135972826,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2049%20Tragic%20Genius%20Monster%20Noman.mp4"
+    },
+    {
+     "archiveID": "spectreman-complete-series-1971@e57",
+     "sourceID": "spectreman-complete-series-1971",
+     "seasonNumber": null,
+     "episodeNumber": 57,
+     "title": "Ressurection of Great Satan The Witch",
+     "overview": null,
+     "stillURL": "https://archive.org/download/spectreman-complete-series-1971/spectreman-complete-series-1971.thumbs/Spectreman%2057%20Ressurection%20of%20Great%20Satan%20The%20Witch_001044.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1440,
+     "videoFile": {
+      "name": "Spectreman 57 Ressurection of Great Satan The Witch.mp4",
+      "format": "h.264",
+      "sizeBytes": 138753663,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2057%20Ressurection%20of%20Great%20Satan%20The%20Witch.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 67,
+ "canonicalEpisodesCount": 63,
+ "tvmazeRating": null,
+ "tvdbID": "152381",
+ "artworkSource": "tvdb",
+ "seriesImdbID": "tt0262177",
+ "imdbRating": 7.6,
+ "imdbVotes": 280
 }

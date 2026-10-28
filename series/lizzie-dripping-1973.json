@@ -1,268 +1,271 @@
 {
-  "version": 2,
-  "seriesID": "lizzie-dripping-1973",
-  "tvmazeID": 48470,
-  "title": "Lizzie Dripping",
-  "yearStart": 1973,
-  "yearEnd": 1975,
-  "overview": "A young girl with a vivid imagination meets a local witch whom only she can see and hear. Already known as an imaginative liar, Penelope has problems convincing others that the witch is real.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d059673c831f.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Children",
-    "Fantasy"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "lizzie-dripping-1973",
+ "tvmazeID": 48470,
+ "title": "Lizzie Dripping",
+ "yearStart": 1973,
+ "yearEnd": 1975,
+ "overview": "A young girl with a vivid imagination meets a local witch whom only she can see and hear. Already known as an imaginative liar, Penelope has problems convincing others that the witch is real.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/5d059673c831f.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Children",
+  "Fantasy"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "lizzie-dripping-series-1-avi-xvid@e01",
-          "sourceID": "lizzie-dripping-series-1-avi-xvid",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Lizzie Dripping and the Witch",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP01%20Lizzie%20Dripping%20and%20the%20Witch_000360.jpg",
-          "airDate": "1973-03-13",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01EP01 Lizzie Dripping and the Witch.mp4",
-            "format": "h.264",
-            "sizeBytes": 123339267,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP01%20Lizzie%20Dripping%20and%20the%20Witch.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-1-avi-xvid@e02",
-          "sourceID": "lizzie-dripping-series-1-avi-xvid",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Lizzie Dripping Black Sunday",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP02%20Lizzie%20Dripping%27s%20Black%20Sunday_000417.jpg",
-          "airDate": "1973-03-20",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01EP02 Lizzie Dripping's Black Sunday.mp4",
-            "format": "h.264",
-            "sizeBytes": 124341226,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP02%20Lizzie%20Dripping%27s%20Black%20Sunday.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-1-avi-xvid@e03",
-          "sourceID": "lizzie-dripping-series-1-avi-xvid",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Lizzie Dripping Runs Away",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP03%20Lizzie%20Dripping%20Runs%20Away_000360.jpg",
-          "airDate": "1973-03-27",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01EP03 Lizzie Dripping Runs Away.mp4",
-            "format": "h.264",
-            "sizeBytes": 122601726,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP03%20Lizzie%20Dripping%20Runs%20Away.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-1-avi-xvid@e04",
-          "sourceID": "lizzie-dripping-series-1-avi-xvid",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Lizzie Dripping and the Leek Nobblers",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP04%20Lizzie%20Dripping%20and%20the%20Leek%20Nobblers_000359.jpg",
-          "airDate": "1973-04-03",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01EP04 Lizzie Dripping and the Leek Nobblers.mp4",
-            "format": "h.264",
-            "sizeBytes": 122023368,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP04%20Lizzie%20Dripping%20and%20the%20Leek%20Nobblers.mp4"
-        }
-      ]
+     "archiveID": "lizzie-dripping-series-1-avi-xvid@e01",
+     "sourceID": "lizzie-dripping-series-1-avi-xvid",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Lizzie Dripping and the Witch",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP01%20Lizzie%20Dripping%20and%20the%20Witch_000360.jpg",
+     "airDate": "1973-03-13",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01EP01 Lizzie Dripping and the Witch.mp4",
+      "format": "h.264",
+      "sizeBytes": 123339267,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP01%20Lizzie%20Dripping%20and%20the%20Witch.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "lizzie-dripping-series-2-avi-xvid@e01",
-          "sourceID": "lizzie-dripping-series-2-avi-xvid",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Lizzie Dripping and a Wish",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP01%20Lizzie%20Dripping%20and%20a%20Wish_000415.jpg",
-          "airDate": "1975-02-27",
-          "year": 1975,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S2EP01 Lizzie Dripping and a Wish.mp4",
-            "format": "h.264",
-            "sizeBytes": 139444121,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP01%20Lizzie%20Dripping%20and%20a%20Wish.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-2-avi-xvid@e02",
-          "sourceID": "lizzie-dripping-series-2-avi-xvid",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Lizzie Dripping and the Little Angel",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP02%20Lizzie%20Dripping%20and%20the%20Angel_000423.jpg",
-          "airDate": "1975-03-05",
-          "year": 1975,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S2EP02 Lizzie Dripping and the Angel.mp4",
-            "format": "h.264",
-            "sizeBytes": 141536169,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP02%20Lizzie%20Dripping%20and%20the%20Angel.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-2-avi-xvid@e03",
-          "sourceID": "lizzie-dripping-series-2-avi-xvid",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Lizzie Dripping Tries a Spell",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP03%20Lizzie%20Dripping%20Tries%20a%20Spell_000481.jpg",
-          "airDate": "1975-03-13",
-          "year": 1975,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S2EP03 Lizzie Dripping Tries a Spell.mp4",
-            "format": "h.264",
-            "sizeBytes": 153868554,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP03%20Lizzie%20Dripping%20Tries%20a%20Spell.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-2-avi-xvid@e04",
-          "sourceID": "lizzie-dripping-series-2-avi-xvid",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Lizzie Dripping by the Sea",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP04%20Lizzie%20Dripping%20by%20the%20Sea_000415.jpg",
-          "airDate": "1975-03-20",
-          "year": 1975,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S2EP04 Lizzie Dripping by the Sea.mp4",
-            "format": "h.264",
-            "sizeBytes": 137907067,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP04%20Lizzie%20Dripping%20by%20the%20Sea.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-2-avi-xvid@e05",
-          "sourceID": "lizzie-dripping-series-2-avi-xvid",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Lizzie Dripping Says Good-bye",
-          "overview": null,
-          "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP05%20Lizzie%20Dripping%20Says%20Goddbye_000476.jpg",
-          "airDate": "1975-03-27",
-          "year": 1975,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S2EP05 Lizzie Dripping Says Goddbye.mp4",
-            "format": "h.264",
-            "sizeBytes": 152525652,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP05%20Lizzie%20Dripping%20Says%20Goddbye.mp4"
-        }
-      ]
+     "archiveID": "lizzie-dripping-series-1-avi-xvid@e02",
+     "sourceID": "lizzie-dripping-series-1-avi-xvid",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Lizzie Dripping Black Sunday",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP02%20Lizzie%20Dripping%27s%20Black%20Sunday_000417.jpg",
+     "airDate": "1973-03-20",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01EP02 Lizzie Dripping's Black Sunday.mp4",
+      "format": "h.264",
+      "sizeBytes": 124341226,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP02%20Lizzie%20Dripping%27s%20Black%20Sunday.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "lizzie-dripping-series-1-dvd",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Series 1 - DVD",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
-          "airDate": null,
-          "year": 1973,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "VIDEO_TS/VTS_02_3.mp4",
-            "format": "h.264",
-            "sizeBytes": 132675784,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-dvd/VIDEO_TS/VTS_02_3.mp4"
-        },
-        {
-          "archiveID": "lizzie-dripping-series-2-dvd",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Series 2 - DVD",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
-          "airDate": null,
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "VIDEO_TS/VTS_02_2.mp4",
-            "format": "h.264",
-            "sizeBytes": 123714942,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-dvd/VIDEO_TS/VTS_02_2.mp4"
-        }
-      ]
+     "archiveID": "lizzie-dripping-series-1-avi-xvid@e03",
+     "sourceID": "lizzie-dripping-series-1-avi-xvid",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Lizzie Dripping Runs Away",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP03%20Lizzie%20Dripping%20Runs%20Away_000360.jpg",
+     "airDate": "1973-03-27",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01EP03 Lizzie Dripping Runs Away.mp4",
+      "format": "h.264",
+      "sizeBytes": 122601726,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP03%20Lizzie%20Dripping%20Runs%20Away.mp4"
+    },
+    {
+     "archiveID": "lizzie-dripping-series-1-avi-xvid@e04",
+     "sourceID": "lizzie-dripping-series-1-avi-xvid",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Lizzie Dripping and the Leek Nobblers",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/lizzie-dripping-series-1-avi-xvid.thumbs/S01EP04%20Lizzie%20Dripping%20and%20the%20Leek%20Nobblers_000359.jpg",
+     "airDate": "1973-04-03",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01EP04 Lizzie Dripping and the Leek Nobblers.mp4",
+      "format": "h.264",
+      "sizeBytes": 122023368,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP04%20Lizzie%20Dripping%20and%20the%20Leek%20Nobblers.mp4"
     }
-  ],
-  "episodesCount": 11,
-  "canonicalEpisodesCount": 9,
-  "tvmazeRating": null,
-  "tvdbID": "296971",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Tina Heath",
-      "character": "Lizzie Dripping",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/350841.jpg"
+     "archiveID": "lizzie-dripping-series-2-avi-xvid@e01",
+     "sourceID": "lizzie-dripping-series-2-avi-xvid",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Lizzie Dripping and a Wish",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP01%20Lizzie%20Dripping%20and%20a%20Wish_000415.jpg",
+     "airDate": "1975-02-27",
+     "year": 1975,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S2EP01 Lizzie Dripping and a Wish.mp4",
+      "format": "h.264",
+      "sizeBytes": 139444121,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP01%20Lizzie%20Dripping%20and%20a%20Wish.mp4"
     },
     {
-      "name": "Sonia Dresdel",
-      "character": "'The Witch'",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/544380.jpg"
+     "archiveID": "lizzie-dripping-series-2-avi-xvid@e02",
+     "sourceID": "lizzie-dripping-series-2-avi-xvid",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Lizzie Dripping and the Little Angel",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP02%20Lizzie%20Dripping%20and%20the%20Angel_000423.jpg",
+     "airDate": "1975-03-05",
+     "year": 1975,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S2EP02 Lizzie Dripping and the Angel.mp4",
+      "format": "h.264",
+      "sizeBytes": 141536169,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP02%20Lizzie%20Dripping%20and%20the%20Angel.mp4"
     },
     {
-      "name": "Barbara Mitchell",
-      "character": "Patty Arbuckle",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/419163/5ea1e346d0b32.jpg"
+     "archiveID": "lizzie-dripping-series-2-avi-xvid@e03",
+     "sourceID": "lizzie-dripping-series-2-avi-xvid",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Lizzie Dripping Tries a Spell",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP03%20Lizzie%20Dripping%20Tries%20a%20Spell_000481.jpg",
+     "airDate": "1975-03-13",
+     "year": 1975,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S2EP03 Lizzie Dripping Tries a Spell.mp4",
+      "format": "h.264",
+      "sizeBytes": 153868554,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP03%20Lizzie%20Dripping%20Tries%20a%20Spell.mp4"
+    },
+    {
+     "archiveID": "lizzie-dripping-series-2-avi-xvid@e04",
+     "sourceID": "lizzie-dripping-series-2-avi-xvid",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Lizzie Dripping by the Sea",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP04%20Lizzie%20Dripping%20by%20the%20Sea_000415.jpg",
+     "airDate": "1975-03-20",
+     "year": 1975,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S2EP04 Lizzie Dripping by the Sea.mp4",
+      "format": "h.264",
+      "sizeBytes": 137907067,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP04%20Lizzie%20Dripping%20by%20the%20Sea.mp4"
+    },
+    {
+     "archiveID": "lizzie-dripping-series-2-avi-xvid@e05",
+     "sourceID": "lizzie-dripping-series-2-avi-xvid",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Lizzie Dripping Says Good-bye",
+     "overview": null,
+     "stillURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/lizzie-dripping-series-2-avi-xvid.thumbs/S2EP05%20Lizzie%20Dripping%20Says%20Goddbye_000476.jpg",
+     "airDate": "1975-03-27",
+     "year": 1975,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S2EP05 Lizzie Dripping Says Goddbye.mp4",
+      "format": "h.264",
+      "sizeBytes": 152525652,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP05%20Lizzie%20Dripping%20Says%20Goddbye.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "lizzie-dripping-series-1-dvd",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Series 1 - DVD",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+     "airDate": null,
+     "year": 1973,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "VIDEO_TS/VTS_02_3.mp4",
+      "format": "h.264",
+      "sizeBytes": 132675784,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-dvd/VIDEO_TS/VTS_02_3.mp4"
+    },
+    {
+     "archiveID": "lizzie-dripping-series-2-dvd",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Series 2 - DVD",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+     "airDate": null,
+     "year": 1975,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "VIDEO_TS/VTS_02_2.mp4",
+      "format": "h.264",
+      "sizeBytes": 123714942,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-dvd/VIDEO_TS/VTS_02_2.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 11,
+ "canonicalEpisodesCount": 9,
+ "tvmazeRating": null,
+ "tvdbID": "296971",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Tina Heath",
+   "character": "Lizzie Dripping",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/350841.jpg"
+  },
+  {
+   "name": "Sonia Dresdel",
+   "character": "'The Witch'",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/544380.jpg"
+  },
+  {
+   "name": "Barbara Mitchell",
+   "character": "Patty Arbuckle",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/419163/5ea1e346d0b32.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0173571",
+ "imdbRating": 8.3,
+ "imdbVotes": 44
 }

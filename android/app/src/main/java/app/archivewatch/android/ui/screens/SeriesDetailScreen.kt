@@ -189,6 +189,7 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                         current.canonicalEpisodesCount?.let { all -> "$have of $all episodes" }
                             ?: "$have episodes"
                     },
+                    current.ratingLine,
                 ).joinToString(" · ")
                 if (meta.isNotEmpty()) {
                     Text(

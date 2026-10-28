@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // The web's sort rules are the apps' (owner, 2026-10-27): television grids
-// default to A–Z and every grid kind remembers its own choice; Top Rated ranks
-// a series by its TVmaze rating, which has no votes; playlists default to
+// default to A–Z and every grid kind remembers its own choice; Top Rated sorts
+// on the pipeline's rank (Decision 171), and an older index falls back to the
+// raw rating, where a series counts with no votes; playlists default to
 // "My Order", where a list with no place comes FIRST (newest first) and the
 // arranged lists follow ascending (Playlist.inMyOrder in UserState.swift).
 //
@@ -42,6 +43,27 @@ check(ids(rated) === 'f-good,s-a,s-b,f-few,s-none',
 const oldScore = r => ((r[11] || 0) >= 100 ? (r[10] || 0) : -1);
 const old = [...rows].sort((a, b) => oldScore(b) - oldScore(a));
 check(ids(old) !== ids(rated), 'control: the 100-vote floor for series orders the fixture differently');
+
+// --- Decision 171: the index's column 19 is the pipeline's rank; Top Rated
+// sorts on it whenever the index carries it.
+const ranked = (id, title, rating, votes, rank) => {
+  const r = row(id, title, 1950, 'feature-film', rating, votes);
+  while (r.length < 19) r.push(null);
+  r.push(rank);
+  return r;
+};
+const byRank = [
+  ranked('vierte', 'Der Vierte kommt nicht', 92, 13, 31),   // a 9.2 from thirteen votes
+  ranked('harakiri', 'Harakiri', 86, 90669, 257),
+  ranked('soundie', 'Soundie', null, null, 121),           // archive.org reviewers only
+  ranked('plain', 'Unrated', null, null, null),
+  ranked('tie-b', 'B Tie', 70, 900, 100), ranked('tie-a', 'A Tie', 70, 900, 100),
+];
+const rk = SortRules.sortRows(byRank, 'rate');
+check(ids(rk) === 'harakiri,soundie,tie-a,tie-b,vierte,plain',
+  `Top Rated follows the rank: a big crowd's 8.6 leads a tiny crowd's 9.2, unrated last (got ${ids(rk)})`);
+const byRating = [...byRank].sort((a, b) => (b[10] || -1) - (a[10] || -1));
+check(ids(byRating) !== ids(rk), 'control: sorting on rating10 orders the fixture differently');
 
 const twins = [row('b2', 'Beau Geste', 1939, 'feature-film'), row('b1', 'Beau Geste', 1926, 'silent-film'),
                row('a', 'all quiet', 1930, 'feature-film'), row('z', 'Zoo', 1950, 'feature-film')];

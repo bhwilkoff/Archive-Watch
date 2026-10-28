@@ -42,17 +42,10 @@ struct TVShowsView: View {
                 return (a.episodesCount ?? 0) > (b.episodesCount ?? 0)
             }
         case .rating:
-            // Series cards rarely carry an IMDb rating; rated shows lead,
-            // the rest keep their episode-depth order behind them. Compared
-            // field-by-field rather than as a tuple — the tuple form times out
-            // the type-checker on the released toolchain.
+            // Rated shows lead by the pipeline's rank (Decision 171); the rest
+            // keep their episode-depth order behind them.
             return pool.sorted { a, b in
-                // TVmaze's rating where IMDb's is missing (every series card).
-                let ra = a.imdbRating ?? a.tvmazeRating ?? -1, rb = b.imdbRating ?? b.tvmazeRating ?? -1
-                if ra != rb { return ra > rb }
-                let va = a.imdbVotes ?? 0, vb = b.imdbVotes ?? 0
-                if va != vb { return va > vb }
-                return (a.episodesCount ?? 0) > (b.episodesCount ?? 0)
+                Catalog.Item.ratedBefore(a, b) ?? ((a.episodesCount ?? 0) > (b.episodesCount ?? 0))
             }
         case .alphabetical:
             return pool.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }

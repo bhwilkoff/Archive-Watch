@@ -1,558 +1,561 @@
 {
-  "version": 2,
-  "seriesID": "garrison-s-gorillas-1967",
-  "tvmazeID": 16242,
-  "title": "Garrison's Gorillas",
-  "yearStart": 1967,
-  "yearEnd": 1968,
-  "overview": "Inspired by the film \"The Dirty Dozen\", this series chronicles the adventures of a group of convicts recruited into the U.S. Army by the offer of a post-war parole. Commanded by West Point graduate, Lt. Garrison, the \"Gorillas\" function as commandos behind Nazi lines.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77239-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Adventure",
-    "War"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "garrison-s-gorillas-1967",
+ "tvmazeID": 16242,
+ "title": "Garrison's Gorillas",
+ "yearStart": 1967,
+ "yearEnd": 1968,
+ "overview": "Inspired by the film \"The Dirty Dozen\", this series chronicles the adventures of a group of convicts recruited into the U.S. Army by the offer of a post-war parole. Commanded by West Point graduate, Lt. Garrison, the \"Gorillas\" function as commandos behind Nazi lines.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/77239-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Adventure",
+  "War"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e01",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Big Con",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-09-06",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E01 - The Big Con.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 276897649,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E01%20-%20The%20Big%20Con.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e02",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Breakout",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-09-13",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E02 - Breakout.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 228353991,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E02%20-%20Breakout.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e03",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Grab",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-09-19",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E03 - The Grab.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 277880404,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E03%20-%20The%20Grab.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e04",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Banker's Hours",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-09-26",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E04 - Banker's Hours.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 200474607,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E04%20-%20Banker%27s%20Hours.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e05",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "48 Hours to Doomsday",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-10-03",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E05 - 48 Hours to Doomsday.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 189329699,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E05%20-%2048%20Hours%20to%20Doomsday.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e06",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Great Theft",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-10-10",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E06 - The Great Theft.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 285116001,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E06%20-%20The%20Great%20Theft.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e07",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Deadly Masquerade",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-10-17",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E07 - The Deadly Masquerade.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 204029061,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E07%20-%20The%20Deadly%20Masquerade.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e08",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Now I Lay Me Down to Die",
-          "overview": "In Holland, the Gorillas pull a multiple masquerade to effect two rescues. They must sneak a wounded Allied agent out of a heavily guarded hospital; then crash SS headquarters to rescue Goniff.",
-          "stillURL": null,
-          "airDate": "1967-10-24",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E08 - Now I Lay Me Down To Die.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 285582895,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E08%20-%20Now%20I%20Lay%20Me%20Down%20To%20Die.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e09",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Operation Hellfire",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-10-31",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E09 - Operation Hellfire.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 280984502,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E09%20-%20Operation%20Hellfire.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e10",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Thieves' Holiday",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-11-07",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E10 - Thieves Holiday.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 212964647,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E10%20-%20Thieves%20Holiday.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e11",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "20 Gallons to Kill",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-11-14",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E11 - 20 Gallons to Kill.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 274117844,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E11%20-%2020%20Gallons%20to%20Kill.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e12",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Friendly Enemies",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-11-21",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E12 - Friendly Enemies.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 285527559,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E12%20-%20Friendly%20Enemies.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e13",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Black Market",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-11-28",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E13 - Black Market.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 228926331,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E13%20-%20Black%20Market.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e14",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "The Great Crime Wave",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-12-05",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E14 - The Great Crime Wave.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 229001657,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E14%20-%20The%20Great%20Crime%20Wave.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e15",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "The Magnificent Forger",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-12-19",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E15 - The Magnificent Forger.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 286215191,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E15%20-%20The%20Magnificent%20Forger.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e16",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Expendables",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1967-12-26",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E16 - The Expendables.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 284052717,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E16%20-%20The%20Expendables.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e17",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "War Games",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-01-02",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E17 - War Games.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 285228721,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E17%20-%20War%20Games.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e18",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Run from Death",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-01-09",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E18 - Run From Death.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 261603812,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E18%20-%20Run%20From%20Death.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e19",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "The Death Sentence",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-01-16",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E19 - The Death Sentence.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 285592961,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E19%20-%20The%20Death%20Sentence.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e20",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "The Big Lie",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-01-23",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E20 - The Big Lie.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 281633547,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E20%20-%20The%20Big%20Lie.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e21",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Ride of Terror",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-01-30",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E21 - Ride of Terror.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 284950118,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E21%20-%20Ride%20of%20Terror.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e22",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "War and Crime (1)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-02-13",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E22 - War and Crime.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 284211621,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E22%20-%20War%20and%20Crime.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e23",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "The Plot to Kill (2)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-02-20",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E23 - The Plot to Kill.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 263035857,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E23%20-%20The%20Plot%20to%20Kill.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e24",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "The Frame-Up",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-02-27",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E24 - The Frame-Up.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 285098145,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E24%20-%20The%20Frame-Up.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e25",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "The War Diamonds",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-03-05",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E25 - The War Diamonds.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 271568930,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E25%20-%20The%20War%20Diamonds.ia.mp4"
-        },
-        {
-          "archiveID": "Garrisons-Gorillas-1967-Series@s1e26",
-          "sourceID": "Garrisons-Gorillas-1967-Series",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "Time Bomb",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-03-12",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Garrison's Gorillas (26 of 26)/S01E26 - Time Bomb.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 143918317,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E26%20-%20Time%20Bomb.mp4"
-        }
-      ]
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e01",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Big Con",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-09-06",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E01 - The Big Con.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 276897649,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E01%20-%20The%20Big%20Con.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e02",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Breakout",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-09-13",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E02 - Breakout.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 228353991,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E02%20-%20Breakout.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e03",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Grab",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-09-19",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E03 - The Grab.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 277880404,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E03%20-%20The%20Grab.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e04",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Banker's Hours",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-09-26",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E04 - Banker's Hours.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 200474607,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E04%20-%20Banker%27s%20Hours.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e05",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "48 Hours to Doomsday",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-10-03",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E05 - 48 Hours to Doomsday.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 189329699,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E05%20-%2048%20Hours%20to%20Doomsday.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e06",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Great Theft",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-10-10",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E06 - The Great Theft.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 285116001,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E06%20-%20The%20Great%20Theft.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e07",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Deadly Masquerade",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-10-17",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E07 - The Deadly Masquerade.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 204029061,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E07%20-%20The%20Deadly%20Masquerade.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e08",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Now I Lay Me Down to Die",
+     "overview": "In Holland, the Gorillas pull a multiple masquerade to effect two rescues. They must sneak a wounded Allied agent out of a heavily guarded hospital; then crash SS headquarters to rescue Goniff.",
+     "stillURL": null,
+     "airDate": "1967-10-24",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E08 - Now I Lay Me Down To Die.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 285582895,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E08%20-%20Now%20I%20Lay%20Me%20Down%20To%20Die.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e09",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Operation Hellfire",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-10-31",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E09 - Operation Hellfire.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 280984502,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E09%20-%20Operation%20Hellfire.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e10",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Thieves' Holiday",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-11-07",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E10 - Thieves Holiday.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 212964647,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E10%20-%20Thieves%20Holiday.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e11",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "20 Gallons to Kill",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-11-14",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E11 - 20 Gallons to Kill.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 274117844,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E11%20-%2020%20Gallons%20to%20Kill.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e12",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Friendly Enemies",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-11-21",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E12 - Friendly Enemies.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 285527559,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E12%20-%20Friendly%20Enemies.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e13",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Black Market",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-11-28",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E13 - Black Market.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 228926331,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E13%20-%20Black%20Market.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e14",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "The Great Crime Wave",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-12-05",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E14 - The Great Crime Wave.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 229001657,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E14%20-%20The%20Great%20Crime%20Wave.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e15",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Magnificent Forger",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-12-19",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E15 - The Magnificent Forger.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 286215191,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E15%20-%20The%20Magnificent%20Forger.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e16",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Expendables",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1967-12-26",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E16 - The Expendables.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 284052717,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E16%20-%20The%20Expendables.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e17",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "War Games",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-01-02",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E17 - War Games.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 285228721,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E17%20-%20War%20Games.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e18",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Run from Death",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-01-09",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E18 - Run From Death.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 261603812,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E18%20-%20Run%20From%20Death.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e19",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "The Death Sentence",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-01-16",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E19 - The Death Sentence.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 285592961,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E19%20-%20The%20Death%20Sentence.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e20",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Big Lie",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-01-23",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E20 - The Big Lie.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 281633547,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E20%20-%20The%20Big%20Lie.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e21",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Ride of Terror",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-01-30",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E21 - Ride of Terror.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 284950118,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E21%20-%20Ride%20of%20Terror.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e22",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "War and Crime (1)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-02-13",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E22 - War and Crime.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 284211621,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E22%20-%20War%20and%20Crime.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e23",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "The Plot to Kill (2)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-02-20",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E23 - The Plot to Kill.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 263035857,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E23%20-%20The%20Plot%20to%20Kill.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e24",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "The Frame-Up",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-02-27",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E24 - The Frame-Up.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 285098145,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E24%20-%20The%20Frame-Up.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e25",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "The War Diamonds",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-03-05",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E25 - The War Diamonds.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 271568930,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E25%20-%20The%20War%20Diamonds.ia.mp4"
+    },
+    {
+     "archiveID": "Garrisons-Gorillas-1967-Series@s1e26",
+     "sourceID": "Garrisons-Gorillas-1967-Series",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Time Bomb",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-03-12",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Garrison's Gorillas (26 of 26)/S01E26 - Time Bomb.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 143918317,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E26%20-%20Time%20Bomb.mp4"
     }
-  ],
-  "episodesCount": 26,
-  "canonicalEpisodesCount": 26,
-  "tvmazeRating": null,
-  "tvdbID": "77239",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Christopher Cary",
-      "character": "Goniff",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "Brendon Boone",
-      "character": "Chief",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Rudy Solari",
-      "character": "Casino",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Cesare Danova",
-      "character": "Actor",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "Ron Harper",
-      "character": "Lt. Craig Garrison",
-      "order": 4,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 26,
+ "canonicalEpisodesCount": 26,
+ "tvmazeRating": null,
+ "tvdbID": "77239",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Christopher Cary",
+   "character": "Goniff",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "Brendon Boone",
+   "character": "Chief",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Rudy Solari",
+   "character": "Casino",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Cesare Danova",
+   "character": "Actor",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "Ron Harper",
+   "character": "Lt. Craig Garrison",
+   "order": 4,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0061254",
+ "imdbRating": 7.8,
+ "imdbVotes": 369
 }

@@ -1,387 +1,390 @@
 {
-  "version": 2,
-  "seriesID": "out-of-the-unknown-1965",
-  "tvmazeID": 18808,
-  "title": "Out of the Unknown",
-  "yearStart": 1965,
-  "yearEnd": 1971,
-  "overview": "Out of the Unknown is a British television science fiction anthology drama series, produced by the BBC and broadcast on BBC2 in four series between 1965 and 1971. Each episode was a dramatisation of a science fiction short story. Some were written directly for the series, but most were adaptations of already published stories. The first three years were exclusively science fiction, but that genre was abandoned in the final year in favour of horror/fantasy stories. A number of episodes were wiped during the early 1970s, as was standard procedure at the time. A large number of episodes are still missing but some do turn up from time to time; for instance, Level Seven from series two, originally broadcast on 27 October 1966 was returned to the BBC from the archives of a European broadcaster in January 2006.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/71015-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "out-of-the-unknown-1965",
+ "tvmazeID": 18808,
+ "title": "Out of the Unknown",
+ "yearStart": 1965,
+ "yearEnd": 1971,
+ "overview": "Out of the Unknown is a British television science fiction anthology drama series, produced by the BBC and broadcast on BBC2 in four series between 1965 and 1971. Each episode was a dramatisation of a science fiction short story. Some were written directly for the series, but most were adaptations of already published stories. The first three years were exclusively science fiction, but that genre was abandoned in the final year in favour of horror/fantasy stories. A number of episodes were wiped during the early 1970s, as was standard procedure at the time. A large number of episodes are still missing but some do turn up from time to time; for instance, Level Seven from series two, originally broadcast on 27 October 1966 was returned to the BBC from the archives of a European broadcaster in January 2006.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/71015-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e01",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "No Place Like Earth",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E01%20-%20No%20Place%20Like%20Earth%20-%201965_001095.jpg",
-          "airDate": "1965-10-04",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E01 - No Place Like Earth - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 302961151,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E01%20-%20No%20Place%20Like%20Earth%20-%201965.mp4"
-        },
-        {
-          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s1e01",
-          "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "out of the unknown-1965- -colorized-sd",
-          "overview": null,
-          "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1965-s1e1-colorized-sd_001134.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3228,
-          "videoFile": {
-            "name": "out of the unknown-1965-s1e1-colorized-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 309214291,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1965-s1e1-colorized-sd.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e02",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Counterfeit Man",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E02%20-%20The%20Counterfeit%20Man%20-%201965_001211.jpg",
-          "airDate": "1965-10-11",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E02 - The Counterfeit Man - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 341031970,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E02%20-%20The%20Counterfeit%20Man%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e03",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Stranger in the Family",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E03%20-%20Stranger%20In%20The%20Family%20-%201965_001211.jpg",
-          "airDate": "1965-10-18",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E03 - Stranger In The Family - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 340393807,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E03%20-%20Stranger%20In%20The%20Family%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e04",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Dead Past",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E04%20-%20The%20Dead%20Past%20-%201965_001237.jpg",
-          "airDate": "1965-10-25",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E04 - The Dead Past - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 345989474,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E04%20-%20The%20Dead%20Past%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e05",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Time In Advance",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E05%20-%20Time%20In%20Advance%20-%201965_001194.jpg",
-          "airDate": "1965-11-01",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E05 - Time In Advance - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 336501871,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E05%20-%20Time%20In%20Advance%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e06",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Come Buttercup, Come Daisy, Come... ?",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E06%20-%20Come%20Buttercup%2C%20Come%20Daisy%2C%20Come%20-%201965_001260.jpg",
-          "airDate": "1965-11-08",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E06 - Come Buttercup, Come Daisy, Come - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 351447005,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E06%20-%20Come%20Buttercup%2C%20Come%20Daisy%2C%20Come%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e07",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Sucker Bait",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E07%20-%20Sucker%20Bait%20-%201965_001224.jpg",
-          "airDate": "1965-11-15",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E07 - Sucker Bait - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 342443582,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E07%20-%20Sucker%20Bait%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e10",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Some Lapse of Time",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E10%20-%20Some%20Lapse%20Of%20Time%20-%201965_001240.jpg",
-          "airDate": "1965-12-06",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E10 - Some Lapse Of Time - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 349152260,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E10%20-%20Some%20Lapse%20Of%20Time%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e11",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Thirteen to Centaurus",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E11%20-%20Thirteen%20To%20Centaurus%20-%201965_001251.jpg",
-          "airDate": "1965-12-13",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E11 - Thirteen To Centaurus - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 350166504,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E11%20-%20Thirteen%20To%20Centaurus%20-%201965.mp4"
-        },
-        {
-          "archiveID": "come-buttercup-come-daisy@s1e12",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Midas Plague",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E12%20-%20The%20Midas%20Plague%20-%201965_001281.jpg",
-          "airDate": "1965-12-20",
-          "year": 1965,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Out Of The Unknown S01E12 - The Midas Plague - 1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 359335678,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E12%20-%20The%20Midas%20Plague%20-%201965.mp4"
-        }
-      ]
+     "archiveID": "come-buttercup-come-daisy@s1e01",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "No Place Like Earth",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E01%20-%20No%20Place%20Like%20Earth%20-%201965_001095.jpg",
+     "airDate": "1965-10-04",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E01 - No Place Like Earth - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 302961151,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E01%20-%20No%20Place%20Like%20Earth%20-%201965.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e01",
-          "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "The Machine Stops",
-          "overview": "In the far future, the material needs of humankind are tended by the omnipresent Machine, which makes their environment, in vast tunnels beneath the earth, comfortable and safe. But safe from what? And what if the Machine Stops? A young boy, Kuno, finds his questions can't be answered until he has lifted the veil of security and trespassed upon the surface.",
-          "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e1-colorized-576p-sd_001256.jpg",
-          "airDate": "1966-10-06",
-          "year": 1966,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "out of the unknown-1966-s2e1-colorized-576p-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 298139047,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e1-colorized-576p-sd.mp4"
-        },
-        {
-          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e03",
-          "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Lambda I",
-          "overview": null,
-          "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e3-colorized-576p-sd_001224.jpg",
-          "airDate": "1966-10-20",
-          "year": 1966,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "out of the unknown-1966-s2e3-colorized-576p-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 295618689,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e3-colorized-576p-sd.mp4"
-        },
-        {
-          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e04",
-          "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Level Seven",
-          "overview": "In the huge, labyrinthine nuclear bunker meant to shield the survivors in government from the aftermath of atomic war, Level 7 is the deepest and the safest from radiation. But in spite of its hermetic isolation, the nerve center of government is ultimately not safe from the consequences of the holocaust which rages miles overhead.",
-          "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e4-colorized-576p-sd_001558.jpg",
-          "airDate": "1966-10-27",
-          "year": 1966,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "out of the unknown-1966-s2e4-colorized-576p-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 353377512,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e4-colorized-576p-sd.mp4"
-        },
-        {
-          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e08",
-          "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "Tunnel Under the World",
-          "overview": "Déja vu: as Guy Birkett goes through the day he has a nagging feeling that he's been here before, experienced this already; except the details are always different. Is it conceivable that he is merely a simulacrum, the ultimate in consumer market surveying? He finds there is a reality behind the reality he knows; but for a pawn to question the reality of the chessboard is a perilous undertaking.",
-          "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e8-colorized-576p-sd_001268.jpg",
-          "airDate": "1966-12-01",
-          "year": 1966,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "out of the unknown-1966-s2e8-colorized-576p-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 306885519,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e8-colorized-576p-sd.mp4"
-        }
-      ]
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s1e01",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "out of the unknown-1965- -colorized-sd",
+     "overview": null,
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1965-s1e1-colorized-sd_001134.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3228,
+     "videoFile": {
+      "name": "out of the unknown-1965-s1e1-colorized-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 309214291,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1965-s1e1-colorized-sd.mp4"
     },
     {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "out-of-the-unknown-1969-s-3e-3-in-color-sd",
-          "seasonNumber": 4,
-          "episodeNumber": 2,
-          "title": "To Lay a Ghost",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n8o2KS8D49ZcQ4NbVJ1K2ROaBjm.jpg",
-          "airDate": "1971-04-28",
-          "year": 1971,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "out of the unknown-1971-s4e2-in color-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 288202228,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1969-s-3e-3-in-color-sd/out%20of%20the%20unknown-1971-s4e2-in%20color-sd.mp4"
-        }
-      ]
+     "archiveID": "come-buttercup-come-daisy@s1e02",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Counterfeit Man",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E02%20-%20The%20Counterfeit%20Man%20-%201965_001211.jpg",
+     "airDate": "1965-10-11",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E02 - The Counterfeit Man - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 341031970,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E02%20-%20The%20Counterfeit%20Man%20-%201965.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "come-buttercup-come-daisy@x-out-of-the-unknown-photo-gallery",
-          "sourceID": "come-buttercup-come-daisy",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Photo Gallery Series 1 Part 1",
-          "overview": null,
-          "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20-%20Photo%20Gallery%20Series%201%20Part%201_000117.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 361,
-          "videoFile": {
-            "name": "Out Of The Unknown - Photo Gallery Series 1 Part 1.mp4",
-            "format": "h.264",
-            "sizeBytes": 27107125,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20-%20Photo%20Gallery%20Series%201%20Part%201.mp4"
-        },
-        {
-          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@x-return-of-the-unknown-documentar",
-          "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "return of the unknown-documentary",
-          "overview": null,
-          "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/return%20of%20the%20unknown-documentary_001088.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2563,
-          "videoFile": {
-            "name": "return of the unknown-documentary.mp4",
-            "format": "h.264",
-            "sizeBytes": 245213844,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/return%20of%20the%20unknown-documentary.mp4"
-        }
-      ]
+     "archiveID": "come-buttercup-come-daisy@s1e03",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Stranger in the Family",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E03%20-%20Stranger%20In%20The%20Family%20-%201965_001211.jpg",
+     "airDate": "1965-10-18",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E03 - Stranger In The Family - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 340393807,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E03%20-%20Stranger%20In%20The%20Family%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e04",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Dead Past",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E04%20-%20The%20Dead%20Past%20-%201965_001237.jpg",
+     "airDate": "1965-10-25",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E04 - The Dead Past - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 345989474,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E04%20-%20The%20Dead%20Past%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e05",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Time In Advance",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E05%20-%20Time%20In%20Advance%20-%201965_001194.jpg",
+     "airDate": "1965-11-01",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E05 - Time In Advance - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 336501871,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E05%20-%20Time%20In%20Advance%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e06",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Come Buttercup, Come Daisy, Come... ?",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E06%20-%20Come%20Buttercup%2C%20Come%20Daisy%2C%20Come%20-%201965_001260.jpg",
+     "airDate": "1965-11-08",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E06 - Come Buttercup, Come Daisy, Come - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 351447005,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E06%20-%20Come%20Buttercup%2C%20Come%20Daisy%2C%20Come%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e07",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Sucker Bait",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E07%20-%20Sucker%20Bait%20-%201965_001224.jpg",
+     "airDate": "1965-11-15",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E07 - Sucker Bait - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 342443582,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E07%20-%20Sucker%20Bait%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e10",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Some Lapse of Time",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E10%20-%20Some%20Lapse%20Of%20Time%20-%201965_001240.jpg",
+     "airDate": "1965-12-06",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E10 - Some Lapse Of Time - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 349152260,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E10%20-%20Some%20Lapse%20Of%20Time%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e11",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Thirteen to Centaurus",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E11%20-%20Thirteen%20To%20Centaurus%20-%201965_001251.jpg",
+     "airDate": "1965-12-13",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E11 - Thirteen To Centaurus - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 350166504,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E11%20-%20Thirteen%20To%20Centaurus%20-%201965.mp4"
+    },
+    {
+     "archiveID": "come-buttercup-come-daisy@s1e12",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Midas Plague",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20S01E12%20-%20The%20Midas%20Plague%20-%201965_001281.jpg",
+     "airDate": "1965-12-20",
+     "year": 1965,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Out Of The Unknown S01E12 - The Midas Plague - 1965.mp4",
+      "format": "h.264",
+      "sizeBytes": 359335678,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E12%20-%20The%20Midas%20Plague%20-%201965.mp4"
     }
-  ],
-  "episodesCount": 18,
-  "canonicalEpisodesCount": 49,
-  "tvmazeRating": null,
-  "tvdbID": "71015",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e01",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "The Machine Stops",
+     "overview": "In the far future, the material needs of humankind are tended by the omnipresent Machine, which makes their environment, in vast tunnels beneath the earth, comfortable and safe. But safe from what? And what if the Machine Stops? A young boy, Kuno, finds his questions can't be answered until he has lifted the veil of security and trespassed upon the surface.",
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e1-colorized-576p-sd_001256.jpg",
+     "airDate": "1966-10-06",
+     "year": 1966,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "out of the unknown-1966-s2e1-colorized-576p-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 298139047,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e1-colorized-576p-sd.mp4"
+    },
+    {
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e03",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Lambda I",
+     "overview": null,
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e3-colorized-576p-sd_001224.jpg",
+     "airDate": "1966-10-20",
+     "year": 1966,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "out of the unknown-1966-s2e3-colorized-576p-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 295618689,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e3-colorized-576p-sd.mp4"
+    },
+    {
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e04",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Level Seven",
+     "overview": "In the huge, labyrinthine nuclear bunker meant to shield the survivors in government from the aftermath of atomic war, Level 7 is the deepest and the safest from radiation. But in spite of its hermetic isolation, the nerve center of government is ultimately not safe from the consequences of the holocaust which rages miles overhead.",
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e4-colorized-576p-sd_001558.jpg",
+     "airDate": "1966-10-27",
+     "year": 1966,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "out of the unknown-1966-s2e4-colorized-576p-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 353377512,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e4-colorized-576p-sd.mp4"
+    },
+    {
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s2e08",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "Tunnel Under the World",
+     "overview": "Déja vu: as Guy Birkett goes through the day he has a nagging feeling that he's been here before, experienced this already; except the details are always different. Is it conceivable that he is merely a simulacrum, the ultimate in consumer market surveying? He finds there is a reality behind the reality he knows; but for a pawn to question the reality of the chessboard is a perilous undertaking.",
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1966-s2e8-colorized-576p-sd_001268.jpg",
+     "airDate": "1966-12-01",
+     "year": 1966,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "out of the unknown-1966-s2e8-colorized-576p-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 306885519,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1966-s2e8-colorized-576p-sd.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "out-of-the-unknown-1969-s-3e-3-in-color-sd",
+     "seasonNumber": 4,
+     "episodeNumber": 2,
+     "title": "To Lay a Ghost",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n8o2KS8D49ZcQ4NbVJ1K2ROaBjm.jpg",
+     "airDate": "1971-04-28",
+     "year": 1971,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "out of the unknown-1971-s4e2-in color-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 288202228,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1969-s-3e-3-in-color-sd/out%20of%20the%20unknown-1971-s4e2-in%20color-sd.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "come-buttercup-come-daisy@x-out-of-the-unknown-photo-gallery",
+     "sourceID": "come-buttercup-come-daisy",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Photo Gallery Series 1 Part 1",
+     "overview": null,
+     "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20-%20Photo%20Gallery%20Series%201%20Part%201_000117.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 361,
+     "videoFile": {
+      "name": "Out Of The Unknown - Photo Gallery Series 1 Part 1.mp4",
+      "format": "h.264",
+      "sizeBytes": 27107125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20-%20Photo%20Gallery%20Series%201%20Part%201.mp4"
+    },
+    {
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@x-return-of-the-unknown-documentar",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "return of the unknown-documentary",
+     "overview": null,
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/return%20of%20the%20unknown-documentary_001088.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2563,
+     "videoFile": {
+      "name": "return of the unknown-documentary.mp4",
+      "format": "h.264",
+      "sizeBytes": 245213844,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/return%20of%20the%20unknown-documentary.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 18,
+ "canonicalEpisodesCount": 49,
+ "tvmazeRating": null,
+ "tvdbID": "71015",
+ "artworkSource": "tvdb",
+ "seriesImdbID": "tt0058836",
+ "imdbRating": 7.5,
+ "imdbVotes": 184
 }

@@ -1,123 +1,126 @@
 {
-  "version": 2,
-  "seriesID": "martin-kane-private-eye-1949",
-  "tvmazeID": 60705,
-  "title": "Martin Kane, Private Eye",
-  "yearStart": 1949,
-  "yearEnd": 1954,
-  "overview": "Private detective Martin Kane works in New York solving crimes. Depending on the year, Kane was either smooth and suave or hard bitten and the cooperation he received from the police depended on the year. The only constant was Happy McMann's tobacco shop where Kane hung out.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/264611-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Action",
-    "Crime"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "martin-kane-private-eye-1949",
+ "tvmazeID": 60705,
+ "title": "Martin Kane, Private Eye",
+ "yearStart": 1949,
+ "yearEnd": 1954,
+ "overview": "Private detective Martin Kane works in New York solving crimes. Depending on the year, Kane was either smooth and suave or hard bitten and the cooperation he received from the police depended on the year. The only constant was Happy McMann's tobacco shop where Kane hung out.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/264611-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Action",
+  "Crime"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "martinKanePrivateEye-RestHomeMurder1951",
-          "seasonNumber": 3,
-          "episodeNumber": 11,
-          "title": "Rest Home Murder",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
-          "airDate": "1952-01-03",
-          "year": 1952,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Martin_Kane_Rest_Home_Murder_1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 161476360,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/martinKanePrivateEye-RestHomeMurder1951/Martin_Kane_Rest_Home_Murder_1951.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "martinKanePrivateEye-AJockeyIsMurdered1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "A jockey is murdered",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Martin_Kane_Jockey_murdered_1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 167510432,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/martinKanePrivateEye-AJockeyIsMurdered1951/Martin_Kane_Jockey_murdered_1951.mp4"
-        },
-        {
-          "archiveID": "martinKanePrivateEye-NightclubMurder1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Nightclub murder",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Martin_Kane_Nightclub_murder_01_31_1952.mp4",
-            "format": "h.264",
-            "sizeBytes": 164294950,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/martinKanePrivateEye-NightclubMurder1952/Martin_Kane_Nightclub_murder_01_31_1952.mp4"
-        }
-      ]
+     "archiveID": "martinKanePrivateEye-RestHomeMurder1951",
+     "seasonNumber": 3,
+     "episodeNumber": 11,
+     "title": "Rest Home Murder",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
+     "airDate": "1952-01-03",
+     "year": 1952,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Martin_Kane_Rest_Home_Murder_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 161476360,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/martinKanePrivateEye-RestHomeMurder1951/Martin_Kane_Rest_Home_Murder_1951.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 14,
-  "tvmazeRating": null,
-  "tvdbID": "264611",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "William Gargan",
-      "character": "Martin Kane",
-      "order": 0,
-      "profilePath": null
+     "archiveID": "martinKanePrivateEye-AJockeyIsMurdered1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "A jockey is murdered",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Martin_Kane_Jockey_murdered_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 167510432,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/martinKanePrivateEye-AJockeyIsMurdered1951/Martin_Kane_Jockey_murdered_1951.mp4"
     },
     {
-      "name": "Walter Kinsella",
-      "character": "Happy McMann",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Nicholas Saunders",
-      "character": "Sgt. Ross",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Lloyd Nolan",
-      "character": "Martin Kane",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "Lee Tracy",
-      "character": "Martin Kane",
-      "order": 4,
-      "profilePath": null
+     "archiveID": "martinKanePrivateEye-NightclubMurder1952",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Nightclub murder",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
+     "airDate": null,
+     "year": 1952,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Martin_Kane_Nightclub_murder_01_31_1952.mp4",
+      "format": "h.264",
+      "sizeBytes": 164294950,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/martinKanePrivateEye-NightclubMurder1952/Martin_Kane_Nightclub_murder_01_31_1952.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 14,
+ "tvmazeRating": null,
+ "tvdbID": "264611",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "William Gargan",
+   "character": "Martin Kane",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "Walter Kinsella",
+   "character": "Happy McMann",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Nicholas Saunders",
+   "character": "Sgt. Ross",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Lloyd Nolan",
+   "character": "Martin Kane",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "Lee Tracy",
+   "character": "Martin Kane",
+   "order": 4,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0041042",
+ "imdbRating": 7.5,
+ "imdbVotes": 73
 }

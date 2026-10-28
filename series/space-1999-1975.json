@@ -1,1047 +1,1050 @@
 {
-  "version": 2,
-  "seriesID": "space-1999-1975",
-  "tvmazeID": 5920,
-  "title": "Space: 1999",
-  "yearStart": 1975,
-  "yearEnd": 1977,
-  "overview": "It's 1999 and Moonbase Alpha has been built on the Moon to safeguard the nuclear waste shipped from Earth. On September 13, 1999, disaster strikes and the nuclear waste explodes, causing a chain reaction that hurls the Moon out of Earth's orbit and into deep space.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/76366-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "space-1999-1975",
+ "tvmazeID": 5920,
+ "title": "Space: 1999",
+ "yearStart": 1975,
+ "yearEnd": 1977,
+ "overview": "It's 1999 and Moonbase Alpha has been built on the Moon to safeguard the nuclear waste shipped from Earth. On September 13, 1999, disaster strikes and the nuclear waste explodes, causing a chain reaction that hurls the Moon out of Earth's orbit and into deep space.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/76366-2.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "Space1999.Series1@s1e01",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Breakaway",
-          "overview": "On Moonbase Alpha, the strange deaths of workers is being investigated which leads to the discovery of energy leaks at 2 different sites where Earths atomic waste is being stored. A race ensues to move waste at the second site before a catastrophic event occurs.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/437/1094142.jpg",
-          "airDate": "1975-09-04",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E01 Breakaway.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354985418,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E01%20Breakaway.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e02",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Force of Life",
-          "overview": "An alien life force invades crewman Anton Zoref, transforming him into a mutated beast that seeks heat at all costs... and his next target is Alpha's nuclear reactor.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E02%20Force%20of%20Life_001024.jpg",
-          "airDate": "1975-09-11",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E02 Force of Life.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 350649838,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E02%20Force%20of%20Life.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e03",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Collision Course",
-          "overview": "When the Moon heads directly for an alien planet, its queen convinces John to let the collision occur for the sake of her people's evolution and the Moon will be unharmed. Now John needs to convince his own people of the same.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E03%20Collision%20Course_001095.jpg",
-          "airDate": "1975-09-18",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E03 Collision Course.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 355135772,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E03%20Collision%20Course.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e04",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "War Games",
-          "overview": "An alien war fleet declares the Moon an invading virus and launches unrelenting attacks.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E04%20War%20Games_001095.jpg",
-          "airDate": "1975-09-25",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E04 War Games.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 353248335,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E04%20War%20Games.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e05",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Death's Other Dominion",
-          "overview": "The Moon comes to a frozen planet inhabited by seeming immortals who invites the Alphans to join them.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E05%20Death%27s%20Other%20Dominion_001095.jpg",
-          "airDate": "1975-10-02",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 356766945,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E05%20Death%27s%20Other%20Dominion.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e06",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Voyager's Return",
-          "overview": "Voyager One crosses paths with the Moon, and its creator helps to stop it before its lethal nuclear wake wipes out Alpha. However, an alien fleet from a planet destroyed by the waste comes looking for the probe and its creator seeking revenge.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E06%20Voyager%27s%20Return_001095.jpg",
-          "airDate": "1975-10-09",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E06 Voyager's Return.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348399095,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E06%20Voyager%27s%20Return.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e07",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Alpha Child",
-          "overview": "The first child born on Alpha ages five years in a matter of days, and then an alien fleet arrives to make the Moon its own.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E07%20Alpha%20Child_001095.jpg",
-          "airDate": "1975-10-16",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E07 Alpha Child.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354991184,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E07%20Alpha%20Child.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e08",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Dragon's Domain",
-          "overview": "Tony Cellini, the only survivor of a deep-space probe, claims that an alien creature consumed his other three crewmen… and now Moonbase Alpha is approaching the same graveyard of alien spaceships.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/283224.jpg",
-          "airDate": "1975-10-23",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E08 Dragon's Domain.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 353788431,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E08%20Dragon%27s%20Domain.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e09",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Mission of the Darians",
-          "overview": "The Moon crosses paths with a Darian generational ship. One half of the population lives in savagery, and the other half are sworn to preserve their race no matter what.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E09%20Mission%20of%20the%20Darians_001095.jpg",
-          "airDate": "1975-10-30",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E09 Mission of the Darians.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 355471782,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E09%20Mission%20of%20the%20Darians.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e10",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Black Sun",
-          "overview": "The Moon is attracted by the gravitational force of a black sun, and there appears to be no escape for all but six crew.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E10%20Black%20Sun_001095.jpg",
-          "airDate": "1975-11-06",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E10 Black Sun.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 353791284,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E10%20Black%20Sun.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e11",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Guardian of Piri",
-          "overview": "The Moon approaches Piri, where the Guardian offers them an idyllic life if they abandon their home and join it. Only John realizes that Piri is a trap from which they may neve escape.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E11%20Guardian%20of%20Piri_001218.jpg",
-          "airDate": "1975-11-13",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E11 Guardian of Piri.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354437503,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E11%20Guardian%20of%20Piri.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e12",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "End of Eternity",
-          "overview": "The aliens find a psychopathic immortal alien banished by his own people, who plans to begin his \"experiments\" anew on his rescuers.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E12%20End%20of%20Eternity_001044.jpg",
-          "airDate": "1975-11-20",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E12 End of Eternity.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354173252,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E12%20End%20of%20Eternity.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e13",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Matter of Life and Death",
-          "overview": "An Eagle returns from a promising new planet with a strange passenger: Leo Russell, Helen's husband who died five years ago and warns the Alphans not to land on the planet.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E13%20Matter%20of%20Life%20and%20Death_001044.jpg",
-          "airDate": "1975-11-27",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E13 Matter of Life and Death.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 355416755,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E13%20Matter%20of%20Life%20and%20Death.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e14",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Earthbound",
-          "overview": "An alien spaceship heading to Earth crashes on the Moon, and as the inhabitants make repairs they offer to take one Alphan with them. But at what cost?",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E14%20Earthbound_001044.jpg",
-          "airDate": "1975-12-04",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E14 Earthbound.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 352350124,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E14%20Earthbound.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e15",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "The Full Circle",
-          "overview": "John, Helen, and a landing party explore a primitive planet and going missing. Another landing party find them... living among the savages on the planet, and evolutionary regressed to similar state.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E15%20The%20Full%20Circle_001044.jpg",
-          "airDate": "1975-12-11",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E15 The Full Circle.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 356206068,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E15%20The%20Full%20Circle.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e16",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Another Time, Another Place",
-          "overview": "The Alphas travel to their own future when they return to Earth.. and discover that it's a wasteland with a duplicate Moon orbiting it.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E16%20Another%20Time%2C%20Another%20Place_001218.jpg",
-          "airDate": "1975-12-18",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E16 Another Time, Another Place.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 355399254,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E16%20Another%20Time%2C%20Another%20Place.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e17",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "The Last Sunset",
-          "overview": "The Moon gains a breathable atmosphere and the Alphans prepare to settle their home's surface. However, John suspects the aliens who provided the atmosphere.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E17%20The%20Last%20Sunset_001044.jpg",
-          "airDate": "1976-01-01",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E17 The Last Sunset.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354405615,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E17%20The%20Last%20Sunset.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e18",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "The Infernal Machine",
-          "overview": "Moonbase Alpha is attacked by a sentient war machine, Gwent, that demands that they keep its elderly creator contained within it alive.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/173/434630.jpg",
-          "airDate": "1976-01-08",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E18 The Infernal Machine.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348992841,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E18%20The%20Infernal%20Machine.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e19",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Ring Around the Moon",
-          "overview": "An alien spacecraft attempts to procure Alpha's computer data by \"possessing\" a crewman. When he dies, the aliens possess Helen to do the same thing.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E19%20Ring%20Around%20the%20Moon_001484.jpg",
-          "airDate": "1976-01-15",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E19 Ring Around the Moon.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 351753141,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E19%20Ring%20Around%20the%20Moon.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e20",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Missing Link",
-          "overview": "An alien scientist and his daughter capture the \"primitive\" John, believing him to be the missing link in their evolution.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E20%20Missing%20Link_001484.jpg",
-          "airDate": "1976-01-22",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E20 Missing Link.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 353949777,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E20%20Missing%20Link.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e21",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Space Brain",
-          "overview": "The Moon plummets into an energy field that is evolving into a vast living brain... and sends antibodies to destroy the \"invader\" before it is wiped out.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E21%20Space%20Brain_001484.jpg",
-          "airDate": "1976-01-29",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E21 Space Brain.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 352879995,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E21%20Space%20Brain.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e22",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The Troubled Spirit",
-          "overview": "Biologist Dan Mateo manifests a bizarre murderous spirit while trying to communicate with with his plants: a spirit that kills anyone in its path.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E22%20The%20Troubled%20Spirit_001484.jpg",
-          "airDate": "1976-02-05",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E22 The Troubled Spirit.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354879633,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E22%20The%20Troubled%20Spirit.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e23",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "The Testament of Arkadia",
-          "overview": "The Moon is brought to a halt near a planet wiped out by nuclear war.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E23%20The%20Testament%20of%20Arkadia_001474.jpg",
-          "airDate": "1976-02-12",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E23 The Testament of Arkadia.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 351198315,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E23%20The%20Testament%20of%20Arkadia.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1@s1e24",
-          "sourceID": "Space1999.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "The Last Enemy",
-          "overview": "Moonbase Alpha finds itself caught up in a war between two planets.",
-          "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E24%20The%20Last%20Enemy_001484.jpg",
-          "airDate": "1976-02-19",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S01E24 The Last Enemy.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 354283626,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E24%20The%20Last%20Enemy.ia.mp4"
-        }
-      ]
+     "archiveID": "Space1999.Series1@s1e01",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Breakaway",
+     "overview": "On Moonbase Alpha, the strange deaths of workers is being investigated which leads to the discovery of energy leaks at 2 different sites where Earths atomic waste is being stored. A race ensues to move waste at the second site before a catastrophic event occurs.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/437/1094142.jpg",
+     "airDate": "1975-09-04",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E01 Breakaway.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354985418,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E01%20Breakaway.ia.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "Space1999.Series1_201602@s2e01",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "The Metamorph",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E01%20The%20Metamorph_001024.jpg",
-          "airDate": "1976-09-04",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E01 The Metamorph.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 347141215,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E01%20The%20Metamorph.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e02",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "1999 The Exiles",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E02%20The%20Exiles_001013.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2937,
-          "videoFile": {
-            "name": "Space 1999 S02E02 The Exiles.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 346822533,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E02%20The%20Exiles.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e03",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Journey to Where",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E03%20Journey%20to%20Where_001013.jpg",
-          "airDate": "1976-09-18",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E03 Journey to Where.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348724865,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E03%20Journey%20to%20Where.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e04",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "One Moment of Humanity",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E04%20One%20Moment%20of%20Humanity_001013.jpg",
-          "airDate": "1976-09-25",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E04 One Moment of Humanity.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 347282452,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E04%20One%20Moment%20of%20Humanity.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e05",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Brian the Brain",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E05%20Brian%20the%20Brain_001013.jpg",
-          "airDate": "1976-10-02",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E05 Brian the Brain.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 344823877,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E05%20Brian%20the%20Brain.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e06",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "New Adam, New Eve",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E06%20New%20Adam%20New%20Eve_001013.jpg",
-          "airDate": "1976-10-09",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E06 New Adam New Eve.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348503168,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E06%20New%20Adam%20New%20Eve.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e07",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "The Mark of Archanon",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E07%20The%20Mark%20of%20Archanon_001136.jpg",
-          "airDate": "1976-10-16",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E07 The Mark of Archanon.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 346101328,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E07%20The%20Mark%20of%20Archanon.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e08",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "The Rules of Luton",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E08%20The%20Rules%20of%20Luton_001013.jpg",
-          "airDate": "1976-10-23",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 349128668,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E08%20The%20Rules%20of%20Luton.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e09",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "All That Glisters",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E09%20All%20That%20Glisters_001146.jpg",
-          "airDate": "1976-10-28",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E09 All That Glisters.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348442618,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E09%20All%20That%20Glisters.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e10",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "1999 The Taybor",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E10%20The%20Taybor_001013.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2946,
-          "videoFile": {
-            "name": "Space 1999 S02E10 The Taybor.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 347939854,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E10%20The%20Taybor.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e11",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "Seed of Destruction",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E11%20Seed%20of%20Destruction_001024.jpg",
-          "airDate": "1976-11-11",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E11 Seed of Destruction.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 349086172,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E11%20Seed%20of%20Destruction.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e12",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "The AB Chrysalis",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E12%20The%20AB%20Chrysalis_001146.jpg",
-          "airDate": "1976-11-20",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E12 The AB Chrysalis.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 347167328,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E12%20The%20AB%20Chrysalis.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e13",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 13,
-          "title": "Catacombs of the Moon",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E13%20Catacombs%20of%20the%20Moon_001136.jpg",
-          "airDate": "1976-11-25",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E13 Catacombs of the Moon.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 345537059,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E13%20Catacombs%20of%20the%20Moon.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e14",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 14,
-          "title": "1999 Space Warp",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E14%20Space%20Warp_001454.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2950,
-          "videoFile": {
-            "name": "Space 1999 S02E14 Space Warp.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348517544,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E14%20Space%20Warp.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e15",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 15,
-          "title": "A Matter of Balance",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E15%20A%20Matter%20of%20Balance_001454.jpg",
-          "airDate": "1976-12-09",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E15 A Matter of Balance.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348854750,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E15%20A%20Matter%20of%20Balance.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e16",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
-          "title": "The Beta Cloud",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E16%20The%20Beta%20Cloud_001433.jpg",
-          "airDate": "1976-12-16",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E16 The Beta Cloud.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 344641352,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E16%20The%20Beta%20Cloud.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e17",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 17,
-          "title": "The Lambda Factor",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E17%20The%20Lambda%20Factor_001454.jpg",
-          "airDate": "1976-12-23",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E17 The Lambda Factor.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 347901956,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E17%20The%20Lambda%20Factor.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e18",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "The Bringers of Wonder (1)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E18%20The%20Bringers%20of%20Wonder%20%281%29_001454.jpg",
-          "airDate": "1977-08-04",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E18 The Bringers of Wonder (1).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348631941,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E18%20The%20Bringers%20of%20Wonder%20%281%29.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e19",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "The Bringers of Wonder (2)",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E19%20The%20Bringers%20of%20Wonder%20%282%29_001443.jpg",
-          "airDate": "1977-08-11",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E19 The Bringers of Wonder (2).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 347660593,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E19%20The%20Bringers%20of%20Wonder%20%282%29.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e20",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 20,
-          "title": "The Seance Spectre",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E20%20The%20Seance%20Spectre_001454.jpg",
-          "airDate": "1977-08-18",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E20 The Seance Spectre.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348851224,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E20%20The%20Seance%20Spectre.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e21",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 21,
-          "title": "Dorzak",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E21%20Dorzak_001454.jpg",
-          "airDate": "1977-08-25",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E21 Dorzak.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348319515,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E21%20Dorzak.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e22",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 22,
-          "title": "Devil's Planet",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E22%20Devil%27s%20Planet_001454.jpg",
-          "airDate": "1977-09-01",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E22 Devil's Planet.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348156433,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E22%20Devil%27s%20Planet.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e23",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 23,
-          "title": "The Immunity Syndrome",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E23%20The%20Immunity%20Syndrome_001454.jpg",
-          "airDate": "1977-10-29",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Space 1999 S02E23 The Immunity Syndrome.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348416360,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E23%20The%20Immunity%20Syndrome.ia.mp4"
-        },
-        {
-          "archiveID": "Space1999.Series1_201602@s2e24",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": 2,
-          "episodeNumber": 24,
-          "title": "1999 The Dorcons",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E24%20The%20Dorcons_001454.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2953,
-          "videoFile": {
-            "name": "Space 1999 S02E24 The Dorcons.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 348709954,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E24%20The%20Dorcons.ia.mp4"
-        }
-      ]
+     "archiveID": "Space1999.Series1@s1e02",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Force of Life",
+     "overview": "An alien life force invades crewman Anton Zoref, transforming him into a mutated beast that seeks heat at all costs... and his next target is Alpha's nuclear reactor.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E02%20Force%20of%20Life_001024.jpg",
+     "airDate": "1975-09-11",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E02 Force of Life.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 350649838,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E02%20Force%20of%20Life.ia.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "Space1999.Series1_201602@x-space-1999-the-final-message-fro",
-          "sourceID": "Space1999.Series1_201602",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "1999. The Final Message From Moonbase Alpha",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999.%20The%20Final%20Message%20From%20Moonbase%20Alpha_000170.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 415,
-          "videoFile": {
-            "name": "Space 1999. The Final Message From Moonbase Alpha.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 84171604,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999.%20The%20Final%20Message%20From%20Moonbase%20Alpha.ia.mp4"
-        }
-      ]
+     "archiveID": "Space1999.Series1@s1e03",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Collision Course",
+     "overview": "When the Moon heads directly for an alien planet, its queen convinces John to let the collision occur for the sake of her people's evolution and the Moon will be unharmed. Now John needs to convince his own people of the same.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E03%20Collision%20Course_001095.jpg",
+     "airDate": "1975-09-18",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E03 Collision Course.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 355135772,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E03%20Collision%20Course.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e04",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "War Games",
+     "overview": "An alien war fleet declares the Moon an invading virus and launches unrelenting attacks.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E04%20War%20Games_001095.jpg",
+     "airDate": "1975-09-25",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E04 War Games.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 353248335,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E04%20War%20Games.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e05",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Death's Other Dominion",
+     "overview": "The Moon comes to a frozen planet inhabited by seeming immortals who invites the Alphans to join them.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E05%20Death%27s%20Other%20Dominion_001095.jpg",
+     "airDate": "1975-10-02",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 356766945,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E05%20Death%27s%20Other%20Dominion.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e06",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Voyager's Return",
+     "overview": "Voyager One crosses paths with the Moon, and its creator helps to stop it before its lethal nuclear wake wipes out Alpha. However, an alien fleet from a planet destroyed by the waste comes looking for the probe and its creator seeking revenge.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E06%20Voyager%27s%20Return_001095.jpg",
+     "airDate": "1975-10-09",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E06 Voyager's Return.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348399095,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E06%20Voyager%27s%20Return.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e07",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Alpha Child",
+     "overview": "The first child born on Alpha ages five years in a matter of days, and then an alien fleet arrives to make the Moon its own.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E07%20Alpha%20Child_001095.jpg",
+     "airDate": "1975-10-16",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E07 Alpha Child.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354991184,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E07%20Alpha%20Child.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e08",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Dragon's Domain",
+     "overview": "Tony Cellini, the only survivor of a deep-space probe, claims that an alien creature consumed his other three crewmen… and now Moonbase Alpha is approaching the same graveyard of alien spaceships.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/283224.jpg",
+     "airDate": "1975-10-23",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E08 Dragon's Domain.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 353788431,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E08%20Dragon%27s%20Domain.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e09",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Mission of the Darians",
+     "overview": "The Moon crosses paths with a Darian generational ship. One half of the population lives in savagery, and the other half are sworn to preserve their race no matter what.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E09%20Mission%20of%20the%20Darians_001095.jpg",
+     "airDate": "1975-10-30",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E09 Mission of the Darians.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 355471782,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E09%20Mission%20of%20the%20Darians.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e10",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Black Sun",
+     "overview": "The Moon is attracted by the gravitational force of a black sun, and there appears to be no escape for all but six crew.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E10%20Black%20Sun_001095.jpg",
+     "airDate": "1975-11-06",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E10 Black Sun.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 353791284,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E10%20Black%20Sun.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e11",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Guardian of Piri",
+     "overview": "The Moon approaches Piri, where the Guardian offers them an idyllic life if they abandon their home and join it. Only John realizes that Piri is a trap from which they may neve escape.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E11%20Guardian%20of%20Piri_001218.jpg",
+     "airDate": "1975-11-13",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E11 Guardian of Piri.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354437503,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E11%20Guardian%20of%20Piri.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e12",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "End of Eternity",
+     "overview": "The aliens find a psychopathic immortal alien banished by his own people, who plans to begin his \"experiments\" anew on his rescuers.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E12%20End%20of%20Eternity_001044.jpg",
+     "airDate": "1975-11-20",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E12 End of Eternity.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354173252,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E12%20End%20of%20Eternity.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e13",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Matter of Life and Death",
+     "overview": "An Eagle returns from a promising new planet with a strange passenger: Leo Russell, Helen's husband who died five years ago and warns the Alphans not to land on the planet.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E13%20Matter%20of%20Life%20and%20Death_001044.jpg",
+     "airDate": "1975-11-27",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E13 Matter of Life and Death.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 355416755,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E13%20Matter%20of%20Life%20and%20Death.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e14",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Earthbound",
+     "overview": "An alien spaceship heading to Earth crashes on the Moon, and as the inhabitants make repairs they offer to take one Alphan with them. But at what cost?",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E14%20Earthbound_001044.jpg",
+     "airDate": "1975-12-04",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E14 Earthbound.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 352350124,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E14%20Earthbound.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e15",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Full Circle",
+     "overview": "John, Helen, and a landing party explore a primitive planet and going missing. Another landing party find them... living among the savages on the planet, and evolutionary regressed to similar state.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E15%20The%20Full%20Circle_001044.jpg",
+     "airDate": "1975-12-11",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E15 The Full Circle.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 356206068,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E15%20The%20Full%20Circle.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e16",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Another Time, Another Place",
+     "overview": "The Alphas travel to their own future when they return to Earth.. and discover that it's a wasteland with a duplicate Moon orbiting it.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E16%20Another%20Time%2C%20Another%20Place_001218.jpg",
+     "airDate": "1975-12-18",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E16 Another Time, Another Place.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 355399254,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E16%20Another%20Time%2C%20Another%20Place.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e17",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "The Last Sunset",
+     "overview": "The Moon gains a breathable atmosphere and the Alphans prepare to settle their home's surface. However, John suspects the aliens who provided the atmosphere.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E17%20The%20Last%20Sunset_001044.jpg",
+     "airDate": "1976-01-01",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E17 The Last Sunset.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354405615,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E17%20The%20Last%20Sunset.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e18",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "The Infernal Machine",
+     "overview": "Moonbase Alpha is attacked by a sentient war machine, Gwent, that demands that they keep its elderly creator contained within it alive.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/173/434630.jpg",
+     "airDate": "1976-01-08",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E18 The Infernal Machine.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348992841,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E18%20The%20Infernal%20Machine.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e19",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Ring Around the Moon",
+     "overview": "An alien spacecraft attempts to procure Alpha's computer data by \"possessing\" a crewman. When he dies, the aliens possess Helen to do the same thing.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E19%20Ring%20Around%20the%20Moon_001484.jpg",
+     "airDate": "1976-01-15",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E19 Ring Around the Moon.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 351753141,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E19%20Ring%20Around%20the%20Moon.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e20",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Missing Link",
+     "overview": "An alien scientist and his daughter capture the \"primitive\" John, believing him to be the missing link in their evolution.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E20%20Missing%20Link_001484.jpg",
+     "airDate": "1976-01-22",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E20 Missing Link.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 353949777,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E20%20Missing%20Link.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e21",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Space Brain",
+     "overview": "The Moon plummets into an energy field that is evolving into a vast living brain... and sends antibodies to destroy the \"invader\" before it is wiped out.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E21%20Space%20Brain_001484.jpg",
+     "airDate": "1976-01-29",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E21 Space Brain.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 352879995,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E21%20Space%20Brain.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e22",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Troubled Spirit",
+     "overview": "Biologist Dan Mateo manifests a bizarre murderous spirit while trying to communicate with with his plants: a spirit that kills anyone in its path.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E22%20The%20Troubled%20Spirit_001484.jpg",
+     "airDate": "1976-02-05",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E22 The Troubled Spirit.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354879633,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E22%20The%20Troubled%20Spirit.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e23",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "The Testament of Arkadia",
+     "overview": "The Moon is brought to a halt near a planet wiped out by nuclear war.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E23%20The%20Testament%20of%20Arkadia_001474.jpg",
+     "airDate": "1976-02-12",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E23 The Testament of Arkadia.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 351198315,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E23%20The%20Testament%20of%20Arkadia.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1@s1e24",
+     "sourceID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "The Last Enemy",
+     "overview": "Moonbase Alpha finds itself caught up in a war between two planets.",
+     "stillURL": "https://archive.org/download/Space1999.Series1/Space1999.Series1.thumbs/Space%201999%20S01E24%20The%20Last%20Enemy_001484.jpg",
+     "airDate": "1976-02-19",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E24 The Last Enemy.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 354283626,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E24%20The%20Last%20Enemy.ia.mp4"
     }
-  ],
-  "episodesCount": 49,
-  "canonicalEpisodesCount": 48,
-  "tvmazeRating": 7.6,
-  "tvdbID": "76366",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Martin Landau",
-      "character": "Com. John Koenig",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/256570/604414c98ed02.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e01",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "The Metamorph",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E01%20The%20Metamorph_001024.jpg",
+     "airDate": "1976-09-04",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E01 The Metamorph.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 347141215,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E01%20The%20Metamorph.ia.mp4"
     },
     {
-      "name": "Barbara Bain",
-      "character": "Dr. Helena Russell",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259631/photo/6320e09fee80d.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e02",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "1999 The Exiles",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E02%20The%20Exiles_001013.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2937,
+     "videoFile": {
+      "name": "Space 1999 S02E02 The Exiles.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 346822533,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E02%20The%20Exiles.ia.mp4"
     },
     {
-      "name": "Barry Morse",
-      "character": "Victor Bergman",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265636/photo/61dd029cf25a8.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e03",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Journey to Where",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E03%20Journey%20to%20Where_001013.jpg",
+     "airDate": "1976-09-18",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E03 Journey to Where.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348724865,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E03%20Journey%20to%20Where.ia.mp4"
     },
     {
-      "name": "Nick Tate",
-      "character": "Cap. Alan Carter",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/45637.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e04",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "One Moment of Humanity",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E04%20One%20Moment%20of%20Humanity_001013.jpg",
+     "airDate": "1976-09-25",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E04 One Moment of Humanity.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 347282452,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E04%20One%20Moment%20of%20Humanity.ia.mp4"
     },
     {
-      "name": "Anton Phillips",
-      "character": "Dr. Bob Mathias",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/45626.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e05",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Brian the Brain",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E05%20Brian%20the%20Brain_001013.jpg",
+     "airDate": "1976-10-02",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E05 Brian the Brain.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 344823877,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E05%20Brian%20the%20Brain.ia.mp4"
     },
     {
-      "name": "Catherine Schell",
-      "character": "Maya",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/45635.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e06",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "New Adam, New Eve",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E06%20New%20Adam%20New%20Eve_001013.jpg",
+     "airDate": "1976-10-09",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E06 New Adam New Eve.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348503168,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E06%20New%20Adam%20New%20Eve.ia.mp4"
     },
     {
-      "name": "Tony Anholt",
-      "character": "Tony Verdeschi",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/45638.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e07",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "The Mark of Archanon",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E07%20The%20Mark%20of%20Archanon_001136.jpg",
+     "airDate": "1976-10-16",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E07 The Mark of Archanon.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 346101328,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E07%20The%20Mark%20of%20Archanon.ia.mp4"
     },
     {
-      "name": "Zienia Merton",
-      "character": "Sandra Benes",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308720/photo/631f8cc2dfde6.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e08",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "The Rules of Luton",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E08%20The%20Rules%20of%20Luton_001013.jpg",
+     "airDate": "1976-10-23",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 349128668,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E08%20The%20Rules%20of%20Luton.ia.mp4"
     },
     {
-      "name": "Suzanne Roquette",
-      "character": "Tanya Alexander",
-      "order": 8,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/45627.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e09",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "All That Glisters",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E09%20All%20That%20Glisters_001146.jpg",
+     "airDate": "1976-10-28",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E09 All That Glisters.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348442618,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E09%20All%20That%20Glisters.ia.mp4"
     },
     {
-      "name": "Clifton Jones",
-      "character": "David Kano",
-      "order": 9,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/45630.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e10",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "1999 The Taybor",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E10%20The%20Taybor_001013.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2946,
+     "videoFile": {
+      "name": "Space 1999 S02E10 The Taybor.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 347939854,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E10%20The%20Taybor.ia.mp4"
     },
     {
-      "name": "Prentis Hancock",
-      "character": "Paul Morrow",
-      "order": 10,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258532/photo/658fd1faa5385.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e11",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "Seed of Destruction",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E11%20Seed%20of%20Destruction_001024.jpg",
+     "airDate": "1976-11-11",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E11 Seed of Destruction.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 349086172,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E11%20Seed%20of%20Destruction.ia.mp4"
     },
     {
-      "name": "Barbara Kelly",
-      "character": "Main Computer Voice",
-      "order": 11,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/288700/photo/6474ae6e71e77.jpg"
+     "archiveID": "Space1999.Series1_201602@s2e12",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "The AB Chrysalis",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E12%20The%20AB%20Chrysalis_001146.jpg",
+     "airDate": "1976-11-20",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E12 The AB Chrysalis.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 347167328,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E12%20The%20AB%20Chrysalis.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e13",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "Catacombs of the Moon",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E13%20Catacombs%20of%20the%20Moon_001136.jpg",
+     "airDate": "1976-11-25",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E13 Catacombs of the Moon.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 345537059,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E13%20Catacombs%20of%20the%20Moon.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e14",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 14,
+     "title": "1999 Space Warp",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E14%20Space%20Warp_001454.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2950,
+     "videoFile": {
+      "name": "Space 1999 S02E14 Space Warp.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348517544,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E14%20Space%20Warp.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e15",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 15,
+     "title": "A Matter of Balance",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E15%20A%20Matter%20of%20Balance_001454.jpg",
+     "airDate": "1976-12-09",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E15 A Matter of Balance.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348854750,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E15%20A%20Matter%20of%20Balance.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e16",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 16,
+     "title": "The Beta Cloud",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E16%20The%20Beta%20Cloud_001433.jpg",
+     "airDate": "1976-12-16",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E16 The Beta Cloud.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 344641352,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E16%20The%20Beta%20Cloud.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e17",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "The Lambda Factor",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E17%20The%20Lambda%20Factor_001454.jpg",
+     "airDate": "1976-12-23",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E17 The Lambda Factor.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 347901956,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E17%20The%20Lambda%20Factor.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e18",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "The Bringers of Wonder (1)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E18%20The%20Bringers%20of%20Wonder%20%281%29_001454.jpg",
+     "airDate": "1977-08-04",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E18 The Bringers of Wonder (1).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348631941,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E18%20The%20Bringers%20of%20Wonder%20%281%29.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e19",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "The Bringers of Wonder (2)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E19%20The%20Bringers%20of%20Wonder%20%282%29_001443.jpg",
+     "airDate": "1977-08-11",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E19 The Bringers of Wonder (2).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 347660593,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E19%20The%20Bringers%20of%20Wonder%20%282%29.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e20",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 20,
+     "title": "The Seance Spectre",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E20%20The%20Seance%20Spectre_001454.jpg",
+     "airDate": "1977-08-18",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E20 The Seance Spectre.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348851224,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E20%20The%20Seance%20Spectre.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e21",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 21,
+     "title": "Dorzak",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E21%20Dorzak_001454.jpg",
+     "airDate": "1977-08-25",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E21 Dorzak.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348319515,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E21%20Dorzak.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e22",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 22,
+     "title": "Devil's Planet",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E22%20Devil%27s%20Planet_001454.jpg",
+     "airDate": "1977-09-01",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E22 Devil's Planet.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348156433,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E22%20Devil%27s%20Planet.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e23",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 23,
+     "title": "The Immunity Syndrome",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E23%20The%20Immunity%20Syndrome_001454.jpg",
+     "airDate": "1977-10-29",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S02E23 The Immunity Syndrome.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348416360,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E23%20The%20Immunity%20Syndrome.ia.mp4"
+    },
+    {
+     "archiveID": "Space1999.Series1_201602@s2e24",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": 2,
+     "episodeNumber": 24,
+     "title": "1999 The Dorcons",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999%20S02E24%20The%20Dorcons_001454.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2953,
+     "videoFile": {
+      "name": "Space 1999 S02E24 The Dorcons.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 348709954,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E24%20The%20Dorcons.ia.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "Space1999.Series1_201602@x-space-1999-the-final-message-fro",
+     "sourceID": "Space1999.Series1_201602",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "1999. The Final Message From Moonbase Alpha",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Space1999.Series1_201602/Space1999.Series1_201602.thumbs/Space%201999.%20The%20Final%20Message%20From%20Moonbase%20Alpha_000170.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 415,
+     "videoFile": {
+      "name": "Space 1999. The Final Message From Moonbase Alpha.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 84171604,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999.%20The%20Final%20Message%20From%20Moonbase%20Alpha.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 49,
+ "canonicalEpisodesCount": 48,
+ "tvmazeRating": 7.6,
+ "tvdbID": "76366",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Martin Landau",
+   "character": "Com. John Koenig",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/256570/604414c98ed02.jpg"
+  },
+  {
+   "name": "Barbara Bain",
+   "character": "Dr. Helena Russell",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259631/photo/6320e09fee80d.jpg"
+  },
+  {
+   "name": "Barry Morse",
+   "character": "Victor Bergman",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265636/photo/61dd029cf25a8.jpg"
+  },
+  {
+   "name": "Nick Tate",
+   "character": "Cap. Alan Carter",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/45637.jpg"
+  },
+  {
+   "name": "Anton Phillips",
+   "character": "Dr. Bob Mathias",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/45626.jpg"
+  },
+  {
+   "name": "Catherine Schell",
+   "character": "Maya",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/45635.jpg"
+  },
+  {
+   "name": "Tony Anholt",
+   "character": "Tony Verdeschi",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/45638.jpg"
+  },
+  {
+   "name": "Zienia Merton",
+   "character": "Sandra Benes",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308720/photo/631f8cc2dfde6.jpg"
+  },
+  {
+   "name": "Suzanne Roquette",
+   "character": "Tanya Alexander",
+   "order": 8,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/45627.jpg"
+  },
+  {
+   "name": "Clifton Jones",
+   "character": "David Kano",
+   "order": 9,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/45630.jpg"
+  },
+  {
+   "name": "Prentis Hancock",
+   "character": "Paul Morrow",
+   "order": 10,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258532/photo/658fd1faa5385.jpg"
+  },
+  {
+   "name": "Barbara Kelly",
+   "character": "Main Computer Voice",
+   "order": 11,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/288700/photo/6474ae6e71e77.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0072564",
+ "imdbRating": 7.3,
+ "imdbVotes": 10656
 }

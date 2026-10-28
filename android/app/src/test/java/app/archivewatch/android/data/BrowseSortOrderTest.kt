@@ -23,14 +23,25 @@ class BrowseSortOrderTest {
     @After
     fun close() = db.close()
 
-    private fun table(withTVmaze: Boolean) {
+    private fun table(withTVmaze: Boolean, withRank: Boolean = false) {
         db.createStatement().use {
             it.execute(
                 "CREATE TABLE items (archiveID TEXT, title TEXT, year INTEGER, imdbRating REAL, " +
                     "imdbVotes INTEGER, episodesCount INTEGER, hasRealArtwork INTEGER, " +
                     "artworkSource TEXT, popularityScore REAL" +
-                    (if (withTVmaze) ", tvmazeRating REAL" else "") + ")",
+                    (if (withTVmaze) ", tvmazeRating REAL" else "") +
+                    (if (withRank) ", ratingRank REAL" else "") + ")",
             )
+        }
+    }
+
+    private fun ranked(id: String, title: String, imdb: Double?, votes: Int?, rank: Double?) {
+        db.prepareStatement(
+            "INSERT INTO items (archiveID, title, imdbRating, imdbVotes, episodesCount, hasRealArtwork, " +
+                "artworkSource, popularityScore, tvmazeRating, ratingRank) VALUES (?, ?, ?, ?, 0, 1, NULL, 0, NULL, ?)",
+        ).use { st ->
+            st.setString(1, id); st.setString(2, title); st.setObject(3, imdb); st.setObject(4, votes)
+            st.setObject(5, rank); st.executeUpdate()
         }
     }
 
@@ -48,11 +59,11 @@ class BrowseSortOrderTest {
         }
     }
 
-    private fun ids(sort: BrowseSort, tvmaze: Boolean, demote: String = ""): List<String> =
+    private fun ids(sort: BrowseSort, tvmaze: Boolean, demote: String = "", rank: Boolean = false): List<String> =
         db.createStatement().use { st ->
             st.executeQuery(
                 "SELECT i.archiveID FROM items i ORDER BY " +
-                    CatalogDatabase.orderSQL(sort, tvmaze, demote),
+                    CatalogDatabase.orderSQL(sort, tvmaze, demote, rank),
             ).use { rs -> generateSequence { if (rs.next()) rs.getString(1) else null }.toList() }
         }
 
@@ -68,6 +79,19 @@ class BrowseSortOrderTest {
         row("tie2", "Tie Many Votes", imdb = 6.0, votes = 900)
         assertEquals(listOf("series", "film", "tie2", "tie1", "zorro", "abbott", "adams"),
                      ids(BrowseSort.RATING, tvmaze = true))
+    }
+
+    @Test
+    fun `Top Rated follows the pipeline's rank, not the raw rating`() {
+        table(withTVmaze = true, withRank = true)
+        ranked("vierte", "Der Vierte kommt nicht", imdb = 9.2, votes = 13, rank = 0.31)
+        ranked("harakiri", "Harakiri", imdb = 8.6, votes = 90669, rank = 2.57)
+        ranked("soundie", "Soundie", imdb = null, votes = null, rank = 1.21)   // archive.org reviewers
+        ranked("plain", "Unrated", imdb = null, votes = null, rank = null)
+        assertEquals(listOf("harakiri", "soundie", "vierte", "plain"),
+                     ids(BrowseSort.RATING, tvmaze = true, rank = true))
+        // control: the same rows by the raw rating put the 13-vote 9.2 first
+        assertEquals("vierte", ids(BrowseSort.RATING, tvmaze = true, rank = false).first())
     }
 
     @Test

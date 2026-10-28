@@ -247,7 +247,9 @@ frame grabs. This does NOT apply to the viewer's own Favorites.
 
 **6.3 Browse** is an 8-column grid with scope chips above it on one focusable
 row: Type, Decade, Sort. A chip opens a dialog, never a pushed screen. TV Shows
-browses series cards, never loose episodes (Decision 036).
+browses series cards, never loose episodes (Decision 036). Top Rated sorts on
+the index's `ratingRank100` (column 19, Decision 171), with unrated titles at
+the tail as in the apps; an older index keeps the 1,000-vote floor.
 
 **6.4 Search** is the platform keyboard on the left, results on the right,
 updating incrementally. **Below an empty query it shows browse doors** —

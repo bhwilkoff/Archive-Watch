@@ -54,6 +54,11 @@ on:
         required: false
         default: false
         type: boolean
+      replace_in_flight:
+        description: 'Withdraw a version still waiting for review with an older build and submit this one instead'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: appstore-submit
@@ -106,6 +111,7 @@ jobs:
           NOTES: ${{ inputs.release_notes }}
           SUBMIT: ${{ inputs.submit }}
           DRY_RUN: ${{ inputs.dry_run }}
+          REPLACE: ${{ inputs.replace_in_flight }}
         run: |
           set -euo pipefail
           args=(ship --platform "$PLATFORM")
@@ -114,6 +120,7 @@ jobs:
           if [ -n "$NOTES" ]; then args+=(--notes "$NOTES"); fi
           if [ "$SUBMIT" = "true" ]; then args+=(--submit); fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ "$REPLACE" = "true" ]; then args+=(--replace-in-flight); fi
           python3 tools/asc_release.py "${args[@]}"
 
       # The tool's own success message is not evidence — read the state back.

@@ -1,663 +1,664 @@
 {
-  "version": 2,
-  "seriesID": "the-time-tunnel-1966",
-  "tvmazeID": 1135,
-  "title": "The Time Tunnel",
-  "yearStart": 1966,
-  "yearEnd": 1967,
-  "overview": "The control of time is potentially the most valuable treasure that man will ever find, or so believe the scientists of Project Tic Toc. Located beneath the Arizona desert, the ten-year project's focus is the feasibility of time travel. But when the government reconsiders the project, the scientists have only 24 hours to prove their untested time tunnel will actually work. Determined to save the project, Dr. Tony Newman and Dr. Doug Phillips go through the tunnel and quickly find themselves catapulted from one historical event to another, barely escaping with their lives as their colleagues back in Arizona race to figure out a way to bring them back home.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77268-4.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-time-tunnel-1966",
+ "tvmazeID": 1135,
+ "title": "The Time Tunnel",
+ "yearStart": 1966,
+ "yearEnd": 1967,
+ "overview": "The control of time is potentially the most valuable treasure that man will ever find, or so believe the scientists of Project Tic Toc. Located beneath the Arizona desert, the ten-year project's focus is the feasibility of time travel. But when the government reconsiders the project, the scientists have only 24 hours to prove their untested time tunnel will actually work. Determined to save the project, Dr. Tony Newman and Dr. Doug Phillips go through the tunnel and quickly find themselves catapulted from one historical event to another, barely escaping with their lives as their colleagues back in Arizona race to figure out a way to bring them back home.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/77268-4.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e01",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Rendezvous with Yesterday",
-          "overview": "Congress has poured seven billion dollars into a large and deep hole in the ground - the home of Project TicToc and its revolutionary new technology, the Time Tunnel. A mechanism intended to access past and future, the tunnel is not quite ready despite a decade of work and all the billions. Senator Clark declares his intention to cut funding and abandon the project. Desperate scientist Tony Newman uses the apparatus to send himself through time to prove the concept. But the TicToc team cannot retrieve him, and so his mentor Doug Phillips goes back to help Tony out of the peril he has landed in: he has arrived on the RMS Titanic the day before she struck an iceberg and sank.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116316.jpg",
-          "airDate": "1966-09-09",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E01 Rendezvous with Yesterday.mp4",
-            "format": "h.264",
-            "sizeBytes": 287001309,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E01%20Rendezvous%20with%20Yesterday.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e02",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "One Way to the Moon",
-          "overview": "Doug and Tony escape death aboard the Titanic only to be hurled ten years into their future aboard a rocket bound for the moon. Problems arise which the astronauts blame on their unwilling stowaways, but the real cause is a saboteur aboard the flight - and the same man, ten years earlier, is in the TicToc complex with a confederate! Doug and Tony must discover the identity of the traitor and stop his plans or else die in space.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116317.jpg",
-          "airDate": "1966-09-16",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E02 One Way to the Moon.mp4",
-            "format": "h.264",
-            "sizeBytes": 288960034,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E02%20One%20Way%20to%20the%20Moon.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e03",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "End of the World",
-          "overview": "Doug and Tony arrive in a mine shaft in 1910, year that Halley's Comet passes close to earth. Many fear it as a supernatural event. A local scientist calculates it will strike local. The mine has collapsed. Doug and Tony try to save lives.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116318.jpg",
-          "airDate": "1966-09-23",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E03 End of the World.mp4",
-            "format": "h.264",
-            "sizeBytes": 288620783,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E03%20End%20of%20the%20World.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e04",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Day the Sky Fell In",
-          "overview": "At Pearl Harbor on Dec. 6, 1941, Dr. Tony Newman confronts his own past at Pearl Harbor and he wants to know what happened to his father.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116319.jpg",
-          "airDate": "1966-09-30",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E04 The Day the Sky Fell In.mp4",
-            "format": "h.264",
-            "sizeBytes": 294625073,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E04%20The%20Day%20the%20Sky%20Fell%20In.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e05",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Last Patrol",
-          "overview": "Doug and Tony are transported to New Orleans where Tony steals two buckskins for them to wear. They are captured by the British Seventh Royal Regiment commanded by Colonel 'The Butcher' Southall. They find themselves behind the British lines in the War of 1812 against the United Kingdom where they are mistakenly taken to be spies. They go to a partial court martial and sentenced to be executed by firing squad by The Butcher. Furthermore they realize that the day is 07 January 1815, the eve of the ultimate attack of Colonel Southall against the strongest side of Commander Andrew Jackson's defenses, when the British officer led his men to a slaughter. Meanwhile General Kirk invites the British General Phillip Southall, who is a descendant of The Butcher, to visit The Time Tunnel facility to feed the personnel with information about his ancestor.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116320.jpg",
-          "airDate": "1966-10-07",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E05 The Last Patrol.mp4",
-            "format": "h.264",
-            "sizeBytes": 294668207,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E05%20The%20Last%20Patrol.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e06",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Crack of Doom",
-          "overview": "In 1883, a little-known Indonesian volcanic island called Krakatoa exploded with enough force to be heard nearly 3000 miles away. Doug and Tony materialize days before this explosion, and meet a professor there to investigate the volcano with his lovely daughter - and a small group of superstitious natives. After a recent major eruption, Professor Holland is sure the volcano's next explosion is decades in the future, and cannot be persuaded otherwise - but he may be deceiving everyone, even himself. Then Doug and Tony discover an error in the date calculations that suggests they're far closer to the fateful day than they first thought.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116321.jpg",
-          "airDate": "1966-10-14",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E06 Crack of Doom.mp4",
-            "format": "h.264",
-            "sizeBytes": 294045258,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E06%20Crack%20of%20Doom.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e07",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Revenge of the Gods",
-          "overview": "Doug and Tony are in 1200 BC during the war between Greeks and Trojans. They are captured by Ulysses and their knowledge of history makes him think they are gods. Doug is captured by traitor Sardis, brought to Troy and meets Helen of Troy.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116322.jpg",
-          "airDate": "1966-10-21",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E07 Revenge of the Gods.mp4",
-            "format": "h.264",
-            "sizeBytes": 294044515,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E07%20Revenge%20of%20the%20Gods.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e08",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Massacre",
-          "overview": "Doug and Tony hurtle nearly 3000 years futureward to the Montana of 1876, days before the Battle of the Little Bighorn that will cost General George Armstrong Custer and his men their lives. Doug tries to persuade Custer away from his ruinous course while Tony attempts to convince the Lakota he landed among that he is an honorable man and that there is nothing to be gained from battling Custer.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116323.jpg",
-          "airDate": "1966-10-28",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E08 Massacre.mp4",
-            "format": "h.264",
-            "sizeBytes": 294027430,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E08%20Massacre.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e09",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Devil's Island",
-          "overview": "At the French penal colony of Devil's Island in 1895, where prisoners were sent and never left, Doug and Tony are mistaken as runaway prisoners. They try to tell the prisoners their plan to help Captain Alfred Dreyfus escape is doomed.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116324.jpg",
-          "airDate": "1966-11-11",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E09 Devil's Island.mp4",
-            "format": "h.264",
-            "sizeBytes": 295654555,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E09%20Devil%27s%20Island.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e10",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Reign of Terror",
-          "overview": "Doug and Tony find themselves during the French Revolution and become involved in a plot to rescue the doomed French Queen, Marie Antoinette.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116325.jpg",
-          "airDate": "1966-11-18",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E10 Reign of Terror.mp4",
-            "format": "h.264",
-            "sizeBytes": 296449745,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E10%20Reign%20of%20Terror.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e11",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Secret Weapon",
-          "overview": "The guys are transported to 1956 Russia and receive a message from the Time Tunnel: \"Meet Alexis\". They meet the agent who gets them to a Soviet Time Tunnel he is in charge of and insists they pilot the craft. They know its doomed future.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116326.jpg",
-          "airDate": "1966-11-25",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E11 Secret Weapon.mp4",
-            "format": "h.264",
-            "sizeBytes": 293686964,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E11%20Secret%20Weapon.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e12",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Death Trap",
-          "overview": "The guys are transported to February 1861 to a barn where a group of conspirators led by Jeremiah plots to kill Abraham Lincoln. They have developed a time bomb but are surprised by a raid of governmental agents. Tony flees with Jeremiah.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116327.jpg",
-          "airDate": "1966-12-02",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E12 The Death Trap.mp4",
-            "format": "h.264",
-            "sizeBytes": 294156625,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E12%20The%20Death%20Trap.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e13",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "The Alamo",
-          "overview": "Doug and Tony are transported to 1836 and are immediately attacked by Mexican soldiers. The nearest shelter turns out to be the Alamo days before the Mexican Army will overrun it. Colonel Travis decides they are spies and imprisons them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116328.jpg",
-          "airDate": "1966-12-09",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E13 The Alamo.mp4",
-            "format": "h.264",
-            "sizeBytes": 295817761,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E13%20The%20Alamo.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e14",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Night of the Long Knives",
-          "overview": "Doug and Tony land in nineteenth century Asia, meet Rudyard Kipling and become involved in the conflict between the British and local tribesman for control of the Khyber Pass.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116329.jpg",
-          "airDate": "1966-12-16",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E14 Night of the Long Knives.mp4",
-            "format": "h.264",
-            "sizeBytes": 294927083,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E14%20Night%20of%20the%20Long%20Knives.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e15",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Invasion",
-          "overview": "Landing in 1944 occupied France two days before D-Day, Doug is captured by the Germans and psychologically reprogrammed to hunt down and kill Tony who must keep their knowledge concerning the impending invasion from the Nazis.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116330.jpg",
-          "airDate": "1966-12-23",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E15 Invasion.mp4",
-            "format": "h.264",
-            "sizeBytes": 296123730,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E15%20Invasion.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e16",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Revenge of Robin Hood",
-          "overview": "In thirteenth century England, Doug and Tony become involved with the Earl of Huntington otherwise known as the legendary Robin Hood and their efforts to get King John to sign the Magna Carta.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116332.jpg",
-          "airDate": "1966-12-30",
-          "year": 1966,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E16 The Revenge of Robin Hood.mp4",
-            "format": "h.264",
-            "sizeBytes": 291830166,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E16%20The%20Revenge%20of%20Robin%20Hood.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e17",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Kill Two by Two",
-          "overview": "On a Pacific isle about to be bombed by America, Doug and Tony are held by a downed Japanese pilot and a sergeant. Kirk brings in a Japanese officer who served on the island. He won't help unless they save his son who died during the war.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116333.jpg",
-          "airDate": "1967-01-06",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E17 Kill Two by Two.mp4",
-            "format": "h.264",
-            "sizeBytes": 294495663,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E17%20Kill%20Two%20by%20Two.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e18",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Visitors from Beyond the Stars",
-          "overview": "Doug and Tony are transported to a spacecraft with two weird aliens that intend to invade Earth to steal proteins for their dying planet. They land on Mullins, Arizona, in 1885, and the aliens use a device called \"Projector\" to subdue the earthlings. The time travelers decide to resist the invasion to save Earth from the eminent destruction, but the powerful aliens seem to be unbeatable.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116334.jpg",
-          "airDate": "1967-01-13",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E18 Visitors from Beyond the Stars.mp4",
-            "format": "h.264",
-            "sizeBytes": 293731325,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E18%20Visitors%20from%20Beyond%20the%20Stars.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e19",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "The Ghost of Nero",
-          "overview": "During an encounter between the Germans and the Italians in World War I, Doug and Tony land in a villa that is haunted by the ghost of the Roman Emperor Nero.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116335.jpg",
-          "airDate": "1967-01-20",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E19 The Ghost of Nero.mp4",
-            "format": "h.264",
-            "sizeBytes": 294425921,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E19%20The%20Ghost%20of%20Nero.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e20",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "The Walls of Jericho",
-          "overview": "Doug and Tony spy for Joshua as he prepares to tumble the walls of Jericho. [9621]",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116336.jpg",
-          "airDate": "1967-01-27",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E20 The Walls of Jericho.mp4",
-            "format": "h.264",
-            "sizeBytes": 292853173,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E20%20The%20Walls%20of%20Jericho.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e21",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Idol of Death",
-          "overview": "Doug and Tony land in 1519 Mexico, where Cortez is looking for a golden mask. Their archaeology expert back at the Time Tunnel insists that they retrieve the mask, which he has been searching for for twenty years, or he will not help them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116337.jpg",
-          "airDate": "1967-02-03",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E21 Idol of Death.mp4",
-            "format": "h.264",
-            "sizeBytes": 293774833,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E21%20Idol%20of%20Death.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e22",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "Billy the Kid",
-          "overview": "Landing in 1881 New Mexico in the middle of a jailbreak of Billy the Kid, to defend Tony Doug shoots at Billy who escapes swearing to hunt down Doug. According to their research back at the Time Tunnel, two unknown strangers were killed by him on that date.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116338.jpg",
-          "airDate": "1967-02-10",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E22 Billy the Kid.mp4",
-            "format": "h.264",
-            "sizeBytes": 294213350,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E22%20Billy%20the%20Kid.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e23",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Pirates of Deadman's Island",
-          "overview": "Tony and Doug land among Barbary Coast pirates as Capt. Stephen Decatur prepares to attack. [9610]",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116339.jpg",
-          "airDate": "1967-02-17",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E23 Pirates of Deadman's Island.mp4",
-            "format": "h.264",
-            "sizeBytes": 294234431,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E23%20Pirates%20of%20Deadman%27s%20Island.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e24",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Chase Through Time",
-          "overview": "An enemy spy posing as a technician puts a bomb in the complex and then escapes via the Tunnel. Doug and Tony must find him and learn the location of the bomb before the Complex is destroyed, trapping them in time.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116340.jpg",
-          "airDate": "1967-02-24",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E24 Chase Through Time.mp4",
-            "format": "h.264",
-            "sizeBytes": 294346657,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E24%20Chase%20Through%20Time.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e25",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "The Death Merchant",
-          "overview": "Ending up on different sides just prior to the Battle of Gettysburg, Doug and Tony must stop an attempt by Machiavelli (who had traveled in time from the Renaissance due to the Time Tunnel Project) from trying to affect the outcome of the battle and send him back into time.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116341.jpg",
-          "airDate": "1967-03-03",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E25 The Death Merchant.mp4",
-            "format": "h.264",
-            "sizeBytes": 293560941,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E25%20The%20Death%20Merchant.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e26",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "Attack of the Barbarians",
-          "overview": "Doug and Tony must help Marco Polo stop an attack by Mongols in thirteenth century China. Tony meets and falls in love with the daughter of Kubla Kahn.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116342.jpg",
-          "airDate": "1967-03-10",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E26 Attack of the Barbarians.mp4",
-            "format": "h.264",
-            "sizeBytes": 294730192,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E26%20Attack%20of%20the%20Barbarians.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e27",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 27,
-          "title": "Merlin the Magician",
-          "overview": "Merlin the Magician pulls Tony and Doug from their journey through time and send them to help a young King Arthur fight an invasion of Vikings.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116343.jpg",
-          "airDate": "1967-03-17",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E27 Merlin the Magician.mp4",
-            "format": "h.264",
-            "sizeBytes": 294078860,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E27%20Merlin%20the%20Magician.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e28",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "The Kidnappers",
-          "overview": "After Time Tunnel member Doctor Ann MacGregor is kidnapped by a time traveler from another planet, Tony and Doug are sent there to rescue her.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116344.jpg",
-          "airDate": "1967-03-24",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E28 The Kidnappers.mp4",
-            "format": "h.264",
-            "sizeBytes": 295116477,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E28%20The%20Kidnappers.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e29",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 29,
-          "title": "Raiders from Outer Space",
-          "overview": "During the Battle of Khartoum in 1883, Tony and Doug stumble upon aliens who plan to conquer the Earth using missiles. The aliens also send a bomb through the Time Tunnel to prevent any interference with their plans.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116345.jpg",
-          "airDate": "1967-03-31",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E29 Raiders from Outer Space.mp4",
-            "format": "h.264",
-            "sizeBytes": 293554411,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E29%20Raiders%20from%20Outer%20Space.mp4"
-        },
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s1e30",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "Town of Terror",
-          "overview": "In 1978, Doug and Tony have to stop aliens from stealing all the oxygen from the planet Earth.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116346.jpg",
-          "airDate": "1967-04-07",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Time Tunnel S01E30 Town of Terror.mp4",
-            "format": "h.264",
-            "sizeBytes": 294300519,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E30%20Town%20of%20Terror.mp4"
-        }
-      ]
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e01",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Rendezvous with Yesterday",
+     "overview": "Congress has poured seven billion dollars into a large and deep hole in the ground - the home of Project TicToc and its revolutionary new technology, the Time Tunnel. A mechanism intended to access past and future, the tunnel is not quite ready despite a decade of work and all the billions. Senator Clark declares his intention to cut funding and abandon the project. Desperate scientist Tony Newman uses the apparatus to send himself through time to prove the concept. But the TicToc team cannot retrieve him, and so his mentor Doug Phillips goes back to help Tony out of the peril he has landed in: he has arrived on the RMS Titanic the day before she struck an iceberg and sank.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116316.jpg",
+     "airDate": "1966-09-09",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E01 Rendezvous with Yesterday.mp4",
+      "format": "h.264",
+      "sizeBytes": 287001309,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E01%20Rendezvous%20with%20Yesterday.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "the-time-tunnel-complete-series-1966@s2e00",
-          "sourceID": "the-time-tunnel-complete-series-1966",
-          "seasonNumber": 2,
-          "episodeNumber": 0,
-          "title": "Pilot",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/the-time-tunnel-complete-series-1966.thumbs/The%20Time%20Tunnel%20S02E00%20-%20Pilot_001644.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3017,
-          "videoFile": {
-            "name": "The Time Tunnel S02E00 - Pilot.mp4",
-            "format": "h.264",
-            "sizeBytes": 283177358,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S02E00%20-%20Pilot.mp4"
-        }
-      ]
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e02",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "One Way to the Moon",
+     "overview": "Doug and Tony escape death aboard the Titanic only to be hurled ten years into their future aboard a rocket bound for the moon. Problems arise which the astronauts blame on their unwilling stowaways, but the real cause is a saboteur aboard the flight - and the same man, ten years earlier, is in the TicToc complex with a confederate! Doug and Tony must discover the identity of the traitor and stop his plans or else die in space.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116317.jpg",
+     "airDate": "1966-09-16",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E02 One Way to the Moon.mp4",
+      "format": "h.264",
+      "sizeBytes": 288960034,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E02%20One%20Way%20to%20the%20Moon.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e03",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "End of the World",
+     "overview": "Doug and Tony arrive in a mine shaft in 1910, year that Halley's Comet passes close to earth. Many fear it as a supernatural event. A local scientist calculates it will strike local. The mine has collapsed. Doug and Tony try to save lives.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116318.jpg",
+     "airDate": "1966-09-23",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E03 End of the World.mp4",
+      "format": "h.264",
+      "sizeBytes": 288620783,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E03%20End%20of%20the%20World.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e04",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Day the Sky Fell In",
+     "overview": "At Pearl Harbor on Dec. 6, 1941, Dr. Tony Newman confronts his own past at Pearl Harbor and he wants to know what happened to his father.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116319.jpg",
+     "airDate": "1966-09-30",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E04 The Day the Sky Fell In.mp4",
+      "format": "h.264",
+      "sizeBytes": 294625073,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E04%20The%20Day%20the%20Sky%20Fell%20In.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e05",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Last Patrol",
+     "overview": "Doug and Tony are transported to New Orleans where Tony steals two buckskins for them to wear. They are captured by the British Seventh Royal Regiment commanded by Colonel 'The Butcher' Southall. They find themselves behind the British lines in the War of 1812 against the United Kingdom where they are mistakenly taken to be spies. They go to a partial court martial and sentenced to be executed by firing squad by The Butcher. Furthermore they realize that the day is 07 January 1815, the eve of the ultimate attack of Colonel Southall against the strongest side of Commander Andrew Jackson's defenses, when the British officer led his men to a slaughter. Meanwhile General Kirk invites the British General Phillip Southall, who is a descendant of The Butcher, to visit The Time Tunnel facility to feed the personnel with information about his ancestor.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116320.jpg",
+     "airDate": "1966-10-07",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E05 The Last Patrol.mp4",
+      "format": "h.264",
+      "sizeBytes": 294668207,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E05%20The%20Last%20Patrol.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e06",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Crack of Doom",
+     "overview": "In 1883, a little-known Indonesian volcanic island called Krakatoa exploded with enough force to be heard nearly 3000 miles away. Doug and Tony materialize days before this explosion, and meet a professor there to investigate the volcano with his lovely daughter - and a small group of superstitious natives. After a recent major eruption, Professor Holland is sure the volcano's next explosion is decades in the future, and cannot be persuaded otherwise - but he may be deceiving everyone, even himself. Then Doug and Tony discover an error in the date calculations that suggests they're far closer to the fateful day than they first thought.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116321.jpg",
+     "airDate": "1966-10-14",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E06 Crack of Doom.mp4",
+      "format": "h.264",
+      "sizeBytes": 294045258,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E06%20Crack%20of%20Doom.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e07",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Revenge of the Gods",
+     "overview": "Doug and Tony are in 1200 BC during the war between Greeks and Trojans. They are captured by Ulysses and their knowledge of history makes him think they are gods. Doug is captured by traitor Sardis, brought to Troy and meets Helen of Troy.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116322.jpg",
+     "airDate": "1966-10-21",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E07 Revenge of the Gods.mp4",
+      "format": "h.264",
+      "sizeBytes": 294044515,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E07%20Revenge%20of%20the%20Gods.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e08",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Massacre",
+     "overview": "Doug and Tony hurtle nearly 3000 years futureward to the Montana of 1876, days before the Battle of the Little Bighorn that will cost General George Armstrong Custer and his men their lives. Doug tries to persuade Custer away from his ruinous course while Tony attempts to convince the Lakota he landed among that he is an honorable man and that there is nothing to be gained from battling Custer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116323.jpg",
+     "airDate": "1966-10-28",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E08 Massacre.mp4",
+      "format": "h.264",
+      "sizeBytes": 294027430,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E08%20Massacre.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e09",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Devil's Island",
+     "overview": "At the French penal colony of Devil's Island in 1895, where prisoners were sent and never left, Doug and Tony are mistaken as runaway prisoners. They try to tell the prisoners their plan to help Captain Alfred Dreyfus escape is doomed.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116324.jpg",
+     "airDate": "1966-11-11",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E09 Devil's Island.mp4",
+      "format": "h.264",
+      "sizeBytes": 295654555,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E09%20Devil%27s%20Island.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e10",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Reign of Terror",
+     "overview": "Doug and Tony find themselves during the French Revolution and become involved in a plot to rescue the doomed French Queen, Marie Antoinette.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116325.jpg",
+     "airDate": "1966-11-18",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E10 Reign of Terror.mp4",
+      "format": "h.264",
+      "sizeBytes": 296449745,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E10%20Reign%20of%20Terror.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e11",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Secret Weapon",
+     "overview": "The guys are transported to 1956 Russia and receive a message from the Time Tunnel: \"Meet Alexis\". They meet the agent who gets them to a Soviet Time Tunnel he is in charge of and insists they pilot the craft. They know its doomed future.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116326.jpg",
+     "airDate": "1966-11-25",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E11 Secret Weapon.mp4",
+      "format": "h.264",
+      "sizeBytes": 293686964,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E11%20Secret%20Weapon.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e12",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Death Trap",
+     "overview": "The guys are transported to February 1861 to a barn where a group of conspirators led by Jeremiah plots to kill Abraham Lincoln. They have developed a time bomb but are surprised by a raid of governmental agents. Tony flees with Jeremiah.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116327.jpg",
+     "airDate": "1966-12-02",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E12 The Death Trap.mp4",
+      "format": "h.264",
+      "sizeBytes": 294156625,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E12%20The%20Death%20Trap.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e13",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "The Alamo",
+     "overview": "Doug and Tony are transported to 1836 and are immediately attacked by Mexican soldiers. The nearest shelter turns out to be the Alamo days before the Mexican Army will overrun it. Colonel Travis decides they are spies and imprisons them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116328.jpg",
+     "airDate": "1966-12-09",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E13 The Alamo.mp4",
+      "format": "h.264",
+      "sizeBytes": 295817761,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E13%20The%20Alamo.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e14",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Night of the Long Knives",
+     "overview": "Doug and Tony land in nineteenth century Asia, meet Rudyard Kipling and become involved in the conflict between the British and local tribesman for control of the Khyber Pass.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116329.jpg",
+     "airDate": "1966-12-16",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E14 Night of the Long Knives.mp4",
+      "format": "h.264",
+      "sizeBytes": 294927083,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E14%20Night%20of%20the%20Long%20Knives.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e15",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Invasion",
+     "overview": "Landing in 1944 occupied France two days before D-Day, Doug is captured by the Germans and psychologically reprogrammed to hunt down and kill Tony who must keep their knowledge concerning the impending invasion from the Nazis.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116330.jpg",
+     "airDate": "1966-12-23",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E15 Invasion.mp4",
+      "format": "h.264",
+      "sizeBytes": 296123730,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E15%20Invasion.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e16",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Revenge of Robin Hood",
+     "overview": "In thirteenth century England, Doug and Tony become involved with the Earl of Huntington otherwise known as the legendary Robin Hood and their efforts to get King John to sign the Magna Carta.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116332.jpg",
+     "airDate": "1966-12-30",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E16 The Revenge of Robin Hood.mp4",
+      "format": "h.264",
+      "sizeBytes": 291830166,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E16%20The%20Revenge%20of%20Robin%20Hood.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e17",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Kill Two by Two",
+     "overview": "On a Pacific isle about to be bombed by America, Doug and Tony are held by a downed Japanese pilot and a sergeant. Kirk brings in a Japanese officer who served on the island. He won't help unless they save his son who died during the war.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116333.jpg",
+     "airDate": "1967-01-06",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E17 Kill Two by Two.mp4",
+      "format": "h.264",
+      "sizeBytes": 294495663,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E17%20Kill%20Two%20by%20Two.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e18",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Visitors from Beyond the Stars",
+     "overview": "Doug and Tony are transported to a spacecraft with two weird aliens that intend to invade Earth to steal proteins for their dying planet. They land on Mullins, Arizona, in 1885, and the aliens use a device called \"Projector\" to subdue the earthlings. The time travelers decide to resist the invasion to save Earth from the eminent destruction, but the powerful aliens seem to be unbeatable.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116334.jpg",
+     "airDate": "1967-01-13",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E18 Visitors from Beyond the Stars.mp4",
+      "format": "h.264",
+      "sizeBytes": 293731325,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E18%20Visitors%20from%20Beyond%20the%20Stars.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e19",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "The Ghost of Nero",
+     "overview": "During an encounter between the Germans and the Italians in World War I, Doug and Tony land in a villa that is haunted by the ghost of the Roman Emperor Nero.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116335.jpg",
+     "airDate": "1967-01-20",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E19 The Ghost of Nero.mp4",
+      "format": "h.264",
+      "sizeBytes": 294425921,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E19%20The%20Ghost%20of%20Nero.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e20",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Walls of Jericho",
+     "overview": "Doug and Tony spy for Joshua as he prepares to tumble the walls of Jericho. [9621]",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116336.jpg",
+     "airDate": "1967-01-27",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E20 The Walls of Jericho.mp4",
+      "format": "h.264",
+      "sizeBytes": 292853173,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E20%20The%20Walls%20of%20Jericho.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e21",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Idol of Death",
+     "overview": "Doug and Tony land in 1519 Mexico, where Cortez is looking for a golden mask. Their archaeology expert back at the Time Tunnel insists that they retrieve the mask, which he has been searching for for twenty years, or he will not help them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116337.jpg",
+     "airDate": "1967-02-03",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E21 Idol of Death.mp4",
+      "format": "h.264",
+      "sizeBytes": 293774833,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E21%20Idol%20of%20Death.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e22",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "Billy the Kid",
+     "overview": "Landing in 1881 New Mexico in the middle of a jailbreak of Billy the Kid, to defend Tony Doug shoots at Billy who escapes swearing to hunt down Doug. According to their research back at the Time Tunnel, two unknown strangers were killed by him on that date.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116338.jpg",
+     "airDate": "1967-02-10",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E22 Billy the Kid.mp4",
+      "format": "h.264",
+      "sizeBytes": 294213350,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E22%20Billy%20the%20Kid.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e23",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Pirates of Deadman's Island",
+     "overview": "Tony and Doug land among Barbary Coast pirates as Capt. Stephen Decatur prepares to attack. [9610]",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116339.jpg",
+     "airDate": "1967-02-17",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E23 Pirates of Deadman's Island.mp4",
+      "format": "h.264",
+      "sizeBytes": 294234431,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E23%20Pirates%20of%20Deadman%27s%20Island.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e24",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Chase Through Time",
+     "overview": "An enemy spy posing as a technician puts a bomb in the complex and then escapes via the Tunnel. Doug and Tony must find him and learn the location of the bomb before the Complex is destroyed, trapping them in time.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116340.jpg",
+     "airDate": "1967-02-24",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E24 Chase Through Time.mp4",
+      "format": "h.264",
+      "sizeBytes": 294346657,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E24%20Chase%20Through%20Time.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e25",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "The Death Merchant",
+     "overview": "Ending up on different sides just prior to the Battle of Gettysburg, Doug and Tony must stop an attempt by Machiavelli (who had traveled in time from the Renaissance due to the Time Tunnel Project) from trying to affect the outcome of the battle and send him back into time.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116341.jpg",
+     "airDate": "1967-03-03",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E25 The Death Merchant.mp4",
+      "format": "h.264",
+      "sizeBytes": 293560941,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E25%20The%20Death%20Merchant.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e26",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Attack of the Barbarians",
+     "overview": "Doug and Tony must help Marco Polo stop an attack by Mongols in thirteenth century China. Tony meets and falls in love with the daughter of Kubla Kahn.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116342.jpg",
+     "airDate": "1967-03-10",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E26 Attack of the Barbarians.mp4",
+      "format": "h.264",
+      "sizeBytes": 294730192,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E26%20Attack%20of%20the%20Barbarians.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e27",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 27,
+     "title": "Merlin the Magician",
+     "overview": "Merlin the Magician pulls Tony and Doug from their journey through time and send them to help a young King Arthur fight an invasion of Vikings.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116343.jpg",
+     "airDate": "1967-03-17",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E27 Merlin the Magician.mp4",
+      "format": "h.264",
+      "sizeBytes": 294078860,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E27%20Merlin%20the%20Magician.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e28",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "The Kidnappers",
+     "overview": "After Time Tunnel member Doctor Ann MacGregor is kidnapped by a time traveler from another planet, Tony and Doug are sent there to rescue her.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116344.jpg",
+     "airDate": "1967-03-24",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E28 The Kidnappers.mp4",
+      "format": "h.264",
+      "sizeBytes": 295116477,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E28%20The%20Kidnappers.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e29",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Raiders from Outer Space",
+     "overview": "During the Battle of Khartoum in 1883, Tony and Doug stumble upon aliens who plan to conquer the Earth using missiles. The aliens also send a bomb through the Time Tunnel to prevent any interference with their plans.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116345.jpg",
+     "airDate": "1967-03-31",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E29 Raiders from Outer Space.mp4",
+      "format": "h.264",
+      "sizeBytes": 293554411,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E29%20Raiders%20from%20Outer%20Space.mp4"
+    },
+    {
+     "archiveID": "the-time-tunnel-complete-series-1966@s1e30",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 30,
+     "title": "Town of Terror",
+     "overview": "In 1978, Doug and Tony have to stop aliens from stealing all the oxygen from the planet Earth.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116346.jpg",
+     "airDate": "1967-04-07",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Time Tunnel S01E30 Town of Terror.mp4",
+      "format": "h.264",
+      "sizeBytes": 294300519,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S01E30%20Town%20of%20Terror.mp4"
     }
-  ],
-  "episodesCount": 31,
-  "canonicalEpisodesCount": 30,
-  "tvmazeRating": 7.8,
-  "tvdbID": "77268",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Lee Meriwether",
-      "character": "Dr Ann MacGregor",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261807/photo/67dc308161340.jpg"
-    },
-    {
-      "name": "Robert Colbert",
-      "character": "Dr Douglas Phillips",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/54071.jpg"
-    },
-    {
-      "name": "Whit Bissell",
-      "character": "General Heywood Kirk",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259512/photo/6494ebe14c6f5.jpg"
-    },
-    {
-      "name": "Sam Groom",
-      "character": "Jerry Briggs",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/54073.jpg"
-    },
-    {
-      "name": "James Darren",
-      "character": "Dr Tony Newman",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259778/photo/66d6f0b13f1f3.jpg"
-    },
-    {
-      "name": "John Zaremba",
-      "character": "Dr Raymond Swain",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256662/photo/649579f578390.jpg"
+     "archiveID": "the-time-tunnel-complete-series-1966@s2e00",
+     "sourceID": "the-time-tunnel-complete-series-1966",
+     "seasonNumber": 2,
+     "episodeNumber": 0,
+     "title": "Pilot",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/the-time-tunnel-complete-series-1966.thumbs/The%20Time%20Tunnel%20S02E00%20-%20Pilot_001644.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3017,
+     "videoFile": {
+      "name": "The Time Tunnel S02E00 - Pilot.mp4",
+      "format": "h.264",
+      "sizeBytes": 283177358,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-time-tunnel-complete-series-1966/The%20Time%20Tunnel%20S02E00%20-%20Pilot.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 31,
+ "canonicalEpisodesCount": 30,
+ "tvmazeRating": 7.8,
+ "tvdbID": "77268",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Lee Meriwether",
+   "character": "Dr Ann MacGregor",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261807/photo/67dc308161340.jpg"
+  },
+  {
+   "name": "Robert Colbert",
+   "character": "Dr Douglas Phillips",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/54071.jpg"
+  },
+  {
+   "name": "Whit Bissell",
+   "character": "General Heywood Kirk",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259512/photo/6494ebe14c6f5.jpg"
+  },
+  {
+   "name": "Sam Groom",
+   "character": "Jerry Briggs",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/54073.jpg"
+  },
+  {
+   "name": "James Darren",
+   "character": "Dr Tony Newman",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259778/photo/66d6f0b13f1f3.jpg"
+  },
+  {
+   "name": "John Zaremba",
+   "character": "Dr Raymond Swain",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256662/photo/649579f578390.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0060036"
 }

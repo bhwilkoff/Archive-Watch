@@ -41,6 +41,7 @@ _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
 from build_sqlite import _is_adult  # noqa: E402  (Decision 105: one adult predicate)
 from build_sqlite import _rights_bucket  # noqa: E402  (the audit's own verdict)
 from build_sqlite import bundle_sources, series_cards  # noqa: E402  (Decision 166)
+import best_rating  # noqa: E402  (Decision 171: the apps' rank, computed once)
 
 # THE MARQUEE'S BAR, the same rule as Catalog.Item.isHeroRightsSafe (Swift)
 # and CatalogDatabase.heroAnd (Kotlin); tools/test_hero_rule_parity.py holds
@@ -149,6 +150,9 @@ def main():
     # Roll By while the apps showed one (Decision 040's merge never applied
     # here). Import rather than reimplement so the two surfaces cannot drift.
     from build_sqlite import dedupe_by_imdb, merge_film_duplicates
+    # Measured BEFORE the merge, over the population build_sqlite measures, so
+    # a title ranks identically on the web, on Roku and in the apps.
+    rating_stats = best_rating.crowd_stats(items)
     before = len(items)
     items = merge_film_duplicates(dedupe_by_imdb(items))
     print(f"[index] dedup: {before:,} -> {len(items):,} items", flush=True)
@@ -262,10 +266,10 @@ def main():
         #
         # rating is x10 as an INTEGER: 7.4 becomes 74. A float per row costs
         # more bytes in JSON than the precision is worth on a 27,000-row index.
-        # A series card has no IMDb rating; its TVmaze rating (2026-10-27) is
-        # what Browse's Top Rated orders television by. Films stay IMDb's, and
-        # no film shelf reads a series (the Top Rated shelf is films with votes).
-        r = it.get("imdbRating") or (it.get("tvmazeRating") if it.get("contentType") == "tv-series" else None)
+        # IMDb's rating only, a series' included (Decision 171), so a reader
+        # can always label it IMDb. TVmaze's number lives on the series spine,
+        # and Top Rated sorts on column 19, never on this.
+        r = it.get("imdbRating")
         try:
             rating = int(round(float(r) * 10)) if r else None
         except (TypeError, ValueError):
@@ -298,10 +302,15 @@ def main():
         # unknown — Browse's length filter (2026-09-26). Minutes, not a band
         # code, so the bands stay the clients' (Apple/Android RuntimeBand).
         minutes = round((it.get("runtimeSeconds") or 0) / 60)
+        # Column 19 (schema 16): the Top Rated sort key x100, null when unrated
+        # (Decision 171). Sort on this, never on rating10: a 9.2 from 13 votes
+        # is not a better film than an 8.6 from 90,000.
+        rk = best_rating.rank(it, rating_stats)
+        rank100 = int(round(rk * 100)) if rk is not None else None
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
                      playable, docs, rating, votes, director, genres, cm,
-                     1 if aid in bifs else 0, hero, minutes, no_rec])
+                     1 if aid in bifs else 0, hero, minutes, no_rec, rank100])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -392,7 +401,7 @@ def main():
     TONIGHT_OUT.write_text(json.dumps({"tonight": tonight}, separators=(",", ":")) + "\n",
                            encoding="utf-8")
     out = {
-        "schema": 15,
+        "schema": 16,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -402,7 +411,7 @@ def main():
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
                    "backdrop", "playable", "documentary", "rating10", "votes",
                    "director", "genres", "color", "bif", "heroSafe", "minutes",
-                   "noRecommend"],
+                   "noRecommend", "ratingRank100"],
         "facets": facets,
         "directorRank": _director_rank(),
         "shelves": shelves,

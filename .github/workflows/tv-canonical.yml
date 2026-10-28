@@ -87,6 +87,7 @@ jobs:
           python tools/test_tv_episode_placement.py > /dev/null || { python tools/test_tv_episode_placement.py; exit 1; }
           python tools/test_canonical_tv_budget.py > /dev/null || { python tools/test_canonical_tv_budget.py; exit 1; }
           python tools/test_tv_series_rating.py > /dev/null || { python tools/test_tv_series_rating.py; exit 1; }
+          python tools/test_best_rating.py > /dev/null || { python tools/test_best_rating.py; exit 1; }
           python tools/build_canonical_tv.py \
             --throttle ${{ github.event.inputs.throttle || '0.3' }} \
             --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \
@@ -126,6 +127,19 @@ jobs:
       - name: Fill missing series cast from TVmaze
         run: python tools/enrich_tv_cast.py | tail -2
 
+      # Decision 171: IMDb's own rating of each series TVmaze (or
+      # build_episode_wants) can name on IMDb. The rebuild drops it, so it is
+      # re-applied from the committed caches; OMDb is asked only for ids it
+      # has not answered in 30 days, and shares the key's daily quota with
+      # omdb-backfill, so a refused call keeps the last value and warns.
+      - name: IMDb ratings for series
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          set -o pipefail
+          python tools/enrich_tv_ratings.py --max-calls 300 | tee tvratings.log \
+            || echo "::warning::enrich_tv_ratings found no IMDb-rated series; read the log above"
+
       - name: Reconcile catalog TV cards
         run: |
           python tools/reconcile_tv_catalog.py | tee tvreconcile.log
@@ -163,7 +177,9 @@ jobs:
                   shared/editorial/tv_rebuild_report.json \
                   shared/editorial/tv_rights_cache.json \
                   shared/editorial/tv_rights_removed.csv \
-                  shared/editorial/bundle_scan.json
+                  shared/editorial/bundle_scan.json \
+                  shared/editorial/omdb_series_cache.json \
+                  shared/editorial/tvmaze_externals.json
           if git diff --cached --quiet; then
             echo "No series changes (catalog still published below)."
             exit 0

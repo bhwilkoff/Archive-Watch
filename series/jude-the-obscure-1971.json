@@ -1,182 +1,185 @@
 {
-  "version": 2,
-  "seriesID": "jude-the-obscure-1971",
-  "tvmazeID": 22529,
-  "title": "Jude the Obscure",
-  "yearStart": 1971,
-  "yearEnd": 1971,
-  "overview": "An uncompromising BBC adaptation of one of Thomas Hardy's most bitter and controversial novels. Born into rural poverty, young Jude Fawley refuses to accept his lot in life. But Victorian England is a society in which everyone has their place. As his dreams are shattered, Jude lashes out at the world and his life spirals out of control…",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d6445e421965.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "jude-the-obscure-1971",
+ "tvmazeID": 22529,
+ "title": "Jude the Obscure",
+ "yearStart": 1971,
+ "yearEnd": 1971,
+ "overview": "An uncompromising BBC adaptation of one of Thomas Hardy's most bitter and controversial novels. Born into rural poverty, young Jude Fawley refuses to accept his lot in life. But Victorian England is a society in which everyone has their place. As his dreams are shattered, Jude lashes out at the world and his life spirals out of control…",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/5d6445e421965.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e01",
-          "sourceID": "jude-the-obscure-1971-s-01-e-05",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "At Marygreen",
-          "overview": "Jude is a poorly educated country boy trying to get into a university. He attends Oxford and Christianity has a profound effect on his life and education.",
-          "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E01_000956.jpg",
-          "airDate": "1971-02-06",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Jude The Obscure 1971 S01E01.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 81131090,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E01.mp4"
-        },
-        {
-          "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e02",
-          "sourceID": "jude-the-obscure-1971-s-01-e-05",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "To Christminster",
-          "overview": "Since Arabella has left him, Jude is free to pursue his ambitions to go to Christminster. He only has to wait until he has served his apprenticeship as a stonemason.",
-          "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E02_000954.jpg",
-          "airDate": "1971-02-13",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Jude The Obscure 1971 S01E02.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 78757519,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E02.mp4"
-        },
-        {
-          "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e03",
-          "sourceID": "jude-the-obscure-1971-s-01-e-05",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "To Melchester",
-          "overview": "Rejected by the Dean of Cardinal College, Jude has left Christminster in despair. He now works as a jobbing mason but still retains his scholastic ambitions.",
-          "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E03_000956.jpg",
-          "airDate": "1971-02-20",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Jude The Obscure 1971 S01E03.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 76606826,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E03.mp4"
-        },
-        {
-          "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e04",
-          "sourceID": "jude-the-obscure-1971-s-01-e-05",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "To Shaston",
-          "overview": "Sue has lost her place at the Normal College and Phillotson has suggested they should now marry. She decides to consult Jude, who has met with Arabella.",
-          "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E04_000957.jpg",
-          "airDate": "1971-02-27",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Jude The Obscure 1971 S01E04.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 80222837,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E04.mp4"
-        },
-        {
-          "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e05",
-          "sourceID": "jude-the-obscure-1971-s-01-e-05",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "To Aldbrickham",
-          "overview": "Sue has left her husband, Phillotson, and gone to Jude, although she insists they use seperate bedrooms. Jude starts divorce proceedings from Arabella.",
-          "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E05_000954.jpg",
-          "airDate": "1971-03-06",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Jude The Obscure 1971 S01E05.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 90523953,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E05.mp4"
-        },
-        {
-          "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e06",
-          "sourceID": "jude-the-obscure-1971-s-01-e-05",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Christminster Again",
-          "overview": "Jude has been forced to sell up and travel looking for work. Sue and Juey are forced to work as well, although Sue is pregnant.",
-          "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E06_000960.jpg",
-          "airDate": "1971-03-13",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Jude The Obscure 1971 S01E06.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 77288538,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E06.mp4"
-        }
-      ]
+     "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e01",
+     "sourceID": "jude-the-obscure-1971-s-01-e-05",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "At Marygreen",
+     "overview": "Jude is a poorly educated country boy trying to get into a university. He attends Oxford and Christianity has a profound effect on his life and education.",
+     "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E01_000956.jpg",
+     "airDate": "1971-02-06",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Jude The Obscure 1971 S01E01.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 81131090,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E01.mp4"
+    },
+    {
+     "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e02",
+     "sourceID": "jude-the-obscure-1971-s-01-e-05",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "To Christminster",
+     "overview": "Since Arabella has left him, Jude is free to pursue his ambitions to go to Christminster. He only has to wait until he has served his apprenticeship as a stonemason.",
+     "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E02_000954.jpg",
+     "airDate": "1971-02-13",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Jude The Obscure 1971 S01E02.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 78757519,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E02.mp4"
+    },
+    {
+     "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e03",
+     "sourceID": "jude-the-obscure-1971-s-01-e-05",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "To Melchester",
+     "overview": "Rejected by the Dean of Cardinal College, Jude has left Christminster in despair. He now works as a jobbing mason but still retains his scholastic ambitions.",
+     "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E03_000956.jpg",
+     "airDate": "1971-02-20",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Jude The Obscure 1971 S01E03.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 76606826,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E03.mp4"
+    },
+    {
+     "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e04",
+     "sourceID": "jude-the-obscure-1971-s-01-e-05",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "To Shaston",
+     "overview": "Sue has lost her place at the Normal College and Phillotson has suggested they should now marry. She decides to consult Jude, who has met with Arabella.",
+     "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E04_000957.jpg",
+     "airDate": "1971-02-27",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Jude The Obscure 1971 S01E04.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 80222837,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E04.mp4"
+    },
+    {
+     "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e05",
+     "sourceID": "jude-the-obscure-1971-s-01-e-05",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "To Aldbrickham",
+     "overview": "Sue has left her husband, Phillotson, and gone to Jude, although she insists they use seperate bedrooms. Jude starts divorce proceedings from Arabella.",
+     "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E05_000954.jpg",
+     "airDate": "1971-03-06",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Jude The Obscure 1971 S01E05.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90523953,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E05.mp4"
+    },
+    {
+     "archiveID": "jude-the-obscure-1971-s-01-e-05@s1e06",
+     "sourceID": "jude-the-obscure-1971-s-01-e-05",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Christminster Again",
+     "overview": "Jude has been forced to sell up and travel looking for work. Sue and Juey are forced to work as well, although Sue is pregnant.",
+     "stillURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/jude-the-obscure-1971-s-01-e-05.thumbs/Jude%20The%20Obscure%201971%20S01E06_000960.jpg",
+     "airDate": "1971-03-13",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Jude The Obscure 1971 S01E06.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 77288538,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E06.mp4"
     }
-  ],
-  "episodesCount": 6,
-  "canonicalEpisodesCount": 6,
-  "tvmazeRating": null,
-  "tvdbID": "324839",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Robert Powell",
-      "character": "Jude Fawley",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/106/267454.jpg"
-    },
-    {
-      "name": "Fiona Walker",
-      "character": "Sue Bridehead",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/83/207893.jpg"
-    },
-    {
-      "name": "John Franklyn-Robbins",
-      "character": "Richard Phillotson",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/585/1463098.jpg"
-    },
-    {
-      "name": "Daphne Heard",
-      "character": "Drusilla Fawley",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/387/968825.jpg"
-    },
-    {
-      "name": "Alex Marshall",
-      "character": "Arabella Down",
-      "order": 4,
-      "profilePath": null
-    },
-    {
-      "name": "Gwen Nelson",
-      "character": "Mrs. Edlin",
-      "order": 5,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 6,
+ "canonicalEpisodesCount": 6,
+ "tvmazeRating": null,
+ "tvdbID": "324839",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Robert Powell",
+   "character": "Jude Fawley",
+   "order": 0,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/106/267454.jpg"
+  },
+  {
+   "name": "Fiona Walker",
+   "character": "Sue Bridehead",
+   "order": 1,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/83/207893.jpg"
+  },
+  {
+   "name": "John Franklyn-Robbins",
+   "character": "Richard Phillotson",
+   "order": 2,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/585/1463098.jpg"
+  },
+  {
+   "name": "Daphne Heard",
+   "character": "Drusilla Fawley",
+   "order": 3,
+   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/387/968825.jpg"
+  },
+  {
+   "name": "Alex Marshall",
+   "character": "Arabella Down",
+   "order": 4,
+   "profilePath": null
+  },
+  {
+   "name": "Gwen Nelson",
+   "character": "Mrs. Edlin",
+   "order": 5,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0066674",
+ "imdbRating": 7.7,
+ "imdbVotes": 137
 }

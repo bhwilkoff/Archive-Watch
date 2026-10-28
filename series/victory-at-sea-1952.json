@@ -1,103 +1,104 @@
 {
-  "version": 2,
-  "seriesID": "victory-at-sea-1952",
-  "tvmazeID": 16606,
-  "title": "Victory at Sea",
-  "yearStart": 1952,
-  "yearEnd": 1953,
-  "overview": "A documentary TV series about naval warfare during World War II that was originally aired by NBC in the USA in 26 half-hour segments on Sunday afternoons, starting October 26, 1952 and ending May 3, 1953. The series, which won an Emmy in 1954 as best public affairs program, played a major role in establishing historic documentaries as a viable television genre. When it first aired, NBC thought it so important that it had no commercial breaks. The series was also aired on The History Channel in 1996.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/84130-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "War",
-    "History"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "victory-at-sea-1952",
+ "tvmazeID": 16606,
+ "title": "Victory at Sea",
+ "yearStart": 1952,
+ "yearEnd": 1953,
+ "overview": "A documentary TV series about naval warfare during World War II that was originally aired by NBC in the USA in 26 half-hour segments on Sunday afternoons, starting October 26, 1952 and ending May 3, 1953. The series, which won an Emmy in 1954 as best public affairs program, played a major role in establishing historic documentaries as a viable television genre. When it first aired, NBC thought it so important that it had no commercial breaks. The series was also aired on The History Channel in 1996.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/84130-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "War",
+  "History"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "01designforwar",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Design for War: Battle of the Atlantic, 1939-1941",
-          "overview": "Design for War: Battle of the Atlantic, 1939-1941. World War II begins and the Germans succeed in invading Poland and France. But it is restrained by the British thanks to the vital convoys, Canadian and American naval forces' initial involvement and the Lend-Lease program. Still, the German submarine war increases its crescendo thanks to new French bases.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1952-10-26",
-          "year": 1952,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "01_Design_For_War.MPEG4..mp4",
-            "format": "h.264",
-            "sizeBytes": 165247788,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/01designforwar/01_Design_For_War.MPEG4..mp4"
-        },
-        {
-          "archiveID": "08marenostrum",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Sea and Sand: Invasion of North Africa, 1942-1943",
-          "overview": "The Russians asked the Allies to open a second front to divert some German forces. Operation Torch was then born with Dwight D. Eisenhower as the Commander-in-Chief.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1953-01-04",
-          "year": 1953,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "09_Sea_And_Sand.mp4",
-            "format": "h.264",
-            "sizeBytes": 165249485,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/08marenostrum/09_Sea_And_Sand.mp4"
-        },
-        {
-          "archiveID": "15dday",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "The Turkey Shoot: Conquest of the Marianas",
-          "overview": "In June 1944, the U.S. decided to continue releasing islands from Japanese occupation beginning with Guam and the rest of the Mariana islands getting closer to Japan itself.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1953-03-01",
-          "year": 1953,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "17_The_Turkey_Shoot.mp4",
-            "format": "h.264",
-            "sizeBytes": 164997238,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/15dday/17_The_Turkey_Shoot.mp4"
-        },
-        {
-          "archiveID": "22thefateofeurope",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Target Suribachi: Iwo Jima",
-          "overview": "Before B-29 Flying Fortress' could bomb Japan from airfields on Iwo Jima, it first had to be taken by Marine amphibious landings. After some time, the iconic flag-raising on Mount Suribachi..",
-          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1953-04-12",
-          "year": 1953,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "23_Target_Suribachi.mp4",
-            "format": "h.264",
-            "sizeBytes": 164943829,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/22thefateofeurope/23_Target_Suribachi.mp4"
-        }
-      ]
+     "archiveID": "01designforwar",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Design for War: Battle of the Atlantic, 1939-1941",
+     "overview": "Design for War: Battle of the Atlantic, 1939-1941. World War II begins and the Germans succeed in invading Poland and France. But it is restrained by the British thanks to the vital convoys, Canadian and American naval forces' initial involvement and the Lend-Lease program. Still, the German submarine war increases its crescendo thanks to new French bases.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+     "airDate": "1952-10-26",
+     "year": 1952,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "01_Design_For_War.MPEG4..mp4",
+      "format": "h.264",
+      "sizeBytes": 165247788,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/01designforwar/01_Design_For_War.MPEG4..mp4"
+    },
+    {
+     "archiveID": "08marenostrum",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Sea and Sand: Invasion of North Africa, 1942-1943",
+     "overview": "The Russians asked the Allies to open a second front to divert some German forces. Operation Torch was then born with Dwight D. Eisenhower as the Commander-in-Chief.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+     "airDate": "1953-01-04",
+     "year": 1953,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "09_Sea_And_Sand.mp4",
+      "format": "h.264",
+      "sizeBytes": 165249485,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/08marenostrum/09_Sea_And_Sand.mp4"
+    },
+    {
+     "archiveID": "15dday",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "The Turkey Shoot: Conquest of the Marianas",
+     "overview": "In June 1944, the U.S. decided to continue releasing islands from Japanese occupation beginning with Guam and the rest of the Mariana islands getting closer to Japan itself.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+     "airDate": "1953-03-01",
+     "year": 1953,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "17_The_Turkey_Shoot.mp4",
+      "format": "h.264",
+      "sizeBytes": 164997238,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/15dday/17_The_Turkey_Shoot.mp4"
+    },
+    {
+     "archiveID": "22thefateofeurope",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Target Suribachi: Iwo Jima",
+     "overview": "Before B-29 Flying Fortress' could bomb Japan from airfields on Iwo Jima, it first had to be taken by Marine amphibious landings. After some time, the iconic flag-raising on Mount Suribachi..",
+     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+     "airDate": "1953-04-12",
+     "year": 1953,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "23_Target_Suribachi.mp4",
+      "format": "h.264",
+      "sizeBytes": 164943829,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/22thefateofeurope/23_Target_Suribachi.mp4"
     }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 26,
-  "tvmazeRating": null,
-  "tvdbID": "84130",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 26,
+ "tvmazeRating": null,
+ "tvdbID": "84130",
+ "artworkSource": "tvdb",
+ "seriesImdbID": "tt0046658"
 }

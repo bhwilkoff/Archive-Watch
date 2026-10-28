@@ -1,498 +1,499 @@
 {
-  "version": 2,
-  "seriesID": "the-girl-with-something-extra-1973",
-  "tvmazeID": 24659,
-  "title": "The Girl with Something Extra",
-  "yearStart": 1973,
-  "yearEnd": 1974,
-  "overview": "The trials and tribulations of a young couple: John Burton, an attorney with the Los Angeles firm of Metcalf, Klein and Associates, and his wife, Sally, a bona fide psychic who can read his every thought. Stories relate John's attempts to cope with the comical situations that develop when Sally inadvertently invades the privacy of his mind.",
-  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/72937/posters/60e86edbd15db.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-girl-with-something-extra-1973",
+ "tvmazeID": 24659,
+ "title": "The Girl with Something Extra",
+ "yearStart": 1973,
+ "yearEnd": 1974,
+ "overview": "The trials and tribulations of a young couple: John Burton, an attorney with the Los Angeles firm of Metcalf, Klein and Associates, and his wife, Sally, a bona fide psychic who can read his every thought. Stories relate John's attempts to cope with the comical situations that develop when Sally inadvertently invades the privacy of his mind.",
+ "posterURL": "https://artworks.thetvdb.com/banners/v4/series/72937/posters/60e86edbd15db.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e01",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Sally on My Mind",
-          "overview": "Sally creates a turmoil on her wedding night by telling John that she can read his mind.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E01%20-%20Sally%20on%20My%20Mind_000685.jpg",
-          "airDate": "1973-09-14",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E01 - Sally on My Mind.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 368594003,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E01%20-%20Sally%20on%20My%20Mind.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e02",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Everything You Wanted to Hide and Couldn't",
-          "overview": "Sally knows when John is thinking about other women, a fact which is putting a blight on their marital bliss.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E02%20-%20Everything%20You%20Wanted%20to%20Hide%20and%20Couldn%27t_000701.jpg",
-          "airDate": "1973-09-21",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E02 - Everything You Wanted to Hide and Couldn't.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 377243897,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E02%20-%20Everything%20You%20Wanted%20to%20Hide%20and%20Couldn%27t.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e03",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "A Gift for the Gifted",
-          "overview": "John tries to hide Sally's birthday present from her mind-reading powers.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E03%20-%20A%20Gift%20for%20the%20Gifted_000703.jpg",
-          "airDate": "1973-09-28",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E03 - A Gift for the Gifted.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 377838914,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E03%20-%20A%20Gift%20for%20the%20Gifted.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e04",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "How Green Was Las Vegas",
-          "overview": "Sally is conscience-stricken after she uses her ESP to help her brother-in-law win at gambling.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E04%20-%20How%20Green%20Was%20Las%20Vegas_000615.jpg",
-          "airDate": "1973-10-05",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E04 - How Green Was Las Vegas.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 330823693,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E04%20-%20How%20Green%20Was%20Las%20Vegas.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e05",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "All the Nude That's Fit to Print",
-          "overview": "John is invited to be a nude centerfold in a women's magazine.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E05%20-%20All%20the%20Nudes%20That%27s%20Fit%20to%20Print_000695.jpg",
-          "airDate": "1973-10-12",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E05 - All the Nudes That's Fit to Print.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 373845110,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E05%20-%20All%20the%20Nudes%20That%27s%20Fit%20to%20Print.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e06",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "John & Sally & Fred & Linda",
-          "overview": "The Burtons are being wined and dined by the most boring couple in town.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E06%20-%20John%20%26%20Sally%20%26%20Fred%20%26%20Linda_000698.jpg",
-          "airDate": "1973-10-19",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E06 - John & Sally & Fred & Linda.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 375963864,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E06%20-%20John%20%26%20Sally%20%26%20Fred%20%26%20Linda.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e07",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "One of Our Hens is Missing",
-          "overview": "John is sulking because Sally gave his chocolate hen to a neighborhood boy.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E07%20-%20One%20of%20Our%20Hens%20is%20Missing_000698.jpg",
-          "airDate": "1973-10-26",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E07 - One of Our Hens is Missing.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 374743119,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E07%20-%20One%20of%20Our%20Hens%20is%20Missing.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e08",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "No Benefit of Doubt",
-          "overview": "John the budding lawyer is trying his first case in court---and Sally's ESP has popped up just in time to let her know that the client is guilty.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E08%20-%20No%20Benefit%20of%20Doubt_000695.jpg",
-          "airDate": "1973-11-02",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E08 - No Benefit of Doubt.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 374338632,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E08%20-%20No%20Benefit%20of%20Doubt.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e09",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "And Baby Makes Two",
-          "overview": "Sally's friend Anne wants a baby, but no husband---so she's setting out to find the ideal father.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E09%20-%20And%20Baby%20Makes%20Two_000699.jpg",
-          "airDate": "1973-11-09",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E09 - And Baby Makes Two.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 375903824,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E09%20-%20And%20Baby%20Makes%20Two.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e10",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "It's So Peaceful in the Country",
-          "overview": "All it takes is a heavy rain to turn the Burtons' country weekend into a puddle of gloom.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E10%20-%20It%27s%20So%20Peaceful%20in%20the%20Country_000701.jpg",
-          "airDate": "1973-11-23",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E10 - It's So Peaceful in the Country.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 377289496,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E10%20-%20It%27s%20So%20Peaceful%20in%20the%20Country.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e11",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Sugar and Spice and Quarterback Sneak",
-          "overview": "Sally's tomboy niece is having trouble relating to old-fashioned John. She likes football, but he prefers girls who wear dresses.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E11%20-%20Sugar%20and%20Spice%20and%20Quarterback%20Sneak_000694.jpg",
-          "airDate": "1973-11-30",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E11 - Sugar and Spice and Quarterback Sneak.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 374280741,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E11%20-%20Sugar%20and%20Spice%20and%20Quarterback%20Sneak.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e12",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Mind-Ing Mama",
-          "overview": "John's mother comes to visit, and is determined to dislike her new daughter-in-law.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E12%20-%20Mind-ing%20Mama_000616.jpg",
-          "airDate": "1973-12-07",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E12 - Mind-ing Mama.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 331049087,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E12%20-%20Mind-ing%20Mama.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e13",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "A Meeting of Minds",
-          "overview": "John is tired of being dull and predictable, and having a wife who can read his mind is making matters worse.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E13%20-%20A%20Meeting%20of%20Minds_000688.jpg",
-          "airDate": "1973-12-21",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E13 - A Meeting of Minds.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 369189756,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E13%20-%20A%20Meeting%20of%20Minds.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e14",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Guess Who's Feeding the Pigeons",
-          "overview": "Sally's comic involvement with the mob begins when she unwittingly invites a syndicate boss to dinner.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E14%20-%20Guess%20Who%27s%20Feeding%20the%20Pigeons_000699.jpg",
-          "airDate": "1974-01-11",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E14 - Guess Who's Feeding the Pigeons.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 374227390,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E14%20-%20Guess%20Who%27s%20Feeding%20the%20Pigeons.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e15",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "The Greening of Aunt Fran",
-          "overview": "Sally's flamboyant Aunt Fran comes for a visit.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E15%20-%20The%20Greening%20of%20Aunt%20Fran_000697.jpg",
-          "airDate": "1974-01-18",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E15 - The Greening of Aunt Fran.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 375752724,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E15%20-%20The%20Greening%20of%20Aunt%20Fran.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e16",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Cost of Giving",
-          "overview": "When Sally sells her antique brooch to buy John's anniversary gift, he sets out to get it back for her.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E16%20-%20The%20Cost%20of%20Giving_000703.jpg",
-          "airDate": "1974-01-25",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E16 - The Cost of Giving.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 377583662,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E16%20-%20The%20Cost%20of%20Giving.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e17",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "A Zircon in the Rough",
-          "overview": "Sally and John try to groom easygoing Jerry for his date with a beautiful sophisticate.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E17%20-%20A%20Zircon%20in%20the%20Rough_000699.jpg",
-          "airDate": "1974-02-01",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E17 - A Zircon in the Rough.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 375237119,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E17%20-%20A%20Zircon%20in%20the%20Rough.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e18",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "The Sour Grapevine",
-          "overview": "Rumor runs wild when John's friends jump to the conclusion that he is having an affair with his secretary.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E18%20-%20The%20Sour%20Grapevine_000695.jpg",
-          "airDate": "1974-02-08",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E18 - The Sour Grapevine.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 374888559,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E18%20-%20The%20Sour%20Grapevine.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e19",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Irreconcilable Sameness",
-          "overview": "After 30 years of marriage, Sally's parents are splitting up and reentering the dating game.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E19%20-%20Irreconcilable%20Sameness_000699.jpg",
-          "airDate": "1974-02-15",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E19 - Irreconcilable Sameness.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 377015166,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E19%20-%20Irreconcilable%20Sameness.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e20",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Three for the Road",
-          "overview": "Misplaced luggage, mixed-up reservations and other disasters turn the Burtons' vacation into a tale of woe.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E20%20-%20Three%20for%20the%20Road_000697.jpg",
-          "airDate": "1974-02-22",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E20 - Three for the Road.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 375910577,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E20%20-%20Three%20for%20the%20Road.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e21",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "The Not So Good Samaritan",
-          "overview": "Don Knotts plays the Burtons' new friend, an incurable loser with a depressing lack of self-confidence.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E21%20-%20The%20Not-So-Good%20Samaritan_000697.jpg",
-          "airDate": "1974-03-08",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E21 - The Not-So-Good Samaritan.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 375229415,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E21%20-%20The%20Not-So-Good%20Samaritan.ia.mp4"
-        },
-        {
-          "archiveID": "The-Girl-With-Something-Extra-1973@s1e22",
-          "sourceID": "The-Girl-With-Something-Extra-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The New Broom",
-          "overview": "A political reform group asks John to be its candidate for city council.",
-          "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E22%20-%20The%20New%20Broom_000702.jpg",
-          "airDate": "1974-03-15",
-          "year": 1974,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E22 - The New Broom.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 376423058,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E22%20-%20The%20New%20Broom.ia.mp4"
-        }
-      ]
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e01",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Sally on My Mind",
+     "overview": "Sally creates a turmoil on her wedding night by telling John that she can read his mind.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E01%20-%20Sally%20on%20My%20Mind_000685.jpg",
+     "airDate": "1973-09-14",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E01 - Sally on My Mind.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 368594003,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E01%20-%20Sally%20on%20My%20Mind.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e02",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Everything You Wanted to Hide and Couldn't",
+     "overview": "Sally knows when John is thinking about other women, a fact which is putting a blight on their marital bliss.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E02%20-%20Everything%20You%20Wanted%20to%20Hide%20and%20Couldn%27t_000701.jpg",
+     "airDate": "1973-09-21",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E02 - Everything You Wanted to Hide and Couldn't.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 377243897,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E02%20-%20Everything%20You%20Wanted%20to%20Hide%20and%20Couldn%27t.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e03",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "A Gift for the Gifted",
+     "overview": "John tries to hide Sally's birthday present from her mind-reading powers.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E03%20-%20A%20Gift%20for%20the%20Gifted_000703.jpg",
+     "airDate": "1973-09-28",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E03 - A Gift for the Gifted.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 377838914,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E03%20-%20A%20Gift%20for%20the%20Gifted.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e04",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "How Green Was Las Vegas",
+     "overview": "Sally is conscience-stricken after she uses her ESP to help her brother-in-law win at gambling.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E04%20-%20How%20Green%20Was%20Las%20Vegas_000615.jpg",
+     "airDate": "1973-10-05",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E04 - How Green Was Las Vegas.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 330823693,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E04%20-%20How%20Green%20Was%20Las%20Vegas.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e05",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "All the Nude That's Fit to Print",
+     "overview": "John is invited to be a nude centerfold in a women's magazine.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E05%20-%20All%20the%20Nudes%20That%27s%20Fit%20to%20Print_000695.jpg",
+     "airDate": "1973-10-12",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E05 - All the Nudes That's Fit to Print.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 373845110,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E05%20-%20All%20the%20Nudes%20That%27s%20Fit%20to%20Print.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e06",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "John & Sally & Fred & Linda",
+     "overview": "The Burtons are being wined and dined by the most boring couple in town.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E06%20-%20John%20%26%20Sally%20%26%20Fred%20%26%20Linda_000698.jpg",
+     "airDate": "1973-10-19",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E06 - John & Sally & Fred & Linda.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 375963864,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E06%20-%20John%20%26%20Sally%20%26%20Fred%20%26%20Linda.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e07",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "One of Our Hens is Missing",
+     "overview": "John is sulking because Sally gave his chocolate hen to a neighborhood boy.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E07%20-%20One%20of%20Our%20Hens%20is%20Missing_000698.jpg",
+     "airDate": "1973-10-26",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E07 - One of Our Hens is Missing.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 374743119,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E07%20-%20One%20of%20Our%20Hens%20is%20Missing.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e08",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "No Benefit of Doubt",
+     "overview": "John the budding lawyer is trying his first case in court---and Sally's ESP has popped up just in time to let her know that the client is guilty.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E08%20-%20No%20Benefit%20of%20Doubt_000695.jpg",
+     "airDate": "1973-11-02",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E08 - No Benefit of Doubt.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 374338632,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E08%20-%20No%20Benefit%20of%20Doubt.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e09",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "And Baby Makes Two",
+     "overview": "Sally's friend Anne wants a baby, but no husband---so she's setting out to find the ideal father.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E09%20-%20And%20Baby%20Makes%20Two_000699.jpg",
+     "airDate": "1973-11-09",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E09 - And Baby Makes Two.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 375903824,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E09%20-%20And%20Baby%20Makes%20Two.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e10",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "It's So Peaceful in the Country",
+     "overview": "All it takes is a heavy rain to turn the Burtons' country weekend into a puddle of gloom.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E10%20-%20It%27s%20So%20Peaceful%20in%20the%20Country_000701.jpg",
+     "airDate": "1973-11-23",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E10 - It's So Peaceful in the Country.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 377289496,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E10%20-%20It%27s%20So%20Peaceful%20in%20the%20Country.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e11",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Sugar and Spice and Quarterback Sneak",
+     "overview": "Sally's tomboy niece is having trouble relating to old-fashioned John. She likes football, but he prefers girls who wear dresses.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E11%20-%20Sugar%20and%20Spice%20and%20Quarterback%20Sneak_000694.jpg",
+     "airDate": "1973-11-30",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E11 - Sugar and Spice and Quarterback Sneak.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 374280741,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E11%20-%20Sugar%20and%20Spice%20and%20Quarterback%20Sneak.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e12",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Mind-Ing Mama",
+     "overview": "John's mother comes to visit, and is determined to dislike her new daughter-in-law.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E12%20-%20Mind-ing%20Mama_000616.jpg",
+     "airDate": "1973-12-07",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E12 - Mind-ing Mama.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 331049087,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E12%20-%20Mind-ing%20Mama.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e13",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "A Meeting of Minds",
+     "overview": "John is tired of being dull and predictable, and having a wife who can read his mind is making matters worse.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E13%20-%20A%20Meeting%20of%20Minds_000688.jpg",
+     "airDate": "1973-12-21",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E13 - A Meeting of Minds.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 369189756,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E13%20-%20A%20Meeting%20of%20Minds.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e14",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Guess Who's Feeding the Pigeons",
+     "overview": "Sally's comic involvement with the mob begins when she unwittingly invites a syndicate boss to dinner.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E14%20-%20Guess%20Who%27s%20Feeding%20the%20Pigeons_000699.jpg",
+     "airDate": "1974-01-11",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E14 - Guess Who's Feeding the Pigeons.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 374227390,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E14%20-%20Guess%20Who%27s%20Feeding%20the%20Pigeons.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e15",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Greening of Aunt Fran",
+     "overview": "Sally's flamboyant Aunt Fran comes for a visit.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E15%20-%20The%20Greening%20of%20Aunt%20Fran_000697.jpg",
+     "airDate": "1974-01-18",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E15 - The Greening of Aunt Fran.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 375752724,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E15%20-%20The%20Greening%20of%20Aunt%20Fran.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e16",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Cost of Giving",
+     "overview": "When Sally sells her antique brooch to buy John's anniversary gift, he sets out to get it back for her.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E16%20-%20The%20Cost%20of%20Giving_000703.jpg",
+     "airDate": "1974-01-25",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E16 - The Cost of Giving.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 377583662,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E16%20-%20The%20Cost%20of%20Giving.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e17",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "A Zircon in the Rough",
+     "overview": "Sally and John try to groom easygoing Jerry for his date with a beautiful sophisticate.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E17%20-%20A%20Zircon%20in%20the%20Rough_000699.jpg",
+     "airDate": "1974-02-01",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E17 - A Zircon in the Rough.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 375237119,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E17%20-%20A%20Zircon%20in%20the%20Rough.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e18",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "The Sour Grapevine",
+     "overview": "Rumor runs wild when John's friends jump to the conclusion that he is having an affair with his secretary.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E18%20-%20The%20Sour%20Grapevine_000695.jpg",
+     "airDate": "1974-02-08",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E18 - The Sour Grapevine.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 374888559,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E18%20-%20The%20Sour%20Grapevine.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e19",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Irreconcilable Sameness",
+     "overview": "After 30 years of marriage, Sally's parents are splitting up and reentering the dating game.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E19%20-%20Irreconcilable%20Sameness_000699.jpg",
+     "airDate": "1974-02-15",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E19 - Irreconcilable Sameness.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 377015166,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E19%20-%20Irreconcilable%20Sameness.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e20",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Three for the Road",
+     "overview": "Misplaced luggage, mixed-up reservations and other disasters turn the Burtons' vacation into a tale of woe.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E20%20-%20Three%20for%20the%20Road_000697.jpg",
+     "airDate": "1974-02-22",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E20 - Three for the Road.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 375910577,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E20%20-%20Three%20for%20the%20Road.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e21",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "The Not So Good Samaritan",
+     "overview": "Don Knotts plays the Burtons' new friend, an incurable loser with a depressing lack of self-confidence.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E21%20-%20The%20Not-So-Good%20Samaritan_000697.jpg",
+     "airDate": "1974-03-08",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E21 - The Not-So-Good Samaritan.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 375229415,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E21%20-%20The%20Not-So-Good%20Samaritan.ia.mp4"
+    },
+    {
+     "archiveID": "The-Girl-With-Something-Extra-1973@s1e22",
+     "sourceID": "The-Girl-With-Something-Extra-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The New Broom",
+     "overview": "A political reform group asks John to be its candidate for city council.",
+     "stillURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/The-Girl-With-Something-Extra-1973.thumbs/S01E22%20-%20The%20New%20Broom_000702.jpg",
+     "airDate": "1974-03-15",
+     "year": 1974,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E22 - The New Broom.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 376423058,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E22%20-%20The%20New%20Broom.ia.mp4"
     }
-  ],
-  "episodesCount": 22,
-  "canonicalEpisodesCount": 22,
-  "tvmazeRating": null,
-  "tvdbID": "72937",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Zohra Lampert",
-      "character": "Anne",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262548/photo/666e129ba9692.jpg"
-    },
-    {
-      "name": "Sally Field",
-      "character": "Sally Burton",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/257814/primary.jpg"
-    },
-    {
-      "name": "Stephanie Edwards",
-      "character": "Angela",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/352476/photo/666e132eac27a.jpg"
-    },
-    {
-      "name": "Henry Jones",
-      "character": "Owen Metcalf",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255682/photo/6467f4197066b.jpg"
-    },
-    {
-      "name": "William Windom",
-      "character": "Stuart Kline",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/256365/5f8dc173c05c0.jpg"
-    },
-    {
-      "name": "Jack Sheldon",
-      "character": "Jerry Burton",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313200/photo/633b1cede9ce3.jpg"
-    },
-    {
-      "name": "Teri Garr",
-      "character": "Amber",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253797/photo/65539276a02bc.jpg"
-    },
-    {
-      "name": "John Davidson",
-      "character": "John Burton",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253520/photo/6498b980d34ba.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 22,
+ "canonicalEpisodesCount": 22,
+ "tvmazeRating": null,
+ "tvdbID": "72937",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Zohra Lampert",
+   "character": "Anne",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262548/photo/666e129ba9692.jpg"
+  },
+  {
+   "name": "Sally Field",
+   "character": "Sally Burton",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/257814/primary.jpg"
+  },
+  {
+   "name": "Stephanie Edwards",
+   "character": "Angela",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/352476/photo/666e132eac27a.jpg"
+  },
+  {
+   "name": "Henry Jones",
+   "character": "Owen Metcalf",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255682/photo/6467f4197066b.jpg"
+  },
+  {
+   "name": "William Windom",
+   "character": "Stuart Kline",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/256365/5f8dc173c05c0.jpg"
+  },
+  {
+   "name": "Jack Sheldon",
+   "character": "Jerry Burton",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313200/photo/633b1cede9ce3.jpg"
+  },
+  {
+   "name": "Teri Garr",
+   "character": "Amber",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253797/photo/65539276a02bc.jpg"
+  },
+  {
+   "name": "John Davidson",
+   "character": "John Burton",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253520/photo/6498b980d34ba.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0069585"
 }

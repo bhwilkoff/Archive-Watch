@@ -523,7 +523,7 @@ struct DetailView: View {
     private var metaLine: String {
         [item.year.map(String.init), item.runtimeSeconds.map { "\($0/60) min" },
          ContentType.label(item.contentType),
-         item.director.map { "Dir. \($0)" }].compactMap { $0 }.joined(separator: " · ")
+         item.director.map { "Dir. \($0)" }, item.ratingLine].compactMap { $0 }.joined(separator: " · ")
     }
     /// "Resume · 34 min" once there is a position worth returning to, matching
     /// tvOS. It said "Play · 91 min" however far in you were, so a viewer

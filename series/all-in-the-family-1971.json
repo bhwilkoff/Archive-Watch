@@ -1,171 +1,174 @@
 {
-  "version": 2,
-  "seriesID": "all-in-the-family-1971",
-  "tvmazeID": 1784,
-  "title": "All in the Family",
-  "yearStart": 1971,
-  "yearEnd": 1979,
-  "overview": "All in the Family centered around the Bunker family who lived in a home located at 704 Houser Street in Queens, New York. Archie Bunker was the main character, and what a character he was. He was televisons most famous bigot, crass and down right rude. Yet he was loveable, with a soft side just beneath the surface. Edith Bunker was his somewhat dizzy wife whom he called \"Dingbat\". Edith put up with Archie and had qualities about her that made her one of television's most unforgetable characters. Also living in the Bunker household were Archie and Edith's daughter, Gloria, and her husband Mike, or \"Meathead\".",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/72741-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Family"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "all-in-the-family-1971",
+ "tvmazeID": 1784,
+ "title": "All in the Family",
+ "yearStart": 1971,
+ "yearEnd": 1979,
+ "overview": "All in the Family centered around the Bunker family who lived in a home located at 704 Houser Street in Queens, New York. Archie Bunker was the main character, and what a character he was. He was televisons most famous bigot, crass and down right rude. Yet he was loveable, with a soft side just beneath the surface. Edith Bunker was his somewhat dizzy wife whom he called \"Dingbat\". Edith put up with Archie and had qualities about her that made her one of television's most unforgetable characters. Also living in the Bunker household were Archie and Edith's daughter, Gloria, and her husband Mike, or \"Meathead\".",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/72741-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "all-in-the-family-norman-lears-picks-vhs-mkv-encode",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "All In The Family",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1971,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "All In The Family - Norman Lear's Picks (VHS) MKV Encode.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 1719218001,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/all-in-the-family-norman-lears-picks-vhs-mkv-encode/All%20In%20The%20Family%20-%20Norman%20Lear%27s%20Picks%20%28VHS%29%20MKV%20Encode.mp4"
-        },
-        {
-          "archiveID": "allinthefamily-4",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "All in the Family",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1974,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Allinthefamily4.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 2295343689,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/allinthefamily-4/Allinthefamily4.mp4"
-        },
-        {
-          "archiveID": "allinthe-family-special-at-end",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "All in the Family",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1973,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "AllintheFamily special at end.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 5800759363,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/allinthe-family-special-at-end/AllintheFamily%20special%20at%20end.mp4"
-        }
-      ]
+     "archiveID": "all-in-the-family-norman-lears-picks-vhs-mkv-encode",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All In The Family",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1971,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All In The Family - Norman Lear's Picks (VHS) MKV Encode.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 1719218001,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-in-the-family-norman-lears-picks-vhs-mkv-encode/All%20In%20The%20Family%20-%20Norman%20Lear%27s%20Picks%20%28VHS%29%20MKV%20Encode.mp4"
+    },
+    {
+     "archiveID": "allinthefamily-4",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All in the Family",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1974,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Allinthefamily4.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 2295343689,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/allinthefamily-4/Allinthefamily4.mp4"
+    },
+    {
+     "archiveID": "allinthe-family-special-at-end",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All in the Family",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1973,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "AllintheFamily special at end.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 5800759363,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/allinthe-family-special-at-end/AllintheFamily%20special%20at%20end.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 210,
-  "tvmazeRating": 7.8,
-  "tvdbID": "72741",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Carroll O'Connor",
-      "character": "Archie Bunker",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253795/photo/632094994f027.jpg"
-    },
-    {
-      "name": "Jean Stapleton",
-      "character": "Edith Bunker",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253963/photo/6320db40d43f2.jpg"
-    },
-    {
-      "name": "Sally Struthers",
-      "character": "Gloria Bunker Stivic",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/270761/5f84c5a5088f0.jpg"
-    },
-    {
-      "name": "Rob Reiner",
-      "character": "Michael Stivic",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/253480/primary.jpg"
-    },
-    {
-      "name": "Mike Evans",
-      "character": "Lionel Jefferson",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289047/photo/64ebd7fbad17b.jpg"
-    },
-    {
-      "name": "Danielle Brisebois",
-      "character": "Stephanie Mills",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/261859/5f84c726b45ce.jpg"
-    },
-    {
-      "name": "Isabel Sanford",
-      "character": "Louise Jefferson",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257274/photo/64ebd90fdd156.jpg"
-    },
-    {
-      "name": "Allan Melvin",
-      "character": "Barney Hefner",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265079/photo/6a9fa44969c80.jpg"
-    },
-    {
-      "name": "Sherman Hemsley",
-      "character": "George Jefferson",
-      "order": 8,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266518/photo/6349b485ba44a.jpg"
-    },
-    {
-      "name": "Vincent Gardenia",
-      "character": "Frank Lorenzo",
-      "order": 9,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/262710/62088768.jpg"
-    },
-    {
-      "name": "Betty Garrett",
-      "character": "Irene Lorenzo",
-      "order": 10,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/254903/62088767.jpg"
-    },
-    {
-      "name": "Mel Stewart",
-      "character": "Henry Jefferson",
-      "order": 11,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279669/photo/63557d4884eaf.jpg"
-    },
-    {
-      "name": "Liz Torres",
-      "character": "Theresa Betencourt",
-      "order": 12,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/275734/photo/6329ed0674200.jpg"
-    },
-    {
-      "name": "Norman Lear",
-      "character": "",
-      "order": 13,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 210,
+ "tvmazeRating": 7.8,
+ "tvdbID": "72741",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Carroll O'Connor",
+   "character": "Archie Bunker",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253795/photo/632094994f027.jpg"
+  },
+  {
+   "name": "Jean Stapleton",
+   "character": "Edith Bunker",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253963/photo/6320db40d43f2.jpg"
+  },
+  {
+   "name": "Sally Struthers",
+   "character": "Gloria Bunker Stivic",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/270761/5f84c5a5088f0.jpg"
+  },
+  {
+   "name": "Rob Reiner",
+   "character": "Michael Stivic",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/253480/primary.jpg"
+  },
+  {
+   "name": "Mike Evans",
+   "character": "Lionel Jefferson",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289047/photo/64ebd7fbad17b.jpg"
+  },
+  {
+   "name": "Danielle Brisebois",
+   "character": "Stephanie Mills",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/261859/5f84c726b45ce.jpg"
+  },
+  {
+   "name": "Isabel Sanford",
+   "character": "Louise Jefferson",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257274/photo/64ebd90fdd156.jpg"
+  },
+  {
+   "name": "Allan Melvin",
+   "character": "Barney Hefner",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265079/photo/6a9fa44969c80.jpg"
+  },
+  {
+   "name": "Sherman Hemsley",
+   "character": "George Jefferson",
+   "order": 8,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266518/photo/6349b485ba44a.jpg"
+  },
+  {
+   "name": "Vincent Gardenia",
+   "character": "Frank Lorenzo",
+   "order": 9,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/262710/62088768.jpg"
+  },
+  {
+   "name": "Betty Garrett",
+   "character": "Irene Lorenzo",
+   "order": 10,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/254903/62088767.jpg"
+  },
+  {
+   "name": "Mel Stewart",
+   "character": "Henry Jefferson",
+   "order": 11,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279669/photo/63557d4884eaf.jpg"
+  },
+  {
+   "name": "Liz Torres",
+   "character": "Theresa Betencourt",
+   "order": 12,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/275734/photo/6329ed0674200.jpg"
+  },
+  {
+   "name": "Norman Lear",
+   "character": "",
+   "order": 13,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0066626",
+ "imdbRating": 8.4,
+ "imdbVotes": 21314
 }

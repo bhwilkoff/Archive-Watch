@@ -1,87 +1,90 @@
 {
-  "version": 2,
-  "seriesID": "sea-hunt-1958",
-  "tvmazeID": 3710,
-  "title": "Sea Hunt",
-  "yearStart": 1958,
-  "yearEnd": 1961,
-  "overview": "Mike Nelson is a former Navy SCUBA diver who goes independent. Now Mike will go anywhere, take on any underwater challenge... and deal with any danger along the way.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/75065-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "sea-hunt-1958",
+ "tvmazeID": 3710,
+ "title": "Sea Hunt",
+ "yearStart": 1958,
+ "yearEnd": 1961,
+ "overview": "Mike Nelson is a former Navy SCUBA diver who goes independent. Now Mike will go anywhere, take on any underwater challenge... and deal with any danger along the way.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/75065-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "Sea_Hunt_Mark_of_the_Octopus",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Mark of the Octopus",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/Sea_Hunt_Mark_of_the_Octopus.5fd264cf.jpg",
-          "airDate": "1958-02-01",
-          "year": 1958,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "1-04_Mark_of_the_Octopus.mp4",
-            "format": "h.264",
-            "sizeBytes": 162436208,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Sea_Hunt_Mark_of_the_Octopus/1-04_Mark_of_the_Octopus.mp4"
-        }
-      ]
+     "archiveID": "Sea_Hunt_Mark_of_the_Octopus",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Mark of the Octopus",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/Sea_Hunt_Mark_of_the_Octopus.5fd264cf.jpg",
+     "airDate": "1958-02-01",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "1-04_Mark_of_the_Octopus.mp4",
+      "format": "h.264",
+      "sizeBytes": 162436208,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Sea_Hunt_Mark_of_the_Octopus/1-04_Mark_of_the_Octopus.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 155,
-  "tvmazeRating": null,
-  "tvdbID": "75065",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Lloyd Bridges",
-      "character": "Mike Nelson",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259722/photo/6775cddbd2369.jpg"
-    },
-    {
-      "name": "Zale Parry",
-      "character": "Various",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/444710.jpg"
-    },
-    {
-      "name": "Jan Harrison",
-      "character": "Various",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/444711.jpg"
-    },
-    {
-      "name": "Courtney Brown",
-      "character": "Various",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/444713.jpg"
-    },
-    {
-      "name": "Ken Drake",
-      "character": "Various",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/444786.jpg"
-    },
-    {
-      "name": "Kathie Browne",
-      "character": "Various",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259035/photo/64e252adb016e.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 155,
+ "tvmazeRating": null,
+ "tvdbID": "75065",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Lloyd Bridges",
+   "character": "Mike Nelson",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259722/photo/6775cddbd2369.jpg"
+  },
+  {
+   "name": "Zale Parry",
+   "character": "Various",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/444710.jpg"
+  },
+  {
+   "name": "Jan Harrison",
+   "character": "Various",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/444711.jpg"
+  },
+  {
+   "name": "Courtney Brown",
+   "character": "Various",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/444713.jpg"
+  },
+  {
+   "name": "Ken Drake",
+   "character": "Various",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/444786.jpg"
+  },
+  {
+   "name": "Kathie Browne",
+   "character": "Various",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259035/photo/64e252adb016e.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0051311",
+ "imdbRating": 7.7,
+ "imdbVotes": 1464
 }

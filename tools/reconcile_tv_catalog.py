@@ -86,10 +86,22 @@ def series_card(s):
         "episodesCount": s.get("episodesCount"),
         "networks": nets,
         "creator": s.get("creator"),
-        "imdbRating": None, "imdbVotes": None, "contentRating": None,
+        # IMDb's own rating of the SERIES (enrich_tv_ratings), TVmaze's, and a
+        # one-item series' archive.org reviewers (Decision 171).
+        "imdbRating": s.get("imdbRating"), "imdbVotes": s.get("imdbVotes"), "contentRating": None,
         "tvmazeRating": s.get("tvmazeRating"),
+        "avgRating": s.get("avgRating"), "numReviews": s.get("numReviews"),
         "synopsisSource": "tvmaze" if s.get("overview") else None,
     }
+
+
+def _source_reviews(s, reviewed):
+    """{avgRating, numReviews} of a one-item series' most-reviewed source upload."""
+    srcs = [x for x in ([s.get("sourceID")] + list(s.get("sourceIDs") or [])) if x in reviewed]
+    if not srcs:
+        return {}
+    avg, n = max((reviewed[x] for x in srcs), key=lambda r: r[1])
+    return {"avgRating": avg, "numReviews": n}
 
 
 def main():
@@ -128,6 +140,12 @@ def main():
                 f.unlink()
 
     # 2) Load the surviving series files -> canonical cards + episode index.
+    # A one-item series (Decision 166) is ONE archive.org upload, so that
+    # upload's reviewers rated the show; read once, reused by transform below.
+    full = load(FULL_CATALOG) if FULL_CATALOG.exists() else None
+    reviewed = {it["archiveID"]: (it["avgRating"], it["numReviews"])
+                for it in (full or {}).get("items", [])
+                if it.get("avgRating") and it.get("numReviews") and it.get("archiveID")}
     cards = []
     episode_ids = set()
     for f in sorted(SERIES_DIR.glob("*.json")):
@@ -146,6 +164,8 @@ def main():
             # the card, instead of letting series_card default everything to tvmaze.
             "artworkSource": s.get("artworkSource"), "cast": s.get("cast"),
             "tvmazeRating": s.get("tvmazeRating"),
+            "imdbRating": s.get("imdbRating"), "imdbVotes": s.get("imdbVotes"),
+            **_source_reviews(s, reviewed),
         }))
         for season in s.get("seasons", []):
             for ep in season.get("episodes", []):
@@ -204,7 +224,7 @@ def main():
         if not path.exists():
             print(f"[reconcile] {label} catalog absent ({path.name}) — skipping (Decision 018)")
             continue
-        cat = load(path)
+        cat = full if (label == "full" and full is not None) else load(path)
         cat = transform(cat, label)
         if not args.dry_run:
             dump(path, cat)

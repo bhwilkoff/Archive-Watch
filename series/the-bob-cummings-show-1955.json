@@ -1,134 +1,135 @@
 {
-  "version": 2,
-  "seriesID": "the-bob-cummings-show-1955",
-  "tvmazeID": 17436,
-  "title": "The Bob Cummings Show",
-  "yearStart": 1955,
-  "yearEnd": 1959,
-  "overview": "The Bob Cummings Show (also known as Love That Bob) was a sitcom that aired on NBC from 1955-1959. The series centers around the misadventures of Bob Collins, a suave, sophisticated bachelor and photographer operating in Hollywood.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d9ac7b608b98.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-bob-cummings-show-1955",
+ "tvmazeID": 17436,
+ "title": "The Bob Cummings Show",
+ "yearStart": 1955,
+ "yearEnd": 1959,
+ "overview": "The Bob Cummings Show (also known as Love That Bob) was a sitcom that aired on NBC from 1955-1959. The series centers around the misadventures of Bob Collins, a suave, sophisticated bachelor and photographer operating in Hollywood.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/5d9ac7b608b98.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching",
-          "seasonNumber": 4,
-          "episodeNumber": 26,
-          "title": "Bob Goes Birdwatching",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching.a42bf59a.jpg",
-          "airDate": "1958-03-25",
-          "year": 1958,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "LoveThatBob-4x26-1958-03-25-BobGoesBirdWatching.mp4",
-            "format": "h.264",
-            "sizeBytes": 148967747,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching/LoveThatBob-4x26-1958-03-25-BobGoesBirdWatching.mp4"
-        }
-      ]
+     "archiveID": "Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching",
+     "seasonNumber": 4,
+     "episodeNumber": 26,
+     "title": "Bob Goes Birdwatching",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching.a42bf59a.jpg",
+     "airDate": "1958-03-25",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "LoveThatBob-4x26-1958-03-25-BobGoesBirdWatching.mp4",
+      "format": "h.264",
+      "sizeBytes": 148967747,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching/LoveThatBob-4x26-1958-03-25-BobGoesBirdWatching.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 173,
-  "tvmazeRating": null,
-  "tvdbID": "73099",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Nancy Kulp",
-      "character": "",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259595/photo/64944346ab50b.jpg"
-    },
-    {
-      "name": "Lyle Talbot",
-      "character": "",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258162/photo/66ab23ad7acf8.jpg"
-    },
-    {
-      "name": "Gloria Marshall",
-      "character": "",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Joi Lansing",
-      "character": "",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259934/photo/68e8c99f7dff4.jpg"
-    },
-    {
-      "name": "King Donovan",
-      "character": "",
-      "order": 4,
-      "profilePath": null
-    },
-    {
-      "name": "Mary Lawrence",
-      "character": "",
-      "order": 5,
-      "profilePath": null
-    },
-    {
-      "name": "Rosemary DeCamp",
-      "character": "",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257647/photo/64bab99d8f5f7.jpg"
-    },
-    {
-      "name": "Lisa Gaye",
-      "character": "",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259078/photo/62f1bfe11f470.jpg"
-    },
-    {
-      "name": "Carol Henning",
-      "character": "",
-      "order": 8,
-      "profilePath": null
-    },
-    {
-      "name": "Diane Jergens",
-      "character": "",
-      "order": 9,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/319982/photo/63274b80d9a17.jpg"
-    },
-    {
-      "name": "Dwayne Hickman",
-      "character": "",
-      "order": 10,
-      "profilePath": null
-    },
-    {
-      "name": "Bob Cummings",
-      "character": "",
-      "order": 11,
-      "profilePath": null
-    },
-    {
-      "name": "Ann B. Davis",
-      "character": "",
-      "order": 12,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/280434/photo/62db7323cd862.jpg"
-    },
-    {
-      "name": "Ingrid Goude",
-      "character": "",
-      "order": 13,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 173,
+ "tvmazeRating": null,
+ "tvdbID": "73099",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Nancy Kulp",
+   "character": "",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259595/photo/64944346ab50b.jpg"
+  },
+  {
+   "name": "Lyle Talbot",
+   "character": "",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258162/photo/66ab23ad7acf8.jpg"
+  },
+  {
+   "name": "Gloria Marshall",
+   "character": "",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Joi Lansing",
+   "character": "",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259934/photo/68e8c99f7dff4.jpg"
+  },
+  {
+   "name": "King Donovan",
+   "character": "",
+   "order": 4,
+   "profilePath": null
+  },
+  {
+   "name": "Mary Lawrence",
+   "character": "",
+   "order": 5,
+   "profilePath": null
+  },
+  {
+   "name": "Rosemary DeCamp",
+   "character": "",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257647/photo/64bab99d8f5f7.jpg"
+  },
+  {
+   "name": "Lisa Gaye",
+   "character": "",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259078/photo/62f1bfe11f470.jpg"
+  },
+  {
+   "name": "Carol Henning",
+   "character": "",
+   "order": 8,
+   "profilePath": null
+  },
+  {
+   "name": "Diane Jergens",
+   "character": "",
+   "order": 9,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/319982/photo/63274b80d9a17.jpg"
+  },
+  {
+   "name": "Dwayne Hickman",
+   "character": "",
+   "order": 10,
+   "profilePath": null
+  },
+  {
+   "name": "Bob Cummings",
+   "character": "",
+   "order": 11,
+   "profilePath": null
+  },
+  {
+   "name": "Ann B. Davis",
+   "character": "",
+   "order": 12,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/280434/photo/62db7323cd862.jpg"
+  },
+  {
+   "name": "Ingrid Goude",
+   "character": "",
+   "order": 13,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0047752"
 }

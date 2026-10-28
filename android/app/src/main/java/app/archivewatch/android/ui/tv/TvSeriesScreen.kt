@@ -195,6 +195,7 @@ fun TvSeriesScreen(container: AppContainer, nav: Nav, slug: String) {
                         seasons.size.takeIf { it > 0 && (current.canonicalEpisodesCount ?: 0) <= have }
                             ?.let { "$it season${if (it == 1) "" else "s"}" },
                         current.networks.firstOrNull()?.let { "Aired on $it" },
+                        current.ratingLine,
                     ).joinToString("  ·  ")
                     if (meta.isNotEmpty()) {
                         Text(meta, fontSize = 14.sp, color = Color(0xFFCFCFCF), modifier = Modifier.padding(top = 10.dp))

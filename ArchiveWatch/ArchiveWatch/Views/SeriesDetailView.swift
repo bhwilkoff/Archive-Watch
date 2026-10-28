@@ -158,6 +158,23 @@ struct SeriesDetailView: View {
                 if let range = yearRangeLabel {
                     Text(range)
                 }
+                // The film Detail's IMDb star; TVmaze's number says whose it is
+                // (Decision 171).
+                if let rating = seriesCard.imdbRatingDisplay {
+                    HStack(spacing: 7) {
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 22))
+                            .foregroundStyle(Color(hex: "#F5C518") ?? .yellow)  // IMDb gold
+                        Text(rating)
+                            .fontWeight(.semibold)
+                        if let votes = seriesCard.imdbVotesDisplay {
+                            Text("(\(votes))")
+                                .foregroundStyle(.white.opacity(0.5))
+                        }
+                    }
+                } else if let line = seriesCard.ratingLine {
+                    Text(line)
+                }
                 if let ep = episodeCountLabel {
                     Text(ep)
                 }

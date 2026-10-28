@@ -1,747 +1,748 @@
 {
-  "version": 2,
-  "seriesID": "the-undersea-world-of-jacques-cousteau-1968",
-  "tvmazeID": 26058,
-  "title": "The Undersea World of Jacques Cousteau",
-  "yearStart": 1968,
-  "yearEnd": 1976,
-  "overview": "The Undersea World of Jacques Cousteau is a nonfiction documentary television series focusing on marine biodiversity, directed by Alan Landsburg and hosted by French filmmaker, researcher and marine explorer, Jacques Cousteau. It also featured his family including sons Jean-Michel and Philippe-Pierre, along with grandson Fabian Cousteau. English narration was by Richard Johnson (BBC version) and Rod Serling (US edition).",
-  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/186581/posters/641ed23f645fc.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Nature",
-    "Travel"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-undersea-world-of-jacques-cousteau-1968",
+ "tvmazeID": 26058,
+ "title": "The Undersea World of Jacques Cousteau",
+ "yearStart": 1968,
+ "yearEnd": 1976,
+ "overview": "The Undersea World of Jacques Cousteau is a nonfiction documentary television series focusing on marine biodiversity, directed by Alan Landsburg and hosted by French filmmaker, researcher and marine explorer, Jacques Cousteau. It also featured his family including sons Jean-Michel and Philippe-Pierre, along with grandson Fabian Cousteau. English narration was by Richard Johnson (BBC version) and Rod Serling (US edition).",
+ "posterURL": "https://artworks.thetvdb.com/banners/v4/series/186581/posters/641ed23f645fc.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Nature",
+  "Travel"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 0,
+   "episodes": [
     {
-      "seasonNumber": 0,
-      "episodes": [
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s0e01",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 0,
-          "episodeNumber": 1,
-          "title": "Conshelf Adventure",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S00E01%20-%20Conshelf%20Adventure_001416.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2903,
-          "videoFile": {
-            "name": "files/S00E01 - Conshelf Adventure.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 486178048,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S00E01%20-%20Conshelf%20Adventure.mp4"
-        }
-      ]
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s0e01",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 0,
+     "episodeNumber": 1,
+     "title": "Conshelf Adventure",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S00E01%20-%20Conshelf%20Adventure_001416.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2903,
+     "videoFile": {
+      "name": "files/S00E01 - Conshelf Adventure.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 486178048,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S00E01%20-%20Conshelf%20Adventure.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e01",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Sharks",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E01%20-%20Sharks_001355.jpg",
+     "airDate": "1968-01-08",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E01 - Sharks.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 398662264,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E01%20-%20Sharks.mp4"
     },
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e01",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Sharks",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E01%20-%20Sharks_001355.jpg",
-          "airDate": "1968-01-08",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E01 - Sharks.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 398662264,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E01%20-%20Sharks.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e02",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Savage World of the Coral Jungle",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E02%20-%20Savage%20World%20of%20the%20Coral%20Jungle_001393.jpg",
-          "airDate": "1968-03-06",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E02 - Savage World of the Coral Jungle.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 413528095,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E02%20-%20Savage%20World%20of%20the%20Coral%20Jungle.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e03",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Search in the Deep",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E03%20-%20Search%20in%20the%20Deep_001447.jpg",
-          "airDate": "1968-04-15",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E03 - Search in the Deep.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 425521402,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E03%20-%20Search%20in%20the%20Deep.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e04",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Whales",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E04%20-%20Whales_001375.jpg",
-          "airDate": "1968-11-15",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E04 - Whales.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 399455525,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E04%20-%20Whales.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e05",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Unexpected Voyage of Pepito and Cristobal",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E05%20-%20The%20Unexpected%20Voyage%20of%20Pepito%20and%20Cristobal_001450.jpg",
-          "airDate": "1969-01-13",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E05 - The Unexpected Voyage of Pepito and Cristobal.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 426765057,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E05%20-%20The%20Unexpected%20Voyage%20of%20Pepito%20and%20Cristobal.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e06",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Sunken Treasure",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1969-03-03",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E06 - Sunken Treasure.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 425191216,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E06%20-%20Sunken%20Treasure.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e07",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Legend of Lake Titicaca",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1969-04-24",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E07 - The Legend of Lake Titicaca.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 424703684,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E07%20-%20The%20Legend%20of%20Lake%20Titicaca.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e08",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "The Desert Whales",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E08%20-%20The%20Desert%20Whales_001431.jpg",
-          "airDate": "1969-10-28",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E08 - The Desert Whales.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 423670952,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E08%20-%20The%20Desert%20Whales.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e09",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Night of the Squid",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E09%20-%20The%20Night%20of%20the%20Squid_001418.jpg",
-          "airDate": "1970-01-16",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E09 - The Night of the Squid.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 416119942,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E09%20-%20The%20Night%20of%20the%20Squid.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e10",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Return of the Sea Elephant",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1970-02-08",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E10 - Return of the Sea Elephant.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 413961784,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E10%20-%20Return%20of%20the%20Sea%20Elephant.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e11",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Those Incredible Diving Machines",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E11%20-%20Those%20Incredible%20Diving%20Machines_001433.jpg",
-          "airDate": "1970-03-10",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E11 - Those Incredible Diving Machines.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 419638538,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E11%20-%20Those%20Incredible%20Diving%20Machines.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e12",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Water Planet",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E12%20-%20The%20Water%20Planet_001389.jpg",
-          "airDate": "1970-03-28",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E12 - The Water Planet.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 402362239,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E12%20-%20The%20Water%20Planet.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e13",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Tragedy of the Red Salmon",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E13%20-%20Tragedy%20of%20the%20Red%20Salmon_001434.jpg",
-          "airDate": "1970-11-24",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E13 - Tragedy of the Red Salmon.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 415051042,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E13%20-%20Tragedy%20of%20the%20Red%20Salmon.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e14",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Lagoon of Lost Ships",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E14%20-%20Lagoon%20of%20Lost%20Ships_001433.jpg",
-          "airDate": "1971-05-14",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E14 - Lagoon of Lost Ships.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 422545994,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E14%20-%20Lagoon%20of%20Lost%20Ships.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e15",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "The Dragons of Galapagos",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1971-02-24",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E15 - The Dragons of Galapagos.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 417494367,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E15%20-%20The%20Dragons%20of%20Galapagos.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e16",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Secrets of the Sunken Caves",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E16%20-%20Secrets%20of%20the%20Sunken%20Caves_001434.jpg",
-          "airDate": "1971-03-19",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E16 - Secrets of the Sunken Caves.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 417336549,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E16%20-%20Secrets%20of%20the%20Sunken%20Caves.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e17",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "The Unsinkable Sea Otter",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E17%20-%20The%20Unsinkable%20Sea%20Otter_001429.jpg",
-          "airDate": "1971-09-26",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E17 - The Unsinkable Sea Otter.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 416545586,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E17%20-%20The%20Unsinkable%20Sea%20Otter.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e18",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "The Forgotten Mermaids",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1971-12-21",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E18 - The Forgotten Mermaids.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 416143330,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E18%20-%20The%20Forgotten%20Mermaids.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e19",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Octopus, Octopus",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E19%20-%20Octopus%2C%20Octopus_001429.jpg",
-          "airDate": "1972-01-24",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E19 - Octopus, Octopus.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 489364384,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E19%20-%20Octopus%2C%20Octopus.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e20",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "A Sound of Dolphins",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E20%20-%20A%20Sound%20of%20Dolphins_001428.jpg",
-          "airDate": "1972-02-25",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E20 - A Sound of Dolphins.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 489158329,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E20%20-%20A%20Sound%20of%20Dolphins.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e21",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "500 Million Years Beneath the Sea",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E21%20-%20500%20Million%20Years%20Beneath%20the%20Sea_001430.jpg",
-          "airDate": "1973-01-11",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E21 - 500 Million Years Beneath the Sea.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 487102822,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E21%20-%20500%20Million%20Years%20Beneath%20the%20Sea.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e22",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The Smile of the Walrus",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E22%20-%20The%20Smile%20of%20the%20Walrus_001428.jpg",
-          "airDate": "1972-11-05",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E22 - The Smile of the Walrus.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 488059513,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E22%20-%20The%20Smile%20of%20the%20Walrus.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e23",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Hippo!",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E23%20-%20Hippo%21_001434.jpg",
-          "airDate": "1973-02-16",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E23 - Hippo!.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 488390934,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E23%20-%20Hippo%21.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e24",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "The Singing Whale",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E24%20-%20The%20Singing%20Whale_001423.jpg",
-          "airDate": "1973-03-12",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E24 - The Singing Whale.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 485709722,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E24%20-%20The%20Singing%20Whale.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e25",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "South to Fire and Ice",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1973-11-29",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E25 - South to Fire and Ice.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 488131038,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E25%20-%20South%20to%20Fire%20and%20Ice.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e26",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "The Flight of Penguins",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E26%20-%20The%20Flight%20of%20Penguins_001429.jpg",
-          "airDate": "1974-01-21",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E26 - The Flight of Penguins.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 489154832,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E26%20-%20The%20Flight%20of%20Penguins.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e27",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 27,
-          "title": "Beneath the Frozen World",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E27%20-%20Beneath%20the%20Frozen%20World_001438.jpg",
-          "airDate": "1974-03-03",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E27 - Beneath the Frozen World.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 489447762,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E27%20-%20Beneath%20the%20Frozen%20World.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e28",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "Blizzard at Hope Bay",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E28%20-%20Blizzard%20at%20Hope%20Bay_001429.jpg",
-          "airDate": "1974-03-22",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E28 - Blizzard at Hope Bay.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 489385767,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E28%20-%20Blizzard%20at%20Hope%20Bay.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e29",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 29,
-          "title": "Life at the End of the World",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E29%20-%20Life%20at%20the%20End%20of%20the%20World_001431.jpg",
-          "airDate": "1974-11-14",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E29 - Life at the End of the World.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 488184040,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E29%20-%20Life%20at%20the%20End%20of%20the%20World.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e30",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "Beavers of the North Country",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E30%20-%20Beavers%20of%20the%20North%20Country_001425.jpg",
-          "airDate": "1975-01-06",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E30 - Beavers of the North Country.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 485800091,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E30%20-%20Beavers%20of%20the%20North%20Country.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e31",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 31,
-          "title": "The Coral Divers of Corsica",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E31%20-%20The%20Coral%20Divers%20of%20Corsica_001428.jpg",
-          "airDate": "1975-11-15",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E31 - The Coral Divers of Corsica.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 489041680,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E31%20-%20The%20Coral%20Divers%20of%20Corsica.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e32",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 32,
-          "title": "The Sleeping Sharks of Yucatan",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E32%20-%20The%20Sleeping%20Sharks%20of%20Yucatan_001435.jpg",
-          "airDate": "1975-11-15",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E32 - The Sleeping Sharks of Yucatan.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 490074705,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E32%20-%20The%20Sleeping%20Sharks%20of%20Yucatan.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e33",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 33,
-          "title": "The Sea Birds of Isabela",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1975-12-08",
-          "year": 1975,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E33 - The Sea Birds of Isabela.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 495116735,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E33%20-%20The%20Sea%20Birds%20of%20Isabela.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e34",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 34,
-          "title": "Mysteries of the Hidden Reefs",
-          "overview": null,
-          "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E34%20-%20Mysteries%20of%20the%20Hidden%20Reefs_001429.jpg",
-          "airDate": "1976-04-05",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E34 - Mysteries of the Hidden Reefs.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 488310255,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E34%20-%20Mysteries%20of%20the%20Hidden%20Reefs.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e35",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 35,
-          "title": "The Fish That Swallowed Jonah",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1976-05-23",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E35 - The Fish That Swallowed Jonah.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 496599053,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E35%20-%20The%20Fish%20That%20Swallowed%20Jonah.mp4"
-        },
-        {
-          "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e36",
-          "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 36,
-          "title": "The Incredible March of the Spiny Lobsters",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1976-05-30",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "files/S01E36 - The Incredible March of the Spiny Lobsters.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 500439532,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E36%20-%20The%20Incredible%20March%20of%20the%20Spiny%20Lobsters.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 37,
-  "canonicalEpisodesCount": 36,
-  "tvmazeRating": null,
-  "tvdbID": "186581",
-  "artworkSource": "tvdb",
-  "cast": [
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e02",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Savage World of the Coral Jungle",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E02%20-%20Savage%20World%20of%20the%20Coral%20Jungle_001393.jpg",
+     "airDate": "1968-03-06",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E02 - Savage World of the Coral Jungle.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 413528095,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E02%20-%20Savage%20World%20of%20the%20Coral%20Jungle.mp4"
+    },
     {
-      "name": "Jacques-Yves Cousteau",
-      "character": "Jacques-Yves Cousteau",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/292058.jpg"
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e03",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Search in the Deep",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E03%20-%20Search%20in%20the%20Deep_001447.jpg",
+     "airDate": "1968-04-15",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E03 - Search in the Deep.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 425521402,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E03%20-%20Search%20in%20the%20Deep.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e04",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Whales",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E04%20-%20Whales_001375.jpg",
+     "airDate": "1968-11-15",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E04 - Whales.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 399455525,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E04%20-%20Whales.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e05",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Unexpected Voyage of Pepito and Cristobal",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E05%20-%20The%20Unexpected%20Voyage%20of%20Pepito%20and%20Cristobal_001450.jpg",
+     "airDate": "1969-01-13",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E05 - The Unexpected Voyage of Pepito and Cristobal.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 426765057,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E05%20-%20The%20Unexpected%20Voyage%20of%20Pepito%20and%20Cristobal.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e06",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Sunken Treasure",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1969-03-03",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E06 - Sunken Treasure.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 425191216,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E06%20-%20Sunken%20Treasure.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e07",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Legend of Lake Titicaca",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1969-04-24",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E07 - The Legend of Lake Titicaca.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 424703684,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E07%20-%20The%20Legend%20of%20Lake%20Titicaca.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e08",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "The Desert Whales",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E08%20-%20The%20Desert%20Whales_001431.jpg",
+     "airDate": "1969-10-28",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E08 - The Desert Whales.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 423670952,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E08%20-%20The%20Desert%20Whales.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e09",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Night of the Squid",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E09%20-%20The%20Night%20of%20the%20Squid_001418.jpg",
+     "airDate": "1970-01-16",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E09 - The Night of the Squid.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 416119942,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E09%20-%20The%20Night%20of%20the%20Squid.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e10",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Return of the Sea Elephant",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1970-02-08",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E10 - Return of the Sea Elephant.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 413961784,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E10%20-%20Return%20of%20the%20Sea%20Elephant.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e11",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Those Incredible Diving Machines",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E11%20-%20Those%20Incredible%20Diving%20Machines_001433.jpg",
+     "airDate": "1970-03-10",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E11 - Those Incredible Diving Machines.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 419638538,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E11%20-%20Those%20Incredible%20Diving%20Machines.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e12",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Water Planet",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E12%20-%20The%20Water%20Planet_001389.jpg",
+     "airDate": "1970-03-28",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E12 - The Water Planet.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 402362239,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E12%20-%20The%20Water%20Planet.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e13",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Tragedy of the Red Salmon",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E13%20-%20Tragedy%20of%20the%20Red%20Salmon_001434.jpg",
+     "airDate": "1970-11-24",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E13 - Tragedy of the Red Salmon.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 415051042,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E13%20-%20Tragedy%20of%20the%20Red%20Salmon.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e14",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Lagoon of Lost Ships",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E14%20-%20Lagoon%20of%20Lost%20Ships_001433.jpg",
+     "airDate": "1971-05-14",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E14 - Lagoon of Lost Ships.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 422545994,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E14%20-%20Lagoon%20of%20Lost%20Ships.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e15",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Dragons of Galapagos",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1971-02-24",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E15 - The Dragons of Galapagos.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 417494367,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E15%20-%20The%20Dragons%20of%20Galapagos.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e16",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Secrets of the Sunken Caves",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E16%20-%20Secrets%20of%20the%20Sunken%20Caves_001434.jpg",
+     "airDate": "1971-03-19",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E16 - Secrets of the Sunken Caves.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 417336549,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E16%20-%20Secrets%20of%20the%20Sunken%20Caves.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e17",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "The Unsinkable Sea Otter",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E17%20-%20The%20Unsinkable%20Sea%20Otter_001429.jpg",
+     "airDate": "1971-09-26",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E17 - The Unsinkable Sea Otter.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 416545586,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E17%20-%20The%20Unsinkable%20Sea%20Otter.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e18",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "The Forgotten Mermaids",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1971-12-21",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E18 - The Forgotten Mermaids.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 416143330,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E18%20-%20The%20Forgotten%20Mermaids.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e19",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Octopus, Octopus",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E19%20-%20Octopus%2C%20Octopus_001429.jpg",
+     "airDate": "1972-01-24",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E19 - Octopus, Octopus.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 489364384,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E19%20-%20Octopus%2C%20Octopus.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e20",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "A Sound of Dolphins",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E20%20-%20A%20Sound%20of%20Dolphins_001428.jpg",
+     "airDate": "1972-02-25",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E20 - A Sound of Dolphins.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 489158329,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E20%20-%20A%20Sound%20of%20Dolphins.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e21",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "500 Million Years Beneath the Sea",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E21%20-%20500%20Million%20Years%20Beneath%20the%20Sea_001430.jpg",
+     "airDate": "1973-01-11",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E21 - 500 Million Years Beneath the Sea.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 487102822,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E21%20-%20500%20Million%20Years%20Beneath%20the%20Sea.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e22",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Smile of the Walrus",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E22%20-%20The%20Smile%20of%20the%20Walrus_001428.jpg",
+     "airDate": "1972-11-05",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E22 - The Smile of the Walrus.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 488059513,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E22%20-%20The%20Smile%20of%20the%20Walrus.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e23",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Hippo!",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E23%20-%20Hippo%21_001434.jpg",
+     "airDate": "1973-02-16",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E23 - Hippo!.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 488390934,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E23%20-%20Hippo%21.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e24",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "The Singing Whale",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E24%20-%20The%20Singing%20Whale_001423.jpg",
+     "airDate": "1973-03-12",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E24 - The Singing Whale.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 485709722,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E24%20-%20The%20Singing%20Whale.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e25",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "South to Fire and Ice",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1973-11-29",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E25 - South to Fire and Ice.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 488131038,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E25%20-%20South%20to%20Fire%20and%20Ice.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e26",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "The Flight of Penguins",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E26%20-%20The%20Flight%20of%20Penguins_001429.jpg",
+     "airDate": "1974-01-21",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E26 - The Flight of Penguins.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 489154832,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E26%20-%20The%20Flight%20of%20Penguins.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e27",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 27,
+     "title": "Beneath the Frozen World",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E27%20-%20Beneath%20the%20Frozen%20World_001438.jpg",
+     "airDate": "1974-03-03",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E27 - Beneath the Frozen World.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 489447762,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E27%20-%20Beneath%20the%20Frozen%20World.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e28",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "Blizzard at Hope Bay",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E28%20-%20Blizzard%20at%20Hope%20Bay_001429.jpg",
+     "airDate": "1974-03-22",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E28 - Blizzard at Hope Bay.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 489385767,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E28%20-%20Blizzard%20at%20Hope%20Bay.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e29",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Life at the End of the World",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E29%20-%20Life%20at%20the%20End%20of%20the%20World_001431.jpg",
+     "airDate": "1974-11-14",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E29 - Life at the End of the World.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 488184040,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E29%20-%20Life%20at%20the%20End%20of%20the%20World.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e30",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 30,
+     "title": "Beavers of the North Country",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E30%20-%20Beavers%20of%20the%20North%20Country_001425.jpg",
+     "airDate": "1975-01-06",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E30 - Beavers of the North Country.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 485800091,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E30%20-%20Beavers%20of%20the%20North%20Country.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e31",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 31,
+     "title": "The Coral Divers of Corsica",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E31%20-%20The%20Coral%20Divers%20of%20Corsica_001428.jpg",
+     "airDate": "1975-11-15",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E31 - The Coral Divers of Corsica.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 489041680,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E31%20-%20The%20Coral%20Divers%20of%20Corsica.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e32",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 32,
+     "title": "The Sleeping Sharks of Yucatan",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E32%20-%20The%20Sleeping%20Sharks%20of%20Yucatan_001435.jpg",
+     "airDate": "1975-11-15",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E32 - The Sleeping Sharks of Yucatan.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 490074705,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E32%20-%20The%20Sleeping%20Sharks%20of%20Yucatan.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e33",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 33,
+     "title": "The Sea Birds of Isabela",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1975-12-08",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E33 - The Sea Birds of Isabela.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 495116735,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E33%20-%20The%20Sea%20Birds%20of%20Isabela.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e34",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 34,
+     "title": "Mysteries of the Hidden Reefs",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/the-undersea-world-of-jacques-cousteau-1976.thumbs/S01E34%20-%20Mysteries%20of%20the%20Hidden%20Reefs_001429.jpg",
+     "airDate": "1976-04-05",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E34 - Mysteries of the Hidden Reefs.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 488310255,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E34%20-%20Mysteries%20of%20the%20Hidden%20Reefs.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e35",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 35,
+     "title": "The Fish That Swallowed Jonah",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1976-05-23",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E35 - The Fish That Swallowed Jonah.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 496599053,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E35%20-%20The%20Fish%20That%20Swallowed%20Jonah.mp4"
+    },
+    {
+     "archiveID": "the-undersea-world-of-jacques-cousteau-1976@s1e36",
+     "sourceID": "the-undersea-world-of-jacques-cousteau-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "The Incredible March of the Spiny Lobsters",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1976-05-30",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "files/S01E36 - The Incredible March of the Spiny Lobsters.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 500439532,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E36%20-%20The%20Incredible%20March%20of%20the%20Spiny%20Lobsters.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 37,
+ "canonicalEpisodesCount": 36,
+ "tvmazeRating": null,
+ "tvdbID": "186581",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Jacques-Yves Cousteau",
+   "character": "Jacques-Yves Cousteau",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/292058.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0192937"
 }

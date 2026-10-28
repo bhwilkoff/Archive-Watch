@@ -360,6 +360,49 @@ def submit(aid, version_id, platform, dry):
     return True
 
 
+# A submission still waiting (or under review) can be withdrawn and replaced by
+# a newer build; one Apple has APPROVED (PENDING_DEVELOPER_RELEASE) never is.
+REPLACEABLE = {"WAITING_FOR_REVIEW", "IN_REVIEW"}
+
+
+def replace_in_flight(aid, platform, number, dry, wait_s=300):
+    """Withdraw a version waiting for review with an older build, so this build
+    can take its place. Cancelling the reviewSubmission returns the version to
+    an editable state, where `ship` renames it and attaches the new build.
+    Returns True when the platform is ready for ship to continue."""
+    vs = versions(aid, platform)
+    v = next((x for x in vs if x["attributes"]["appStoreState"] in REPLACEABLE), None)
+    if v is None:
+        return True
+    carried = attached_build(v["id"])
+    if carried == str(number):
+        print(f"    {v['attributes']['versionString']} already carries build {number}")
+        return True
+    subs = call(f"v1/reviewSubmissions?filter[app]={aid}&filter[platform]={platform}&limit=50")["data"]
+    sub = next((r for r in subs if r["attributes"].get("state") in
+                {"WAITING_FOR_REVIEW", "IN_REVIEW", "UNRESOLVED_ISSUES"}), None)
+    if sub is None:
+        print(f"    !! {v['attributes']['versionString']} is {v['attributes']['appStoreState']} "
+              f"but no open review submission was found to withdraw")
+        return False
+    if dry:
+        print(f"    would WITHDRAW {v['attributes']['versionString']} (build {carried}) from review")
+        return True
+    call(f"v1/reviewSubmissions/{sub['id']}", method="PATCH", body={"data": {
+        "type": "reviewSubmissions", "id": sub["id"], "attributes": {"canceled": True}}})
+    print(f"    withdrew {v['attributes']['versionString']} (build {carried}) from review")
+    deadline = time.time() + wait_s
+    while time.time() < deadline:
+        state = next((x["attributes"]["appStoreState"] for x in versions(aid, platform)
+                      if x["id"] == v["id"]), None)
+        if state in EDITABLE:
+            print(f"    now {state}")
+            return True
+        time.sleep(15)
+    print(f"    !! the withdrawn version did not become editable within {wait_s // 60} min")
+    return False
+
+
 def ship(aid, args):
     mv, bn = repo_version()
     version = args.version or mv
@@ -383,6 +426,9 @@ def ship(aid, args):
         platform = PLATFORMS[name]
         print(f"  {name}")
         try:
+            if args.replace_in_flight and not replace_in_flight(aid, platform, number, args.dry_run):
+                failed.append(name)
+                continue
             ver = editable_version(aid, platform, version, args.dry_run)
             if ver is None:
                 skipped.append(name)
@@ -439,6 +485,9 @@ def main():
     ap.add_argument("--wait-build-minutes", type=int, default=0,
                     help="poll until the build finishes processing before attaching "
                          "(0 = do not wait, the historic behaviour)")
+    ap.add_argument("--replace-in-flight", action="store_true",
+                    help="withdraw a version still WAITING_FOR_REVIEW/IN_REVIEW with an older "
+                         "build and submit this one in its place (never an approved version)")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 

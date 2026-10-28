@@ -1,801 +1,804 @@
 {
-  "version": 2,
-  "seriesID": "fireball-xl5-1962",
-  "tvmazeID": 5916,
-  "title": "Fireball XL5",
-  "yearStart": 1962,
-  "yearEnd": 1963,
-  "overview": "Set one hundred years into the future (2063) XL5 patrolled and protected sector 25 of the solar system on behalf of World Space Patrol, run by Commander (Wilbur) Zero, who was based at WSP headquarters on Earth's Space City...",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/70828-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "fireball-xl5-1962",
+ "tvmazeID": 5916,
+ "title": "Fireball XL5",
+ "yearStart": 1962,
+ "yearEnd": 1963,
+ "overview": "Set one hundred years into the future (2063) XL5 patrolled and protected sector 25 of the solar system on behalf of World Space Patrol, run by Commander (Wilbur) Zero, who was based at WSP headquarters on Earth's Space City...",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/70828-2.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "FireballXL51x01",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Planet 46",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
-          "airDate": "1962-10-28",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 Ep-01 Planet 46.mp4",
-            "format": "h.264",
-            "sizeBytes": 155880130,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FireballXL51x01/Fireball%20XL5%20Ep-01%20Planet%2046.mp4"
-        },
-        {
-          "archiveID": "FireballXL51x02",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Doomed Planet",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
-          "airDate": "1962-11-04",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 Ep-02 The Doomed Planet.mp4",
-            "format": "h.264",
-            "sizeBytes": 145007891,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FireballXL51x02/Fireball%20XL5%20Ep-02%20The%20Doomed%20Planet.mp4"
-        },
-        {
-          "archiveID": "FireballXL51x03",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Space Immigrants",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w300/zxmJ7XjMFgcwmuugQAGcwHwN0Dz.jpg",
-          "airDate": "1962-11-11",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Space Immigrants XL5.mp4",
-            "format": "h.264",
-            "sizeBytes": 147892282,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FireballXL51x03/Space%20Immigrants%20XL5.mp4"
-        },
-        {
-          "archiveID": "FireballXL51x04",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Plant Man from Space",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w300/ibbaZptdOZX8ewMxHZWNUzPdxmf.jpg",
-          "airDate": "1962-11-18",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Plant Man from Space XL5.mp4",
-            "format": "h.264",
-            "sizeBytes": 155400154,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FireballXL51x04/Plant%20Man%20from%20Space%20XL5.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e11",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Spy in Space",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2011.%20A%20Spy%20in%20Space_000583.jpg",
-          "airDate": "1962-11-25",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 11. A Spy in Space.mp4",
-            "format": "h.264",
-            "sizeBytes": 146878871,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2011.%20A%20Spy%20in%20Space.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e07",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Sun Temple",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2007.%20Sun%20Temple_000586.jpg",
-          "airDate": "1962-12-02",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 07. Sun Temple.mp4",
-            "format": "h.264",
-            "sizeBytes": 147337220,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2007.%20Sun%20Temple.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e12",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "XL5 to H2O",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2012.%20XL5%20to%20H2O_000583.jpg",
-          "airDate": "1962-12-09",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 12. XL5 to H2O.mp4",
-            "format": "h.264",
-            "sizeBytes": 146595764,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2012.%20XL5%20to%20H2O.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e13",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Space Pirates",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2013.%20Space%20Pirates_000618.jpg",
-          "airDate": "1962-12-16",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 13. Space Pirates.mp4",
-            "format": "h.264",
-            "sizeBytes": 155982580,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2013.%20Space%20Pirates.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e10",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Flying Zodiac",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2010.%20Flying%20Zodiac_000591.jpg",
-          "airDate": "1962-12-23",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 10. Flying Zodiac.mp4",
-            "format": "h.264",
-            "sizeBytes": 148632500,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2010.%20Flying%20Zodiac.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e15",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Space Pen",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2015.%20Space%20Pen_000589.jpg",
-          "airDate": "1962-12-30",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 15. Space Pen.mp4",
-            "format": "h.264",
-            "sizeBytes": 148265472,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2015.%20Space%20Pen.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e09",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Space Monster",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2009.%20Space%20Monster_000619.jpg",
-          "airDate": "1963-01-06",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 09. Space Monster.mp4",
-            "format": "h.264",
-            "sizeBytes": 155933529,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2009.%20Space%20Monster.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e14",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Last of the Zanadus",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2014.%20Last%20of%20the%20Zanadus_000584.jpg",
-          "airDate": "1963-01-13",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 14. Last of the Zanadus.mp4",
-            "format": "h.264",
-            "sizeBytes": 146937028,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2014.%20Last%20of%20the%20Zanadus.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e03",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Planet of Platonia",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2003.%20Planet%20of%20Plutonia_000588.jpg",
-          "airDate": "1963-01-20",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 03. Planet of Plutonia.mp4",
-            "format": "h.264",
-            "sizeBytes": 148160949,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2003.%20Planet%20of%20Plutonia.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e18",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "The Triads",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2018.%20The%20Triads_000587.jpg",
-          "airDate": "1963-01-27",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 18. The Triads.mp4",
-            "format": "h.264",
-            "sizeBytes": 147800050,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2018.%20The%20Triads.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e17",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Wings of Danger",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2017.%20Wings%20of%20Danger_000620.jpg",
-          "airDate": "1963-02-03",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 17. Wings of Danger.mp4",
-            "format": "h.264",
-            "sizeBytes": 155764692,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2017.%20Wings%20of%20Danger.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e16",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Convict in Space",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2016.%20Convict%20in%20Space_000585.jpg",
-          "airDate": "1963-02-10",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 16. Convict in Space.mp4",
-            "format": "h.264",
-            "sizeBytes": 147278419,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2016.%20Convict%20in%20Space.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e22",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Space Vacation",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2022.%20Space%20Vacation_000589.jpg",
-          "airDate": "1963-02-17",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 22. Space Vacation.mp4",
-            "format": "h.264",
-            "sizeBytes": 148248771,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2022.%20Space%20Vacation.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e21",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Flight to Danger",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2021.%20Flight%20to%20Danger_000622.jpg",
-          "airDate": "1963-02-24",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 21. Flight to Danger.mp4",
-            "format": "h.264",
-            "sizeBytes": 156584484,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2021.%20Flight%20to%20Danger.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e20",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Prisoner on the Lost Planet",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2020.%20Prisoner%20on%20the%20Lost%20Planet_000583.jpg",
-          "airDate": "1963-03-03",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 20. Prisoner on the Lost Planet.mp4",
-            "format": "h.264",
-            "sizeBytes": 146511999,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2020.%20Prisoner%20on%20the%20Lost%20Planet.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e25",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "The Forbidden Planet",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2025.%20The%20Forbidden%20Planet_000624.jpg",
-          "airDate": "1963-03-10",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 25. The Forbidden Planet.mp4",
-            "format": "h.264",
-            "sizeBytes": 157312329,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2025.%20The%20Forbidden%20Planet.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e24",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Robert to the Rescue",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2024.%20Robert%20to%20the%20Rescue_000583.jpg",
-          "airDate": "1963-03-17",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 24. Robert to the Rescue.mp4",
-            "format": "h.264",
-            "sizeBytes": 146597386,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2024.%20Robert%20to%20the%20Rescue.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e27",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "Dangerous Cargo",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2027.%20Dangerous%20Cargo_000589.jpg",
-          "airDate": "1963-03-24",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 27. Dangerous Cargo.mp4",
-            "format": "h.264",
-            "sizeBytes": 148127600,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2027.%20Dangerous%20Cargo.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e23",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Mystery of the TA2",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2023.%20Mystery%20of%20the%20TA2_000586.jpg",
-          "airDate": "1963-03-31",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 23. Mystery of the TA2.mp4",
-            "format": "h.264",
-            "sizeBytes": 147071840,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2023.%20Mystery%20of%20the%20TA2.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e30",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Drama at Space City",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2030.%20Drama%20at%20Space%20City_000584.jpg",
-          "airDate": "1963-04-07",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 30. Drama at Space City.mp4",
-            "format": "h.264",
-            "sizeBytes": 147008503,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2030.%20Drama%20at%20Space%20City.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e28",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "1875",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2028.%201875_000587.jpg",
-          "airDate": "1963-04-14",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 28. 1875.mp4",
-            "format": "h.264",
-            "sizeBytes": 147813455,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2028.%201875.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e26",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "The Granatoid Tanks",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2026.%20The%20Granatoid%20Tanks_000586.jpg",
-          "airDate": "1963-04-21",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 26. The Granatoid Tanks.mp4",
-            "format": "h.264",
-            "sizeBytes": 147317691,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2026.%20The%20Granatoid%20Tanks.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e29",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 27,
-          "title": "The Robot Freighter Mystery",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2029.%20The%20Robot%20Freighter%20Mystery_000621.jpg",
-          "airDate": "1963-04-28",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 29. The Robot Freighter Mystery.mp4",
-            "format": "h.264",
-            "sizeBytes": 156809573,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2029.%20The%20Robot%20Freighter%20Mystery.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e31",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "Whistle for Danger",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2031.%20Whistle%20for%20Danger_000588.jpg",
-          "airDate": "1963-05-05",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 31. Whistle for Danger.mp4",
-            "format": "h.264",
-            "sizeBytes": 147865199,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2031.%20Whistle%20for%20Danger.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e36",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 29,
-          "title": "Trial by Robot",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2036.%20Trial%20by%20Robot_000621.jpg",
-          "airDate": "1963-05-12",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 36. Trial by Robot.mp4",
-            "format": "h.264",
-            "sizeBytes": 156301661,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2036.%20Trial%20by%20Robot.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e37",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "A Day in the Life of a Space General",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2037.%20A%20Day%20in%20the%20Life%20%20of%20a%20Space%20General_000582.jpg",
-          "airDate": "1963-05-19",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 37. A Day in the Life  of a Space General.mp4",
-            "format": "h.264",
-            "sizeBytes": 146529164,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2037.%20A%20Day%20in%20the%20Life%20%20of%20a%20Space%20General.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e34",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 31,
-          "title": "Invasion Earth",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2034.%20Invasion%20Earth_000584.jpg",
-          "airDate": "1963-05-26",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 34. Invasion Earth.mp4",
-            "format": "h.264",
-            "sizeBytes": 146956330,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2034.%20Invasion%20Earth.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e32",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 32,
-          "title": "Faster Than Light",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2032.%20Faster%20Than%20Light_000586.jpg",
-          "airDate": "1963-06-02",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 32. Faster Than Light.mp4",
-            "format": "h.264",
-            "sizeBytes": 147819819,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2032.%20Faster%20Than%20Light.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e33",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 33,
-          "title": "The Day the Earth Froze",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2033.%20The%20Day%20The%20Earth%20Froze_000621.jpg",
-          "airDate": "1963-06-09",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 33. The Day The Earth Froze.mp4",
-            "format": "h.264",
-            "sizeBytes": 156367150,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2033.%20The%20Day%20The%20Earth%20Froze.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e39",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 34,
-          "title": "The Fire Fighters",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2039.%20The%20Fire%20Fighters_000623.jpg",
-          "airDate": "1963-06-16",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 39. The Fire Fighters.mp4",
-            "format": "h.264",
-            "sizeBytes": 156567392,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2039.%20The%20Fire%20Fighters.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e38",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 35,
-          "title": "Space City Special",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2038.%20Space%20City%20Special_000582.jpg",
-          "airDate": "1963-06-23",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 38. Space City Special.mp4",
-            "format": "h.264",
-            "sizeBytes": 146520412,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2038.%20Space%20City%20Special.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e35",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 36,
-          "title": "Ghosts of Space",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2035.%20Ghosts%20of%20Space_000589.jpg",
-          "airDate": "1963-06-30",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 35. Ghosts of Space.mp4",
-            "format": "h.264",
-            "sizeBytes": 148177380,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2035.%20Ghosts%20of%20Space.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e02",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 37,
-          "title": "Hypnotic Sphere",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2002.%20Hypnotic%20Sphere_000588.jpg",
-          "airDate": "1963-07-07",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 02. Hypnotic Sphere.mp4",
-            "format": "h.264",
-            "sizeBytes": 148144568,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2002.%20Hypnotic%20Sphere.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e19",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 38,
-          "title": "Sabotage",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2019.%20Sabotage_000587.jpg",
-          "airDate": "1963-07-14",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 19. Sabotage.mp4",
-            "format": "h.264",
-            "sizeBytes": 147724755,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2019.%20Sabotage.mp4"
-        },
-        {
-          "archiveID": "FireballXL5.complete@e04",
-          "sourceID": "FireballXL5.complete",
-          "seasonNumber": 1,
-          "episodeNumber": 39,
-          "title": "Space Magnet",
-          "overview": null,
-          "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2004.%20Space%20Magnet_000589.jpg",
-          "airDate": "1963-07-21",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fireball XL5 - 04. Space Magnet.mp4",
-            "format": "h.264",
-            "sizeBytes": 148234771,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2004.%20Space%20Magnet.mp4"
-        }
-      ]
+     "archiveID": "FireballXL51x01",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Planet 46",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+     "airDate": "1962-10-28",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 Ep-01 Planet 46.mp4",
+      "format": "h.264",
+      "sizeBytes": 155880130,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FireballXL51x01/Fireball%20XL5%20Ep-01%20Planet%2046.mp4"
+    },
+    {
+     "archiveID": "FireballXL51x02",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Doomed Planet",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+     "airDate": "1962-11-04",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 Ep-02 The Doomed Planet.mp4",
+      "format": "h.264",
+      "sizeBytes": 145007891,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FireballXL51x02/Fireball%20XL5%20Ep-02%20The%20Doomed%20Planet.mp4"
+    },
+    {
+     "archiveID": "FireballXL51x03",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Space Immigrants",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/zxmJ7XjMFgcwmuugQAGcwHwN0Dz.jpg",
+     "airDate": "1962-11-11",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Space Immigrants XL5.mp4",
+      "format": "h.264",
+      "sizeBytes": 147892282,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FireballXL51x03/Space%20Immigrants%20XL5.mp4"
+    },
+    {
+     "archiveID": "FireballXL51x04",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Plant Man from Space",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/ibbaZptdOZX8ewMxHZWNUzPdxmf.jpg",
+     "airDate": "1962-11-18",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Plant Man from Space XL5.mp4",
+      "format": "h.264",
+      "sizeBytes": 155400154,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FireballXL51x04/Plant%20Man%20from%20Space%20XL5.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e11",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Spy in Space",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2011.%20A%20Spy%20in%20Space_000583.jpg",
+     "airDate": "1962-11-25",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 11. A Spy in Space.mp4",
+      "format": "h.264",
+      "sizeBytes": 146878871,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2011.%20A%20Spy%20in%20Space.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e07",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Sun Temple",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2007.%20Sun%20Temple_000586.jpg",
+     "airDate": "1962-12-02",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 07. Sun Temple.mp4",
+      "format": "h.264",
+      "sizeBytes": 147337220,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2007.%20Sun%20Temple.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e12",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "XL5 to H2O",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2012.%20XL5%20to%20H2O_000583.jpg",
+     "airDate": "1962-12-09",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 12. XL5 to H2O.mp4",
+      "format": "h.264",
+      "sizeBytes": 146595764,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2012.%20XL5%20to%20H2O.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e13",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Space Pirates",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2013.%20Space%20Pirates_000618.jpg",
+     "airDate": "1962-12-16",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 13. Space Pirates.mp4",
+      "format": "h.264",
+      "sizeBytes": 155982580,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2013.%20Space%20Pirates.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e10",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Flying Zodiac",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2010.%20Flying%20Zodiac_000591.jpg",
+     "airDate": "1962-12-23",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 10. Flying Zodiac.mp4",
+      "format": "h.264",
+      "sizeBytes": 148632500,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2010.%20Flying%20Zodiac.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e15",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Space Pen",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2015.%20Space%20Pen_000589.jpg",
+     "airDate": "1962-12-30",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 15. Space Pen.mp4",
+      "format": "h.264",
+      "sizeBytes": 148265472,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2015.%20Space%20Pen.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e09",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Space Monster",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2009.%20Space%20Monster_000619.jpg",
+     "airDate": "1963-01-06",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 09. Space Monster.mp4",
+      "format": "h.264",
+      "sizeBytes": 155933529,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2009.%20Space%20Monster.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e14",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Last of the Zanadus",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2014.%20Last%20of%20the%20Zanadus_000584.jpg",
+     "airDate": "1963-01-13",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 14. Last of the Zanadus.mp4",
+      "format": "h.264",
+      "sizeBytes": 146937028,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2014.%20Last%20of%20the%20Zanadus.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e03",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Planet of Platonia",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2003.%20Planet%20of%20Plutonia_000588.jpg",
+     "airDate": "1963-01-20",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 03. Planet of Plutonia.mp4",
+      "format": "h.264",
+      "sizeBytes": 148160949,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2003.%20Planet%20of%20Plutonia.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e18",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "The Triads",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2018.%20The%20Triads_000587.jpg",
+     "airDate": "1963-01-27",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 18. The Triads.mp4",
+      "format": "h.264",
+      "sizeBytes": 147800050,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2018.%20The%20Triads.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e17",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Wings of Danger",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2017.%20Wings%20of%20Danger_000620.jpg",
+     "airDate": "1963-02-03",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 17. Wings of Danger.mp4",
+      "format": "h.264",
+      "sizeBytes": 155764692,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2017.%20Wings%20of%20Danger.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e16",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Convict in Space",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2016.%20Convict%20in%20Space_000585.jpg",
+     "airDate": "1963-02-10",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 16. Convict in Space.mp4",
+      "format": "h.264",
+      "sizeBytes": 147278419,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2016.%20Convict%20in%20Space.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e22",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Space Vacation",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2022.%20Space%20Vacation_000589.jpg",
+     "airDate": "1963-02-17",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 22. Space Vacation.mp4",
+      "format": "h.264",
+      "sizeBytes": 148248771,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2022.%20Space%20Vacation.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e21",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Flight to Danger",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2021.%20Flight%20to%20Danger_000622.jpg",
+     "airDate": "1963-02-24",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 21. Flight to Danger.mp4",
+      "format": "h.264",
+      "sizeBytes": 156584484,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2021.%20Flight%20to%20Danger.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e20",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Prisoner on the Lost Planet",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2020.%20Prisoner%20on%20the%20Lost%20Planet_000583.jpg",
+     "airDate": "1963-03-03",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 20. Prisoner on the Lost Planet.mp4",
+      "format": "h.264",
+      "sizeBytes": 146511999,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2020.%20Prisoner%20on%20the%20Lost%20Planet.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e25",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Forbidden Planet",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2025.%20The%20Forbidden%20Planet_000624.jpg",
+     "airDate": "1963-03-10",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 25. The Forbidden Planet.mp4",
+      "format": "h.264",
+      "sizeBytes": 157312329,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2025.%20The%20Forbidden%20Planet.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e24",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Robert to the Rescue",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2024.%20Robert%20to%20the%20Rescue_000583.jpg",
+     "airDate": "1963-03-17",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 24. Robert to the Rescue.mp4",
+      "format": "h.264",
+      "sizeBytes": 146597386,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2024.%20Robert%20to%20the%20Rescue.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e27",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "Dangerous Cargo",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2027.%20Dangerous%20Cargo_000589.jpg",
+     "airDate": "1963-03-24",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 27. Dangerous Cargo.mp4",
+      "format": "h.264",
+      "sizeBytes": 148127600,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2027.%20Dangerous%20Cargo.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e23",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Mystery of the TA2",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2023.%20Mystery%20of%20the%20TA2_000586.jpg",
+     "airDate": "1963-03-31",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 23. Mystery of the TA2.mp4",
+      "format": "h.264",
+      "sizeBytes": 147071840,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2023.%20Mystery%20of%20the%20TA2.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e30",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Drama at Space City",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2030.%20Drama%20at%20Space%20City_000584.jpg",
+     "airDate": "1963-04-07",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 30. Drama at Space City.mp4",
+      "format": "h.264",
+      "sizeBytes": 147008503,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2030.%20Drama%20at%20Space%20City.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e28",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "1875",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2028.%201875_000587.jpg",
+     "airDate": "1963-04-14",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 28. 1875.mp4",
+      "format": "h.264",
+      "sizeBytes": 147813455,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2028.%201875.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e26",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "The Granatoid Tanks",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2026.%20The%20Granatoid%20Tanks_000586.jpg",
+     "airDate": "1963-04-21",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 26. The Granatoid Tanks.mp4",
+      "format": "h.264",
+      "sizeBytes": 147317691,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2026.%20The%20Granatoid%20Tanks.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e29",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 27,
+     "title": "The Robot Freighter Mystery",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2029.%20The%20Robot%20Freighter%20Mystery_000621.jpg",
+     "airDate": "1963-04-28",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 29. The Robot Freighter Mystery.mp4",
+      "format": "h.264",
+      "sizeBytes": 156809573,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2029.%20The%20Robot%20Freighter%20Mystery.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e31",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "Whistle for Danger",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2031.%20Whistle%20for%20Danger_000588.jpg",
+     "airDate": "1963-05-05",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 31. Whistle for Danger.mp4",
+      "format": "h.264",
+      "sizeBytes": 147865199,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2031.%20Whistle%20for%20Danger.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e36",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Trial by Robot",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2036.%20Trial%20by%20Robot_000621.jpg",
+     "airDate": "1963-05-12",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 36. Trial by Robot.mp4",
+      "format": "h.264",
+      "sizeBytes": 156301661,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2036.%20Trial%20by%20Robot.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e37",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 30,
+     "title": "A Day in the Life of a Space General",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2037.%20A%20Day%20in%20the%20Life%20%20of%20a%20Space%20General_000582.jpg",
+     "airDate": "1963-05-19",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 37. A Day in the Life  of a Space General.mp4",
+      "format": "h.264",
+      "sizeBytes": 146529164,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2037.%20A%20Day%20in%20the%20Life%20%20of%20a%20Space%20General.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e34",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 31,
+     "title": "Invasion Earth",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2034.%20Invasion%20Earth_000584.jpg",
+     "airDate": "1963-05-26",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 34. Invasion Earth.mp4",
+      "format": "h.264",
+      "sizeBytes": 146956330,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2034.%20Invasion%20Earth.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e32",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 32,
+     "title": "Faster Than Light",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2032.%20Faster%20Than%20Light_000586.jpg",
+     "airDate": "1963-06-02",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 32. Faster Than Light.mp4",
+      "format": "h.264",
+      "sizeBytes": 147819819,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2032.%20Faster%20Than%20Light.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e33",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 33,
+     "title": "The Day the Earth Froze",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2033.%20The%20Day%20The%20Earth%20Froze_000621.jpg",
+     "airDate": "1963-06-09",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 33. The Day The Earth Froze.mp4",
+      "format": "h.264",
+      "sizeBytes": 156367150,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2033.%20The%20Day%20The%20Earth%20Froze.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e39",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 34,
+     "title": "The Fire Fighters",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2039.%20The%20Fire%20Fighters_000623.jpg",
+     "airDate": "1963-06-16",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 39. The Fire Fighters.mp4",
+      "format": "h.264",
+      "sizeBytes": 156567392,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2039.%20The%20Fire%20Fighters.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e38",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 35,
+     "title": "Space City Special",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2038.%20Space%20City%20Special_000582.jpg",
+     "airDate": "1963-06-23",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 38. Space City Special.mp4",
+      "format": "h.264",
+      "sizeBytes": 146520412,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2038.%20Space%20City%20Special.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e35",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "Ghosts of Space",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2035.%20Ghosts%20of%20Space_000589.jpg",
+     "airDate": "1963-06-30",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 35. Ghosts of Space.mp4",
+      "format": "h.264",
+      "sizeBytes": 148177380,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2035.%20Ghosts%20of%20Space.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e02",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 37,
+     "title": "Hypnotic Sphere",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2002.%20Hypnotic%20Sphere_000588.jpg",
+     "airDate": "1963-07-07",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 02. Hypnotic Sphere.mp4",
+      "format": "h.264",
+      "sizeBytes": 148144568,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2002.%20Hypnotic%20Sphere.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e19",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 38,
+     "title": "Sabotage",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2019.%20Sabotage_000587.jpg",
+     "airDate": "1963-07-14",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 19. Sabotage.mp4",
+      "format": "h.264",
+      "sizeBytes": 147724755,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2019.%20Sabotage.mp4"
+    },
+    {
+     "archiveID": "FireballXL5.complete@e04",
+     "sourceID": "FireballXL5.complete",
+     "seasonNumber": 1,
+     "episodeNumber": 39,
+     "title": "Space Magnet",
+     "overview": null,
+     "stillURL": "https://archive.org/download/FireballXL5.complete/FireballXL5.complete.thumbs/Fireball%20XL5%20-%2004.%20Space%20Magnet_000589.jpg",
+     "airDate": "1963-07-21",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fireball XL5 - 04. Space Magnet.mp4",
+      "format": "h.264",
+      "sizeBytes": 148234771,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball%20XL5%20-%2004.%20Space%20Magnet.mp4"
     }
-  ],
-  "episodesCount": 39,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": 6.5,
-  "tvdbID": "70828",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "David Graham",
-      "character": "",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "John Bluthal",
-      "character": "",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278238/photo/631b87bd85b77.jpg"
-    },
-    {
-      "name": "Sylvia Anderson",
-      "character": "",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Gerry Anderson",
-      "character": "",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278179/photo/631ced64e1ffa.jpg"
-    },
-    {
-      "name": "Paul Maxwell",
-      "character": "",
-      "order": 4,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 39,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": 6.5,
+ "tvdbID": "70828",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "David Graham",
+   "character": "",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "John Bluthal",
+   "character": "",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278238/photo/631b87bd85b77.jpg"
+  },
+  {
+   "name": "Sylvia Anderson",
+   "character": "",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Gerry Anderson",
+   "character": "",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278179/photo/631ced64e1ffa.jpg"
+  },
+  {
+   "name": "Paul Maxwell",
+   "character": "",
+   "order": 4,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0055673",
+ "imdbRating": 7.3,
+ "imdbVotes": 741
 }

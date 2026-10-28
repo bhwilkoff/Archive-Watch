@@ -1,675 +1,678 @@
 {
-  "version": 2,
-  "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
-  "tvmazeID": 31142,
-  "title": "Oh No, It's Selwyn Froggitt!",
-  "yearStart": 1976,
-  "yearEnd": 1977,
-  "overview": "Selwyn Froggitt, a well read clumsy buffoon smashes his way through his sleepy Yorkshire village of Scarsdale in these 30 minute 1970's comedies. Starring Bill Maynard in the title role, he creates this loveable Oaf perfectly, cushioned by a terrific supporting cast of character actors. Referring to The Times supplement for his knowledgeable information, with shovel in hand his schemes and plans create a fitting end to every episode. Disaster!",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/113661-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+ "tvmazeID": 31142,
+ "title": "Oh No, It's Selwyn Froggitt!",
+ "yearStart": 1976,
+ "yearEnd": 1977,
+ "overview": "Selwyn Froggitt, a well read clumsy buffoon smashes his way through his sleepy Yorkshire village of Scarsdale in these 30 minute 1970's comedies. Starring Bill Maynard in the title role, he creates this loveable Oaf perfectly, cushioned by a terrific supporting cast of character actors. Referring to The Times supplement for his knowledgeable information, with shovel in hand his schemes and plans create a fitting end to every episode. Disaster!",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/113661-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e00",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 0,
-          "title": "Episode 0",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E00_000694.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1411,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E00.mp4",
-            "format": "h.264",
-            "sizeBytes": 133180913,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E00.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e01",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Three Fifths of the World Loves a Lover",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E01_000711.jpg",
-          "airDate": "1976-01-07",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 135383035,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E01.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e02",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "We Are the Masters Now",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E02_000639.jpg",
-          "airDate": "1976-01-14",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 123349171,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E02.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e03",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "There Are Several Businesses Like Show Business",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E03_000588.jpg",
-          "airDate": "1976-01-21",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 112582109,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E03.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e04",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Grand Outing",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E04_000593.jpg",
-          "airDate": "1976-01-28",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E04.mp4",
-            "format": "h.264",
-            "sizeBytes": 113380701,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E04.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e05",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Master Builder",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E05_000600.jpg",
-          "airDate": "1976-02-04",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E05.mp4",
-            "format": "h.264",
-            "sizeBytes": 114485544,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E05.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e06",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Ladies Desire",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E06_000544.jpg",
-          "airDate": "1976-02-11",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S01E06.mp4",
-            "format": "h.264",
-            "sizeBytes": 104098571,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E06.mp4"
-        }
-      ]
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e00",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 0,
+     "title": "Episode 0",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E00_000694.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1411,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E00.mp4",
+      "format": "h.264",
+      "sizeBytes": 133180913,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E00.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e01",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Daze of Hope",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E01_000744.jpg",
-          "airDate": "1977-02-21",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 142253630,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E01.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e02",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "The Game of the Name",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E02_000724.jpg",
-          "airDate": "1977-02-28",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 140265718,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E02.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e03",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Raffles",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E03_000730.jpg",
-          "airDate": "1977-03-07",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 142733285,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E03.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e04",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Selwyn Rides Again",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E04_000711.jpg",
-          "airDate": "1977-03-14",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E04.mp4",
-            "format": "h.264",
-            "sizeBytes": 137714063,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E04.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e05",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Alphabetical Orders",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E05_000757.jpg",
-          "airDate": "1977-03-21",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E05.mp4",
-            "format": "h.264",
-            "sizeBytes": 145761839,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E05.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e06",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "The Protection Racket",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E06_000552.jpg",
-          "airDate": "1977-03-28",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E06.mp4",
-            "format": "h.264",
-            "sizeBytes": 133080089,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E06.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e07",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "Just Cause and Impediment",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E07_000733.jpg",
-          "airDate": "1977-04-04",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S02E07.mp4",
-            "format": "h.264",
-            "sizeBytes": 139368142,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E07.mp4"
-        }
-      ]
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e01",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Three Fifths of the World Loves a Lover",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E01_000711.jpg",
+     "airDate": "1976-01-07",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 135383035,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E01.mp4"
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e01",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 1,
-          "title": "Be It Ever So Humble, There's No Place...",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E01_000711.jpg",
-          "airDate": "1977-11-08",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 137254105,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E01.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e02",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 2,
-          "title": "Gala Performance",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E02_000690.jpg",
-          "airDate": "1977-11-15",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 131742333,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E02.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e03",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 3,
-          "title": "Boom Boom",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E03_000706.jpg",
-          "airDate": "1977-11-22",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 135281468,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E03.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e04",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 4,
-          "title": "Occupational Hazard",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E04_000702.jpg",
-          "airDate": "1977-11-29",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E04.mp4",
-            "format": "h.264",
-            "sizeBytes": 135248987,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E04.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e05",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 5,
-          "title": "Sing Along with Selwyn",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E05_000726.jpg",
-          "airDate": "1977-12-06",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E05.mp4",
-            "format": "h.264",
-            "sizeBytes": 140164483,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E05.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e06",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 6,
-          "title": "A Little Learning",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E06_000757.jpg",
-          "airDate": "1977-12-13",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E06.mp4",
-            "format": "h.264",
-            "sizeBytes": 146183248,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E06.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e07",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 7,
-          "title": "Around the Houses",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E07_000734.jpg",
-          "airDate": "1977-12-20",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E07.mp4",
-            "format": "h.264",
-            "sizeBytes": 142365036,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E07.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e08",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 3,
-          "episodeNumber": 8,
-          "title": "Christmas Special",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E08%20-%20Christmas%20Special_000741.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1501,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S03E08 - Christmas Special.mp4",
-            "format": "h.264",
-            "sizeBytes": 142952510,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E08%20-%20Christmas%20Special.mp4"
-        }
-      ]
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e02",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "We Are the Masters Now",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E02_000639.jpg",
+     "airDate": "1976-01-14",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 123349171,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E02.mp4"
     },
     {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e01",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 1,
-          "title": "Episode 1",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E01_000727.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1480,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 139728692,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E01.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e02",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 2,
-          "title": "Episode 2",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E02_000750.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1520,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 143611682,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E02.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e03",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 3,
-          "title": "Episode 3",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E03_000709.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1438,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 135887049,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E03.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e04",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 4,
-          "title": "Episode 4",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E04_000722.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1463,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E04.mp4",
-            "format": "h.264",
-            "sizeBytes": 138667917,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E04.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e05",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 5,
-          "title": "Episode 5",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E05_000714.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1453,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E05.mp4",
-            "format": "h.264",
-            "sizeBytes": 136900393,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E05.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e06",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 6,
-          "title": "Episode 6",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E06_000753.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1537,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E06.mp4",
-            "format": "h.264",
-            "sizeBytes": 145816063,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E06.mp4"
-        },
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e07",
-          "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
-          "seasonNumber": 4,
-          "episodeNumber": 7,
-          "title": "Episode 7",
-          "overview": null,
-          "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E07_000722.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1472,
-          "videoFile": {
-            "name": "Oh No Its Selwyn Froggitt S04E07.mp4",
-            "format": "h.264",
-            "sizeBytes": 139790375,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E07.mp4"
-        }
-      ]
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e03",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "There Are Several Businesses Like Show Business",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E03_000588.jpg",
+     "airDate": "1976-01-21",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 112582109,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E03.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "oh-no-its-selwyn-froggitt-1974-78",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "OH NO IT'S SELWYN FROGGITT",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "OH NO IT SELWYN FROGGITT (74-78)/307.Oh No Its Selwyn Froggitt...Around The Houses.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 120745506,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-1974-78/OH%20NO%20IT%20SELWYN%20FROGGITT%20%2874-78%29/307.Oh%20No%20Its%20Selwyn%20Froggitt...Around%20The%20Houses.mp4"
-        }
-      ]
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e04",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Grand Outing",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E04_000593.jpg",
+     "airDate": "1976-01-28",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E04.mp4",
+      "format": "h.264",
+      "sizeBytes": 113380701,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E04.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e05",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Master Builder",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E05_000600.jpg",
+     "airDate": "1976-02-04",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E05.mp4",
+      "format": "h.264",
+      "sizeBytes": 114485544,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E05.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s1e06",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Ladies Desire",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E06_000544.jpg",
+     "airDate": "1976-02-11",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S01E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 104098571,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S01E06.mp4"
     }
-  ],
-  "episodesCount": 30,
-  "canonicalEpisodesCount": 21,
-  "tvmazeRating": null,
-  "tvdbID": "113661",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Bill Maynard",
-      "character": "Selwyn Froggitt",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/353223/photo/63225bcf5fb08.jpg"
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e01",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Daze of Hope",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E01_000744.jpg",
+     "airDate": "1977-02-21",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 142253630,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E01.mp4"
     },
     {
-      "name": "Robert Keegan",
-      "character": "Maurice Froggitt",
-      "order": 1,
-      "profilePath": null
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e02",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "The Game of the Name",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E02_000724.jpg",
+     "airDate": "1977-02-28",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 140265718,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E02.mp4"
     },
     {
-      "name": "Megs Jenkins",
-      "character": "Mrs. Froggitt",
-      "order": 2,
-      "profilePath": null
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e03",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Raffles",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E03_000730.jpg",
+     "airDate": "1977-03-07",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 142733285,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E03.mp4"
     },
     {
-      "name": "Richard Davies",
-      "character": "Clive",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300363/photo/629e657835ae3.jpg"
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e04",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Selwyn Rides Again",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E04_000711.jpg",
+     "airDate": "1977-03-14",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E04.mp4",
+      "format": "h.264",
+      "sizeBytes": 137714063,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E04.mp4"
     },
     {
-      "name": "Bill Dean",
-      "character": "Jack",
-      "order": 4,
-      "profilePath": null
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e05",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Alphabetical Orders",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E05_000757.jpg",
+     "airDate": "1977-03-21",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E05.mp4",
+      "format": "h.264",
+      "sizeBytes": 145761839,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E05.mp4"
     },
     {
-      "name": "Harold Goodwin",
-      "character": "Harry",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264088/photo/6943ff45d20fd.jpg"
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e06",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "The Protection Racket",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E06_000552.jpg",
+     "airDate": "1977-03-28",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 133080089,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E06.mp4"
     },
     {
-      "name": "Ray Mort",
-      "character": "Ray",
-      "order": 6,
-      "profilePath": null
-    },
-    {
-      "name": "Rosemary Martin",
-      "character": "Vera Parkinson (Series 1)",
-      "order": 7,
-      "profilePath": null
-    },
-    {
-      "name": "Lynda Baron",
-      "character": "Vera Parkinson (Series 2 & 3)",
-      "order": 8,
-      "profilePath": null
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s2e07",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "Just Cause and Impediment",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E07_000733.jpg",
+     "airDate": "1977-04-04",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S02E07.mp4",
+      "format": "h.264",
+      "sizeBytes": 139368142,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S02E07.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e01",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "Be It Ever So Humble, There's No Place...",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E01_000711.jpg",
+     "airDate": "1977-11-08",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 137254105,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E01.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e02",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 2,
+     "title": "Gala Performance",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E02_000690.jpg",
+     "airDate": "1977-11-15",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 131742333,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E02.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e03",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 3,
+     "title": "Boom Boom",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E03_000706.jpg",
+     "airDate": "1977-11-22",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 135281468,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E03.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e04",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 4,
+     "title": "Occupational Hazard",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E04_000702.jpg",
+     "airDate": "1977-11-29",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E04.mp4",
+      "format": "h.264",
+      "sizeBytes": 135248987,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E04.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e05",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 5,
+     "title": "Sing Along with Selwyn",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E05_000726.jpg",
+     "airDate": "1977-12-06",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E05.mp4",
+      "format": "h.264",
+      "sizeBytes": 140164483,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E05.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e06",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 6,
+     "title": "A Little Learning",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E06_000757.jpg",
+     "airDate": "1977-12-13",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 146183248,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E06.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e07",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 7,
+     "title": "Around the Houses",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E07_000734.jpg",
+     "airDate": "1977-12-20",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E07.mp4",
+      "format": "h.264",
+      "sizeBytes": 142365036,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E07.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s3e08",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 3,
+     "episodeNumber": 8,
+     "title": "Christmas Special",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E08%20-%20Christmas%20Special_000741.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1501,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S03E08 - Christmas Special.mp4",
+      "format": "h.264",
+      "sizeBytes": 142952510,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S03E08%20-%20Christmas%20Special.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e01",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "Episode 1",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E01_000727.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1480,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 139728692,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E01.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e02",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 2,
+     "title": "Episode 2",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E02_000750.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1520,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 143611682,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E02.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e03",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 3,
+     "title": "Episode 3",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E03_000709.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1438,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 135887049,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E03.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e04",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 4,
+     "title": "Episode 4",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E04_000722.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1463,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E04.mp4",
+      "format": "h.264",
+      "sizeBytes": 138667917,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E04.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e05",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 5,
+     "title": "Episode 5",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E05_000714.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1453,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E05.mp4",
+      "format": "h.264",
+      "sizeBytes": 136900393,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E05.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e06",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 6,
+     "title": "Episode 6",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E06_000753.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1537,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 145816063,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E06.mp4"
+    },
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974@s4e07",
+     "sourceID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+     "seasonNumber": 4,
+     "episodeNumber": 7,
+     "title": "Episode 7",
+     "overview": null,
+     "stillURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/oh-no-its-selwyn-froggitt-complete-series-1974.thumbs/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E07_000722.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1472,
+     "videoFile": {
+      "name": "Oh No Its Selwyn Froggitt S04E07.mp4",
+      "format": "h.264",
+      "sizeBytes": 139790375,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh%20No%20Its%20Selwyn%20Froggitt%20S04E07.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "oh-no-its-selwyn-froggitt-1974-78",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "OH NO IT'S SELWYN FROGGITT",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "OH NO IT SELWYN FROGGITT (74-78)/307.Oh No Its Selwyn Froggitt...Around The Houses.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 120745506,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-1974-78/OH%20NO%20IT%20SELWYN%20FROGGITT%20%2874-78%29/307.Oh%20No%20Its%20Selwyn%20Froggitt...Around%20The%20Houses.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 30,
+ "canonicalEpisodesCount": 21,
+ "tvmazeRating": null,
+ "tvdbID": "113661",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Bill Maynard",
+   "character": "Selwyn Froggitt",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/353223/photo/63225bcf5fb08.jpg"
+  },
+  {
+   "name": "Robert Keegan",
+   "character": "Maurice Froggitt",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Megs Jenkins",
+   "character": "Mrs. Froggitt",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Richard Davies",
+   "character": "Clive",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300363/photo/629e657835ae3.jpg"
+  },
+  {
+   "name": "Bill Dean",
+   "character": "Jack",
+   "order": 4,
+   "profilePath": null
+  },
+  {
+   "name": "Harold Goodwin",
+   "character": "Harry",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264088/photo/6943ff45d20fd.jpg"
+  },
+  {
+   "name": "Ray Mort",
+   "character": "Ray",
+   "order": 6,
+   "profilePath": null
+  },
+  {
+   "name": "Rosemary Martin",
+   "character": "Vera Parkinson (Series 1)",
+   "order": 7,
+   "profilePath": null
+  },
+  {
+   "name": "Lynda Baron",
+   "character": "Vera Parkinson (Series 2 & 3)",
+   "order": 8,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0077056",
+ "imdbRating": 6.9,
+ "imdbVotes": 171
 }

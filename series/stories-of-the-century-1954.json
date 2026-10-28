@@ -1,582 +1,585 @@
 {
-  "version": 2,
-  "seriesID": "stories-of-the-century-1954",
-  "tvmazeID": 16191,
-  "title": "Stories of the Century",
-  "yearStart": 1954,
-  "yearEnd": 1955,
-  "overview": "Western anthology series featuring the real life stories of numerous legendary figures of the Old West. Future Dallas star Jim Davis played newspaperman Matt Clark, who would conveniently be present on the scene to tell the story of each featured character of the week. The show aired in syndication during the years 1954-55.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78108-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Western"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "stories-of-the-century-1954",
+ "tvmazeID": 16191,
+ "title": "Stories of the Century",
+ "yearStart": 1954,
+ "yearEnd": 1955,
+ "overview": "Western anthology series featuring the real life stories of numerous legendary figures of the Old West. Future Dallas star Jim Davis played newspaperman Matt Clark, who would conveniently be present on the scene to tell the story of each featured character of the week. The show aired in syndication during the years 1954-55.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/78108-2.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Western"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "StoriesOfTheCentury-BelleStarr",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Belle Starr",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w300/rjgBcr1y73xC5USOY7A63cKMyGZ.jpg",
-          "airDate": "1954-01-23",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x01-BelleStar.mp4",
-            "format": "h.264",
-            "sizeBytes": 157402758,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BelleStarr/StoriesOfTheCentury-1x01-BelleStar.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e01-belle-starr",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e01-belle-starr",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1580,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e01 Belle Starr.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 192295422,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e01-belle-starr/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e01%20Belle%20Starr.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-BillyTheKid",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Billy The Kid",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w300/eU97ES21U29sLXHkiEu9REFfrWV.jpg",
-          "airDate": "1954-01-30",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x02-BillyTheKid.mp4",
-            "format": "h.264",
-            "sizeBytes": 156315611,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BillyTheKid/StoriesOfTheCentury-1x02-BillyTheKid.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-s01e02-billy-the-kid",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e02-billy-the-kid",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1581,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e02 Billy the Kid.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 336131890,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e02-billy-the-kid/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e02%20Billy%20the%20Kid.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-FrankAndJesseJames",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Frank And Jesse James",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-02-07",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4",
-            "format": "h.264",
-            "sizeBytes": 156631068,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-FrankAndJesseJames/StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1581,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e03 Frank and Jesse James.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 196487060,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e03%20Frank%20and%20Jesse%20James.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-Geronimo_426",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Geronimo",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-02-14",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x04-Geronimo.mp4",
-            "format": "h.264",
-            "sizeBytes": 154504713,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-Geronimo_426/StoriesOfTheCentury-1x04-Geronimo.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-s01e04-geronimo",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e04-geronimo",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1567,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e04 Geronimo.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 206638963,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e04-geronimo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e04%20Geronimo.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-QuantrillAndHisRaiders",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Quantrill And His Raiders",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-02-21",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x05-QuantrillAndHisRaiders.mp4",
-            "format": "h.264",
-            "sizeBytes": 156600191,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-QuantrillAndHisRaiders/StoriesOfTheCentury-1x05-QuantrillAndHisRaiders.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1564,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e05 Quantrill and His Raiders.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 201026640,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e05%20Quantrill%20and%20His%20Raiders.mp4"
-        },
-        {
-          "archiveID": "Stories_of_the_Century_CattleKate",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Cattle Kate",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-02-28",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "cattlekate.mp4",
-            "format": "h.264",
-            "sizeBytes": 158028831,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Stories_of_the_Century_CattleKate/cattlekate.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-s01e06-cattle-kate",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e06-cattle-kate",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1575,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e06 Cattle Kate.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 209414311,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e06-cattle-kate/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e06%20Cattle%20Kate.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-SamBass",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Sam Bass",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-03-04",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x07-SamBass.mp4",
-            "format": "h.264",
-            "sizeBytes": 151751475,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-SamBass/StoriesOfTheCentury-1x07-SamBass.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e07-sam-bass",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e07-sam-bass",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1541,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e07 Sam Bass.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 220380635,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e07-sam-bass/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e07%20Sam%20Bass.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-JohnnyRingo",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Johnny Ringo",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-03-11",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x08-JohnnyRingo.mp4",
-            "format": "h.264",
-            "sizeBytes": 155933648,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnnyRingo/StoriesOfTheCentury-1x08-JohnnyRingo.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1541,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e08 Johnny Ringo.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 234542381,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e08%20Johnny%20Ringo.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-TheDaltonGang",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Dalton Gang",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-03-18",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x09-TheDaltonGang.mp4",
-            "format": "h.264",
-            "sizeBytes": 156480637,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheDaltonGang/StoriesOfTheCentury-1x09-TheDaltonGang.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Dalton Gang",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e09 The Dalton Gang.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 242982006,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e09%20The%20Dalton%20Gang.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-DocHolliday",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Doc. Holliday",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-03-25",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x10-DocHolliday.mp4",
-            "format": "h.264",
-            "sizeBytes": 153302026,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-DocHolliday/StoriesOfTheCentury-1x10-DocHolliday.mp4"
-        },
-        {
-          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Stories of the Century TV",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1547,
-          "videoFile": {
-            "name": "Stories of the Century TV 1954 colorized s01e10 Doc Holliday.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 194992309,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e10%20Doc%20Holliday.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-TheYoungerBrothers",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Younger Brothers",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-04-02",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x11-TheYoungerBrothers.mp4",
-            "format": "h.264",
-            "sizeBytes": 155897297,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheYoungerBrothers/StoriesOfTheCentury-1x11-TheYoungerBrothers.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-JohnWesleyHardin",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "John Wesley Hardin",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-04-09",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x12-JohnWesleyHardin.mp4",
-            "format": "h.264",
-            "sizeBytes": 156714597,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnWesleyHardin/StoriesOfTheCentury-1x12-JohnWesleyHardin.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-JoaquinMurietta",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Joaquin Murietta",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-04-16",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x13-JoaquinMurietta.mp4",
-            "format": "h.264",
-            "sizeBytes": 153749509,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JoaquinMurietta/StoriesOfTheCentury-1x13-JoaquinMurietta.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-TiburcioVasquez",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Tiburcio Vasquez",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-04-23",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-01x14-TiburcioVasquez.mp4",
-            "format": "h.264",
-            "sizeBytes": 154767322,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TiburcioVasquez/StoriesOfTheCentury-01x14-TiburcioVasquez.mp4"
-        },
-        {
-          "archiveID": "ChiefCrazyHorse",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Chief Crazy Horse",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1954-04-30",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "chief crazy horse-3.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 143292016,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ChiefCrazyHorse/chief%20crazy%20horse-3.mp4"
-        }
-      ]
+     "archiveID": "StoriesOfTheCentury-BelleStarr",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Belle Starr",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/rjgBcr1y73xC5USOY7A63cKMyGZ.jpg",
+     "airDate": "1954-01-23",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x01-BelleStar.mp4",
+      "format": "h.264",
+      "sizeBytes": 157402758,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BelleStarr/StoriesOfTheCentury-1x01-BelleStar.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "Jackslade",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "Jack Slade",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": "1955-03-04",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "jackslade-5.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 144931586,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Jackslade/jackslade-5.mp4"
-        }
-      ]
+     "archiveID": "stories-of-the-century-tv-1954-colorized-s01e01-belle-starr",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e01-belle-starr",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1580,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e01 Belle Starr.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 192295422,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e01-belle-starr/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e01%20Belle%20Starr.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "StoriesOfTheCentury-CattleKate",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Cattle Kate",
-          "overview": "Matt and Frankie head to Sweetwater, Wyoming where major cattle ranches are suffering heavy losses. A woman nicknamed Cattle Kate becomes the focus due the number of livestock she sells despite her small operation.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1591,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x06-CattleKate.mp4",
-            "format": "h.264",
-            "sizeBytes": 156683145,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-CattleKate/StoriesOfTheCentury-1x06-CattleKate.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury_97",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "STORIES OF THE CENTURY",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1679,
-          "videoFile": {
-            "name": "Title9continued.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 152590862,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury_97/Title9continued.ia.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "STORIES OF THE CENTURY",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1826,
-          "videoFile": {
-            "name": "FrankAndJesse.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 152729392,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury1954/FrankAndJesse.ia.mp4"
-        }
-      ]
+     "archiveID": "StoriesOfTheCentury-BillyTheKid",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Billy The Kid",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/eU97ES21U29sLXHkiEu9REFfrWV.jpg",
+     "airDate": "1954-01-30",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x02-BillyTheKid.mp4",
+      "format": "h.264",
+      "sizeBytes": 156315611,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BillyTheKid/StoriesOfTheCentury-1x02-BillyTheKid.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-s01e02-billy-the-kid",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e02-billy-the-kid",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1581,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e02 Billy the Kid.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 336131890,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e02-billy-the-kid/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e02%20Billy%20the%20Kid.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-FrankAndJesseJames",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Frank And Jesse James",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-02-07",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4",
+      "format": "h.264",
+      "sizeBytes": 156631068,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-FrankAndJesseJames/StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1581,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e03 Frank and Jesse James.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 196487060,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e03%20Frank%20and%20Jesse%20James.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-Geronimo_426",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Geronimo",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-02-14",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x04-Geronimo.mp4",
+      "format": "h.264",
+      "sizeBytes": 154504713,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-Geronimo_426/StoriesOfTheCentury-1x04-Geronimo.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-s01e04-geronimo",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e04-geronimo",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1567,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e04 Geronimo.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 206638963,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e04-geronimo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e04%20Geronimo.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-QuantrillAndHisRaiders",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Quantrill And His Raiders",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-02-21",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x05-QuantrillAndHisRaiders.mp4",
+      "format": "h.264",
+      "sizeBytes": 156600191,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-QuantrillAndHisRaiders/StoriesOfTheCentury-1x05-QuantrillAndHisRaiders.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1564,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e05 Quantrill and His Raiders.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 201026640,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e05%20Quantrill%20and%20His%20Raiders.mp4"
+    },
+    {
+     "archiveID": "Stories_of_the_Century_CattleKate",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Cattle Kate",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-02-28",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "cattlekate.mp4",
+      "format": "h.264",
+      "sizeBytes": 158028831,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Stories_of_the_Century_CattleKate/cattlekate.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-s01e06-cattle-kate",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e06-cattle-kate",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1575,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e06 Cattle Kate.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 209414311,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e06-cattle-kate/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e06%20Cattle%20Kate.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-SamBass",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Sam Bass",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-03-04",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x07-SamBass.mp4",
+      "format": "h.264",
+      "sizeBytes": 151751475,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-SamBass/StoriesOfTheCentury-1x07-SamBass.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-colorized-s01e07-sam-bass",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e07-sam-bass",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1541,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e07 Sam Bass.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 220380635,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e07-sam-bass/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e07%20Sam%20Bass.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-JohnnyRingo",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Johnny Ringo",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-03-11",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x08-JohnnyRingo.mp4",
+      "format": "h.264",
+      "sizeBytes": 155933648,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnnyRingo/StoriesOfTheCentury-1x08-JohnnyRingo.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1541,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e08 Johnny Ringo.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 234542381,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e08%20Johnny%20Ringo.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-TheDaltonGang",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Dalton Gang",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-03-18",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x09-TheDaltonGang.mp4",
+      "format": "h.264",
+      "sizeBytes": 156480637,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheDaltonGang/StoriesOfTheCentury-1x09-TheDaltonGang.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Dalton Gang",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e09 The Dalton Gang.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 242982006,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e09%20The%20Dalton%20Gang.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-DocHolliday",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Doc. Holliday",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-03-25",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x10-DocHolliday.mp4",
+      "format": "h.264",
+      "sizeBytes": 153302026,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-DocHolliday/StoriesOfTheCentury-1x10-DocHolliday.mp4"
+    },
+    {
+     "archiveID": "stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Stories of the Century TV",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1547,
+     "videoFile": {
+      "name": "Stories of the Century TV 1954 colorized s01e10 Doc Holliday.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 194992309,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e10%20Doc%20Holliday.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-TheYoungerBrothers",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Younger Brothers",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-04-02",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x11-TheYoungerBrothers.mp4",
+      "format": "h.264",
+      "sizeBytes": 155897297,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheYoungerBrothers/StoriesOfTheCentury-1x11-TheYoungerBrothers.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-JohnWesleyHardin",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "John Wesley Hardin",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-04-09",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x12-JohnWesleyHardin.mp4",
+      "format": "h.264",
+      "sizeBytes": 156714597,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnWesleyHardin/StoriesOfTheCentury-1x12-JohnWesleyHardin.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-JoaquinMurietta",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Joaquin Murietta",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-04-16",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x13-JoaquinMurietta.mp4",
+      "format": "h.264",
+      "sizeBytes": 153749509,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JoaquinMurietta/StoriesOfTheCentury-1x13-JoaquinMurietta.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury-TiburcioVasquez",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Tiburcio Vasquez",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-04-23",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-01x14-TiburcioVasquez.mp4",
+      "format": "h.264",
+      "sizeBytes": 154767322,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TiburcioVasquez/StoriesOfTheCentury-01x14-TiburcioVasquez.mp4"
+    },
+    {
+     "archiveID": "ChiefCrazyHorse",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Chief Crazy Horse",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1954-04-30",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "chief crazy horse-3.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 143292016,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ChiefCrazyHorse/chief%20crazy%20horse-3.mp4"
     }
-  ],
-  "episodesCount": 29,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": null,
-  "tvdbID": "78108",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Mary Castle",
-      "character": "Frankie Adams",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/61647.jpg"
-    },
-    {
-      "name": "Kristine Miller",
-      "character": "Margaret Jones",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/61648.jpg"
-    },
-    {
-      "name": "Jim Davis",
-      "character": "Matt Clark",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/61649.jpg"
+     "archiveID": "Jackslade",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "Jack Slade",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": "1955-03-04",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "jackslade-5.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 144931586,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Jackslade/jackslade-5.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "StoriesOfTheCentury-CattleKate",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Cattle Kate",
+     "overview": "Matt and Frankie head to Sweetwater, Wyoming where major cattle ranches are suffering heavy losses. A woman nicknamed Cattle Kate becomes the focus due the number of livestock she sells despite her small operation.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1591,
+     "videoFile": {
+      "name": "StoriesOfTheCentury-1x06-CattleKate.mp4",
+      "format": "h.264",
+      "sizeBytes": 156683145,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury-CattleKate/StoriesOfTheCentury-1x06-CattleKate.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury_97",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "STORIES OF THE CENTURY",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1679,
+     "videoFile": {
+      "name": "Title9continued.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 152590862,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury_97/Title9continued.ia.mp4"
+    },
+    {
+     "archiveID": "StoriesOfTheCentury1954",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "STORIES OF THE CENTURY",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1826,
+     "videoFile": {
+      "name": "FrankAndJesse.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 152729392,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/StoriesOfTheCentury1954/FrankAndJesse.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 29,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": null,
+ "tvdbID": "78108",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Mary Castle",
+   "character": "Frankie Adams",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/61647.jpg"
+  },
+  {
+   "name": "Kristine Miller",
+   "character": "Margaret Jones",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/61648.jpg"
+  },
+  {
+   "name": "Jim Davis",
+   "character": "Matt Clark",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/61649.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0046647",
+ "imdbRating": 7.0,
+ "imdbVotes": 208
 }

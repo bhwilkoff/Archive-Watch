@@ -1,623 +1,626 @@
 {
-  "version": 2,
-  "seriesID": "adam-12-1968",
-  "tvmazeID": 2119,
-  "title": "Adam-12",
-  "yearStart": 1968,
-  "yearEnd": 1975,
-  "overview": "Race through the streets of Los Angeles with Adam-12, the series that defined the police drama genre. Still mourning the death of his former partner, Officer Pete Malloy is teamed with rookie Officer Jim Reed and together they serve and protect the City of Angels as \"Adam-12\", their unit's radio call number. Watch a these brothers in blue struggle to manage the job's demands and frustrations, as they battle drug dealers, intervene in domestic disputes and pursue suspects in high-speed chases.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78686-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Action",
-    "Crime"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "adam-12-1968",
+ "tvmazeID": 2119,
+ "title": "Adam-12",
+ "yearStart": 1968,
+ "yearEnd": 1975,
+ "overview": "Race through the streets of Los Angeles with Adam-12, the series that defined the police drama genre. Still mourning the death of his former partner, Officer Pete Malloy is teamed with rookie Officer Jim Reed and together they serve and protect the City of Angels as \"Adam-12\", their unit's radio call number. Watch a these brothers in blue struggle to manage the job's demands and frustrations, as they battle drug dealers, intervene in domestic disputes and pursue suspects in high-speed chases.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/78686-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Action",
+  "Crime"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "adam-12.-s-01@s1e01",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Log 001: The Impossible Mission",
-          "overview": "Malloy plans to resign at the end of shift due to the death of his previous partner but is assigned a rookie partner Reed. Malloy decides the green Reed is worthy of Malloy's effort to train him leading Malloy to stay on the job.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190179.jpg",
-          "airDate": "1968-09-21",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E01.Log.001.The.Impossible.Mission.mp4",
-            "format": "h.264",
-            "sizeBytes": 144212035,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E01.Log.001.The.Impossible.Mission.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e02",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Log 141: The Color TV Bandit",
-          "overview": "Malloy and Reed return from vacation to learn a burglar is still stealing color TV sets. They receive a call about two endangered boys. After breaking into their apartment, they find the boys comatose and their mother's drug stash laying on the floor. The mother arrives and tries to act as if nothing is wrong. When Reed tells her she is under arrest, he becomes very irritated with her forcing Malloy to tell him later he must stay professional. Malloy gives a beautiful but spoiled young woman a ticket for an unsafe left turn while she berates him for harassment. They spot a car with a TV in the back seat and a man who runs forcing them to chase him. He and Reed end up in a pool but he denies stealing the TV. After running him at the station, they learn he stole jewelry while posing as a gas repairman. Still no TV thief.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190182.jpg",
-          "airDate": "1968-09-28",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E02.Log.141.The.Color.TV.Bandit.mp4",
-            "format": "h.264",
-            "sizeBytes": 143913906,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E02.Log.141.The.Color.TV.Bandit.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e03",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Log 011: It's Just A Little Dent, Isn't It?",
-          "overview": "Reed dents the fender of the patrol car while putting gas in it and frets the entire shift about the impact of it on his career. At roll call Mac and the Lieutenant talk to the officers about a man who has been intimidating a woman who is to testify about the man's son's involvement in a crime. They talk to the woman, an influential neighbor, bartender where the man hangs out, and then the man himself. They respond to a call about a man holding a baby as a hostage with a gun. Malloy enters the house and talks the man down who appears to be high on drugs. A call that night by a neighbor leads them to catching the man after he used stones to break the woman's windows. At the end Malloy tells the Lieutentant that the dent is about the size of a reprimand.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190183.jpg",
-          "airDate": "1968-10-05",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E03.Log.011.It's.Just.A.Little.Dent,.Isn't.It.mp4",
-            "format": "h.264",
-            "sizeBytes": 144445771,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E03.Log.011.It%27s.Just.A.Little.Dent%2C.Isn%27t.It.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e04",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Log 131: Reed, the Dicks Have Their Job and We Have Ours",
-          "overview": "Malloy teaches raw rookie Reed about the job that Detectives play when a murder scene must be secured and turned over. Reed learns to be content with his role and responsibilities in a uniformed radio car when they arrest fleeing fugitives.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190184.jpg",
-          "airDate": "1968-10-12",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E04.Log.131.Reed,.The.Dicks.Have.Their.Job.And.We.Have.Ours.mp4",
-            "format": "h.264",
-            "sizeBytes": 144528093,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E04.Log.131.Reed%2C.The.Dicks.Have.Their.Job.And.We.Have.Ours.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e05",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Log 091: You're Not the First Guy's Had the Problem",
-          "overview": "Reed and a friend from the academy plan a fishing trip for the weekend before their shift. Malloy and Reed receive a Code 3 call as backup at a shooting. When they arrive Reed's friend is critically wounded and a suspect is dead. On patrol they arrest a man for DUI. Malloy allows Reed to test the man as part of his training. A call to a pool hall reveals a couple of men took a man to the hospital after hitting him with a pool cue. Reed continues to worry his wounded friend, Reed's wife who he can't reach, and her attitude. They spot two suspicious men in a convertible with a bicycle in the trunk. They pull it over and the two men run when Reed starts to run their IDs. At the end they learn Reed's friend has died.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190185.jpg",
-          "airDate": "1968-10-19",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E05.Log.091.You're.Not.The.First.Guy's.Had.The.Problem.mp4",
-            "format": "h.264",
-            "sizeBytes": 143166979,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E05.Log.091.You%27re.Not.The.First.Guy%27s.Had.The.Problem.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e06",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Log 161: And You Want Me to Get Married!",
-          "overview": "While Jim and Pete discuss their recent double-date, Malloy complains how his latest girlfriend is now hinting for marriage. Between their social chatter, they resolve a liquor store robbery, rescue a woman and baby from a hillside crash, intervene with a marital couple disturbing their entire neighborhood, and enjoy lunch at a place with cute waitresses.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190186.jpg",
-          "airDate": "1968-10-26",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E06.Log.161.And.You.Want.Me.to.Get.Married!.mp4",
-            "format": "h.264",
-            "sizeBytes": 143501430,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E06.Log.161.And.You.Want.Me.to.Get.Married%21.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e07",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Log 071: I Feel Like a Fool, Malloy",
-          "overview": "Reed & Malloy examine domestic disputes when the sergeant catches a black eye and they are called upon to stop a domestic dispute at an ashram. Later, a liquor store owner miscommunicates a robbery call and an elderly woman is mad at a neighbor's loud music until she learns there was a deadly accident. Each time the officers think first and act second.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190187.jpg",
-          "airDate": "1968-11-02",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E07.Log.071.I.Feel.Like.a.Fool,.Malloy.mp4",
-            "format": "h.264",
-            "sizeBytes": 143917688,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E07.Log.071.I.Feel.Like.a.Fool%2C.Malloy.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e08",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Log 072: El Presidente",
-          "overview": "Malloy teases Reed about calculating the cost of a new house while their first baby is still 6 months away. In the meantime they settle a domestic dispute between arguing neighbors, help a taxi driver that was just robbed, and a local man mistaken as the President by a group of rural Mexicans. Finally, they must arrest a psychotic shooter holed up in his house.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E08.Log.072.El.Presidente_000531.jpg",
-          "airDate": "1968-11-09",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E08.Log.072.El.Presidente.mp4",
-            "format": "h.264",
-            "sizeBytes": 143570664,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E08.Log.072.El.Presidente.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e09",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Log 101: Someone Stole My Lawn",
-          "overview": "Reed's wife has put him on a low-cal diet and is starving so they agree to an early code 7. They respond to a man raving about stolen sod. Reed suffers quietly as he questions a man grilling ribs but finds a boy who saw the theft and wrote down the thieves's license. A woman reports her step-son and his friend from San Francisco trying to sell credit cards. They stop the boys outside a pool hall. Malloy spots the friend trying to pull a switchblade hidden in his boot on Reed. The boys have stolen credit cards and the friend finally admits to several robberies. Reed notices a man in a car on a used car lot at night. Malloy allows Reed to decide on their action as part of his training. Reed decides to release the man as it appears impossible to steal the car even though he is on parole. They never make code 7 but Reed is so stuffed on candy he has to turn down Malloy's offer of a steak after work.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E09.Log.101.Someone.Stole.My.Lawn_000530.jpg",
-          "airDate": "1968-11-16",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E09.Log.101.Someone.Stole.My.Lawn.mp4",
-            "format": "h.264",
-            "sizeBytes": 143979926,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E09.Log.101.Someone.Stole.My.Lawn.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e10",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Log 132: The Producer",
-          "overview": "Reed tries to pawn off his new litter of puppies to co-workers, strangers, even victims. The officers work a silent alarm, rescue a boy with his head stuck in a fence, and track down a prowler.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E10.Log.132.The.Producer_000529.jpg",
-          "airDate": "1968-11-30",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E10.Log.132.The.Producer.mp4",
-            "format": "h.264",
-            "sizeBytes": 144343578,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E10.Log.132.The.Producer.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e11",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Log 111: Snake in the Trunk",
-          "overview": "Reed is on a high due a to meeting he and other probationers had with the Chief of Police. A ditsy young woman reports her 1958 Ford convertible stolen while she went in a liquor store. She left the keys in the car, has no paperwork, doesn't know the license number or other details but she needs it by 6:00 pm for a date! She finally tells the officers her pet 8 foot boa constrictor is in the trunk as she was coming from the vet. Every squad car is suddenly very careful with all 1958 white convertibles. They spot a fire in a house and rescue two drug users passed out in the fire. They break up a dispute between two women when Reed tells them to stop the water fight or their pictures will be taken as they look when booked. They pull over a white car and the driver doesn't have the proper paperwork. He doesn't want them to search the trunk but Malloy does and finds marijuana. Another squad car reports finding Arthur when the thieves encounter the snake in a dark garage and scream for help.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E11.Log.111.Snake.In.The.Trunk_000532.jpg",
-          "airDate": "1968-12-07",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4",
-            "format": "h.264",
-            "sizeBytes": 150461996,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e12",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Log 061: The Runaway",
-          "overview": "Walters and Brinkman are on a roll lately and like to brag, much to the irritation of Reed. He and Malloy help them out by finishing one of their calls, then rescue a sick teenage girl and arrest the young man who took her in. Back on patrol, they meet an informant who gives them a tip on a big drug buy scheduled for 11pm. They give the info to Sgt. Miller who asks them to help in the bust. They banter with Walters and Brinkman during meal break then take a prowler call before it's time to set up for the big drug meet at 10pm. The bust is a bust and called off at 12:15am when nobody shows. The next day they find out Walters and Brinkman gave the buyer a traffic ticket at 10:30pm.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E12.Log.061.The.Runaway_000537.jpg",
-          "airDate": "1968-12-14",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E12.Log.061.The.Runaway.mp4",
-            "format": "h.264",
-            "sizeBytes": 144376684,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E12.Log.061.The.Runaway.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e13",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Log 122: The Thief Who Stole Christmas",
-          "overview": "It's the Christmas Eve shift, and Adam-12, along with all the other units, is delivering donated toys to many of the disadvantaged families in the area in-between calls. One of those families is the Wards. Malloy and Reed learn directly from young Harvey Ward that he has his heart set on a yellow toy dump truck for Christmas. Beyond arranging to meet Mrs. Ward later to give her the toys then so that Harvey and her other kids won't see the toys before Christmas, Malloy and Reed discuss the pros and cons of themselves adding to the Christmas donations of a yellow toy dump truck for Harvey. Regardless of what Malloy and Reed decide to do about the toy, they later find out that Harvey may not get any presents at all as Mrs. Ward's old beater of a car gets stolen, along with all the toys in the trunk. With a few leads of past GTA cases from Sgt. Miller, Malloy and Reed hope they can locate Mrs. Ward's car by the end of the shift to get the toys back to her. But Reed also realizes that the toys may not get back to Wards regardless by Christmas, unless he and Malloy can do some sweet talking to Miller. The other issues Adam-12 deals with on this shift are a too common one on this day, namely a drunk driver, who has far too much alcohol induced Christmas spirit, and a domestic dispute call where balancing the traditional festivities against the cost of doing so is the issue of contention between husband and wife. Malloy and Reed just hope that that Christmas spirit, which got the couple into their argument, will also get them out of it.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E13.Log.122.The.Thief.Who.Stole.Christmas_000530.jpg",
-          "airDate": "1968-12-21",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E13.Log.122.The.Thief.Who.Stole.Christmas.mp4",
-            "format": "h.264",
-            "sizeBytes": 144136862,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E13.Log.122.The.Thief.Who.Stole.Christmas.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e14",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Log 081: The Long Walk",
-          "overview": "After roll call, Reed and Malloy provide backup at a robbery, help a lost man return home, handle a call about a prowler, then respond to a silent alarm. Malloy demonstrates for Reed the importance of \"officer presence\".",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E14.Log.081.The.Long.Walk_000528.jpg",
-          "airDate": "1969-01-04",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E14.Log.081.The.Long.Walk.mp4",
-            "format": "h.264",
-            "sizeBytes": 143546111,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E14.Log.081.The.Long.Walk.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e15",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Log 032: Jimmy Eisley's Dealing Smack",
-          "overview": "Reed volunteers to find entertainment for the department party but he is having poor luck and his options left are poor. They spot TJ, an informant, who tells them about a possible drug house. They spot a woman and girl at the same bus stop an hour apart. When they stop to talk to her, she tries to run. They learn she is from New Mexico looking for her husband but doesn't know how to contact him and has no money. She stole but did not open a box of cookies. The officers take her to the Salvation Army. That night they locate the drug house and call in support. They arrest five people but it takes a detailed search to find the drug stash in a shower drain. Reed successfully asks a well known country singer to perform when they serve him with a subpoena. Reed is a hit with most of the officers.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E15.Log.036.Jimmy.Eisley%27s.Dealing.Smack_000529.jpg",
-          "airDate": "1969-01-11",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E15.Log.036.Jimmy.Eisley's.Dealing.Smack.mp4",
-            "format": "h.264",
-            "sizeBytes": 143825894,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E15.Log.036.Jimmy.Eisley%27s.Dealing.Smack.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e16",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Log 062: Grand Theft Horse?",
-          "overview": "At roll call, officers are cautioned about phony calls related to armed robberies. Reed and Malloy try to track down a noise coming from their car when they get a call of a stolen horse. At the stables, the owner offers them the use of two horses, but reluctant to ride themselves, the officers enlist the help of two park rangers to corral the horse thief. Back on patrol, the car noise getting worse, Reed and Malloy respond to a motel where they help a distraught young woman who bought the line of a cad. After sunset, Malloy ignores a call and heads to nearby liquor stores where they find armed robbers making a getaway. Fired upon, they give chase and pull the two men from their burning car after it crashes. Talking it over afterward, Reed notices the noise is gone.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E16.Log.062.Grand.Theft.Horse_000538.jpg",
-          "airDate": "1969-01-18",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E16.Log.062.Grand.Theft.Horse.mp4",
-            "format": "h.264",
-            "sizeBytes": 143702772,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E16.Log.062.Grand.Theft.Horse.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e17",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Log 033: It All Happened So Fast",
-          "overview": "While on patrol in a residential area, the officers suddenly take fire from Reed's side of the car at night. Reed fires at the person he believes is firing at them after he sees gun flashes and a gun barrel. After the shooting he and Malloy are taken to the station where the shooting board grills both of them but especially the rookie Reed about the events that took place. They want to make sure all concerns and issues are covered but to Reed it feels like an Inquisition. At the end he is told the shooting appears to be justified but not before his confidence is shaken.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E17.Log.033.It.All.Happened.So.Fast_000530.jpg",
-          "airDate": "1969-02-01",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E17.Log.033.It.All.Happened.So.Fast.mp4",
-            "format": "h.264",
-            "sizeBytes": 150017385,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E17.Log.033.It.All.Happened.So.Fast.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e18",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Log 112: You Blew It",
-          "overview": "The shift starts with the officers talking about another officer's judgment. Little do they realize they will be facing the same problem several times during the shift.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E18.Log.112.You.Blew.It_000531.jpg",
-          "airDate": "1969-02-08",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E18.Log.112.You.Blew.It.mp4",
-            "format": "h.264",
-            "sizeBytes": 144243709,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E18.Log.112.You.Blew.It.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e19",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Log 051: A Jumper - Code Two",
-          "overview": "Not long after an elderly woman insists that Reed and Malloy help adjust her television antenna, the officers are called to a high-rise hotel, where a suicidal man is determined to jump. Malloy incorrectly handles the situation and Mac harshly reprimands him the follow-up investigation.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E19.Log.051.A.Jumper.Code.Two_000531.jpg",
-          "airDate": "1969-02-15",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E19.Log.051.A.Jumper.Code.Two.mp4",
-            "format": "h.264",
-            "sizeBytes": 144531404,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E19.Log.051.A.Jumper.Code.Two.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e20",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Log 073: I'm Still a Cop",
-          "overview": "At college where he's taking a class, Malloy encounters resentment from Paul Banner and other radical students because he's a policeman. After arresting students at a sit-in at President Lane's office, Pete's new Mustang is trashed. Malloy and Lane later question the student who stole a timing device, who admits giving it to Banner. Malloy suspects Banner hid a bomb on campus and forces him to divulge its location. A few days later Pete is invited to a student meeting.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E20.Log.073.I%27m.Still.A.Cop_000533.jpg",
-          "airDate": "1969-02-22",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E20.Log.073.I'm.Still.A.Cop.mp4",
-            "format": "h.264",
-            "sizeBytes": 144491783,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E20.Log.073.I%27m.Still.A.Cop.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e21",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Log 102: We Can't Just Walk Away from It",
-          "overview": "They respond to a call about a drug overdose and track the drugs to a 17 year who has barricaded himself in his room with a gun and threatens kill himself. They contend with a distraught mother and an overbearing father.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E21.Log.102.We.Can%27t.Just.Walk.Away.From.It_000540.jpg",
-          "airDate": "1969-03-01",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E21.Log.102.We.Can't.Just.Walk.Away.From.It.mp4",
-            "format": "h.264",
-            "sizeBytes": 143950214,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E21.Log.102.We.Can%27t.Just.Walk.Away.From.It.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e22",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "Log 152: A Dead Cop Can't Help Anyone",
-          "overview": "Malloy tries to shield an impressionable Reed from Officer Ed Wells, a shoot-first ask-questions-later style officer. Wells' reckless philosophy endangers his own safety when he responds to a sniper thus forcing them to come to his rescue.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E22.Log.152.A.Dead.Cop.Can%27t.Help.Anyone_000540.jpg",
-          "airDate": "1969-03-08",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E22.Log.152.A.Dead.Cop.Can't.Help.Anyone.mp4",
-            "format": "h.264",
-            "sizeBytes": 144514988,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E22.Log.152.A.Dead.Cop.Can%27t.Help.Anyone.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e23",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Log 012: He Was Trying to Kill Me",
-          "overview": "A call regarding stolen milk turns into a call about child neglect. When the officers knock on the door to question a suspect, they find a 6 year old girl Charlie alone. She says she doesn't know where her mother is and her dad no longer lives there. When the officers tell her they are removing her, she tells them she can't leave Sissy an infant in the bathtub. A man arrives she calls daddy but he is only a friend of the mother. He is arrested on outstanding traffic warrants and juvenile finds the kids have been beaten. Charlie says daddy did it. They are called back to the apartment to find the father beating the mother and they learn the mother is beating the kids.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E23.Log.012.He.Was.Trying.to.Kill.Me_000538.jpg",
-          "airDate": "1969-03-15",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E23.Log.012.He.Was.Trying.to.Kill.Me.mp4",
-            "format": "h.264",
-            "sizeBytes": 144656264,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E23.Log.012.He.Was.Trying.to.Kill.Me.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e24",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Log 172: Boy, the Things You Do for the Job",
-          "overview": "After Malloy gives a gorgeous wealthy blonde a traffic ticket, she stalks him affecting him and the police force. Although uninterested in her, Malloy is forced to \"take one\" for the job.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E24.Log.172.Boy%2C.The.Things.You.Do.For.The.Job_000539.jpg",
-          "airDate": "1969-03-22",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E24.Log.172.Boy,.The.Things.You.Do.For.The.Job.mp4",
-            "format": "h.264",
-            "sizeBytes": 144315127,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E24.Log.172.Boy%2C.The.Things.You.Do.For.The.Job.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e25",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Log 092: Tell Him He Pushed Back a Little Too Hard",
-          "overview": "Malloy and Reed respond to repeated calls about an argument between two men and their wives over a boat they co-own. The feud escalates and ends with a fatal conclusion.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E25.Log.092.Tell.Him.He.Pushed.Back.a.Little.Too.Hard_000533.jpg",
-          "airDate": "1969-03-29",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E25.Log.092.Tell.Him.He.Pushed.Back.a.Little.Too.Hard.mp4",
-            "format": "h.264",
-            "sizeBytes": 144119023,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E25.Log.092.Tell.Him.He.Pushed.Back.a.Little.Too.Hard.mp4"
-        },
-        {
-          "archiveID": "adam-12.-s-01@s1e26",
-          "sourceID": "adam-12.-s-01",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "Log 022: So This Little Guy Goes Into This Bar",
-          "overview": "Reed hears a joke from Ed Wells before roll call, then spends the shift retelling it to Malloy. The partners solve a mystery for a little old lady. Later, Reed needs to break up a noisy party hosted by an old school chum.",
-          "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E26.Log.022.So.This.Little.Guy.Goes.Into.This.Bar_000534.jpg",
-          "airDate": "1969-04-05",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Adam-12.S01E26.Log.022.So.This.Little.Guy.Goes.Into.This.Bar.mp4",
-            "format": "h.264",
-            "sizeBytes": 145305478,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E26.Log.022.So.This.Little.Guy.Goes.Into.This.Bar.mp4"
-        }
-      ]
+     "archiveID": "adam-12.-s-01@s1e01",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Log 001: The Impossible Mission",
+     "overview": "Malloy plans to resign at the end of shift due to the death of his previous partner but is assigned a rookie partner Reed. Malloy decides the green Reed is worthy of Malloy's effort to train him leading Malloy to stay on the job.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190179.jpg",
+     "airDate": "1968-09-21",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E01.Log.001.The.Impossible.Mission.mp4",
+      "format": "h.264",
+      "sizeBytes": 144212035,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E01.Log.001.The.Impossible.Mission.mp4"
     },
     {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "the-chase-uk-s4-e6",
-          "seasonNumber": 4,
-          "episodeNumber": 6,
-          "title": "The Ferret",
-          "overview": "The first call is to catch a man nicknamed the \"Ferret\" who is damaging a manufacturing company. He out runs Reed, and the newspaper reporter on the scene delights in the story. When they respond to an intruder call they find a man going house to house who flags them down for help. His wife is comatose and about to have a baby. They take the couple to the hospital where the doctor asks them to check for mud the woman has been eating. They find the mud and follow up with a visit to a voodoo priest who had ordered the mud for the couple. He puts a mojo hex on Reed which is followed by Mac showing them the paper with Reed on the front page. They pull an elderly lady over for erratic driving and she takes them for gas station attendants. When they go to the manufacturing company to check recently fired employees for the ferret, he shows up at the office and this time Reed is able to catch him.",
-          "stillURL": "https://archive.org/services/img/the-chase-uk-s4-e6",
-          "airDate": "1971-10-27",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Chase S4 E6.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 215448772,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-chase-uk-s4-e6/The%20Chase%20S4%20E6.ia.mp4"
-        }
-      ]
+     "archiveID": "adam-12.-s-01@s1e02",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Log 141: The Color TV Bandit",
+     "overview": "Malloy and Reed return from vacation to learn a burglar is still stealing color TV sets. They receive a call about two endangered boys. After breaking into their apartment, they find the boys comatose and their mother's drug stash laying on the floor. The mother arrives and tries to act as if nothing is wrong. When Reed tells her she is under arrest, he becomes very irritated with her forcing Malloy to tell him later he must stay professional. Malloy gives a beautiful but spoiled young woman a ticket for an unsafe left turn while she berates him for harassment. They spot a car with a TV in the back seat and a man who runs forcing them to chase him. He and Reed end up in a pool but he denies stealing the TV. After running him at the station, they learn he stole jewelry while posing as a gas repairman. Still no TV thief.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190182.jpg",
+     "airDate": "1968-09-28",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E02.Log.141.The.Color.TV.Bandit.mp4",
+      "format": "h.264",
+      "sizeBytes": 143913906,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E02.Log.141.The.Color.TV.Bandit.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e03",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Log 011: It's Just A Little Dent, Isn't It?",
+     "overview": "Reed dents the fender of the patrol car while putting gas in it and frets the entire shift about the impact of it on his career. At roll call Mac and the Lieutenant talk to the officers about a man who has been intimidating a woman who is to testify about the man's son's involvement in a crime. They talk to the woman, an influential neighbor, bartender where the man hangs out, and then the man himself. They respond to a call about a man holding a baby as a hostage with a gun. Malloy enters the house and talks the man down who appears to be high on drugs. A call that night by a neighbor leads them to catching the man after he used stones to break the woman's windows. At the end Malloy tells the Lieutentant that the dent is about the size of a reprimand.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190183.jpg",
+     "airDate": "1968-10-05",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E03.Log.011.It's.Just.A.Little.Dent,.Isn't.It.mp4",
+      "format": "h.264",
+      "sizeBytes": 144445771,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E03.Log.011.It%27s.Just.A.Little.Dent%2C.Isn%27t.It.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e04",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Log 131: Reed, the Dicks Have Their Job and We Have Ours",
+     "overview": "Malloy teaches raw rookie Reed about the job that Detectives play when a murder scene must be secured and turned over. Reed learns to be content with his role and responsibilities in a uniformed radio car when they arrest fleeing fugitives.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190184.jpg",
+     "airDate": "1968-10-12",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E04.Log.131.Reed,.The.Dicks.Have.Their.Job.And.We.Have.Ours.mp4",
+      "format": "h.264",
+      "sizeBytes": 144528093,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E04.Log.131.Reed%2C.The.Dicks.Have.Their.Job.And.We.Have.Ours.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e05",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Log 091: You're Not the First Guy's Had the Problem",
+     "overview": "Reed and a friend from the academy plan a fishing trip for the weekend before their shift. Malloy and Reed receive a Code 3 call as backup at a shooting. When they arrive Reed's friend is critically wounded and a suspect is dead. On patrol they arrest a man for DUI. Malloy allows Reed to test the man as part of his training. A call to a pool hall reveals a couple of men took a man to the hospital after hitting him with a pool cue. Reed continues to worry his wounded friend, Reed's wife who he can't reach, and her attitude. They spot two suspicious men in a convertible with a bicycle in the trunk. They pull it over and the two men run when Reed starts to run their IDs. At the end they learn Reed's friend has died.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190185.jpg",
+     "airDate": "1968-10-19",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E05.Log.091.You're.Not.The.First.Guy's.Had.The.Problem.mp4",
+      "format": "h.264",
+      "sizeBytes": 143166979,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E05.Log.091.You%27re.Not.The.First.Guy%27s.Had.The.Problem.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e06",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Log 161: And You Want Me to Get Married!",
+     "overview": "While Jim and Pete discuss their recent double-date, Malloy complains how his latest girlfriend is now hinting for marriage. Between their social chatter, they resolve a liquor store robbery, rescue a woman and baby from a hillside crash, intervene with a marital couple disturbing their entire neighborhood, and enjoy lunch at a place with cute waitresses.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190186.jpg",
+     "airDate": "1968-10-26",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E06.Log.161.And.You.Want.Me.to.Get.Married!.mp4",
+      "format": "h.264",
+      "sizeBytes": 143501430,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E06.Log.161.And.You.Want.Me.to.Get.Married%21.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e07",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Log 071: I Feel Like a Fool, Malloy",
+     "overview": "Reed & Malloy examine domestic disputes when the sergeant catches a black eye and they are called upon to stop a domestic dispute at an ashram. Later, a liquor store owner miscommunicates a robbery call and an elderly woman is mad at a neighbor's loud music until she learns there was a deadly accident. Each time the officers think first and act second.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190187.jpg",
+     "airDate": "1968-11-02",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E07.Log.071.I.Feel.Like.a.Fool,.Malloy.mp4",
+      "format": "h.264",
+      "sizeBytes": 143917688,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E07.Log.071.I.Feel.Like.a.Fool%2C.Malloy.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e08",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Log 072: El Presidente",
+     "overview": "Malloy teases Reed about calculating the cost of a new house while their first baby is still 6 months away. In the meantime they settle a domestic dispute between arguing neighbors, help a taxi driver that was just robbed, and a local man mistaken as the President by a group of rural Mexicans. Finally, they must arrest a psychotic shooter holed up in his house.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E08.Log.072.El.Presidente_000531.jpg",
+     "airDate": "1968-11-09",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E08.Log.072.El.Presidente.mp4",
+      "format": "h.264",
+      "sizeBytes": 143570664,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E08.Log.072.El.Presidente.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e09",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Log 101: Someone Stole My Lawn",
+     "overview": "Reed's wife has put him on a low-cal diet and is starving so they agree to an early code 7. They respond to a man raving about stolen sod. Reed suffers quietly as he questions a man grilling ribs but finds a boy who saw the theft and wrote down the thieves's license. A woman reports her step-son and his friend from San Francisco trying to sell credit cards. They stop the boys outside a pool hall. Malloy spots the friend trying to pull a switchblade hidden in his boot on Reed. The boys have stolen credit cards and the friend finally admits to several robberies. Reed notices a man in a car on a used car lot at night. Malloy allows Reed to decide on their action as part of his training. Reed decides to release the man as it appears impossible to steal the car even though he is on parole. They never make code 7 but Reed is so stuffed on candy he has to turn down Malloy's offer of a steak after work.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E09.Log.101.Someone.Stole.My.Lawn_000530.jpg",
+     "airDate": "1968-11-16",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E09.Log.101.Someone.Stole.My.Lawn.mp4",
+      "format": "h.264",
+      "sizeBytes": 143979926,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E09.Log.101.Someone.Stole.My.Lawn.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e10",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Log 132: The Producer",
+     "overview": "Reed tries to pawn off his new litter of puppies to co-workers, strangers, even victims. The officers work a silent alarm, rescue a boy with his head stuck in a fence, and track down a prowler.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E10.Log.132.The.Producer_000529.jpg",
+     "airDate": "1968-11-30",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E10.Log.132.The.Producer.mp4",
+      "format": "h.264",
+      "sizeBytes": 144343578,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E10.Log.132.The.Producer.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e11",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Log 111: Snake in the Trunk",
+     "overview": "Reed is on a high due a to meeting he and other probationers had with the Chief of Police. A ditsy young woman reports her 1958 Ford convertible stolen while she went in a liquor store. She left the keys in the car, has no paperwork, doesn't know the license number or other details but she needs it by 6:00 pm for a date! She finally tells the officers her pet 8 foot boa constrictor is in the trunk as she was coming from the vet. Every squad car is suddenly very careful with all 1958 white convertibles. They spot a fire in a house and rescue two drug users passed out in the fire. They break up a dispute between two women when Reed tells them to stop the water fight or their pictures will be taken as they look when booked. They pull over a white car and the driver doesn't have the proper paperwork. He doesn't want them to search the trunk but Malloy does and finds marijuana. Another squad car reports finding Arthur when the thieves encounter the snake in a dark garage and scream for help.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E11.Log.111.Snake.In.The.Trunk_000532.jpg",
+     "airDate": "1968-12-07",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4",
+      "format": "h.264",
+      "sizeBytes": 150461996,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e12",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Log 061: The Runaway",
+     "overview": "Walters and Brinkman are on a roll lately and like to brag, much to the irritation of Reed. He and Malloy help them out by finishing one of their calls, then rescue a sick teenage girl and arrest the young man who took her in. Back on patrol, they meet an informant who gives them a tip on a big drug buy scheduled for 11pm. They give the info to Sgt. Miller who asks them to help in the bust. They banter with Walters and Brinkman during meal break then take a prowler call before it's time to set up for the big drug meet at 10pm. The bust is a bust and called off at 12:15am when nobody shows. The next day they find out Walters and Brinkman gave the buyer a traffic ticket at 10:30pm.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E12.Log.061.The.Runaway_000537.jpg",
+     "airDate": "1968-12-14",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E12.Log.061.The.Runaway.mp4",
+      "format": "h.264",
+      "sizeBytes": 144376684,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E12.Log.061.The.Runaway.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e13",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Log 122: The Thief Who Stole Christmas",
+     "overview": "It's the Christmas Eve shift, and Adam-12, along with all the other units, is delivering donated toys to many of the disadvantaged families in the area in-between calls. One of those families is the Wards. Malloy and Reed learn directly from young Harvey Ward that he has his heart set on a yellow toy dump truck for Christmas. Beyond arranging to meet Mrs. Ward later to give her the toys then so that Harvey and her other kids won't see the toys before Christmas, Malloy and Reed discuss the pros and cons of themselves adding to the Christmas donations of a yellow toy dump truck for Harvey. Regardless of what Malloy and Reed decide to do about the toy, they later find out that Harvey may not get any presents at all as Mrs. Ward's old beater of a car gets stolen, along with all the toys in the trunk. With a few leads of past GTA cases from Sgt. Miller, Malloy and Reed hope they can locate Mrs. Ward's car by the end of the shift to get the toys back to her. But Reed also realizes that the toys may not get back to Wards regardless by Christmas, unless he and Malloy can do some sweet talking to Miller. The other issues Adam-12 deals with on this shift are a too common one on this day, namely a drunk driver, who has far too much alcohol induced Christmas spirit, and a domestic dispute call where balancing the traditional festivities against the cost of doing so is the issue of contention between husband and wife. Malloy and Reed just hope that that Christmas spirit, which got the couple into their argument, will also get them out of it.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E13.Log.122.The.Thief.Who.Stole.Christmas_000530.jpg",
+     "airDate": "1968-12-21",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E13.Log.122.The.Thief.Who.Stole.Christmas.mp4",
+      "format": "h.264",
+      "sizeBytes": 144136862,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E13.Log.122.The.Thief.Who.Stole.Christmas.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e14",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Log 081: The Long Walk",
+     "overview": "After roll call, Reed and Malloy provide backup at a robbery, help a lost man return home, handle a call about a prowler, then respond to a silent alarm. Malloy demonstrates for Reed the importance of \"officer presence\".",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E14.Log.081.The.Long.Walk_000528.jpg",
+     "airDate": "1969-01-04",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E14.Log.081.The.Long.Walk.mp4",
+      "format": "h.264",
+      "sizeBytes": 143546111,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E14.Log.081.The.Long.Walk.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e15",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Log 032: Jimmy Eisley's Dealing Smack",
+     "overview": "Reed volunteers to find entertainment for the department party but he is having poor luck and his options left are poor. They spot TJ, an informant, who tells them about a possible drug house. They spot a woman and girl at the same bus stop an hour apart. When they stop to talk to her, she tries to run. They learn she is from New Mexico looking for her husband but doesn't know how to contact him and has no money. She stole but did not open a box of cookies. The officers take her to the Salvation Army. That night they locate the drug house and call in support. They arrest five people but it takes a detailed search to find the drug stash in a shower drain. Reed successfully asks a well known country singer to perform when they serve him with a subpoena. Reed is a hit with most of the officers.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E15.Log.036.Jimmy.Eisley%27s.Dealing.Smack_000529.jpg",
+     "airDate": "1969-01-11",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E15.Log.036.Jimmy.Eisley's.Dealing.Smack.mp4",
+      "format": "h.264",
+      "sizeBytes": 143825894,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E15.Log.036.Jimmy.Eisley%27s.Dealing.Smack.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e16",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Log 062: Grand Theft Horse?",
+     "overview": "At roll call, officers are cautioned about phony calls related to armed robberies. Reed and Malloy try to track down a noise coming from their car when they get a call of a stolen horse. At the stables, the owner offers them the use of two horses, but reluctant to ride themselves, the officers enlist the help of two park rangers to corral the horse thief. Back on patrol, the car noise getting worse, Reed and Malloy respond to a motel where they help a distraught young woman who bought the line of a cad. After sunset, Malloy ignores a call and heads to nearby liquor stores where they find armed robbers making a getaway. Fired upon, they give chase and pull the two men from their burning car after it crashes. Talking it over afterward, Reed notices the noise is gone.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E16.Log.062.Grand.Theft.Horse_000538.jpg",
+     "airDate": "1969-01-18",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E16.Log.062.Grand.Theft.Horse.mp4",
+      "format": "h.264",
+      "sizeBytes": 143702772,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E16.Log.062.Grand.Theft.Horse.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e17",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Log 033: It All Happened So Fast",
+     "overview": "While on patrol in a residential area, the officers suddenly take fire from Reed's side of the car at night. Reed fires at the person he believes is firing at them after he sees gun flashes and a gun barrel. After the shooting he and Malloy are taken to the station where the shooting board grills both of them but especially the rookie Reed about the events that took place. They want to make sure all concerns and issues are covered but to Reed it feels like an Inquisition. At the end he is told the shooting appears to be justified but not before his confidence is shaken.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E17.Log.033.It.All.Happened.So.Fast_000530.jpg",
+     "airDate": "1969-02-01",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E17.Log.033.It.All.Happened.So.Fast.mp4",
+      "format": "h.264",
+      "sizeBytes": 150017385,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E17.Log.033.It.All.Happened.So.Fast.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e18",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Log 112: You Blew It",
+     "overview": "The shift starts with the officers talking about another officer's judgment. Little do they realize they will be facing the same problem several times during the shift.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E18.Log.112.You.Blew.It_000531.jpg",
+     "airDate": "1969-02-08",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E18.Log.112.You.Blew.It.mp4",
+      "format": "h.264",
+      "sizeBytes": 144243709,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E18.Log.112.You.Blew.It.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e19",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Log 051: A Jumper - Code Two",
+     "overview": "Not long after an elderly woman insists that Reed and Malloy help adjust her television antenna, the officers are called to a high-rise hotel, where a suicidal man is determined to jump. Malloy incorrectly handles the situation and Mac harshly reprimands him the follow-up investigation.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E19.Log.051.A.Jumper.Code.Two_000531.jpg",
+     "airDate": "1969-02-15",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E19.Log.051.A.Jumper.Code.Two.mp4",
+      "format": "h.264",
+      "sizeBytes": 144531404,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E19.Log.051.A.Jumper.Code.Two.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e20",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Log 073: I'm Still a Cop",
+     "overview": "At college where he's taking a class, Malloy encounters resentment from Paul Banner and other radical students because he's a policeman. After arresting students at a sit-in at President Lane's office, Pete's new Mustang is trashed. Malloy and Lane later question the student who stole a timing device, who admits giving it to Banner. Malloy suspects Banner hid a bomb on campus and forces him to divulge its location. A few days later Pete is invited to a student meeting.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E20.Log.073.I%27m.Still.A.Cop_000533.jpg",
+     "airDate": "1969-02-22",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E20.Log.073.I'm.Still.A.Cop.mp4",
+      "format": "h.264",
+      "sizeBytes": 144491783,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E20.Log.073.I%27m.Still.A.Cop.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e21",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Log 102: We Can't Just Walk Away from It",
+     "overview": "They respond to a call about a drug overdose and track the drugs to a 17 year who has barricaded himself in his room with a gun and threatens kill himself. They contend with a distraught mother and an overbearing father.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E21.Log.102.We.Can%27t.Just.Walk.Away.From.It_000540.jpg",
+     "airDate": "1969-03-01",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E21.Log.102.We.Can't.Just.Walk.Away.From.It.mp4",
+      "format": "h.264",
+      "sizeBytes": 143950214,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E21.Log.102.We.Can%27t.Just.Walk.Away.From.It.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e22",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "Log 152: A Dead Cop Can't Help Anyone",
+     "overview": "Malloy tries to shield an impressionable Reed from Officer Ed Wells, a shoot-first ask-questions-later style officer. Wells' reckless philosophy endangers his own safety when he responds to a sniper thus forcing them to come to his rescue.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E22.Log.152.A.Dead.Cop.Can%27t.Help.Anyone_000540.jpg",
+     "airDate": "1969-03-08",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E22.Log.152.A.Dead.Cop.Can't.Help.Anyone.mp4",
+      "format": "h.264",
+      "sizeBytes": 144514988,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E22.Log.152.A.Dead.Cop.Can%27t.Help.Anyone.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e23",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Log 012: He Was Trying to Kill Me",
+     "overview": "A call regarding stolen milk turns into a call about child neglect. When the officers knock on the door to question a suspect, they find a 6 year old girl Charlie alone. She says she doesn't know where her mother is and her dad no longer lives there. When the officers tell her they are removing her, she tells them she can't leave Sissy an infant in the bathtub. A man arrives she calls daddy but he is only a friend of the mother. He is arrested on outstanding traffic warrants and juvenile finds the kids have been beaten. Charlie says daddy did it. They are called back to the apartment to find the father beating the mother and they learn the mother is beating the kids.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E23.Log.012.He.Was.Trying.to.Kill.Me_000538.jpg",
+     "airDate": "1969-03-15",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E23.Log.012.He.Was.Trying.to.Kill.Me.mp4",
+      "format": "h.264",
+      "sizeBytes": 144656264,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E23.Log.012.He.Was.Trying.to.Kill.Me.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e24",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Log 172: Boy, the Things You Do for the Job",
+     "overview": "After Malloy gives a gorgeous wealthy blonde a traffic ticket, she stalks him affecting him and the police force. Although uninterested in her, Malloy is forced to \"take one\" for the job.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E24.Log.172.Boy%2C.The.Things.You.Do.For.The.Job_000539.jpg",
+     "airDate": "1969-03-22",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E24.Log.172.Boy,.The.Things.You.Do.For.The.Job.mp4",
+      "format": "h.264",
+      "sizeBytes": 144315127,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E24.Log.172.Boy%2C.The.Things.You.Do.For.The.Job.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e25",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Log 092: Tell Him He Pushed Back a Little Too Hard",
+     "overview": "Malloy and Reed respond to repeated calls about an argument between two men and their wives over a boat they co-own. The feud escalates and ends with a fatal conclusion.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E25.Log.092.Tell.Him.He.Pushed.Back.a.Little.Too.Hard_000533.jpg",
+     "airDate": "1969-03-29",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E25.Log.092.Tell.Him.He.Pushed.Back.a.Little.Too.Hard.mp4",
+      "format": "h.264",
+      "sizeBytes": 144119023,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E25.Log.092.Tell.Him.He.Pushed.Back.a.Little.Too.Hard.mp4"
+    },
+    {
+     "archiveID": "adam-12.-s-01@s1e26",
+     "sourceID": "adam-12.-s-01",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Log 022: So This Little Guy Goes Into This Bar",
+     "overview": "Reed hears a joke from Ed Wells before roll call, then spends the shift retelling it to Malloy. The partners solve a mystery for a little old lady. Later, Reed needs to break up a noisy party hosted by an old school chum.",
+     "stillURL": "https://archive.org/download/adam-12.-s-01/adam-12.-s-01.thumbs/Adam-12.S01E26.Log.022.So.This.Little.Guy.Goes.Into.This.Bar_000534.jpg",
+     "airDate": "1969-04-05",
+     "year": 1969,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Adam-12.S01E26.Log.022.So.This.Little.Guy.Goes.Into.This.Bar.mp4",
+      "format": "h.264",
+      "sizeBytes": 145305478,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E26.Log.022.So.This.Little.Guy.Goes.Into.This.Bar.mp4"
     }
-  ],
-  "episodesCount": 27,
-  "canonicalEpisodesCount": 174,
-  "tvmazeRating": 7.4,
-  "tvdbID": "78686",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
-      "name": "Kent McCord",
-      "character": "Officer James A. Reed",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261844/photo/60e8d00514f7c.jpg"
-    },
-    {
-      "name": "Martin Milner",
-      "character": "Officer Peter J. Malloy",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256398/photo/62e2e28966ebb.jpg"
-    },
-    {
-      "name": "William Boyett",
-      "character": "Sgt. MacDonald",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264839/photo/6498c294a705d.jpg"
-    },
-    {
-      "name": "Gary Crosby",
-      "character": "Officer Ed Wells",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265164/photo/6494ec477a967.jpg"
-    },
-    {
-      "name": "Robert Donner",
-      "character": "T.J.",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256600/photo/64f986a9060d1.jpg"
-    },
-    {
-      "name": "William Stevens",
-      "character": "Officer Jerry Walters",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265658/photo/64f9875c1909f.jpg"
-    },
-    {
-      "name": "Claude Johnson",
-      "character": "Officer Brinkman",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256440/photo/64f98808c7422.jpg"
-    },
-    {
-      "name": "William Elliott",
-      "character": "Officer Grant",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/327969/photo/64f9886349be3.jpg"
-    },
-    {
-      "name": "Fred Stromsoe",
-      "character": "Officer Jerry Woods",
-      "order": 8,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/320447/photo/64f989595aba8.jpg"
-    },
-    {
-      "name": "Mikki Jamison",
-      "character": "Mrs. Jean Reed (1969-1970)",
-      "order": 9,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7877062/photo/64f98ac9851a5.jpg"
-    },
-    {
-      "name": "Kristin Nelson",
-      "character": "Mrs. Jean Reed (1974-1975)",
-      "order": 10,
-      "profilePath": null
-    },
-    {
-      "name": "Shaaron Claridge",
-      "character": "Dispatcher (Voice)",
-      "order": 11,
-      "profilePath": null
+     "archiveID": "the-chase-uk-s4-e6",
+     "seasonNumber": 4,
+     "episodeNumber": 6,
+     "title": "The Ferret",
+     "overview": "The first call is to catch a man nicknamed the \"Ferret\" who is damaging a manufacturing company. He out runs Reed, and the newspaper reporter on the scene delights in the story. When they respond to an intruder call they find a man going house to house who flags them down for help. His wife is comatose and about to have a baby. They take the couple to the hospital where the doctor asks them to check for mud the woman has been eating. They find the mud and follow up with a visit to a voodoo priest who had ordered the mud for the couple. He puts a mojo hex on Reed which is followed by Mac showing them the paper with Reed on the front page. They pull an elderly lady over for erratic driving and she takes them for gas station attendants. When they go to the manufacturing company to check recently fired employees for the ferret, he shows up at the office and this time Reed is able to catch him.",
+     "stillURL": "https://archive.org/services/img/the-chase-uk-s4-e6",
+     "airDate": "1971-10-27",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Chase S4 E6.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 215448772,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-chase-uk-s4-e6/The%20Chase%20S4%20E6.ia.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 27,
+ "canonicalEpisodesCount": 174,
+ "tvmazeRating": 7.4,
+ "tvdbID": "78686",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Kent McCord",
+   "character": "Officer James A. Reed",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261844/photo/60e8d00514f7c.jpg"
+  },
+  {
+   "name": "Martin Milner",
+   "character": "Officer Peter J. Malloy",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256398/photo/62e2e28966ebb.jpg"
+  },
+  {
+   "name": "William Boyett",
+   "character": "Sgt. MacDonald",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264839/photo/6498c294a705d.jpg"
+  },
+  {
+   "name": "Gary Crosby",
+   "character": "Officer Ed Wells",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265164/photo/6494ec477a967.jpg"
+  },
+  {
+   "name": "Robert Donner",
+   "character": "T.J.",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256600/photo/64f986a9060d1.jpg"
+  },
+  {
+   "name": "William Stevens",
+   "character": "Officer Jerry Walters",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265658/photo/64f9875c1909f.jpg"
+  },
+  {
+   "name": "Claude Johnson",
+   "character": "Officer Brinkman",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256440/photo/64f98808c7422.jpg"
+  },
+  {
+   "name": "William Elliott",
+   "character": "Officer Grant",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/327969/photo/64f9886349be3.jpg"
+  },
+  {
+   "name": "Fred Stromsoe",
+   "character": "Officer Jerry Woods",
+   "order": 8,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/320447/photo/64f989595aba8.jpg"
+  },
+  {
+   "name": "Mikki Jamison",
+   "character": "Mrs. Jean Reed (1969-1970)",
+   "order": 9,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7877062/photo/64f98ac9851a5.jpg"
+  },
+  {
+   "name": "Kristin Nelson",
+   "character": "Mrs. Jean Reed (1974-1975)",
+   "order": 10,
+   "profilePath": null
+  },
+  {
+   "name": "Shaaron Claridge",
+   "character": "Dispatcher (Voice)",
+   "order": 11,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0062539",
+ "imdbRating": 7.7,
+ "imdbVotes": 5638
 }

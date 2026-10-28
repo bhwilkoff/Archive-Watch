@@ -359,10 +359,14 @@ Newest · Oldest, worded by `CatalogDB.Sort.label` — and its choice is kept pe
 KIND of grid in `SortMemory` (`browseSort.tv|browse|category|collection`, one
 key name on every Apple platform, §9.5): television grids (series cards, TV
 Specials) start on A–Z, the rest on Popular. Browse→TV's series grid carries
-the same Sort chip as Films (§4.2a). Top Rated orders a series by its TVmaze
-rating (`tvmazeRating`; never shown as IMDb's) and breaks every tie, ending in
-title — with none, 400 unrated series came back in insertion order and read
-as A–Z.
+the same Sort chip as Films (§4.2a). Top Rated orders by `ratingRank`
+(Decision 171): the largest crowd's rating against that crowd's own average,
+discounted for a small crowd, so an 8.6 from 90,000 votes leads a 9.2 from 13;
+it breaks every tie, ending in title — with none, 400 unrated series came back
+in insertion order and read as A–Z. **A rating names its crowd** (Decision 171):
+the film Detail and the series page show "IMDb 7.8" in their meta line, or
+"TVmaze 8.9" for a series IMDb does not rate; archive.org's reviewers keep the
+community row.
 
 4.3a **A playlist is edited where it is seen, and a swipe is never the only
 way to a verb.** A viewer, 2026-10-23 to 10-27: he could not remove a film,

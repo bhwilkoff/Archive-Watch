@@ -1,1122 +1,1125 @@
 {
-  "version": 2,
-  "seriesID": "ironside-1967",
-  "tvmazeID": 1754,
-  "title": "Ironside",
-  "yearStart": 1967,
-  "yearEnd": 1993,
-  "overview": "Wheelchair-bound detective Robert T. Ironside battles the bad guys on the streets of San Francisco.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78677-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Crime"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "ironside-1967",
+ "tvmazeID": 1754,
+ "title": "Ironside",
+ "yearStart": 1967,
+ "yearEnd": 1993,
+ "overview": "Wheelchair-bound detective Robert T. Ironside battles the bad guys on the streets of San Francisco.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/78677-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "ironsides02",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "And Be My Love",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
-          "airDate": "1969-02-20",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S02e19 And Be My Love.mp4",
-            "format": "h.264",
-            "sizeBytes": 280045153,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ironsides02/Ironside%20S02e19%20And%20Be%20My%20Love.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "ironsideS03",
-          "seasonNumber": 3,
-          "episodeNumber": 7,
-          "title": "Seeing is Believing",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
-          "airDate": "1969-10-30",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S03e07 Seeing Is Believing.mp4",
-            "format": "h.264",
-            "sizeBytes": 281120548,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ironsideS03/Ironside%20S03e07%20Seeing%20Is%20Believing.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "ironsideS04@s4e01",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 1,
-          "title": "A Killing Will Occur",
-          "overview": "An anonymous caller taunts Ironside with clues to a planned murder, threatening a life unless stopped. Ironside realizes the threat is real.",
-          "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e01%20A%20Killing%20Will%20Occur_001028.jpg",
-          "airDate": "1970-09-17",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e01 A Killing Will Occur.mp4",
-            "format": "h.264",
-            "sizeBytes": 278782456,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e01%20A%20Killing%20Will%20Occur.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e02",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 2,
-          "title": "No Game for Amateurs",
-          "overview": null,
-          "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e02%20No%20Game%20For%20Amateurs_001020.jpg",
-          "airDate": "1970-09-24",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e02 No Game For Amateurs.mp4",
-            "format": "h.264",
-            "sizeBytes": 276202711,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e02%20No%20Game%20For%20Amateurs.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e03",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 3,
-          "title": "The Happy Dreams of Hollow Men",
-          "overview": "Joseph Campanella plays a heroin addict.",
-          "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e03%20The%20Happy%20Dreams%20Of%20Hollow%20Men_001026.jpg",
-          "airDate": "1970-10-01",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e03 The Happy Dreams Of Hollow Men.mp4",
-            "format": "h.264",
-            "sizeBytes": 279163625,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e03%20The%20Happy%20Dreams%20Of%20Hollow%20Men.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e04",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 4,
-          "title": "The People Against Judge McIntire",
-          "overview": null,
-          "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e04%20The%20People%20Against%20Judge%20Mcintire_001017.jpg",
-          "airDate": "1970-10-08",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e04 The People Against Judge Mcintire.mp4",
-            "format": "h.264",
-            "sizeBytes": 275988737,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e04%20The%20People%20Against%20Judge%20Mcintire.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e05",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 5,
-          "title": "Noel's Gonna Fly",
-          "overview": null,
-          "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e05%20Noel%27s%20Gonna%20Fly_001019.jpg",
-          "airDate": "1970-10-15",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e05 Noel's Gonna Fly.mp4",
-            "format": "h.264",
-            "sizeBytes": 276580665,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e05%20Noel%27s%20Gonna%20Fly.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e06",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 6,
-          "title": "The Lonely Way to Go",
-          "overview": "Jason Banning, the police pension fund's investment manager, confesses to the murder of his secretary. However, Ironside suspects that there's more to the story.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/110/275852.jpg",
-          "airDate": "1970-10-22",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e06 The Lonely Way To Go.mp4",
-            "format": "h.264",
-            "sizeBytes": 279819762,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e06%20The%20Lonely%20Way%20To%20Go.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e07",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 7,
-          "title": "Check, Mate; and Murder (Part 1)",
-          "overview": "French separatists attack a police convention in Quebec, and the lead bomber is the son of Ironside's former lover.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/110/275854.jpg",
-          "airDate": "1970-10-29",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e07 Check, Mate; And Murder (Part 1).mp4",
-            "format": "h.264",
-            "sizeBytes": 275266369,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e07%20Check%2C%20Mate%3B%20And%20Murder%20%28Part%201%29.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e08",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 8,
-          "title": "Check, Mate: and Murder (Part 2)",
-          "overview": "The separatists prepare to bomb a holiday parade, and Ed goes undercover to stop them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/110/276184.jpg",
-          "airDate": "1970-11-05",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e08 Check, Mate And Murder (Part 2).mp4",
-            "format": "h.264",
-            "sizeBytes": 275416639,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e08%20Check%2C%20Mate%20And%20Murder%20%28Part%202%29.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e09",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 9,
-          "title": "Too Many Victims",
-          "overview": "A drug dealer is targeting kids, and the daughter of a friend is injured while under the inflkuence.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/277506.jpg",
-          "airDate": "1970-11-12",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e09 Too Many Victims.mp4",
-            "format": "h.264",
-            "sizeBytes": 275150832,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e09%20Too%20Many%20Victims.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e10",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 10,
-          "title": "The Man on the Inside",
-          "overview": "Ed ends up investigating Ironside when the police suspect that Ironside tipped off criminals targeted by a police raid.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/277508.jpg",
-          "airDate": "1970-11-19",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e10 The Man On The Inside.mp4",
-            "format": "h.264",
-            "sizeBytes": 276213378,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e10%20The%20Man%20On%20The%20Inside.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e11",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 11,
-          "title": "Backfire",
-          "overview": "For his law school class, Mark ends up reviewing the case of a convicted man who may be innocent... and who was put away based on Ed's investigation.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/278022.jpg",
-          "airDate": "1970-12-03",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e11 Backfire.mp4",
-            "format": "h.264",
-            "sizeBytes": 276632057,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e11%20Backfire.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e12",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 12,
-          "title": "The Laying On of Hands",
-          "overview": "Pablito Esteban, a nine-year-old boy with miraculous healing powers, heals a friend of Ironside's and the team set out to determine if the boy's powers are real.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/278518.jpg",
-          "airDate": "1970-12-10",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e12 The Laying On Of Hands.mp4",
-            "format": "h.264",
-            "sizeBytes": 275759590,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e12%20The%20Laying%20On%20Of%20Hands.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e13",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 13,
-          "title": "This Could Blow Your Mind",
-          "overview": "A mob hitman abducts the family of a hypnotist to keep the man from testifying against him.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/278528.jpg",
-          "airDate": "1970-12-17",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e13 This Could Blow Your Mind.mp4",
-            "format": "h.264",
-            "sizeBytes": 276516388,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e13%20This%20Could%20Blow%20Your%20Mind.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e14",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 14,
-          "title": "Blackout",
-          "overview": "Ironside has Mark take him for a visit to his old precinct house. When a blackout hits the area, Ironside ends up in charge and working with his old parnter, Dave Spangler.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281303.jpg",
-          "airDate": "1970-12-31",
-          "year": 1970,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e14 Blackout.mp4",
-            "format": "h.264",
-            "sizeBytes": 275289812,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e14%20Blackout.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e15",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 15,
-          "title": "The Quincunx",
-          "overview": "Ironside and his team get drawn into the investigation of a murder involving a band… and Eve gets involved with one of the members.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281311.jpg",
-          "airDate": "1971-01-07",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e15 The Quincunx.mp4",
-            "format": "h.264",
-            "sizeBytes": 275608424,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e15%20The%20Quincunx.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e16",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 16,
-          "title": "From Hruska, with Love",
-          "overview": "The team gets involved with international espionage when they take a refugee to Mexico to exchange for an American scientist. However, someone blows their cover and comes after them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281315.jpg",
-          "airDate": "1971-01-21",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e16 From Hruska, With Love.mp4",
-            "format": "h.264",
-            "sizeBytes": 275059776,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e16%20From%20Hruska%2C%20With%20Love.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e17",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 17,
-          "title": "The Target",
-          "overview": "A militant group abducts Sonny Brokaw to force his father, ex-convict Gordy Brokaw, to steal explosives from his construction site for them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284189.jpg",
-          "airDate": "1971-01-28",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e17 The Target.mp4",
-            "format": "h.264",
-            "sizeBytes": 275878384,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e17%20The%20Target.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e18",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 18,
-          "title": "A Killing at the Track",
-          "overview": "While investigating a race-fixing scandal at the track, Eve gets involved with an old lover.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284190.jpg",
-          "airDate": "1971-02-04",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e18 A Killing At The Track.mp4",
-            "format": "h.264",
-            "sizeBytes": 275775043,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e18%20A%20Killing%20At%20The%20Track.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e19",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 19,
-          "title": "Escape",
-          "overview": "Ed and Eve go to Mexico to help out Lonnie Burnett, who is facing a murder charge like the one that Eve cleared him of years earlier.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284201.jpg",
-          "airDate": "1971-02-11",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e19 Escape.mp4",
-            "format": "h.264",
-            "sizeBytes": 275509251,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e19%20Escape.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e20",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 20,
-          "title": "Love, Peace Brotherhood, and Murder",
-          "overview": "After an actor dies of a drug OD during a stage rehearsal of a controversial show, Ironside and the team investigate.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284210.jpg",
-          "airDate": "1971-02-18",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e20 Love, Peace Brotherhood, And Murder.mp4",
-            "format": "h.264",
-            "sizeBytes": 275986484,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e20%20Love%2C%20Peace%20Brotherhood%2C%20And%20Murder.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e21",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 21,
-          "title": "The Riddle in Room Six",
-          "overview": "Ironside tries to figure out which juror on a mobster's trial is being bribed to deadlock the case.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286604.jpg",
-          "airDate": "1971-02-25",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e21 The Riddle In Room Six.mp4",
-            "format": "h.264",
-            "sizeBytes": 276086190,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e21%20The%20Riddle%20In%20Room%20Six.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e22",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 22,
-          "title": "The Summer Soldier",
-          "overview": "Two men blackmail their uncle Arschag into lacing the tobacco he sells with PCP.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286628.jpg",
-          "airDate": "1971-03-04",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e22 The Summer Soldier.mp4",
-            "format": "h.264",
-            "sizeBytes": 276300557,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e22%20The%20Summer%20Soldier.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e23",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 23,
-          "title": "Accident",
-          "overview": "Mark befriends an old woman who he accidentally hit with the van.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286632.jpg",
-          "airDate": "1971-03-11",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e23 Accident.mp4",
-            "format": "h.264",
-            "sizeBytes": 276436734,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e23%20Accident.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e24",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 24,
-          "title": "Lesson in Terror",
-          "overview": "A son of a prominent lawyer is apparently connected to an underground terrorist group, but Ironside has his doubts as to whether the connection is willing.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286638.jpg",
-          "airDate": "1971-03-18",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e24 Lesson In Terror.mp4",
-            "format": "h.264",
-            "sizeBytes": 276417901,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e24%20Lesson%20In%20Terror.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e25",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 25,
-          "title": "Grandmother's House",
-          "overview": "Ironside is called in to investigate a purse-snatching. The victim: Margaret Brainard, the widow of the former Police Commissioner. The theft: $200,000 worth of jewelry.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286643.jpg",
-          "airDate": "1971-04-01",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e25 Grandmother's House.mp4",
-            "format": "h.264",
-            "sizeBytes": 275924764,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e25%20Grandmother%27s%20House.mp4"
-        },
-        {
-          "archiveID": "ironsideS04@s4e26",
-          "sourceID": "ironsideS04",
-          "seasonNumber": 4,
-          "episodeNumber": 26,
-          "title": "Walls Are Waiting",
-          "overview": "Ironside tries to track down the shooter of a parole officer with numerous enemies.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/287377.jpg",
-          "airDate": "1971-04-15",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S04e26 Walls Are Waiting.mp4",
-            "format": "h.264",
-            "sizeBytes": 276935129,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e26%20Walls%20Are%20Waiting.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "ironside-S05@s5e01",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 1,
-          "title": "The Priest Killer",
-          "overview": null,
-          "stillURL": "https://archive.org/download/ironside-S05/ironside-S05.thumbs/Ironside%20S05e01%20Priest-Killer_002364.jpg",
-          "airDate": "1971-09-14",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e01 Priest-Killer.mp4",
-            "format": "h.264",
-            "sizeBytes": 554842908,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e01%20Priest-Killer.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e02",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 2,
-          "title": "Contract: Kill Ironside",
-          "overview": "A hitman who never misses is hired to kill Ironside.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/287385.jpg",
-          "airDate": "1971-09-21",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e02 Contract Kill Ironside.mp4",
-            "format": "h.264",
-            "sizeBytes": 278770188,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e02%20Contract%20Kill%20Ironside.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e03",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 3,
-          "title": "The Professionals",
-          "overview": "Ironside and his team investigate crooks who use a phony cab to deliver men to a motel, drug them unconscious, and steal their credit cards.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/287395.jpg",
-          "airDate": "1971-09-28",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e03 The Professionals.mp4",
-            "format": "h.264",
-            "sizeBytes": 278294683,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e03%20The%20Professionals.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e04",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 4,
-          "title": "The Gambling Game",
-          "overview": "Ironside takes on a gambling ring that has an inside man on the force. Meanwhile, new policewoman Fran Belding goes after the ring because they supposedly killed her father.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/288464.jpg",
-          "airDate": "1971-10-05",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e04 The Gambling Game.mp4",
-            "format": "h.264",
-            "sizeBytes": 279362191,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e04%20The%20Gambling%20Game.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e05",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 5,
-          "title": "Ring of Prayer",
-          "overview": "Ironside investigates a woman apparently responsible for his friend's change of mind concerning a convict's parole.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/289233.jpg",
-          "airDate": "1971-10-12",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e05 Ring Of Prayer.mp4",
-            "format": "h.264",
-            "sizeBytes": 279114679,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e05%20Ring%20Of%20Prayer.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e06",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 6,
-          "title": "In the Line of Duty",
-          "overview": "Ironsijde tries to figure out why a widow who testified to the death of her policeman husband at the hands of someone he previously busted might be lying.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/289622.jpg",
-          "airDate": "1971-10-19",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e06 In The Line Of Duty.mp4",
-            "format": "h.264",
-            "sizeBytes": 279475264,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e06%20In%20The%20Line%20Of%20Duty.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e07",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 7,
-          "title": "Joss Sticks and Wedding Bells",
-          "overview": "Ironside's Korean foster daughter Chong Lee comes to America to marry her fiance, and the team discovers that he's in debt to two loan sharks.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/289627.jpg",
-          "airDate": "1971-10-26",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e07 Joss Sticks And Wedding Bells.mp4",
-            "format": "h.264",
-            "sizeBytes": 278462444,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e07%20Joss%20Sticks%20And%20Wedding%20Bells.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e08",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 8,
-          "title": "Murder Impromptu",
-          "overview": "Ironside attends an improvisation show and witnesses a murder. Now he has to find out who did it.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291202.jpg",
-          "airDate": "1971-11-02",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e08 Murder Impromptu.mp4",
-            "format": "h.264",
-            "sizeBytes": 278760775,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e08%20Murder%20Impromptu.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e09",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 9,
-          "title": "Dear Fran...",
-          "overview": "The team looks into the apparent suicide of Fran's cousin.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291203.jpg",
-          "airDate": "1971-11-09",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e09 Dear Fran.mp4",
-            "format": "h.264",
-            "sizeBytes": 278656833,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e09%20Dear%20Fran.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e10",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 10,
-          "title": "If a Body See a Body",
-          "overview": null,
-          "stillURL": "https://archive.org/download/ironside-S05/ironside-S05.thumbs/Ironside%20S05e10%20If%20A%20Body%20See%20A%20Body_001185.jpg",
-          "airDate": "1971-11-16",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e10 If A Body See A Body.mp4",
-            "format": "h.264",
-            "sizeBytes": 278375571,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e10%20If%20A%20Body%20See%20A%20Body.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e11",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 11,
-          "title": "Good Samaritan",
-          "overview": "Ironside and his team help out a soldier who has been framed for a drug ring being run inside the military.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291623.jpg",
-          "airDate": "1971-11-23",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e11 Good Samaritan.mp4",
-            "format": "h.264",
-            "sizeBytes": 278550836,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e11%20Good%20Samaritan.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e12",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 12,
-          "title": "Gentle Oaks",
-          "overview": "When residents turn up dead at a nursing home, Ironside goes undercover to investigate.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291895.jpg",
-          "airDate": "1971-11-25",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e12 Gentle Oaks.mp4",
-            "format": "h.264",
-            "sizeBytes": 278733801,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e12%20Gentle%20Oaks.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e13",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 13,
-          "title": "License to Kill",
-          "overview": "A killer freed due to a hung jury frames the dead man's police officer partner.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/292161.jpg",
-          "airDate": "1971-12-02",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e13 License To Kill.mp4",
-            "format": "h.264",
-            "sizeBytes": 278683488,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e13%20License%20To%20Kill.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e14",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 14,
-          "title": "Class of '57",
-          "overview": "Ed investigates a former classmate on the run from an assault charge, and links up with his high school sweetheart.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/293488.jpg",
-          "airDate": "1971-12-16",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e14 Class Of '57.mp4",
-            "format": "h.264",
-            "sizeBytes": 278222381,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e14%20Class%20Of%20%2757.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e15",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 15,
-          "title": "No Motive for Murder",
-          "overview": "Ironside travels to Tokyo to help an old friend, wheelchair-bound and apparently a target for murder.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/293491.jpg",
-          "airDate": "1971-12-23",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e15 No Motive For Murder.mp4",
-            "format": "h.264",
-            "sizeBytes": 278959549,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e15%20No%20Motive%20For%20Murder.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e16",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 16,
-          "title": "But When She Was Bad,...",
-          "overview": "A stalker goes after Shelly Kingman, but seems to have no motive. However, Shelly's connection to a cop killer may be the key.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/294052.jpg",
-          "airDate": "1971-12-30",
-          "year": 1971,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e16 But When She Was Bad.mp4",
-            "format": "h.264",
-            "sizeBytes": 278409067,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e16%20But%20When%20She%20Was%20Bad.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e17",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 17,
-          "title": "Unreasonable Facsimile",
-          "overview": "A former bank robber, paroled on Ironside's recommendation, is apparently up to his old tricks. Or is he?",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/294353.jpg",
-          "airDate": "1972-01-06",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e17 Unreasonable Facsimile.mp4",
-            "format": "h.264",
-            "sizeBytes": 278469053,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e17%20Unreasonable%20Facsimile.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e18",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 18,
-          "title": "Find a Victim",
-          "overview": "A series of break-ins seemed to be based out of a halfway home for ex-cons... but noithing is stolen.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/294781.jpg",
-          "airDate": "1972-01-13",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e18 Find A Victim.mp4",
-            "format": "h.264",
-            "sizeBytes": 278358273,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e18%20Find%20A%20Victim.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e19",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 19,
-          "title": "And Then There Was One",
-          "overview": "Sometimes tries to kill two Vietnam vets, and Ironside uses Ed as bait to try and catch the killer.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/118/296310.jpg",
-          "airDate": "1972-01-20",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e19 And Then There Was One.mp4",
-            "format": "h.264",
-            "sizeBytes": 278042184,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e19%20And%20Then%20There%20Was%20One.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e20",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 20,
-          "title": "Death by the Numbers",
-          "overview": "To discover who is killing parole board members, Ironside goes undercover as an irascible artist.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/118/295497.jpg",
-          "airDate": "1972-01-27",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e20 Death By The Numbers.mp4",
-            "format": "h.264",
-            "sizeBytes": 278472701,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e20%20Death%20By%20The%20Numbers.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e21",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 21,
-          "title": "Bubble, Bubble, Toil and Murder",
-          "overview": "A young girl believes that she cursed a man to die, and the team sets out to prove someone all too non-supernatural was responsible.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/118/296311.jpg",
-          "airDate": "1972-02-03",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e21 Bubble, Bubble, Toil And Murder.mp4",
-            "format": "h.264",
-            "sizeBytes": 278382161,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e21%20Bubble%2C%20Bubble%2C%20Toil%20And%20Murder.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e22",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 22,
-          "title": "Achilles' Heel",
-          "overview": "A judge's son is framed for murder, or so Ironside suspects.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/297874.jpg",
-          "airDate": "1972-02-17",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e22 Achilles' Heel.mp4",
-            "format": "h.264",
-            "sizeBytes": 277641434,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e22%20Achilles%27%20Heel.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e23",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 23,
-          "title": "His Fiddlers Three",
-          "overview": "Ironside tries to solve the murder of a music teacher, who left a piece of music to identify his killer.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/297878.jpg",
-          "airDate": "1972-03-02",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e23 His Fiddlers Three.mp4",
-            "format": "h.264",
-            "sizeBytes": 278315441,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e23%20His%20Fiddlers%20Three.mp4"
-        },
-        {
-          "archiveID": "ironside-S05@s5e24",
-          "sourceID": "ironside-S05",
-          "seasonNumber": 5,
-          "episodeNumber": 24,
-          "title": "A Man Named Arno",
-          "overview": "An old friend of Ironside's pays him a visit, and he soon figures that it's no coincidence that he's tracking down a heroin dealer at the same time.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/297886.jpg",
-          "airDate": "1972-03-09",
-          "year": 1972,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S05e24 A Man Named Arno.mp4",
-            "format": "h.264",
-            "sizeBytes": 278818409,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e24%20A%20Man%20Named%20Arno.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 6,
-      "episodes": [
-        {
-          "archiveID": "ironside-S06",
-          "seasonNumber": 6,
-          "episodeNumber": 15,
-          "title": "A Special Person",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
-          "airDate": "1973-01-11",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S06e16 A Special Person.mp4",
-            "format": "h.264",
-            "sizeBytes": 278904234,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ironside-S06/Ironside%20S06e16%20A%20Special%20Person.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 7,
-      "episodes": [
-        {
-          "archiveID": "ironside-season7",
-          "seasonNumber": 7,
-          "episodeNumber": 4,
-          "title": "Fragile is the House of Cards",
-          "overview": "A defense attorney comes to Ironside foir help when he's beaten and left with amnesia of the incident.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/123/309938.jpg",
-          "airDate": "1973-10-04",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Ironside S07e04 Fragile Is The House Of Cards.mp4",
-            "format": "h.264",
-            "sizeBytes": 279074078,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ironside-season7/Ironside%20S07e04%20Fragile%20Is%20The%20House%20Of%20Cards.mp4"
-        }
-      ]
+     "archiveID": "ironsides02",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "And Be My Love",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+     "airDate": "1969-02-20",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S02e19 And Be My Love.mp4",
+      "format": "h.264",
+      "sizeBytes": 280045153,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ironsides02/Ironside%20S02e19%20And%20Be%20My%20Love.mp4"
     }
-  ],
-  "episodesCount": 54,
-  "canonicalEpisodesCount": 193,
-  "tvmazeRating": 7.6,
-  "tvdbID": "78677",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
-      "name": "Raymond Burr",
-      "character": "Robert T. Ironside",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264557/photo/632b8e541eb19.jpg"
-    },
-    {
-      "name": "Don Galloway",
-      "character": "Det. Sgt. Ed Brown",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265802/photo/63acaa5751e8f.jpg"
-    },
-    {
-      "name": "Don Mitchell",
-      "character": "Mark Sanger",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/313354.jpg"
-    },
-    {
-      "name": "Elizabeth Baur",
-      "character": "Fran Belding",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284128/photo/630e9bd0a81e7.jpg"
-    },
-    {
-      "name": "Barbara Anderson",
-      "character": "Officer Eve Whitfield",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257786/photo/6405da50da118.jpg"
-    },
-    {
-      "name": "Gene Lyons",
-      "character": "Commissioner Dennis Randall",
-      "order": 5,
-      "profilePath": null
-    },
-    {
-      "name": "Johnny Seven",
-      "character": "Lt. Carl Reese",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259031/photo/63e586b66256c.jpg"
+     "archiveID": "ironsideS03",
+     "seasonNumber": 3,
+     "episodeNumber": 7,
+     "title": "Seeing is Believing",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+     "airDate": "1969-10-30",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S03e07 Seeing Is Believing.mp4",
+      "format": "h.264",
+      "sizeBytes": 281120548,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ironsideS03/Ironside%20S03e07%20Seeing%20Is%20Believing.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "ironsideS04@s4e01",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "A Killing Will Occur",
+     "overview": "An anonymous caller taunts Ironside with clues to a planned murder, threatening a life unless stopped. Ironside realizes the threat is real.",
+     "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e01%20A%20Killing%20Will%20Occur_001028.jpg",
+     "airDate": "1970-09-17",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e01 A Killing Will Occur.mp4",
+      "format": "h.264",
+      "sizeBytes": 278782456,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e01%20A%20Killing%20Will%20Occur.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e02",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 2,
+     "title": "No Game for Amateurs",
+     "overview": null,
+     "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e02%20No%20Game%20For%20Amateurs_001020.jpg",
+     "airDate": "1970-09-24",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e02 No Game For Amateurs.mp4",
+      "format": "h.264",
+      "sizeBytes": 276202711,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e02%20No%20Game%20For%20Amateurs.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e03",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 3,
+     "title": "The Happy Dreams of Hollow Men",
+     "overview": "Joseph Campanella plays a heroin addict.",
+     "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e03%20The%20Happy%20Dreams%20Of%20Hollow%20Men_001026.jpg",
+     "airDate": "1970-10-01",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e03 The Happy Dreams Of Hollow Men.mp4",
+      "format": "h.264",
+      "sizeBytes": 279163625,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e03%20The%20Happy%20Dreams%20Of%20Hollow%20Men.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e04",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 4,
+     "title": "The People Against Judge McIntire",
+     "overview": null,
+     "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e04%20The%20People%20Against%20Judge%20Mcintire_001017.jpg",
+     "airDate": "1970-10-08",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e04 The People Against Judge Mcintire.mp4",
+      "format": "h.264",
+      "sizeBytes": 275988737,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e04%20The%20People%20Against%20Judge%20Mcintire.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e05",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 5,
+     "title": "Noel's Gonna Fly",
+     "overview": null,
+     "stillURL": "https://archive.org/download/ironsideS04/ironsideS04.thumbs/Ironside%20S04e05%20Noel%27s%20Gonna%20Fly_001019.jpg",
+     "airDate": "1970-10-15",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e05 Noel's Gonna Fly.mp4",
+      "format": "h.264",
+      "sizeBytes": 276580665,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e05%20Noel%27s%20Gonna%20Fly.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e06",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 6,
+     "title": "The Lonely Way to Go",
+     "overview": "Jason Banning, the police pension fund's investment manager, confesses to the murder of his secretary. However, Ironside suspects that there's more to the story.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/110/275852.jpg",
+     "airDate": "1970-10-22",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e06 The Lonely Way To Go.mp4",
+      "format": "h.264",
+      "sizeBytes": 279819762,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e06%20The%20Lonely%20Way%20To%20Go.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e07",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 7,
+     "title": "Check, Mate; and Murder (Part 1)",
+     "overview": "French separatists attack a police convention in Quebec, and the lead bomber is the son of Ironside's former lover.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/110/275854.jpg",
+     "airDate": "1970-10-29",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e07 Check, Mate; And Murder (Part 1).mp4",
+      "format": "h.264",
+      "sizeBytes": 275266369,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e07%20Check%2C%20Mate%3B%20And%20Murder%20%28Part%201%29.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e08",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 8,
+     "title": "Check, Mate: and Murder (Part 2)",
+     "overview": "The separatists prepare to bomb a holiday parade, and Ed goes undercover to stop them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/110/276184.jpg",
+     "airDate": "1970-11-05",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e08 Check, Mate And Murder (Part 2).mp4",
+      "format": "h.264",
+      "sizeBytes": 275416639,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e08%20Check%2C%20Mate%20And%20Murder%20%28Part%202%29.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e09",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 9,
+     "title": "Too Many Victims",
+     "overview": "A drug dealer is targeting kids, and the daughter of a friend is injured while under the inflkuence.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/277506.jpg",
+     "airDate": "1970-11-12",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e09 Too Many Victims.mp4",
+      "format": "h.264",
+      "sizeBytes": 275150832,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e09%20Too%20Many%20Victims.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e10",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 10,
+     "title": "The Man on the Inside",
+     "overview": "Ed ends up investigating Ironside when the police suspect that Ironside tipped off criminals targeted by a police raid.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/277508.jpg",
+     "airDate": "1970-11-19",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e10 The Man On The Inside.mp4",
+      "format": "h.264",
+      "sizeBytes": 276213378,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e10%20The%20Man%20On%20The%20Inside.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e11",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 11,
+     "title": "Backfire",
+     "overview": "For his law school class, Mark ends up reviewing the case of a convicted man who may be innocent... and who was put away based on Ed's investigation.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/278022.jpg",
+     "airDate": "1970-12-03",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e11 Backfire.mp4",
+      "format": "h.264",
+      "sizeBytes": 276632057,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e11%20Backfire.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e12",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 12,
+     "title": "The Laying On of Hands",
+     "overview": "Pablito Esteban, a nine-year-old boy with miraculous healing powers, heals a friend of Ironside's and the team set out to determine if the boy's powers are real.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/278518.jpg",
+     "airDate": "1970-12-10",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e12 The Laying On Of Hands.mp4",
+      "format": "h.264",
+      "sizeBytes": 275759590,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e12%20The%20Laying%20On%20Of%20Hands.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e13",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 13,
+     "title": "This Could Blow Your Mind",
+     "overview": "A mob hitman abducts the family of a hypnotist to keep the man from testifying against him.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/111/278528.jpg",
+     "airDate": "1970-12-17",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e13 This Could Blow Your Mind.mp4",
+      "format": "h.264",
+      "sizeBytes": 276516388,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e13%20This%20Could%20Blow%20Your%20Mind.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e14",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 14,
+     "title": "Blackout",
+     "overview": "Ironside has Mark take him for a visit to his old precinct house. When a blackout hits the area, Ironside ends up in charge and working with his old parnter, Dave Spangler.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281303.jpg",
+     "airDate": "1970-12-31",
+     "year": 1970,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e14 Blackout.mp4",
+      "format": "h.264",
+      "sizeBytes": 275289812,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e14%20Blackout.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e15",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 15,
+     "title": "The Quincunx",
+     "overview": "Ironside and his team get drawn into the investigation of a murder involving a band… and Eve gets involved with one of the members.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281311.jpg",
+     "airDate": "1971-01-07",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e15 The Quincunx.mp4",
+      "format": "h.264",
+      "sizeBytes": 275608424,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e15%20The%20Quincunx.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e16",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 16,
+     "title": "From Hruska, with Love",
+     "overview": "The team gets involved with international espionage when they take a refugee to Mexico to exchange for an American scientist. However, someone blows their cover and comes after them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/281315.jpg",
+     "airDate": "1971-01-21",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e16 From Hruska, With Love.mp4",
+      "format": "h.264",
+      "sizeBytes": 275059776,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e16%20From%20Hruska%2C%20With%20Love.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e17",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 17,
+     "title": "The Target",
+     "overview": "A militant group abducts Sonny Brokaw to force his father, ex-convict Gordy Brokaw, to steal explosives from his construction site for them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284189.jpg",
+     "airDate": "1971-01-28",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e17 The Target.mp4",
+      "format": "h.264",
+      "sizeBytes": 275878384,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e17%20The%20Target.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e18",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 18,
+     "title": "A Killing at the Track",
+     "overview": "While investigating a race-fixing scandal at the track, Eve gets involved with an old lover.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284190.jpg",
+     "airDate": "1971-02-04",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e18 A Killing At The Track.mp4",
+      "format": "h.264",
+      "sizeBytes": 275775043,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e18%20A%20Killing%20At%20The%20Track.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e19",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 19,
+     "title": "Escape",
+     "overview": "Ed and Eve go to Mexico to help out Lonnie Burnett, who is facing a murder charge like the one that Eve cleared him of years earlier.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284201.jpg",
+     "airDate": "1971-02-11",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e19 Escape.mp4",
+      "format": "h.264",
+      "sizeBytes": 275509251,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e19%20Escape.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e20",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 20,
+     "title": "Love, Peace Brotherhood, and Murder",
+     "overview": "After an actor dies of a drug OD during a stage rehearsal of a controversial show, Ironside and the team investigate.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/284210.jpg",
+     "airDate": "1971-02-18",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e20 Love, Peace Brotherhood, And Murder.mp4",
+      "format": "h.264",
+      "sizeBytes": 275986484,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e20%20Love%2C%20Peace%20Brotherhood%2C%20And%20Murder.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e21",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 21,
+     "title": "The Riddle in Room Six",
+     "overview": "Ironside tries to figure out which juror on a mobster's trial is being bribed to deadlock the case.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286604.jpg",
+     "airDate": "1971-02-25",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e21 The Riddle In Room Six.mp4",
+      "format": "h.264",
+      "sizeBytes": 276086190,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e21%20The%20Riddle%20In%20Room%20Six.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e22",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 22,
+     "title": "The Summer Soldier",
+     "overview": "Two men blackmail their uncle Arschag into lacing the tobacco he sells with PCP.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286628.jpg",
+     "airDate": "1971-03-04",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e22 The Summer Soldier.mp4",
+      "format": "h.264",
+      "sizeBytes": 276300557,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e22%20The%20Summer%20Soldier.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e23",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 23,
+     "title": "Accident",
+     "overview": "Mark befriends an old woman who he accidentally hit with the van.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286632.jpg",
+     "airDate": "1971-03-11",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e23 Accident.mp4",
+      "format": "h.264",
+      "sizeBytes": 276436734,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e23%20Accident.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e24",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 24,
+     "title": "Lesson in Terror",
+     "overview": "A son of a prominent lawyer is apparently connected to an underground terrorist group, but Ironside has his doubts as to whether the connection is willing.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286638.jpg",
+     "airDate": "1971-03-18",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e24 Lesson In Terror.mp4",
+      "format": "h.264",
+      "sizeBytes": 276417901,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e24%20Lesson%20In%20Terror.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e25",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 25,
+     "title": "Grandmother's House",
+     "overview": "Ironside is called in to investigate a purse-snatching. The victim: Margaret Brainard, the widow of the former Police Commissioner. The theft: $200,000 worth of jewelry.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/286643.jpg",
+     "airDate": "1971-04-01",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e25 Grandmother's House.mp4",
+      "format": "h.264",
+      "sizeBytes": 275924764,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e25%20Grandmother%27s%20House.mp4"
+    },
+    {
+     "archiveID": "ironsideS04@s4e26",
+     "sourceID": "ironsideS04",
+     "seasonNumber": 4,
+     "episodeNumber": 26,
+     "title": "Walls Are Waiting",
+     "overview": "Ironside tries to track down the shooter of a parole officer with numerous enemies.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/287377.jpg",
+     "airDate": "1971-04-15",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S04e26 Walls Are Waiting.mp4",
+      "format": "h.264",
+      "sizeBytes": 276935129,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironsideS04/Ironside%20S04e26%20Walls%20Are%20Waiting.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "ironside-S05@s5e01",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 1,
+     "title": "The Priest Killer",
+     "overview": null,
+     "stillURL": "https://archive.org/download/ironside-S05/ironside-S05.thumbs/Ironside%20S05e01%20Priest-Killer_002364.jpg",
+     "airDate": "1971-09-14",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e01 Priest-Killer.mp4",
+      "format": "h.264",
+      "sizeBytes": 554842908,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e01%20Priest-Killer.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e02",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "Contract: Kill Ironside",
+     "overview": "A hitman who never misses is hired to kill Ironside.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/287385.jpg",
+     "airDate": "1971-09-21",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e02 Contract Kill Ironside.mp4",
+      "format": "h.264",
+      "sizeBytes": 278770188,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e02%20Contract%20Kill%20Ironside.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e03",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 3,
+     "title": "The Professionals",
+     "overview": "Ironside and his team investigate crooks who use a phony cab to deliver men to a motel, drug them unconscious, and steal their credit cards.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/287395.jpg",
+     "airDate": "1971-09-28",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e03 The Professionals.mp4",
+      "format": "h.264",
+      "sizeBytes": 278294683,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e03%20The%20Professionals.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e04",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 4,
+     "title": "The Gambling Game",
+     "overview": "Ironside takes on a gambling ring that has an inside man on the force. Meanwhile, new policewoman Fran Belding goes after the ring because they supposedly killed her father.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/288464.jpg",
+     "airDate": "1971-10-05",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e04 The Gambling Game.mp4",
+      "format": "h.264",
+      "sizeBytes": 279362191,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e04%20The%20Gambling%20Game.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e05",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 5,
+     "title": "Ring of Prayer",
+     "overview": "Ironside investigates a woman apparently responsible for his friend's change of mind concerning a convict's parole.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/289233.jpg",
+     "airDate": "1971-10-12",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e05 Ring Of Prayer.mp4",
+      "format": "h.264",
+      "sizeBytes": 279114679,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e05%20Ring%20Of%20Prayer.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e06",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 6,
+     "title": "In the Line of Duty",
+     "overview": "Ironsijde tries to figure out why a widow who testified to the death of her policeman husband at the hands of someone he previously busted might be lying.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/289622.jpg",
+     "airDate": "1971-10-19",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e06 In The Line Of Duty.mp4",
+      "format": "h.264",
+      "sizeBytes": 279475264,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e06%20In%20The%20Line%20Of%20Duty.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e07",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 7,
+     "title": "Joss Sticks and Wedding Bells",
+     "overview": "Ironside's Korean foster daughter Chong Lee comes to America to marry her fiance, and the team discovers that he's in debt to two loan sharks.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/115/289627.jpg",
+     "airDate": "1971-10-26",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e07 Joss Sticks And Wedding Bells.mp4",
+      "format": "h.264",
+      "sizeBytes": 278462444,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e07%20Joss%20Sticks%20And%20Wedding%20Bells.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e08",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 8,
+     "title": "Murder Impromptu",
+     "overview": "Ironside attends an improvisation show and witnesses a murder. Now he has to find out who did it.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291202.jpg",
+     "airDate": "1971-11-02",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e08 Murder Impromptu.mp4",
+      "format": "h.264",
+      "sizeBytes": 278760775,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e08%20Murder%20Impromptu.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e09",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 9,
+     "title": "Dear Fran...",
+     "overview": "The team looks into the apparent suicide of Fran's cousin.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291203.jpg",
+     "airDate": "1971-11-09",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e09 Dear Fran.mp4",
+      "format": "h.264",
+      "sizeBytes": 278656833,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e09%20Dear%20Fran.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e10",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 10,
+     "title": "If a Body See a Body",
+     "overview": null,
+     "stillURL": "https://archive.org/download/ironside-S05/ironside-S05.thumbs/Ironside%20S05e10%20If%20A%20Body%20See%20A%20Body_001185.jpg",
+     "airDate": "1971-11-16",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e10 If A Body See A Body.mp4",
+      "format": "h.264",
+      "sizeBytes": 278375571,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e10%20If%20A%20Body%20See%20A%20Body.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e11",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 11,
+     "title": "Good Samaritan",
+     "overview": "Ironside and his team help out a soldier who has been framed for a drug ring being run inside the military.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291623.jpg",
+     "airDate": "1971-11-23",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e11 Good Samaritan.mp4",
+      "format": "h.264",
+      "sizeBytes": 278550836,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e11%20Good%20Samaritan.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e12",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 12,
+     "title": "Gentle Oaks",
+     "overview": "When residents turn up dead at a nursing home, Ironside goes undercover to investigate.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/291895.jpg",
+     "airDate": "1971-11-25",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e12 Gentle Oaks.mp4",
+      "format": "h.264",
+      "sizeBytes": 278733801,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e12%20Gentle%20Oaks.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e13",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 13,
+     "title": "License to Kill",
+     "overview": "A killer freed due to a hung jury frames the dead man's police officer partner.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/292161.jpg",
+     "airDate": "1971-12-02",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e13 License To Kill.mp4",
+      "format": "h.264",
+      "sizeBytes": 278683488,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e13%20License%20To%20Kill.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e14",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 14,
+     "title": "Class of '57",
+     "overview": "Ed investigates a former classmate on the run from an assault charge, and links up with his high school sweetheart.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/293488.jpg",
+     "airDate": "1971-12-16",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e14 Class Of '57.mp4",
+      "format": "h.264",
+      "sizeBytes": 278222381,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e14%20Class%20Of%20%2757.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e15",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 15,
+     "title": "No Motive for Murder",
+     "overview": "Ironside travels to Tokyo to help an old friend, wheelchair-bound and apparently a target for murder.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/293491.jpg",
+     "airDate": "1971-12-23",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e15 No Motive For Murder.mp4",
+      "format": "h.264",
+      "sizeBytes": 278959549,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e15%20No%20Motive%20For%20Murder.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e16",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 16,
+     "title": "But When She Was Bad,...",
+     "overview": "A stalker goes after Shelly Kingman, but seems to have no motive. However, Shelly's connection to a cop killer may be the key.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/294052.jpg",
+     "airDate": "1971-12-30",
+     "year": 1971,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e16 But When She Was Bad.mp4",
+      "format": "h.264",
+      "sizeBytes": 278409067,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e16%20But%20When%20She%20Was%20Bad.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e17",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 17,
+     "title": "Unreasonable Facsimile",
+     "overview": "A former bank robber, paroled on Ironside's recommendation, is apparently up to his old tricks. Or is he?",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/294353.jpg",
+     "airDate": "1972-01-06",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e17 Unreasonable Facsimile.mp4",
+      "format": "h.264",
+      "sizeBytes": 278469053,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e17%20Unreasonable%20Facsimile.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e18",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 18,
+     "title": "Find a Victim",
+     "overview": "A series of break-ins seemed to be based out of a halfway home for ex-cons... but noithing is stolen.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/117/294781.jpg",
+     "airDate": "1972-01-13",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e18 Find A Victim.mp4",
+      "format": "h.264",
+      "sizeBytes": 278358273,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e18%20Find%20A%20Victim.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e19",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 19,
+     "title": "And Then There Was One",
+     "overview": "Sometimes tries to kill two Vietnam vets, and Ironside uses Ed as bait to try and catch the killer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/118/296310.jpg",
+     "airDate": "1972-01-20",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e19 And Then There Was One.mp4",
+      "format": "h.264",
+      "sizeBytes": 278042184,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e19%20And%20Then%20There%20Was%20One.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e20",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 20,
+     "title": "Death by the Numbers",
+     "overview": "To discover who is killing parole board members, Ironside goes undercover as an irascible artist.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/118/295497.jpg",
+     "airDate": "1972-01-27",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e20 Death By The Numbers.mp4",
+      "format": "h.264",
+      "sizeBytes": 278472701,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e20%20Death%20By%20The%20Numbers.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e21",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 21,
+     "title": "Bubble, Bubble, Toil and Murder",
+     "overview": "A young girl believes that she cursed a man to die, and the team sets out to prove someone all too non-supernatural was responsible.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/118/296311.jpg",
+     "airDate": "1972-02-03",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e21 Bubble, Bubble, Toil And Murder.mp4",
+      "format": "h.264",
+      "sizeBytes": 278382161,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e21%20Bubble%2C%20Bubble%2C%20Toil%20And%20Murder.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e22",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 22,
+     "title": "Achilles' Heel",
+     "overview": "A judge's son is framed for murder, or so Ironside suspects.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/297874.jpg",
+     "airDate": "1972-02-17",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e22 Achilles' Heel.mp4",
+      "format": "h.264",
+      "sizeBytes": 277641434,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e22%20Achilles%27%20Heel.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e23",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 23,
+     "title": "His Fiddlers Three",
+     "overview": "Ironside tries to solve the murder of a music teacher, who left a piece of music to identify his killer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/297878.jpg",
+     "airDate": "1972-03-02",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e23 His Fiddlers Three.mp4",
+      "format": "h.264",
+      "sizeBytes": 278315441,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e23%20His%20Fiddlers%20Three.mp4"
+    },
+    {
+     "archiveID": "ironside-S05@s5e24",
+     "sourceID": "ironside-S05",
+     "seasonNumber": 5,
+     "episodeNumber": 24,
+     "title": "A Man Named Arno",
+     "overview": "An old friend of Ironside's pays him a visit, and he soon figures that it's no coincidence that he's tracking down a heroin dealer at the same time.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/297886.jpg",
+     "airDate": "1972-03-09",
+     "year": 1972,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S05e24 A Man Named Arno.mp4",
+      "format": "h.264",
+      "sizeBytes": 278818409,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ironside-S05/Ironside%20S05e24%20A%20Man%20Named%20Arno.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 6,
+   "episodes": [
+    {
+     "archiveID": "ironside-S06",
+     "seasonNumber": 6,
+     "episodeNumber": 15,
+     "title": "A Special Person",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+     "airDate": "1973-01-11",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S06e16 A Special Person.mp4",
+      "format": "h.264",
+      "sizeBytes": 278904234,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ironside-S06/Ironside%20S06e16%20A%20Special%20Person.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 7,
+   "episodes": [
+    {
+     "archiveID": "ironside-season7",
+     "seasonNumber": 7,
+     "episodeNumber": 4,
+     "title": "Fragile is the House of Cards",
+     "overview": "A defense attorney comes to Ironside foir help when he's beaten and left with amnesia of the incident.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/123/309938.jpg",
+     "airDate": "1973-10-04",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Ironside S07e04 Fragile Is The House Of Cards.mp4",
+      "format": "h.264",
+      "sizeBytes": 279074078,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ironside-season7/Ironside%20S07e04%20Fragile%20Is%20The%20House%20Of%20Cards.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 54,
+ "canonicalEpisodesCount": 193,
+ "tvmazeRating": 7.6,
+ "tvdbID": "78677",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Raymond Burr",
+   "character": "Robert T. Ironside",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264557/photo/632b8e541eb19.jpg"
+  },
+  {
+   "name": "Don Galloway",
+   "character": "Det. Sgt. Ed Brown",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265802/photo/63acaa5751e8f.jpg"
+  },
+  {
+   "name": "Don Mitchell",
+   "character": "Mark Sanger",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/313354.jpg"
+  },
+  {
+   "name": "Elizabeth Baur",
+   "character": "Fran Belding",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284128/photo/630e9bd0a81e7.jpg"
+  },
+  {
+   "name": "Barbara Anderson",
+   "character": "Officer Eve Whitfield",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257786/photo/6405da50da118.jpg"
+  },
+  {
+   "name": "Gene Lyons",
+   "character": "Commissioner Dennis Randall",
+   "order": 5,
+   "profilePath": null
+  },
+  {
+   "name": "Johnny Seven",
+   "character": "Lt. Carl Reese",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259031/photo/63e586b66256c.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0061266",
+ "imdbRating": 6.9,
+ "imdbVotes": 4832
 }

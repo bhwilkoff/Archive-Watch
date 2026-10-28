@@ -1,480 +1,481 @@
 {
-  "version": 2,
-  "seriesID": "the-smothers-brothers-comedy-hour-1967",
-  "tvmazeID": 21694,
-  "title": "The Smothers Brothers Comedy Hour",
-  "yearStart": 1967,
-  "yearEnd": 1969,
-  "overview": "The Smothers Brothers Comedy Hour was an American comedy and variety show television series hosted by the Smothers Brothers and initially airing on CBS from 1967 to 1969. The series was a major success, especially considering it was scheduled against the major NBC television series, Bonanza, with content that appealed to contemporary youth viewership with daring political satire humor and major music acts like Buffalo Springfield, Pete Seeger and The Who. But continual conflicts with network executives over content led to the show being abruptly pulled from the schedule in 1969.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/70659-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-smothers-brothers-comedy-hour-1967",
+ "tvmazeID": 21694,
+ "title": "The Smothers Brothers Comedy Hour",
+ "yearStart": 1967,
+ "yearEnd": 1969,
+ "overview": "The Smothers Brothers Comedy Hour was an American comedy and variety show television series hosted by the Smothers Brothers and initially airing on CBS from 1967 to 1969. The series was a major success, especially considering it was scheduled against the major NBC television series, Bonanza, with content that appealed to contemporary youth viewership with daring political satire humor and major music acts like Buffalo Springfield, Pete Seeger and The Who. But continual conflicts with network executives over content led to the show being abruptly pulled from the schedule in 1969.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/70659-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "19670205.Jill St John,Ed Sullivan,Jim Nabors",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404",
-          "airDate": "1967-02-05",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "67-02-05 1-01 Ed Sullivan; Jim Nabors; Jill St. John.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 157314133,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404/67-02-05%201-01%20Ed%20Sullivan%3B%20Jim%20Nabors%3B%20Jill%20St.%20John.mp4"
-        },
-        {
-          "archiveID": "67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "19670212.Eddie Albert, Eva Gabor,Turtles",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
-          "airDate": "1967-02-12",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "67-02-12 1-02 Eddie Albert, Eva Gabor, the Turtles.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 186408696,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404/67-02-12%201-02%20Eddie%20Albert%2C%20Eva%20Gabor%2C%20the%20Turtles.mp4"
-        },
-        {
-          "archiveID": "67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "19670604.Vikki Carr,Steve Allen,Ted Neeley Five",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five.f20aca30.jpg",
-          "airDate": "1967-06-04",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "67-06-04 1-17 Vicki Carr, Steve Allen, Ted Neeley Five.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 192422984,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five/67-06-04%201-17%20Vicki%20Carr%2C%20Steve%20Allen%2C%20Ted%20Neeley%20Five.mp4"
-        }
-      ]
+     "archiveID": "67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "19670205.Jill St John,Ed Sullivan,Jim Nabors",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404",
+     "airDate": "1967-02-05",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "67-02-05 1-01 Ed Sullivan; Jim Nabors; Jill St. John.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 157314133,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404/67-02-05%201-01%20Ed%20Sullivan%3B%20Jim%20Nabors%3B%20Jill%20St.%20John.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-10-1967-11-12-james-mason-jimmie-rogers-davi",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "19671112.James Mason,Jimmie Rodgers,David Frye,Barbara Feldon",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-10-1967-11-12-james-mason-jimmie-rogers-davi",
-          "airDate": "1967-11-12",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E10 1967-11-12 - James Mason - Jimmie Rogers - David Frye - Barbara Feldon.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 324077093,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-10-1967-11-12-james-mason-jimmie-rogers-davi/Smothers%20Brothers%20Comedy%20Hour%20S2E10%201967-11-12%20-%20James%20Mason%20-%20Jimmie%20Rogers%20-%20David%20Frye%20-%20Barbara%20Feldon.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-11-1967-11-19-george-segal-nancy-willson-paul-revere",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "19671119.Nancy Wilson,George Segal,Paul Rever Raiders",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-11-1967-11-19-george-segal-nancy-willson-paul-revere",
-          "airDate": "1967-11-19",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E11 1967-11-19 - George Segal - Nancy Willson - Paul Revere.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 429701864,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-11-1967-11-19-george-segal-nancy-willson-paul-revere/Smothers%20Brothers%20Comedy%20Hour%20S2E11%201967-11-19%20-%20George%20Segal%20-%20Nancy%20Willson%20-%20Paul%20Revere.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-12-1967-11-26-jimmy-durante-janis-ian-nancy-ames",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "19671126.Jimmy Durante,Janis Ian,Mason Williams,Scoey Mitchell",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-12-1967-11-26-jimmy-durante-janis-ian-nancy-ames",
-          "airDate": "1967-11-26",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E12 1967-11-26 - Jimmy Durante - Janis Ian - Nancy Ames.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 251186044,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-12-1967-11-26-jimmy-durante-janis-ian-nancy-ames/Smothers%20Brothers%20Comedy%20Hour%20S2E12%201967-11-26%20-%20Jimmy%20Durante%20-%20Janis%20Ian%20-%20Nancy%20Ames.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-14-1967-12-17-tallulah-bankhead-the-temptations",
-          "seasonNumber": 2,
-          "episodeNumber": 14,
-          "title": "19671217.Tallulah Bankhead,The Temptations",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-14-1967-12-17-tallulah-bankhead-the-temptations",
-          "airDate": "1967-12-17",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E14 1967-12-17 - Tallulah Bankhead - The Temptations.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 400394926,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-14-1967-12-17-tallulah-bankhead-the-temptations/Smothers%20Brothers%20Comedy%20Hour%20S2E14%201967-12-17%20-%20Tallulah%20Bankhead%20-%20The%20Temptations.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-17-1968-01-07-edgar-bergen-judy-carne-first-edition",
-          "seasonNumber": 2,
-          "episodeNumber": 17,
-          "title": "19671231.Eddie Albert,Irish Rovers,Judy Collins,Bobby Blackmore",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-17-1968-01-07-edgar-bergen-judy-carne-first-edition",
-          "airDate": "1967-12-31",
-          "year": 1967,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E17 1968-01-07 - Edgar Bergen - Judy Carne - First Edition.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 302957820,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-17-1968-01-07-edgar-bergen-judy-carne-first-edition/Smothers%20Brothers%20Comedy%20Hour%20S2E17%201968-01-07%20-%20Edgar%20Bergen%20-%20Judy%20Carne%20-%20First%20Edition.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-18-1968-01-14-patty-duke-don-rickles-the-association",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "19680114.Patty Duke,Association,Don Rickles",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-18-1968-01-14-patty-duke-don-rickles-the-association",
-          "airDate": "1968-01-14",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E18 1968-01-14 - Patty Duke - Don Rickles - The Association.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 348163803,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-18-1968-01-14-patty-duke-don-rickles-the-association/Smothers%20Brothers%20Comedy%20Hour%20S2E18%201968-01-14%20-%20Patty%20Duke%20-%20Don%20Rickles%20-%20The%20Association.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-20-1968-01-28-paul-revere-nanette-fabray-robert-morse",
-          "seasonNumber": 2,
-          "episodeNumber": 20,
-          "title": "19680128.Robert Morse,Paul Revere and Raiders,Nanette Fabray",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-20-1968-01-28-paul-revere-nanette-fabray-robert-morse",
-          "airDate": "1968-01-28",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E20 1968-01-28 - Paul Revere - Nanette Fabray - Robert Morse.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 270578063,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-20-1968-01-28-paul-revere-nanette-fabray-robert-morse/Smothers%20Brothers%20Comedy%20Hour%20S2E20%201968-01-28%20-%20Paul%20Revere%20-%20Nanette%20Fabray%20-%20Robert%20Morse.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-22-1968-02-11-don-knotts-ravi-shankar-leigh-french-mel-torme",
-          "seasonNumber": 2,
-          "episodeNumber": 22,
-          "title": "19680211.Ravi Shankar,Mel Torme,Don Knotts",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-22-1968-02-11-don-knotts-ravi-shankar-leigh-french-mel-torme",
-          "airDate": "1968-02-11",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E22 1968-02-11 - Don Knotts - Ravi Shankar - Leigh French - Mel Torme.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 380769030,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-22-1968-02-11-don-knotts-ravi-shankar-leigh-french-mel-torme/Smothers%20Brothers%20Comedy%20Hour%20S2E22%201968-02-11%20-%20Don%20Knotts%20-%20Ravi%20Shankar%20-%20Leigh%20French%20-%20Mel%20Torme.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-24-1968-02-25-leigh-french-rowan-and-martin-pete-seeger",
-          "seasonNumber": 2,
-          "episodeNumber": 24,
-          "title": "19680225.Pete Seeger,Mason Williams,Rowan and Martin,Scoey Mitchell",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-24-1968-02-25-leigh-french-rowan-and-martin-pete-seeger",
-          "airDate": "1968-02-25",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E24 1968-02-25 - Leigh French - Rowan and Martin - Pete Seeger.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 446495670,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-24-1968-02-25-leigh-french-rowan-and-martin-pete-seeger/Smothers%20Brothers%20Comedy%20Hour%20S2E24%201968-02-25%20-%20Leigh%20French%20-%20Rowan%20and%20Martin%20-%20Pete%20Seeger.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-2-e-25-1968-03-03-glen-campbell-john-hartford-ma",
-          "seasonNumber": 2,
-          "episodeNumber": 25,
-          "title": "19680303.Glen Campbell,Jackie 'Moms' Mabley,John Hartford,Mason Williams",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-25-1968-03-03-glen-campbell-john-hartford-ma",
-          "airDate": "1968-03-03",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S2E25 1968-03-03 - Glen Campbell - John Hartford - Mason Williams - Moms Mabley.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 349209991,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-25-1968-03-03-glen-campbell-john-hartford-ma/Smothers%20Brothers%20Comedy%20Hour%20S2E25%201968-03-03%20-%20Glen%20Campbell%20-%20John%20Hartford%20-%20Mason%20Williams%20-%20Moms%20Mabley.mp4"
-        }
-      ]
+     "archiveID": "67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "19670212.Eddie Albert, Eva Gabor,Turtles",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
+     "airDate": "1967-02-12",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "67-02-12 1-02 Eddie Albert, Eva Gabor, the Turtles.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 186408696,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404/67-02-12%201-02%20Eddie%20Albert%2C%20Eva%20Gabor%2C%20the%20Turtles.mp4"
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-10-1968-12-15-george-carlin-the-doors-the-committee",
-          "seasonNumber": 3,
-          "episodeNumber": 10,
-          "title": "George Carlin, The Doors, The Committee",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-10-1968-12-15-george-carlin-the-doors-the-committee",
-          "airDate": "1968-12-15",
-          "year": 1968,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E10 1968-12-15 - George Carlin - The Doors - The Committee.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 357714623,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-10-1968-12-15-george-carlin-the-doors-the-committee/Smothers%20Brothers%20Comedy%20Hour%20S3E10%201968-12-15%20-%20George%20Carlin%20-%20The%20Doors%20-%20The%20Committee.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-15-1969-01-19-jackie-mason-ray-charles",
-          "seasonNumber": 3,
-          "episodeNumber": 15,
-          "title": "Ray Charles, Jackie Mason",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-15-1969-01-19-jackie-mason-ray-charles",
-          "airDate": "1969-01-19",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E15 1969-01-19 - Jackie Mason - Ray Charles.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 366267843,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-15-1969-01-19-jackie-mason-ray-charles/Smothers%20Brothers%20Comedy%20Hour%20S3E15%201969-01-19%20-%20Jackie%20Mason%20-%20Ray%20Charles.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-20-1969-03-02-jonathan-winters-leigh-french-judy-collins",
-          "seasonNumber": 3,
-          "episodeNumber": 20,
-          "title": "Jonathan Winters, Judy Collins",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-20-1969-03-02-jonathan-winters-leigh-french-judy-collins",
-          "airDate": "1969-03-02",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E20 1969-03-02 - Jonathan Winters ~ Leigh French ~ Judy Collins.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 332943646,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-20-1969-03-02-jonathan-winters-leigh-french-judy-collins/Smothers%20Brothers%20Comedy%20Hour%20S3E20%201969-03-02%20-%20Jonathan%20Winters%20~%20Leigh%20French%20~%20Judy%20Collins.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-23-1969-03-30-joan-baez-jackie-mason-the-committee",
-          "seasonNumber": 3,
-          "episodeNumber": 23,
-          "title": "Joan Baez, Jackie Mason, The Committee",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-23-1969-03-30-joan-baez-jackie-mason-the-committee",
-          "airDate": "1969-03-30",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E23 1969-03-30 - Joan Baez - Jackie Mason - The Committee.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 348379639,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-23-1969-03-30-joan-baez-jackie-mason-the-committee/Smothers%20Brothers%20Comedy%20Hour%20S3E23%201969-03-30%20-%20Joan%20Baez%20-%20Jackie%20Mason%20-%20The%20Committee.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-24-1969-04-13-ike-tina-turner-mason-williams",
-          "seasonNumber": 3,
-          "episodeNumber": 24,
-          "title": "Ike & Tina Turner, Mason Williams",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-24-1969-04-13-ike-tina-turner-mason-williams",
-          "airDate": "1969-04-06",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E24 1969-04-13 - Ike & Tina Turner - Mason Williams - Pat Paulson - Biff Rose.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 356225680,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-24-1969-04-13-ike-tina-turner-mason-williams/Smothers%20Brothers%20Comedy%20Hour%20S3E24%201969-04-13%20-%20Ike%20%26%20Tina%20Turner%20-%20Mason%20Williams%20-%20Pat%20Paulson%20-%20Biff%20Rose.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-25-1969-04-06-never-aired-david-steinberg-nancy-wilson-dan-rowan",
-          "seasonNumber": 3,
-          "episodeNumber": 25,
-          "title": "Dan Rowan, David Steinberg, Nancy Wilson",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-25-1969-04-06-never-aired-david-steinberg-nancy-wilson-dan-rowan",
-          "airDate": "1969-04-13",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E25 1969-04-06 - Never Aired - David Steinberg - Nancy Wilson - Dan Rowan.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 377469988,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-25-1969-04-06-never-aired-david-steinberg-nancy-wilson-dan-rowan/Smothers%20Brothers%20Comedy%20Hour%20S3E25%201969-04-06%20-%20Never%20Aired%20-%20David%20Steinberg%20-%20Nancy%20Wilson%20-%20Dan%20Rowan.mp4"
-        },
-        {
-          "archiveID": "smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers",
-          "seasonNumber": 3,
-          "episodeNumber": 26,
-          "title": "Anthony Newley, The Clinger Sisters, Delores Hall",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers",
-          "airDate": "1969-04-20",
-          "year": 1969,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Smothers Brothers Comedy Hour S3E26 1969-04-20 - Anthony Newley - Leigh French - The Clingers.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 278709851,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers/Smothers%20Brothers%20Comedy%20Hour%20S3E26%201969-04-20%20-%20Anthony%20Newley%20-%20Leigh%20French%20-%20The%20Clingers.mp4"
-        }
-      ]
+     "archiveID": "67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "19670604.Vikki Carr,Steve Allen,Ted Neeley Five",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five.f20aca30.jpg",
+     "airDate": "1967-06-04",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "67-06-04 1-17 Vicki Carr, Steve Allen, Ted Neeley Five.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 192422984,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five/67-06-04%201-17%20Vicki%20Carr%2C%20Steve%20Allen%2C%20Ted%20Neeley%20Five.mp4"
     }
-  ],
-  "episodesCount": 20,
-  "canonicalEpisodesCount": 72,
-  "tvmazeRating": null,
-  "tvdbID": "70659",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Sally Struthers",
-      "character": "",
-      "order": 0,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-10-1967-11-12-james-mason-jimmie-rogers-davi",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "19671112.James Mason,Jimmie Rodgers,David Frye,Barbara Feldon",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-10-1967-11-12-james-mason-jimmie-rogers-davi",
+     "airDate": "1967-11-12",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E10 1967-11-12 - James Mason - Jimmie Rogers - David Frye - Barbara Feldon.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 324077093,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-10-1967-11-12-james-mason-jimmie-rogers-davi/Smothers%20Brothers%20Comedy%20Hour%20S2E10%201967-11-12%20-%20James%20Mason%20-%20Jimmie%20Rogers%20-%20David%20Frye%20-%20Barbara%20Feldon.mp4"
     },
     {
-      "name": "Lorenzo Music",
-      "character": "",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/267591/64be9418a4a31.jpg"
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-11-1967-11-19-george-segal-nancy-willson-paul-revere",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "19671119.Nancy Wilson,George Segal,Paul Rever Raiders",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-11-1967-11-19-george-segal-nancy-willson-paul-revere",
+     "airDate": "1967-11-19",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E11 1967-11-19 - George Segal - Nancy Willson - Paul Revere.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 429701864,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-11-1967-11-19-george-segal-nancy-willson-paul-revere/Smothers%20Brothers%20Comedy%20Hour%20S2E11%201967-11-19%20-%20George%20Segal%20-%20Nancy%20Willson%20-%20Paul%20Revere.mp4"
     },
     {
-      "name": "John Hartford",
-      "character": "",
-      "order": 2,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-12-1967-11-26-jimmy-durante-janis-ian-nancy-ames",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "19671126.Jimmy Durante,Janis Ian,Mason Williams,Scoey Mitchell",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-12-1967-11-26-jimmy-durante-janis-ian-nancy-ames",
+     "airDate": "1967-11-26",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E12 1967-11-26 - Jimmy Durante - Janis Ian - Nancy Ames.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 251186044,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-12-1967-11-26-jimmy-durante-janis-ian-nancy-ames/Smothers%20Brothers%20Comedy%20Hour%20S2E12%201967-11-26%20-%20Jimmy%20Durante%20-%20Janis%20Ian%20-%20Nancy%20Ames.mp4"
     },
     {
-      "name": "Spencer Quinn",
-      "character": "",
-      "order": 3,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-14-1967-12-17-tallulah-bankhead-the-temptations",
+     "seasonNumber": 2,
+     "episodeNumber": 14,
+     "title": "19671217.Tallulah Bankhead,The Temptations",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-14-1967-12-17-tallulah-bankhead-the-temptations",
+     "airDate": "1967-12-17",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E14 1967-12-17 - Tallulah Bankhead - The Temptations.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 400394926,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-14-1967-12-17-tallulah-bankhead-the-temptations/Smothers%20Brothers%20Comedy%20Hour%20S2E14%201967-12-17%20-%20Tallulah%20Bankhead%20-%20The%20Temptations.mp4"
     },
     {
-      "name": "Mason Willams",
-      "character": "",
-      "order": 4,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-17-1968-01-07-edgar-bergen-judy-carne-first-edition",
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "19671231.Eddie Albert,Irish Rovers,Judy Collins,Bobby Blackmore",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-17-1968-01-07-edgar-bergen-judy-carne-first-edition",
+     "airDate": "1967-12-31",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E17 1968-01-07 - Edgar Bergen - Judy Carne - First Edition.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 302957820,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-17-1968-01-07-edgar-bergen-judy-carne-first-edition/Smothers%20Brothers%20Comedy%20Hour%20S2E17%201968-01-07%20-%20Edgar%20Bergen%20-%20Judy%20Carne%20-%20First%20Edition.mp4"
     },
     {
-      "name": "Roger Carroll",
-      "character": "",
-      "order": 5,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-18-1968-01-14-patty-duke-don-rickles-the-association",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "19680114.Patty Duke,Association,Don Rickles",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-18-1968-01-14-patty-duke-don-rickles-the-association",
+     "airDate": "1968-01-14",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E18 1968-01-14 - Patty Duke - Don Rickles - The Association.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 348163803,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-18-1968-01-14-patty-duke-don-rickles-the-association/Smothers%20Brothers%20Comedy%20Hour%20S2E18%201968-01-14%20-%20Patty%20Duke%20-%20Don%20Rickles%20-%20The%20Association.mp4"
     },
     {
-      "name": "Tom Smothers",
-      "character": "",
-      "order": 6,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-20-1968-01-28-paul-revere-nanette-fabray-robert-morse",
+     "seasonNumber": 2,
+     "episodeNumber": 20,
+     "title": "19680128.Robert Morse,Paul Revere and Raiders,Nanette Fabray",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-20-1968-01-28-paul-revere-nanette-fabray-robert-morse",
+     "airDate": "1968-01-28",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E20 1968-01-28 - Paul Revere - Nanette Fabray - Robert Morse.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 270578063,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-20-1968-01-28-paul-revere-nanette-fabray-robert-morse/Smothers%20Brothers%20Comedy%20Hour%20S2E20%201968-01-28%20-%20Paul%20Revere%20-%20Nanette%20Fabray%20-%20Robert%20Morse.mp4"
     },
     {
-      "name": "Leigh French",
-      "character": "",
-      "order": 7,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-22-1968-02-11-don-knotts-ravi-shankar-leigh-french-mel-torme",
+     "seasonNumber": 2,
+     "episodeNumber": 22,
+     "title": "19680211.Ravi Shankar,Mel Torme,Don Knotts",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-22-1968-02-11-don-knotts-ravi-shankar-leigh-french-mel-torme",
+     "airDate": "1968-02-11",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E22 1968-02-11 - Don Knotts - Ravi Shankar - Leigh French - Mel Torme.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 380769030,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-22-1968-02-11-don-knotts-ravi-shankar-leigh-french-mel-torme/Smothers%20Brothers%20Comedy%20Hour%20S2E22%201968-02-11%20-%20Don%20Knotts%20-%20Ravi%20Shankar%20-%20Leigh%20French%20-%20Mel%20Torme.mp4"
     },
     {
-      "name": "Peter Cullen",
-      "character": "",
-      "order": 8,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/262444/5ebc1fee9ec99.jpg"
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-24-1968-02-25-leigh-french-rowan-and-martin-pete-seeger",
+     "seasonNumber": 2,
+     "episodeNumber": 24,
+     "title": "19680225.Pete Seeger,Mason Williams,Rowan and Martin,Scoey Mitchell",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-24-1968-02-25-leigh-french-rowan-and-martin-pete-seeger",
+     "airDate": "1968-02-25",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E24 1968-02-25 - Leigh French - Rowan and Martin - Pete Seeger.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 446495670,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-24-1968-02-25-leigh-french-rowan-and-martin-pete-seeger/Smothers%20Brothers%20Comedy%20Hour%20S2E24%201968-02-25%20-%20Leigh%20French%20-%20Rowan%20and%20Martin%20-%20Pete%20Seeger.mp4"
     },
     {
-      "name": "Jennifer Warren",
-      "character": "",
-      "order": 9,
-      "profilePath": null
-    },
-    {
-      "name": "Bob Einstein",
-      "character": "",
-      "order": 10,
-      "profilePath": null
-    },
-    {
-      "name": "Dick Smothers",
-      "character": "",
-      "order": 11,
-      "profilePath": null
-    },
-    {
-      "name": "Pat Paulsen",
-      "character": "",
-      "order": 12,
-      "profilePath": null
+     "archiveID": "smothers-brothers-comedy-hour-s-2-e-25-1968-03-03-glen-campbell-john-hartford-ma",
+     "seasonNumber": 2,
+     "episodeNumber": 25,
+     "title": "19680303.Glen Campbell,Jackie 'Moms' Mabley,John Hartford,Mason Williams",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-2-e-25-1968-03-03-glen-campbell-john-hartford-ma",
+     "airDate": "1968-03-03",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S2E25 1968-03-03 - Glen Campbell - John Hartford - Mason Williams - Moms Mabley.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 349209991,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-2-e-25-1968-03-03-glen-campbell-john-hartford-ma/Smothers%20Brothers%20Comedy%20Hour%20S2E25%201968-03-03%20-%20Glen%20Campbell%20-%20John%20Hartford%20-%20Mason%20Williams%20-%20Moms%20Mabley.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-10-1968-12-15-george-carlin-the-doors-the-committee",
+     "seasonNumber": 3,
+     "episodeNumber": 10,
+     "title": "George Carlin, The Doors, The Committee",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-10-1968-12-15-george-carlin-the-doors-the-committee",
+     "airDate": "1968-12-15",
+     "year": 1968,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E10 1968-12-15 - George Carlin - The Doors - The Committee.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 357714623,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-10-1968-12-15-george-carlin-the-doors-the-committee/Smothers%20Brothers%20Comedy%20Hour%20S3E10%201968-12-15%20-%20George%20Carlin%20-%20The%20Doors%20-%20The%20Committee.mp4"
+    },
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-15-1969-01-19-jackie-mason-ray-charles",
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "Ray Charles, Jackie Mason",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-15-1969-01-19-jackie-mason-ray-charles",
+     "airDate": "1969-01-19",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E15 1969-01-19 - Jackie Mason - Ray Charles.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 366267843,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-15-1969-01-19-jackie-mason-ray-charles/Smothers%20Brothers%20Comedy%20Hour%20S3E15%201969-01-19%20-%20Jackie%20Mason%20-%20Ray%20Charles.mp4"
+    },
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-20-1969-03-02-jonathan-winters-leigh-french-judy-collins",
+     "seasonNumber": 3,
+     "episodeNumber": 20,
+     "title": "Jonathan Winters, Judy Collins",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-20-1969-03-02-jonathan-winters-leigh-french-judy-collins",
+     "airDate": "1969-03-02",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E20 1969-03-02 - Jonathan Winters ~ Leigh French ~ Judy Collins.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 332943646,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-20-1969-03-02-jonathan-winters-leigh-french-judy-collins/Smothers%20Brothers%20Comedy%20Hour%20S3E20%201969-03-02%20-%20Jonathan%20Winters%20~%20Leigh%20French%20~%20Judy%20Collins.mp4"
+    },
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-23-1969-03-30-joan-baez-jackie-mason-the-committee",
+     "seasonNumber": 3,
+     "episodeNumber": 23,
+     "title": "Joan Baez, Jackie Mason, The Committee",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-23-1969-03-30-joan-baez-jackie-mason-the-committee",
+     "airDate": "1969-03-30",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E23 1969-03-30 - Joan Baez - Jackie Mason - The Committee.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 348379639,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-23-1969-03-30-joan-baez-jackie-mason-the-committee/Smothers%20Brothers%20Comedy%20Hour%20S3E23%201969-03-30%20-%20Joan%20Baez%20-%20Jackie%20Mason%20-%20The%20Committee.mp4"
+    },
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-24-1969-04-13-ike-tina-turner-mason-williams",
+     "seasonNumber": 3,
+     "episodeNumber": 24,
+     "title": "Ike & Tina Turner, Mason Williams",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-24-1969-04-13-ike-tina-turner-mason-williams",
+     "airDate": "1969-04-06",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E24 1969-04-13 - Ike & Tina Turner - Mason Williams - Pat Paulson - Biff Rose.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 356225680,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-24-1969-04-13-ike-tina-turner-mason-williams/Smothers%20Brothers%20Comedy%20Hour%20S3E24%201969-04-13%20-%20Ike%20%26%20Tina%20Turner%20-%20Mason%20Williams%20-%20Pat%20Paulson%20-%20Biff%20Rose.mp4"
+    },
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-25-1969-04-06-never-aired-david-steinberg-nancy-wilson-dan-rowan",
+     "seasonNumber": 3,
+     "episodeNumber": 25,
+     "title": "Dan Rowan, David Steinberg, Nancy Wilson",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-25-1969-04-06-never-aired-david-steinberg-nancy-wilson-dan-rowan",
+     "airDate": "1969-04-13",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E25 1969-04-06 - Never Aired - David Steinberg - Nancy Wilson - Dan Rowan.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 377469988,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-25-1969-04-06-never-aired-david-steinberg-nancy-wilson-dan-rowan/Smothers%20Brothers%20Comedy%20Hour%20S3E25%201969-04-06%20-%20Never%20Aired%20-%20David%20Steinberg%20-%20Nancy%20Wilson%20-%20Dan%20Rowan.mp4"
+    },
+    {
+     "archiveID": "smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers",
+     "seasonNumber": 3,
+     "episodeNumber": 26,
+     "title": "Anthony Newley, The Clinger Sisters, Delores Hall",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers",
+     "airDate": "1969-04-20",
+     "year": 1969,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Smothers Brothers Comedy Hour S3E26 1969-04-20 - Anthony Newley - Leigh French - The Clingers.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 278709851,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers/Smothers%20Brothers%20Comedy%20Hour%20S3E26%201969-04-20%20-%20Anthony%20Newley%20-%20Leigh%20French%20-%20The%20Clingers.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 20,
+ "canonicalEpisodesCount": 72,
+ "tvmazeRating": null,
+ "tvdbID": "70659",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Sally Struthers",
+   "character": "",
+   "order": 0,
+   "profilePath": null
+  },
+  {
+   "name": "Lorenzo Music",
+   "character": "",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/267591/64be9418a4a31.jpg"
+  },
+  {
+   "name": "John Hartford",
+   "character": "",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Spencer Quinn",
+   "character": "",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "Mason Willams",
+   "character": "",
+   "order": 4,
+   "profilePath": null
+  },
+  {
+   "name": "Roger Carroll",
+   "character": "",
+   "order": 5,
+   "profilePath": null
+  },
+  {
+   "name": "Tom Smothers",
+   "character": "",
+   "order": 6,
+   "profilePath": null
+  },
+  {
+   "name": "Leigh French",
+   "character": "",
+   "order": 7,
+   "profilePath": null
+  },
+  {
+   "name": "Peter Cullen",
+   "character": "",
+   "order": 8,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/262444/5ebc1fee9ec99.jpg"
+  },
+  {
+   "name": "Jennifer Warren",
+   "character": "",
+   "order": 9,
+   "profilePath": null
+  },
+  {
+   "name": "Bob Einstein",
+   "character": "",
+   "order": 10,
+   "profilePath": null
+  },
+  {
+   "name": "Dick Smothers",
+   "character": "",
+   "order": 11,
+   "profilePath": null
+  },
+  {
+   "name": "Pat Paulsen",
+   "character": "",
+   "order": 12,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0061296"
 }

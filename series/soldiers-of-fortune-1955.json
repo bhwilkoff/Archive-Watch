@@ -1,593 +1,596 @@
 {
-  "version": 2,
-  "seriesID": "soldiers-of-fortune-1955",
-  "tvmazeID": 56744,
-  "title": "Soldiers of Fortune",
-  "yearStart": 1955,
-  "yearEnd": 1957,
-  "overview": "Tim Kelly and Toubo Smith, a pair of professional troubleshooters, take armchair viewers on action-filled adventures in unusual places worldwide.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/241551-1.jpg",
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "soldiers-of-fortune-1955",
+ "tvmazeID": 56744,
+ "title": "Soldiers of Fortune",
+ "yearStart": 1955,
+ "yearEnd": 1957,
+ "overview": "Tim Kelly and Toubo Smith, a pair of professional troubleshooters, take armchair viewers on action-filled adventures in unusual places worldwide.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/241551-1.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e01",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Escort to Namtok",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E01_000603.jpg",
-          "airDate": "1955-01-10",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 149882999,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E01.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e02",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Gaboon Viper",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E02_000607.jpg",
-          "airDate": "1955-01-17",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 149871727,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E02.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e03",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Runaway King",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E03_000605.jpg",
-          "airDate": "1955-01-28",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 152251504,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E03.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e04",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Lady of Rajmahal",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E04_000606.jpg",
-          "airDate": "1955-02-09",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E04.mp4",
-            "format": "h.264",
-            "sizeBytes": 149822997,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E04.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e05",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Greatest Beast",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E05_000598.jpg",
-          "airDate": "1955-02-20",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E05.mp4",
-            "format": "h.264",
-            "sizeBytes": 148095543,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E05.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e06",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Gypsy Prince",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E06_000615.jpg",
-          "airDate": "1955-03-02",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E06.mp4",
-            "format": "h.264",
-            "sizeBytes": 156245684,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E06.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e07",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Old Lady's Mine",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E07_000587.jpg",
-          "airDate": "1955-03-09",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E07.mp4",
-            "format": "h.264",
-            "sizeBytes": 147477655,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E07.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e08",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Return of the Hawk",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E08_000600.jpg",
-          "airDate": "1955-03-16",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E08.mp4",
-            "format": "h.264",
-            "sizeBytes": 148452051,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E08.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e09",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Jungle Rebel",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E09_000609.jpg",
-          "airDate": "1955-03-23",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E09.mp4",
-            "format": "h.264",
-            "sizeBytes": 155619418,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E09.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e10",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Cut Charlie In",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E10_000601.jpg",
-          "airDate": "1955-03-30",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E10.mp4",
-            "format": "h.264",
-            "sizeBytes": 149332749,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E10.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e11",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Pearls off Dondra Head",
-          "overview": "In this episode viewers are transported to far-off Ceylon as Kelly and Smith track down the informer who has sold out to the head of a vast Oriental pearl syndicate.",
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E11_000557.jpg",
-          "airDate": "1955-04-07",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E11.mp4",
-            "format": "h.264",
-            "sizeBytes": 141560116,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E11.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e12",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Jungle Search",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E12_000581.jpg",
-          "airDate": "1955-04-14",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E12.mp4",
-            "format": "h.264",
-            "sizeBytes": 144049069,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E12.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e13",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Hate at Forty Fathoms",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E13_000608.jpg",
-          "airDate": "1955-04-21",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E13.mp4",
-            "format": "h.264",
-            "sizeBytes": 150318807,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E13.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e14",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Malayan Magic",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E14_000606.jpg",
-          "airDate": "1955-04-28",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E14.mp4",
-            "format": "h.264",
-            "sizeBytes": 149670705,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E14.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e15",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Torch of Olympiad",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E15_000593.jpg",
-          "airDate": "1955-05-07",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E15.mp4",
-            "format": "h.264",
-            "sizeBytes": 146955189,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E15.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e16",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Walk Wide of Lions",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E16_000605.jpg",
-          "airDate": "1955-05-14",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E16.mp4",
-            "format": "h.264",
-            "sizeBytes": 154068041,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E16.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e17",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "The General",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E17_000600.jpg",
-          "airDate": "1955-05-21",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E17.mp4",
-            "format": "h.264",
-            "sizeBytes": 152776193,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E17.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e18",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "The Elephant Gun",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E18_000600.jpg",
-          "airDate": "1955-05-28",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E18.mp4",
-            "format": "h.264",
-            "sizeBytes": 149205672,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E18.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e19",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Bite of the Ruby Red",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E19_000607.jpg",
-          "airDate": "1955-06-04",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E19.mp4",
-            "format": "h.264",
-            "sizeBytes": 151117592,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E19.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e20",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "The Honor of Dr. Mazaro",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E20_000610.jpg",
-          "airDate": "1955-06-11",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E20.mp4",
-            "format": "h.264",
-            "sizeBytes": 151919773,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E20.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e21",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Girl in the Jeep",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E21_000605.jpg",
-          "airDate": "1955-06-18",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E21.mp4",
-            "format": "h.264",
-            "sizeBytes": 154753968,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E21.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e22",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "The Vanishing Island",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E22_000612.jpg",
-          "airDate": "1955-06-25",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E22.mp4",
-            "format": "h.264",
-            "sizeBytes": 155047408,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E22.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e23",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Run 'Til You Die",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E23_000601.jpg",
-          "airDate": "1955-07-07",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E23.mp4",
-            "format": "h.264",
-            "sizeBytes": 151846224,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E23.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e24",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Last Days of Dolores",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E24_000613.jpg",
-          "airDate": "1955-07-14",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E24.mp4",
-            "format": "h.264",
-            "sizeBytes": 154569263,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E24.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e25",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Escape from Camp Diablo",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E25_000602.jpg",
-          "airDate": "1955-07-21",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E25.mp4",
-            "format": "h.264",
-            "sizeBytes": 149186751,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E25.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e26",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "The Black Scarab",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E26_000607.jpg",
-          "airDate": "1955-07-28",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E26.mp4",
-            "format": "h.264",
-            "sizeBytes": 150274256,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E26.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e27",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 27,
-          "title": "The Lady and the Lion",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E27_000607.jpg",
-          "airDate": "1955-08-05",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E27.mp4",
-            "format": "h.264",
-            "sizeBytes": 154104971,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E27.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e28",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "Drums of Far Island",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E28_000603.jpg",
-          "airDate": "1955-08-12",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E28.mp4",
-            "format": "h.264",
-            "sizeBytes": 150236716,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E28.mp4"
-        },
-        {
-          "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e29",
-          "sourceID": "soldiers.of.-fortune.-s-01-e-06",
-          "seasonNumber": 1,
-          "episodeNumber": 29,
-          "title": "Aloha Means Goodbye",
-          "overview": null,
-          "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E29_000600.jpg",
-          "airDate": "1955-08-19",
-          "year": 1955,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Soldiers.of.Fortune.S01E29.mp4",
-            "format": "h.264",
-            "sizeBytes": 148615774,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E29.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 29,
-  "canonicalEpisodesCount": 52,
-  "tvmazeRating": null,
-  "tvdbID": "241551",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "John Russell",
-      "character": "Tim Kelly",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259870/photo/64b976544bb4f.jpg"
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e01",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Escort to Namtok",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E01_000603.jpg",
+     "airDate": "1955-01-10",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 149882999,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E01.mp4"
     },
     {
-      "name": "Chick Chandler",
-      "character": "Toubo Smith",
-      "order": 1,
-      "profilePath": null
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e02",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Gaboon Viper",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E02_000607.jpg",
+     "airDate": "1955-01-17",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 149871727,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E02.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e03",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Runaway King",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E03_000605.jpg",
+     "airDate": "1955-01-28",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 152251504,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E03.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e04",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Lady of Rajmahal",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E04_000606.jpg",
+     "airDate": "1955-02-09",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E04.mp4",
+      "format": "h.264",
+      "sizeBytes": 149822997,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E04.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e05",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Greatest Beast",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E05_000598.jpg",
+     "airDate": "1955-02-20",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E05.mp4",
+      "format": "h.264",
+      "sizeBytes": 148095543,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E05.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e06",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Gypsy Prince",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E06_000615.jpg",
+     "airDate": "1955-03-02",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 156245684,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E06.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e07",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Old Lady's Mine",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E07_000587.jpg",
+     "airDate": "1955-03-09",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E07.mp4",
+      "format": "h.264",
+      "sizeBytes": 147477655,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E07.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e08",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Return of the Hawk",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E08_000600.jpg",
+     "airDate": "1955-03-16",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E08.mp4",
+      "format": "h.264",
+      "sizeBytes": 148452051,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E08.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e09",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Jungle Rebel",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E09_000609.jpg",
+     "airDate": "1955-03-23",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E09.mp4",
+      "format": "h.264",
+      "sizeBytes": 155619418,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E09.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e10",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Cut Charlie In",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E10_000601.jpg",
+     "airDate": "1955-03-30",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E10.mp4",
+      "format": "h.264",
+      "sizeBytes": 149332749,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E10.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e11",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Pearls off Dondra Head",
+     "overview": "In this episode viewers are transported to far-off Ceylon as Kelly and Smith track down the informer who has sold out to the head of a vast Oriental pearl syndicate.",
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E11_000557.jpg",
+     "airDate": "1955-04-07",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E11.mp4",
+      "format": "h.264",
+      "sizeBytes": 141560116,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E11.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e12",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Jungle Search",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E12_000581.jpg",
+     "airDate": "1955-04-14",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E12.mp4",
+      "format": "h.264",
+      "sizeBytes": 144049069,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E12.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e13",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Hate at Forty Fathoms",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E13_000608.jpg",
+     "airDate": "1955-04-21",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E13.mp4",
+      "format": "h.264",
+      "sizeBytes": 150318807,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E13.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e14",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Malayan Magic",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E14_000606.jpg",
+     "airDate": "1955-04-28",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E14.mp4",
+      "format": "h.264",
+      "sizeBytes": 149670705,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E14.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e15",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Torch of Olympiad",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E15_000593.jpg",
+     "airDate": "1955-05-07",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E15.mp4",
+      "format": "h.264",
+      "sizeBytes": 146955189,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E15.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e16",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Walk Wide of Lions",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E16_000605.jpg",
+     "airDate": "1955-05-14",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E16.mp4",
+      "format": "h.264",
+      "sizeBytes": 154068041,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E16.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e17",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "The General",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E17_000600.jpg",
+     "airDate": "1955-05-21",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E17.mp4",
+      "format": "h.264",
+      "sizeBytes": 152776193,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E17.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e18",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "The Elephant Gun",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E18_000600.jpg",
+     "airDate": "1955-05-28",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E18.mp4",
+      "format": "h.264",
+      "sizeBytes": 149205672,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E18.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e19",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Bite of the Ruby Red",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E19_000607.jpg",
+     "airDate": "1955-06-04",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E19.mp4",
+      "format": "h.264",
+      "sizeBytes": 151117592,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E19.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e20",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Honor of Dr. Mazaro",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E20_000610.jpg",
+     "airDate": "1955-06-11",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E20.mp4",
+      "format": "h.264",
+      "sizeBytes": 151919773,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E20.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e21",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Girl in the Jeep",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E21_000605.jpg",
+     "airDate": "1955-06-18",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E21.mp4",
+      "format": "h.264",
+      "sizeBytes": 154753968,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E21.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e22",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Vanishing Island",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E22_000612.jpg",
+     "airDate": "1955-06-25",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E22.mp4",
+      "format": "h.264",
+      "sizeBytes": 155047408,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E22.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e23",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Run 'Til You Die",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E23_000601.jpg",
+     "airDate": "1955-07-07",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E23.mp4",
+      "format": "h.264",
+      "sizeBytes": 151846224,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E23.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e24",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Last Days of Dolores",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E24_000613.jpg",
+     "airDate": "1955-07-14",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E24.mp4",
+      "format": "h.264",
+      "sizeBytes": 154569263,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E24.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e25",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Escape from Camp Diablo",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E25_000602.jpg",
+     "airDate": "1955-07-21",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E25.mp4",
+      "format": "h.264",
+      "sizeBytes": 149186751,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E25.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e26",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "The Black Scarab",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E26_000607.jpg",
+     "airDate": "1955-07-28",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E26.mp4",
+      "format": "h.264",
+      "sizeBytes": 150274256,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E26.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e27",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 27,
+     "title": "The Lady and the Lion",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E27_000607.jpg",
+     "airDate": "1955-08-05",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E27.mp4",
+      "format": "h.264",
+      "sizeBytes": 154104971,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E27.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e28",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "Drums of Far Island",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E28_000603.jpg",
+     "airDate": "1955-08-12",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E28.mp4",
+      "format": "h.264",
+      "sizeBytes": 150236716,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E28.mp4"
+    },
+    {
+     "archiveID": "soldiers.of.-fortune.-s-01-e-06@s1e29",
+     "sourceID": "soldiers.of.-fortune.-s-01-e-06",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Aloha Means Goodbye",
+     "overview": null,
+     "stillURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/soldiers.of.-fortune.-s-01-e-06.thumbs/Soldiers.of.Fortune.S01E29_000600.jpg",
+     "airDate": "1955-08-19",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Soldiers.of.Fortune.S01E29.mp4",
+      "format": "h.264",
+      "sizeBytes": 148615774,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E29.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 29,
+ "canonicalEpisodesCount": 52,
+ "tvmazeRating": null,
+ "tvdbID": "241551",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "John Russell",
+   "character": "Tim Kelly",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259870/photo/64b976544bb4f.jpg"
+  },
+  {
+   "name": "Chick Chandler",
+   "character": "Toubo Smith",
+   "order": 1,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0047773",
+ "imdbRating": 7.8,
+ "imdbVotes": 86
 }

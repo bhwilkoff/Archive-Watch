@@ -356,7 +356,18 @@ data class SeriesDetail(
     val episodesCount: Int? = null,
     val canonicalEpisodesCount: Int? = null,
     val cast: List<CastMember> = emptyList(),
-)
+    /** IMDb's rating of the series (tools/enrich_tv_ratings.py), and TVmaze's,
+     *  which is shown only where IMDb has none, named (Decision 171). */
+    val imdbRating: Double? = null,
+    val imdbVotes: Int? = null,
+    val tvmazeRating: Double? = null,
+) {
+    /** "★ 8.8" (IMDb's, the film Detail's star), or "TVmaze 8.9" for a
+     *  series IMDb does not rate. */
+    val ratingLine: String?
+        get() = imdbRating?.takeIf { it > 0 }?.let { "★ %.1f".format(java.util.Locale.US, it) }
+            ?: tvmazeRating?.takeIf { it > 0 }?.let { "TVmaze %.1f".format(java.util.Locale.US, it) }
+}
 
 @Serializable
 data class SeriesSeason(

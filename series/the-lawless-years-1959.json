@@ -1,230 +1,231 @@
 {
-  "version": 2,
-  "seriesID": "the-lawless-years-1959",
-  "tvmazeID": 94732,
-  "title": "The Lawless Years",
-  "yearStart": 1959,
-  "yearEnd": 1961,
-  "overview": "Barney Ruditsky is a New York City police officer in the Roaring '20s who fights organized crime. The show is loosely based on the real-life Ruditsky, who was a New York police officer during the period.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/76633-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Crime"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-lawless-years-1959",
+ "tvmazeID": 94732,
+ "title": "The Lawless Years",
+ "yearStart": 1959,
+ "yearEnd": 1961,
+ "overview": "Barney Ruditsky is a New York City police officer in the Roaring '20s who fights organized crime. The show is loosely based on the real-life Ruditsky, who was a New York police officer during the period.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/76633-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "TheLawlessYears-Episode01-TheNickJosephStory1959_92",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Nick Joseph Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-04-16",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Pilot.mp4",
-            "format": "h.264",
-            "sizeBytes": 156601408,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959_92/Pilot.mp4"
-        },
-        {
-          "archiveID": "TheLawlessYears-Episode03-TheJaneCooperStory1959",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Jane Cooper Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-04-30",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Ep3TheJaneCooperStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 151385185,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode03-TheJaneCooperStory1959/Ep3TheJaneCooperStory.mp4"
-        },
-        {
-          "archiveID": "TheLawlessYears-Episode04-TheCutieJaffeStory1959",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Cutie Jaffe Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-05-07",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "ep04_TheStoryofCutieJaffe_1959.mp4",
-            "format": "h.264",
-            "sizeBytes": 153681980,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode04-TheCutieJaffeStory1959/ep04_TheStoryofCutieJaffe_1959.mp4"
-        },
-        {
-          "archiveID": "TheLawlessYears-Episode05-TheDutchSchultzStory1959",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Dutch Schultz Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-05-14",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "ep05_TheDutchShultzStory_1959.mp4",
-            "format": "h.264",
-            "sizeBytes": 152189787,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode05-TheDutchSchultzStory1959/ep05_TheDutchShultzStory_1959.mp4"
-        },
-        {
-          "archiveID": "TheLawlessYears-Episode06-TheLionAndTheMouse1959",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Lion and the Mouse",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-05-21",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "ep06TheLionAndTheMouse.mp4",
-            "format": "h.264",
-            "sizeBytes": 152997538,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode06-TheLionAndTheMouse1959/ep06TheLionAndTheMouse.mp4"
-        },
-        {
-          "archiveID": "TheLawlessYears-Episode12-Framed1959",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Framed",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-07-16",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "TheLawlessYears-framed.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160984773,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode12-Framed1959/TheLawlessYears-framed.ia.mp4"
-        },
-        {
-          "archiveID": "themorrisonstory",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "The Morrison Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-08-20",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "themorrisonstory.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160163856,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/themorrisonstory/themorrisonstory.ia.mp4"
-        },
-        {
-          "archiveID": "TheLawlessYears-Episode18-ThePoisonIvyStory1959",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "The Poison Ivy Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-08-27",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "TheLawlessYears-thePoisonIvyStory.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160031522,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode18-ThePoisonIvyStory1959/TheLawlessYears-thePoisonIvyStory.ia.mp4"
-        }
-      ]
+     "archiveID": "TheLawlessYears-Episode01-TheNickJosephStory1959_92",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Nick Joseph Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-04-16",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Pilot.mp4",
+      "format": "h.264",
+      "sizeBytes": 156601408,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959_92/Pilot.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "TheLawlessYears-Episode01-TheNickJosephStory1959",
-          "seasonNumber": null,
-          "episodeNumber": 1,
-          "title": "The Immigrant",
-          "overview": "An immigrant woman tries to get Ruditsky to set her son on the straight and narrow. It seems as though he's been hanging around with a gang of hoodlums. Ruditsky gives it his best effort but it could be a tough sell.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": 1563,
-          "videoFile": {
-            "name": "Ep1TheNickJosephStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 153421026,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959/Ep1TheNickJosephStory.mp4"
-        },
-        {
-          "archiveID": "storyofluckysilva",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Story of Lucky Silva",
-          "overview": "ucky Silva is a small-time hood who by a combination of circumstance, ambition, and drive rises quickly to a position of prominence in New York's Mafia.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "storyofluckysilva.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160605395,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/storyofluckysilva/storyofluckysilva.ia.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 10,
-  "canonicalEpisodesCount": 47,
-  "tvmazeRating": null,
-  "tvdbID": "76633",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "James Gregory",
-      "character": "",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256461/photo/6494e4083fbd4.jpg"
+     "archiveID": "TheLawlessYears-Episode03-TheJaneCooperStory1959",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Jane Cooper Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-04-30",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Ep3TheJaneCooperStory.mp4",
+      "format": "h.264",
+      "sizeBytes": 151385185,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode03-TheJaneCooperStory1959/Ep3TheJaneCooperStory.mp4"
     },
     {
-      "name": "Robert Karnes",
-      "character": "",
-      "order": 1,
-      "profilePath": null
+     "archiveID": "TheLawlessYears-Episode04-TheCutieJaffeStory1959",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Cutie Jaffe Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-05-07",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ep04_TheStoryofCutieJaffe_1959.mp4",
+      "format": "h.264",
+      "sizeBytes": 153681980,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode04-TheCutieJaffeStory1959/ep04_TheStoryofCutieJaffe_1959.mp4"
+    },
+    {
+     "archiveID": "TheLawlessYears-Episode05-TheDutchSchultzStory1959",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Dutch Schultz Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-05-14",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ep05_TheDutchShultzStory_1959.mp4",
+      "format": "h.264",
+      "sizeBytes": 152189787,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode05-TheDutchSchultzStory1959/ep05_TheDutchShultzStory_1959.mp4"
+    },
+    {
+     "archiveID": "TheLawlessYears-Episode06-TheLionAndTheMouse1959",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Lion and the Mouse",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-05-21",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ep06TheLionAndTheMouse.mp4",
+      "format": "h.264",
+      "sizeBytes": 152997538,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode06-TheLionAndTheMouse1959/ep06TheLionAndTheMouse.mp4"
+    },
+    {
+     "archiveID": "TheLawlessYears-Episode12-Framed1959",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Framed",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-07-16",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheLawlessYears-framed.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 160984773,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode12-Framed1959/TheLawlessYears-framed.ia.mp4"
+    },
+    {
+     "archiveID": "themorrisonstory",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "The Morrison Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-08-20",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "themorrisonstory.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 160163856,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/themorrisonstory/themorrisonstory.ia.mp4"
+    },
+    {
+     "archiveID": "TheLawlessYears-Episode18-ThePoisonIvyStory1959",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "The Poison Ivy Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": "1959-08-27",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheLawlessYears-thePoisonIvyStory.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 160031522,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode18-ThePoisonIvyStory1959/TheLawlessYears-thePoisonIvyStory.ia.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "TheLawlessYears-Episode01-TheNickJosephStory1959",
+     "seasonNumber": null,
+     "episodeNumber": 1,
+     "title": "The Immigrant",
+     "overview": "An immigrant woman tries to get Ruditsky to set her son on the straight and narrow. It seems as though he's been hanging around with a gang of hoodlums. Ruditsky gives it his best effort but it could be a tough sell.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": 1563,
+     "videoFile": {
+      "name": "Ep1TheNickJosephStory.mp4",
+      "format": "h.264",
+      "sizeBytes": 153421026,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959/Ep1TheNickJosephStory.mp4"
+    },
+    {
+     "archiveID": "storyofluckysilva",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Story of Lucky Silva",
+     "overview": "ucky Silva is a small-time hood who by a combination of circumstance, ambition, and drive rises quickly to a position of prominence in New York's Mafia.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "storyofluckysilva.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 160605395,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/storyofluckysilva/storyofluckysilva.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 10,
+ "canonicalEpisodesCount": 47,
+ "tvmazeRating": null,
+ "tvdbID": "76633",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "James Gregory",
+   "character": "",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256461/photo/6494e4083fbd4.jpg"
+  },
+  {
+   "name": "Robert Karnes",
+   "character": "",
+   "order": 1,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0052484"
 }

@@ -1,189 +1,191 @@
 {
-  "version": 1,
-  "seriesID": "grand-ole-opry-1960",
-  "title": "Grand Ole Opry",
-  "yearStart": null,
-  "yearEnd": null,
-  "overview": null,
-  "posterURL": null,
-  "backdropURL": null,
-  "genres": [],
-  "networks": [],
-  "creator": null,
-  "seasons": [
+ "version": 1,
+ "seriesID": "grand-ole-opry-1960",
+ "title": "Grand Ole Opry",
+ "yearStart": null,
+ "yearEnd": null,
+ "overview": null,
+ "posterURL": null,
+ "backdropURL": null,
+ "genres": [],
+ "networks": [],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "GrandOleOpry07211956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Grand Ole Opry - 21/July/1956",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Grand_ole_Opry_07_21_1956.mp4",
-            "format": "h.264",
-            "sizeBytes": 372095126,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GrandOleOpry07211956/Grand_ole_Opry_07_21_1956.mp4"
-        },
-        {
-          "archiveID": "GrandOldOpry-28april1956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Grand Ole Opry - 28/April/1956",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3572,
-          "videoFile": {
-            "name": "Grand_ole_opry_04_28_56.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 401301132,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GrandOldOpry-28april1956/Grand_ole_opry_04_28_56.ia.mp4"
-        },
-        {
-          "archiveID": "GrandOleOpry03031956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Grand Ole Opry - 3/March/1956",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Grand_ole_Opry_03_03_1956.mp4",
-            "format": "h.264",
-            "sizeBytes": 372505839,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GrandOleOpry03031956/Grand_ole_Opry_03_03_1956.mp4"
-        }
-      ]
+     "archiveID": "GrandOleOpry07211956",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Grand Ole Opry - 21/July/1956",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Grand_ole_Opry_07_21_1956.mp4",
+      "format": "h.264",
+      "sizeBytes": 372095126,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/GrandOleOpry07211956/Grand_ole_Opry_07_21_1956.mp4"
+    },
+    {
+     "archiveID": "GrandOldOpry-28april1956",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Grand Ole Opry - 28/April/1956",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3572,
+     "videoFile": {
+      "name": "Grand_ole_opry_04_28_56.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 401301132,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/GrandOldOpry-28april1956/Grand_ole_opry_04_28_56.ia.mp4"
+    },
+    {
+     "archiveID": "GrandOleOpry03031956",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Grand Ole Opry - 3/March/1956",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Grand_ole_Opry_03_03_1956.mp4",
+      "format": "h.264",
+      "sizeBytes": 372505839,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/GrandOleOpry03031956/Grand_ole_Opry_03_03_1956.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "seriesImdbID": "tt0306325",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null,
-  "tvdbID": "71174",
-  "cast": [
-    {
-      "name": "Reba McEntire",
-      "character": "",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253539/photo/6197985cd2345.jpg"
-    },
-    {
-      "name": "George Jones",
-      "character": "",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Clint Black",
-      "character": "",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253860/photo/64d6d688c8d27.jpg"
-    },
-    {
-      "name": "Patty Loveless",
-      "character": "",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "Terri Clark",
-      "character": "",
-      "order": 4,
-      "profilePath": null
-    },
-    {
-      "name": "Emmylou Harris",
-      "character": "",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/286675/5eaf149e24682.jpg"
-    },
-    {
-      "name": "Diamond Rio",
-      "character": "",
-      "order": 6,
-      "profilePath": null
-    },
-    {
-      "name": "Katie Cook",
-      "character": "",
-      "order": 7,
-      "profilePath": null
-    },
-    {
-      "name": "Nan Kelly",
-      "character": "",
-      "order": 8,
-      "profilePath": null
-    },
-    {
-      "name": "Brad Paisley",
-      "character": "",
-      "order": 9,
-      "profilePath": null
-    },
-    {
-      "name": "Stonewall Jackson",
-      "character": "",
-      "order": 10,
-      "profilePath": null
-    },
-    {
-      "name": "Wilma Lee Cooper",
-      "character": "",
-      "order": 11,
-      "profilePath": null
-    },
-    {
-      "name": "Charlie Walker",
-      "character": "",
-      "order": 12,
-      "profilePath": null
-    },
-    {
-      "name": "Jimmy C. Newman",
-      "character": "",
-      "order": 13,
-      "profilePath": null
-    },
-    {
-      "name": "Hal Ketchum",
-      "character": "",
-      "order": 14,
-      "profilePath": null
-    },
-    {
-      "name": "Steve Wariner",
-      "character": "",
-      "order": 15,
-      "profilePath": null
-    },
-    {
-      "name": "Riders In The Sky",
-      "character": "",
-      "order": 16,
-      "profilePath": null
-    },
-    {
-      "name": "Connie Smith",
-      "character": "",
-      "order": 17,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "seriesImdbID": "tt0306325",
+ "canonicalEpisodeCount": 0,
+ "canonicalSeasons": null,
+ "tvdbID": "71174",
+ "cast": [
+  {
+   "name": "Reba McEntire",
+   "character": "",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253539/photo/6197985cd2345.jpg"
+  },
+  {
+   "name": "George Jones",
+   "character": "",
+   "order": 1,
+   "profilePath": null
+  },
+  {
+   "name": "Clint Black",
+   "character": "",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253860/photo/64d6d688c8d27.jpg"
+  },
+  {
+   "name": "Patty Loveless",
+   "character": "",
+   "order": 3,
+   "profilePath": null
+  },
+  {
+   "name": "Terri Clark",
+   "character": "",
+   "order": 4,
+   "profilePath": null
+  },
+  {
+   "name": "Emmylou Harris",
+   "character": "",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/286675/5eaf149e24682.jpg"
+  },
+  {
+   "name": "Diamond Rio",
+   "character": "",
+   "order": 6,
+   "profilePath": null
+  },
+  {
+   "name": "Katie Cook",
+   "character": "",
+   "order": 7,
+   "profilePath": null
+  },
+  {
+   "name": "Nan Kelly",
+   "character": "",
+   "order": 8,
+   "profilePath": null
+  },
+  {
+   "name": "Brad Paisley",
+   "character": "",
+   "order": 9,
+   "profilePath": null
+  },
+  {
+   "name": "Stonewall Jackson",
+   "character": "",
+   "order": 10,
+   "profilePath": null
+  },
+  {
+   "name": "Wilma Lee Cooper",
+   "character": "",
+   "order": 11,
+   "profilePath": null
+  },
+  {
+   "name": "Charlie Walker",
+   "character": "",
+   "order": 12,
+   "profilePath": null
+  },
+  {
+   "name": "Jimmy C. Newman",
+   "character": "",
+   "order": 13,
+   "profilePath": null
+  },
+  {
+   "name": "Hal Ketchum",
+   "character": "",
+   "order": 14,
+   "profilePath": null
+  },
+  {
+   "name": "Steve Wariner",
+   "character": "",
+   "order": 15,
+   "profilePath": null
+  },
+  {
+   "name": "Riders In The Sky",
+   "character": "",
+   "order": 16,
+   "profilePath": null
+  },
+  {
+   "name": "Connie Smith",
+   "character": "",
+   "order": 17,
+   "profilePath": null
+  }
+ ],
+ "imdbRating": 7.7,
+ "imdbVotes": 31
 }

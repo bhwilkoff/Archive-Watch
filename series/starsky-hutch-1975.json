@@ -1,494 +1,497 @@
 {
-  "version": 2,
-  "seriesID": "starsky-hutch-1975",
-  "tvmazeID": 5487,
-  "title": "Starsky & Hutch",
-  "yearStart": 1975,
-  "yearEnd": 1979,
-  "overview": "Produced by Aaron Spelling, Starsky & Hutch roared onto small screens in 1975 to become one of the most popular, iconic series of the decade. This was TV's coolest buddy cop show, fueled by full-throttle car chases, offbeat humor, colorful characters and a hip vibe.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78194-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Crime"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "starsky-hutch-1975",
+ "tvmazeID": 5487,
+ "title": "Starsky & Hutch",
+ "yearStart": 1975,
+ "yearEnd": 1979,
+ "overview": "Produced by Aaron Spelling, Starsky & Hutch roared onto small screens in 1975 to become one of the most popular, iconic series of the decade. This was TV's coolest buddy cop show, fueled by full-throttle car chases, offbeat humor, colorful characters and a hip vibe.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/78194-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Crime"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "starsky-hutch-season-2@s2e01",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "The Las Vegas Strangler (2)",
-          "overview": "Starsky and Hutch continue to uncover the clues that will lead them to the Las Vegas Strangler. Hutch helps his troubled friend Jack while Starsky enjoys a brief encounter with a beautiful showgirl with a heartbreaking back story.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440283.jpg",
-          "airDate": "1976-09-25",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E01 The Las Vegas Strangler Part I.mp4",
-            "format": "h.264",
-            "sizeBytes": 279871854,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E01%20The%20Las%20Vegas%20Strangler%20Part%20I.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e08",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Gillian",
-          "overview": "While working a case, Starsky learns that Hutch's new girlfriend Gillian is a high class prostitute working for some criminals they're investigating.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440357.jpg",
-          "airDate": "1976-10-16",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E08 Gillian.mp4",
-            "format": "h.264",
-            "sizeBytes": 280737768,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E08%20Gillian.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e05",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Murder At Sea Part I",
-          "overview": null,
-          "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E05%20Murder%20At%20Sea%20Part%20I_001337.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3266,
-          "videoFile": {
-            "name": "S02 E05 Murder At Sea Part I.mp4",
-            "format": "h.264",
-            "sizeBytes": 317773946,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E05%20Murder%20At%20Sea%20Part%20I.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e04",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Bust Amboy",
-          "overview": "Starsky and Hutch pursue a major narcotics dealer whose main clients are young prostitutes.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440359.jpg",
-          "airDate": "1976-10-23",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E04 Bust Amboy.mp4",
-            "format": "h.264",
-            "sizeBytes": 281292251,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E04%20Bust%20Amboy.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e06",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Murder At Sea Part II",
-          "overview": null,
-          "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E06%20Murder%20At%20Sea%20Part%20II_001188.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2888,
-          "videoFile": {
-            "name": "S02 E06 Murder At Sea Part II.mp4",
-            "format": "h.264",
-            "sizeBytes": 280618523,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E06%20Murder%20At%20Sea%20Part%20II.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e10",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "The Specialist",
-          "overview": "A woman is accidentally killed from gun fire during an armed robbery. The dead woman's husband is a Special Agent, paranoid after being retired from the service, and convinced that the Officers were really hit men after him, and sets about extracting his revenge on each of the cops involved in the death of his wife.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440363.jpg",
-          "airDate": "1976-11-06",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E10 The Specialist.mp4",
-            "format": "h.264",
-            "sizeBytes": 250527492,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E10%20The%20Specialist.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e12",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "Tap Dancing Her Way Right Back Into Your Hearts",
-          "overview": "Starsky goes undercover as Ramon the dance instructor and Hutch as wealthy Texan rancher and dance student Charlie McCabe to expose a blackmail operation.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440365.jpg",
-          "airDate": "1976-11-20",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E12 Tap Dancing Her Way Right Back Into My Heart.mp4",
-            "format": "h.264",
-            "sizeBytes": 274377587,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E12%20Tap%20Dancing%20Her%20Way%20Right%20Back%20Into%20My%20Heart.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e09",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "Vampire",
-          "overview": null,
-          "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E09%20Vampire_001176.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2880,
-          "videoFile": {
-            "name": "S02 E09 Vampire.mp4",
-            "format": "h.264",
-            "sizeBytes": 280366949,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E09%20Vampire.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e07",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "Vendetta",
-          "overview": "A deranged man specializing in coercion uses an escapee from an asylum for the criminally insane to wreak havoc on his enemies.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440366.jpg",
-          "airDate": "1976-11-27",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E07 Vendetta.mp4",
-            "format": "h.264",
-            "sizeBytes": 280076853,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E07%20Vendetta.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e14",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "Nightmare",
-          "overview": "An ambitious district attorney claims a mentally impaired 19-year-old enticed her rapists.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440500.jpg",
-          "airDate": "1976-11-28",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E14 Nightmare.mp4",
-            "format": "h.264",
-            "sizeBytes": 270023646,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E14%20Nightmare.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e13",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "Iron Mike",
-          "overview": "Starsky and Hutch inadvertently discover that a highly revered police captain may be in collusion with a criminal.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440501.jpg",
-          "airDate": "1976-12-18",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E13 Iron Mike.mp4",
-            "format": "h.264",
-            "sizeBytes": 277205956,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E13%20Iron%20Mike.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e03",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 13,
-          "title": "Little Girl Lost",
-          "overview": "A young girl living with her alcoholic, ex-con father finds herself suddenly orphaned just before Christmas. Will Starsky and Hutch be there to help her when her father's partners in crime come looking for her?",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440503.jpg",
-          "airDate": "1976-12-25",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E03 Little Girl Lost.mp4",
-            "format": "h.264",
-            "sizeBytes": 279789259,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E03%20Little%20Girl%20Lost.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e15",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 14,
-          "title": "Bloodbath",
-          "overview": "In retaliation for arresting the mass murdering cult leader Simon Marcus, Starsky is kidnapped and held prisoner in a secret cult compound.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440735.jpg",
-          "airDate": "1977-01-01",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E15 Bloodbath.mp4",
-            "format": "h.264",
-            "sizeBytes": 280450527,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E15%20Bloodbath.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e11",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 15,
-          "title": "The Psychic",
-          "overview": "A psychic running a diner helps Starsky and Hutch when the schoolgirl daughter of a wealthy football team owner is kidnapped.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440740.jpg",
-          "airDate": "1977-01-15",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E11 The Psychic.mp4",
-            "format": "h.264",
-            "sizeBytes": 274455348,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E11%20The%20Psychic.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e17",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 17,
-          "title": "The Set-Up Part I",
-          "overview": null,
-          "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E17%20The%20Set-Up%20Part%20I_001178.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2880,
-          "videoFile": {
-            "name": "S02 E17 The Set-Up Part I.mp4",
-            "format": "h.264",
-            "sizeBytes": 279816035,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E17%20The%20Set-Up%20Part%20I.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e19",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "Survival",
-          "overview": "When Hutch goes missing after he is ambushed on a mountain road, Starsky must depend on the help of a mentally addled WW II veteran and a child ham radio operator to find him before it's too late.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440751.jpg",
-          "airDate": "1977-02-05",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E19 Survival.mp4",
-            "format": "h.264",
-            "sizeBytes": 278762503,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E19%20Survival.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e18",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "The Set-Up Part II",
-          "overview": null,
-          "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E18%20The%20Set-Up%20Part%20II_001178.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2885,
-          "videoFile": {
-            "name": "S02 E18 The Set-Up Part II.mp4",
-            "format": "h.264",
-            "sizeBytes": 280043584,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E18%20The%20Set-Up%20Part%20II.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e20",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "Starsky's Lady",
-          "overview": "A man seeking revenge for his son's death shoots Starsky's girlfriend, leaving a bullet fragment lodged in her brain.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440753.jpg",
-          "airDate": "1977-02-12",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E20 Starsky's Lady.mp4",
-            "format": "h.264",
-            "sizeBytes": 280331205,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E20%20Starsky%27s%20Lady.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e16",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 20,
-          "title": "Huggy Bear and the Turkey",
-          "overview": "Huggy Bear goes into business on his own with an aspiring white private eye.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441217.jpg",
-          "airDate": "1977-02-19",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E16 Huggy Bear And The Turkey.mp4",
-            "format": "h.264",
-            "sizeBytes": 278789762,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E16%20Huggy%20Bear%20And%20The%20Turkey.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e21",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 21,
-          "title": "The Committee",
-          "overview": "A cadre of corrupt cops is taking the law into its own hands, acting as judge, jury and executioner on hardened criminals freed by a soft judicial system. Starsky plays a disgruntled cop in order to infiltrate the vigilante group.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441223.jpg",
-          "airDate": "1977-02-26",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E21 The Committee.mp4",
-            "format": "h.264",
-            "sizeBytes": 276852685,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E21%20The%20Committee.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e22",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 22,
-          "title": "The Velvet Jungle",
-          "overview": "A Costa Rican seamstress is murdered in the garment district, but an immigration official seeks to squash Starsky and Hutch's investigation. The interference only stirs their suspicions and strengthens their resolve to catch the killer.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441285.jpg",
-          "airDate": "1977-03-05",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E22 The Velvet Jungle.mp4",
-            "format": "h.264",
-            "sizeBytes": 277327352,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E22%20The%20Velvet%20Jungle.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e23",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 23,
-          "title": "Long Walk Down a Short Dirt Road",
-          "overview": "A pretty country singer is plagued by telephone calls from a raspy voiced stranger deman­ding money and when the police are called in, he takes out his anger on innocent people.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441288.jpg",
-          "airDate": "1977-03-12",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E23 Long Walk Down A Short Dirt Road.mp4",
-            "format": "h.264",
-            "sizeBytes": 276886665,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E23%20Long%20Walk%20Down%20A%20Short%20Dirt%20Road.mp4"
-        },
-        {
-          "archiveID": "starsky-hutch-season-2@s2e24",
-          "sourceID": "starsky-hutch-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 24,
-          "title": "Murder on Stage 17",
-          "overview": "The detectives pose as movie stuntmen to nab an ex-comedian seeking revenge for his downfall.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441291.jpg",
-          "airDate": "1977-03-19",
-          "year": 1977,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S02 E24 Murder On Stage 17 Part I.mp4",
-            "format": "h.264",
-            "sizeBytes": 276306389,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E24%20Murder%20On%20Stage%2017%20Part%20I.mp4"
-        }
-      ]
+     "archiveID": "starsky-hutch-season-2@s2e01",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "The Las Vegas Strangler (2)",
+     "overview": "Starsky and Hutch continue to uncover the clues that will lead them to the Las Vegas Strangler. Hutch helps his troubled friend Jack while Starsky enjoys a brief encounter with a beautiful showgirl with a heartbreaking back story.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440283.jpg",
+     "airDate": "1976-09-25",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E01 The Las Vegas Strangler Part I.mp4",
+      "format": "h.264",
+      "sizeBytes": 279871854,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E01%20The%20Las%20Vegas%20Strangler%20Part%20I.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e08",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Gillian",
+     "overview": "While working a case, Starsky learns that Hutch's new girlfriend Gillian is a high class prostitute working for some criminals they're investigating.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440357.jpg",
+     "airDate": "1976-10-16",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E08 Gillian.mp4",
+      "format": "h.264",
+      "sizeBytes": 280737768,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E08%20Gillian.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e05",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Murder At Sea Part I",
+     "overview": null,
+     "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E05%20Murder%20At%20Sea%20Part%20I_001337.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3266,
+     "videoFile": {
+      "name": "S02 E05 Murder At Sea Part I.mp4",
+      "format": "h.264",
+      "sizeBytes": 317773946,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E05%20Murder%20At%20Sea%20Part%20I.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e04",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Bust Amboy",
+     "overview": "Starsky and Hutch pursue a major narcotics dealer whose main clients are young prostitutes.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440359.jpg",
+     "airDate": "1976-10-23",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E04 Bust Amboy.mp4",
+      "format": "h.264",
+      "sizeBytes": 281292251,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E04%20Bust%20Amboy.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e06",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Murder At Sea Part II",
+     "overview": null,
+     "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E06%20Murder%20At%20Sea%20Part%20II_001188.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2888,
+     "videoFile": {
+      "name": "S02 E06 Murder At Sea Part II.mp4",
+      "format": "h.264",
+      "sizeBytes": 280618523,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E06%20Murder%20At%20Sea%20Part%20II.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e10",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "The Specialist",
+     "overview": "A woman is accidentally killed from gun fire during an armed robbery. The dead woman's husband is a Special Agent, paranoid after being retired from the service, and convinced that the Officers were really hit men after him, and sets about extracting his revenge on each of the cops involved in the death of his wife.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440363.jpg",
+     "airDate": "1976-11-06",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E10 The Specialist.mp4",
+      "format": "h.264",
+      "sizeBytes": 250527492,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E10%20The%20Specialist.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e12",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "Tap Dancing Her Way Right Back Into Your Hearts",
+     "overview": "Starsky goes undercover as Ramon the dance instructor and Hutch as wealthy Texan rancher and dance student Charlie McCabe to expose a blackmail operation.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440365.jpg",
+     "airDate": "1976-11-20",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E12 Tap Dancing Her Way Right Back Into My Heart.mp4",
+      "format": "h.264",
+      "sizeBytes": 274377587,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E12%20Tap%20Dancing%20Her%20Way%20Right%20Back%20Into%20My%20Heart.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e09",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "Vampire",
+     "overview": null,
+     "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E09%20Vampire_001176.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2880,
+     "videoFile": {
+      "name": "S02 E09 Vampire.mp4",
+      "format": "h.264",
+      "sizeBytes": 280366949,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E09%20Vampire.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e07",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "Vendetta",
+     "overview": "A deranged man specializing in coercion uses an escapee from an asylum for the criminally insane to wreak havoc on his enemies.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440366.jpg",
+     "airDate": "1976-11-27",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E07 Vendetta.mp4",
+      "format": "h.264",
+      "sizeBytes": 280076853,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E07%20Vendetta.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e14",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "Nightmare",
+     "overview": "An ambitious district attorney claims a mentally impaired 19-year-old enticed her rapists.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440500.jpg",
+     "airDate": "1976-11-28",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E14 Nightmare.mp4",
+      "format": "h.264",
+      "sizeBytes": 270023646,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E14%20Nightmare.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e13",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "Iron Mike",
+     "overview": "Starsky and Hutch inadvertently discover that a highly revered police captain may be in collusion with a criminal.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440501.jpg",
+     "airDate": "1976-12-18",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E13 Iron Mike.mp4",
+      "format": "h.264",
+      "sizeBytes": 277205956,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E13%20Iron%20Mike.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e03",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "Little Girl Lost",
+     "overview": "A young girl living with her alcoholic, ex-con father finds herself suddenly orphaned just before Christmas. Will Starsky and Hutch be there to help her when her father's partners in crime come looking for her?",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440503.jpg",
+     "airDate": "1976-12-25",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E03 Little Girl Lost.mp4",
+      "format": "h.264",
+      "sizeBytes": 279789259,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E03%20Little%20Girl%20Lost.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e15",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 14,
+     "title": "Bloodbath",
+     "overview": "In retaliation for arresting the mass murdering cult leader Simon Marcus, Starsky is kidnapped and held prisoner in a secret cult compound.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440735.jpg",
+     "airDate": "1977-01-01",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E15 Bloodbath.mp4",
+      "format": "h.264",
+      "sizeBytes": 280450527,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E15%20Bloodbath.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e11",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 15,
+     "title": "The Psychic",
+     "overview": "A psychic running a diner helps Starsky and Hutch when the schoolgirl daughter of a wealthy football team owner is kidnapped.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440740.jpg",
+     "airDate": "1977-01-15",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E11 The Psychic.mp4",
+      "format": "h.264",
+      "sizeBytes": 274455348,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E11%20The%20Psychic.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e17",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "The Set-Up Part I",
+     "overview": null,
+     "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E17%20The%20Set-Up%20Part%20I_001178.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2880,
+     "videoFile": {
+      "name": "S02 E17 The Set-Up Part I.mp4",
+      "format": "h.264",
+      "sizeBytes": 279816035,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E17%20The%20Set-Up%20Part%20I.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e19",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "Survival",
+     "overview": "When Hutch goes missing after he is ambushed on a mountain road, Starsky must depend on the help of a mentally addled WW II veteran and a child ham radio operator to find him before it's too late.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440751.jpg",
+     "airDate": "1977-02-05",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E19 Survival.mp4",
+      "format": "h.264",
+      "sizeBytes": 278762503,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E19%20Survival.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e18",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "The Set-Up Part II",
+     "overview": null,
+     "stillURL": "https://archive.org/download/starsky-hutch-season-2/starsky-hutch-season-2.thumbs/S02%20E18%20The%20Set-Up%20Part%20II_001178.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2885,
+     "videoFile": {
+      "name": "S02 E18 The Set-Up Part II.mp4",
+      "format": "h.264",
+      "sizeBytes": 280043584,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E18%20The%20Set-Up%20Part%20II.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e20",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "Starsky's Lady",
+     "overview": "A man seeking revenge for his son's death shoots Starsky's girlfriend, leaving a bullet fragment lodged in her brain.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1440753.jpg",
+     "airDate": "1977-02-12",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E20 Starsky's Lady.mp4",
+      "format": "h.264",
+      "sizeBytes": 280331205,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E20%20Starsky%27s%20Lady.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e16",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 20,
+     "title": "Huggy Bear and the Turkey",
+     "overview": "Huggy Bear goes into business on his own with an aspiring white private eye.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441217.jpg",
+     "airDate": "1977-02-19",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E16 Huggy Bear And The Turkey.mp4",
+      "format": "h.264",
+      "sizeBytes": 278789762,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E16%20Huggy%20Bear%20And%20The%20Turkey.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e21",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 21,
+     "title": "The Committee",
+     "overview": "A cadre of corrupt cops is taking the law into its own hands, acting as judge, jury and executioner on hardened criminals freed by a soft judicial system. Starsky plays a disgruntled cop in order to infiltrate the vigilante group.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441223.jpg",
+     "airDate": "1977-02-26",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E21 The Committee.mp4",
+      "format": "h.264",
+      "sizeBytes": 276852685,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E21%20The%20Committee.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e22",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 22,
+     "title": "The Velvet Jungle",
+     "overview": "A Costa Rican seamstress is murdered in the garment district, but an immigration official seeks to squash Starsky and Hutch's investigation. The interference only stirs their suspicions and strengthens their resolve to catch the killer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441285.jpg",
+     "airDate": "1977-03-05",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E22 The Velvet Jungle.mp4",
+      "format": "h.264",
+      "sizeBytes": 277327352,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E22%20The%20Velvet%20Jungle.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e23",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 23,
+     "title": "Long Walk Down a Short Dirt Road",
+     "overview": "A pretty country singer is plagued by telephone calls from a raspy voiced stranger deman­ding money and when the police are called in, he takes out his anger on innocent people.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441288.jpg",
+     "airDate": "1977-03-12",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E23 Long Walk Down A Short Dirt Road.mp4",
+      "format": "h.264",
+      "sizeBytes": 276886665,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E23%20Long%20Walk%20Down%20A%20Short%20Dirt%20Road.mp4"
+    },
+    {
+     "archiveID": "starsky-hutch-season-2@s2e24",
+     "sourceID": "starsky-hutch-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 24,
+     "title": "Murder on Stage 17",
+     "overview": "The detectives pose as movie stuntmen to nab an ex-comedian seeking revenge for his downfall.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/576/1441291.jpg",
+     "airDate": "1977-03-19",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S02 E24 Murder On Stage 17 Part I.mp4",
+      "format": "h.264",
+      "sizeBytes": 276306389,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02%20E24%20Murder%20On%20Stage%2017%20Part%20I.mp4"
     }
-  ],
-  "episodesCount": 23,
-  "canonicalEpisodesCount": 92,
-  "tvmazeRating": 7.3,
-  "tvdbID": "78194",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "David Soul",
-      "character": "Kenneth 'Hutch' Hutchinson",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259318/photo/67a124cc8e2e7.jpg"
-    },
-    {
-      "name": "Paul Michael Glaser",
-      "character": "Detective Sgt. Dave Starsky",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/64235f9c3839c.jpg"
-    },
-    {
-      "name": "Bernie Hamilton",
-      "character": "Capt. Harold Dobey",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263157/photo/6611b42af042e.jpg"
-    },
-    {
-      "name": "Antonio Fargas",
-      "character": "Huggy Bear",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266743/photo/67742f43a1ff9.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 23,
+ "canonicalEpisodesCount": 92,
+ "tvmazeRating": 7.3,
+ "tvdbID": "78194",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "David Soul",
+   "character": "Kenneth 'Hutch' Hutchinson",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259318/photo/67a124cc8e2e7.jpg"
+  },
+  {
+   "name": "Paul Michael Glaser",
+   "character": "Detective Sgt. Dave Starsky",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/64235f9c3839c.jpg"
+  },
+  {
+   "name": "Bernie Hamilton",
+   "character": "Capt. Harold Dobey",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263157/photo/6611b42af042e.jpg"
+  },
+  {
+   "name": "Antonio Fargas",
+   "character": "Huggy Bear",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266743/photo/67742f43a1ff9.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0072567",
+ "imdbRating": 7.0,
+ "imdbVotes": 12056
 }

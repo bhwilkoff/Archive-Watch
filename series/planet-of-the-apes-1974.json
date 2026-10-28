@@ -1,342 +1,345 @@
 {
-  "version": 2,
-  "seriesID": "planet-of-the-apes-1974",
-  "tvmazeID": 1133,
-  "title": "Planet of the Apes",
-  "yearStart": 1974,
-  "yearEnd": 1974,
-  "overview": "After their spacecraft travels through a time warp, two astronauts from 1981 crash-land back on Earth in the year 3085--a time when intelligent apes rule and humans have been reduced to servants or pets. Captured by the apes and sentenced to death, they are saved by a curious chimpanzee name Galen. But now all three are on the run, trying to keep one step ahead of the gorilla army led by General Urko, who is determined to kill the renegades.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/73565-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "planet-of-the-apes-1974",
+ "tvmazeID": 1133,
+ "title": "Planet of the Apes",
+ "yearStart": 1974,
+ "yearEnd": 1974,
+ "overview": "After their spacecraft travels through a time warp, two astronauts from 1981 crash-land back on Earth in the year 3085--a time when intelligent apes rule and humans have been reduced to servants or pets. Captured by the apes and sentenced to death, they are saved by a curious chimpanzee name Galen. But now all three are on the run, trying to keep one step ahead of the gorilla army led by General Urko, who is determined to kill the renegades.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/73565-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e01",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Escape from Tomorrow",
-          "overview": "Two Earth astronauts find themselves thrown through a time warp to Earth... over 500 years in the future where apes now rule the planet and humans are considered little more than dumb animals.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224586.jpg",
-          "airDate": "1974-09-13",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E01 Escape From Tomorrow.mp4",
-            "format": "h.264",
-            "sizeBytes": 271528740,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E01%20Escape%20From%20Tomorrow.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e02",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Gladiators",
-          "overview": "A chimpanzee prefect uses gladiatorial games to keep his human villagers pacified. However, the son of the undefeated champion won't fight... and the astronauts turn to him for help when the prefect acquires the disk.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/90/227138.jpg",
-          "airDate": "1974-09-20",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E02 The Gladiators.mp4",
-            "format": "h.264",
-            "sizeBytes": 268333219,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E02%20The%20Gladiators.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e03",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Trap",
-          "overview": "While pursuing the fugitives, Urko is caught in an earthquake and trapped in an underground subway station... with Pete. To free them both, Alan and Galen must make a deal with Urko's lieutenant, Zako.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/91/229281.jpg",
-          "airDate": "1974-09-27",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E03 The Trap.mp4",
-            "format": "h.264",
-            "sizeBytes": 269049883,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E03%20The%20Trap.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e04",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Good Seeds",
-          "overview": "After Galen breaks his leg, the fugitives are forced to take refuge with a family of poor ape farmers. The eldest son's cow is pregnant... and if it fails to deliver a bull, he'll hold the humans to blame and kill them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/92/231577.jpg",
-          "airDate": "1974-10-04",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E04 The Good Seeds.mp4",
-            "format": "h.264",
-            "sizeBytes": 269173750,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E04%20The%20Good%20Seeds.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e05",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Legacy",
-          "overview": "The trio find a long-buried human science institute, but the projector revealing the vault of hidden knowledge is out of power. While Pete and Galen collect parts to make a battery, Urko and Zaius capture Alan and try to obtain the institute's location from him.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/93/234211.jpg",
-          "airDate": "1974-10-11",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E05 The Legacy.mp4",
-            "format": "h.264",
-            "sizeBytes": 268552853,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E05%20The%20Legacy.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e06",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Tomorrow's Tide",
-          "overview": "Pete and Alan rescue an old man left to die at sea, and are captured by a local labor center that needs the astronauts to work for them to fulfill their quota.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/94/236130.jpg",
-          "airDate": "1974-10-18",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E06 Tomorrows Tide.mp4",
-            "format": "h.264",
-            "sizeBytes": 269137326,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E06%20Tomorrows%20Tide.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e07",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Surgeon",
-          "overview": "When Alan is badly wounded by an ape bullet, Galen must convince his former girlfriend--a chimpanzee surgeon--to operate on his friend using a forbidden human medical textbook.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/95/238763.jpg",
-          "airDate": "1974-10-25",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E07 The Surgeon.mp4",
-            "format": "h.264",
-            "sizeBytes": 269461636,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E07%20The%20Surgeon.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e08",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "The Deception",
-          "overview": "The trio investigates a village where a group of hooded ape Dragoons are terrorizing the humans after two humans allegedly killed an ape scholar. Things get complicated when the dead ape's blind daughter falls in love with Pete, unaware that he's a human.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/242194.jpg",
-          "airDate": "1974-11-01",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E08 The Deception.mp4",
-            "format": "h.264",
-            "sizeBytes": 270350511,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E08%20The%20Deception.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e09",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Horse Race",
-          "overview": "A young human rides a horse to get an antidote to save Galen's life, even though it's against the law. When he's captured, Alan agrees to ride in a horse race against Urko's jockey to save the boy's life.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/98/245206.jpg",
-          "airDate": "1974-11-08",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E09 The Horse Race.mp4",
-            "format": "h.264",
-            "sizeBytes": 265272723,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E09%20The%20Horse%20Race.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e10",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "The Interrogation",
-          "overview": "Urko and Zaius capture Pete and subject to him to brainwashing, and Galen turns to an old flame and his parents to help him and Alan rescue their friend.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/84/211728.jpg",
-          "airDate": "1974-11-15",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E10 The Interrogation.mp4",
-            "format": "h.264",
-            "sizeBytes": 269237973,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E10%20The%20Interrogation.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e11",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Tyrant",
-          "overview": "The trio are forced to ally with Urko to bring down a tyrannical gorilla ruler in an outer province.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/85/214596.jpg",
-          "airDate": "1974-11-22",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E11 The Tyrant.mp4",
-            "format": "h.264",
-            "sizeBytes": 269068955,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E11%20The%20Tyrant.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e12",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Cure",
-          "overview": "The astronauts run into a village struck by malaria. Only their knowledge can end the disease... but the apes have other ideas.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/514/1287005.jpg",
-          "airDate": "1974-11-29",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E12 The Cure.mp4",
-            "format": "h.264",
-            "sizeBytes": 270317909,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E12%20The%20Cure.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e13",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "The Liberator",
-          "overview": "The trio encounter a village of humans that hand over their own kind to the apes to work as slaves. The \"gods\" kill anyone who violates the village law, but the leader's son has second thoughts when his fiancee is the next slave to be chosen.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/87/219845.jpg",
-          "airDate": "1974-12-06",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E13 The Liberator.mp4",
-            "format": "h.264",
-            "sizeBytes": 269168116,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E13%20The%20Liberator.mp4"
-        },
-        {
-          "archiveID": "planet-of-the-apes-complete-series-1974@e14",
-          "sourceID": "planet-of-the-apes-complete-series-1974",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Up Above the World So High",
-          "overview": "The trio discovers a human that has built a crude glider. He is then captured by the apes, and one ape in particular wants to see the glider developed to its full potential... so that she can wipe out the gorilla and orangatuan leadership.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/222133.jpg",
-          "airDate": "1974-12-20",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Planet of the ApesS01E14 Up Above the World So High.mp4",
-            "format": "h.264",
-            "sizeBytes": 269158476,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E14%20Up%20Above%20the%20World%20So%20High.mp4"
-        }
-      ]
+     "archiveID": "planet-of-the-apes-complete-series-1974@e01",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Escape from Tomorrow",
+     "overview": "Two Earth astronauts find themselves thrown through a time warp to Earth... over 500 years in the future where apes now rule the planet and humans are considered little more than dumb animals.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224586.jpg",
+     "airDate": "1974-09-13",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E01 Escape From Tomorrow.mp4",
+      "format": "h.264",
+      "sizeBytes": 271528740,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E01%20Escape%20From%20Tomorrow.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e02",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Gladiators",
+     "overview": "A chimpanzee prefect uses gladiatorial games to keep his human villagers pacified. However, the son of the undefeated champion won't fight... and the astronauts turn to him for help when the prefect acquires the disk.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/90/227138.jpg",
+     "airDate": "1974-09-20",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E02 The Gladiators.mp4",
+      "format": "h.264",
+      "sizeBytes": 268333219,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E02%20The%20Gladiators.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e03",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Trap",
+     "overview": "While pursuing the fugitives, Urko is caught in an earthquake and trapped in an underground subway station... with Pete. To free them both, Alan and Galen must make a deal with Urko's lieutenant, Zako.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/91/229281.jpg",
+     "airDate": "1974-09-27",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E03 The Trap.mp4",
+      "format": "h.264",
+      "sizeBytes": 269049883,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E03%20The%20Trap.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e04",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Good Seeds",
+     "overview": "After Galen breaks his leg, the fugitives are forced to take refuge with a family of poor ape farmers. The eldest son's cow is pregnant... and if it fails to deliver a bull, he'll hold the humans to blame and kill them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/92/231577.jpg",
+     "airDate": "1974-10-04",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E04 The Good Seeds.mp4",
+      "format": "h.264",
+      "sizeBytes": 269173750,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E04%20The%20Good%20Seeds.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e05",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Legacy",
+     "overview": "The trio find a long-buried human science institute, but the projector revealing the vault of hidden knowledge is out of power. While Pete and Galen collect parts to make a battery, Urko and Zaius capture Alan and try to obtain the institute's location from him.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/93/234211.jpg",
+     "airDate": "1974-10-11",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E05 The Legacy.mp4",
+      "format": "h.264",
+      "sizeBytes": 268552853,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E05%20The%20Legacy.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e06",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Tomorrow's Tide",
+     "overview": "Pete and Alan rescue an old man left to die at sea, and are captured by a local labor center that needs the astronauts to work for them to fulfill their quota.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/94/236130.jpg",
+     "airDate": "1974-10-18",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E06 Tomorrows Tide.mp4",
+      "format": "h.264",
+      "sizeBytes": 269137326,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E06%20Tomorrows%20Tide.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e07",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Surgeon",
+     "overview": "When Alan is badly wounded by an ape bullet, Galen must convince his former girlfriend--a chimpanzee surgeon--to operate on his friend using a forbidden human medical textbook.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/95/238763.jpg",
+     "airDate": "1974-10-25",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E07 The Surgeon.mp4",
+      "format": "h.264",
+      "sizeBytes": 269461636,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E07%20The%20Surgeon.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e08",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "The Deception",
+     "overview": "The trio investigates a village where a group of hooded ape Dragoons are terrorizing the humans after two humans allegedly killed an ape scholar. Things get complicated when the dead ape's blind daughter falls in love with Pete, unaware that he's a human.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/242194.jpg",
+     "airDate": "1974-11-01",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E08 The Deception.mp4",
+      "format": "h.264",
+      "sizeBytes": 270350511,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E08%20The%20Deception.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e09",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Horse Race",
+     "overview": "A young human rides a horse to get an antidote to save Galen's life, even though it's against the law. When he's captured, Alan agrees to ride in a horse race against Urko's jockey to save the boy's life.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/98/245206.jpg",
+     "airDate": "1974-11-08",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E09 The Horse Race.mp4",
+      "format": "h.264",
+      "sizeBytes": 265272723,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E09%20The%20Horse%20Race.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e10",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "The Interrogation",
+     "overview": "Urko and Zaius capture Pete and subject to him to brainwashing, and Galen turns to an old flame and his parents to help him and Alan rescue their friend.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/84/211728.jpg",
+     "airDate": "1974-11-15",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E10 The Interrogation.mp4",
+      "format": "h.264",
+      "sizeBytes": 269237973,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E10%20The%20Interrogation.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e11",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Tyrant",
+     "overview": "The trio are forced to ally with Urko to bring down a tyrannical gorilla ruler in an outer province.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/85/214596.jpg",
+     "airDate": "1974-11-22",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E11 The Tyrant.mp4",
+      "format": "h.264",
+      "sizeBytes": 269068955,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E11%20The%20Tyrant.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e12",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Cure",
+     "overview": "The astronauts run into a village struck by malaria. Only their knowledge can end the disease... but the apes have other ideas.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/514/1287005.jpg",
+     "airDate": "1974-11-29",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E12 The Cure.mp4",
+      "format": "h.264",
+      "sizeBytes": 270317909,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E12%20The%20Cure.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e13",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "The Liberator",
+     "overview": "The trio encounter a village of humans that hand over their own kind to the apes to work as slaves. The \"gods\" kill anyone who violates the village law, but the leader's son has second thoughts when his fiancee is the next slave to be chosen.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/87/219845.jpg",
+     "airDate": "1974-12-06",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E13 The Liberator.mp4",
+      "format": "h.264",
+      "sizeBytes": 269168116,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E13%20The%20Liberator.mp4"
+    },
+    {
+     "archiveID": "planet-of-the-apes-complete-series-1974@e14",
+     "sourceID": "planet-of-the-apes-complete-series-1974",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Up Above the World So High",
+     "overview": "The trio discovers a human that has built a crude glider. He is then captured by the apes, and one ape in particular wants to see the glider developed to its full potential... so that she can wipe out the gorilla and orangatuan leadership.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/222133.jpg",
+     "airDate": "1974-12-20",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Planet of the ApesS01E14 Up Above the World So High.mp4",
+      "format": "h.264",
+      "sizeBytes": 269158476,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet%20of%20the%20ApesS01E14%20Up%20Above%20the%20World%20So%20High.mp4"
     }
-  ],
-  "episodesCount": 14,
-  "canonicalEpisodesCount": 14,
-  "tvmazeRating": 7.1,
-  "tvdbID": "73565",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Roddy McDowall",
-      "character": "Galen",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253872/photo/62387709ed796.jpg"
-    },
-    {
-      "name": "James Naughton",
-      "character": "Major Peter J. Burke",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/26230.jpg"
-    },
-    {
-      "name": "Ron Harper",
-      "character": "Colonel Alan Virdon",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/26231.jpg"
-    },
-    {
-      "name": "Mark Lenard",
-      "character": "General Urko",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283985/photo/6073219bef916.jpg"
-    },
-    {
-      "name": "Booth Colman",
-      "character": "Zaius",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262703/photo/62daf6a30ab1c.jpg"
-    },
-    {
-      "name": "Ron Stein",
-      "character": "First Gorilla",
-      "order": 5,
-      "profilePath": null
-    },
-    {
-      "name": "Eldon Burke",
-      "character": "Chilot",
-      "order": 6,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 14,
+ "canonicalEpisodesCount": 14,
+ "tvmazeRating": 7.1,
+ "tvdbID": "73565",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Roddy McDowall",
+   "character": "Galen",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253872/photo/62387709ed796.jpg"
+  },
+  {
+   "name": "James Naughton",
+   "character": "Major Peter J. Burke",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/26230.jpg"
+  },
+  {
+   "name": "Ron Harper",
+   "character": "Colonel Alan Virdon",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/26231.jpg"
+  },
+  {
+   "name": "Mark Lenard",
+   "character": "General Urko",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283985/photo/6073219bef916.jpg"
+  },
+  {
+   "name": "Booth Colman",
+   "character": "Zaius",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262703/photo/62daf6a30ab1c.jpg"
+  },
+  {
+   "name": "Ron Stein",
+   "character": "First Gorilla",
+   "order": 5,
+   "profilePath": null
+  },
+  {
+   "name": "Eldon Burke",
+   "character": "Chilot",
+   "order": 6,
+   "profilePath": null
+  }
+ ],
+ "seriesImdbID": "tt0071033",
+ "imdbRating": 7.0,
+ "imdbVotes": 6305
 }

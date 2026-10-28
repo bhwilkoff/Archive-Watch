@@ -1,541 +1,544 @@
 {
-  "version": 2,
-  "seriesID": "arthur-of-the-britons-1972",
-  "tvmazeID": 26958,
-  "title": "Arthur of the Britons",
-  "yearStart": 1972,
-  "yearEnd": 1973,
-  "overview": "This series strips away the elaborate medieval view of Camelot, and presents Arthur as the chief of a small Celt tribe in Dark-Ages Britain, a century or two after the withdrawal of Rome. Arthur struggles to weave the scattered tribes of Celts, Jutes, etc. into a union that can effectively oppose the Saxon invaders who are arriving in Britain in growing numbers. He is aided by his adoptive father, Llud, and his foster brother, Kai, who is himself a Saxon foundling.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77053-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Adventure"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "arthur-of-the-britons-1972",
+ "tvmazeID": 26958,
+ "title": "Arthur of the Britons",
+ "yearStart": 1972,
+ "yearEnd": 1973,
+ "overview": "This series strips away the elaborate medieval view of Camelot, and presents Arthur as the chief of a small Celt tribe in Dark-Ages Britain, a century or two after the withdrawal of Rome. Arthur struggles to weave the scattered tribes of Celts, Jutes, etc. into a union that can effectively oppose the Saxon invaders who are arriving in Britain in growing numbers. He is aided by his adoptive father, Llud, and his foster brother, Kai, who is himself a Saxon foundling.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/77053-2.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Adventure"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e01",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Arthur Is Dead",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E01%20Arthur%20is%20Dead_000751.jpg",
-          "airDate": "1972-12-06",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E01 Arthur is Dead.mp4",
-            "format": "h.264",
-            "sizeBytes": 145380530,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E01%20Arthur%20is%20Dead.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e02",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Gift of Life",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E02%20The%20Gift%20of%20Life_000759.jpg",
-          "airDate": "1972-12-13",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E02 The Gift of Life.mp4",
-            "format": "h.264",
-            "sizeBytes": 145263752,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E02%20The%20Gift%20of%20Life.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e03",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Challenge",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E03%20The%20Challenge_000746.jpg",
-          "airDate": "1972-12-20",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E03 The Challenge.mp4",
-            "format": "h.264",
-            "sizeBytes": 143774936,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E03%20The%20Challenge.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e04",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Pentinent Invader",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E04%20The%20Penitent%20Invader_000751.jpg",
-          "airDate": "1972-12-27",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E04 The Penitent Invader.mp4",
-            "format": "h.264",
-            "sizeBytes": 145739584,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E04%20The%20Penitent%20Invader.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e05",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "People of the Plough",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E05%20People%20of%20the%20Plough_000749.jpg",
-          "airDate": "1973-01-03",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E05 People of the Plough.mp4",
-            "format": "h.264",
-            "sizeBytes": 145215952,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E05%20People%20of%20the%20Plough.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e06",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Duel",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E06%20The%20Duel_000748.jpg",
-          "airDate": "1973-01-10",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E06 The Duel.mp4",
-            "format": "h.264",
-            "sizeBytes": 144900011,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E06%20The%20Duel.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e07",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Pupil",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E07%20The%20Pupil_000747.jpg",
-          "airDate": "1973-01-17",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E07 The Pupil.mp4",
-            "format": "h.264",
-            "sizeBytes": 144810135,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E07%20The%20Pupil.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e08",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Rolf the Preacher",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E08%20Rolf%20the%20Preacher_000747.jpg",
-          "airDate": "1973-01-24",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E08 Rolf the Preacher.mp4",
-            "format": "h.264",
-            "sizeBytes": 145509546,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E08%20Rolf%20the%20Preacher.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e09",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Enemies and Lovers",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E09%20Enemies%20and%20Lovers_000627.jpg",
-          "airDate": "1973-01-31",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E09 Enemies and Lovers.mp4",
-            "format": "h.264",
-            "sizeBytes": 144781487,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E09%20Enemies%20and%20Lovers.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e10",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "The Slave",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E10%20The%20Slaves_000738.jpg",
-          "airDate": "1973-02-07",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E10 The Slaves.mp4",
-            "format": "h.264",
-            "sizeBytes": 143768900,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E10%20The%20Slaves.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e11",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Wood People",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E11%20The%20Wood%20People_000746.jpg",
-          "airDate": "1973-02-14",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E11 The Wood People.mp4",
-            "format": "h.264",
-            "sizeBytes": 145301390,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E11%20The%20Wood%20People.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s1e12",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Prize",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E12%20The%20Prize_000751.jpg",
-          "airDate": "1973-02-21",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S01E12 The Prize.mp4",
-            "format": "h.264",
-            "sizeBytes": 147096344,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E12%20The%20Prize.mp4"
-        }
-      ]
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e01",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Arthur Is Dead",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E01%20Arthur%20is%20Dead_000751.jpg",
+     "airDate": "1972-12-06",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E01 Arthur is Dead.mp4",
+      "format": "h.264",
+      "sizeBytes": 145380530,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E01%20Arthur%20is%20Dead.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e01",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "The Swordsman",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E01%20The%20Swordsman_000755.jpg",
-          "airDate": "1973-09-12",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E01 The Swordsman.mp4",
-            "format": "h.264",
-            "sizeBytes": 145645405,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E01%20The%20Swordsman.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e02",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Rowena",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E02%20Rowena_000744.jpg",
-          "airDate": "1973-09-19",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E02 Rowena.mp4",
-            "format": "h.264",
-            "sizeBytes": 144270377,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E02%20Rowena.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e03",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "The Prisoner",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E03%20The%20Prisoner_000744.jpg",
-          "airDate": "1973-09-26",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E03 The Prisoner.mp4",
-            "format": "h.264",
-            "sizeBytes": 144112098,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E03%20The%20Prisoner.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e04",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Some Saxon Women",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E04%20Some%20Saxon%20Women_000748.jpg",
-          "airDate": "1973-10-03",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E04 Some Saxon Women.mp4",
-            "format": "h.264",
-            "sizeBytes": 143942257,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E04%20Some%20Saxon%20Women.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e05",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Go Warily",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E05%20Go%20Warily_000742.jpg",
-          "airDate": "1973-10-10",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E05 Go Warily.mp4",
-            "format": "h.264",
-            "sizeBytes": 144267805,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E05%20Go%20Warily.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e06",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "The Marriage Feast",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E06%20The%20Marriage%20Feast_000747.jpg",
-          "airDate": "1973-10-17",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E06 The Marriage Feast.mp4",
-            "format": "h.264",
-            "sizeBytes": 145279645,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E06%20The%20Marriage%20Feast.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e07",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "In Common Cause",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E07%20The%20Common%20Cause_000747.jpg",
-          "airDate": "1973-10-24",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E07 The Common Cause.mp4",
-            "format": "h.264",
-            "sizeBytes": 145327392,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E07%20The%20Common%20Cause.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e08",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "Six Measures of Silver",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E08%20Six%20Measures%20of%20Silver_000741.jpg",
-          "airDate": "1973-10-31",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E08 Six Measures of Silver.mp4",
-            "format": "h.264",
-            "sizeBytes": 143494647,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E08%20Six%20Measures%20of%20Silver.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e09",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "Daughter of the King",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E09%20Daughter%20of%20the%20King_000747.jpg",
-          "airDate": "1973-11-07",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E09 Daughter of the King.mp4",
-            "format": "h.264",
-            "sizeBytes": 144954805,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E09%20Daughter%20of%20the%20King.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e10",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "The Games",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E10%20The%20Games_000748.jpg",
-          "airDate": "1973-11-14",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E10 The Games.mp4",
-            "format": "h.264",
-            "sizeBytes": 145217080,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E10%20The%20Games.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e11",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "The Treaty",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E11%20The%20Treaty_000749.jpg",
-          "airDate": "1973-11-21",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E11 The Treaty.mp4",
-            "format": "h.264",
-            "sizeBytes": 145531505,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E11%20The%20Treaty.mp4"
-        },
-        {
-          "archiveID": "arthur-of-the-britons-complete-series-1972@s2e12",
-          "sourceID": "arthur-of-the-britons-complete-series-1972",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "The Girl from Rome",
-          "overview": null,
-          "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E12%20The%20Girl%20From%20Rome_000745.jpg",
-          "airDate": "1973-11-28",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Arthur of the Britons S02E12 The Girl From Rome.mp4",
-            "format": "h.264",
-            "sizeBytes": 145583578,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E12%20The%20Girl%20From%20Rome.mp4"
-        }
-      ]
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e02",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Gift of Life",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E02%20The%20Gift%20of%20Life_000759.jpg",
+     "airDate": "1972-12-13",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E02 The Gift of Life.mp4",
+      "format": "h.264",
+      "sizeBytes": 145263752,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E02%20The%20Gift%20of%20Life.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e03",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Challenge",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E03%20The%20Challenge_000746.jpg",
+     "airDate": "1972-12-20",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E03 The Challenge.mp4",
+      "format": "h.264",
+      "sizeBytes": 143774936,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E03%20The%20Challenge.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e04",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Pentinent Invader",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E04%20The%20Penitent%20Invader_000751.jpg",
+     "airDate": "1972-12-27",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E04 The Penitent Invader.mp4",
+      "format": "h.264",
+      "sizeBytes": 145739584,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E04%20The%20Penitent%20Invader.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e05",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "People of the Plough",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E05%20People%20of%20the%20Plough_000749.jpg",
+     "airDate": "1973-01-03",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E05 People of the Plough.mp4",
+      "format": "h.264",
+      "sizeBytes": 145215952,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E05%20People%20of%20the%20Plough.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e06",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Duel",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E06%20The%20Duel_000748.jpg",
+     "airDate": "1973-01-10",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E06 The Duel.mp4",
+      "format": "h.264",
+      "sizeBytes": 144900011,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E06%20The%20Duel.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e07",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "The Pupil",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E07%20The%20Pupil_000747.jpg",
+     "airDate": "1973-01-17",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E07 The Pupil.mp4",
+      "format": "h.264",
+      "sizeBytes": 144810135,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E07%20The%20Pupil.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e08",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Rolf the Preacher",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E08%20Rolf%20the%20Preacher_000747.jpg",
+     "airDate": "1973-01-24",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E08 Rolf the Preacher.mp4",
+      "format": "h.264",
+      "sizeBytes": 145509546,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E08%20Rolf%20the%20Preacher.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e09",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Enemies and Lovers",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E09%20Enemies%20and%20Lovers_000627.jpg",
+     "airDate": "1973-01-31",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E09 Enemies and Lovers.mp4",
+      "format": "h.264",
+      "sizeBytes": 144781487,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E09%20Enemies%20and%20Lovers.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e10",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "The Slave",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E10%20The%20Slaves_000738.jpg",
+     "airDate": "1973-02-07",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E10 The Slaves.mp4",
+      "format": "h.264",
+      "sizeBytes": 143768900,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E10%20The%20Slaves.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e11",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Wood People",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E11%20The%20Wood%20People_000746.jpg",
+     "airDate": "1973-02-14",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E11 The Wood People.mp4",
+      "format": "h.264",
+      "sizeBytes": 145301390,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E11%20The%20Wood%20People.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s1e12",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Prize",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S01E12%20The%20Prize_000751.jpg",
+     "airDate": "1973-02-21",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S01E12 The Prize.mp4",
+      "format": "h.264",
+      "sizeBytes": 147096344,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S01E12%20The%20Prize.mp4"
     }
-  ],
-  "episodesCount": 24,
-  "canonicalEpisodesCount": 24,
-  "tvmazeRating": null,
-  "tvdbID": "77053",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Jack Watson",
-      "character": "Llud",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/52123.jpg"
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e01",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "The Swordsman",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E01%20The%20Swordsman_000755.jpg",
+     "airDate": "1973-09-12",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E01 The Swordsman.mp4",
+      "format": "h.264",
+      "sizeBytes": 145645405,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E01%20The%20Swordsman.mp4"
     },
     {
-      "name": "Michael Gothard",
-      "character": "Kai",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/52124.jpg"
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e02",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Rowena",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E02%20Rowena_000744.jpg",
+     "airDate": "1973-09-19",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E02 Rowena.mp4",
+      "format": "h.264",
+      "sizeBytes": 144270377,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E02%20Rowena.mp4"
     },
     {
-      "name": "George Marishka",
-      "character": "Yorath",
-      "order": 2,
-      "profilePath": null
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e03",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "The Prisoner",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E03%20The%20Prisoner_000744.jpg",
+     "airDate": "1973-09-26",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E03 The Prisoner.mp4",
+      "format": "h.264",
+      "sizeBytes": 144112098,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E03%20The%20Prisoner.mp4"
     },
     {
-      "name": "Gila von Weitershausen",
-      "character": "Rowena",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/290681/5fbd54d3ec417.jpg"
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e04",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Some Saxon Women",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E04%20Some%20Saxon%20Women_000748.jpg",
+     "airDate": "1973-10-03",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E04 Some Saxon Women.mp4",
+      "format": "h.264",
+      "sizeBytes": 143942257,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E04%20Some%20Saxon%20Women.mp4"
     },
     {
-      "name": "Rupert Davies",
-      "character": "Cerdig",
-      "order": 4,
-      "profilePath": null
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e05",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Go Warily",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E05%20Go%20Warily_000742.jpg",
+     "airDate": "1973-10-10",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E05 Go Warily.mp4",
+      "format": "h.264",
+      "sizeBytes": 144267805,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E05%20Go%20Warily.mp4"
     },
     {
-      "name": "Oliver Tobias",
-      "character": "Arthur",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/52128.jpg"
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e06",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "The Marriage Feast",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E06%20The%20Marriage%20Feast_000747.jpg",
+     "airDate": "1973-10-17",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E06 The Marriage Feast.mp4",
+      "format": "h.264",
+      "sizeBytes": 145279645,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E06%20The%20Marriage%20Feast.mp4"
     },
     {
-      "name": "Brian Blessed",
-      "character": "Mark of Corwall",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/280558/photo/686016e866bbb.jpg"
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e07",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "In Common Cause",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E07%20The%20Common%20Cause_000747.jpg",
+     "airDate": "1973-10-24",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E07 The Common Cause.mp4",
+      "format": "h.264",
+      "sizeBytes": 145327392,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E07%20The%20Common%20Cause.mp4"
     },
     {
-      "name": "Clive Revill",
-      "character": "Rolf",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256886/photo/640b98654b1c4.jpg"
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e08",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "Six Measures of Silver",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E08%20Six%20Measures%20of%20Silver_000741.jpg",
+     "airDate": "1973-10-31",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E08 Six Measures of Silver.mp4",
+      "format": "h.264",
+      "sizeBytes": 143494647,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E08%20Six%20Measures%20of%20Silver.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e09",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "Daughter of the King",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E09%20Daughter%20of%20the%20King_000747.jpg",
+     "airDate": "1973-11-07",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E09 Daughter of the King.mp4",
+      "format": "h.264",
+      "sizeBytes": 144954805,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E09%20Daughter%20of%20the%20King.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e10",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "The Games",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E10%20The%20Games_000748.jpg",
+     "airDate": "1973-11-14",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E10 The Games.mp4",
+      "format": "h.264",
+      "sizeBytes": 145217080,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E10%20The%20Games.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e11",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "The Treaty",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E11%20The%20Treaty_000749.jpg",
+     "airDate": "1973-11-21",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E11 The Treaty.mp4",
+      "format": "h.264",
+      "sizeBytes": 145531505,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E11%20The%20Treaty.mp4"
+    },
+    {
+     "archiveID": "arthur-of-the-britons-complete-series-1972@s2e12",
+     "sourceID": "arthur-of-the-britons-complete-series-1972",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "The Girl from Rome",
+     "overview": null,
+     "stillURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/arthur-of-the-britons-complete-series-1972.thumbs/Arthur%20of%20the%20Britons%20S02E12%20The%20Girl%20From%20Rome_000745.jpg",
+     "airDate": "1973-11-28",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Arthur of the Britons S02E12 The Girl From Rome.mp4",
+      "format": "h.264",
+      "sizeBytes": 145583578,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/arthur-of-the-britons-complete-series-1972/Arthur%20of%20the%20Britons%20S02E12%20The%20Girl%20From%20Rome.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 24,
+ "canonicalEpisodesCount": 24,
+ "tvmazeRating": null,
+ "tvdbID": "77053",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Jack Watson",
+   "character": "Llud",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/52123.jpg"
+  },
+  {
+   "name": "Michael Gothard",
+   "character": "Kai",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/52124.jpg"
+  },
+  {
+   "name": "George Marishka",
+   "character": "Yorath",
+   "order": 2,
+   "profilePath": null
+  },
+  {
+   "name": "Gila von Weitershausen",
+   "character": "Rowena",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/290681/5fbd54d3ec417.jpg"
+  },
+  {
+   "name": "Rupert Davies",
+   "character": "Cerdig",
+   "order": 4,
+   "profilePath": null
+  },
+  {
+   "name": "Oliver Tobias",
+   "character": "Arthur",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/52128.jpg"
+  },
+  {
+   "name": "Brian Blessed",
+   "character": "Mark of Corwall",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/280558/photo/686016e866bbb.jpg"
+  },
+  {
+   "name": "Clive Revill",
+   "character": "Rolf",
+   "order": 7,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256886/photo/640b98654b1c4.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0068041",
+ "imdbRating": 7.6,
+ "imdbVotes": 189
 }

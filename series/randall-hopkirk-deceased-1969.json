@@ -1,546 +1,549 @@
 {
-  "version": 2,
-  "seriesID": "randall-hopkirk-deceased-1969",
-  "tvmazeID": 2585,
-  "title": "Randall & Hopkirk (Deceased)",
-  "yearStart": 1969,
-  "yearEnd": 1970,
-  "overview": "Randall and Hopkirk (Deceased) is a late 1960s British private detective television series starring Mike Pratt and Kenneth Cope as the private detectives Jeff Randall and Marty Hopkirk, respectively. The series was created by Dennis Spooner and produced by Monty Berman. In the initial episode Hopkirk was murdered in the line of duty, but returned as a ghost only Randall was able to see or hear to help his former partner fight crime from beyond the grave. ITC film corporation produced a single series of 26 episodes during 1968 and 1969 which were aired between September 1969 and March 1970. The pilot episode was originally broadcast on ITV in the United Kingdom on Friday 19 September 1969 on ATV Midlands.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/71555-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Action",
-    "Adventure"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "randall-hopkirk-deceased-1969",
+ "tvmazeID": 2585,
+ "title": "Randall & Hopkirk (Deceased)",
+ "yearStart": 1969,
+ "yearEnd": 1970,
+ "overview": "Randall and Hopkirk (Deceased) is a late 1960s British private detective television series starring Mike Pratt and Kenneth Cope as the private detectives Jeff Randall and Marty Hopkirk, respectively. The series was created by Dennis Spooner and produced by Monty Berman. In the initial episode Hopkirk was murdered in the line of duty, but returned as a ghost only Randall was able to see or hear to help his former partner fight crime from beyond the grave. ITC film corporation produced a single series of 26 episodes during 1968 and 1969 which were aired between September 1969 and March 1970. The pilot episode was originally broadcast on ITV in the United Kingdom on Friday 19 September 1969 on ATV Midlands.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/71555-3.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Action",
+  "Adventure"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e01",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "My Late Lamented Friend and Partner",
-          "overview": "Private eyes Jeff Randall and Marty Hopkirk are gathering information to allow Fay Sorrensen to divorce her cheating husband but he murders her and makes it look like a heart attack. Marty is suspicious but is killed by a hit-and-run driver before he can prove that Sorrensen is a murderer. His white-suited ghost gets Jeff to meet him at his grave in the cemetery and they expose the murderer between them. However, Marty has been out of his grave beyond the dawn and must wander the Earth as a ghost for the next century, though only Jeff can see him.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/683907.jpg",
-          "airDate": "1969-09-21",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E01 - My Late Lamented Friend and Partner.mp4",
-            "format": "h.264",
-            "sizeBytes": 280829010,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E01%20-%20My%20Late%20Lamented%20Friend%20and%20Partner.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e02",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "A Disturbing Case",
-          "overview": "Hearing Jeff talk to Marty, Marty's wife Jeannie believes he has snapped and he is referred to a psychiatric unit run by Dr. Conrad. Marty goes to visit him and learns that Conrad is a criminal who hypnotizes people into giving him their valuables, but Conrad gets Jeff to tell him about Marty and then erases him from Jeff's memory by using drugs. Marty overcomes this by impersonating Dr. Conrad's voice and hypnotizing Jeff into believing he is a karate expert and foiling the next crime.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684018.jpg",
-          "airDate": "1969-09-28",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E02 - A Disturbing Case.mp4",
-            "format": "h.264",
-            "sizeBytes": 282070952,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E02%20-%20A%20Disturbing%20Case.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e03",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "All Work and No Pay",
-          "overview": "Jeannie believes that Marty is trying to contact her when objects begin to move around in her house but it is a ploy by the Foster brothers, spiritualists down on their luck, who offer to pay Jeannie to send them clients anxious to hear messages from loved ones who have crossed over. Sensing a scam, Jeff sends Laura, an actress, to pose as a widow and engage the Fosters. He and Jeannie arrive at the Fosters' home and believe, erroneously, that they have killed her. However, the brothers attempt to murder Jeannie and Jeff by propelling objects using electricity. Marty saves the day by going to the generating station and using vibrations to cause a power cut - not just to the Fosters' house but to the whole neighbourhood.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684027.jpg",
-          "airDate": "1969-10-05",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E03 - All Work and No Pay (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 278883115,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E03%20-%20All%20Work%20and%20No%20Pay%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e04",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Never Trust a Ghost",
-          "overview": "Marty sees James Howarth being murdered but when Jeff summons the police at Marty's behest Howarth is apparently alive and well. Marty finds out that 'Howarth' and his wife are impostors who have murdered the real James and Karen Howarth and hidden the corpses in the basement. However, when the police come to investigate, the murderers, who are spies out to get a list of all known British agents - have disposed of them and Jeff is discredited. He begins to doubt Marty's sanity and sends him to a ghost expert, Dr. Plevitt, who can actually see him. The doctor is impressed when Marty passes his 'ghost test' with flying colours and rings the police, who finally arrest the killers as they are about to get rid of Jeff.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684029.jpg",
-          "airDate": "1969-10-12",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E04 - Never Trust a Ghost (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280271924,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E04%20-%20Never%20Trust%20a%20Ghost%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e05",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "That's How Murder Snowballs",
-          "overview": "The mind-reading act at the theatre goes wrong - the stooge shoots the mind-reader when a real bullet is swapped for the blank. Jeff Randall investigates, and - with the help of Marty - becomes a mind-reader himself, and in the process, clears the fall guy and finds the real villain.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684030.jpg",
-          "airDate": "1969-10-19",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E05 - That's How Murder Snowballs(1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279065257,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E05%20-%20That%27s%20How%20Murder%20Snowballs%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e06",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Just for the Record",
-          "overview": "Jeff is acting as a bodyguard to a beauty queen, Anne Soames, who wants to visit the Public Records Office. An intrigued Marty watches as she uses a special pair of glasses to cut the alarm and later a file is stolen by a man named Pargiter. When Jeff pursues him, Pargiter explains that the stolen document reveals him to be the rightful king of England - with his two heavies as noble lords. He condemns Jeff as a heretic, tying him up along with Anne, who has outlived her usefulness, and leaving them to die in a burning building. However, Marty sets off the fire alarm, the pair are rescued and Pargiter and his heavies are arrested.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684031.jpg",
-          "airDate": "1969-10-26",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E06 - Just for the Record (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 281290677,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E06%20-%20Just%20for%20the%20Record%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e07",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Murder Ain't What It Used to Be!",
-          "overview": "Ageing mobster Paul Kirstner hires Jeff to act as bodyguard to his daughter. He is followed into town by the vengeful ghost of Bugsy Spanio, another gangster, whom he killed years earlier and now wants revenge. Bugsy leans on Marty, threatening to harm Jeannie if he does not help him. However, Marty overcomes Bugsy in a fight and Kirstner is eventually disposed of by an earthly rival, allowing Bugsy to rest in peace.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684032.jpg",
-          "airDate": "1969-11-02",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E07 - Murder Ain't What It Used to Be! (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279878817,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E07%20-%20Murder%20Ain%27t%20What%20It%20Used%20to%20Be%21%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e08",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Whoever Heard of a Ghost Dying?",
-          "overview": "A villain called Hellingworth uses medium Cecil Purley to prove that Marty is indeed a ghost and, posing as an insurance salesman, approaches Jeff for alleged help with robberies in the knowledge that Marty will eavesdrop on the gang and report back to Jeff. This happens but Marty is being used purely as a decoy whilst the gang rob other venues. Eventually Hellingworth decides to get rid of Marty and calls Purley in to exorcise him. For once it is Jeff rushing against time to save Marty rather than the reverse.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684034.jpg",
-          "airDate": "1969-11-09",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E08 - Whoever Heard of a Ghost Dying (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 281116996,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E08%20-%20Whoever%20Heard%20of%20a%20Ghost%20Dying%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e09",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The House on Haunted Hill",
-          "overview": "Jeff is asked to investigate whether Merston Manor, a house which is impossible to sell, is really haunted after two previous psychics were scared off. He is looking into a jewel theft and sends Marty to the manor instead. Marty initially believes the ghostly sounds to be genuine but they are actually being made by the jewel thieves who are using the house as their den and want to scare off visitors. The gang capture Jeff and Jenny, Jeannie's sister but Marty comes to their rescue by appearing to one of the psychics previously frightened off, who summons help.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684035.jpg",
-          "airDate": "1969-11-16",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E09 - The House on Haunted Hill (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280360043,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E09%20-%20The%20House%20on%20Haunted%20Hill%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e10",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "When Did You Start to Stop Seeing Things?",
-          "overview": "Marty is confused when Jeff fails to acknowledge him and even more so when he sees Jeff kill Tully, an employee of the Towler Corporation, whose stock market leaks Jeff has been investigating. In fact it is not Jeff but an actor in a mask made to resemble him and in the pay of Laker, the Towler Corporation's general manager, out to make a killing in the market from the information supplied by the real Jeff, who will be disposed of when he has no further purpose. Laker ends up in a room with both Jeffs and about to shoot one. Fortunately Marty hypnotises Sir Oliver, a confused psychiatrist, into leaping into action and saving the real Jeff.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684036.jpg",
-          "airDate": "1969-11-23",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E10 - When Did You Start to Stop Seeing Things (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 282707225,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E10%20-%20When%20Did%20You%20Start%20to%20Stop%20Seeing%20Things%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e11",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "The Ghost Who Saved the Bank at Monte Carlo",
-          "overview": "Marty's eccentric old aunt, Clara, unaware of his death, comes to the agency, seeking a bodyguard to accompany her to the roulette tables of Monte Carlo where she hopes to put into practice her foolproof winning system. Jeff and Jeannie go with her and she wins a fortune but two gangs, one British, one French, are after her secret and steal her 'little red book' though this proves to be worthless as her system is in her head. When heavies abduct Jean, the best way to save her seems to be to show that Clara can lose as well as win, requiring Marty to 'doctor' the roulette wheel.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684037.jpg",
-          "airDate": "1969-11-30",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E11 - The Ghost Who Saved the Bank at Monte Carlo (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 286022483,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E11%20-%20The%20Ghost%20Who%20Saved%20the%20Bank%20at%20Monte%20Carlo%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e12",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "For the Girl Who Has Everything",
-          "overview": "Ghost hunter James McAllister asks for Jeff's help, having been hired by wealthy American Kim Wentworth to see if her home, Crake Castle, is haunted. McAllister is killed and it looks as if Kim's husband is the murderer, trying to frighten Kim away so that he can marry girlfriend Laura but it would seem that the butler did it and the butler and Kim are the killers, anxious to run off together. Jeff is their prisoner but fortunately Marty has found a local lady who can see and hear him - in order for him to effect a rescue.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684038.jpg",
-          "airDate": "1969-12-07",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E12 - For the Girl Who Has Everything (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280541521,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E12%20-%20For%20the%20Girl%20Who%20Has%20Everything%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e13",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "But What a Sweet Little Room",
-          "overview": "After Anne Fenwick is killed by gold-digging boyfriend 'Bunny' de Crecy, her niece Julia, unaware of Anne's fate, asks Jeff to locate her, telling him that she attended a seance given by Madame Hanska every week. Jeannie poses as a recent widow wanting news of her husband but Elliot, a man who befriends her, exposes her to Madame Hanska, as Marty discovers. Marty 'appears' to the medium and frightens her into admitting the scam whereby she sends lonely rich women into de Crecy's clutches and Jeff confronts him in the room where he killed Anne, with Marty contributing to an explosive situation.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684039.jpg",
-          "airDate": "1969-12-14",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E13 - But What a Sweet Little Room (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279059684,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E13%20-%20But%20What%20a%20Sweet%20Little%20Room%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e14",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Who Killed Cock Robin?",
-          "overview": "Mr. Laverick, a solicitor, approaches Jeff with a bizarre assignment - to act as minder to an aviary of birds belonging to the late, eccentric Mrs. Wentworth Howe. Her will stipulates that her relatives will get a share of her large fortune only if the birds are all dead - and someone does kill one of the birds. However it is the relatives who are dying like flies and soon only one, Sandra, is left - making her the chief suspect. The murderer, however, turns out to be outside of the family but his efforts to kill the birds only end in his own destruction - with a little help from Marty.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684040.jpg",
-          "airDate": "1969-12-21",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E14 - Who Killed Cock Robin (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279633153,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E14%20-%20Who%20Killed%20Cock%20Robin%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e15",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "The Man From Nowhere",
-          "overview": "Jeannie is approached by a man who claims to be the reincarnation of Marty. He is very convincing and she is eventually taken in - unlike the real Marty. The impostor takes her to a hotel in the Cotswolds where the Hopkirks spent their honeymoon - shadowed by Marty and Jeff - and two other men. It transpires that the trio are robbers who buried their loot in the vicinity but had a car smash involving the Hopkirks. The false Marty lost his memory in the prang and is hoping that Jeannie can lead him to the spoils. Fortunately the real Marty - and Jeff - intervene, with Jeff claiming the reward.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684041.jpg",
-          "airDate": "1969-12-28",
-          "year": 1969,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E15 - The Man From Nowhere (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279465634,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E15%20-%20The%20Man%20From%20Nowhere%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e16",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "When the Spirit Moves You",
-          "overview": "Small-time con artist Calvin P. Bream attracts the attention of mobster Miklos Corri when he claims to have a large number of bearer bonds - actually sheets of newspaper. To draw Corri off his trail Bream claims to be only the middle man and, taking a name from the papers at random, cites Randall and Hopkirk. He visits Jeff, pretending to be an American cop but Marty spots the deception. The bizarre thing is that Bream can actually see Marty but only when he is drunk. When Corri holds Jeff a prisoner and threatens to kill him in order to get at the bonds in a night safe Marty has to ply Bream with booze to get through to him to call the police.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684043.jpg",
-          "airDate": "1970-01-02",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E16 - When the Spirit Moves You (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280327087,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E16%20-%20When%20the%20Spirit%20Moves%20You%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e17",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Somebody Just Walked Over My Grave",
-          "overview": "Marty claims that his grave is being desecrated, and Jeff discovers a plan to kidnap the heir to a fortune.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684044.jpg",
-          "airDate": "1970-01-09",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E17 - Somebody Just Walked Over My Grave (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280921915,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E17%20-%20Somebody%20Just%20Walked%20Over%20My%20Grave%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e18",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Could You Recognise the Man Again?",
-          "overview": "Jeff recognises racketeer George Roden as being the man who killed rival gangster Jennings and Roden is duly arrested. However his mother has Jeannie abducted as a security against Jeff testifying when her son appears in court. Marty uses his telepathy to locate where Jean is being held and she is saved just in time for her and Jeff to make a dash to the courtroom and see that Roden is punished.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684045.jpg",
-          "airDate": "1970-01-16",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E18 - Could you Recognise The Man Again (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280942574,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E18%20-%20Could%20you%20Recognise%20The%20Man%20Again%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e19",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "A Sentimental Journey",
-          "overview": "Sam Seymour hires Jeff to go to Glasgow and retrieve a valuable 'item'. This turns out to be his girlfriend Dandy Garrison, who has a case chained to her wrist. On arrival back in London Dandy disappears, fitting Jeff up to appear to be her accomplice. In reality she has gone off with Tony, one of Seymour's men and they have stolen a very valuable stamp. Dandy tries to double-cross Tony as well, by escaping in a private plane but Marty brings her down to earth.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684046.jpg",
-          "airDate": "1970-01-23",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E19 - A Sentimental Journey (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279406246,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E19%20-%20A%20Sentimental%20Journey%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e20",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Money to Burn",
-          "overview": "A dubious old friend of Jeff, Kevin O'Malley, suggests to the cash-strapped detective that they steal old bank notes being taken on a lorry to be incinerated. The money is stolen but neither Kevin nor Jeff have got it and Jeff gets arrested as the chief suspect. The actual thieves are two women who perform a stage act. They plan to fly the money out to France but Marty uses his skills to ensure that their plane lands exactly where the police are waiting to arrest them.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684047.jpg",
-          "airDate": "1970-01-30",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E20 - Money to Burn (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 280235652,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E20%20-%20Money%20to%20Burn%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e21",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "The Ghost Talks",
-          "overview": "Jeff has fallen from a balcony in the line of duty and is in hospital with a broken leg. He is thus a captive audience when Marty comes to visit and regales him with the details of a big case he handled whilst he was alive and Jeff was in Scotland. He was asked by MI5 head Sir Basil Duggan to steal documents from a safe but discovered that 'Sir Basil' was actually a traitor called Brenan, whom he managed to apprehend before he could leave the country. After Marty has gone Jeannie comes in and offers to tell Jeff the same story.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684048.jpg",
-          "airDate": "1970-02-06",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E21 - Ghost Talks.mp4",
-            "format": "h.264",
-            "sizeBytes": 281162459,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E21%20-%20Ghost%20Talks.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e22",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "It's Supposed to be Thicker Than Water",
-          "overview": "Having reunited the far-flung members of the Crackan family for a gathering where patriarch Joshua will decide which one of them should be his heir, Jeff tells Marty he wants to end their partnership. However, when members of the Crackan clan start to get murdered it is Marty who saves the situation by communicating with Fay, the last survivor, as she goes into a trance assisting a stage hypnotist and getting her to call the police and Jeff is made to re-consider his hasty decision.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684055.jpg",
-          "airDate": "1970-02-13",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E22 - It's Supposed to be Thicker Than Water (1969).mp4",
-            "format": "h.264",
-            "sizeBytes": 281002724,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E22%20-%20It%27s%20Supposed%20to%20be%20Thicker%20Than%20Water%20%281969%29.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e23",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "The Trouble With Woman (1969) [(DivX)]",
-          "overview": null,
-          "stillURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/randall-hopkirk-deceased-complete-series-1969.thumbs/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E23%20-%20The%20Trouble%20With%20Woman%20%281969%29%20%5B%28DivX%29%5D_001308.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2914,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E23 - The Trouble With Woman (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 279069155,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E23%20-%20The%20Trouble%20With%20Woman%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e24",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Vendetta for a Dead Man",
-          "overview": "On the anniversary of his capture by the then flesh and blood Marty Hopkirk, violent criminal Eric Jansen escapes, swearing vengeance. Having discovered that Marty is now dead, he proposes to kill Jeannie as the next best thing. Jeannie is dating a man called Emil and hopes they can marry, although she is unaware that he already has a wife. Jansen catches up with them and abducts Jeannie, hotly pursued by Marty. They end up on the edge of cliffs where, exactly a year earlier, they had had the showdown resulting in Jansen's arrest.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684154.jpg",
-          "airDate": "1970-02-27",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E24 - Vendetta For A Dead Man (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 277629630,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E24%20-%20Vendetta%20For%20A%20Dead%20Man%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e25",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "You Can Always Find a Fall Guy",
-          "overview": "A nun approaches Jeff and asks him to acquire a document from her convent which will prove that accountant Douglas Kershaw is embezzling the nuns' funds. He goes along to the building with the suspicious Marty, only to find that he has burgled a research facility on behalf of the fake nun and her accomplice, who need to get their hands on valuable documents. Once more he gets arrested, released and captured by the villains. Once more Marty has to save him - this time by using a man under sedation for an operation as his medium.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684155.jpg",
-          "airDate": "1970-03-06",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E25 - You Can Always Find A Fall Guy (1969) [(DivX)].mp4",
-            "format": "h.264",
-            "sizeBytes": 278605495,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E25%20-%20You%20Can%20Always%20Find%20A%20Fall%20Guy%20%281969%29%20%5B%28DivX%29%5D.mp4"
-        },
-        {
-          "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e26",
-          "sourceID": "randall-hopkirk-deceased-complete-series-1969",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "The Smile Behind the Veil",
-          "overview": "At the funeral of his friend Caroline Seaton, Marty observes her brother Donald and his wife Cynthia, who seems to be smiling, and he deduces that they have killed Caroline. Jeff is reluctant to investigate so Marty tricks him into visiting the Seaton home, where an attempt is made to kill him. Due to Marty's intervention, he is saved by the real Donald Seaton, who has returned from Australia to find an impostor has taken his name, married his ex-wife - Cynthia - and killed both his father and Caroline for the Seaton estate. The killers throw Jeff down a well but Marty causes two hikers to rescue him and, as the villains are caught and the true Donald takes his inheritance, the partnership of Randall and Hopkirk -Deceased - continues.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684156.jpg",
-          "airDate": "1970-03-13",
-          "year": 1970,
-          "runtimeSeconds": 3000,
-          "videoFile": {
-            "name": "Randall & Hopkirk (Deceased) - S01E26 - Smile Behind the Veil.mp4",
-            "format": "h.264",
-            "sizeBytes": 280831126,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E26%20-%20Smile%20Behind%20the%20Veil.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 26,
-  "canonicalEpisodesCount": 26,
-  "tvmazeRating": null,
-  "tvdbID": "71555",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Mike Pratt",
-      "character": "Jeff Randall",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318718/photo/69315bf83c796.jpg"
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e01",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "My Late Lamented Friend and Partner",
+     "overview": "Private eyes Jeff Randall and Marty Hopkirk are gathering information to allow Fay Sorrensen to divorce her cheating husband but he murders her and makes it look like a heart attack. Marty is suspicious but is killed by a hit-and-run driver before he can prove that Sorrensen is a murderer. His white-suited ghost gets Jeff to meet him at his grave in the cemetery and they expose the murderer between them. However, Marty has been out of his grave beyond the dawn and must wander the Earth as a ghost for the next century, though only Jeff can see him.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/683907.jpg",
+     "airDate": "1969-09-21",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E01 - My Late Lamented Friend and Partner.mp4",
+      "format": "h.264",
+      "sizeBytes": 280829010,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E01%20-%20My%20Late%20Lamented%20Friend%20and%20Partner.mp4"
     },
     {
-      "name": "Kenneth Cope",
-      "character": "Marty Hopkirk",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258584/photo/69b5092a39c0b.jpg"
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e02",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "A Disturbing Case",
+     "overview": "Hearing Jeff talk to Marty, Marty's wife Jeannie believes he has snapped and he is referred to a psychiatric unit run by Dr. Conrad. Marty goes to visit him and learns that Conrad is a criminal who hypnotizes people into giving him their valuables, but Conrad gets Jeff to tell him about Marty and then erases him from Jeff's memory by using drugs. Marty overcomes this by impersonating Dr. Conrad's voice and hypnotizing Jeff into believing he is a karate expert and foiling the next crime.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684018.jpg",
+     "airDate": "1969-09-28",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E02 - A Disturbing Case.mp4",
+      "format": "h.264",
+      "sizeBytes": 282070952,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E02%20-%20A%20Disturbing%20Case.mp4"
     },
     {
-      "name": "Annette Andre",
-      "character": "Jeannie Hopkirk",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282515/photo/69b5066b9bfed.jpg"
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e03",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "All Work and No Pay",
+     "overview": "Jeannie believes that Marty is trying to contact her when objects begin to move around in her house but it is a ploy by the Foster brothers, spiritualists down on their luck, who offer to pay Jeannie to send them clients anxious to hear messages from loved ones who have crossed over. Sensing a scam, Jeff sends Laura, an actress, to pose as a widow and engage the Fosters. He and Jeannie arrive at the Fosters' home and believe, erroneously, that they have killed her. However, the brothers attempt to murder Jeannie and Jeff by propelling objects using electricity. Marty saves the day by going to the generating station and using vibrations to cause a power cut - not just to the Fosters' house but to the whole neighbourhood.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684027.jpg",
+     "airDate": "1969-10-05",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E03 - All Work and No Pay (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 278883115,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E03%20-%20All%20Work%20and%20No%20Pay%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e04",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Never Trust a Ghost",
+     "overview": "Marty sees James Howarth being murdered but when Jeff summons the police at Marty's behest Howarth is apparently alive and well. Marty finds out that 'Howarth' and his wife are impostors who have murdered the real James and Karen Howarth and hidden the corpses in the basement. However, when the police come to investigate, the murderers, who are spies out to get a list of all known British agents - have disposed of them and Jeff is discredited. He begins to doubt Marty's sanity and sends him to a ghost expert, Dr. Plevitt, who can actually see him. The doctor is impressed when Marty passes his 'ghost test' with flying colours and rings the police, who finally arrest the killers as they are about to get rid of Jeff.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684029.jpg",
+     "airDate": "1969-10-12",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E04 - Never Trust a Ghost (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280271924,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E04%20-%20Never%20Trust%20a%20Ghost%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e05",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "That's How Murder Snowballs",
+     "overview": "The mind-reading act at the theatre goes wrong - the stooge shoots the mind-reader when a real bullet is swapped for the blank. Jeff Randall investigates, and - with the help of Marty - becomes a mind-reader himself, and in the process, clears the fall guy and finds the real villain.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684030.jpg",
+     "airDate": "1969-10-19",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E05 - That's How Murder Snowballs(1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279065257,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E05%20-%20That%27s%20How%20Murder%20Snowballs%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e06",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Just for the Record",
+     "overview": "Jeff is acting as a bodyguard to a beauty queen, Anne Soames, who wants to visit the Public Records Office. An intrigued Marty watches as she uses a special pair of glasses to cut the alarm and later a file is stolen by a man named Pargiter. When Jeff pursues him, Pargiter explains that the stolen document reveals him to be the rightful king of England - with his two heavies as noble lords. He condemns Jeff as a heretic, tying him up along with Anne, who has outlived her usefulness, and leaving them to die in a burning building. However, Marty sets off the fire alarm, the pair are rescued and Pargiter and his heavies are arrested.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684031.jpg",
+     "airDate": "1969-10-26",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E06 - Just for the Record (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 281290677,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E06%20-%20Just%20for%20the%20Record%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e07",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Murder Ain't What It Used to Be!",
+     "overview": "Ageing mobster Paul Kirstner hires Jeff to act as bodyguard to his daughter. He is followed into town by the vengeful ghost of Bugsy Spanio, another gangster, whom he killed years earlier and now wants revenge. Bugsy leans on Marty, threatening to harm Jeannie if he does not help him. However, Marty overcomes Bugsy in a fight and Kirstner is eventually disposed of by an earthly rival, allowing Bugsy to rest in peace.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684032.jpg",
+     "airDate": "1969-11-02",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E07 - Murder Ain't What It Used to Be! (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279878817,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E07%20-%20Murder%20Ain%27t%20What%20It%20Used%20to%20Be%21%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e08",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Whoever Heard of a Ghost Dying?",
+     "overview": "A villain called Hellingworth uses medium Cecil Purley to prove that Marty is indeed a ghost and, posing as an insurance salesman, approaches Jeff for alleged help with robberies in the knowledge that Marty will eavesdrop on the gang and report back to Jeff. This happens but Marty is being used purely as a decoy whilst the gang rob other venues. Eventually Hellingworth decides to get rid of Marty and calls Purley in to exorcise him. For once it is Jeff rushing against time to save Marty rather than the reverse.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684034.jpg",
+     "airDate": "1969-11-09",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E08 - Whoever Heard of a Ghost Dying (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 281116996,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E08%20-%20Whoever%20Heard%20of%20a%20Ghost%20Dying%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e09",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The House on Haunted Hill",
+     "overview": "Jeff is asked to investigate whether Merston Manor, a house which is impossible to sell, is really haunted after two previous psychics were scared off. He is looking into a jewel theft and sends Marty to the manor instead. Marty initially believes the ghostly sounds to be genuine but they are actually being made by the jewel thieves who are using the house as their den and want to scare off visitors. The gang capture Jeff and Jenny, Jeannie's sister but Marty comes to their rescue by appearing to one of the psychics previously frightened off, who summons help.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684035.jpg",
+     "airDate": "1969-11-16",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E09 - The House on Haunted Hill (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280360043,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E09%20-%20The%20House%20on%20Haunted%20Hill%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e10",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "When Did You Start to Stop Seeing Things?",
+     "overview": "Marty is confused when Jeff fails to acknowledge him and even more so when he sees Jeff kill Tully, an employee of the Towler Corporation, whose stock market leaks Jeff has been investigating. In fact it is not Jeff but an actor in a mask made to resemble him and in the pay of Laker, the Towler Corporation's general manager, out to make a killing in the market from the information supplied by the real Jeff, who will be disposed of when he has no further purpose. Laker ends up in a room with both Jeffs and about to shoot one. Fortunately Marty hypnotises Sir Oliver, a confused psychiatrist, into leaping into action and saving the real Jeff.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684036.jpg",
+     "airDate": "1969-11-23",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E10 - When Did You Start to Stop Seeing Things (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 282707225,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E10%20-%20When%20Did%20You%20Start%20to%20Stop%20Seeing%20Things%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e11",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The Ghost Who Saved the Bank at Monte Carlo",
+     "overview": "Marty's eccentric old aunt, Clara, unaware of his death, comes to the agency, seeking a bodyguard to accompany her to the roulette tables of Monte Carlo where she hopes to put into practice her foolproof winning system. Jeff and Jeannie go with her and she wins a fortune but two gangs, one British, one French, are after her secret and steal her 'little red book' though this proves to be worthless as her system is in her head. When heavies abduct Jean, the best way to save her seems to be to show that Clara can lose as well as win, requiring Marty to 'doctor' the roulette wheel.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684037.jpg",
+     "airDate": "1969-11-30",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E11 - The Ghost Who Saved the Bank at Monte Carlo (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 286022483,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E11%20-%20The%20Ghost%20Who%20Saved%20the%20Bank%20at%20Monte%20Carlo%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e12",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "For the Girl Who Has Everything",
+     "overview": "Ghost hunter James McAllister asks for Jeff's help, having been hired by wealthy American Kim Wentworth to see if her home, Crake Castle, is haunted. McAllister is killed and it looks as if Kim's husband is the murderer, trying to frighten Kim away so that he can marry girlfriend Laura but it would seem that the butler did it and the butler and Kim are the killers, anxious to run off together. Jeff is their prisoner but fortunately Marty has found a local lady who can see and hear him - in order for him to effect a rescue.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684038.jpg",
+     "airDate": "1969-12-07",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E12 - For the Girl Who Has Everything (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280541521,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E12%20-%20For%20the%20Girl%20Who%20Has%20Everything%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e13",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "But What a Sweet Little Room",
+     "overview": "After Anne Fenwick is killed by gold-digging boyfriend 'Bunny' de Crecy, her niece Julia, unaware of Anne's fate, asks Jeff to locate her, telling him that she attended a seance given by Madame Hanska every week. Jeannie poses as a recent widow wanting news of her husband but Elliot, a man who befriends her, exposes her to Madame Hanska, as Marty discovers. Marty 'appears' to the medium and frightens her into admitting the scam whereby she sends lonely rich women into de Crecy's clutches and Jeff confronts him in the room where he killed Anne, with Marty contributing to an explosive situation.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684039.jpg",
+     "airDate": "1969-12-14",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E13 - But What a Sweet Little Room (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279059684,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E13%20-%20But%20What%20a%20Sweet%20Little%20Room%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e14",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Who Killed Cock Robin?",
+     "overview": "Mr. Laverick, a solicitor, approaches Jeff with a bizarre assignment - to act as minder to an aviary of birds belonging to the late, eccentric Mrs. Wentworth Howe. Her will stipulates that her relatives will get a share of her large fortune only if the birds are all dead - and someone does kill one of the birds. However it is the relatives who are dying like flies and soon only one, Sandra, is left - making her the chief suspect. The murderer, however, turns out to be outside of the family but his efforts to kill the birds only end in his own destruction - with a little help from Marty.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684040.jpg",
+     "airDate": "1969-12-21",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E14 - Who Killed Cock Robin (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279633153,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E14%20-%20Who%20Killed%20Cock%20Robin%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e15",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Man From Nowhere",
+     "overview": "Jeannie is approached by a man who claims to be the reincarnation of Marty. He is very convincing and she is eventually taken in - unlike the real Marty. The impostor takes her to a hotel in the Cotswolds where the Hopkirks spent their honeymoon - shadowed by Marty and Jeff - and two other men. It transpires that the trio are robbers who buried their loot in the vicinity but had a car smash involving the Hopkirks. The false Marty lost his memory in the prang and is hoping that Jeannie can lead him to the spoils. Fortunately the real Marty - and Jeff - intervene, with Jeff claiming the reward.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684041.jpg",
+     "airDate": "1969-12-28",
+     "year": 1969,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E15 - The Man From Nowhere (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279465634,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E15%20-%20The%20Man%20From%20Nowhere%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e16",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "When the Spirit Moves You",
+     "overview": "Small-time con artist Calvin P. Bream attracts the attention of mobster Miklos Corri when he claims to have a large number of bearer bonds - actually sheets of newspaper. To draw Corri off his trail Bream claims to be only the middle man and, taking a name from the papers at random, cites Randall and Hopkirk. He visits Jeff, pretending to be an American cop but Marty spots the deception. The bizarre thing is that Bream can actually see Marty but only when he is drunk. When Corri holds Jeff a prisoner and threatens to kill him in order to get at the bonds in a night safe Marty has to ply Bream with booze to get through to him to call the police.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684043.jpg",
+     "airDate": "1970-01-02",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E16 - When the Spirit Moves You (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280327087,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E16%20-%20When%20the%20Spirit%20Moves%20You%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e17",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Somebody Just Walked Over My Grave",
+     "overview": "Marty claims that his grave is being desecrated, and Jeff discovers a plan to kidnap the heir to a fortune.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684044.jpg",
+     "airDate": "1970-01-09",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E17 - Somebody Just Walked Over My Grave (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280921915,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E17%20-%20Somebody%20Just%20Walked%20Over%20My%20Grave%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e18",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Could You Recognise the Man Again?",
+     "overview": "Jeff recognises racketeer George Roden as being the man who killed rival gangster Jennings and Roden is duly arrested. However his mother has Jeannie abducted as a security against Jeff testifying when her son appears in court. Marty uses his telepathy to locate where Jean is being held and she is saved just in time for her and Jeff to make a dash to the courtroom and see that Roden is punished.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684045.jpg",
+     "airDate": "1970-01-16",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E18 - Could you Recognise The Man Again (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280942574,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E18%20-%20Could%20you%20Recognise%20The%20Man%20Again%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e19",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "A Sentimental Journey",
+     "overview": "Sam Seymour hires Jeff to go to Glasgow and retrieve a valuable 'item'. This turns out to be his girlfriend Dandy Garrison, who has a case chained to her wrist. On arrival back in London Dandy disappears, fitting Jeff up to appear to be her accomplice. In reality she has gone off with Tony, one of Seymour's men and they have stolen a very valuable stamp. Dandy tries to double-cross Tony as well, by escaping in a private plane but Marty brings her down to earth.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684046.jpg",
+     "airDate": "1970-01-23",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E19 - A Sentimental Journey (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279406246,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E19%20-%20A%20Sentimental%20Journey%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e20",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Money to Burn",
+     "overview": "A dubious old friend of Jeff, Kevin O'Malley, suggests to the cash-strapped detective that they steal old bank notes being taken on a lorry to be incinerated. The money is stolen but neither Kevin nor Jeff have got it and Jeff gets arrested as the chief suspect. The actual thieves are two women who perform a stage act. They plan to fly the money out to France but Marty uses his skills to ensure that their plane lands exactly where the police are waiting to arrest them.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684047.jpg",
+     "airDate": "1970-01-30",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E20 - Money to Burn (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 280235652,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E20%20-%20Money%20to%20Burn%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e21",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "The Ghost Talks",
+     "overview": "Jeff has fallen from a balcony in the line of duty and is in hospital with a broken leg. He is thus a captive audience when Marty comes to visit and regales him with the details of a big case he handled whilst he was alive and Jeff was in Scotland. He was asked by MI5 head Sir Basil Duggan to steal documents from a safe but discovered that 'Sir Basil' was actually a traitor called Brenan, whom he managed to apprehend before he could leave the country. After Marty has gone Jeannie comes in and offers to tell Jeff the same story.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684048.jpg",
+     "airDate": "1970-02-06",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E21 - Ghost Talks.mp4",
+      "format": "h.264",
+      "sizeBytes": 281162459,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E21%20-%20Ghost%20Talks.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e22",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "It's Supposed to be Thicker Than Water",
+     "overview": "Having reunited the far-flung members of the Crackan family for a gathering where patriarch Joshua will decide which one of them should be his heir, Jeff tells Marty he wants to end their partnership. However, when members of the Crackan clan start to get murdered it is Marty who saves the situation by communicating with Fay, the last survivor, as she goes into a trance assisting a stage hypnotist and getting her to call the police and Jeff is made to re-consider his hasty decision.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684055.jpg",
+     "airDate": "1970-02-13",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E22 - It's Supposed to be Thicker Than Water (1969).mp4",
+      "format": "h.264",
+      "sizeBytes": 281002724,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E22%20-%20It%27s%20Supposed%20to%20be%20Thicker%20Than%20Water%20%281969%29.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e23",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "The Trouble With Woman (1969) [(DivX)]",
+     "overview": null,
+     "stillURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/randall-hopkirk-deceased-complete-series-1969.thumbs/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E23%20-%20The%20Trouble%20With%20Woman%20%281969%29%20%5B%28DivX%29%5D_001308.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2914,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E23 - The Trouble With Woman (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 279069155,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E23%20-%20The%20Trouble%20With%20Woman%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e24",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Vendetta for a Dead Man",
+     "overview": "On the anniversary of his capture by the then flesh and blood Marty Hopkirk, violent criminal Eric Jansen escapes, swearing vengeance. Having discovered that Marty is now dead, he proposes to kill Jeannie as the next best thing. Jeannie is dating a man called Emil and hopes they can marry, although she is unaware that he already has a wife. Jansen catches up with them and abducts Jeannie, hotly pursued by Marty. They end up on the edge of cliffs where, exactly a year earlier, they had had the showdown resulting in Jansen's arrest.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684154.jpg",
+     "airDate": "1970-02-27",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E24 - Vendetta For A Dead Man (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 277629630,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E24%20-%20Vendetta%20For%20A%20Dead%20Man%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e25",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "You Can Always Find a Fall Guy",
+     "overview": "A nun approaches Jeff and asks him to acquire a document from her convent which will prove that accountant Douglas Kershaw is embezzling the nuns' funds. He goes along to the building with the suspicious Marty, only to find that he has burgled a research facility on behalf of the fake nun and her accomplice, who need to get their hands on valuable documents. Once more he gets arrested, released and captured by the villains. Once more Marty has to save him - this time by using a man under sedation for an operation as his medium.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684155.jpg",
+     "airDate": "1970-03-06",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E25 - You Can Always Find A Fall Guy (1969) [(DivX)].mp4",
+      "format": "h.264",
+      "sizeBytes": 278605495,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E25%20-%20You%20Can%20Always%20Find%20A%20Fall%20Guy%20%281969%29%20%5B%28DivX%29%5D.mp4"
+    },
+    {
+     "archiveID": "randall-hopkirk-deceased-complete-series-1969@s1e26",
+     "sourceID": "randall-hopkirk-deceased-complete-series-1969",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "The Smile Behind the Veil",
+     "overview": "At the funeral of his friend Caroline Seaton, Marty observes her brother Donald and his wife Cynthia, who seems to be smiling, and he deduces that they have killed Caroline. Jeff is reluctant to investigate so Marty tricks him into visiting the Seaton home, where an attempt is made to kill him. Due to Marty's intervention, he is saved by the real Donald Seaton, who has returned from Australia to find an impostor has taken his name, married his ex-wife - Cynthia - and killed both his father and Caroline for the Seaton estate. The killers throw Jeff down a well but Marty causes two hikers to rescue him and, as the villains are caught and the true Donald takes his inheritance, the partnership of Randall and Hopkirk -Deceased - continues.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684156.jpg",
+     "airDate": "1970-03-13",
+     "year": 1970,
+     "runtimeSeconds": 3000,
+     "videoFile": {
+      "name": "Randall & Hopkirk (Deceased) - S01E26 - Smile Behind the Veil.mp4",
+      "format": "h.264",
+      "sizeBytes": 280831126,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall%20%26%20Hopkirk%20%28Deceased%29%20-%20S01E26%20-%20Smile%20Behind%20the%20Veil.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 26,
+ "canonicalEpisodesCount": 26,
+ "tvmazeRating": null,
+ "tvdbID": "71555",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Mike Pratt",
+   "character": "Jeff Randall",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318718/photo/69315bf83c796.jpg"
+  },
+  {
+   "name": "Kenneth Cope",
+   "character": "Marty Hopkirk",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258584/photo/69b5092a39c0b.jpg"
+  },
+  {
+   "name": "Annette Andre",
+   "character": "Jeannie Hopkirk",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282515/photo/69b5066b9bfed.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0063946",
+ "imdbRating": 7.7,
+ "imdbVotes": 1547
 }

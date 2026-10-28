@@ -1,533 +1,534 @@
 {
-  "version": 2,
-  "seriesID": "the-world-at-war-1973",
-  "tvmazeID": 3291,
-  "title": "The World at War",
-  "yearStart": 1973,
-  "yearEnd": 1974,
-  "overview": "Laurence Olivier narrates the landmark 26-part British documentary series telling the story of World War II, profiling its main campaigns and highlighting the human cost on all sides of the conflict.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/79309-5.jpg",
-  "backdropURL": null,
-  "genres": [
-    "War",
-    "History"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-world-at-war-1973",
+ "tvmazeID": 3291,
+ "title": "The World at War",
+ "yearStart": 1973,
+ "yearEnd": 1974,
+ "overview": "Laurence Olivier narrates the landmark 26-part British documentary series telling the story of World War II, profiling its main campaigns and highlighting the human cost on all sides of the conflict.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/79309-5.jpg",
+ "backdropURL": null,
+ "genres": [
+  "War",
+  "History"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e01",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "A New Germany (1933 - 1939)",
-          "overview": "Adolf Hitler wins support from millions of Germans as he offers new hope to a country recovering from depression.Germany, a nation stricken by humiliating defeat and emerging from crippling economic depression, looks to one man for a resurgence of hope and dignity. That man is Adolf Hitler…",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/314/787192.jpg",
-          "airDate": "1973-10-31",
-          "year": 1973,
-          "runtimeSeconds": 3240,
-          "videoFile": {
-            "name": "The World At War 1973 S01E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 308097942,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E01.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e02",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Distant War (September 1939 - May 1940)",
-          "overview": "Germany invades Eastern Europe, forcing unprepared Britain to face the possibility of war with approaching Nazis. France and England enter World War 2 after Germany's invasion of Poland. Except for its navy, England is uncettain how to prepare. After a failed operation in Norway lead by Churchill, Chamberlain is, ironically, replaced as Prime Minister by Churchill.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/314/787193.jpg",
-          "airDate": "1973-11-07",
-          "year": 1973,
-          "runtimeSeconds": 3240,
-          "videoFile": {
-            "name": "The World At War 1973 S01E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 307007114,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E02.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e03",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "France Falls (May - June 1940)",
-          "overview": "The Germans skirt the French's heavily fortified Maginot line and defeat them in six weeks with newer techniques and equipment. Britain retreats and prepares for invasion.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/314/787194.jpg",
-          "airDate": "1973-11-14",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E03.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310165830,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E03.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e04",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Alone (May 1940 - May 1941)",
-          "overview": "British morale plunges as 350,000 allied troops are barely rescued at Dunkirk and the RAF battles the Luftwaffe over London skies. After losing the Battle of Britain, Germany begins bombing British cities. The British launch an offensive in North Africa hoping to distract the Germans attention from the British Isles.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873813.jpg",
-          "airDate": "1973-11-21",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E04.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 305431913,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E04.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e05",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Barbarossa (June - December 1941)",
-          "overview": "After dominating southeastern Europe through force or intrigue, Germany begins Operation Barbarossa, the massive invasion of Soviet Union. Despite several quick victories, the invasion ultimately stalls after a failed assault on Moscow during Russia's harsh winter with mud and cold.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808124.jpg",
-          "airDate": "1973-11-28",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E05.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310158079,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E05.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e06",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Banzai!: Japan (1931 - 1942)",
-          "overview": "The rise of the Japanese Empire, the Sino-Japanese War, the Soviet-Japanese border conflicts, Pearl Harbor and the early Japanese successes in the fall of Hong Kong, Burma, Malaya, Singapore, the Dutch East Indies and the Philippines.At war since 1931 on the Chinese mainland, the Japanese hope for easy victories over the British and Dutch. And then on December 7th 1941, Japan makes their infamous attack on Pearl Harbour.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808125.jpg",
-          "airDate": "1973-12-05",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E06.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 307332898,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E06.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e07",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "On Our Way: U.S.A. (1939 - 1942)",
-          "overview": "The opposition by various factions to the United States of America entry into the war, U-boat attacks on Atlantic convoys and America's gradiated responses, the mobilization of America after Pearl Harbor, the loss of the Philippines, the Doolittle Raid, Midway and Guadalcanal. FDR, determined to fight Germany as well as Japan, cannot sway Congress until Hitler declares war on the United States.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808126.jpg",
-          "airDate": "1973-12-12",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E07.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310272710,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E07.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e08",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "The Desert: North Africa (1940 - 1943)",
-          "overview": "Montgomery's Desert Rats/8th Army defeat Rommel's Afrika Korps at El Alamein after fighting for nearly three years for 600 miles of desert.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808127.jpg",
-          "airDate": "1973-12-19",
-          "year": 1973,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E08.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 309996794,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E08.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e09",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Stalingrad (June 1942 - February 1943)",
-          "overview": "Hitler's early successes in Russia made him reckless and he resolves to capture Stalingrad. The battle lasts six months with the Russians emerging as victors. The German Army's defeat at Stalingrad, with 70,000 Germans killed and 100,000 captured, dispels the myth of German invincibility. The Wehrmacht never recovers.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808129.jpg",
-          "airDate": "1974-01-02",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E09.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 306492083,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E09.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e10",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Wolfpack: U-Boats in the Atlantic (1939 - 1943)",
-          "overview": "In a war of high technology and animal courage, the German U-Boats fight Allied merchantmen, hounding them in packs. U-boat attacks on U.S. supply ships nearly starve Britain despite convoys, escorts and underwater detection devices.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808130.jpg",
-          "airDate": "1974-01-09",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E10.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 308246664,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E10.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e11",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Red Star: The Soviet Union (1941 - 1943)",
-          "overview": "Germany attacks the Soviet Union in June 1941, unsuccessfully laying siege to Leningrad from September 1941 until January 1944. For two years the Soviet Army fights the Germans almost alone. After one of the greatest land battles in history, the nation survives and triumphs - but with a loss of no less than twenty million of its people.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873810.jpg",
-          "airDate": "1974-01-16",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E11.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 312657714,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E11.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e12",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Whirlwind: Bombing Germany (September 1939 - April 1944)",
-          "overview": "Arthur \"Bomber\" Harris takes over Bomber Command with the demand for revenge sorties as a means to defeat Germany. Bomber Command begin bombing German cities by night and the Americans reinforce the attacks by day; a whirlwind of terror and destruction that will win the war.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873809.jpg",
-          "airDate": "1974-01-23",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E12.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 308923206,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E12.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e13",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "Tough Old Gut: Italy (November 1942 - June 1944)",
-          "overview": "Churchill called Italy the \"soft underbelly of the crocodile\" and thought the Allies could invade and cut through it to the heart of Germany. But the soft underbelly turned out to be a \"tough old gut\".",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873808.jpg",
-          "airDate": "1974-01-30",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E13.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 297416993,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E13.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e14",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "It's a Lovely Day Tomorrow: Burma (1942 - 1944)",
-          "overview": "The Japanese build a \"superman\" myth as they thrive in the nightmarish conditions of monsoons and jungles. Vera Lynn sang of a lovely day tomorrow, but the war in Burma was mud and monsoon. Britain's largest army learned to master the jungle and fought the Japanese to standstill.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873807.jpg",
-          "airDate": "1974-02-06",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E14.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310529994,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E14.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e15",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Home Fires: Britain (1940 - 1944)",
-          "overview": "The Luftwaffe changes the targets of its bombing raids to outlying cities after its defeat in the Battle of Britain. Finding strength in unity at home in Britain during the war, it was a time of gas masks, Winston Churchill, Dig for Victory, evacuation, George Formby, the Land Army, ITMA, the Squander Bug and the Beveridge Report.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873805.jpg",
-          "airDate": "1974-02-13",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E15.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310881866,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E15.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e16",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Inside the Reich: Germany (1940 - 1944)",
-          "overview": "Germany's people do not feel the effects of World War II at home until the German army begins to lose key battles. Initial victory in Europe turns sour after the defeat at Stalingrad, yet Germany prepares to fight to the end - even after an assassination attempt on the Führer.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808307.jpg",
-          "airDate": "1974-02-20",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E16.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 311616498,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E16.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e17",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Morning (June - August 1944)",
-          "overview": "The Western Allies resolve to invade Europe. England becomes a floating supply dump and the British and Americans assemble the largest invasion fleet in history. It is June 6th 1944 - D-Day.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873804.jpg",
-          "airDate": "1974-02-27",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E17.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 309183432,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E17.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e18",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Occupation: Holland (1940 - 1944)",
-          "overview": "Through a neutral country, Holland is attacked by Germany without warning in 1940. During the next four years, life carries on seemingly without incident, but underneath resistance never dies. The neutral Netherlands live under increasingly harsh Nazi rule for four years, dividing citizens' loyalties.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873802.jpg",
-          "airDate": "1974-03-13",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E18.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 312463804,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E18.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e19",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Pincers (August 1944 - March 1945)",
-          "overview": "The end of the war appears close at hand with the liberation of Paris in 1944, but the British and Americans disagree on how to advance on Germany. Meanwhile, Poland suffers devastating losses to achieve victory.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873801.jpg",
-          "airDate": "1974-03-20",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E19.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310319456,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E19.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e20",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Genocide (1941 - 1945)",
-          "overview": "The Nazi's are racist; the Aryans are a master race, others, particularly the Jews are sub-human. Himmler's SS sets about ridding Europe of millions of Jews. The Nazis kill 6 million Jews in specially created death camps in their determination to create a purified Aryan race.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808306.jpg",
-          "airDate": "1974-03-27",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E20.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 313682789,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E20.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e21",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Nemesis: Germany (February - May 1945)",
-          "overview": "Hitler retreats to the Fuhrer bunker is Berlin as Germany crumbles around him and his lieutenants abandon him to a fate of suicide. Hitler marries Eva Braun, then kills himself. Meanwhile, the Russians raise the red flag in Berlin.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808305.jpg",
-          "airDate": "1974-04-03",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E21.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 310862217,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E21.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e22",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "Japan (1941 - 1945)",
-          "overview": "Initially apprehensive about the outcome of declaring war, the Japanese quickly turn to celebration with early victory. Early victories led the Japanese to believe they would be victorious against the West, but severe supply shortages and increased Allied victories dimmed this hope. In the end, their worst fears are unimaginably exceeded.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808304.jpg",
-          "airDate": "1974-04-10",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E22.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 302286233,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E22.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e23",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Pacific (February 1942 - July 1945)",
-          "overview": "The Americans fight their way across the Pacific towards Japan and the Philippines. Perhaps the bloodiest campaign of all, each island has to be taken by storm and the Japanese fight to the last man. Gen. MacArthur sweeps upward from the Solomons and New Guinea, as rival Adm. Nimitz begins an offensive in the Gilberts.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808302.jpg",
-          "airDate": "1974-04-17",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E23.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 301398203,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E23.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e24",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "The Bomb (February - September 1945)",
-          "overview": "Western scientists have developed a new, immensely powerful weapon - the atomic bomb. A B-29, the Enola Gay, drops the first uranium bomb on Hiroshima on August 6, 1945. Three days later, a second bomb hits Nagasaki. The world would be forever altered.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808300.jpg",
-          "airDate": "1974-04-24",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E24.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 311032976,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E24.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e25",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "Reckoning (1945...and after)",
-          "overview": "The war ends slowly and messily. Britain is victorious but exhausted and the super-powers confront each other as they decide the fate of Europe. At Yalta, the four armies of occupation agree to supervise Germany's recovery and divide the country into different zones.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873800.jpg",
-          "airDate": "1974-05-01",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E25.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 304635887,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E25.720p.Bluray.x264.anoXmous_.mp4"
-        },
-        {
-          "archiveID": "the-world-at-war-complete-series-1973@s1e26",
-          "sourceID": "the-world-at-war-complete-series-1973",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "Remember",
-          "overview": "For many the Second World War was the most significant experience of their lives. Survivors relate memories of World War II and remember the millions of combatants and civilians killed. Heartbreaking first hand remembrances from a vast array of survivors on both sides of the war.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808299.jpg",
-          "airDate": "1974-05-08",
-          "year": 1974,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The World At War 1973 S01E26.720p.Bluray.x264.anoXmous_.mp4",
-            "format": "h.264",
-            "sizeBytes": 296734965,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E26.720p.Bluray.x264.anoXmous_.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 26,
-  "canonicalEpisodesCount": 26,
-  "tvmazeRating": 8.9,
-  "tvdbID": "79309",
-  "artworkSource": "tvdb",
-  "cast": [
+     "archiveID": "the-world-at-war-complete-series-1973@s1e01",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "A New Germany (1933 - 1939)",
+     "overview": "Adolf Hitler wins support from millions of Germans as he offers new hope to a country recovering from depression.Germany, a nation stricken by humiliating defeat and emerging from crippling economic depression, looks to one man for a resurgence of hope and dignity. That man is Adolf Hitler…",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/314/787192.jpg",
+     "airDate": "1973-10-31",
+     "year": 1973,
+     "runtimeSeconds": 3240,
+     "videoFile": {
+      "name": "The World At War 1973 S01E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 308097942,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E01.mp4"
+    },
     {
-      "name": "Laurence Olivier",
-      "character": "Narrator",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289844/photo/60970e8903536.jpg"
+     "archiveID": "the-world-at-war-complete-series-1973@s1e02",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Distant War (September 1939 - May 1940)",
+     "overview": "Germany invades Eastern Europe, forcing unprepared Britain to face the possibility of war with approaching Nazis. France and England enter World War 2 after Germany's invasion of Poland. Except for its navy, England is uncettain how to prepare. After a failed operation in Norway lead by Churchill, Chamberlain is, ironically, replaced as Prime Minister by Churchill.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/314/787193.jpg",
+     "airDate": "1973-11-07",
+     "year": 1973,
+     "runtimeSeconds": 3240,
+     "videoFile": {
+      "name": "The World At War 1973 S01E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 307007114,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E02.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e03",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "France Falls (May - June 1940)",
+     "overview": "The Germans skirt the French's heavily fortified Maginot line and defeat them in six weeks with newer techniques and equipment. Britain retreats and prepares for invasion.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/314/787194.jpg",
+     "airDate": "1973-11-14",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E03.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310165830,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E03.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e04",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Alone (May 1940 - May 1941)",
+     "overview": "British morale plunges as 350,000 allied troops are barely rescued at Dunkirk and the RAF battles the Luftwaffe over London skies. After losing the Battle of Britain, Germany begins bombing British cities. The British launch an offensive in North Africa hoping to distract the Germans attention from the British Isles.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873813.jpg",
+     "airDate": "1973-11-21",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E04.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 305431913,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E04.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e05",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Barbarossa (June - December 1941)",
+     "overview": "After dominating southeastern Europe through force or intrigue, Germany begins Operation Barbarossa, the massive invasion of Soviet Union. Despite several quick victories, the invasion ultimately stalls after a failed assault on Moscow during Russia's harsh winter with mud and cold.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808124.jpg",
+     "airDate": "1973-11-28",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E05.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310158079,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E05.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e06",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Banzai!: Japan (1931 - 1942)",
+     "overview": "The rise of the Japanese Empire, the Sino-Japanese War, the Soviet-Japanese border conflicts, Pearl Harbor and the early Japanese successes in the fall of Hong Kong, Burma, Malaya, Singapore, the Dutch East Indies and the Philippines.At war since 1931 on the Chinese mainland, the Japanese hope for easy victories over the British and Dutch. And then on December 7th 1941, Japan makes their infamous attack on Pearl Harbour.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808125.jpg",
+     "airDate": "1973-12-05",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E06.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 307332898,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E06.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e07",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "On Our Way: U.S.A. (1939 - 1942)",
+     "overview": "The opposition by various factions to the United States of America entry into the war, U-boat attacks on Atlantic convoys and America's gradiated responses, the mobilization of America after Pearl Harbor, the loss of the Philippines, the Doolittle Raid, Midway and Guadalcanal. FDR, determined to fight Germany as well as Japan, cannot sway Congress until Hitler declares war on the United States.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808126.jpg",
+     "airDate": "1973-12-12",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E07.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310272710,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E07.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e08",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "The Desert: North Africa (1940 - 1943)",
+     "overview": "Montgomery's Desert Rats/8th Army defeat Rommel's Afrika Korps at El Alamein after fighting for nearly three years for 600 miles of desert.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808127.jpg",
+     "airDate": "1973-12-19",
+     "year": 1973,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E08.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 309996794,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E08.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e09",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Stalingrad (June 1942 - February 1943)",
+     "overview": "Hitler's early successes in Russia made him reckless and he resolves to capture Stalingrad. The battle lasts six months with the Russians emerging as victors. The German Army's defeat at Stalingrad, with 70,000 Germans killed and 100,000 captured, dispels the myth of German invincibility. The Wehrmacht never recovers.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808129.jpg",
+     "airDate": "1974-01-02",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E09.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 306492083,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E09.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e10",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Wolfpack: U-Boats in the Atlantic (1939 - 1943)",
+     "overview": "In a war of high technology and animal courage, the German U-Boats fight Allied merchantmen, hounding them in packs. U-boat attacks on U.S. supply ships nearly starve Britain despite convoys, escorts and underwater detection devices.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808130.jpg",
+     "airDate": "1974-01-09",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E10.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 308246664,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E10.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e11",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Red Star: The Soviet Union (1941 - 1943)",
+     "overview": "Germany attacks the Soviet Union in June 1941, unsuccessfully laying siege to Leningrad from September 1941 until January 1944. For two years the Soviet Army fights the Germans almost alone. After one of the greatest land battles in history, the nation survives and triumphs - but with a loss of no less than twenty million of its people.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873810.jpg",
+     "airDate": "1974-01-16",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E11.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 312657714,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E11.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e12",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Whirlwind: Bombing Germany (September 1939 - April 1944)",
+     "overview": "Arthur \"Bomber\" Harris takes over Bomber Command with the demand for revenge sorties as a means to defeat Germany. Bomber Command begin bombing German cities by night and the Americans reinforce the attacks by day; a whirlwind of terror and destruction that will win the war.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873809.jpg",
+     "airDate": "1974-01-23",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E12.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 308923206,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E12.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e13",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Tough Old Gut: Italy (November 1942 - June 1944)",
+     "overview": "Churchill called Italy the \"soft underbelly of the crocodile\" and thought the Allies could invade and cut through it to the heart of Germany. But the soft underbelly turned out to be a \"tough old gut\".",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873808.jpg",
+     "airDate": "1974-01-30",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E13.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 297416993,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E13.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e14",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "It's a Lovely Day Tomorrow: Burma (1942 - 1944)",
+     "overview": "The Japanese build a \"superman\" myth as they thrive in the nightmarish conditions of monsoons and jungles. Vera Lynn sang of a lovely day tomorrow, but the war in Burma was mud and monsoon. Britain's largest army learned to master the jungle and fought the Japanese to standstill.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873807.jpg",
+     "airDate": "1974-02-06",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E14.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310529994,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E14.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e15",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Home Fires: Britain (1940 - 1944)",
+     "overview": "The Luftwaffe changes the targets of its bombing raids to outlying cities after its defeat in the Battle of Britain. Finding strength in unity at home in Britain during the war, it was a time of gas masks, Winston Churchill, Dig for Victory, evacuation, George Formby, the Land Army, ITMA, the Squander Bug and the Beveridge Report.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873805.jpg",
+     "airDate": "1974-02-13",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E15.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310881866,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E15.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e16",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Inside the Reich: Germany (1940 - 1944)",
+     "overview": "Germany's people do not feel the effects of World War II at home until the German army begins to lose key battles. Initial victory in Europe turns sour after the defeat at Stalingrad, yet Germany prepares to fight to the end - even after an assassination attempt on the Führer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808307.jpg",
+     "airDate": "1974-02-20",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E16.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 311616498,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E16.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e17",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Morning (June - August 1944)",
+     "overview": "The Western Allies resolve to invade Europe. England becomes a floating supply dump and the British and Americans assemble the largest invasion fleet in history. It is June 6th 1944 - D-Day.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873804.jpg",
+     "airDate": "1974-02-27",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E17.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 309183432,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E17.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e18",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Occupation: Holland (1940 - 1944)",
+     "overview": "Through a neutral country, Holland is attacked by Germany without warning in 1940. During the next four years, life carries on seemingly without incident, but underneath resistance never dies. The neutral Netherlands live under increasingly harsh Nazi rule for four years, dividing citizens' loyalties.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873802.jpg",
+     "airDate": "1974-03-13",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E18.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 312463804,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E18.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e19",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Pincers (August 1944 - March 1945)",
+     "overview": "The end of the war appears close at hand with the liberation of Paris in 1944, but the British and Americans disagree on how to advance on Germany. Meanwhile, Poland suffers devastating losses to achieve victory.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873801.jpg",
+     "airDate": "1974-03-20",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E19.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310319456,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E19.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e20",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Genocide (1941 - 1945)",
+     "overview": "The Nazi's are racist; the Aryans are a master race, others, particularly the Jews are sub-human. Himmler's SS sets about ridding Europe of millions of Jews. The Nazis kill 6 million Jews in specially created death camps in their determination to create a purified Aryan race.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808306.jpg",
+     "airDate": "1974-03-27",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E20.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 313682789,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E20.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e21",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Nemesis: Germany (February - May 1945)",
+     "overview": "Hitler retreats to the Fuhrer bunker is Berlin as Germany crumbles around him and his lieutenants abandon him to a fate of suicide. Hitler marries Eva Braun, then kills himself. Meanwhile, the Russians raise the red flag in Berlin.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808305.jpg",
+     "airDate": "1974-04-03",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E21.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 310862217,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E21.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e22",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "Japan (1941 - 1945)",
+     "overview": "Initially apprehensive about the outcome of declaring war, the Japanese quickly turn to celebration with early victory. Early victories led the Japanese to believe they would be victorious against the West, but severe supply shortages and increased Allied victories dimmed this hope. In the end, their worst fears are unimaginably exceeded.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808304.jpg",
+     "airDate": "1974-04-10",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E22.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 302286233,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E22.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e23",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Pacific (February 1942 - July 1945)",
+     "overview": "The Americans fight their way across the Pacific towards Japan and the Philippines. Perhaps the bloodiest campaign of all, each island has to be taken by storm and the Japanese fight to the last man. Gen. MacArthur sweeps upward from the Solomons and New Guinea, as rival Adm. Nimitz begins an offensive in the Gilberts.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808302.jpg",
+     "airDate": "1974-04-17",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E23.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 301398203,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E23.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e24",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "The Bomb (February - September 1945)",
+     "overview": "Western scientists have developed a new, immensely powerful weapon - the atomic bomb. A B-29, the Enola Gay, drops the first uranium bomb on Hiroshima on August 6, 1945. Three days later, a second bomb hits Nagasaki. The world would be forever altered.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808300.jpg",
+     "airDate": "1974-04-24",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E24.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 311032976,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E24.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e25",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "Reckoning (1945...and after)",
+     "overview": "The war ends slowly and messily. Britain is victorious but exhausted and the super-powers confront each other as they decide the fate of Europe. At Yalta, the four armies of occupation agree to supervise Germany's recovery and divide the country into different zones.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/349/873800.jpg",
+     "airDate": "1974-05-01",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E25.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 304635887,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E25.720p.Bluray.x264.anoXmous_.mp4"
+    },
+    {
+     "archiveID": "the-world-at-war-complete-series-1973@s1e26",
+     "sourceID": "the-world-at-war-complete-series-1973",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Remember",
+     "overview": "For many the Second World War was the most significant experience of their lives. Survivors relate memories of World War II and remember the millions of combatants and civilians killed. Heartbreaking first hand remembrances from a vast array of survivors on both sides of the war.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808299.jpg",
+     "airDate": "1974-05-08",
+     "year": 1974,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The World At War 1973 S01E26.720p.Bluray.x264.anoXmous_.mp4",
+      "format": "h.264",
+      "sizeBytes": 296734965,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The%20World%20At%20War%201973%20S01E26.720p.Bluray.x264.anoXmous_.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 26,
+ "canonicalEpisodesCount": 26,
+ "tvmazeRating": 8.9,
+ "tvdbID": "79309",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Laurence Olivier",
+   "character": "Narrator",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289844/photo/60970e8903536.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0071075"
 }

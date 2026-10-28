@@ -1,1021 +1,1022 @@
 {
-  "version": 2,
-  "seriesID": "the-smith-family-1971",
-  "tvmazeID": 43528,
-  "title": "The Smith Family",
-  "yearStart": 1971,
-  "yearEnd": 1972,
-  "overview": "Police detective Chad Smith lives with his wife, Betty, and his three children, Bob, Cindy, and Brian.",
-  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76444/posters/661ef68936495.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Family"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-smith-family-1971",
+ "tvmazeID": 43528,
+ "title": "The Smith Family",
+ "yearStart": 1971,
+ "yearEnd": 1972,
+ "overview": "Police detective Chad Smith lives with his wife, Betty, and his three children, Bob, Cindy, and Brian.",
+ "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76444/posters/661ef68936495.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Family"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "thesmithfamilyseason1@s1e01",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Pilot Episode",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E01-%20Pilot%20Episode_000656.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1485,
-          "videoFile": {
-            "name": "S01E01- Pilot Episode.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 104974295,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E01-%20Pilot%20Episode.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e02",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Ex-Con",
-          "overview": "Detective Chad Smith attempts to help a young former prisoner resume a place in society. The ex-con has fallen for Cindy.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E02-%20The%20Ex%20Con_000656.jpg",
-          "airDate": "1971-01-27",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E02- The Ex Con.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 109695849,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E02-%20The%20Ex%20Con.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e03",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Chicano",
-          "overview": "Unwittingly, a Chicano girl turns in his rebel brother when she befriends Chad's son.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E03-%20Chicano_000654.jpg",
-          "airDate": "1971-02-03",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E03- Chicano.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 107030645,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E03-%20Chicano.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e04",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Blue Tie",
-          "overview": "When policemen become targets of crooks on the street, Betty confides to Chad she's worried about him.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E04-%20The%20Blue%20Tie_000650.jpg",
-          "airDate": "1971-02-10",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E04- The Blue Tie.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 101139273,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E04-%20The%20Blue%20Tie.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e05",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "All the Good Neighbors",
-          "overview": "Chad must play middleman between his neighbors and a group of hippies who had just moved in.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E05-%20All%20the%20Good%20Neighbors_000655.jpg",
-          "airDate": "1971-02-17",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E05- All the Good Neighbors.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 110324473,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E05-%20All%20the%20Good%20Neighbors.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e06",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Strangers- Part 1",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E06-%20Strangers-%20Part%201_000656.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1491,
-          "videoFile": {
-            "name": "S01E06- Strangers- Part 1.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 100348908,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E06-%20Strangers-%20Part%201.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e07",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Strangers- Part 2",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E07-%20Strangers-%20Part%202_000656.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1492,
-          "videoFile": {
-            "name": "S01E07- Strangers- Part 2.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 119507808,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E07-%20Strangers-%20Part%202.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e08",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Another Day, Another Dollar",
-          "overview": "A murderer, recently released of prison, talks Janet into letting him wait for Chad in the Smiths' house.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E08-%20Another%20Day%20Another%20Dollar_000653.jpg",
-          "airDate": "1971-03-10",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E08- Another Day Another Dollar.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 118899317,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E08-%20Another%20Day%20Another%20Dollar.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e09",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Desk Job",
-          "overview": "Detective Chad Smith takes a desk job to ease his wife's worries and because, after he has been injured nabbing a couple of bandits, his doctor has told him it takes longer to heal at his age.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E09-%20The%20Desk%20Job_000656.jpg",
-          "airDate": "1971-03-17",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E09- The Desk Job.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 113636601,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E09-%20The%20Desk%20Job.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e10",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Brian and the Sheriff",
-          "overview": "Brian sides with a an old lawman whose house is about to be torn down.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E10-%20Brian%20and%20the%20Sheriff_000656.jpg",
-          "airDate": "1971-03-24",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E10- Brian and the Sheriff.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 123854640,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E10-%20Brian%20and%20the%20Sheriff.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e11",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Remember Lisa",
-          "overview": "Chad comes to the assistance of a former flame whose son stands accused of car theft.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E11-%20Remember%20Lisa_000656.jpg",
-          "airDate": "1971-03-31",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E11- Remember Lisa.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 109594746,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E11-%20Remember%20Lisa.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e12",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Rookie",
-          "overview": "Detective Chad Smith has to train an unpleasant rookie officer but it's not going according to plan",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E12-%20Rookie_000656.jpg",
-          "airDate": "1971-04-07",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E12- Rookie.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 123198699,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E12-%20Rookie.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e13",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "The Peer Group",
-          "overview": "When vandals wreck his school, Bob resists pressure to squeal about their identities.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E13-%20The%20Peer%20Group_000656.jpg",
-          "airDate": "1971-04-14",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E13- The Peer Group.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 94350272,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E13-%20The%20Peer%20Group.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e14",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Greener Pastures",
-          "overview": "Detective Smith is tempted to accept a safe job as a private detective after he's injured serving a warrant.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E14-%20Greener%20Pastures_000651.jpg",
-          "airDate": "1971-04-21",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E14- Greener Pastures.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 114544618,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E14-%20Greener%20Pastures.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseason1@s1e15",
-          "sourceID": "thesmithfamilyseason1",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "No Place to Hide",
-          "overview": "Brian Smith's elementary school principal, noting erratic behavior in some students, suspects a drug problem and asks Chad to investigate. Evidence indicates that a bright nine year old is the schoolyard pusher and after a visit from Chad, his mother finds his pill supply. Chad is assigned to trace the chain of that supply to the adult dealer.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E15-%20No%20Place%20to%20Hide_000656.jpg",
-          "airDate": "1971-04-28",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E15- No Place to Hide.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 117941204,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E15-%20No%20Place%20to%20Hide.ia.mp4"
-        }
-      ]
+     "archiveID": "thesmithfamilyseason1@s1e01",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Pilot Episode",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E01-%20Pilot%20Episode_000656.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1485,
+     "videoFile": {
+      "name": "S01E01- Pilot Episode.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 104974295,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E01-%20Pilot%20Episode.ia.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e01",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Anniversary",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E01-%20Anniversary_000535.jpg",
-          "airDate": "1971-09-15",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E01- Anniversary.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 102467501,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E01-%20Anniversary.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e02",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "State's Witness",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E02-%20State%27s%20Witness_000535.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1485,
-          "videoFile": {
-            "name": "S02E02- State's Witness.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 110229641,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E02-%20State%27s%20Witness.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e03",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Stakeout",
-          "overview": "Detective Chad Smith is assigned to stakeout duty with an attractive young policewoman to help combat a series of recent Lovers' Lane stick-ups--but his children believe Dad has a new love interest.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E03-%20Stakeout_000536.jpg",
-          "airDate": "1971-09-29",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E03- Stakeout.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 117917356,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E03-%20Stakeout.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e04",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Lost Lady",
-          "overview": "Chad Smith discovers former movie star Peggy Manners, now a skid row alcoholic, in a police line-up and his family tries to rehabilitate her.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E04-%20Lost%20Lady_000539.jpg",
-          "airDate": "1971-10-06",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E04- Lost Lady.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 120876058,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E04-%20Lost%20Lady.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e05",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Father's Day",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E05-%20Father%27s%20Day_000539.jpg",
-          "airDate": "1971-10-13",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E05- Father's Day.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 113428623,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E05-%20Father%27s%20Day.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e06",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Blind Chance",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E06-%20Blind%20Chance_000539.jpg",
-          "airDate": "1971-10-20",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E06- Blind Chance.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 101229884,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E06-%20Blind%20Chance.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e07",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "Mac",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E07-%20Mac_000536.jpg",
-          "airDate": "1971-10-27",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E07- Mac.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 113930671,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E07-%20Mac.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e08",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "Rumpus Room",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E08-%20Rumpus%20Room_000534.jpg",
-          "airDate": "1971-11-03",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E08- Rumpus Room.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 124655920,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E08-%20Rumpus%20Room.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e09",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "Ambush",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E09-%20Ambush_000536.jpg",
-          "airDate": "1971-11-10",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E09- Ambush.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 117907453,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E09-%20Ambush.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e10",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "The Weekend",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E10-%20The%20Weekend_000537.jpg",
-          "airDate": "1971-11-17",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E10- The Weekend.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 108462910,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E10-%20The%20Weekend.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e11",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "Man in the Middle",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E11-%20Man%20in%20the%20Middle_000535.jpg",
-          "airDate": "1971-11-24",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E11- Man in the Middle.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 118174989,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E11-%20Man%20in%20the%20Middle.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e12",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "Class of '46",
-          "overview": "Radicals vs. the establishment in a drama about the investigation of a bombing at an underground newspaper.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E12-%20Class%20of%20%2746_000536.jpg",
-          "airDate": "1971-12-08",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E12- Class of '46.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 102348795,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E12-%20Class%20of%20%2746.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e13",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 13,
-          "title": "Family Man",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E13-%20Family%20Man_000581.jpg",
-          "airDate": "1971-12-15",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E13- Family Man.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 119543692,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E13-%20Family%20Man.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e14",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 14,
-          "title": "Christmas Rush",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E14-%20Christmas%20Rush_000597.jpg",
-          "airDate": "1971-12-22",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E14- Christmas Rush.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 120903245,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E14-%20Christmas%20Rush.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e15",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 15,
-          "title": "Taste of Fear",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E15-%20Taste%20of%20Fear_000596.jpg",
-          "airDate": "1971-12-29",
-          "year": 1971,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E15- Taste of Fear.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 122746122,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E15-%20Taste%20of%20Fear.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e16",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
-          "title": "Where There's Smoke",
-          "overview": "Gossip and suspicions plague the Smith family: Chad's been accused of assaulting a woman.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E16-%20Where%20theres%20Smoke_000650.jpg",
-          "airDate": "1972-01-05",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E16- Where theres Smoke.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 116773178,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E16-%20Where%20theres%20Smoke.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e17",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 17,
-          "title": "Off Duty Cop",
-          "overview": "Chad's decision to hold his fire during a robbery earns him the brand of a coward.",
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E17-%20Off%20Duty%20Cop_000651.jpg",
-          "airDate": "1972-04-12",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E17- Off Duty Cop.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 113722369,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E17-%20Off%20Duty%20Cop.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e18",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "Winner Take All",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E18-%20Winner%20Take%20All_000614.jpg",
-          "airDate": "1972-04-19",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E18- Winner Take All.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 128908968,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E18-%20Winner%20Take%20All.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e19",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "San Francisco Cop",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E19-%20San%20Francisco%20Cop-1_000694.jpg",
-          "airDate": "1972-04-26",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E19- San Francisco Cop-1.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 121027455,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E19-%20San%20Francisco%20Cop-1.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e20",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 20,
-          "title": "My Mother, the Star",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E20-%20My%20Mother%20the%20Star-1_000576.jpg",
-          "airDate": "1972-05-10",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E20- My Mother the Star-1.mp4",
-            "format": "h.264",
-            "sizeBytes": 130865329,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E20-%20My%20Mother%20the%20Star-1.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e21",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 21,
-          "title": "Rogue Cop",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E21-%20Rogue%20Cop-1_000630.jpg",
-          "airDate": "1972-05-17",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E21- Rogue Cop-1.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 106701133,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E21-%20Rogue%20Cop-1.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e22",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 22,
-          "title": "Ten O'Clock and All is Well",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E22-%20Ten%20OClock%20and%20All%20is%20Well-1_000742.jpg",
-          "airDate": "1972-05-24",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E22- Ten OClock and All is Well-1.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 127086247,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E22-%20Ten%20OClock%20and%20All%20is%20Well-1.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e23",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 23,
-          "title": "Homecoming",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E23-%20Homecoming-1_000740.jpg",
-          "airDate": "1972-05-31",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E23- Homecoming-1.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 116060611,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E23-%20Homecoming-1.ia.mp4"
-        },
-        {
-          "archiveID": "thesmithfamilyseasontwo@s2e24",
-          "sourceID": "thesmithfamilyseasontwo",
-          "seasonNumber": 2,
-          "episodeNumber": 24,
-          "title": "Father-in-Law",
-          "overview": null,
-          "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E24-%20Father%20In%20Law-1_000736.jpg",
-          "airDate": "1972-06-07",
-          "year": 1972,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E24- Father In Law-1.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 115012033,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E24-%20Father%20In%20Law-1.ia.mp4"
-        }
-      ]
+     "archiveID": "thesmithfamilyseason1@s1e02",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Ex-Con",
+     "overview": "Detective Chad Smith attempts to help a young former prisoner resume a place in society. The ex-con has fallen for Cindy.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E02-%20The%20Ex%20Con_000656.jpg",
+     "airDate": "1971-01-27",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E02- The Ex Con.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 109695849,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E02-%20The%20Ex%20Con.ia.mp4"
     },
     {
-      "seasonNumber": 17,
-      "episodes": [
-        {
-          "archiveID": "family-feud-s17-e47",
-          "seasonNumber": 17,
-          "episodeNumber": 47,
-          "title": "Family Feud : Smith/Neuhart",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s17-e47",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1798,
-          "videoFile": {
-            "name": "GSN20220716_233000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 231505500,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s17-e47/GSN20220716_233000.ia.mp4"
-        }
-      ]
+     "archiveID": "thesmithfamilyseason1@s1e03",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Chicano",
+     "overview": "Unwittingly, a Chicano girl turns in his rebel brother when she befriends Chad's son.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E03-%20Chicano_000654.jpg",
+     "airDate": "1971-02-03",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E03- Chicano.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 107030645,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E03-%20Chicano.ia.mp4"
     },
     {
-      "seasonNumber": 18,
-      "episodes": [
-        {
-          "archiveID": "family-feud-s18-e169",
-          "seasonNumber": 18,
-          "episodeNumber": 169,
-          "title": "Family Feud : Cheri/Smith",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s18-e169",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1796,
-          "videoFile": {
-            "name": "GSN20220801_000000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 231305615,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s18-e169/GSN20220801_000000.ia.mp4"
-        },
-        {
-          "archiveID": "family-feud-s18-e173",
-          "seasonNumber": 18,
-          "episodeNumber": 173,
-          "title": "Family Feud : Smith/Wilson",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s18-e173",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1801,
-          "videoFile": {
-            "name": "GSN20220801_003000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 232093384,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s18-e173/GSN20220801_003000.ia.mp4"
-        }
-      ]
+     "archiveID": "thesmithfamilyseason1@s1e04",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Blue Tie",
+     "overview": "When policemen become targets of crooks on the street, Betty confides to Chad she's worried about him.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E04-%20The%20Blue%20Tie_000650.jpg",
+     "airDate": "1971-02-10",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E04- The Blue Tie.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 101139273,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E04-%20The%20Blue%20Tie.ia.mp4"
     },
     {
-      "seasonNumber": 19,
-      "episodes": [
-        {
-          "archiveID": "family-feud-s19-e16",
-          "seasonNumber": 19,
-          "episodeNumber": 16,
-          "title": "Family Feud : Carlson/Smith",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s19-e16",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1801,
-          "videoFile": {
-            "name": "GSN20220708_223000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 231941231,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s19-e16/GSN20220708_223000.ia.mp4"
-        },
-        {
-          "archiveID": "family-feud-s19-e40",
-          "seasonNumber": 19,
-          "episodeNumber": 40,
-          "title": "Family Feud : Phillippi/Smith",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s19-e40",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1801,
-          "videoFile": {
-            "name": "GSN20220715_223000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 232066083,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s19-e40/GSN20220715_223000.ia.mp4"
-        },
-        {
-          "archiveID": "family-feud-s19-e42",
-          "seasonNumber": 19,
-          "episodeNumber": 42,
-          "title": "Family Feud : Smith/DeGoey",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s19-e42",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1796,
-          "videoFile": {
-            "name": "GSN20220718_220000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 231419237,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s19-e42/GSN20220718_220000.ia.mp4"
-        }
-      ]
+     "archiveID": "thesmithfamilyseason1@s1e05",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "All the Good Neighbors",
+     "overview": "Chad must play middleman between his neighbors and a group of hippies who had just moved in.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E05-%20All%20the%20Good%20Neighbors_000655.jpg",
+     "airDate": "1971-02-17",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E05- All the Good Neighbors.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 110324473,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E05-%20All%20the%20Good%20Neighbors.ia.mp4"
     },
     {
-      "seasonNumber": 23,
-      "episodes": [
-        {
-          "archiveID": "family-feud-s23-e153",
-          "seasonNumber": 23,
-          "episodeNumber": 153,
-          "title": "Family Feud : Lane/Smith",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s23-e153",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1808,
-          "videoFile": {
-            "name": "NJWWOR20230803_193000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 314138923,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s23-e153/NJWWOR20230803_193000.ia.mp4"
-        },
-        {
-          "archiveID": "family-feud-s23-e155",
-          "seasonNumber": 23,
-          "episodeNumber": 155,
-          "title": "Family Feud : Smith/Crockett",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s23-e155",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1808,
-          "videoFile": {
-            "name": "NJWWOR20230804_193000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 299164369,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s23-e155/NJWWOR20230804_193000.ia.mp4"
-        },
-        {
-          "archiveID": "family-feud-s23-e157",
-          "seasonNumber": 23,
-          "episodeNumber": 157,
-          "title": "Family Feud : Smith/Pimentel",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s23-e157",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1803,
-          "videoFile": {
-            "name": "NJWWOR20230807_193000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 304711326,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s23-e157/NJWWOR20230807_193000.ia.mp4"
-        },
-        {
-          "archiveID": "family-feud-s23-e159",
-          "seasonNumber": 23,
-          "episodeNumber": 159,
-          "title": "Family Feud : Smith/Neville",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/family-feud-s23-e159",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1803,
-          "videoFile": {
-            "name": "NJWWOR20230808_193000.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 309686006,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/family-feud-s23-e159/NJWWOR20230808_193000.ia.mp4"
-        }
-      ]
+     "archiveID": "thesmithfamilyseason1@s1e06",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Strangers- Part 1",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E06-%20Strangers-%20Part%201_000656.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1491,
+     "videoFile": {
+      "name": "S01E06- Strangers- Part 1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 100348908,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E06-%20Strangers-%20Part%201.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e07",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Strangers- Part 2",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E07-%20Strangers-%20Part%202_000656.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1492,
+     "videoFile": {
+      "name": "S01E07- Strangers- Part 2.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 119507808,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E07-%20Strangers-%20Part%202.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e08",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Another Day, Another Dollar",
+     "overview": "A murderer, recently released of prison, talks Janet into letting him wait for Chad in the Smiths' house.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E08-%20Another%20Day%20Another%20Dollar_000653.jpg",
+     "airDate": "1971-03-10",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E08- Another Day Another Dollar.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 118899317,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E08-%20Another%20Day%20Another%20Dollar.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e09",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Desk Job",
+     "overview": "Detective Chad Smith takes a desk job to ease his wife's worries and because, after he has been injured nabbing a couple of bandits, his doctor has told him it takes longer to heal at his age.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E09-%20The%20Desk%20Job_000656.jpg",
+     "airDate": "1971-03-17",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E09- The Desk Job.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 113636601,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E09-%20The%20Desk%20Job.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e10",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Brian and the Sheriff",
+     "overview": "Brian sides with a an old lawman whose house is about to be torn down.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E10-%20Brian%20and%20the%20Sheriff_000656.jpg",
+     "airDate": "1971-03-24",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E10- Brian and the Sheriff.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 123854640,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E10-%20Brian%20and%20the%20Sheriff.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e11",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Remember Lisa",
+     "overview": "Chad comes to the assistance of a former flame whose son stands accused of car theft.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E11-%20Remember%20Lisa_000656.jpg",
+     "airDate": "1971-03-31",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E11- Remember Lisa.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 109594746,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E11-%20Remember%20Lisa.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e12",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Rookie",
+     "overview": "Detective Chad Smith has to train an unpleasant rookie officer but it's not going according to plan",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E12-%20Rookie_000656.jpg",
+     "airDate": "1971-04-07",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E12- Rookie.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 123198699,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E12-%20Rookie.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e13",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "The Peer Group",
+     "overview": "When vandals wreck his school, Bob resists pressure to squeal about their identities.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E13-%20The%20Peer%20Group_000656.jpg",
+     "airDate": "1971-04-14",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E13- The Peer Group.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 94350272,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E13-%20The%20Peer%20Group.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e14",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Greener Pastures",
+     "overview": "Detective Smith is tempted to accept a safe job as a private detective after he's injured serving a warrant.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E14-%20Greener%20Pastures_000651.jpg",
+     "airDate": "1971-04-21",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E14- Greener Pastures.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 114544618,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E14-%20Greener%20Pastures.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseason1@s1e15",
+     "sourceID": "thesmithfamilyseason1",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "No Place to Hide",
+     "overview": "Brian Smith's elementary school principal, noting erratic behavior in some students, suspects a drug problem and asks Chad to investigate. Evidence indicates that a bright nine year old is the schoolyard pusher and after a visit from Chad, his mother finds his pill supply. Chad is assigned to trace the chain of that supply to the adult dealer.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseason1/thesmithfamilyseason1.thumbs/S01E15-%20No%20Place%20to%20Hide_000656.jpg",
+     "airDate": "1971-04-28",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E15- No Place to Hide.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 117941204,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E15-%20No%20Place%20to%20Hide.ia.mp4"
     }
-  ],
-  "episodesCount": 49,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": null,
-  "tvdbID": "76444",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Ron Howard",
-      "character": "Bob Smith",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261799/photo/669205ef5d24a.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e01",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Anniversary",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E01-%20Anniversary_000535.jpg",
+     "airDate": "1971-09-15",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E01- Anniversary.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 102467501,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E01-%20Anniversary.ia.mp4"
     },
     {
-      "name": "Henry Fonda",
-      "character": "Det. Sgt. Chad Smith",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/349464/primary.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e02",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "State's Witness",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E02-%20State%27s%20Witness_000535.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1485,
+     "videoFile": {
+      "name": "S02E02- State's Witness.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 110229641,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E02-%20State%27s%20Witness.ia.mp4"
     },
     {
-      "name": "Michael-James Wixted",
-      "character": "Brian Smith",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/46265.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e03",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Stakeout",
+     "overview": "Detective Chad Smith is assigned to stakeout duty with an attractive young policewoman to help combat a series of recent Lovers' Lane stick-ups--but his children believe Dad has a new love interest.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E03-%20Stakeout_000536.jpg",
+     "airDate": "1971-09-29",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E03- Stakeout.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 117917356,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E03-%20Stakeout.ia.mp4"
     },
     {
-      "name": "Janet Blair",
-      "character": "Betty Smith",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276858/photo/644fde38781bc.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e04",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Lost Lady",
+     "overview": "Chad Smith discovers former movie star Peggy Manners, now a skid row alcoholic, in a police line-up and his family tries to rehabilitate her.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E04-%20Lost%20Lady_000539.jpg",
+     "airDate": "1971-10-06",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E04- Lost Lady.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 120876058,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E04-%20Lost%20Lady.ia.mp4"
     },
     {
-      "name": "Charles McGraw",
-      "character": "Capt. Hughes",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/46267.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e05",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Father's Day",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E05-%20Father%27s%20Day_000539.jpg",
+     "airDate": "1971-10-13",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E05- Father's Day.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 113428623,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E05-%20Father%27s%20Day.ia.mp4"
     },
     {
-      "name": "Darleen Carr",
-      "character": "Cindy Smith",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261796/photo/699df70d0f07e.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e06",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Blind Chance",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E06-%20Blind%20Chance_000539.jpg",
+     "airDate": "1971-10-20",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E06- Blind Chance.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 101229884,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E06-%20Blind%20Chance.ia.mp4"
     },
     {
-      "name": "John Carter",
-      "character": "Sgt. Ray Martin",
-      "order": 6,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/46269.jpg"
+     "archiveID": "thesmithfamilyseasontwo@s2e07",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "Mac",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E07-%20Mac_000536.jpg",
+     "airDate": "1971-10-27",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E07- Mac.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 113930671,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E07-%20Mac.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e08",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "Rumpus Room",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E08-%20Rumpus%20Room_000534.jpg",
+     "airDate": "1971-11-03",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E08- Rumpus Room.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 124655920,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E08-%20Rumpus%20Room.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e09",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "Ambush",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E09-%20Ambush_000536.jpg",
+     "airDate": "1971-11-10",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E09- Ambush.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 117907453,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E09-%20Ambush.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e10",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "The Weekend",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E10-%20The%20Weekend_000537.jpg",
+     "airDate": "1971-11-17",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E10- The Weekend.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 108462910,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E10-%20The%20Weekend.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e11",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "Man in the Middle",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E11-%20Man%20in%20the%20Middle_000535.jpg",
+     "airDate": "1971-11-24",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E11- Man in the Middle.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 118174989,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E11-%20Man%20in%20the%20Middle.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e12",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "Class of '46",
+     "overview": "Radicals vs. the establishment in a drama about the investigation of a bombing at an underground newspaper.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E12-%20Class%20of%20%2746_000536.jpg",
+     "airDate": "1971-12-08",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E12- Class of '46.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 102348795,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E12-%20Class%20of%20%2746.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e13",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "Family Man",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E13-%20Family%20Man_000581.jpg",
+     "airDate": "1971-12-15",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E13- Family Man.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 119543692,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E13-%20Family%20Man.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e14",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 14,
+     "title": "Christmas Rush",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E14-%20Christmas%20Rush_000597.jpg",
+     "airDate": "1971-12-22",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E14- Christmas Rush.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 120903245,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E14-%20Christmas%20Rush.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e15",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 15,
+     "title": "Taste of Fear",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E15-%20Taste%20of%20Fear_000596.jpg",
+     "airDate": "1971-12-29",
+     "year": 1971,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E15- Taste of Fear.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 122746122,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E15-%20Taste%20of%20Fear.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e16",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 16,
+     "title": "Where There's Smoke",
+     "overview": "Gossip and suspicions plague the Smith family: Chad's been accused of assaulting a woman.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E16-%20Where%20theres%20Smoke_000650.jpg",
+     "airDate": "1972-01-05",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E16- Where theres Smoke.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 116773178,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E16-%20Where%20theres%20Smoke.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e17",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "Off Duty Cop",
+     "overview": "Chad's decision to hold his fire during a robbery earns him the brand of a coward.",
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E17-%20Off%20Duty%20Cop_000651.jpg",
+     "airDate": "1972-04-12",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E17- Off Duty Cop.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 113722369,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E17-%20Off%20Duty%20Cop.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e18",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "Winner Take All",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E18-%20Winner%20Take%20All_000614.jpg",
+     "airDate": "1972-04-19",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E18- Winner Take All.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 128908968,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E18-%20Winner%20Take%20All.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e19",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "San Francisco Cop",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E19-%20San%20Francisco%20Cop-1_000694.jpg",
+     "airDate": "1972-04-26",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E19- San Francisco Cop-1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 121027455,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E19-%20San%20Francisco%20Cop-1.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e20",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 20,
+     "title": "My Mother, the Star",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E20-%20My%20Mother%20the%20Star-1_000576.jpg",
+     "airDate": "1972-05-10",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E20- My Mother the Star-1.mp4",
+      "format": "h.264",
+      "sizeBytes": 130865329,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E20-%20My%20Mother%20the%20Star-1.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e21",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 21,
+     "title": "Rogue Cop",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E21-%20Rogue%20Cop-1_000630.jpg",
+     "airDate": "1972-05-17",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E21- Rogue Cop-1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 106701133,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E21-%20Rogue%20Cop-1.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e22",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 22,
+     "title": "Ten O'Clock and All is Well",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E22-%20Ten%20OClock%20and%20All%20is%20Well-1_000742.jpg",
+     "airDate": "1972-05-24",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E22- Ten OClock and All is Well-1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 127086247,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E22-%20Ten%20OClock%20and%20All%20is%20Well-1.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e23",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 23,
+     "title": "Homecoming",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E23-%20Homecoming-1_000740.jpg",
+     "airDate": "1972-05-31",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E23- Homecoming-1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 116060611,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E23-%20Homecoming-1.ia.mp4"
+    },
+    {
+     "archiveID": "thesmithfamilyseasontwo@s2e24",
+     "sourceID": "thesmithfamilyseasontwo",
+     "seasonNumber": 2,
+     "episodeNumber": 24,
+     "title": "Father-in-Law",
+     "overview": null,
+     "stillURL": "https://archive.org/download/thesmithfamilyseasontwo/thesmithfamilyseasontwo.thumbs/S02E24-%20Father%20In%20Law-1_000736.jpg",
+     "airDate": "1972-06-07",
+     "year": 1972,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E24- Father In Law-1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 115012033,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E24-%20Father%20In%20Law-1.ia.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": 17,
+   "episodes": [
+    {
+     "archiveID": "family-feud-s17-e47",
+     "seasonNumber": 17,
+     "episodeNumber": 47,
+     "title": "Family Feud : Smith/Neuhart",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s17-e47",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1798,
+     "videoFile": {
+      "name": "GSN20220716_233000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 231505500,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s17-e47/GSN20220716_233000.ia.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 18,
+   "episodes": [
+    {
+     "archiveID": "family-feud-s18-e169",
+     "seasonNumber": 18,
+     "episodeNumber": 169,
+     "title": "Family Feud : Cheri/Smith",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s18-e169",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1796,
+     "videoFile": {
+      "name": "GSN20220801_000000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 231305615,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s18-e169/GSN20220801_000000.ia.mp4"
+    },
+    {
+     "archiveID": "family-feud-s18-e173",
+     "seasonNumber": 18,
+     "episodeNumber": 173,
+     "title": "Family Feud : Smith/Wilson",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s18-e173",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1801,
+     "videoFile": {
+      "name": "GSN20220801_003000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 232093384,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s18-e173/GSN20220801_003000.ia.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 19,
+   "episodes": [
+    {
+     "archiveID": "family-feud-s19-e16",
+     "seasonNumber": 19,
+     "episodeNumber": 16,
+     "title": "Family Feud : Carlson/Smith",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s19-e16",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1801,
+     "videoFile": {
+      "name": "GSN20220708_223000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 231941231,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s19-e16/GSN20220708_223000.ia.mp4"
+    },
+    {
+     "archiveID": "family-feud-s19-e40",
+     "seasonNumber": 19,
+     "episodeNumber": 40,
+     "title": "Family Feud : Phillippi/Smith",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s19-e40",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1801,
+     "videoFile": {
+      "name": "GSN20220715_223000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 232066083,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s19-e40/GSN20220715_223000.ia.mp4"
+    },
+    {
+     "archiveID": "family-feud-s19-e42",
+     "seasonNumber": 19,
+     "episodeNumber": 42,
+     "title": "Family Feud : Smith/DeGoey",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s19-e42",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1796,
+     "videoFile": {
+      "name": "GSN20220718_220000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 231419237,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s19-e42/GSN20220718_220000.ia.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 23,
+   "episodes": [
+    {
+     "archiveID": "family-feud-s23-e153",
+     "seasonNumber": 23,
+     "episodeNumber": 153,
+     "title": "Family Feud : Lane/Smith",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s23-e153",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1808,
+     "videoFile": {
+      "name": "NJWWOR20230803_193000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 314138923,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s23-e153/NJWWOR20230803_193000.ia.mp4"
+    },
+    {
+     "archiveID": "family-feud-s23-e155",
+     "seasonNumber": 23,
+     "episodeNumber": 155,
+     "title": "Family Feud : Smith/Crockett",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s23-e155",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1808,
+     "videoFile": {
+      "name": "NJWWOR20230804_193000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 299164369,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s23-e155/NJWWOR20230804_193000.ia.mp4"
+    },
+    {
+     "archiveID": "family-feud-s23-e157",
+     "seasonNumber": 23,
+     "episodeNumber": 157,
+     "title": "Family Feud : Smith/Pimentel",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s23-e157",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1803,
+     "videoFile": {
+      "name": "NJWWOR20230807_193000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 304711326,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s23-e157/NJWWOR20230807_193000.ia.mp4"
+    },
+    {
+     "archiveID": "family-feud-s23-e159",
+     "seasonNumber": 23,
+     "episodeNumber": 159,
+     "title": "Family Feud : Smith/Neville",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/family-feud-s23-e159",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1803,
+     "videoFile": {
+      "name": "NJWWOR20230808_193000.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 309686006,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/family-feud-s23-e159/NJWWOR20230808_193000.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 49,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": null,
+ "tvdbID": "76444",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Ron Howard",
+   "character": "Bob Smith",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261799/photo/669205ef5d24a.jpg"
+  },
+  {
+   "name": "Henry Fonda",
+   "character": "Det. Sgt. Chad Smith",
+   "order": 1,
+   "profilePath": "https://artworks.thetvdb.com/banners/person/349464/primary.jpg"
+  },
+  {
+   "name": "Michael-James Wixted",
+   "character": "Brian Smith",
+   "order": 2,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/46265.jpg"
+  },
+  {
+   "name": "Janet Blair",
+   "character": "Betty Smith",
+   "order": 3,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276858/photo/644fde38781bc.jpg"
+  },
+  {
+   "name": "Charles McGraw",
+   "character": "Capt. Hughes",
+   "order": 4,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/46267.jpg"
+  },
+  {
+   "name": "Darleen Carr",
+   "character": "Cindy Smith",
+   "order": 5,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261796/photo/699df70d0f07e.jpg"
+  },
+  {
+   "name": "John Carter",
+   "character": "Sgt. Ray Martin",
+   "order": 6,
+   "profilePath": "https://artworks.thetvdb.com/banners/actors/46269.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0066716"
 }

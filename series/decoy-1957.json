@@ -1,728 +1,731 @@
 {
-  "version": 2,
-  "seriesID": "decoy-1957",
-  "tvmazeID": 18602,
-  "title": "Decoy",
-  "yearStart": 1957,
-  "yearEnd": 1958,
-  "overview": "Decoy was a crime drama series that aired in syndication that aired from 1957-1958.The series followed Casey Jones, a female police officer who is assigned to work undercover for various unsolved crimes.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d0acf9db2fa8.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Crime"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "decoy-1957",
+ "tvmazeID": 18602,
+ "title": "Decoy",
+ "yearStart": 1957,
+ "yearEnd": 1958,
+ "overview": "Decoy was a crime drama series that aired in syndication that aired from 1957-1958.The series followed Casey Jones, a female police officer who is assigned to work undercover for various unsolved crimes.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/5d0acf9db2fa8.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "decoy-tv-series@s1e01",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Stranglehold",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E01%20Stranglehold_000541.jpg",
-          "airDate": "1957-10-14",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E01 Stranglehold.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 132020531,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E01%20Stranglehold.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e02",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Red Clown",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/422/1057060.jpg",
-          "airDate": "1957-10-21",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E02 The Red Clown.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 83250672,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E02%20The%20Red%20Clown.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e03",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Phoner",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E03%20The%20Phoner_000475.jpg",
-          "airDate": "1957-10-28",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E03 The Phoner.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 103539115,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E03%20The%20Phoner.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyToTrapAThief",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "To Trap a Thief",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1957-11-04",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-toTrapAThief-november41957.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 151051394,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyToTrapAThief/Decoy-toTrapAThief-november41957.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e05",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Dream Fix",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E05%20Dream%20Fix_000541.jpg",
-          "airDate": "1957-11-11",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E05 Dream Fix.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 101825533,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E05%20Dream%20Fix.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e06",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Savage Payoff",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E06%20Savage%20Payoff_000475.jpg",
-          "airDate": "1957-11-18",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E06 Savage Payoff.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 111185875,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E06%20Savage%20Payoff.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e07",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Deadly Corridor",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E07%20Deadly%20Corridor_000475.jpg",
-          "airDate": "1957-11-25",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E07 Deadly Corridor.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 91858834,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E07%20Deadly%20Corridor.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e08",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Escape Into Danger",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E08%20Escape%20Into%20Danger_000541.jpg",
-          "airDate": "1957-12-02",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E08 Escape Into Danger.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 100227346,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E08%20Escape%20Into%20Danger.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e09",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Necklace of Glass",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E09%20Necklace%20of%20Glass_000541.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1559,
-          "videoFile": {
-            "name": "Decoy S01 E09 Necklace of Glass.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 85236356,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E09%20Necklace%20of%20Glass.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e10",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Scape Goat",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E10%20Scape%20Goat_000475.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1555,
-          "videoFile": {
-            "name": "Decoy S01 E10 Scape Goat.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 96562275,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E10%20Scape%20Goat.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e11",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Two Days to Kill",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E11%20Two%20Days%20to%20Kill_000616.jpg",
-          "airDate": "1957-12-23",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E11 Two Days to Kill.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 204774711,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E11%20Two%20Days%20to%20Kill.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e12",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Queen of Diamonds",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E12%20Queen%20of%20Diamonds_000600.jpg",
-          "airDate": "1957-12-30",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E12 Queen of Diamonds.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 225650650,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E12%20Queen%20of%20Diamonds.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e13",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "My Brother's Killer",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E13%20My%20Brothers%20Killer_000608.jpg",
-          "airDate": "1958-01-06",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E13 My Brothers Killer.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 240031820,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E13%20My%20Brothers%20Killer.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e14",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Bullet of Hate",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E14%20Bullet%20of%20Hate_000516.jpg",
-          "airDate": "1958-01-13",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E14 Bullet of Hate.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 257202177,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E14%20Bullet%20of%20Hate.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e15",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Death Watch",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E15%20Death%20Watch_000591.jpg",
-          "airDate": "1958-01-20",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E15 Death Watch.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 247085130,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E15%20Death%20Watch.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e16",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "Odds Against the Jockey",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E16%20Odds%20Agains%20the%20Jockey_000591.jpg",
-          "airDate": "1958-01-27",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E16 Odds Agains the Jockey.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 317854397,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E16%20Odds%20Agains%20the%20Jockey.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e17",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Dressed for the Kill",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E17%20Dressed%20for%20the%20Kill_000591.jpg",
-          "airDate": "1958-02-03",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E17 Dressed for the Kill.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 211257340,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E17%20Dressed%20for%20the%20Kill.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyEyeForAnEye",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "An Eye for an Eye",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-02-10",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-eyeForAnEye.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 144725579,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyEyeForAnEye/Decoy-eyeForAnEye.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyTheChallenger",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "The Challenger",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-02-17",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-theChallenger.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 134051335,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyTheChallenger/Decoy-theChallenger.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e20",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Across the World",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E20%20Across%20the%20World_000616.jpg",
-          "airDate": "1958-02-24",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E20 Across the World.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 228164148,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E20%20Across%20the%20World.ia.mp4"
-        },
-        {
-          "archiveID": "decoy-tv-series@s1e21",
-          "sourceID": "decoy-tv-series",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "The Showplace",
-          "overview": null,
-          "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E21%20The%20Showplace_000600.jpg",
-          "airDate": "1958-03-03",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy S01 E21 The Showplace.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 278877107,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E21%20The%20Showplace.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyNightOfFire",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Night of Fire",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-03-17",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-nightOfFire.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 149967785,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyNightOfFire/Decoy-nightOfFire.ia.mp4"
-        },
-        {
-          "archiveID": "DecoySaturdayWasLost",
-          "seasonNumber": 1,
-          "episodeNumber": 24,
-          "title": "Saturday Lost",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-03-24",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-saturdayWasLost-march241958.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 159970784,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoySaturdayWasLost/Decoy-saturdayWasLost-march241958.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyHighSwing",
-          "seasonNumber": 1,
-          "episodeNumber": 25,
-          "title": "High Swing",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-03-31",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-highSwing-june31959.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160706364,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyHighSwing/Decoy-highSwing-june31959.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyEarthboundSatellite",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
-          "title": "Earthbound Satellite",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-04-07",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-earthboundSatellite.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 147866276,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyEarthboundSatellite/Decoy-earthboundSatellite.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyTheSoundOfTears",
-          "seasonNumber": 1,
-          "episodeNumber": 27,
-          "title": "The Sound of Tears",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-04-14",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-theSoundOfTears.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 159975937,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyTheSoundOfTears/Decoy-theSoundOfTears.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyLadiesMan",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "Ladies' Man",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-04-21",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-ladiesMan.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 148407122,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyLadiesMan/Decoy-ladiesMan.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyCryRevenge",
-          "seasonNumber": 1,
-          "episodeNumber": 29,
-          "title": "Cry Revenge",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-04-28",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-cryRevenge.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 151524288,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyCryRevenge/Decoy-cryRevenge.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyTheGentleGunman",
-          "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "The Gentle Gunman",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-05-05",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-theGentleGunman.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 152170396,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyTheGentleGunman/Decoy-theGentleGunman.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyNightLight",
-          "seasonNumber": 1,
-          "episodeNumber": 31,
-          "title": "Night Light",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-05-12",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-nightLight.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160055980,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyNightLight/Decoy-nightLight.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyFiestaAtMidnight",
-          "seasonNumber": 1,
-          "episodeNumber": 32,
-          "title": "Fiesta at Midnight",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-05-19",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-fiestaAtMidnight.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 161696264,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyFiestaAtMidnight/Decoy-fiestaAtMidnight.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyTheShadowOfVanGogh",
-          "seasonNumber": 1,
-          "episodeNumber": 34,
-          "title": "Shadow of Van Gogh",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-06-02",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-theShadowOfVanGogh.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 155722412,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyTheShadowOfVanGogh/Decoy-theShadowOfVanGogh.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyTinPanPayoff",
-          "seasonNumber": 1,
-          "episodeNumber": 35,
-          "title": "Tin Pan Payoff",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-06-09",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-tinPanPayoff.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 155313260,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyTinPanPayoff/Decoy-tinPanPayoff.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyBlindDate",
-          "seasonNumber": 1,
-          "episodeNumber": 36,
-          "title": "Blind Date",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-06-16",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-blindDate.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 156125914,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyBlindDate/Decoy-blindDate.ia.mp4"
-        },
-        {
-          "archiveID": "DecoyTheComeback",
-          "seasonNumber": 1,
-          "episodeNumber": 37,
-          "title": "The Comeback",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-06-23",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-theComeback.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 159490608,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyTheComeback/Decoy-theComeback.ia.mp4"
-        },
-        {
-          "archiveID": "DecoytheFirstArrest",
-          "seasonNumber": 1,
-          "episodeNumber": 38,
-          "title": "First Arrest",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": "1958-06-30",
-          "year": 1958,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Decoy-theFirstArrest-june301958.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 157505375,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoytheFirstArrest/Decoy-theFirstArrest-june301958.ia.mp4"
-        }
-      ]
+     "archiveID": "decoy-tv-series@s1e01",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Stranglehold",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E01%20Stranglehold_000541.jpg",
+     "airDate": "1957-10-14",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E01 Stranglehold.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 132020531,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E01%20Stranglehold.ia.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "DecoyThePilotEpisode",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Pilot Episode",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1780,
-          "videoFile": {
-            "name": "Decoy-thePilotEpisode.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 175883255,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DecoyThePilotEpisode/Decoy-thePilotEpisode.ia.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 37,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": null,
-  "tvdbID": "141921",
-  "artworkSource": "tvdb",
-  "cast": [
+     "archiveID": "decoy-tv-series@s1e02",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Red Clown",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/422/1057060.jpg",
+     "airDate": "1957-10-21",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E02 The Red Clown.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 83250672,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E02%20The%20Red%20Clown.ia.mp4"
+    },
     {
-      "name": "Beverly Garland",
-      "character": "Casey Jones",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259489/photo/64b02ac8382f3.jpg"
+     "archiveID": "decoy-tv-series@s1e03",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Phoner",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E03%20The%20Phoner_000475.jpg",
+     "airDate": "1957-10-28",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E03 The Phoner.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 103539115,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E03%20The%20Phoner.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyToTrapAThief",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "To Trap a Thief",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1957-11-04",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-toTrapAThief-november41957.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 151051394,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyToTrapAThief/Decoy-toTrapAThief-november41957.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e05",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Dream Fix",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E05%20Dream%20Fix_000541.jpg",
+     "airDate": "1957-11-11",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E05 Dream Fix.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 101825533,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E05%20Dream%20Fix.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e06",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Savage Payoff",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E06%20Savage%20Payoff_000475.jpg",
+     "airDate": "1957-11-18",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E06 Savage Payoff.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 111185875,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E06%20Savage%20Payoff.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e07",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Deadly Corridor",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E07%20Deadly%20Corridor_000475.jpg",
+     "airDate": "1957-11-25",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E07 Deadly Corridor.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 91858834,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E07%20Deadly%20Corridor.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e08",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Escape Into Danger",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E08%20Escape%20Into%20Danger_000541.jpg",
+     "airDate": "1957-12-02",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E08 Escape Into Danger.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 100227346,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E08%20Escape%20Into%20Danger.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e09",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Necklace of Glass",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E09%20Necklace%20of%20Glass_000541.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1559,
+     "videoFile": {
+      "name": "Decoy S01 E09 Necklace of Glass.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 85236356,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E09%20Necklace%20of%20Glass.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e10",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Scape Goat",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E10%20Scape%20Goat_000475.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1555,
+     "videoFile": {
+      "name": "Decoy S01 E10 Scape Goat.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 96562275,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E10%20Scape%20Goat.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e11",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Two Days to Kill",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E11%20Two%20Days%20to%20Kill_000616.jpg",
+     "airDate": "1957-12-23",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E11 Two Days to Kill.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 204774711,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E11%20Two%20Days%20to%20Kill.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e12",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Queen of Diamonds",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E12%20Queen%20of%20Diamonds_000600.jpg",
+     "airDate": "1957-12-30",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E12 Queen of Diamonds.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 225650650,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E12%20Queen%20of%20Diamonds.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e13",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "My Brother's Killer",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E13%20My%20Brothers%20Killer_000608.jpg",
+     "airDate": "1958-01-06",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E13 My Brothers Killer.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 240031820,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E13%20My%20Brothers%20Killer.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e14",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Bullet of Hate",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E14%20Bullet%20of%20Hate_000516.jpg",
+     "airDate": "1958-01-13",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E14 Bullet of Hate.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 257202177,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E14%20Bullet%20of%20Hate.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e15",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Death Watch",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E15%20Death%20Watch_000591.jpg",
+     "airDate": "1958-01-20",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E15 Death Watch.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 247085130,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E15%20Death%20Watch.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e16",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "Odds Against the Jockey",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E16%20Odds%20Agains%20the%20Jockey_000591.jpg",
+     "airDate": "1958-01-27",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E16 Odds Agains the Jockey.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 317854397,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E16%20Odds%20Agains%20the%20Jockey.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e17",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Dressed for the Kill",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E17%20Dressed%20for%20the%20Kill_000591.jpg",
+     "airDate": "1958-02-03",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E17 Dressed for the Kill.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 211257340,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E17%20Dressed%20for%20the%20Kill.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyEyeForAnEye",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "An Eye for an Eye",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-02-10",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-eyeForAnEye.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 144725579,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyEyeForAnEye/Decoy-eyeForAnEye.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyTheChallenger",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "The Challenger",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-02-17",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-theChallenger.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 134051335,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyTheChallenger/Decoy-theChallenger.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e20",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "Across the World",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E20%20Across%20the%20World_000616.jpg",
+     "airDate": "1958-02-24",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E20 Across the World.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 228164148,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E20%20Across%20the%20World.ia.mp4"
+    },
+    {
+     "archiveID": "decoy-tv-series@s1e21",
+     "sourceID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "The Showplace",
+     "overview": null,
+     "stillURL": "https://archive.org/download/decoy-tv-series/decoy-tv-series.thumbs/Decoy%20S01%20E21%20The%20Showplace_000600.jpg",
+     "airDate": "1958-03-03",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy S01 E21 The Showplace.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 278877107,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E21%20The%20Showplace.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyNightOfFire",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Night of Fire",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-03-17",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-nightOfFire.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 149967785,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyNightOfFire/Decoy-nightOfFire.ia.mp4"
+    },
+    {
+     "archiveID": "DecoySaturdayWasLost",
+     "seasonNumber": 1,
+     "episodeNumber": 24,
+     "title": "Saturday Lost",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-03-24",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-saturdayWasLost-march241958.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 159970784,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoySaturdayWasLost/Decoy-saturdayWasLost-march241958.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyHighSwing",
+     "seasonNumber": 1,
+     "episodeNumber": 25,
+     "title": "High Swing",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-03-31",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-highSwing-june31959.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 160706364,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyHighSwing/Decoy-highSwing-june31959.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyEarthboundSatellite",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Earthbound Satellite",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-04-07",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-earthboundSatellite.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 147866276,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyEarthboundSatellite/Decoy-earthboundSatellite.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyTheSoundOfTears",
+     "seasonNumber": 1,
+     "episodeNumber": 27,
+     "title": "The Sound of Tears",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-04-14",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-theSoundOfTears.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 159975937,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyTheSoundOfTears/Decoy-theSoundOfTears.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyLadiesMan",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "Ladies' Man",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-04-21",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-ladiesMan.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 148407122,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyLadiesMan/Decoy-ladiesMan.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyCryRevenge",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Cry Revenge",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-04-28",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-cryRevenge.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 151524288,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyCryRevenge/Decoy-cryRevenge.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyTheGentleGunman",
+     "seasonNumber": 1,
+     "episodeNumber": 30,
+     "title": "The Gentle Gunman",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-05-05",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-theGentleGunman.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 152170396,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyTheGentleGunman/Decoy-theGentleGunman.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyNightLight",
+     "seasonNumber": 1,
+     "episodeNumber": 31,
+     "title": "Night Light",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-05-12",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-nightLight.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 160055980,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyNightLight/Decoy-nightLight.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyFiestaAtMidnight",
+     "seasonNumber": 1,
+     "episodeNumber": 32,
+     "title": "Fiesta at Midnight",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-05-19",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-fiestaAtMidnight.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 161696264,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyFiestaAtMidnight/Decoy-fiestaAtMidnight.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyTheShadowOfVanGogh",
+     "seasonNumber": 1,
+     "episodeNumber": 34,
+     "title": "Shadow of Van Gogh",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-06-02",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-theShadowOfVanGogh.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 155722412,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyTheShadowOfVanGogh/Decoy-theShadowOfVanGogh.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyTinPanPayoff",
+     "seasonNumber": 1,
+     "episodeNumber": 35,
+     "title": "Tin Pan Payoff",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-06-09",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-tinPanPayoff.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 155313260,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyTinPanPayoff/Decoy-tinPanPayoff.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyBlindDate",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "Blind Date",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-06-16",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-blindDate.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 156125914,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyBlindDate/Decoy-blindDate.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyTheComeback",
+     "seasonNumber": 1,
+     "episodeNumber": 37,
+     "title": "The Comeback",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-06-23",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-theComeback.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 159490608,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyTheComeback/Decoy-theComeback.ia.mp4"
+    },
+    {
+     "archiveID": "DecoytheFirstArrest",
+     "seasonNumber": 1,
+     "episodeNumber": 38,
+     "title": "First Arrest",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": "1958-06-30",
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-theFirstArrest-june301958.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 157505375,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoytheFirstArrest/Decoy-theFirstArrest-june301958.ia.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "DecoyThePilotEpisode",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Pilot Episode",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1780,
+     "videoFile": {
+      "name": "Decoy-thePilotEpisode.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 175883255,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyThePilotEpisode/Decoy-thePilotEpisode.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 37,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": null,
+ "tvdbID": "141921",
+ "artworkSource": "tvdb",
+ "cast": [
+  {
+   "name": "Beverly Garland",
+   "character": "Casey Jones",
+   "order": 0,
+   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259489/photo/64b02ac8382f3.jpg"
+  }
+ ],
+ "seriesImdbID": "tt0050010",
+ "imdbRating": 7.7,
+ "imdbVotes": 401
 }

@@ -192,6 +192,7 @@ CREATE INDEX idx_episodes_series ON episodes(seriesID, position);
 | `isSilentFilm` | `1` if item `isSilentFilm` is truthy OR `contentType == "silent-film"`. |
 | `hiddenGem` | `1` for the "Hidden Gems" shelf: `imdbRating >= 7.0`, `imdbVotes` in `[100, 5000]`, a known year, designed art, playable, home-rights-eligible, not in an Archive-suppressed collection (`deemphasize` / `loggedin` / `g4video-web`), AND `popularityScore <= ` the **45th percentile of the eligible pool, recomputed every build** (published as `meta.hiddenGemPopCut`). Decision 050. **Clients must query this column, never restate the thresholds** — the shelf was silently empty on every platform for five weeks because a client held `popularityScore <= 40` against a scale the pipeline had rescaled. |
 | `hasRealArtwork` | `1` if item `hasRealArtwork` is truthy OR `artworkSource` not in (`null`, `"archive"`). Note: `"generated"` frame-covers count as real artwork here (Decision 023); the *professional*-art distinction lives only in the client model (`hasProfessionalArtwork` excludes `"generated"`). |
+| `ratingRank` | The Top Rated sort key (Decision 171, `tools/best_rating.py`): the largest crowd's rating (IMDb votes, archive.org reviews; TVmaze only when nothing counted exists) as standard deviations above that crowd's own average for the same kind of title, times `v / (v + prior)`. NULL = unrated. Also in the item JSON blob (`ratingRank`) and the index (column 19, `ratingRank100`). **Clients sort on it, never on a raw rating.** |
 | `decade` | NOT computed here — copied from item JSON (set upstream by `remediate_catalog.py` / `build-catalog.mjs` as `floor(year/10)*10`, nulled when the year is implausible). |
 
 ### Rows that never reach the DB
@@ -411,6 +412,13 @@ by popularity.
 
 Each item is `[archiveID, title, year|null, contentType]` — derive thumbnails
 in the browser as `https://archive.org/services/img/{archiveID}`.
+
+The example above is schema 1. The live index is **schema 16**, and its
+`fields` array names every column (`tools/build_catalog_index.py`): column 10
+`rating10` is IMDb's rating x10 and nothing else (a series' too, when IMDb
+rates it), 11 `votes`, and 19 `ratingRank100`, the Top Rated sort key x100 or
+null (Decision 171). Columns are only ever appended; a reader guards each read
+by the row's length.
 
 ---
 

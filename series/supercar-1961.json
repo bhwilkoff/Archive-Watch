@@ -1,341 +1,344 @@
 {
-  "version": 2,
-  "seriesID": "supercar-1961",
-  "tvmazeID": 5915,
-  "title": "Supercar",
-  "yearStart": 1961,
-  "yearEnd": 1962,
-  "overview": "\"Supercar\" was a prototype vehicle that could travel in the air, on land or beneath the sea. Its test pilot was Mike Mercury, who traveled the world in search of adventure. Supercar was designed by Professor Popkiss and Dr. Beaker, who continued to modify it for specific missions. Often traveling with Mike was 10-year-old orphan Jimmy Gibson.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/81801-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "supercar-1961",
+ "tvmazeID": 5915,
+ "title": "Supercar",
+ "yearStart": 1961,
+ "yearEnd": 1962,
+ "overview": "\"Supercar\" was a prototype vehicle that could travel in the air, on land or beneath the sea. Its test pilot was Mike Mercury, who traveled the world in search of adventure. Supercar was designed by Professor Popkiss and Dr. Beaker, who continued to modify it for specific missions. Often traveling with Mike was 10-year-old orphan Jimmy Gibson.",
+ "posterURL": "https://artworks.thetvdb.com/banners/posters/81801-1.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "Supercar.Series1@s1e06",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Grounded",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S1E06%20-%20Grounded_001088.jpg",
-          "airDate": "1961-03-04",
-          "year": 1961,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S1E06 - Grounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 156407973,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S1E06%20-%20Grounded.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s1e07",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Keep It Cool",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S1E07%20-%20Keep%20it%20Cool_001090.jpg",
-          "airDate": "1961-03-11",
-          "year": 1961,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S1E07 - Keep it Cool.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 156409508,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S1E07%20-%20Keep%20it%20Cool.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s1e09",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "High Tension",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S1E09%20-%20High%20Tension_001094.jpg",
-          "airDate": "1961-03-25",
-          "year": 1961,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S1E09 - High Tension.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 156820452,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S1E09%20-%20High%20Tension.mp4"
-        }
-      ]
+     "archiveID": "Supercar.Series1@s1e06",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Grounded",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S1E06%20-%20Grounded_001088.jpg",
+     "airDate": "1961-03-04",
+     "year": 1961,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S1E06 - Grounded.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 156407973,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S1E06%20-%20Grounded.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "Supercar.Series1@s2e01",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "The Runaway Train",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E01%20-%20The%20Runaway%20Train_001083.jpg",
-          "airDate": "1962-02-02",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E01 - The Runaway Train.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 84111429,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E01%20-%20The%20Runaway%20Train.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e02",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Precious Cargo",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E02%20-%20Precious%20Cargo_001083.jpg",
-          "airDate": "1962-02-11",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E02 - Precious Cargo.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 82487080,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E02%20-%20Precious%20Cargo.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e03",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Operation Superstork",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E03%20-%20Operation%20Superstork_001092.jpg",
-          "airDate": "1962-02-18",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E03 - Operation Superstork.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 86654634,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E03%20-%20Operation%20Superstork.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e04",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Hi-Jack",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E04%20-%20Hi-Jack_001089.jpg",
-          "airDate": "1962-02-25",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E04 - Hi-Jack.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 84939699,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E04%20-%20Hi-Jack.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e05",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Calling Charlie Queen",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E05%20-%20Calling%20Charlie%20Queen_001095.jpg",
-          "airDate": "1962-03-04",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E05 - Calling Charlie Queen.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 83712575,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E05%20-%20Calling%20Charlie%20Queen.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e06",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Space for Mitch",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E06%20-%20Space%20for%20Mitch_001083.jpg",
-          "airDate": "1962-03-11",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E06 - Space for Mitch.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 79775569,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E06%20-%20Space%20for%20Mitch.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e07",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "Atomic Witch Hunt",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E07%20-%20Atomic%20Witch%20Hunt_001080.jpg",
-          "airDate": "1962-03-18",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E07 - Atomic Witch Hunt.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 84298489,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E07%20-%20Atomic%20Witch%20Hunt.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e08",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "70-B-Lo",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E08%20-%2070-B-Lo_001095.jpg",
-          "airDate": "1962-03-25",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E08 - 70-B-Lo.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 86553289,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E08%20-%2070-B-Lo.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e09",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 9,
-          "title": "The Sky's the Limit",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E09%20-%20The%20Sky%E2%80%99s%20the%20Limit_001095.jpg",
-          "airDate": "1962-04-01",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E09 - The Sky’s the Limit.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 85311850,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E09%20-%20The%20Sky%E2%80%99s%20the%20Limit.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e10",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "Jail Break",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E10%20-%20Jail%20Break_001086.jpg",
-          "airDate": "1962-04-08",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E10 - Jail Break.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 84103521,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E10%20-%20Jail%20Break.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e11",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "The Day That Time Stood Still",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E11%20-%20The%20Day%20that%20Time%20Stood%20Still_001086.jpg",
-          "airDate": "1962-04-15",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E11 - The Day that Time Stood Still.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 84363478,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E11%20-%20The%20Day%20that%20Time%20Stood%20Still.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e12",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 12,
-          "title": "Transatlantic Cable",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E12%20-%20Transatlantic%20Cable_001092.jpg",
-          "airDate": "1962-04-22",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E12 - Transatlantic Cable.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 84402119,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E12%20-%20Transatlantic%20Cable.mp4"
-        },
-        {
-          "archiveID": "Supercar.Series1@s2e13",
-          "sourceID": "Supercar.Series1",
-          "seasonNumber": 2,
-          "episodeNumber": 13,
-          "title": "King Kool",
-          "overview": null,
-          "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E13%20-%20King%20Kool_001089.jpg",
-          "airDate": "1962-04-29",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Supercar - S2E13 - King Kool.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 85214382,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E13%20-%20King%20Kool.mp4"
-        }
-      ]
+     "archiveID": "Supercar.Series1@s1e07",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Keep It Cool",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S1E07%20-%20Keep%20it%20Cool_001090.jpg",
+     "airDate": "1961-03-11",
+     "year": 1961,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S1E07 - Keep it Cool.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 156409508,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S1E07%20-%20Keep%20it%20Cool.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s1e09",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "High Tension",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S1E09%20-%20High%20Tension_001094.jpg",
+     "airDate": "1961-03-25",
+     "year": 1961,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S1E09 - High Tension.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 156820452,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S1E09%20-%20High%20Tension.mp4"
     }
-  ],
-  "episodesCount": 16,
-  "canonicalEpisodesCount": 39,
-  "tvmazeRating": 7.3,
-  "tvdbID": "81801",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "Supercar.Series1@s2e01",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "The Runaway Train",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E01%20-%20The%20Runaway%20Train_001083.jpg",
+     "airDate": "1962-02-02",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E01 - The Runaway Train.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 84111429,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E01%20-%20The%20Runaway%20Train.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e02",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Precious Cargo",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E02%20-%20Precious%20Cargo_001083.jpg",
+     "airDate": "1962-02-11",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E02 - Precious Cargo.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 82487080,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E02%20-%20Precious%20Cargo.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e03",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Operation Superstork",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E03%20-%20Operation%20Superstork_001092.jpg",
+     "airDate": "1962-02-18",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E03 - Operation Superstork.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 86654634,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E03%20-%20Operation%20Superstork.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e04",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Hi-Jack",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E04%20-%20Hi-Jack_001089.jpg",
+     "airDate": "1962-02-25",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E04 - Hi-Jack.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 84939699,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E04%20-%20Hi-Jack.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e05",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Calling Charlie Queen",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E05%20-%20Calling%20Charlie%20Queen_001095.jpg",
+     "airDate": "1962-03-04",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E05 - Calling Charlie Queen.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 83712575,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E05%20-%20Calling%20Charlie%20Queen.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e06",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Space for Mitch",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E06%20-%20Space%20for%20Mitch_001083.jpg",
+     "airDate": "1962-03-11",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E06 - Space for Mitch.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 79775569,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E06%20-%20Space%20for%20Mitch.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e07",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "Atomic Witch Hunt",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E07%20-%20Atomic%20Witch%20Hunt_001080.jpg",
+     "airDate": "1962-03-18",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E07 - Atomic Witch Hunt.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 84298489,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E07%20-%20Atomic%20Witch%20Hunt.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e08",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "70-B-Lo",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E08%20-%2070-B-Lo_001095.jpg",
+     "airDate": "1962-03-25",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E08 - 70-B-Lo.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 86553289,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E08%20-%2070-B-Lo.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e09",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "The Sky's the Limit",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E09%20-%20The%20Sky%E2%80%99s%20the%20Limit_001095.jpg",
+     "airDate": "1962-04-01",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E09 - The Sky’s the Limit.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 85311850,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E09%20-%20The%20Sky%E2%80%99s%20the%20Limit.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e10",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "Jail Break",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E10%20-%20Jail%20Break_001086.jpg",
+     "airDate": "1962-04-08",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E10 - Jail Break.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 84103521,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E10%20-%20Jail%20Break.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e11",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "The Day That Time Stood Still",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E11%20-%20The%20Day%20that%20Time%20Stood%20Still_001086.jpg",
+     "airDate": "1962-04-15",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E11 - The Day that Time Stood Still.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 84363478,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E11%20-%20The%20Day%20that%20Time%20Stood%20Still.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e12",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 12,
+     "title": "Transatlantic Cable",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E12%20-%20Transatlantic%20Cable_001092.jpg",
+     "airDate": "1962-04-22",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E12 - Transatlantic Cable.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 84402119,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E12%20-%20Transatlantic%20Cable.mp4"
+    },
+    {
+     "archiveID": "Supercar.Series1@s2e13",
+     "sourceID": "Supercar.Series1",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "King Kool",
+     "overview": null,
+     "stillURL": "https://archive.org/download/Supercar.Series1/Supercar.Series1.thumbs/Supercar%20-%20S2E13%20-%20King%20Kool_001089.jpg",
+     "airDate": "1962-04-29",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Supercar - S2E13 - King Kool.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 85214382,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Supercar.Series1/Supercar%20-%20S2E13%20-%20King%20Kool.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 16,
+ "canonicalEpisodesCount": 39,
+ "tvmazeRating": 7.3,
+ "tvdbID": "81801",
+ "artworkSource": "tvdb",
+ "seriesImdbID": "tt0054567",
+ "imdbRating": 6.9,
+ "imdbVotes": 380
 }

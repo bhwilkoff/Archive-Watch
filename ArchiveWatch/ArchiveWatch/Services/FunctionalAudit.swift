@@ -179,9 +179,13 @@ enum FunctionalAudit {
         }
         check("browse.sort.oldest", !oldest.isEmpty && oldestOK, "ordered=\(oldestOK)")
 
+        // Decision 171: Top Rated follows the pipeline's rank; a DB from before
+        // it orders by the raw IMDb rating.
         let rated = db.browse(sort: .rating, limit: 50)
+        let ranked = rated.contains { $0.ratingRank != nil }
         let ratedOK = zip(rated, rated.dropFirst()).allSatisfy {
-            ($0.imdbRating ?? -1) >= ($1.imdbRating ?? -1)
+            ranked ? ($0.ratingRank ?? -Double.infinity) >= ($1.ratingRank ?? -Double.infinity)
+                   : ($0.imdbRating ?? -1) >= ($1.imdbRating ?? -1)
         }
         check("browse.sort.rating", !rated.isEmpty && ratedOK, "ordered=\(ratedOK)")
 

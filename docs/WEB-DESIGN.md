@@ -326,8 +326,11 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   order on every other device.
 - **§4.10a Sort is remembered** per kind of grid (`browseSort.tv|browse|
   category`, localStorage, try/catch); a `?sort=` in the URL wins; TV grids
-  start A–Z; Z–A everywhere; Top Rated orders a series by its TVmaze rating
-  (index rating column, no vote floor) and breaks ties by votes, then title.
+  start A–Z; Z–A everywhere; Top Rated sorts on the index's `ratingRank100`
+  (column 19, Decision 171) and breaks ties by votes, then title. **A rating
+  names its crowd**: Detail's and the series page's meta line show "IMDb 7.8",
+  or "TVmaze 8.9" for a series IMDb does not rate (read from its spine);
+  archive.org's reviewers keep the community stats.
 - **§4.11 Episode binge**: playing an episode passes the season's playable
   queue; `ended` auto-advances to the next episode (the apps' auto-advance).
 - **§4.12 More Like This** on Detail: same type, ±15 years, designed art,

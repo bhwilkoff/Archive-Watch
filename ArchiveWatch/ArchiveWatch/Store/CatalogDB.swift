@@ -72,13 +72,11 @@ final class CatalogDB {
         case .oldest:
             return list.sorted { ($0.year ?? Int.max) < ($1.year ?? Int.max) }
         case .rating:
-            // A series has TVmaze's rating where a film has IMDb's; a tie falls
-            // to title rather than to whatever order the rows arrived in.
+            // The pipeline's rank (Decision 171); a tie falls to title rather
+            // than to whatever order the rows arrived in.
             return list.sorted {
-                let a = ($0.imdbRating ?? $0.tvmazeRating ?? -1, $0.imdbVotes ?? 0)
-                let b = ($1.imdbRating ?? $1.tvmazeRating ?? -1, $1.imdbVotes ?? 0)
-                return a != b ? a > b
-                    : $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending
+                Catalog.Item.ratedBefore($0, $1)
+                    ?? ($0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending)
             }
         }
     }
@@ -107,6 +105,7 @@ final class CatalogDB {
         hasDirectorRank = Self.columnExists(h, table: "director_rank", column: "rank")
         hasNoRecommendColumn = Self.columnExists(h, table: "items", column: "noRecommend")
         hasTVmazeRatingColumn = Self.columnExists(h, table: "items", column: "tvmazeRating")
+        hasRatingRankColumn = Self.columnExists(h, table: "items", column: "ratingRank")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
@@ -131,6 +130,7 @@ final class CatalogDB {
     private let hasDirectorRank: Bool
     private let hasNoRecommendColumn: Bool
     private let hasTVmazeRatingColumn: Bool
+    private let hasRatingRankColumn: Bool
 
     /// Decision 149: never CHOSEN for the viewer (propaganda). Every surface
     /// that picks films carries this; Search, Detail and Browse do not.
@@ -593,12 +593,15 @@ final class CatalogDB {
                 COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID
                 """
         case .rating:
-            // The IMDb community's verdict; a series card carries TVmaze's
-            // instead (no series has an IMDb rating). Votes-floored ordering
-            // isn't needed (NULLS LAST keeps unrated items browsable at the
-            // tail). Every tie is broken: with none, ~400 unrated series came
-            // back in insertion (slug) order and read as A–Z (2026-10-25).
-            let r = hasTVmazeRatingColumn ? "COALESCE(i.imdbRating, i.tvmazeRating)" : "i.imdbRating"
+            // The pipeline's rank (Decision 171): the largest crowd's rating
+            // against that crowd's own average, discounted for a small crowd,
+            // so an 8.6 from 90,000 votes leads a 9.2 from 13. An older DB
+            // without it orders by the raw rating. Unrated titles stay
+            // browsable at the tail. Every tie is broken: with none, ~400
+            // unrated series came back in insertion (slug) order and read as
+            // A–Z (2026-10-25).
+            let r = hasRatingRankColumn ? "i.ratingRank"
+                : hasTVmazeRatingColumn ? "COALESCE(i.imdbRating, i.tvmazeRating)" : "i.imdbRating"
             order = """
                 \(demoteOrder)\
                 \(r) IS NULL, \(r) DESC, \

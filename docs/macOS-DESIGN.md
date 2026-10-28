@@ -763,6 +763,10 @@ Three SwiftUI scenes, in order: `WindowGroup("Archive Watch")` (parity face, roo
 
 ## §B7 — Detail / Series poster wells
 
+**A rating names its crowd** (Decision 171): Detail keeps IMDb's star; the series page's meta line
+shows "IMDb 8.8", or "TVmaze 8.9" for a series IMDb does not rate; archive.org's reviewers keep the
+community row. Top Rated orders by `ratingRank`, never by a raw rating.
+
 Detail + SeriesDetail use the SAME 240×360 aspect-FIT 2:3 poster well — never a wide-banner crop of a
 portrait poster (the old `backdrop`-in-a-16:9-banner clipped a random slice). Series slug: prefer
 `seriesID`, else strip the `series:` prefix from `archiveID`; spine loads from `/series/{slug}.json`.

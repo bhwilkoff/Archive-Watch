@@ -139,7 +139,10 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   Move earlier / Move later (My Order) and Remove from playlist. Move items, not
   drag: Compose foundation has no built-in reorderable list. `sortIndex` rides
   in the Drive blob both ways. Browse remembers its sort per kind of grid
-  (`browseSort.*`, SharedPreferences), TV starts A–Z, Z–A everywhere.
+  (`browseSort.*`, SharedPreferences), TV starts A–Z, Z–A everywhere. Top
+  Rated orders by `ratingRank` (Decision 171). **A rating names its crowd**:
+  IMDb's keeps the star ("★ 8.8") on Detail and the series page; a series IMDb
+  does not rate shows "TVmaze 8.9"; archive.org's reviewers keep their row.
 - **§4.6 Tiles are poster + two text lines, nothing else** (density from
   removing chrome). Poster fallback chain per contract §8: `posterURL` →
   `https://archive.org/services/img/{id}`. Stable `key`s on every
