@@ -790,38 +790,34 @@ it"*, then *"Yes, solve for all open issues like this one."* v1.46.17 (2142-2145
 **Open**: confirm run 40583885569 committed the spines and that remediate's
 `not_films` warning is gone.
 
-### 2026-10-20 — whole series filed in one item become their shows' episodes (Decision 167)
+### 2026-10-28 — best ratings everywhere; a full audit of every platform; Play Console errors (Decisions 171-173)
 
-A viewer (echosoft.llc@gmail.com) asked for Fireball XL5's 39 colorized
-episodes, noting the last "More episodes" entry ended in a period. Owner:
-*"Please fix all items that you have discovered with this issue and push any new
-builds that might need to be made to take advantage of all of the new episodes."*
-v1.46.15 -> 1.46.16 (2140).
+Owner: *"Please make use of the best ratings available per content. Can you please
+do a full audit of all platforms, all surfaces, for parity, coding inefficiencies,
+and other bugs to fix and then push new versions to every platform for review,"*
+then *"look at the errors and issues identified on the Google play console."*
+v1.47.1-1.47.3 (2152-2154).
 
-- **Cause**: `FireballXL5.complete` (39 files) sat on the TVmaze spine as ONE
-  episode, "Fireball XL5.", because Decision 166's scan read only catalog cards.
-  150 such items on 85 shows. The item is black and white (saturation 1.7 vs 6.4
-  for a colorized upload); archive.org holds 3 colorized episodes, not 39.
-- **Fix**: the scan reads TVmaze-spine items; `build_canonical_tv` expands each
-  into `<item>@<token>` files placed by their own title (show name, markers and
-  shared tags stripped; a unique long prefix), number only when untitled; an
-  upload that names mostly another show's episodes stays as it was (The Invisible
-  Man 1958 under 1975). Ten tools now read the item from `sourceID`. Local trial
-  over the shows: 552 -> ~3,900 episodes, one entry lost (a colorized duplicate).
-  `tools/test_bundle_in_tvmaze.py` gates tv-canonical and publish-db.
-- **CI run 39499978399**: Fireball XL5 39/39; 78 shows, 3,659 files. Its rights
-  step removed 111 files by ITEM year (George and Mildred's 1976-77 too; Logan's
-  Run and Tony Randall deleted) -- fixed to judge per file (Decision 168),
-  manifest rows dropped, the five spines restored and rebuilt: 47 files, all 1978+.
-- **Builds**: Android vc69 (1.46.16) built in CI, its R8 release APK smoke-run on
-  the Pixel, promoted to Play production. Roku 1.0.79 (versions picker splits `@`
-  ids) sideloaded and compiles on the Roku 2 XD floor. Apple builds need nothing.
-Fire TV vc69 committed by the owner the same evening (edit ddbb4b85..., in
-Amazon review).
-Roku 1.0.79 packaged on the Stick 4K and uploaded 2026-10-21 (min firmware
-v15.1.0 b1); static analysis 0 errors, 11 warnings (InitClientCertificates
-deprecated x10, AppDialog beacons). App Behavior Analysis failed 3/4 on its first
-run (the lab's player never started; ROKU-SUBMISSION.md), then passed 4/4 on a re-run.
-**Open**: Roku 1.0.79 Schedule publishing (owner).
+- **Ratings (D171)**: Top Rated sorts on `ratingRank` (largest crowd: IMDb, then
+  archive.org reviewers, TVmaze when nothing counted; measured against its own
+  crowd, discounted for a small one). 240 series now carry IMDb's rating via
+  TVmaze `externals.imdb` (`enrich_tv_ratings`). Seen on the iPhone 12: Detail reads
+  "IMDb 7.8".
+- **Audit**: seven read-only audits, seven fix passes (PARITY "2026-10-28 full
+  audit"). Worst: resume points saved under the next title; CloudKit synced signed
+  out (Delete Account undone); an Android launch extra could go live with no
+  confirmation; a web HTML sink; Roku crash paths. Data (D172/173): yearless
+  matches cleared (116 visible), ~1,107 fragments noRecommend, copyright claims
+  reach every copy (40), pipefail in all 50 workflows.
+- **On the glass**: the iPhone 12 found a Library crash the audit introduced (lazy
+  stateful filter) before any upload went to review; 13/13 UI tests then pass.
+  The iPad Pro refused UI automation ("Timed out while enabling automation mode").
+- **Play**: Cast chooser crash (non-AppCompat theme, Android 12) fixed and tested
+  on the Pixel; duplicate-key Compose crash (scene seconds, playlist grid) fixed;
+  ANR 0.9% on Chromecast with Google TV is render-bound, main-thread work cut.
+**Open**: Roku not run on a device (the Stick was suspended — ask before waking);
+iPad UI automation needs the owner; Samsung/LG/Roku uploads need the owner's
+browser; B4 bundle re-scan may add questionable spines (1srh99 Arabic lectures,
+MickeyMouse20s compilations) — review after the next tv-canonical.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

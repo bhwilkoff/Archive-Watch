@@ -73,7 +73,7 @@ defaults:
 jobs:
   submit:
     runs-on: ubuntu-latest        # pure REST — no Xcode, no macOS runner needed
-    timeout-minutes: 20
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v5
 
@@ -127,6 +127,9 @@ jobs:
           if [ "$SUBMIT" = "true" ]; then args+=(--submit); fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ "$REPLACE" = "true" ]; then args+=(--replace-in-flight); fi
+          # A just-uploaded build is still PROCESSING; attaching then fails, and a
+          # withdrawn version would be left with nothing in review. Wait for it.
+          if [ "$SUBMIT" = "true" ]; then args+=(--wait-build-minutes 60); fi
           python3 tools/asc_release.py "${args[@]}"
 
       # The tool's own success message is not evidence — read the state back.
