@@ -3,12 +3,12 @@
   {
    "store": "App Store",
    "platform": "Apple TV",
-   "state": "PREPARE_FOR_SUBMISSION",
+   "state": "WAITING_FOR_REVIEW",
    "version": "1.47.0",
    "live": "1.46.14",
    "inFlight": {
     "version": "1.47.0",
-    "state": "PREPARE_FOR_SUBMISSION"
+    "state": "WAITING_FOR_REVIEW"
    },
    "repoVersion": "1.47.0",
    "repoBuild": "2151",
@@ -2746,7 +2746,7 @@
      "what": "Compose duplicate lazy-list key in the TV copy picker",
      "fix": "rows keyed by file NAME, which a merged upload often shares with the title's own item; now keyed by choiceKey and deduplicated. Reproduced on the Google TV with the store build (Once Over), gone with the fix"
     },
-    "ours": "Exception java.lang.IllegalArgumentException:"
+    "ours": null
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -9157,7 +9157,7 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-10-28T00:05:47+00:00"
+   "at": "2026-10-28T00:07:03+00:00"
   },
   "apple_reviews": {
    "ok": true,
@@ -9182,7 +9182,7 @@
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-10-28T00:05:48+00:00"
+   "at": "2026-10-28T00:07:05+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -9197,7 +9197,7 @@
   "play_crashes": {
    "ok": true,
    "note": "19 cluster(s), 10 still on build 69",
-   "at": "2026-10-28T00:06:19+00:00"
+   "at": "2026-10-28T00:07:39+00:00"
   },
   "play_users": {
    "ok": true,
@@ -9242,17 +9242,17 @@
   "amazon_live": {
    "ok": true,
    "note": "versionCode 69 is live on Fire TV",
-   "at": "2026-10-28T00:06:30+00:00"
+   "at": "2026-10-28T00:07:49+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-10-28T00:06:31+00:00"
+   "at": "2026-10-28T00:07:49+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-10-28T00:06:31+00:00"
+   "at": "2026-10-28T00:07:49+00:00"
   },
   "social_program": {
    "ok": true,
@@ -10248,7 +10248,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-10-28T00:06:31+00:00",
+ "generatedAt": "2026-10-28T00:07:49+00:00",
  "repoVersion": "1.47.0",
  "repoBuild": "2151",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
