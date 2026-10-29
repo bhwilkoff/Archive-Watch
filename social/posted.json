@@ -3409,6 +3409,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-29T20:15:53.712260+00:00",
+   "id": "animal-crackers-pnm",
+   "title": "Animal Crackers",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz23gsedf32n",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-29T20:15:53.712260+00:00",
+   "id": "animal-crackers-pnm",
+   "title": "Animal Crackers",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117526034810000703",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-29T20:15:53.712260+00:00",
+   "id": "animal-crackers-pnm",
+   "title": "Animal Crackers",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DfF2CDZnVOY",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-29T20:15:53.712260+00:00",
+   "id": "animal-crackers-pnm",
+   "title": "Animal Crackers",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfF2G26nXxc/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117526034470574461",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-29T20:15:53.712260+00:00",
+   "id": "animal-crackers-pnm",
+   "title": "Animal Crackers",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=rQRSirEwD8I",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
