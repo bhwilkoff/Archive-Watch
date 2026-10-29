@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-28T14:08:26Z",
+  "updated_at": "2026-10-29T16:50:01Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19411,
-    "wanted": 19141,
+    "total": 19457,
+    "wanted": 19187,
     "fulfilled": 270,
-    "series_with_gaps": 392
+    "series_with_gaps": 393
   },
   "wants": [
     {
@@ -114655,6 +114655,456 @@
       "added_at": "2026-06-07T07:52:55Z"
     },
     {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 2,
+      "title": "Carrier Pigeon",
+      "episodeImdbID": "tt0702518",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 5,
+      "title": "Jim Bell's Triumph",
+      "episodeImdbID": "tt0702538",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 9,
+      "title": "Desperate Character",
+      "episodeImdbID": "tt0702526",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 12,
+      "title": "Speak No Evil",
+      "episodeImdbID": "tt0702559",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 13,
+      "title": "Two-Gun Penny",
+      "episodeImdbID": "tt0702579",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 16,
+      "title": "Blackmail",
+      "episodeImdbID": "tt0702514",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 1,
+      "episode": 17,
+      "title": "Wings of Justice",
+      "episodeImdbID": "tt0702581",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 1,
+      "title": "The Neckerchief",
+      "episodeImdbID": "tt0702570",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 3,
+      "title": "The Plastic Ghost",
+      "episodeImdbID": "tt0702571",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 4,
+      "title": "The Rainbird",
+      "episodeImdbID": "tt0702573",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 5,
+      "title": "The Crystal Trap",
+      "episodeImdbID": "tt0702565",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 7,
+      "title": "Boomerang",
+      "episodeImdbID": "tt0702515",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 8,
+      "title": "Geiger Detective",
+      "episodeImdbID": "tt0702536",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 11,
+      "title": "The Silver Grave",
+      "episodeImdbID": "tt0702575",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 13,
+      "title": "Fish Out of Water",
+      "episodeImdbID": "tt0702532",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 14,
+      "title": "Diamonds on a Sky-Hook",
+      "episodeImdbID": "tt0702528",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 15,
+      "title": "Flood of Fury",
+      "episodeImdbID": "tt0702533",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 16,
+      "title": "Rocket Story",
+      "episodeImdbID": "tt0702552",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 17,
+      "title": "Rodeo Round-Up",
+      "episodeImdbID": "tt0702554",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 18,
+      "title": "Showdown",
+      "episodeImdbID": "tt0702556",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 19,
+      "title": "Land o' Cotton",
+      "episodeImdbID": "tt0702539",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 2,
+      "episode": 20,
+      "title": "Dust of Destruction",
+      "episodeImdbID": "tt0702530",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 1,
+      "title": "Mystery Horse",
+      "episodeImdbID": "tt0702545",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 2,
+      "title": "Double Trouble",
+      "episodeImdbID": "tt0702529",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 3,
+      "title": "Note for a Dam",
+      "episodeImdbID": "tt0702546",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 5,
+      "title": "Fight for Oil",
+      "episodeImdbID": "tt0702531",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 6,
+      "title": "Lost Boy",
+      "episodeImdbID": "tt0702540",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 7,
+      "title": "The Brain and the Brawn",
+      "episodeImdbID": "tt0702563",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 9,
+      "title": "The Circus Clown Mystery",
+      "episodeImdbID": "tt0702564",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 12,
+      "title": "Rodeo Decathlon",
+      "episodeImdbID": "tt0702553",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 13,
+      "title": "Abracadabra",
+      "episodeImdbID": "tt0702512",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 14,
+      "title": "Triple Exposure",
+      "episodeImdbID": "tt0702578",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 16,
+      "title": "Man Hunt",
+      "episodeImdbID": "tt0702541",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 18,
+      "title": "Sleight of Hand",
+      "episodeImdbID": "tt0702558",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 19,
+      "title": "The Runaway",
+      "episodeImdbID": "tt0702574",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 3,
+      "episode": 20,
+      "title": "Stop That Train",
+      "episodeImdbID": "tt0702561",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 1,
+      "title": "The Wild Man",
+      "episodeImdbID": "tt0702577",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 2,
+      "title": "Sky Robbers",
+      "episodeImdbID": "tt0702557",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 3,
+      "title": "A Dog Named Barney",
+      "episodeImdbID": "tt0702510",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 4,
+      "title": "Bullet Bait",
+      "episodeImdbID": "tt0702517",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 5,
+      "title": "Money Has Wings",
+      "episodeImdbID": "tt0702544",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 6,
+      "title": "Frogmen",
+      "episodeImdbID": "tt0702535",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 7,
+      "title": "Terror Cruise",
+      "episodeImdbID": "tt0702562",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 10,
+      "title": "Dead Giveaway",
+      "episodeImdbID": "tt0702522",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
+      "seriesID": "sky-king-1952",
+      "seriesTitle": "Sky King",
+      "season": 4,
+      "episode": 11,
+      "title": "A Mickey for Sky",
+      "episodeImdbID": "tt0702511",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
+    },
+    {
       "seriesID": "sky-king-tv-1952-colorized-1952",
       "seriesTitle": "Sky King TV 1952 colorized",
       "season": 1,
@@ -189832,6 +190282,16 @@
       "episodeImdbID": "tt0739555",
       "status": "wanted",
       "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "victory-at-sea-1952",
+      "seriesTitle": "Victory at Sea",
+      "season": 1,
+      "episode": 3,
+      "title": "Sealing the Breach",
+      "episodeImdbID": "tt0740041",
+      "status": "wanted",
+      "added_at": "2026-10-29T16:50:01Z"
     },
     {
       "seriesID": "victory-at-sea-1952",
