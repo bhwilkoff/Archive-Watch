@@ -3397,6 +3397,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": "I Am Gen X"
+  },
+  {
+   "at": "2026-10-29T02:26:12.836801+00:00",
+   "id": "the.-blue.-angel.-1930.-repack.-1080p.-blu-ray.x-264.-aac",
+   "title": "The Blue Angel",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myy7nxtbfl2n",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
