@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-10-28T08:37:50Z",
+  "updated_at": "2026-10-29T08:40:45Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-10-28T08:37:50Z"
+      "last_tried": "2026-10-29T08:40:45Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-10-28T08:37:50Z"
+      "last_tried": "2026-10-29T08:40:45Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -393923,6 +393923,529 @@
       ],
       "critics": null,
       "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt0000256": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmZkZjkwZjYtMjg3Mi00YjcwLTgzNDYtYTUyMTg5ZjBiNGEyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.7,
+      "imdb_votes": 185,
+      "content_rating": null,
+      "plot": "Filmed from the Brooklyn tower of the bridge, this is a panorama starting at Manhattan's Battery and then panning northward along the East River shoreline.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0017399": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGY0ODdmYzktMTIzOS00OWRjLWFhNjMtYTY0NTQxOGRkZWU1XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 33,
+      "content_rating": "Passed",
+      "plot": "A long-thought-lost film finally surfaces after being unseen for over eight decades. Created and copyrighted by Sunset Productions in 1925 but not released until June 15, 1927, this silent epic features the superior Native American actor Chief Yowlachie (performing here under the name Chief Yowlache) as Sitting Bull. Other fine actors in the cast include the always popular Bryant Washburn and a young Bob Steele, who appears under his real name Bob Bradbury Jr. The story takes place in the 1860s or 1870s near Spirit Lake, Iowa. Settlements of whites are growing in that region but the Sioux Indians also have professed their interest in one such settlement. Chief Sitting Bull surveys the settlement at Spirit Lake from afar and with the advice of the Great Spirit vows to retake the land that belonged to his fathers.",
+      "runtime_min": 75,
+      "director": "Robert N. Bradbury",
+      "actors": [
+        "Bryant Washburn",
+        "Chief Yowlachie",
+        "Anne Schaefer"
+      ],
+      "genres": [
+        "Western"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0064146": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjQyZDNiZjQtYmM2Yy00OTU2LTgzZjgtNjk0ODRjZGQzODJlXkEyXkFqcGc@._V1_QL75_UY562_CR15,0,380,562_.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 4814,
+      "content_rating": "G",
+      "plot": "Arthur and Anatole are two little robbers. They want to rob money, money that will travel in a special train from Paris to Bruxelles. They don't know that other people have planned to do the same thing.",
+      "runtime_min": 115,
+      "director": "Gérard Oury",
+      "actors": [
+        "Jean-Paul Belmondo",
+        "Bourvil",
+        "David Niven"
+      ],
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Crime"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0093343": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQwNGRjYTUtMGQzOS00MmJmLWJjYzgtMjFhNGU5YjcwZmI5XkEyXkFqcGdeQXVyNTAxMTUwNDQ@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 21,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 48,
+      "director": "Dmitriy Zolotukhin",
+      "actors": [
+        "Lyubov Polishchuk",
+        "Lev Zolotukhin",
+        "Nikolai Pastukhov"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0146954": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2RmY2M5ZGMtODZiYS00NzQ0LWI0ODYtZWRjZjIyNjM1MDBlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 37,
+      "content_rating": null,
+      "plot": "In this early synchronized sound cartoon from the Van Beuren cartoon factory, a dog and cat encounter huge, strange and terrifying creatures in the jungle. They seek refuge in a missionary's hut, where they play an organ, which causes the animals to dance. They are captured by cannibals, but escape and lead the jungle animals in song.There are a few features worth mentioning. First is the cannibals, who look like Ubangi, wearing grass skirts and bones in their hair. Eighty years later, this is a highly offensive image, but at the time it was a standard one, used in Disney cartoons and elsewhere. In fact, the image would not disappear from the cartoons for a couple of decades, until the last Inki and the Myna cartoon, CAVEMAN INKI.Second, the dog and cat resemble Van Beuren's Tom and Jerry, in movement, in appearance and in the plot, which is a musical one, even though that series would not really begin until the following year. Cartoon characters did not arise full grown as a rule. Elmer Fudd started as \"Egghead\" several years before his official debut; Betty Boop started as a cartoon dog. It seems that these might be early versions.Finally, there is a small homage in this one: the cannibal king looks like the Imp from Winsor McKay's LITTLE NEMO IN SLUMBERLAND, an ornately drawn cartoon from early in the century which McKay turned into a cartoon in 1912.",
+      "runtime_min": 8,
+      "director": "Harry Bailey, John Foster",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short",
+        "Music"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0178649": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGM0MzBiODEtMjNkYy00Y2Q3LWE3YTYtYzk0NGM2ZTRjMzIxXkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 7,
+      "content_rating": "Not Rated",
+      "plot": "Highlighting the First Lady's visit to India and Pakistan in the spring of 1962, this film shows Mrs. Kennedy with dignitaries, riding an elephant with her sister, visiting a children's hospital ward, in the 2 vast Asian nations. It highlights the pageantry of Mrs. Kennedy's state receptions by Prime Minister Jawaharlal Nehru of India and President Mohammad Ayub Khan of Pakistan, and the beauty of such landmarks as the Taj Mahal and the Khyber Pass. She is also shown mingling with the colorful garbed Indians and Pakistanis in market places, at horse shows and on the banks of the sacred Ganges River.",
+      "runtime_min": 30,
+      "director": "Leo Seltzer",
+      "actors": [
+        "Jacqueline Kennedy",
+        "Raymond Massey",
+        "Mohammad Ayub Khan"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0243491": {
+      "poster_url": null,
+      "imdb_rating": 3.5,
+      "imdb_votes": 105,
+      "content_rating": null,
+      "plot": "\"A close view of an eighty-footer, schooner rigged, trim as a private yacht, skimming over the waters of the harbor, near Robins' Reef, which picturesque light house is seen in the near background. A steamer decked with bunting also passed by at close range.\"",
+      "runtime_min": null,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0268753": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "This 1930 installment shows us a monument to traitor Benedict Arnold, a \" haunted\" tractor handle that baffles scientists by exhibiting perpetual motion, a long-winded trumpeter that can sustain a note for seventeen minutes and mu...",
+      "runtime_min": null,
+      "director": "Walter Futter",
+      "actors": [
+        "Walter Futter"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0319556": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDY5NGJjMzEtNmZhYi00ODYyLThhNjktNGVhNTY1M2QyYWI1XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": "An old farmer on New York's Delaware River is displaced by the construction of a reservoir.",
+      "runtime_min": 28,
+      "director": "Jules Schwerin",
+      "actors": [
+        "Robert C. Gregory",
+        "Ralph Vanderlip",
+        "Grant Rodgers"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0368073": {
+      "poster_url": null,
+      "imdb_rating": 4.1,
+      "imdb_votes": 91,
+      "content_rating": null,
+      "plot": "The \"Patrol\" is seen chasing a row-boat containing river pirates. The pirates are pulling at the oars with all their strength, but a few shots from the Police Boat weaken their nerves and they give up. When the \"Patrol\" comes up near them, it lowers a dory and a number of policemen make the capture. As the pirates are landed on the Police Boat a fierce fight takes place between them and the police, but the latter overcome the offenders and land them safely on the boat.",
+      "runtime_min": 2,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Action",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0816692": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 8.7,
+      "imdb_votes": 2617722,
+      "content_rating": "PG-13",
+      "plot": "In the near future around the American Midwest, Cooper, an ex-science engineer and pilot, is tied to his farming land with his daughter Murph and son Tom. As devastating sandstorms ravage Earth's crops, the people of Earth realize their life here is coming to an end as food begins to run out. Eventually stumbling upon a N.A.S.A. base 6 hours from Cooper's home, he is asked to go on a daring mission with a few other scientists into a wormhole because of Cooper's scientific intellect and ability to pilot aircraft unlike the other crew members. In order to find a new home while Earth decays, Cooper must decide to either stay, or risk never seeing his children again in order to save the human race by finding another habitable planet.",
+      "runtime_min": 169,
+      "director": "Christopher Nolan",
+      "actors": [
+        "Matthew McConaughey",
+        "Anne Hathaway",
+        "Jessica Chastain"
+      ],
+      "genres": [
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "critics": {
+        "rt": 73,
+        "mc": 74
+      },
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt11731926": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGI3NDc0YmUtYjlkZi00M2ZmLThlMDItM2Q2YTM0MjliNTJlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 79,
+      "content_rating": null,
+      "plot": "A story about a missing idol that was made by the Chola kings 450 years ago.",
+      "runtime_min": 132,
+      "director": "Ra Vijaya Murugan",
+      "actors": [
+        "Yogi Babu",
+        "Kpy Bala",
+        "Mime Gopi"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt13282430": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTE0N2YwODktY2NlMC00ZjVjLTg0ZDYtOGMwYjY0YzAwNjdjXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 66,
+      "content_rating": null,
+      "plot": "Secret societies is the new code word for organizations believed to pull the strings of the world. These groups have been both credited and blamed for great many nefarious acts perpetrated against humanity. Among the most infamous...",
+      "runtime_min": 52,
+      "director": "Carl Sampson",
+      "actors": [
+        "Chris Harvey",
+        "Barack Obama"
+      ],
+      "genres": [
+        "Documentary",
+        "Mystery"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1707247": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWU0ODI0ODUtMDA3ZC00YWI0LWI0MTItNzk0MTMzYjFiZDcxXkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 121,
+      "content_rating": null,
+      "plot": "The Man in the Moon invites little Mickey and his dog over for a visit. They go on a magical trip and meet strange characters along the way.",
+      "runtime_min": 11,
+      "director": "William A. O'Connor",
+      "actors": [
+        "Mickey McBan",
+        "Bynunsky Hyman"
+      ],
+      "genres": [
+        "Short",
+        "Adventure"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1810807": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmIyNzlmYTUtZmM5Zi00NGI5LTlkNTYtMzE2YmJkMDg4MzljXkEyXkFqcGdeQXVyMjk3ODk1MzU@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 11,
+      "content_rating": null,
+      "plot": "A record of the 1954 visit to Australia by Her Majesty Queen Elizabeth II and his Royal Highness Prince Philip.",
+      "runtime_min": 68,
+      "director": "Frank Bagnall, Colin Dean, Stanley Hawes",
+      "actors": [
+        "Peter Finch",
+        "Wilfrid Thomas",
+        "Queen Elizabeth II"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1870389": {
+      "poster_url": null,
+      "imdb_rating": 7.5,
+      "imdb_votes": 8,
+      "content_rating": null,
+      "plot": "Four examples of the kind of carelessness that most frequently leads to fires.",
+      "runtime_min": null,
+      "director": "Max Anderson",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1874685": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTU1YzBlMjYtNTNjOC00Zjk4LTk4ODgtYWU3NGY1OTc0NThjXkEyXkFqcGdeQXVyNjgyNTk4NTY@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": "Follows the work of a probation officer and the people he tries to help.",
+      "runtime_min": null,
+      "director": "J.B. Holmes",
+      "actors": [
+        "John Washington",
+        "Ronald Drinkwater",
+        "Edna Morris"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1914273": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A lion run is discovered, and, unmindful of promises which must be fulfilled, they prepare to secure a fine specimen. This is accomplished by building a trap, a large hole dug in the soft earth and carefully covered with canebrake and jungle grass. This being arranged, a toothsome goat is bound upon a jutting rock directly in the monarch's path in such manner that the hidden trap must be crossed before the bait can be reached. The party then conceal themselves and await results. The lion soon finds his prey, and unwittingly walks into the pitfall. The bearers rush forward a cage, brought along for that purpose, and a magnificent jungle monarch is soon started on his long journey to America. But our party came to Africa to hunt, and our mighty leader has promised himself that he will add to his list of big game brought down by my rifle, \"at least one King of Beasts.\" Menelik Dodo, a noted tracker of big game, leads our hunter to a spot where his desire can be fulfilled. We first see Menelik on the king's track. Our hunter conceals himself in a thicket to the windward side of a spring, where Menelik declares the forest lord is wont to drink. This proves to be correct, as a handsome male specimen soon trots leisurely into view. There is a sharp report and the startled animal springs in the air, whirls out of sight for a moment, then charges direct at our hunter. The repeating rifle cracks again, and the king is down with an ounce of lead in his brain, and the wish of years has been gratified, he has shot his first lion. The bearers arrive and swing the trophy on a pole and carry it triumphantly to camp. An expert taxidermist is called in and this once lordly beast who has roamed the African jungles as a monarch, soon yields all that is lasting of his majestic beauty, to adorn the floor of a Long Island den. Our hunters prepare to rest after their strenuous labors and all retire, dee-lighted with their first day in the jungles.",
+      "runtime_min": null,
+      "director": "Francis Boggs",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1934275": {
+      "poster_url": null,
+      "imdb_rating": 8.0,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": "A burglar explains exactly what his job is and how he goes about it. Simple acts of neglect and carelessness on the part of homeowners, make his job that much easier.",
+      "runtime_min": 12,
+      "director": "John Waterhouse",
+      "actors": [
+        "Michael Balfour",
+        "Mabel Constanduros",
+        "Norman MacOwan"
+      ],
+      "genres": [
+        "Short",
+        "Crime"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1974369": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDEwOWRjNjItYjVjZi00MzI2LThhOGMtZWI5OWU5NGI1Zjg1XkEyXkFqcGdeQXVyMTQwMzQ1MA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Life in Britain tin the 1960s as seen by young technologists, scientists and others. They discuss aims and ideals and the contribution they are making to a better and more progressive Britain.",
+      "runtime_min": null,
+      "director": "Jim Clark",
+      "actors": [
+        "Donald Firth"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt1999247": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDY4MDY2ODQtZjBhZi00OWViLTk0ZmMtZTZkZWFkOGU2ZDM3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Portrait of the British forces helping to defend the Aden coast in Yemen.",
+      "runtime_min": 14,
+      "director": "Peter Broderick",
+      "actors": [
+        "Jon Rollason"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt2821668": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": "A look at the psychology and biology of children around food. Made to inform parents to keep their children healthy and happy.",
+      "runtime_min": 12,
+      "director": "Alex Strasser",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt3357780": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWIwYmZlYTItMzE0Mi00ZmU0LWEwMzktMDhmYzZmYzJjMDdlXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 19,
+      "director": "Robert Kitts",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt3496200": {
+      "poster_url": null,
+      "imdb_rating": 2.7,
+      "imdb_votes": 18,
+      "content_rating": null,
+      "plot": "Every conceivable foolish action by pedestrians is demonstrated, from attractive women who think they can stop traffic with their looks, to kids playing ball in the street. Drivers are no better, swerving, speeding and ignoring si...",
+      "runtime_min": 15,
+      "director": null,
+      "actors": [
+        "Kay Kyser"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt5252118": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWJlYTFkNGYtM2I0NS00YmM0LWIwYTctZDVmMmFhZWViZDFkXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Bladon Peake",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt6751668": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjk1Y2U4MjQtY2ZiNS00OWQyLWI3MmYtZWUwNmRjYWRiNWNhXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 8.5,
+      "imdb_votes": 1200817,
+      "content_rating": "R",
+      "plot": "The Kims - mother and father Chung-sook and Ki-taek, and their young adult offspring, son Ki-woo and daughter Ki-jung - are a poor family living in a shabby and cramped half basement apartment in a busy lower working class commercial district of Seoul. Ki-woo is the one who has dreams of getting out of poverty by one day going to university. Despite not having that university education, Ki-woo is chosen by his university student friend Min, who is leaving to go to school, to take over his tutoring job to Park Da-hye, who Min plans to date once he returns to Seoul and she herself is in university. The Parks are a wealthy family who for four years have lived in their modernistic house designed by and the former residence of famed architect Namgoong. While Mr. and Mrs. Park are all about status, Mrs. Park has a flighty, simpleminded mentality and temperament, which Min tells Ki-woo to feel comfortable in lying to her about his education to get the job. In getting the job, Ki-woo further learns that Mrs. Park is looking for an art therapist for the Parks' adolescent son, Da-song, Ki-woo quickly recommending his professional art therapist friend \"Jessica\", really Ki-jung who he knows can pull off the scam in being the easiest liar of the four Kims. In Ki-woo also falling for Da-hye, he begins to envision himself in that house, and thus the Kims as a collective start a plan for all the Kims, like Ki-jung using assumed names, to replace existing servants in the Parks' employ in orchestrating reasons for them to be fired. The most difficult to get rid of may be Moon-gwang, the Parks' housekeeper who literally came with the house - she Namgoong's housekeeper when he lived there - and thus knows all the little nooks and crannies of it better than the Parks themselves. The question then becomes how far the Kims can take this scam in their quest to become their version of the Parks.",
+      "runtime_min": 132,
+      "director": "Bong Joon Ho",
+      "actors": [
+        "Song Kang-ho",
+        "Lee Sun-kyun",
+        "Cho Yeo-jeong"
+      ],
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 99,
+        "mc": 97
+      },
+      "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt7502234": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDc5MWQ4NmEtN2E1YS00NTIzLWFmODUtZDIzMmNhMjkxNDJhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 1774,
+      "content_rating": null,
+      "plot": "Odette is a 8-yr-old girl who loves to dance and draw. Why should she distrust a friend of her parents' who offers to \"tickle\" her ? Once she has become an adult, Odette realizes she was abused, and immerses herself body and soul in her career as a dancer while trying to deal with her past.",
+      "runtime_min": 103,
+      "director": "Andréa Bescond, Eric Métayer",
+      "actors": [
+        "Andréa Bescond",
+        "Karin Viard",
+        "Clovis Cornillac"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 71
+      },
+      "fetched_at": "2026-10-29T08:40:45Z",
       "schema": 4
     }
   },
