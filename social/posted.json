@@ -3481,6 +3481,54 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-30T20:03:14.063465+00:00",
+   "id": "AChristmasCarol1910",
+   "title": "A Christmas Carol",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz4l76dlnj2i",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "stpt1"
+  },
+  {
+   "at": "2026-10-30T20:03:14.063465+00:00",
+   "id": "AChristmasCarol1910",
+   "title": "A Christmas Carol",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117531647879790463",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "stpt1"
+  },
+  {
+   "at": "2026-10-30T20:03:14.063465+00:00",
+   "id": "AChristmasCarol1910",
+   "title": "A Christmas Carol",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfIZZP7n7eC/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117531647200414417",
+   "reviewer": "stpt1"
+  },
+  {
+   "at": "2026-10-30T20:03:14.063465+00:00",
+   "id": "AChristmasCarol1910",
+   "title": "A Christmas Carol",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=swro8Odftrg",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "stpt1"
   }
  ]
 }
