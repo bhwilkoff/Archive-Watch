@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-10-29T08:40:45Z",
+  "updated_at": "2026-10-30T08:42:01Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-10-29T08:40:45Z"
+      "last_tried": "2026-10-30T08:42:01Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-10-29T08:40:45Z"
+      "last_tried": "2026-10-30T08:42:01Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -394446,6 +394446,235 @@
         "rt": 71
       },
       "fetched_at": "2026-10-29T08:40:45Z",
+      "schema": 4
+    },
+    "tt0000526": {
+      "poster_url": null,
+      "imdb_rating": 4.2,
+      "imdb_votes": 69,
+      "content_rating": null,
+      "plot": "A panoramic shot of New York City's Pennsylvania Station during its construction, filmed 19 July 1905, includes narrow gauge railway action.",
+      "runtime_min": 3,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt0164785": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDNlZTZiZmEtNzgwMi00YzdhLTk1MWEtNDg1NTM2NGZlMDQ4XkEyXkFqcGdeQXVyMjIwODg1MjM@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 92,
+      "director": "Satsuo Yamamoto",
+      "actors": [
+        "Shintarô Katsu",
+        "Michiko Sugata",
+        "Yûnosuke Itô"
+      ],
+      "genres": [
+        "Action",
+        "Crime"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt0308996": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 13,
+      "director": "Margaret Perry",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt0462964": {
+      "poster_url": null,
+      "imdb_rating": 4.7,
+      "imdb_votes": 59,
+      "content_rating": null,
+      "plot": "Skyscrapers of New York from the East River (1903) *** (out of 4) A camera is placed on a boat and we get another view of the buildings in NYC. I'm not sure what time this film was shot but the streets are pretty empty.Panorama from Tower of Brooklyn Bridge (1903) *** (out of 4) Biograph film from director Billy Blitzer who would eventually become famous for his work with D.W. Griffith. It's also worth noting that this was shot in 65mm.Building Up and Demolishing the Star Theatre (1901) *** 1/2 (out of 4)Early gimmick film from Biograph uses exposures caught every four minutes to see the Star Theatre being built. At the end of the film the footage is shown backwards to bring the thing down.Coney Island at Night (1905) ** 1/2 (out of 4) Edison film directed by Edwin S. Porter shows just what the title says. This film really isn't too interesting but it's worth noting that this was one of the first film that could show glowing lights thanks to a special camera built by Porter.",
+      "runtime_min": 3,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt12357836": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjAxMDdkZDAtYjkzMi00ZThkLWJlYjctZGJhYjRhZTYwMTYyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A New Zealand winemaking team enters the period known as Vintage when wine is made 24/7 for months on end. Sleepless nights, endless labor, time away from home means they must ensure nature, science and magic come together to overcome each challenge Vintage presents.",
+      "runtime_min": 68,
+      "director": "Colin West",
+      "actors": [
+        "Stuart Dudley",
+        "Nick Picone",
+        "Ollie Powrie"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt15155334": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 18,
+      "director": "Ernest Reid",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt2027194": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 18,
+      "director": "Richard Massingham",
+      "actors": [
+        "Nicolas Bentley",
+        "Valentine Dyall",
+        "Judith Furse"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt2206060": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGJkNmJiNzEtYjcyNS00ZGQ1LWFkNjMtMzg4NWMzNWExZThhXkEyXkFqcGdeQXVyMDYxMTUwNg@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 15,
+      "director": "A. James",
+      "actors": [
+        "Peggy Ashcroft",
+        "Ian Martin",
+        "Prince Philip"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt2243976": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTUzMGUwMDgtMjZkNC00ZmU3LWJkZTMtYTNkMTg5MjRjZjMzXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Short film showcasing the women that work in the British army and showing how it is also a place for women.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt5301952": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWFhMzBlYTItMGFiZC00ZGE0LWJjZDctMDAzY2UyNGJlZGZmXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Jack Ellitt",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt5552882": {
+      "poster_url": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt6496764": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 19,
+      "director": null,
+      "actors": [
+        "Donald L. Dickson",
+        "Chester W. Nimitz"
+      ],
+      "genres": [
+        "Documentary",
+        "Short",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt7496916": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjQ3ZDA0ZjAtNWFjZS00YTc2LWEyODAtZmQwZDc4NGE3N2RhXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Recruitment film for the Women's Royal Air Force.",
+      "runtime_min": 11,
+      "director": "Michael Gordon",
+      "actors": [
+        "Gordon Henry Davies"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-30T08:42:01Z",
       "schema": 4
     }
   },
