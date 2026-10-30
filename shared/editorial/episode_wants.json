@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-29T16:50:01Z",
+  "updated_at": "2026-10-30T10:52:35Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19457,
-    "wanted": 19187,
+    "total": 19475,
+    "wanted": 19205,
     "fulfilled": 270,
-    "series_with_gaps": 393
+    "series_with_gaps": 394
   },
   "wants": [
     {
@@ -66580,6 +66580,186 @@
       "episodeImdbID": "tt0169391",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 8,
+      "title": "The Witch",
+      "episodeImdbID": "tt0598451",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 10,
+      "title": "The Servant",
+      "episodeImdbID": "tt0598447",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 11,
+      "title": "The Search",
+      "episodeImdbID": "tt0598446",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 13,
+      "title": "False Witness",
+      "episodeImdbID": "tt0598426",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 14,
+      "title": "Powder Keg",
+      "episodeImdbID": "tt0598431",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 15,
+      "title": "Scapegoat",
+      "episodeImdbID": "tt0598433",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 16,
+      "title": "Way Station",
+      "episodeImdbID": "tt0598454",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 18,
+      "title": "Stubborn Pioneer",
+      "episodeImdbID": "tt0770560",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 22,
+      "title": "Huron Tomahawk",
+      "episodeImdbID": "tt0598429",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 25,
+      "title": "Washington Story",
+      "episodeImdbID": "tt0598453",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 26,
+      "title": "Winter Passage",
+      "episodeImdbID": "tt0598455",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 29,
+      "title": "The Prisoner",
+      "episodeImdbID": "tt0770563",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 30,
+      "title": "False Faces",
+      "episodeImdbID": "tt0598425",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 31,
+      "title": "The Morristown Story",
+      "episodeImdbID": "tt0598442",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 33,
+      "title": "The Contest",
+      "episodeImdbID": "tt0598436",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 36,
+      "title": "The Long Rifles",
+      "episodeImdbID": "tt0770561",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 37,
+      "title": "The Printer",
+      "episodeImdbID": "tt0770562",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
+    },
+    {
+      "seriesID": "hawkeye-and-the-last-of-the-mohicans-1957",
+      "seriesTitle": "Hawkeye and the Last of the Mohicans",
+      "season": 1,
+      "episode": 39,
+      "title": "Circle of Hate",
+      "episodeImdbID": "tt0770559",
+      "status": "wanted",
+      "added_at": "2026-10-30T10:52:35Z"
     },
     {
       "seriesID": "hawkeye-and-the-last-of-the-mohicans-tv-1957-colorized-1957",

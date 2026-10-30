@@ -1,147 +1,148 @@
 {
- "version": 2,
- "seriesID": "h-g-wells-invisible-man-1959",
- "tvmazeID": 3586,
- "title": "H.G. Wells' Invisible Man",
- "yearStart": 1959,
- "yearEnd": 1959,
- "overview": "British scientist Peter Brady discovers the secret of invisibility, and is inadvertently rendered unseeable. After a brief period of secrecy, his new nature is revealed to the public and he becomes a celebrity of sorts, while traveling the world fighting crime and dealing with enemy agents, dictatorships, and saboteurs.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/185980.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Science-Fiction",
-  "Thriller"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "h-g-wells-invisible-man-1959",
+  "tvmazeID": 3586,
+  "title": "H.G. Wells' Invisible Man",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "British scientist Peter Brady discovers the secret of invisibility, and is inadvertently rendered unseeable. After a brief period of secrecy, his new nature is revealed to the public and he becomes a celebrity of sorts, while traveling the world fighting crime and dealing with enemy agents, dictatorships, and saboteurs.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/185980.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Thriller"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "invisible-man-tv-1959-s01e11-bank-raid",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Bank Raid",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s01e11-bank-raid",
-     "airDate": "1959-08-22",
-     "year": 1959,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Invisible Man TV 1959 colorized s01e11 Bank Raid.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 231183138,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s01e11-bank-raid/Invisible%20Man%20TV%201959%20colorized%20s01e11%20Bank%20Raid.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "invisible-man-tv-1959-s01e11-bank-raid",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Bank Raid",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s01e11-bank-raid",
+          "airDate": "1959-08-22",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s01e11 Bank Raid.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 231183138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s01e11-bank-raid/Invisible%20Man%20TV%201959%20colorized%20s01e11%20Bank%20Raid.mp4"
+        },
+        {
+          "archiveID": "invisible-man-tv-1959-s01e12-odds-against-death",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Odds Against Death",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s01e12-odds-against-death",
+          "airDate": "1959-09-12",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s01e12 Odds Against Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235294167,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s01e12-odds-against-death/Invisible%20Man%20TV%201959%20colorized%20s01e12%20Odds%20Against%20Death.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "invisible-man-tv-1959-s01e12-odds-against-death",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Odds Against Death",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s01e12-odds-against-death",
-     "airDate": "1959-09-12",
-     "year": 1959,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Invisible Man TV 1959 colorized s01e12 Odds Against Death.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 235294167,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s01e12-odds-against-death/Invisible%20Man%20TV%201959%20colorized%20s01e12%20Odds%20Against%20Death.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "invisible-man-tv-1959-s-02e-02-death-cell",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Death Cell",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s-02e-02-death-cell",
+          "airDate": "1959-10-03",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s02e02 Death Cell.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179852704,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s-02e-02-death-cell/Invisible%20Man%20TV%201959%20colorized%20s02e02%20Death%20Cell.mp4"
+        },
+        {
+          "archiveID": "invisible-man-tv-1959-s02e04-the-prize",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Prize",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s02e04-the-prize",
+          "airDate": "1959-10-17",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s02e04 The Prize.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 204935045,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s02e04-the-prize/Invisible%20Man%20TV%201959%20colorized%20s02e04%20The%20Prize.mp4"
+        },
+        {
+          "archiveID": "invisible-man-tv-1959-s02e08-the-white-rabbit",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The White Rabbit",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s02e08-the-white-rabbit",
+          "airDate": "1959-11-14",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s02e08 The White Rabbit.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 192015878,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s02e08-the-white-rabbit/Invisible%20Man%20TV%201959%20colorized%20s02e08%20The%20White%20Rabbit.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 26,
+  "cast": [
     {
-     "archiveID": "invisible-man-tv-1959-s-02e-02-death-cell",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Death Cell",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s-02e-02-death-cell",
-     "airDate": "1959-10-03",
-     "year": 1959,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Invisible Man TV 1959 colorized s02e02 Death Cell.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 179852704,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s-02e-02-death-cell/Invisible%20Man%20TV%201959%20colorized%20s02e02%20Death%20Cell.mp4"
+      "name": "Tim Turner",
+      "character": "Peter Brady",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/428/1071030.jpg"
     },
     {
-     "archiveID": "invisible-man-tv-1959-s02e04-the-prize",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "The Prize",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s02e04-the-prize",
-     "airDate": "1959-10-17",
-     "year": 1959,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Invisible Man TV 1959 colorized s02e04 The Prize.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 204935045,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s02e04-the-prize/Invisible%20Man%20TV%201959%20colorized%20s02e04%20The%20Prize.mp4"
+      "name": "Lisa Daniely",
+      "character": "Diane \"Dee\" Wilson",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/428/1071031.jpg"
     },
     {
-     "archiveID": "invisible-man-tv-1959-s02e08-the-white-rabbit",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "The White Rabbit",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s02e08-the-white-rabbit",
-     "airDate": "1959-11-14",
-     "year": 1959,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Invisible Man TV 1959 colorized s02e08 The White Rabbit.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 192015878,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s02e08-the-white-rabbit/Invisible%20Man%20TV%201959%20colorized%20s02e08%20The%20White%20Rabbit.mp4"
+      "name": "Deborah Watling",
+      "character": "Sally Wilson",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50042.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 26,
- "cast": [
-  {
-   "name": "Tim Turner",
-   "character": "Peter Brady",
-   "order": 0,
-   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/428/1071030.jpg"
-  },
-  {
-   "name": "Lisa Daniely",
-   "character": "Diane \"Dee\" Wilson",
-   "order": 1,
-   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/428/1071031.jpg"
-  },
-  {
-   "name": "Deborah Watling",
-   "character": "Sally Wilson",
-   "order": 2,
-   "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50042.jpg"
-  }
- ],
- "seriesImdbID": "tt0051285",
- "imdbRating": 7.0,
- "imdbVotes": 457
+  ],
+  "seriesImdbID": null,
+  "imdbRating": 7.0,
+  "imdbVotes": 457,
+  "canonicalEpisodeCount": 0
 }
