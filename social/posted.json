@@ -3541,6 +3541,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-31T19:18:37.925164+00:00",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "title": "All Quiet on the Western Front",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz6z65d2t32n",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-31T19:18:37.925164+00:00",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "title": "All Quiet on the Western Front",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117537134870424533",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-31T19:18:37.925164+00:00",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "title": "All Quiet on the Western Front",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DfK5FkdCc-d",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-31T19:18:37.925164+00:00",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "title": "All Quiet on the Western Front",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfK5KiLCYfK/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117537133665433464",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-31T19:18:37.925164+00:00",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "title": "All Quiet on the Western Front",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=OqCHbgbcIi4",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

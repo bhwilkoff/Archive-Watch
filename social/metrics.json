@@ -4699,6 +4699,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mypt3oquip2z",
+   "platform": "bluesky",
+   "id": "unconsciousmotivation",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-25T18:19:51.234532+00:00",
+   "sampled": "2026-10-31T19:20:03.009738+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117502930106430154",
+   "platform": "mastodon",
+   "id": "unconsciousmotivation",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-25T18:19:51.234532+00:00",
+   "sampled": "2026-10-31T19:20:03.009738+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz4l76dlnj2i",
+   "platform": "bluesky",
+   "id": "AChristmasCarol1910",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-30T20:03:14.063465+00:00",
+   "sampled": "2026-10-31T19:20:03.009738+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117531647879790463",
+   "platform": "mastodon",
+   "id": "AChristmasCarol1910",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-30T20:03:14.063465+00:00",
+   "sampled": "2026-10-31T19:20:03.009738+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
