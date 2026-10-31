@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-10-30T08:42:01Z",
+  "updated_at": "2026-10-31T08:28:37Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-10-30T08:42:01Z"
+      "last_tried": "2026-10-31T08:28:37Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-10-30T08:42:01Z"
+      "last_tried": "2026-10-31T08:28:37Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -394675,6 +394675,390 @@
       ],
       "critics": null,
       "fetched_at": "2026-10-30T08:42:01Z",
+      "schema": 4
+    },
+    "tt0000459": {
+      "poster_url": null,
+      "imdb_rating": 4.4,
+      "imdb_votes": 79,
+      "content_rating": null,
+      "plot": "A view of Riker's Island and its landfill, filmed from a passing boat on 9 May 1903. While heavy steam powered construction equipment construct a sea wall, nearby garbage scows are unloaded by steam shovel.",
+      "runtime_min": 2,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt0000507": {
+      "poster_url": null,
+      "imdb_rating": 3.4,
+      "imdb_votes": 62,
+      "content_rating": null,
+      "plot": "The 16 July 1905 departure of polar explorer Robert Peary on one of his expeditions to the North Pole aboard the specially designed ship Roosevelt.",
+      "runtime_min": 4,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "News"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt0187491": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Documentary short film reporting on the activities of the American Red Cross and the useage made of contributed funds for the previous year.",
+      "runtime_min": 9,
+      "director": "Richard Massingham",
+      "actors": [
+        "Westbrook Van Voorhis"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt0322578": {
+      "poster_url": null,
+      "imdb_rating": 6.7,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 1,
+      "director": null,
+      "actors": [
+        "Mickey Rooney",
+        "Fred Astaire",
+        "Bing Crosby",
+        "Clark Gable"
+      ],
+      "genres": [
+        "Documentary",
+        "Music"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt0333593": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjM0MjZlYjgtMTM0NS00YTMyLTk3MzMtMjlkZGJiOWQ0ZWQzXkEyXkFqcGdeQXVyMjkyMDI4NTQ@._V1_SX300.jpg",
+      "imdb_rating": 4.2,
+      "imdb_votes": 105,
+      "content_rating": null,
+      "plot": "Teenager Mary has strong physical yearnings for her boyfriend, so she asks her mother for advice on what she should do about said carnal cravings.",
+      "runtime_min": 20,
+      "director": null,
+      "actors": [
+        "Tarry Green"
+      ],
+      "genres": [
+        "Drama",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt15293360": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 10,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt15808204": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 11,
+      "director": null,
+      "actors": [
+        "Henry F. Simms"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt16283164": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWUwMzdkZDItZTVjZC00MzZjLThhOWEtMDc2MjE5NjlhZTYyXkEyXkFqcGdeQXVyMjk1NzAxNg@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A new hat, a trip through the forest, stuffed buns and a fateful meeting. A granddaughter tells her grandma about the New Jerusalem and Big Babylon. She points at the map to show her the Old World, the New World, New York, and where the sea ends. They get a visit from a Goon, and the Wolf becomes the cleaner of people.",
+      "runtime_min": 5,
+      "director": "Anatolii Surma",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt1826779": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A family from an unnamed European country move to a town in Australia.",
+      "runtime_min": 49,
+      "director": "Doc K. Sternberg",
+      "actors": [
+        "Ailita Blaumanis",
+        "John Fernside",
+        "Eric Reiman"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt1956553": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDMwZmRhZWMtOWUyNi00YTBhLWFiNTEtYzQwZDg0MmI4NWU5XkEyXkFqcGdeQXVyMTQwMzQ1MA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": "The workings of a market town newspaper the \"Newbury Weekly news\". Shows reporters covering local events and the editor making his decisions.",
+      "runtime_min": 17,
+      "director": null,
+      "actors": [
+        "Hugh Turner"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt2000430": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGQ2MDQ1OGUtMGQ0Zi00MTQ3LWE5YWItZDRjNDUzODZjYjA1XkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": "A British public information film breaking the news to the male population that due to the postwar Communist menace they can expect their call-up papers any time now should the Cold War turn hot.",
+      "runtime_min": 20,
+      "director": "A. Frank Bundy",
+      "actors": [
+        "Lane Meddick"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt2078531": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 20,
+      "director": "Fred Moore",
+      "actors": [
+        "Lane Meddick",
+        "Barbara Ogilvie",
+        "Patricia Shakesby"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt2093195": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "This episode in Andre de la Varre's SCREEN TRAVELER travelogue series covers the Norman towns of Fecamp, Yport, Rouen and Lisieux.like most of the series, de la Varre seems more interested in the way the ordinary people live, the architecture, and the history of the region than other, better remembered travelogues. Because those match my interest better, I think it better than, say, Fitzpatrick's TRAVELTALKS for MGM, even though this is in black and white. De la Varre shows you the shape of the land, the blessing of the sea, and the shop windows filled with cheap souvenirs for tourists. It's a far better look at the area between the two world wars.",
+      "runtime_min": 11,
+      "director": "André de la Varre",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt2162982": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2Q5NmE4M2YtZmY3My00NWQ5LThlNWMtYTRhMDBiYmYzYmU5XkEyXkFqcGdeQXVyMDY4MzkyNw@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 15,
+      "director": "Joan Duff",
+      "actors": [
+        "Mohammad Ayub Khan",
+        "Prince Philip",
+        "Queen Elizabeth II"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt2464440": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjQ0MDYxYmYtY2UzMS00MDhlLWIwNzAtN2ExYjU1YjY5NzZjXkEyXkFqcGdeQXVyNzMxMjY4MTU@._V1_SX300.jpg",
+      "imdb_rating": 3.9,
+      "imdb_votes": 25,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 8,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "Fantasy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt25812156": {
+      "poster_url": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt2826382": {
+      "poster_url": null,
+      "imdb_rating": 6.9,
+      "imdb_votes": 32,
+      "content_rating": null,
+      "plot": "This animated short outlines the problems with alcohol consumption despite its social acceptability in western society. It provides a cursory look at how easily alcohol is produced, and the physiological effects of alcohol on humans, especially when it enters the bloodstream. It delves further into the process of drunkenness. Although few people die from overdosing on alcohol, it describes other direct and indirect dangerous effects of alcohol consumption, such as drinking and driving. It also lists the many reasons why people drink for good and bad. Drinking becomes a vicious circle when one looks for reasons to drink to the exclusion of all else, these people who are alcoholics. For them, abstinence is the only answer.",
+      "runtime_min": 10,
+      "director": "Philip Stapp",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt29927690": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A educational film on knifecraft.",
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "Family"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt7760674": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Edward M. Grabill",
+      "actors": [
+        "Gene Blakely",
+        "Alma Du Bus",
+        "Norman Gottschalk",
+        "John Olson"
+      ],
+      "genres": [
+        "Short",
+        "Family"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt8378126": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTNmNmY4MzctOTJiZC00ZWY4LTg3MDQtOTViMzc2N2Y2MjVhXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 17437,
+      "content_rating": "Not Rated",
+      "plot": "Anne, a successful lawyer, lives in a beautiful modernist home with her two daughters and physician husband, Peter. Yet when Gustav, Peter's troubled teenage son from another relationship, comes to live with them, she forms an intimate bond with him that jeopardizes her perfect life. And what initially seems like a liberating move for her soon turns into a disturbing story of power, betrayal, and responsibility with devastating consequences.",
+      "runtime_min": 127,
+      "director": "May el-Toukhy",
+      "actors": [
+        "Trine Dyrholm",
+        "Gustav Lindh",
+        "Magnus Krepper"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 97,
+        "mc": 67
+      },
+      "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt8698172": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWJlZDk2ZWQtNjNlZS00NmE1LWEyZGUtYzU5OGYwZjZjNDA1XkEyXkFqcGdeQXVyNjczNDQzNjk@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": "Based on the short story from the collection Nailbiters, written and adapted by award-winning and bestselling author Paul Kane, this tells the story of Andy Brooks - a man who wakes up in a cell and is consequently interrogated for information he claims he doesn't have. But, as the torture escalates - performed by the sadistic Torturer himself - it eventually becomes apparent that there is something else happening aside from this battle of wills. Also a play and soon to be a comic book.",
+      "runtime_min": null,
+      "director": "Joe Manco",
+      "actors": [
+        "Paul T. Taylor",
+        "Lawrence Varnado",
+        "Robb Hudspeth"
+      ],
+      "genres": [
+        "Short",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-31T08:28:37Z",
       "schema": 4
     }
   },
