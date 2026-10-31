@@ -3529,6 +3529,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": "stpt1"
+  },
+  {
+   "at": "2026-10-31T02:08:52.262961+00:00",
+   "id": "fragment-of-an-empire-1929",
+   "title": "Обломок Империи (Fragment Of An Empire)",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz57mk34dj24",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

@@ -4667,6 +4667,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mynzcmzssz2i",
+   "platform": "bluesky",
+   "id": "wing_claw_and_fang_1946",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-25T01:05:52.358798+00:00",
+   "sampled": "2026-10-31T02:08:54.531108+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz2qsbgcyc2u",
+   "platform": "bluesky",
+   "id": "3-bad-men-1926_202508",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-30T02:38:10.892387+00:00",
+   "sampled": "2026-10-31T02:08:54.531108+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
