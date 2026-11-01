@@ -3601,6 +3601,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-01T02:10:01.372917+00:00",
+   "id": "xd-38414-the-magic-key-vwr",
+   "title": "The Magic Key",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz7q5qzo4j26",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
