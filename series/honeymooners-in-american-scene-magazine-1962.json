@@ -1,0 +1,84 @@
+{
+  "version": 2,
+  "seriesID": "honeymooners-in-american-scene-magazine-1962",
+  "sourceID": "honeymooners_american_scene",
+  "tvmazeID": null,
+  "title": "Honeymooners in American Scene Magazine",
+  "yearStart": 1962,
+  "yearEnd": null,
+  "overview": "Here are the Honeymooners segments that aired on The American Scene Magazine Series.",
+  "posterURL": "https://archive.org/services/img/honeymooners_american_scene",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "honeymooners_american_scene@e01",
+          "sourceID": "honeymooners_american_scene",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Two Below (09-29-1962",
+          "overview": null,
+          "stillURL": "https://archive.org/download/honeymooners_american_scene/honeymooners_american_scene.thumbs/01%20-%20Two%20Below%20%2809-29-1962%29_000354.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 976,
+          "videoFile": {
+            "name": "01 - Two Below (09-29-1962).mp4",
+            "format": "h.264",
+            "sizeBytes": 101068943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/honeymooners_american_scene/01%20-%20Two%20Below%20%2809-29-1962%29.mp4"
+        },
+        {
+          "archiveID": "honeymooners_american_scene@e02",
+          "sourceID": "honeymooners_american_scene",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "TV Game of the Week (10-20-1962",
+          "overview": null,
+          "stillURL": "https://archive.org/download/honeymooners_american_scene/honeymooners_american_scene.thumbs/02%20-%20TV%20Game%20of%20the%20Week%20%2810-20-1962%29_000474.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1310,
+          "videoFile": {
+            "name": "02 - TV Game of the Week (10-20-1962).mp4",
+            "format": "h.264",
+            "sizeBytes": 132624641,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/honeymooners_american_scene/02%20-%20TV%20Game%20of%20the%20Week%20%2810-20-1962%29.mp4"
+        },
+        {
+          "archiveID": "honeymooners_american_scene@e03",
+          "sourceID": "honeymooners_american_scene",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Adoption (01-08-1966",
+          "overview": null,
+          "stillURL": "https://archive.org/download/honeymooners_american_scene/honeymooners_american_scene.thumbs/03%20-%20The%20Adoption%20%2801-08-1966%29_001074.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 3084,
+          "videoFile": {
+            "name": "03 - The Adoption (01-08-1966).mp4",
+            "format": "h.264",
+            "sizeBytes": 315770080,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/honeymooners_american_scene/03%20-%20The%20Adoption%20%2801-08-1966%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

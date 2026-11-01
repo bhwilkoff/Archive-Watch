@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "seriesID": "the-heart-of-teaching-an-in-service-series-for-teachers-in-1080hd-with-1976",
+  "sourceID": "heart-of-teaching",
+  "tvmazeID": null,
+  "title": "The Heart of Teaching An in Service series for Teachers in 1080HD with",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "_ . . _. The Heart of Teaching This inservice series is designed to help teachers understand themselves and their own emotional responses to the daily experiences of their professional lives. The open-ended dramatizations focus on teacher reaction to the isolation and loneliness of teaching, professional change, the frustrations of teaching, individual differences in the classroom, and difficulties of communication with parents and others. Five 15-minute programs One 30-minute program ©1976 by AIT This series is part of the AIT Classics collection. ... The federal funding that supports Public Media has been eliminated in July of 2025 by the Republicans. Your PBS viewing experience is going away. ) . _. These videos are all to be used only for free, personal, educational purposes. ___________________________________________________________________________________ Episode Descriptions: The Heart of Teaching 01 The Parent Crunch A fourth-grader gets A's on his homework and C's when he does the same work in class. The A's confuse his teacher and the C's confuse his father. (14:26) The Heart of Teaching 02 An Eye for Change When the principal at Trudy Bowman's school institutes a project for professional development, she agrees to videotape her American History class for faculty evaluation. Intellectually she supports what she is doing, but during the actual taping, Trudy becomes uncomfortably aware of her unseen jury of peers. The program focuses on the mixed feelings, worries, and personal risk involved in a teacher's professional growth. (15:15) The Heart of Teaching 03 Last Hour Clash A teacher can't understand why a student constantly disrupts his class, and the student can't understand why the teacher always picks on him. This program uses humor and exaggeration to bring out the best and worst of a concerned but bungling teacher, his \"helping\" friend, and the student. (14:10) The Heart of Teaching 04 Every One is Something Else This semidocumentary program shows an elementary class of fifty students and an infinite number of individual differences—cultural, racial, intellectual, creative. The various scenes demonstrate how these differences complicate the teacher's work, but at the same time make teaching the very special kind of creative profession that it is. (14:27) The Heart of Teaching 05 A Faculty Feeling In this program, a faculty meeting to discuss the exam schedule suddenly turns into a discussion—sometimes vehement, sometimes humorous—of whether teachers are a collection of isolated individuals under one roof or a unified faculty whose members work together. (14:22) The Heart of Teaching 06 Teachers Meeting This is a 30 minute version of \"A Faculty Feeling\" (program 5 of The Heart of Teaching series). (29:11)",
+  "posterURL": "https://archive.org/services/img/heart-of-teaching",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "heart-of-teaching@e01",
+          "sourceID": "heart-of-teaching",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Parent Crunch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/heart-of-teaching/heart-of-teaching.thumbs/The%20Heart%20of%20Teaching%2001%20The%20Parent%20Crunch_000309.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 867,
+          "videoFile": {
+            "name": "The Heart of Teaching 01 The Parent Crunch.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 304852113,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heart-of-teaching/The%20Heart%20of%20Teaching%2001%20The%20Parent%20Crunch.mp4"
+        },
+        {
+          "archiveID": "heart-of-teaching@e02",
+          "sourceID": "heart-of-teaching",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "An Eye for Change",
+          "overview": null,
+          "stillURL": "https://archive.org/download/heart-of-teaching/heart-of-teaching.thumbs/The%20Heart%20of%20Teaching%2002%20An%20Eye%20for%20Change_000359.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 917,
+          "videoFile": {
+            "name": "The Heart of Teaching 02 An Eye for Change.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 326422574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heart-of-teaching/The%20Heart%20of%20Teaching%2002%20An%20Eye%20for%20Change.mp4"
+        },
+        {
+          "archiveID": "heart-of-teaching@e03",
+          "sourceID": "heart-of-teaching",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Last Hour Clash",
+          "overview": null,
+          "stillURL": "https://archive.org/download/heart-of-teaching/heart-of-teaching.thumbs/The%20Heart%20of%20Teaching%2003%20Last%20Hour%20Clash_000307.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "The Heart of Teaching 03 Last Hour Clash.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 255485143,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heart-of-teaching/The%20Heart%20of%20Teaching%2003%20Last%20Hour%20Clash.mp4"
+        },
+        {
+          "archiveID": "heart-of-teaching@e04",
+          "sourceID": "heart-of-teaching",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Every One is Something Else",
+          "overview": null,
+          "stillURL": "https://archive.org/download/heart-of-teaching/heart-of-teaching.thumbs/The%20Heart%20of%20Teaching%2004%20Every%20One%20is%20Something%20Else_000311.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 867,
+          "videoFile": {
+            "name": "The Heart of Teaching 04 Every One is Something Else.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 286808101,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heart-of-teaching/The%20Heart%20of%20Teaching%2004%20Every%20One%20is%20Something%20Else.mp4"
+        },
+        {
+          "archiveID": "heart-of-teaching@e05",
+          "sourceID": "heart-of-teaching",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "A Faculty Feeling",
+          "overview": null,
+          "stillURL": "https://archive.org/download/heart-of-teaching/heart-of-teaching.thumbs/The%20Heart%20of%20Teaching%2005%20A%20Faculty%20Feeling_000309.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "The Heart of Teaching 05 A Faculty Feeling.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 266701562,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heart-of-teaching/The%20Heart%20of%20Teaching%2005%20A%20Faculty%20Feeling.mp4"
+        },
+        {
+          "archiveID": "heart-of-teaching@e06",
+          "sourceID": "heart-of-teaching",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Teachers Meeting",
+          "overview": null,
+          "stillURL": "https://archive.org/download/heart-of-teaching/heart-of-teaching.thumbs/The%20Heart%20of%20Teaching%2006%20Teachers%20Meeting_000700.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1752,
+          "videoFile": {
+            "name": "The Heart of Teaching 06 Teachers Meeting.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 561528065,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heart-of-teaching/The%20Heart%20of%20Teaching%2006%20Teachers%20Meeting.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

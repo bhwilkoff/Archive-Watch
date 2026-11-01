@@ -1,0 +1,1041 @@
+{
+  "version": 2,
+  "seriesID": "sick-cylinders-1929",
+  "sourceID": "oswald-collection",
+  "tvmazeID": null,
+  "title": "Sick Cylinders",
+  "yearStart": 1929,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/oswald-collection",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "oswald-collection@e01",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Poor Papa (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/01%20-%20Poor%20Papa%20%28Disney%2C%201928%29_000185.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 319,
+          "videoFile": {
+            "name": "01 - Poor Papa (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 30162530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/01%20-%20Poor%20Papa%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e02",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Trolley Troubles (Disney, 1927",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/02%20-%20Trolley%20Troubles%20%28Disney%2C%201927%29_000204.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "02 - Trolley Troubles (Disney, 1927).mp4",
+            "format": "h.264",
+            "sizeBytes": 34734929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/02%20-%20Trolley%20Troubles%20%28Disney%2C%201927%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e03",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Oh Teacher (Disney, 1927) (MISSING FOOTAGE",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/03%20-%20Oh%20Teacher%20%28Disney%2C%201927%29%20%28MISSING%20FOOTAGE%29_000210.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 362,
+          "videoFile": {
+            "name": "03 - Oh Teacher (Disney, 1927) (MISSING FOOTAGE).mp4",
+            "format": "h.264",
+            "sizeBytes": 35994899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/03%20-%20Oh%20Teacher%20%28Disney%2C%201927%29%20%28MISSING%20FOOTAGE%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e04",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Great Guns! (Disney, 1927",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/04%20-%20Great%20Guns%21%20%28Disney%2C%201927%29_000238.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 411,
+          "videoFile": {
+            "name": "04 - Great Guns! (Disney, 1927).mp4",
+            "format": "h.264",
+            "sizeBytes": 41163670,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/04%20-%20Great%20Guns%21%20%28Disney%2C%201927%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e05",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Mechanical Cow (Disney, 1927",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/05%20-%20The%20Mechanical%20Cow%20%28Disney%2C%201927%29_000216.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 372,
+          "videoFile": {
+            "name": "05 - The Mechanical Cow (Disney, 1927).mp4",
+            "format": "h.264",
+            "sizeBytes": 36396642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/05%20-%20The%20Mechanical%20Cow%20%28Disney%2C%201927%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e06",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "All Wet (Disney, 1927",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/06%20-%20All%20Wet%20%28Disney%2C%201927%29_000232.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 399,
+          "videoFile": {
+            "name": "06 - All Wet (Disney, 1927).mp4",
+            "format": "h.264",
+            "sizeBytes": 40381579,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/06%20-%20All%20Wet%20%28Disney%2C%201927%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e07",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Ocean Hop (Disney, 1927) (MISSING FOOTAGE",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/07%20-%20The%20Ocean%20Hop%20%28Disney%2C%201927%29%20%28MISSING%20FOOTAGE%29_000216.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 372,
+          "videoFile": {
+            "name": "07 - The Ocean Hop (Disney, 1927).mp4",
+            "format": "h.264",
+            "sizeBytes": 36664390,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/07%20-%20The%20Ocean%20Hop%20%28Disney%2C%201927%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e11",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Neck 'n' Neck (Disney, 1928) (FRAGMENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/11%20-%20Neck%20%27n%27%20Neck%20%28Disney%2C%201928%29%20%28FRAGMENT%29_000069.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 110,
+          "videoFile": {
+            "name": "11 - Neck 'n' Neck (Disney, 1928) (FRAGMENT).mp4",
+            "format": "h.264",
+            "sizeBytes": 10784889,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/11%20-%20Neck%20%27n%27%20Neck%20%28Disney%2C%201928%29%20%28FRAGMENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e12",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Empty Socks (Disney, 1927) (INCOMPLETE",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/12%20-%20Empty%20Socks%20%28Disney%2C%201927%29%20%28INCOMPLETE%29_000154.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 263,
+          "videoFile": {
+            "name": "12 - Empty Socks (Disney, 1927) (INCOMPLETE).mp4",
+            "format": "h.264",
+            "sizeBytes": 23036079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/12%20-%20Empty%20Socks%20%28Disney%2C%201927%29%20%28INCOMPLETE%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e13",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Ol' Swimmin' 'Ole (Disney, 1928) (INCOMPLETE RECONSTRUCTION",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/13%20-%20The%20Ol%27%20Swimmin%27%20%27Ole%20%28Disney%2C%201928%29%20%28INCOMPLETE%20RECONSTRUCTION%29_000148.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 374,
+          "videoFile": {
+            "name": "13 - The Ol' Swimmin' 'Ole (Disney, 1928) (INCOMPLETE RECONSTRUCTION).mp4",
+            "format": "h.264",
+            "sizeBytes": 32564711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/13%20-%20The%20Ol%27%20Swimmin%27%20%27Ole%20%28Disney%2C%201928%29%20%28INCOMPLETE%20RECONSTRUCTION%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e14",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Africa Before Dark (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/14%20-%20Africa%20Before%20Dark%20%28Disney%2C%201928%29_000135.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 350,
+          "videoFile": {
+            "name": "14 - Africa Before Dark (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 35019372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/14%20-%20Africa%20Before%20Dark%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e15",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Bright Lights (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/15%20-%20Bright%20Lights%20%28Disney%2C%201928%29_000268.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 462,
+          "videoFile": {
+            "name": "15 - Bright Lights (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 43941234,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/15%20-%20Bright%20Lights%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e16",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Rival Romeos (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/16%20-%20Rival%20Romeos%20%28Disney%2C%201928%29_000224.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 387,
+          "videoFile": {
+            "name": "16 - Rival Romeos (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 38798652,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/16%20-%20Rival%20Romeos%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e17",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Sagebrush Sadie (Disney, 1928) (GENGA",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/17%20-%20Sagebrush%20Sadie%20%28Disney%2C%201928%29%20%28GENGA%29_000036.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 62,
+          "videoFile": {
+            "name": "17 - Sagebrush Sadie (Disney, 1928) (GENGA).mp4",
+            "format": "h.264",
+            "sizeBytes": 5670189,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/17%20-%20Sagebrush%20Sadie%20%28Disney%2C%201928%29%20%28GENGA%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e19",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Ozzie of the Mounted (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/19%20-%20Ozzie%20of%20the%20Mounted%20%28Disney%2C%201928%29_000182.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 313,
+          "videoFile": {
+            "name": "19 - Ozzie of the Mounted (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 30980632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/19%20-%20Ozzie%20of%20the%20Mounted%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e20",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Hungry Hoboes (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/20%20-%20Hungry%20Hoboes%20%28Disney%2C%201928%29_000188.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 324,
+          "videoFile": {
+            "name": "20 - Hungry Hoboes (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 33025166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/20%20-%20Hungry%20Hoboes%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e21",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Oh What a Knight (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/21%20-%20Oh%20What%20a%20Knight%20%28Disney%2C%201928%29_000203.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 350,
+          "videoFile": {
+            "name": "21 - Oh What a Knight (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 34993613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/21%20-%20Oh%20What%20a%20Knight%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e22",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Sky Scrapper (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/22%20-%20The%20Sky%20Scrapper%20%28Disney%2C%201928%29_000195.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 336,
+          "videoFile": {
+            "name": "22 - The Sky Scrapper (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 33656125,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/22%20-%20The%20Sky%20Scrapper%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e23",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Fox Chase (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/23%20-%20The%20Fox%20Chase%20%28Disney%2C%201928%29_000188.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 324,
+          "videoFile": {
+            "name": "23 - The Fox Chase (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 32236780,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/23%20-%20The%20Fox%20Chase%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e24",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Tall Timber (Disney, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/24%20-%20Tall%20Timber%20%28Disney%2C%201928%29_000268.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 462,
+          "videoFile": {
+            "name": "24 - Tall Timber (Disney, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 46462301,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/24%20-%20Tall%20Timber%20%28Disney%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e25",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Sleigh Bells (Disney, 1928) (SAMPLE",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/25%20-%20Sleigh%20Bells%20%28Disney%2C%201928%29%20%28SAMPLE%29_000025.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "25 - Sleigh Bells (Disney, 1928) (SAMPLE).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 19181062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/25%20-%20Sleigh%20Bells%20%28Disney%2C%201928%29%20%28SAMPLE%29.ia.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e27",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "High Up (Disney-Winkler, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/27%20-%20High%20Up%20%28Disney-Winkler%2C%201928%29_000234.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 397,
+          "videoFile": {
+            "name": "27 - High Up (Disney-Winkler, 1928).mp4",
+            "format": "h.264",
+            "sizeBytes": 35257504,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/27%20-%20High%20Up%20%28Disney-Winkler%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e30",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Fiery Firemen (Winkler, 1928",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/30%20-%20Fiery%20Firemen%20%28Winkler%2C%201928%29_000181.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 312,
+          "videoFile": {
+            "name": "30 - Fiery Firemen (Winkler, 1928).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 11404054,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/30%20-%20Fiery%20Firemen%20%28Winkler%2C%201928%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e36",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Homeless Homer (Winkler, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/36%20-%20Homeless%20Homer%20%28Winkler%2C%201929%29_000144.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 376,
+          "videoFile": {
+            "name": "36 - Homeless Homer (Winkler, 1929).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 16625520,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/36%20-%20Homeless%20Homer%20%28Winkler%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e37",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Yanky Clippers (Winkler, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/37%20-%20Yanky%20Clippers%20%28Winkler%2C%201929%29_000192.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 322,
+          "videoFile": {
+            "name": "37 - Yanky Clippers (Winkler, 1929).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 15458008,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/37%20-%20Yanky%20Clippers%20%28Winkler%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e39",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Sick Cylinders (Winkler, 1929) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/39%20-%20Sick%20Cylinders%20%28Winkler%2C%201929%29%20%28SILENT%29_000202.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 344,
+          "videoFile": {
+            "name": "39 - Sick Cylinders (Winkler, 1929) (SILENT).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 95028462,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/39%20-%20Sick%20Cylinders%20%28Winkler%2C%201929%29%20%28SILENT%29.ia.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e40",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Hold 'Em Ozzie! (Winkler, 1929) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/40%20-%20Hold%20%27Em%20Ozzie%21%20%28Winkler%2C%201929%29%20%28SILENT%29_000202.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 341,
+          "videoFile": {
+            "name": "40 - Hold 'Em Ozzie! (Winkler, 1929) (SILENT).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 31740347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/40%20-%20Hold%20%27Em%20Ozzie%21%20%28Winkler%2C%201929%29%20%28SILENT%29.ia.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e42",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Alpine Antics (Winkler, 1929) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/42%20-%20Alpine%20Antics%20%28Winkler%2C%201929%29%20%28SILENT%29_000275.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 470,
+          "videoFile": {
+            "name": "42 - Alpine Antics (Winkler, 1929) (SILENT).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30493315,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/42%20-%20Alpine%20Antics%20%28Winkler%2C%201929%29%20%28SILENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e50",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Jungle Jingles (Winkler, 1929) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/50%20-%20Jungle%20Jingles%20%28Winkler%2C%201929%29%20%28SILENT%29_000227.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 390,
+          "videoFile": {
+            "name": "50 - Jungle Jingles (Winkler, 1929) (SILENT).mp4",
+            "format": "h.264",
+            "sizeBytes": 34019753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/50%20-%20Jungle%20Jingles%20%28Winkler%2C%201929%29%20%28SILENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e51",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "Weary Willies (Winkler, 1929) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/51%20-%20Weary%20Willies%20%28Winkler%2C%201929%29%20%28SILENT%29_000234.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 404,
+          "videoFile": {
+            "name": "51 - Weary Willies (Winkler, 1929) (SILENT).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 13193284,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/51%20-%20Weary%20Willies%20%28Winkler%2C%201929%29%20%28SILENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e54",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "Permanent Wave (Lantz, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/54%20-%20Permanent%20Wave%20%28Lantz%2C%201929%29_000231.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 399,
+          "videoFile": {
+            "name": "54 - Permanent Wave (Lantz, 1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 39039043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/54%20-%20Permanent%20Wave%20%28Lantz%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e55",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "Race Riot (Lantz, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/55%20-%20Race%20Riot%20%28Lantz%2C%201929%29_000230.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 396,
+          "videoFile": {
+            "name": "55 - Race Riot (Lantz, 1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 38503712,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/55%20-%20Race%20Riot%20%28Lantz%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e56",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "Oil's Well (Lantz, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/56%20-%20Oil%27s%20Well%20%28Lantz%2C%201929%29_000233.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 402,
+          "videoFile": {
+            "name": "56 - Oil's Well (Lantz, 1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 39013517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/56%20-%20Oil%27s%20Well%20%28Lantz%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e57",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "Snow Use (Lantz, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/57%20-%20Snow%20Use%20%28Lantz%2C%201929%29_000241.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 416,
+          "videoFile": {
+            "name": "57 - Snow Use (Lantz, 1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 40201332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/57%20-%20Snow%20Use%20%28Lantz%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e58",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "Cold Turkey (Lantz, 1929) (WORKPRINT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/58%20-%20Cold%20Turkey%20%28Lantz%2C%201929%29%20%28WORKPRINT%29_000112.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 194,
+          "videoFile": {
+            "name": "58 - Cold Turkey (Lantz, 1929) (WORKPRINT).mp4",
+            "format": "h.264",
+            "sizeBytes": 17072791,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/58%20-%20Cold%20Turkey%20%28Lantz%2C%201929%29%20%28WORKPRINT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e59",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 59,
+          "title": "Nutty Notes (Lantz, 1929) (SAMPLE",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/59%20-%20Nutty%20Notes%20%28Lantz%2C%201929%29%20%28SAMPLE%29_000028.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 64,
+          "videoFile": {
+            "name": "59 - Nutty Notes (Lantz, 1929) (SAMPLE).mp4",
+            "format": "h.264",
+            "sizeBytes": 6109423,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/59%20-%20Nutty%20Notes%20%28Lantz%2C%201929%29%20%28SAMPLE%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e61",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Snappy Salesman (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/61%20-%20Snappy%20Salesman%20%28Lantz%2C%201930%29_000205.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 354,
+          "videoFile": {
+            "name": "61 - Snappy Salesman (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 33835266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/61%20-%20Snappy%20Salesman%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e62",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Amature Nite (Lantz, 1929) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/62%20-%20Amature%20Nite%20%28Lantz%2C%201929%29%20%28SILENT%29_000228.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 394,
+          "videoFile": {
+            "name": "62 - Amature Nite (Lantz, 1929) (SILENT).mp4",
+            "format": "h.264",
+            "sizeBytes": 38349016,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/62%20-%20Amature%20Nite%20%28Lantz%2C%201929%29%20%28SILENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e63",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 63,
+          "title": "Kounty Fair (Lantz, 1930) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/63%20-%20Kounty%20Fair%20%28Lantz%2C%201930%29%20%28SILENT%29_000239.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 412,
+          "videoFile": {
+            "name": "63 - Kounty Fair (Lantz, 1930) (SILENT).mp4",
+            "format": "h.264",
+            "sizeBytes": 40381245,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/63%20-%20Kounty%20Fair%20%28Lantz%2C%201930%29%20%28SILENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e64",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "Chilly Con Carmen (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/64%20-%20Chilly%20Con%20Carmen%20%28Lantz%2C%201930%29_000256.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 442,
+          "videoFile": {
+            "name": "64 - Chilly Con Carmen (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 45190846,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/64%20-%20Chilly%20Con%20Carmen%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e65",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "Hurdy Gurdy (Lantz, 1929",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/65%20-%20Hurdy%20Gurdy%20%28Lantz%2C%201929%29_000215.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 371,
+          "videoFile": {
+            "name": "65 - Hurdy Gurdy (Lantz, 1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 36207181,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/65%20-%20Hurdy%20Gurdy%20%28Lantz%2C%201929%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e67",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Broadway Folly (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/67%20-%20Broadway%20Folly%20%28Lantz%2C%201930%29_000272.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 461,
+          "videoFile": {
+            "name": "67 - Broadway Folly (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 44412875,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/67%20-%20Broadway%20Folly%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e69",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Tramping Tramps (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/69%20-%20Tramping%20Tramps%20%28Lantz%2C%201930%29_000207.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 357,
+          "videoFile": {
+            "name": "69 - Tramping Tramps (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 34909439,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/69%20-%20Tramping%20Tramps%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e70",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "The Hash Shop (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/70%20-%20The%20Hash%20Shop%20%28Lantz%2C%201930%29_000210.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 363,
+          "videoFile": {
+            "name": "70 - The Hash Shop (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 35512139,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/70%20-%20The%20Hash%20Shop%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e71",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "The Prison Panic (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/71%20-%20The%20Prison%20Panic%20%28Lantz%2C%201930%29_000202.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 348,
+          "videoFile": {
+            "name": "71 - The Prison Panic (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 33650346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/71%20-%20The%20Prison%20Panic%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e72",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Hot for Hollywood (Lantz, 1930) (SILENT",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/72%20-%20Hot%20for%20Hollywood%20%28Lantz%2C%201930%29%20%28SILENT%29_000201.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "72 - Hot for Hollywood (Lantz, 1930) (SILENT).mp4",
+            "format": "h.264",
+            "sizeBytes": 34096031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/72%20-%20Hot%20for%20Hollywood%20%28Lantz%2C%201930%29%20%28SILENT%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e73",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 73,
+          "title": "Hells Heels (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/73%20-%20Hells%20Heels%20%28Lantz%2C%201930%29_000223.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 384,
+          "videoFile": {
+            "name": "73 - Hells Heels (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 36848064,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/73%20-%20Hells%20Heels%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e74",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 74,
+          "title": "My Pal Paul (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/74%20-%20My%20Pal%20Paul%20%28Lantz%2C%201930%29_000239.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 411,
+          "videoFile": {
+            "name": "74 - My Pal Paul (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 39618026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/74%20-%20My%20Pal%20Paul%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e75",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 75,
+          "title": "Not So Quiet (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/75%20-%20Not%20So%20Quiet%20%28Lantz%2C%201930%29_000229.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 396,
+          "videoFile": {
+            "name": "75 - Not So Quiet (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 38454336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/75%20-%20Not%20So%20Quiet%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e76",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 76,
+          "title": "Spooks (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/76%20-%20Spooks%20%28Lantz%2C%201930%29_000227.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 392,
+          "videoFile": {
+            "name": "76 - Spooks (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 37568646,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/76%20-%20Spooks%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e77",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 77,
+          "title": "Cold Feet (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/77%20-%20Cold%20Feet%20%28Lantz%2C%201930%29_000224.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 383,
+          "videoFile": {
+            "name": "77 - Cold Feet (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 36192038,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/77%20-%20Cold%20Feet%20%28Lantz%2C%201930%29.mp4"
+        },
+        {
+          "archiveID": "oswald-collection@e78",
+          "sourceID": "oswald-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 78,
+          "title": "Henpecked (Lantz, 1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/78%20-%20Henpecked%20%28Lantz%2C%201930%29_000228.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 394,
+          "videoFile": {
+            "name": "78 - Henpecked (Lantz, 1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 38381090,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/78%20-%20Henpecked%20%28Lantz%2C%201930%29.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oswald-collection@x-extra-a-fable-in-jazz-from-king",
+          "sourceID": "oswald-collection",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EXTRA - A Fable in Jazz, from King of Jazz (1930",
+          "overview": null,
+          "stillURL": "https://archive.org/download/oswald-collection/oswald-collection.thumbs/EXTRA%20-%20A%20Fable%20in%20Jazz%2C%20from%20King%20of%20Jazz%20%281930%29_000074.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 186,
+          "videoFile": {
+            "name": "EXTRA - A Fable in Jazz, from King of Jazz (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 17741700,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oswald-collection/EXTRA%20-%20A%20Fable%20in%20Jazz%2C%20from%20King%20of%20Jazz%20%281930%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 53,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

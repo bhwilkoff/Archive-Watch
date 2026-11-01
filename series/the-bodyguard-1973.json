@@ -1,0 +1,103 @@
+{
+  "version": 2,
+  "seriesID": "the-bodyguard-1973",
+  "sourceID": "the-bodyguard1973-widescreen-VIVA-CHIBA",
+  "tvmazeID": null,
+  "title": "The Bodyguard",
+  "yearStart": 1973,
+  "yearEnd": null,
+  "overview": "Karate master Kiba (Sonny Chiba) foils a hijacking on his flight home to Japan and announces a bodyguard service. His first client, a secretive woman, draws him into a fight with drug traffickers and the mafia. The US version of Bodyguard Kiba, released in 1976 with added footage.",
+  "posterURL": "https://archive.org/services/img/the-bodyguard1973-widescreen-VIVA-CHIBA",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e01",
+          "sourceID": "the-bodyguard1973-widescreen-VIVA-CHIBA",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Bodyguard (1973)(Widescreen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/the-bodyguard1973-widescreen-VIVA-CHIBA.thumbs/1.%20The%20Bodyguard%20%281973%29%28Widescreen%29_001750.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 5269,
+          "videoFile": {
+            "name": "1. The Bodyguard (1973)(Widescreen).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 619957233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/1.%20The%20Bodyguard%20%281973%29%28Widescreen%29.ia.mp4"
+        },
+        {
+          "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e02",
+          "sourceID": "the-bodyguard1973-widescreen-VIVA-CHIBA",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Bodyguard (1973) (WideScreen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/the-bodyguard1973-widescreen-VIVA-CHIBA.thumbs/2.%20The%20Bodyguard%20%281973%29%20%28WideScreen%29_001750.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 5255,
+          "videoFile": {
+            "name": "2. The Bodyguard (1973) (WideScreen).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 822886089,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/2.%20The%20Bodyguard%20%281973%29%20%28WideScreen%29.ia.mp4"
+        },
+        {
+          "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e03",
+          "sourceID": "the-bodyguard1973-widescreen-VIVA-CHIBA",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Bodyguard (1973) (fullscreen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/the-bodyguard1973-widescreen-VIVA-CHIBA.thumbs/3.%20The%20Bodyguard%20%281973%29%20%28fullscreen%29_001610.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 5319,
+          "videoFile": {
+            "name": "3. The Bodyguard (1973) (fullscreen).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 627220305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/3.%20The%20Bodyguard%20%281973%29%20%28fullscreen%29.ia.mp4"
+        },
+        {
+          "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e04",
+          "sourceID": "the-bodyguard1973-widescreen-VIVA-CHIBA",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Bodyguard (1973) (Subtitled",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/the-bodyguard1973-widescreen-VIVA-CHIBA.thumbs/4.%20The%20Bodyguard%20%281973%29%20%28Subtitled%29_001750.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 5278,
+          "videoFile": {
+            "name": "4. The Bodyguard (1973) (Subtitled).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1024813177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/4.%20The%20Bodyguard%20%281973%29%20%28Subtitled%29.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

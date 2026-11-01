@@ -1,0 +1,733 @@
+{
+  "version": 2,
+  "seriesID": "the-world-at-war-thames-television-1973",
+  "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+  "tvmazeID": null,
+  "title": "The World at War - Thames Television",
+  "yearStart": 1973,
+  "yearEnd": null,
+  "overview": "The World at War, Thames Television's 26-part 1973 history of the Second World War, produced by Jeremy Isaacs and narrated by Laurence Olivier.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-world-at-war-1973-thames-television-world-war-two.5bd0d00f.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "Documentary"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e01",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "A New Germany (1933– 1939)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3260,
+          "videoFile": {
+            "name": "01 A New Germany (1933–1939).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 453467289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/01%20A%20New%20Germany%20%281933%E2%80%931939%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e02",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Distant War (September 1939 – May 1940)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3242,
+          "videoFile": {
+            "name": "02 Distant War (September 1939 – May 1940).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 450980871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/02%20Distant%20War%20%28September%201939%20%E2%80%93%20May%201940%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e03",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "France Falls (May – June 1940)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3285,
+          "videoFile": {
+            "name": "03 France Falls (May – June 1940).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 457098983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/03%20France%20Falls%20%28May%20%E2%80%93%20June%201940%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e04",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Alone (May 1940 – May 1941)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3231,
+          "videoFile": {
+            "name": "04 Alone (May 1940 – May 1941).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 449594238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/04%20Alone%20%28May%201940%20%E2%80%93%20May%201941%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e05",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Barbarossa (June – December 1941)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3286,
+          "videoFile": {
+            "name": "05 Barbarossa (June – December 1941).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 457014680,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/05%20Barbarossa%20%28June%20%E2%80%93%20December%201941%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e06",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Banzai! Japan (1931–1942)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3256,
+          "videoFile": {
+            "name": "06 Banzai! Japan (1931–1942).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 452927153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/06%20Banzai%21%20Japan%20%281931%E2%80%931942%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e07",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "On Our Way U.S.A. (1939–1942)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3298,
+          "videoFile": {
+            "name": "07 On Our Way U.S.A. (1939–1942).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458774429,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/07%20On%20Our%20Way%20U.S.A.%20%281939%E2%80%931942%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e08",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Desert North Africa (1940–1943)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3279,
+          "videoFile": {
+            "name": "08 The Desert North Africa (1940–1943).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 456210346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/08%20The%20Desert%20North%20Africa%20%281940%E2%80%931943%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e09",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Stalingrad (June 1942 – February 1943)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3246,
+          "videoFile": {
+            "name": "09 Stalingrad (June 1942 – February 1943).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 451161078,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/09%20Stalingrad%20%28June%201942%20%E2%80%93%20February%201943%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e10",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Wolf Pack U-Boats in the Atlantic (1939–1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3253,
+          "videoFile": {
+            "name": "10 Wolf Pack U-Boats in the Atlantic (1939–1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 452323151,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/10%20Wolf%20Pack%20U-Boats%20in%20the%20Atlantic%20%281939%E2%80%931944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e11",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Red Star The Soviet Union (1941–1943)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3309,
+          "videoFile": {
+            "name": "11 Red Star The Soviet Union (1941–1943).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 459926979,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/11%20Red%20Star%20The%20Soviet%20Union%20%281941%E2%80%931943%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e12",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Whirlwind Bombing Germany (September 1939 – April 1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3277,
+          "videoFile": {
+            "name": "12 Whirlwind Bombing Germany (September 1939 – April 1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 455792869,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/12%20Whirlwind%20Bombing%20Germany%20%28September%201939%20%E2%80%93%20April%201944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e13",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Tough Old Gut Italy (November 1942 – June 1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3160,
+          "videoFile": {
+            "name": "13 Tough Old Gut Italy (November 1942 – June 1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 439576061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/13%20Tough%20Old%20Gut%20Italy%20%28November%201942%20%E2%80%93%20June%201944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e14",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "It's A Lovely Day Tomorrow Burma (1942–1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3280,
+          "videoFile": {
+            "name": "14 It's A Lovely Day Tomorrow Burma (1942–1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 456434589,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/14%20It%27s%20A%20Lovely%20Day%20Tomorrow%20Burma%20%281942%E2%80%931944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e15",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Home Fires Britain (1940–1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3283,
+          "videoFile": {
+            "name": "15 Home Fires Britain (1940–1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 456866069,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/15%20Home%20Fires%20Britain%20%281940%E2%80%931944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e16",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Inside the Reich Germany (1940–1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3287,
+          "videoFile": {
+            "name": "16 Inside the Reich Germany (1940–1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 457383583,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/16%20Inside%20the%20Reich%20Germany%20%281940%E2%80%931944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e17",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Morning (June – August 1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3267,
+          "videoFile": {
+            "name": "17 Morning (June – August 1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 454567505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/17%20Morning%20%28June%20%E2%80%93%20August%201944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e18",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Occupation Holland (1940–1944)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3292,
+          "videoFile": {
+            "name": "18 Occupation Holland (1940–1944).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458147026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/18%20Occupation%20Holland%20%281940%E2%80%931944%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e19",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Pincers (August 1944 – March 1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3282,
+          "videoFile": {
+            "name": "19 Pincers (August 1944 – March 1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 456564383,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/19%20Pincers%20%28August%201944%20%E2%80%93%20March%201945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e20",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Genocide (1941–1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3285,
+          "videoFile": {
+            "name": "20 Genocide (1941–1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 457140613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/20%20Genocide%20%281941%E2%80%931945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e21",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Nemesis Germany (February – May 1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3272,
+          "videoFile": {
+            "name": "21 Nemesis Germany (February – May 1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 455318311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/21%20Nemesis%20Germany%20%28February%20%E2%80%93%20May%201945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e22",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Japan (1941–1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3196,
+          "videoFile": {
+            "name": "22 Japan (1941–1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 444726534,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/22%20Japan%20%281941%E2%80%931945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e23",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Pacific (February 1942 – July 1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3184,
+          "videoFile": {
+            "name": "23 Pacific (February 1942 – July 1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 442864297,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/23%20Pacific%20%28February%201942%20%E2%80%93%20July%201945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e24",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Bomb (February – September 1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3280,
+          "videoFile": {
+            "name": "24 The Bomb (February – September 1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 456204471,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/24%20The%20Bomb%20%28February%20%E2%80%93%20September%201945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e25",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Reckoning (April 1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3220,
+          "videoFile": {
+            "name": "25 Reckoning (April 1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 448098479,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/25%20Reckoning%20%28April%201945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e26",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Remember",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3134,
+          "videoFile": {
+            "name": "26 Remember.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 436226441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/26%20Remember.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e27",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "The Making of the Series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2906,
+          "videoFile": {
+            "name": "27 The Making of the Series.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 678548757,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/27%20The%20Making%20of%20the%20Series.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e28",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Hitler's Germany - The People's Community (1933 - 1939)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 4492,
+          "videoFile": {
+            "name": "28 Hitler's Germany - The People's Community (1933 - 1939).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1047996132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/28%20Hitler%27s%20Germany%20-%20The%20People%27s%20Community%20%281933%20-%201939%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e29",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Hitler's Germany - Total War (1939 -1945)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 4581,
+          "videoFile": {
+            "name": "29 Hitler's Germany - Total War (1939 -1945).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1066687699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/29%20Hitler%27s%20Germany%20-%20Total%20War%20%281939%20-1945%29.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e30",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Secretary To Hitler",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 1394,
+          "videoFile": {
+            "name": "30 Secretary To Hitler.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 324012178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/30%20Secretary%20To%20Hitler.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e31",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "The Two Deaths of Adolf Hitler",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2815,
+          "videoFile": {
+            "name": "31 The Two Deaths of Adolf Hitler.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 652032679,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/31%20The%20Two%20Deaths%20of%20Adolf%20Hitler.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e32",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Warrior - Reflections of Men at War",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "32 Warrior - Reflections of Men at War.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 704823095,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/32%20Warrior%20-%20Reflections%20of%20Men%20at%20War.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e33",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "From War to Peace",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 1361,
+          "videoFile": {
+            "name": "33 From War to Peace.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 316284273,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/33%20From%20War%20to%20Peace.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e34",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "The Final Solution Part One",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 5749,
+          "videoFile": {
+            "name": "34 The Final Solution Part One.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1342469372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/34%20The%20Final%20Solution%20Part%20One.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e35",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Final Solution Part Two",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 5398,
+          "videoFile": {
+            "name": "35 The Final Solution Part Two.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1251406481,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/35%20The%20Final%20Solution%20Part%20Two.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e36",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Making the Series - A 30th Anniversary Retrospective",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 7385,
+          "videoFile": {
+            "name": "36 Making the Series - A 30th Anniversary Retrospective.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1725201417,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/36%20Making%20the%20Series%20-%20A%2030th%20Anniversary%20Retrospective.mp4"
+        },
+        {
+          "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e37",
+          "sourceID": "the-world-at-war-1973-thames-television-world-war-two",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Experiences of War",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3511,
+          "videoFile": {
+            "name": "37 Experiences of War.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 820399258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/37%20Experiences%20of%20War.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 37,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

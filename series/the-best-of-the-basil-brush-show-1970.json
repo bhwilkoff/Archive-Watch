@@ -1,0 +1,148 @@
+{
+  "version": 2,
+  "seriesID": "the-best-of-the-basil-brush-show-1970",
+  "sourceID": "the-best-of-the-basil-brush-show",
+  "tvmazeID": null,
+  "title": "The Best of The Basil Brush Show",
+  "yearStart": 1970,
+  "yearEnd": null,
+  "overview": "Highlights from the original Basil Brush Show created by Ivan Owen. Starring Basil Brush. With Derek Fowlds, Roy North and Howard Williams. Special guests include Lulu, Cilla Black, Demis Roussos, John Inman, Anita Harris and George Sewell. /ukpga/1988/48 ) has expired for all items included in this collection first broadcast over fifty years ago. Further, this is a collection of brief clips, derived from many different broadcasts. /ukpga/1988/48/section/59 ).",
+  "posterURL": "https://archive.org/services/img/the-best-of-the-basil-brush-show",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-best-of-the-basil-brush-show@e01",
+          "sourceID": "the-best-of-the-basil-brush-show",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Lulu + Roy North",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-best-of-the-basil-brush-show/the-best-of-the-basil-brush-show.thumbs/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%201%20-%20Lulu%20%2B%20Roy%20North_000267.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 757,
+          "videoFile": {
+            "name": "The Best of the Basil Brush Show - Excerpt 1 - Lulu + Roy North.mp4",
+            "format": "h.264",
+            "sizeBytes": 72816621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-basil-brush-show/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%201%20-%20Lulu%20%2B%20Roy%20North.mp4"
+        },
+        {
+          "archiveID": "the-best-of-the-basil-brush-show@e02",
+          "sourceID": "the-best-of-the-basil-brush-show",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Cilla Black",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-best-of-the-basil-brush-show/the-best-of-the-basil-brush-show.thumbs/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%202%20-%20Cilla%20Black_000057.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 139,
+          "videoFile": {
+            "name": "The Best of the Basil Brush Show - Excerpt 2 - Cilla Black.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 8089094,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-basil-brush-show/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%202%20-%20Cilla%20Black.mp4"
+        },
+        {
+          "archiveID": "the-best-of-the-basil-brush-show@e03",
+          "sourceID": "the-best-of-the-basil-brush-show",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Demis Roussos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-best-of-the-basil-brush-show/the-best-of-the-basil-brush-show.thumbs/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%203%20-%20Demis%20Roussos_000087.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 163,
+          "videoFile": {
+            "name": "The Best of the Basil Brush Show - Excerpt 3 - Demis Roussos.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 12821950,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-basil-brush-show/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%203%20-%20Demis%20Roussos.mp4"
+        },
+        {
+          "archiveID": "the-best-of-the-basil-brush-show@e04",
+          "sourceID": "the-best-of-the-basil-brush-show",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "John Inman + Roy North",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-best-of-the-basil-brush-show/the-best-of-the-basil-brush-show.thumbs/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%204%20-%20John%20Inman%20%2B%20Roy%20North_000118.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 265,
+          "videoFile": {
+            "name": "The Best of the Basil Brush Show - Excerpt 4 - John Inman + Roy North.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 11900597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-basil-brush-show/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%204%20-%20John%20Inman%20%2B%20Roy%20North.mp4"
+        },
+        {
+          "archiveID": "the-best-of-the-basil-brush-show@e06",
+          "sourceID": "the-best-of-the-basil-brush-show",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "George Sewell + Roy North",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-best-of-the-basil-brush-show/the-best-of-the-basil-brush-show.thumbs/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%206%20-%20George%20Sewell%20%2B%20Roy%20North_000119.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 274,
+          "videoFile": {
+            "name": "The Best of the Basil Brush Show - Excerpt 6 - George Sewell + Roy North.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 17007145,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-basil-brush-show/The%20Best%20of%20the%20Basil%20Brush%20Show%20-%20Excerpt%206%20-%20George%20Sewell%20%2B%20Roy%20North.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-best-of-the-basil-brush-show@x-best-of-the-basil-brush-show-197",
+          "sourceID": "the-best-of-the-basil-brush-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Best of the Basil Brush Show (1970s)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-best-of-the-basil-brush-show/the-best-of-the-basil-brush-show.thumbs/Best%20of%20the%20Basil%20Brush%20Show%20%281970s%29_001075.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3115,
+          "videoFile": {
+            "name": "Best of the Basil Brush Show (1970s).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 332013099,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-basil-brush-show/Best%20of%20the%20Basil%20Brush%20Show%20%281970s%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

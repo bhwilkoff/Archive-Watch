@@ -1,0 +1,211 @@
+{
+  "version": 2,
+  "seriesID": "ripping-yarns-1976",
+  "sourceID": "ripping-yarns-1976",
+  "tvmazeID": null,
+  "title": "Ripping Yarns",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "Michael Palin plays a different lead in each of nine parodies of Boys' Own adventure stories; Ripping Yarns, written by Palin and Terry Jones for the BBC, 1976–79.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/ripping-yarns-1976.f3570b7e.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ripping-yarns-1976@e01",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Ripping Yarns Tomkinson's Schooldays",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1814,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/01.Ripping Yarns...Tomkinson's Schooldays.mp4",
+            "format": "h.264",
+            "sizeBytes": 178370480,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/01.Ripping%20Yarns...Tomkinson%27s%20Schooldays.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e02",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Ripping Yarns The Testing of Eric Olthwaite",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1718,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/02.Ripping Yarns...The Testing of Eric Olthwaite.mp4",
+            "format": "h.264",
+            "sizeBytes": 168865974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/02.Ripping%20Yarns...The%20Testing%20of%20Eric%20Olthwaite.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e03",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Ripping Yarns Escape from Stalag Luft 112B",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1732,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/03.Ripping Yarns...Escape from Stalag Luft 112B.mp4",
+            "format": "h.264",
+            "sizeBytes": 171046983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/03.Ripping%20Yarns...Escape%20from%20Stalag%20Luft%20112B.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e04",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Ripping Yarns Murder at Moorstones Manor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1778,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/04.Ripping Yarns...Murder at Moorstones Manor.mp4",
+            "format": "h.264",
+            "sizeBytes": 175454734,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/04.Ripping%20Yarns...Murder%20at%20Moorstones%20Manor.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e05",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Ripping Yarns Across the Andes by Frog",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1881,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/05.Ripping Yarns...Across the Andes by Frog.mp4",
+            "format": "h.264",
+            "sizeBytes": 183745947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/05.Ripping%20Yarns...Across%20the%20Andes%20by%20Frog.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e06",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Ripping Yarns The Curse of the Claw",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1932,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/06.Ripping Yarns...The Curse of the Claw.mp4",
+            "format": "h.264",
+            "sizeBytes": 188820583,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/06.Ripping%20Yarns...The%20Curse%20of%20the%20Claw.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e07",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Ripping Yarns Whinfrey's Last Case",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1889,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/07.Ripping Yarns...Whinfrey's Last Case.mp4",
+            "format": "h.264",
+            "sizeBytes": 185662500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/07.Ripping%20Yarns...Whinfrey%27s%20Last%20Case.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e08",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Ripping Yarns Golden Gordon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1912,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/08.Ripping Yarns...Golden Gordon.mp4",
+            "format": "h.264",
+            "sizeBytes": 186821778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/08.Ripping%20Yarns...Golden%20Gordon.mp4"
+        },
+        {
+          "archiveID": "ripping-yarns-1976@e09",
+          "sourceID": "ripping-yarns-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Ripping Yarns Roger of the Raj",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "RIPPING YARNS (1976)/09.Ripping Yarns...Roger of the Raj.mp4",
+            "format": "h.264",
+            "sizeBytes": 172389740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ripping-yarns-1976/RIPPING%20YARNS%20%281976%29/09.Ripping%20Yarns...Roger%20of%20the%20Raj.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": null,
+  "tvdbID": "70663",
+  "artworkSource": "generated",
+  "cast": [
+    {
+      "name": "Michael Palin",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253896/5fe024347cf3c.jpg"
+    },
+    {
+      "name": "Terry Jones",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270847/photo/6202681dae38f.jpg"
+    }
+  ]
+}

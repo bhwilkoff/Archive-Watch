@@ -1,0 +1,259 @@
+{
+  "version": 2,
+  "seriesID": "tin-minh-1918",
+  "sourceID": "Tin-Minh-1918",
+  "tvmazeID": null,
+  "title": "Tin Minh",
+  "yearStart": 1918,
+  "yearEnd": null,
+  "overview": "From Louis Feuillade, writer and director of other iconic film serials such as Fantomas and Les Vampires, this serial follows an explorer as he returns from Indochina with his new companion, Tih Minh. Unique for the time, Tih Minh is actually played by a biracial woman, Mary Harald, and her performance was especially heralded at the time of release. While the serial felt a little slow to overseas audiences, it was a commercial and critical hit in France.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Tin-Minh-1918.d270641c.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Romance",
+    "Drama"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Tin-Minh-1918@e01",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Prologue + The Potion Of Forgetfulness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/01%20Prologue%20%2B%20The%20Potion%20Of%20Forgetfulness%201918_001011.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2818,
+          "videoFile": {
+            "name": "01 Prologue + The Potion Of Forgetfulness 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 287297535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/01%20Prologue%20%2B%20The%20Potion%20Of%20Forgetfulness%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e02",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Two Dramatic Events During The Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/02%20Two%20Dramatic%20Events%20During%20The%20Night%201918_000640.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1786,
+          "videoFile": {
+            "name": "02 Two Dramatic Events During The Night 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 180809283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/02%20Two%20Dramatic%20Events%20During%20The%20Night%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e03",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Mysteries Of Circe Villa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/03%20The%20Mysteries%20Of%20Circe%20Villa%201918_000772.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2158,
+          "videoFile": {
+            "name": "03 The Mysteries Of Circe Villa 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 219266935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/03%20The%20Mysteries%20Of%20Circe%20Villa%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e04",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Man In The Trunk",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/04%20The%20Man%20In%20The%20Trunk%201918_000636.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "04 The Man In The Trunk 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 178617943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/04%20The%20Man%20In%20The%20Trunk%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e05",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "At The Asylum",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/05%20At%20The%20Asylum%201918_000574.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1610,
+          "videoFile": {
+            "name": "05 At The Asylum 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 163632328,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/05%20At%20The%20Asylum%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e06",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Night Birds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/06%20The%20Night%20Birds%201918_000650.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1822,
+          "videoFile": {
+            "name": "06 The Night Birds 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 185600343,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/06%20The%20Night%20Birds%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e07",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Evocation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/07%20Evocation%201918_000589.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1643,
+          "videoFile": {
+            "name": "07 Evocation 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 165525151,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/07%20Evocation%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e08",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Beneath The Veil",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/08%20Beneath%20The%20Veil%201918_000622.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1735,
+          "videoFile": {
+            "name": "08 Beneath The Veil 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 176213370,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/08%20Beneath%20The%20Veil%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e09",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Saving Branch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/09%20The%20Saving%20Branch%201918_000646.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1790,
+          "videoFile": {
+            "name": "09 The Saving Branch 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 181418504,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/09%20The%20Saving%20Branch%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e10",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Wednesday 13th",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/10%20Wednesday%2013th%201918_000766.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2134,
+          "videoFile": {
+            "name": "10 Wednesday 13th 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 217614727,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/10%20Wednesday%2013th%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e11",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Document 29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/11%20Document%2029%201918_000674.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1890,
+          "videoFile": {
+            "name": "11 Document 29 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 192058653,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/11%20Document%2029%201918.mp4"
+        },
+        {
+          "archiveID": "Tin-Minh-1918@e12",
+          "sourceID": "Tin-Minh-1918",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Justice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tin-Minh-1918/Tin-Minh-1918.thumbs/12%20%20Justice%201918_000699.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1940,
+          "videoFile": {
+            "name": "12  Justice 1918.mp4",
+            "format": "h.264",
+            "sizeBytes": 198706301,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tin-Minh-1918/12%20%20Justice%201918.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

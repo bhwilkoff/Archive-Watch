@@ -1,0 +1,977 @@
+{
+  "version": 2,
+  "seriesID": "chilly-willy-filmography-1953",
+  "sourceID": "chilly-willy-filmography",
+  "tvmazeID": null,
+  "title": "Chilly Willy Filmography",
+  "yearStart": 1953,
+  "yearEnd": null,
+  "overview": "Chilly Willy is a penguin cartoon character who was starred in a series set of 50 theatrical shorts from 1953 to 1972. He became the second most popular Lantz/Universal character after Woody Woodpecker, and made a successful transition to the screen when his shorts aired alongside other Walter Lantz cartoons on The Woody Woodpecker Show. Paul J. Smith directed the first toon, simply titled Chilly Willy (1953), the main title. The initial version of Chilly Willy resembled Woody Woodpecker, except with flippers and black feathers, but in subsequent cartoons an entirely new design was used. The alternative was named \"The Deep Freeze\" as the TV Print title from The Woody Woodpecker Show (1957-1972). Tex Avery revived the character for two of his most notable shorts, 02 - I'm Cold (1954), and the Academy Award nominated 03 - The Legend of Rock-a-bye Point (1955). After Avery left the studio, the Chilly Willy cartoons were directed by Paul J. Smith and Alex Lovy, with some 1960's cartoons directed by Jack Hannah and Sid Marcus. Most of Chilly Willy's plots always involved staying warm and finding food - and always meeting an opposition from a dog named Smedley (voiced by Daws Butler in his \"Huckleberry Hound\" voice). Chilly was much quite of a nuisance to Smedley than an enemy often showing up where Smedley is working, usually for some mean consumer or employer. There were other times, however, when Chilly and Smedley got along (as they did in two cartoons: 26 - Fractured Friendship (1965) and 34 - Vicious Viking (1967). Two of Chilly Willy's friends that entered in the mid-late 1960s were Maxie the Polar Bear (voiced by Daws Butler) and Gooney the \"Gooney Bird\" Albatross (voiced by Daws Butler impersonating Joe E. Brown). Maxie was seen with Chilly more than Gooney has. There has been only two cartoons in which all three characters have appeared together: 45 - Gooney's Goofy Landings (1970), and 48 - Airlift a la Carte (1971). In some episodes, Chilly Willy also deals with a rough and tough (big game) hunter named Colonel Pot Shot (voiced by Daws Butler), whom Smedley was shown to work for in several episodes. His first appearance was on Toon 40 - Highway Hecklers (where he was seen driving on a truck for hunting expeditions and tries to catch both Chilly and Maxie). Pot Shot would give orders in a calm controlled voice, and then would explode in a rage when he told Smedley what would happen should he fails in his objective. Also, two episodes in 1961 had Chilly Willy outsmarting Wally Walrus comes across his fishing projects. Chilly was mute in most of his 1950s and early 1960s cartoons, although he was voiced by Sara Berner in the initial entry, while later entries featured Daws Butler providing Chilly voice, in a style similar to his Elroy Jetson characterization. The character always speaks in in the comic book stories based on the character. Also in the comic book stories (like Knothead & Splinter) Chilly had two nephews named Ping and Pong. Chilly has a great fondness for pancakes (from 27 - Half-Baked Alaska ). When the Lantz cartoons were packaged for television in 1957 as The Woody Woodpecker Show, Chilly Willy was a featured attracted on the show, and has remained such in all later versions of the Woody Woodpecker Show package. NOTE: On this series of Chilly Willy the Penguin, you'll notice some of the videos that are updated up to its better quality. Those were actually due to FuriousMan226 and Cartoony Julio as well for the best qualities - but don't get me wrong though. The other shorts were edited better than I would ever found to save. If you are looking for someone who was it, give him credit.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/chilly-willy-filmography.0eb8f879.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chilly-willy-filmography@e01",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Chilly Willy (Main Title) (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/01%20-%20Chilly%20Willy%20%28Main%20Title%29%20%281953%29_000183.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 378,
+          "videoFile": {
+            "name": "01 - Chilly Willy (Main Title) (1953).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 43450401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/01%20-%20Chilly%20Willy%20%28Main%20Title%29%20%281953%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e02",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "I'm Cold (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/02%20-%20I%27m%20Cold%20%281954%29_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 372,
+          "videoFile": {
+            "name": "02 - I'm Cold (1954).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 27966907,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/02%20-%20I%27m%20Cold%20%281954%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e03",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Legend of Rock-a-bye Point (1955)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/03%20-%20Legend%20of%20Rock-a-bye%20Point%20%281955%29_000182.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 371,
+          "videoFile": {
+            "name": "03 - Legend of Rock-a-bye Point (1955).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 43783351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/03%20-%20Legend%20of%20Rock-a-bye%20Point%20%281955%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e04",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Hot & Cold Penguin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/04%20-%20Hot%20%26%20Cold%20Penguin_000181.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 366,
+          "videoFile": {
+            "name": "04 - Hot & Cold Penguin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 39698898,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/04%20-%20Hot%20%26%20Cold%20Penguin.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e05",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Room & Wrath (1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/05%20-%20Room%20%26%20Wrath%20%281956%29_000251.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 382,
+          "videoFile": {
+            "name": "05 - Room & Wrath (1956).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 37272551,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/05%20-%20Room%20%26%20Wrath%20%281956%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e06",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Hold that Rock",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/06%20-%20Hold%20that%20Rock_000179.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "06 - Hold that Rock.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 33256966,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/06%20-%20Hold%20that%20Rock.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e07",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Operation Cold Feet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/07%20-%20Operation%20Cold%20Feet_000184.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 373,
+          "videoFile": {
+            "name": "07 - Operation Cold Feet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 23949814,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/07%20-%20Operation%20Cold%20Feet.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e08",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Big Snooze (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/08%20-%20The%20Big%20Snooze%20%281957%29_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "08 - The Big Snooze (1957).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 49257892,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/08%20-%20The%20Big%20Snooze%20%281957%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e09",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Swiss Miss-Fit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/09%20-%20Swiss%20Miss-Fit_000181.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 373,
+          "videoFile": {
+            "name": "09 - Swiss Miss-Fit.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28786685,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/09%20-%20Swiss%20Miss-Fit.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e10",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Polar Pests (1958)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/10%20-%20Polar%20Pests%20%281958%29_000244.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 373,
+          "videoFile": {
+            "name": "10 - Polar Pests (1958).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 24797121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/10%20-%20Polar%20Pests%20%281958%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e11",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Chilly Reception",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/11%20-%20Chilly%20Reception_000179.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 369,
+          "videoFile": {
+            "name": "11 - Chilly Reception.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 23102229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/11%20-%20Chilly%20Reception.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e12",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Little Televillain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/12%20-%20Little%20Televillain_000175.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 361,
+          "videoFile": {
+            "name": "12 - Little Televillain.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 41820323,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/12%20-%20Little%20Televillain.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e13",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Robinson Gruesome (1959)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/13%20-%20Robinson%20Gruesome%20%281959%29_000182.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 364,
+          "videoFile": {
+            "name": "13 - Robinson Gruesome (1959).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 47895695,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/13%20-%20Robinson%20Gruesome%20%281959%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e14",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Yukon Have It",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/14%20-%20Yukon%20Have%20It_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "14 - Yukon Have It.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26687509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/14%20-%20Yukon%20Have%20It.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e15",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Fish Hooked (1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/15%20-%20Fish%20Hooked%20%281960%29_000179.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "15 - Fish Hooked (1960).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 23908992,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/15%20-%20Fish%20Hooked%20%281960%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e16",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Clash & Carry (1961)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/16%20-%20Clash%20%26%20Carry%20%281961%29_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 369,
+          "videoFile": {
+            "name": "16 - Clash & Carry (1961).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 45070716,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/16%20-%20Clash%20%26%20Carry%20%281961%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e17",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "St. Moritz Blitz",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/17%20-%20St.%20Moritz%20Blitz_000184.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 373,
+          "videoFile": {
+            "name": "17 - St. Moritz Blitz.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30931239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/17%20-%20St.%20Moritz%20Blitz.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e18",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Tricky Trout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/18%20-%20Tricky%20Trout_000240.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "18 - Tricky Trout.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 25860297,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/18%20-%20Tricky%20Trout.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e19",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Fish & Chips (1962)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/19%20-%20Fish%20%26%20Chips%20%281962%29_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "19 - Fish & Chips (1962).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 28735699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/19%20-%20Fish%20%26%20Chips%20%281962%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e20",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Mackerel Moocher",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/20%20-%20Mackerel%20Moocher_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "20 - Mackerel Moocher.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26115172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/20%20-%20Mackerel%20Moocher.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e21",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Salmon Loafer (1963)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/21%20-%20Salmon%20Loafer%20%281963%29_000240.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "21 - Salmon Loafer (1963).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 51138705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/21%20-%20Salmon%20Loafer%20%281963%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e22",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Pesky Pelican",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/22%20-%20Pesky%20Pelican_000239.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "22 - Pesky Pelican.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 83970033,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/22%20-%20Pesky%20Pelican.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e23",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Deep-Freeze Squeeze (1964)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/23%20-%20Deep-Freeze%20Squeeze%20%281964%29_000182.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 370,
+          "videoFile": {
+            "name": "23 - Deep-Freeze Squeeze (1964).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 63788386,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/23%20-%20Deep-Freeze%20Squeeze%20%281964%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e24",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Lighthouse Keeping Blues",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/24%20-%20Lighthouse%20Keeping%20Blues_000179.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "24 - Lighthouse Keeping Blues.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 37177416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/24%20-%20Lighthouse%20Keeping%20Blues.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e25",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Ski-Napper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/25%20-%20Ski-Napper_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 369,
+          "videoFile": {
+            "name": "25 - Ski-Napper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 41175673,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/25%20-%20Ski-Napper.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e26",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Fractured Friendship (1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/26%20-%20Fractured%20Friendship%20%281965%29_000240.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 369,
+          "videoFile": {
+            "name": "26 - Fractured Friendship (1965).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 37374249,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/26%20-%20Fractured%20Friendship%20%281965%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e27",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Half-Baked Alaska",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/27%20-%20Half-Baked%20Alaska_000185.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 370,
+          "videoFile": {
+            "name": "27 - Half-Baked Alaska.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 25000912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/27%20-%20Half-Baked%20Alaska.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e28",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Pesty Guest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/28%20-%20Pesty%20Guest_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 366,
+          "videoFile": {
+            "name": "28 - Pesty Guest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 51802576,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/28%20-%20Pesty%20Guest.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e29",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Operation Shanghai (1966)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/29%20-%20Operation%20Shanghai%20%281966%29_000183.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "29 - Operation Shanghai (1966).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 50141509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/29%20-%20Operation%20Shanghai%20%281966%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e30",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Snow Place Like Home",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/30%20-%20Snow%20Place%20Like%20Home_000226.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "30 - Snow Place Like Home.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59865142,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/30%20-%20Snow%20Place%20Like%20Home.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e31",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Polar Fright",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/31%20-%20Polar%20Fright_000240.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "31 - Polar Fright.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61614113,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/31%20-%20Polar%20Fright.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e32",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "South Pole Pals",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/32%20-%20South%20Pole%20Pals_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 358,
+          "videoFile": {
+            "name": "32 - South Pole Pals.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 44550423,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/32%20-%20South%20Pole%20Pals.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e33",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Teeny Weeny Meany",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/33%20-%20Teeny%20Weeny%20Meany_000231.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 354,
+          "videoFile": {
+            "name": "33 - Teeny Weeny Meany.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 72411655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/33%20-%20Teeny%20Weeny%20Meany.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e34",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Vicious Viking (1967)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/34%20-%20Vicious%20Viking%20%281967%29_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 366,
+          "videoFile": {
+            "name": "34 - Vicious Viking (1967).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 50620707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/34%20-%20Vicious%20Viking%20%281967%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e35",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Hot Time on Ice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/35%20-%20Hot%20Time%20on%20Ice_000239.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "35 - Hot Time on Ice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 48825317,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/35%20-%20Hot%20Time%20on%20Ice.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e36",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Chilly & The Woodchopper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/36%20-%20Chilly%20%26%20The%20Woodchopper_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "36 - Chilly & The Woodchopper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 44420208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/36%20-%20Chilly%20%26%20The%20Woodchopper.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e37",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Chilly Chums",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/37%20-%20Chilly%20Chums_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 370,
+          "videoFile": {
+            "name": "37 - Chilly Chums.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 45080659,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/37%20-%20Chilly%20Chums.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e38",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Chiller Dillers (1968)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/38%20-%20Chiller%20Dillers%20%281968%29_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "38 - Chiller Dillers (1968).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60693441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/38%20-%20Chiller%20Dillers%20%281968%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e39",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Undersea Dogs",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/39%20-%20Undersea%20Dogs_000226.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "39 - Undersea Dogs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 46531705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/39%20-%20Undersea%20Dogs.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e40",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Highway Hecklers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/40%20-%20Highway%20Hecklers_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "40 - Highway Hecklers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 54295321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/40%20-%20Highway%20Hecklers.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e41",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Project Reject (1969)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/41%20-%20Project%20Reject%20%281969%29_000180.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "41 - Project Reject (1969).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58668989,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/41%20-%20Project%20Reject%20%281969%29.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e42",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Chilly and the Looney Gooney",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/42%20-%20Chilly%20and%20the%20Looney%20Gooney_000178.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "42 - Chilly and the Looney Gooney.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42422099,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/42%20-%20Chilly%20and%20the%20Looney%20Gooney.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e43",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Sleepy Time Bear",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/43%20-%20Sleepy%20Time%20Bear_000177.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "43 - Sleepy Time Bear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 44446246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/43%20-%20Sleepy%20Time%20Bear.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e44",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "A Gooney Is Born (1970)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/44%20-%20A%20Gooney%20Is%20Born%20%281970%29_000167.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "44 - A Gooney Is Born (1970).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61792026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/44%20-%20A%20Gooney%20Is%20Born%20%281970%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e45",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Gooney's Goofy Landings",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/45%20-%20Gooney%27s%20Goofy%20Landings_000169.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 345,
+          "videoFile": {
+            "name": "45 - Gooney's Goofy Landings.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 45976505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/45%20-%20Gooney%27s%20Goofy%20Landings.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e46",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Chilly's Ice Folly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/46%20-%20Chilly%27s%20Ice%20Folly_000170.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "46 - Chilly's Ice Folly.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 56306882,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/46%20-%20Chilly%27s%20Ice%20Folly.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e47",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Chilly's Cold War",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/47%20-%20Chilly%27s%20Cold%20War_000167.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 345,
+          "videoFile": {
+            "name": "47 - Chilly's Cold War.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 58883797,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/47%20-%20Chilly%27s%20Cold%20War.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e48",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Airlift A La Carte (1971)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/48%20-%20Airlift%20A%20La%20Carte%20%281971%29_000161.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 328,
+          "videoFile": {
+            "name": "48 - Airlift A La Carte (1971).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 23961030,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/48%20-%20Airlift%20A%20La%20Carte%20%281971%29.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e49",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Chilly's Hide-A-Way",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/49%20-%20Chilly%27s%20Hide-A-Way_000221.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 339,
+          "videoFile": {
+            "name": "49 - Chilly's Hide-A-Way.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 62136221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/49%20-%20Chilly%27s%20Hide-A-Way.ia.mp4"
+        },
+        {
+          "archiveID": "chilly-willy-filmography@e50",
+          "sourceID": "chilly-willy-filmography",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "The Rude Intruder (1972)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chilly-willy-filmography/chilly-willy-filmography.thumbs/50%20-%20The%20Rude%20Intruder%20%281972%29_000169.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 346,
+          "videoFile": {
+            "name": "50 - The Rude Intruder (1972).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 47590548,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chilly-willy-filmography/50%20-%20The%20Rude%20Intruder%20%281972%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 50,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

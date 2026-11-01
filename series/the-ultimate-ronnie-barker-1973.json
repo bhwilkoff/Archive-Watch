@@ -1,0 +1,255 @@
+{
+  "version": 2,
+  "seriesID": "the-ultimate-ronnie-barker-1973",
+  "sourceID": "ronniebarker",
+  "tvmazeID": null,
+  "title": "The Ultimate Ronnie Barker",
+  "yearStart": 1973,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/ronniebarker.59535fc3.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ronniebarker@e01",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Seven of One",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/01%20Seven%20of%20One_004896.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 12363,
+          "videoFile": {
+            "name": "01 Seven of One.mp4",
+            "format": "h.264",
+            "sizeBytes": 1205575019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/01%20Seven%20of%20One.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e02",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Porridge Series 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/02%20Porridge%20Series%201_000730.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 1845,
+          "videoFile": {
+            "name": "02 Porridge Series 17.mp4",
+            "format": "h.264",
+            "sizeBytes": 180382630,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/02%20Porridge%20Series%2017.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e03",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Porridge Series 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/03%20Porridge%20Series%202_004126.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10420,
+          "videoFile": {
+            "name": "03 Porridge Series 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 1015012432,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/03%20Porridge%20Series%202.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e04",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Porridge Series 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/04%20Porridge%20Series%203_004208.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10627,
+          "videoFile": {
+            "name": "04 Porridge Series 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 1047052566,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/04%20Porridge%20Series%203.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e05",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Porridge Christmas Specials",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/05%20Porridge%20Christmas%20Specials_001391.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3514,
+          "videoFile": {
+            "name": "05 Porridge Christmas Specials.mp4",
+            "format": "h.264",
+            "sizeBytes": 345802625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/05%20Porridge%20Christmas%20Specials.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e06",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Going Straight",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/06%20Going%20Straight_004173.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10539,
+          "videoFile": {
+            "name": "06 Going Straight.mp4",
+            "format": "h.264",
+            "sizeBytes": 1029433883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/06%20Going%20Straight.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e07",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Open All Hours Series 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/07%20Open%20All%20Hours%20Series%201_004198.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10602,
+          "videoFile": {
+            "name": "07 Open All Hours Series 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 1031861380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/07%20Open%20All%20Hours%20Series%201.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e08",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Open All Hours Series 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/08%20Open%20All%20Hours%20Series%202_004964.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 12536,
+          "videoFile": {
+            "name": "08 Open All Hours Series 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 1223773292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/08%20Open%20All%20Hours%20Series%202.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e09",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Open All Hours Series 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/09%20Open%20All%20Hours%20Series%203_004256.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10748,
+          "videoFile": {
+            "name": "09 Open All Hours Series 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 1048673078,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/09%20Open%20All%20Hours%20Series%203.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e10",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Open All Hours Series 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/10%20Open%20All%20Hours%20Series%204_004228.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10677,
+          "videoFile": {
+            "name": "10 Open All Hours Series 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 1038651058,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/10%20Open%20All%20Hours%20Series%204.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e11",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Magnificent Evans",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/11%20The%20Magnificent%20Evans_004211.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10634,
+          "videoFile": {
+            "name": "11 The Magnificent Evans.mp4",
+            "format": "h.264",
+            "sizeBytes": 1044306509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/11%20The%20Magnificent%20Evans.mp4"
+        },
+        {
+          "archiveID": "ronniebarker@e12",
+          "sourceID": "ronniebarker",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Clarence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ronniebarker/ronniebarker.thumbs/12%20Clarence_004205.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 10618,
+          "videoFile": {
+            "name": "12 Clarence.mp4",
+            "format": "h.264",
+            "sizeBytes": 1037146239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/12%20Clarence.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

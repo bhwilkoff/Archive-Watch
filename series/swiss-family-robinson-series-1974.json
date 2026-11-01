@@ -1,0 +1,523 @@
+{
+  "version": 2,
+  "seriesID": "swiss-family-robinson-series-1974",
+  "sourceID": "swiss-family-robinson-1974",
+  "tvmazeID": null,
+  "title": "Swiss Family Robinson Series",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": "Swiss Family Robinson is a 1974–1975 Canadian television drama series, based on Johann David Wyss' 1812 novel The Swiss Family Robinson. The series consisted of 26 30-minute episodes, and diverged somewhat from the original novel. Only one season was produced, due to the development of a Swiss Family Robinson series in 1975 by ABC in the United States. This situation precluded sales of the Canadian series to the lucrative American market. Reruns, however, continued to be syndicated in Canada for many years, with stations often scheduling the program as part of their Saturday morning line-up. Disclaimer: Episodes may not be in proper order, 3 main sources online all list them differently.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cvRshpyaN7wpnbwOBVYDWHvvg2C.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Family"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "swiss-family-robinson-1974@e01",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Arrival",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/01%20The%20Arrival_000637.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1418,
+          "videoFile": {
+            "name": "01 The Arrival.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70130441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/01%20The%20Arrival.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e02",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Visitor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/02%20The%20Visitor_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "02 The Visitor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81570021,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/02%20The%20Visitor.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e03",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Weakest Link",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/03%20The%20Weakest%20Link_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1421,
+          "videoFile": {
+            "name": "03 The Weakest Link.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91136176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/03%20The%20Weakest%20Link.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e04",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Curse Of The Idol",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/04%20Curse%20Of%20The%20Idol_000640.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "04 Curse Of The Idol.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89001445,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/04%20Curse%20Of%20The%20Idol.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e05",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Terror on South Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/05%20Terror%20on%20South%20Island_000633.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1421,
+          "videoFile": {
+            "name": "05 Terror on South Island.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91660103,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/05%20Terror%20on%20South%20Island.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e06",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Monsoon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/06%20Monsoon_000634.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1422,
+          "videoFile": {
+            "name": "06 Monsoon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80767373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/06%20Monsoon.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e07",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Cave of the Tiger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/07%20Cave%20of%20the%20Tiger_000634.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "07 Cave of the Tiger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 78157592,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/07%20Cave%20of%20the%20Tiger.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e08",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Mark of Captain Keel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/08%20The%20Mark%20of%20Captain%20Keel_000575.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1292,
+          "videoFile": {
+            "name": "08 The Mark of Captain Keel.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 92995428,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/08%20The%20Mark%20of%20Captain%20Keel.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e09",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Secret of Shark Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/09%20The%20Secret%20of%20Shark%20Island_000636.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "09 The Secret of Shark Island.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58319873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/09%20The%20Secret%20of%20Shark%20Island.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e10",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Nature's Child",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/10%20Nature%27s%20Child_000633.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1417,
+          "videoFile": {
+            "name": "10 Nature's Child.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90427554,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/10%20Nature%27s%20Child.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e11",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Lost at Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/11%20Lost%20at%20Sea_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "11 Lost at Sea.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 88116834,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/11%20Lost%20at%20Sea.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e12",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Castaway",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/12%20The%20Castaway_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1418,
+          "videoFile": {
+            "name": "12 The Castaway.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70434697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/12%20The%20Castaway.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e13",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Return from Paradise",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/13%20Return%20from%20Paradise_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "13 Return from Paradise.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90900592,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/13%20Return%20from%20Paradise.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e14",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Second Honeymoon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/14%20Second%20Honeymoon_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "14 Second Honeymoon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65783164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/14%20Second%20Honeymoon.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e15",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Rogue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/15%20Rogue_000634.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "15 Rogue.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 79126695,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/15%20Rogue.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e16",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Intruder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/16%20The%20Intruder_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "16 The Intruder.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82902993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/16%20The%20Intruder.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e17",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Somewhere on this Earth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/17%20Somewhere%20on%20this%20Earth_000535.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "17 Somewhere on this Earth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89902829,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/17%20Somewhere%20on%20this%20Earth.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e18",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Dead Man's Gold",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/18%20Dead%20Man%27s%20Gold_000575.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1291,
+          "videoFile": {
+            "name": "18 Dead Man's Gold.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 88211558,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/18%20Dead%20Man%27s%20Gold.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e19",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Skeleton Clue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/19%20Skeleton%20Clue_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "19 Skeleton Clue.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91692490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/19%20Skeleton%20Clue.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e20",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Disappearance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/20%20Disappearance_000629.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1413,
+          "videoFile": {
+            "name": "20 Disappearance.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71693953,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/20%20Disappearance.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e21",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Deadly Feast",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/21%20Deadly%20Feast_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "21 Deadly Feast.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71707718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/21%20Deadly%20Feast.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e22",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Bruno",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/22%20Bruno_000630.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1412,
+          "videoFile": {
+            "name": "22 Bruno.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80779611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/22%20Bruno.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e23",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "A Time to Live and a Time to Die",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/23%20A%20Time%20to%20Live%20and%20a%20Time%20to%20Die_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1417,
+          "videoFile": {
+            "name": "23 A Time to Live and a Time to Die.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86220813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/23%20A%20Time%20to%20Live%20and%20a%20Time%20to%20Die.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e24",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Attack of the Cat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/24%20Attack%20of%20the%20Cat_000581.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1306,
+          "videoFile": {
+            "name": "24 Attack of the Cat.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 78959810,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/24%20Attack%20of%20the%20Cat.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e25",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Animal Kingdom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/25%20Animal%20Kingdom_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1418,
+          "videoFile": {
+            "name": "25 Animal Kingdom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84663494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/25%20Animal%20Kingdom.mp4"
+        },
+        {
+          "archiveID": "swiss-family-robinson-1974@e26",
+          "sourceID": "swiss-family-robinson-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Rescue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/swiss-family-robinson-1974/swiss-family-robinson-1974.thumbs/26%20Rescue_000635.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1421,
+          "videoFile": {
+            "name": "26 Rescue.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73030005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/swiss-family-robinson-1974/26%20Rescue.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

@@ -1,0 +1,154 @@
+{
+  "version": 2,
+  "seriesID": "the-prince-of-denmark-1974",
+  "sourceID": "the-prince-of-denmark-1974",
+  "tvmazeID": null,
+  "title": "The Prince of Denmark",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": "Ronnie Corbett finds himself a publican when screen wife Rosemary Leach inherits \"The Prince of Denmark\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5GGQHO1zxF8CtwaAVF4GVL9dmuH.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-prince-of-denmark-1974@e01",
+          "sourceID": "the-prince-of-denmark-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Prince Of Denmark New Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/01.The Prince Of Denmark...New Life.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152263884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE%20OF%20DENMARK%20%281974%29/01.The%20Prince%20Of%20Denmark...New%20Life.ia.mp4"
+        },
+        {
+          "archiveID": "the-prince-of-denmark-1974@e02",
+          "sourceID": "the-prince-of-denmark-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Prince Of Denmark Trouble",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1649,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/02.The Prince Of Denmark...Trouble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159196889,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE%20OF%20DENMARK%20%281974%29/02.The%20Prince%20Of%20Denmark...Trouble.ia.mp4"
+        },
+        {
+          "archiveID": "the-prince-of-denmark-1974@e03",
+          "sourceID": "the-prince-of-denmark-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Prince Of Denmark Marriage Counsellor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1796,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/03.The Prince Of Denmark...Marriage Counsellor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173447354,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE%20OF%20DENMARK%20%281974%29/03.The%20Prince%20Of%20Denmark...Marriage%20Counsellor.ia.mp4"
+        },
+        {
+          "archiveID": "the-prince-of-denmark-1974@e04",
+          "sourceID": "the-prince-of-denmark-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Prince Of Denmark Saturday Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1709,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/04.The Prince Of Denmark...Saturday Night.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164658100,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE%20OF%20DENMARK%20%281974%29/04.The%20Prince%20Of%20Denmark...Saturday%20Night.ia.mp4"
+        },
+        {
+          "archiveID": "the-prince-of-denmark-1974@e05",
+          "sourceID": "the-prince-of-denmark-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Prince Of Denmark A Quiet Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1751,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/05.The Prince Of Denmark...A Quiet Night.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169431221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE%20OF%20DENMARK%20%281974%29/05.The%20Prince%20Of%20Denmark...A%20Quiet%20Night.ia.mp4"
+        },
+        {
+          "archiveID": "the-prince-of-denmark-1974@e06",
+          "sourceID": "the-prince-of-denmark-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Prince Of Denmark Pub Visit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/06.The Prince Of Denmark...Pub Visit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169821372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE%20OF%20DENMARK%20%281974%29/06.The%20Prince%20Of%20Denmark...Pub%20Visit.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": "335990",
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Rosemary Leach",
+      "character": "Laura",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283126/photo/6261adf9263d3.jpg"
+    },
+    {
+      "name": "Ronnie Corbett",
+      "character": "Ronnie",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263005/photo/62fbca9271aec.jpg"
+    }
+  ]
+}

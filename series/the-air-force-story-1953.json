@@ -1,0 +1,277 @@
+{
+  "version": 2,
+  "seriesID": "the-air-force-story-1953",
+  "sourceID": "TheAirForceStory",
+  "tvmazeID": null,
+  "title": "The Air Force Story",
+  "yearStart": 1953,
+  "yearEnd": null,
+  "overview": "The history of the United States Air Force and the role of airplanes in WWI.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/TheAirForceStory.78861eab.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Documentary",
+    "War"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAirForceStory@e01",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "TheBeginning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/01-TheBeginning_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 863,
+          "videoFile": {
+            "name": "01-TheBeginning_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 62700243,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/01-TheBeginning_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e02",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "1918-23-AftertheWar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/02-1918-23-AftertheWar_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 844,
+          "videoFile": {
+            "name": "02-1918-23-AftertheWar_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 61223837,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/02-1918-23-AftertheWar_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e03",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "1923-30-StruggleforRecognition",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/03-1923-30-StruggleforRecognition_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 859,
+          "videoFile": {
+            "name": "03-1923-30-StruggleforRecognition_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 62413526,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/03-1923-30-StruggleforRecognition_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e04",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "1930-35-BetweentwoWars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/04-1930-35-BetweentwoWars_000300.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 868,
+          "videoFile": {
+            "name": "04-1930-35-BetweentwoWars_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 63038680,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/04-1930-35-BetweentwoWars_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e05",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "1935-37-AirPowerAdvances",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/05-1935-37-AirPowerAdvances_000300.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "05-1935-37-AirPowerAdvances_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 63568190,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/05-1935-37-AirPowerAdvances_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e06",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "1937-39-PreludetoWar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/06-1937-39-PreludetoWar_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 859,
+          "videoFile": {
+            "name": "06-1937-39-PreludetoWar_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 62359401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/06-1937-39-PreludetoWar_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e07",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "1939-41-TheAirWarStarts",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/07-1939-41-TheAirWarStarts_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 835,
+          "videoFile": {
+            "name": "07-1939-41-TheAirWarStarts_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 60613391,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/07-1939-41-TheAirWarStarts_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e08",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "1941-42-DrawingtheBattleLines",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/08-1941-42-DrawingtheBattleLines_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 841,
+          "videoFile": {
+            "name": "08-1941-42-DrawingtheBattleLines_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 61073162,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/08-1941-42-DrawingtheBattleLines_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e09",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "1942-July42-TheAAFFightsBack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/09-1942-July42-TheAAFFightsBack_000270.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 847,
+          "videoFile": {
+            "name": "09-1942-July42-TheAAFFightsBack_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 61490246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/09-1942-July42-TheAAFFightsBack_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e10",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "June-December1942-TheTideTuns",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/10-June-December1942-TheTideTuns_000235.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 771,
+          "videoFile": {
+            "name": "10-June-December1942-TheTideTuns_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 56002568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/10-June-December1942-TheTideTuns_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e11",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Nov1942-May43-NorthAfrica",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/11-Nov1942-May43-NorthAfrica_000236.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 773,
+          "videoFile": {
+            "name": "11-Nov1942-May43-NorthAfrica_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 56209496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/11-Nov1942-May43-NorthAfrica_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e12",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "1943-GlobalOperations",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/12-1943-GlobalOperations_000236.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 773,
+          "videoFile": {
+            "name": "12-1943-GlobalOperations_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 56158521,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/12-1943-GlobalOperations_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAirForceStory@e13",
+          "sourceID": "TheAirForceStory",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "june1943-ExpandingAirPower",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheAirForceStory/TheAirForceStory.thumbs/13-june1943-ExpandingAirPower_000235.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 773,
+          "videoFile": {
+            "name": "13-june1943-ExpandingAirPower_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 56081602,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAirForceStory/13-june1943-ExpandingAirPower_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

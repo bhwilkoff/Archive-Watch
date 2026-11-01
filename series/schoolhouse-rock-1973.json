@@ -1,0 +1,1404 @@
+{
+  "version": 2,
+  "seriesID": "schoolhouse-rock-1973",
+  "sourceID": "schoolhouse-rock-30th",
+  "tvmazeID": null,
+  "title": "Schoolhouse Rock",
+  "yearStart": 1973,
+  "yearEnd": null,
+  "overview": "All 53 original Schoolhouse Rock segments from 1973 to 2003 — Multiplication Rock, Grammar Rock, America Rock and Science Rock — with the twelve added in 2009; the Emmy-winning ABC educational series.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/schoolhouse-rock-30th.361dd2df.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "schoolhouse-rock-30th@e01",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Three Is A Magic Number",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/01%20Three%20Is%20A%20Magic%20Number_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "01 Three Is A Magic Number.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35228155,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/01%20Three%20Is%20A%20Magic%20Number.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e02",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "My Hero Zero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/02%20My%20Hero%20Zero_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "02 My Hero Zero.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31906897,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/02%20My%20Hero%20Zero.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e03",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Elementary My Dear",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/03%20Elementary%20My%20Dear_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "03 Elementary My Dear.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 32922049,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/03%20Elementary%20My%20Dear.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e04",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Four Legged Zoo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/04%20The%20Four%20Legged%20Zoo_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "04 The Four Legged Zoo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33375633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/04%20The%20Four%20Legged%20Zoo.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e05",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Ready Or Not Here I Come",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/05%20Ready%20Or%20Not%20Here%20I%20Come_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 183,
+          "videoFile": {
+            "name": "05 Ready Or Not Here I Come.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30839642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/05%20Ready%20Or%20Not%20Here%20I%20Come.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e06",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "I Got Six",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/06%20I%20Got%20Six_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "06 I Got Six.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 49701988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/06%20I%20Got%20Six.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e07",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Lucky Seven Sampson",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/07%20Lucky%20Seven%20Sampson_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "07 Lucky Seven Sampson.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31829702,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/07%20Lucky%20Seven%20Sampson.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e08",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Figure Eight",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/08%20Figure%20Eight_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "08 Figure Eight.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35505646,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/08%20Figure%20Eight.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e09",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Naughty Number Nine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/09%20Naughty%20Number%20Nine_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 183,
+          "videoFile": {
+            "name": "09 Naughty Number Nine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26948007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/09%20Naughty%20Number%20Nine.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e10",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Good Eleven",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/10%20The%20Good%20Eleven_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "10 The Good Eleven.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28732226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/10%20The%20Good%20Eleven.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e11",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Little Twelvetoes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/11%20Little%20Twelvetoes_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "11 Little Twelvetoes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 32090696,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/11%20Little%20Twelvetoes.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e12",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "A Noun Is A Person Place Or Thing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/12%20A%20Noun%20Is%20A%20Person%20Place%20Or%20Thing_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 183,
+          "videoFile": {
+            "name": "12 A Noun Is A Person Place Or Thing.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30340269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/12%20A%20Noun%20Is%20A%20Person%20Place%20Or%20Thing.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e13",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Verb Thats Whats Happening",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/13%20Verb%20Thats%20Whats%20Happening_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "13 Verb Thats Whats Happening.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30913293,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/13%20Verb%20Thats%20Whats%20Happening.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e14",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Conjunction Junction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/14%20Conjunction%20Junction_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "14 Conjunction Junction.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27645828,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/14%20Conjunction%20Junction.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e15",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Interjections",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/15%20Interjections_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "15 Interjections.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31328861,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/15%20Interjections.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e16",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Unpack Your Adjectives",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/16%20Unpack%20Your%20Adjectives_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 183,
+          "videoFile": {
+            "name": "16 Unpack Your Adjectives.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31853276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/16%20Unpack%20Your%20Adjectives.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e17",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Lolly Lolly Lolly Get Your Adverbs Here",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/17%20Lolly%20Lolly%20Lolly%20Get%20Your%20Adverbs%20Here_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "17 Lolly Lolly Lolly Get Your Adverbs Here.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 34925930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/17%20Lolly%20Lolly%20Lolly%20Get%20Your%20Adverbs%20Here.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e18",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Rufus Xavier Sasparilla",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/18%20Rufus%20Xavier%20Sasparilla_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "18 Rufus Xavier Sasparilla.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 38108931,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/18%20Rufus%20Xavier%20Sasparilla.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e19",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Busy Prepositions",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/19%20Busy%20Prepositions_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "19 Busy Prepositions.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44505760,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/19%20Busy%20Prepositions.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e20",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Tale Of Mr Morton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/20%20The%20Tale%20Of%20Mr%20Morton_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 180,
+          "videoFile": {
+            "name": "20 The Tale Of Mr Morton.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 36353281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/20%20The%20Tale%20Of%20Mr%20Morton.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e21",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "No More Kings",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/21%20No%20More%20Kings_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "21 No More Kings.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31149582,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/21%20No%20More%20Kings.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e22",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Shot Heard Round the World",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/22%20The%20Shot%20Heard%20Round%20the%20World_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "22 The Shot Heard Round the World.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 22080564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/22%20The%20Shot%20Heard%20Round%20the%20World.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e23",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Preamble",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/23%20The%20Preamble_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "23 The Preamble.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 34148259,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/23%20The%20Preamble.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e24",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Sufferin Till Suffrage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/24%20Sufferin%20Till%20Suffrage_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 179,
+          "videoFile": {
+            "name": "24 Sufferin Till Suffrage.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 25887375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/24%20Sufferin%20Till%20Suffrage.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e25",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Im Just A Bill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/25%20Im%20Just%20A%20Bill_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "25 Im Just A Bill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28908458,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/25%20Im%20Just%20A%20Bill.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e26",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Great American Melting Pot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/26%20The%20Great%20American%20Melting%20Pot_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 180,
+          "videoFile": {
+            "name": "26 The Great American Melting Pot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 22926958,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/26%20The%20Great%20American%20Melting%20Pot.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e27",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Elbow Room",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/27%20Elbow%20Room_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "27 Elbow Room.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28330328,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/27%20Elbow%20Room.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e28",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Fireworks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/28%20Fireworks_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "28 Fireworks.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31515462,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/28%20Fireworks.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e29",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Mother Necessity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/29%20Mother%20Necessity_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "29 Mother Necessity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 25541962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/29%20Mother%20Necessity.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e30",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Three Ring Government",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/30%20Three%20Ring%20Government_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "30 Three Ring Government.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 22646773,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/30%20Three%20Ring%20Government.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e31",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Im Gonna Send Your Vote To College In Surround",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/31%20Im%20Gonna%20Send%20Your%20Vote%20To%20College%20In%20Surround_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 195,
+          "videoFile": {
+            "name": "31 Im Gonna Send Your Vote To College In Surround.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 48150622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/31%20Im%20Gonna%20Send%20Your%20Vote%20To%20College%20In%20Surround.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e32",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "You Earned Your Diploma and Presidential Minute",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/32%20You%20Earned%20Your%20Diploma%20and%20Presidential%20Minute_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 76,
+          "videoFile": {
+            "name": "32 You Earned Your Diploma and Presidential Minute.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 14382934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/32%20You%20Earned%20Your%20Diploma%20and%20Presidential%20Minute.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e33",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "A Victim Of Gravity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/33%20A%20Victim%20Of%20Gravity_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "33 A Victim Of Gravity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29475659,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/33%20A%20Victim%20Of%20Gravity.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e34",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Interplanet Janet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/34%20Interplanet%20Janet_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "34 Interplanet Janet.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 34284790,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/34%20Interplanet%20Janet.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e35",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Body Machine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/35%20The%20Body%20Machine_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "35 The Body Machine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 25183203,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/35%20The%20Body%20Machine.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e36",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Do The Circulation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/36%20Do%20The%20Circulation_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "36 Do The Circulation.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29041689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/36%20Do%20The%20Circulation.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e37",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "The Energy Blues",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/37%20The%20Energy%20Blues_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "37 The Energy Blues.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26441285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/37%20The%20Energy%20Blues.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e38",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Them Not So Dry Bones",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/38%20Them%20Not%20So%20Dry%20Bones_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "38 Them Not So Dry Bones.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31763970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/38%20Them%20Not%20So%20Dry%20Bones.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e39",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Electricity Electricity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/39%20Electricity%20Electricity_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "39 Electricity Electricity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 41513563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/39%20Electricity%20Electricity.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e40",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Telegraph Line",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/40%20Telegraph%20Line_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "40 Telegraph Line.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 38694550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/40%20Telegraph%20Line.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e41",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "The Weather Show",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/41%20The%20Weather%20Show_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 177,
+          "videoFile": {
+            "name": "41 The Weather Show.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 39868643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/41%20The%20Weather%20Show.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e42",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Scooter Computer Introduction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/42%20Scooter%20Computer%20Introduction_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 203,
+          "videoFile": {
+            "name": "42 Scooter Computer Introduction.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26073854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/42%20Scooter%20Computer%20Introduction.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e43",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Scooter Computer Hardware",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/43%20Scooter%20Computer%20Hardware_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 201,
+          "videoFile": {
+            "name": "43 Scooter Computer Hardware.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28717295,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/43%20Scooter%20Computer%20Hardware.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e44",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Scooter Computer Software",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/44%20Scooter%20Computer%20Software_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 202,
+          "videoFile": {
+            "name": "44 Scooter Computer Software.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 43106580,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/44%20Scooter%20Computer%20Software.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e45",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Scooter Computer Number Cruncher",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/45%20Scooter%20Computer%20Number%20Cruncher_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 202,
+          "videoFile": {
+            "name": "45 Scooter Computer Number Cruncher.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 37883379,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/45%20Scooter%20Computer%20Number%20Cruncher.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e46",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Dollars And Sense",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/46%20Dollars%20And%20Sense_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "46 Dollars And Sense.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42459436,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/46%20Dollars%20And%20Sense.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e47",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Tax Man Max",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/47%20Tax%20Man%20Max_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "47 Tax Man Max.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 41646266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/47%20Tax%20Man%20Max.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e48",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Where The Money Goes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/48%20Where%20The%20Money%20Goes_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "48 Where The Money Goes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66319138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/48%20Where%20The%20Money%20Goes.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e49",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Seven Dollars Fifty Cents Once A Week",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/49%20Seven%20Dollars%20Fifty%20Cents%20Once%20A%20Week_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "49 Seven Dollars Fifty Cents Once A Week.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29705750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/49%20Seven%20Dollars%20Fifty%20Cents%20Once%20A%20Week.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e50",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Tyrannosaurus Debt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/50%20Tyrannosaurus%20Debt_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "50 Tyrannosaurus Debt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28970830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/50%20Tyrannosaurus%20Debt.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e51",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "This For That",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/51%20This%20For%20That_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "51 This For That.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30891059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/51%20This%20For%20That.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e52",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "Walkin On The Wall Street",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/52%20Walkin%20On%20The%20Wall%20Street_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 182,
+          "videoFile": {
+            "name": "52 Walkin On The Wall Street.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29988193,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/52%20Walkin%20On%20The%20Wall%20Street.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e53",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 53,
+          "title": "The Checks In The Mail",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/53%20The%20Checks%20In%20The%20Mail_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 181,
+          "videoFile": {
+            "name": "53 The Checks In The Mail.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26502861,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/53%20The%20Checks%20In%20The%20Mail.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e54",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "Report from the North Pole",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/54%20Report%20from%20the%20North%20Pole_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "54 Report from the North Pole.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 22134123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/54%20Report%20from%20the%20North%20Pole.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e55",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "The Little Things We Do",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/55%20The%20Little%20Things%20We%20Do_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "55 The Little Things We Do.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 21446434,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/55%20The%20Little%20Things%20We%20Do.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e56",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "The Trash Can Band",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/56%20The%20Trash%20Can%20Band_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "56 The Trash Can Band.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 17708778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/56%20The%20Trash%20Can%20Band.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e57",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "You Oughta Be Savin Water",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/57%20You%20Oughta%20Be%20Savin%20Water_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "57 You Oughta Be Savin Water.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 23143423,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/57%20You%20Oughta%20Be%20Savin%20Water.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e58",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "The Rainforest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/58%20The%20Rainforest_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "58 The Rainforest.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 49881167,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/58%20The%20Rainforest.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e59",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 59,
+          "title": "Save the Ocean",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/59%20Save%20the%20Ocean_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "59 Save the Ocean.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 18983634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/59%20Save%20the%20Ocean.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e60",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "Fat Cat Blue - The Clean Rivers Song",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/60%20Fat%20Cat%20Blue%20-%20The%20Clean%20Rivers%20Song_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "60 Fat Cat Blue - The Clean Rivers Song.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44998336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/60%20Fat%20Cat%20Blue%20-%20The%20Clean%20Rivers%20Song.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e61",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "A Tiny Urban Zoo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/61%20A%20Tiny%20Urban%20Zoo_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 179,
+          "videoFile": {
+            "name": "61 A Tiny Urban Zoo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30630334,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/61%20A%20Tiny%20Urban%20Zoo.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e62",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Solar Power to the People",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/62%20Solar%20Power%20to%20the%20People_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "62 Solar Power to the People.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 15959440,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/62%20Solar%20Power%20to%20the%20People.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e63",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 63,
+          "title": "Windy and the Windmills",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/63%20Windy%20and%20the%20Windmills_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "63 Windy and the Windmills.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 19730052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/63%20Windy%20and%20the%20Windmills.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e64",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "Don't Be a Carbon Sasquatch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/64%20Don%27t%20Be%20a%20Carbon%20Sasquatch_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "64 Don't Be a Carbon Sasquatch.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 16481369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/64%20Don%27t%20Be%20a%20Carbon%20Sasquatch.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e65",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "The Three Rs",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/65%20The%20Three%20Rs_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 189,
+          "videoFile": {
+            "name": "65 The Three Rs.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42109190,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/65%20The%20Three%20Rs.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e66",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 66,
+          "title": "Music Video - Conjunction Junction - Better Than Ezra",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/66%20Music%20Video%20-%20Conjunction%20Junction%20-%20Better%20Than%20Ezra_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 197,
+          "videoFile": {
+            "name": "66 Music Video - Conjunction Junction - Better Than Ezra.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31612369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/66%20Music%20Video%20-%20Conjunction%20Junction%20-%20Better%20Than%20Ezra.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e67",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Music Video - Electricity Electricity - Goodness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/67%20Music%20Video%20-%20Electricity%20Electricity%20-%20Goodness_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 206,
+          "videoFile": {
+            "name": "67 Music Video - Electricity Electricity - Goodness.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 47993042,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/67%20Music%20Video%20-%20Electricity%20Electricity%20-%20Goodness.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e68",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 68,
+          "title": "Music Video - Im Just a Bill - Deluxe Folk Implosion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/68%20Music%20Video%20-%20Im%20Just%20a%20Bill%20-%20Deluxe%20Folk%20Implosion_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 204,
+          "videoFile": {
+            "name": "68 Music Video - Im Just a Bill - Deluxe Folk Implosion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 37576921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/68%20Music%20Video%20-%20Im%20Just%20a%20Bill%20-%20Deluxe%20Folk%20Implosion.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e69",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Music Video - My Hero Zero - Lemonheads",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/69%20Music%20Video%20-%20My%20Hero%20Zero%20-%20Lemonheads_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 184,
+          "videoFile": {
+            "name": "69 Music Video - My Hero Zero - Lemonheads.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33832568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/69%20Music%20Video%20-%20My%20Hero%20Zero%20-%20Lemonheads.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e70",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "The Making Of Im Gonna Send Your Vote To College",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/70%20The%20Making%20Of%20Im%20Gonna%20Send%20Your%20Vote%20To%20College_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 888,
+          "videoFile": {
+            "name": "70 The Making Of Im Gonna Send Your Vote To College.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 190226876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/70%20The%20Making%20Of%20Im%20Gonna%20Send%20Your%20Vote%20To%20College.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e71",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "Directors Commentaries",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/71%20Directors%20Commentaries_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 1848,
+          "videoFile": {
+            "name": "71 Directors Commentaries.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 401236730,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/71%20Directors%20Commentaries.mp4"
+        },
+        {
+          "archiveID": "schoolhouse-rock-30th@e72",
+          "sourceID": "schoolhouse-rock-30th",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Emmy Awards Featurette",
+          "overview": null,
+          "stillURL": "https://archive.org/download/schoolhouse-rock-30th/schoolhouse-rock-30th.thumbs/72%20Emmy%20Awards%20Featurette_000001.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 200,
+          "videoFile": {
+            "name": "72 Emmy Awards Featurette.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 47638199,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/schoolhouse-rock-30th/72%20Emmy%20Awards%20Featurette.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 72,
+  "canonicalEpisodesCount": null,
+  "tvdbID": "78642",
+  "artworkSource": "generated",
+  "cast": [
+    {
+      "name": "Jack Sheldon",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313200/photo/633b1cede9ce3.jpg"
+    }
+  ]
+}

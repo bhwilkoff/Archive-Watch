@@ -1,0 +1,331 @@
+{
+  "version": 2,
+  "seriesID": "the-barn-dance-1929",
+  "sourceID": "MickeyMouse20s",
+  "tvmazeID": null,
+  "title": "The Barn Dance",
+  "yearStart": 1929,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/movie/112571/posters/64b6a9c92d038.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MickeyMouse20s@e01",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Plane Crazy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/01%20Plane%20Crazy_000147.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 358,
+          "videoFile": {
+            "name": "01 Plane Crazy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40406716,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/01%20Plane%20Crazy.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e02",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Gallopin' Gaucho",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/02%20The%20Gallopin%27%20Gaucho_000147.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 386,
+          "videoFile": {
+            "name": "02 The Gallopin' Gaucho.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44273652,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/02%20The%20Gallopin%27%20Gaucho.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e03",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Steamboat Willie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/03%20Steamboat%20Willie_000177.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 466,
+          "videoFile": {
+            "name": "03 Steamboat Willie.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63745271,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/03%20Steamboat%20Willie.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e04",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Barn Dance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/04%20The%20Barn%20Dance_000147.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 417,
+          "videoFile": {
+            "name": "04 The Barn Dance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 43480482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/04%20The%20Barn%20Dance.ia.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e05",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Opry House",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/05%20The%20Opry%20House_000180.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 446,
+          "videoFile": {
+            "name": "05 The Opry House.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 50110898,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/05%20The%20Opry%20House.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e06",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "When The Cat's Away",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/06%20When%20The%20Cat%27s%20Away_000147.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 396,
+          "videoFile": {
+            "name": "06 When The Cat's Away.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 39246275,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/06%20When%20The%20Cat%27s%20Away.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e07",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Barnyard Battle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/07%20The%20Barnyard%20Battle_000147.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 403,
+          "videoFile": {
+            "name": "07 The Barnyard Battle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40387921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/07%20The%20Barnyard%20Battle.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e08",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Plowboy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/08%20The%20Plowboy_000149.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 374,
+          "videoFile": {
+            "name": "08 The Plowboy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 37041017,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/08%20The%20Plowboy.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e09",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Karnival Kid",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/09%20The%20Karnival%20Kid_000149.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 396,
+          "videoFile": {
+            "name": "09 The Karnival Kid.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 39769772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/09%20The%20Karnival%20Kid.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e10",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mickey's Follies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/10%20Mickey%27s%20Follies_000154.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 385,
+          "videoFile": {
+            "name": "10 Mickey's Follies.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 36585028,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/10%20Mickey%27s%20Follies.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e11",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Mickey's Choo-Choo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/11%20Mickey%27s%20Choo-Choo_000147.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 410,
+          "videoFile": {
+            "name": "11 Mickey's Choo-Choo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 42754534,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/11%20Mickey%27s%20Choo-Choo.ia.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e12",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Jazz Fool",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/12%20The%20Jazz%20Fool_000149.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 350,
+          "videoFile": {
+            "name": "12 The Jazz Fool.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33001567,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/12%20The%20Jazz%20Fool.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e13",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Jungle Rhythm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/13%20Jungle%20Rhythm_000148.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 412,
+          "videoFile": {
+            "name": "13 Jungle Rhythm.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61970572,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/13%20Jungle%20Rhythm.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e14",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Haunted House",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/14%20The%20Haunted%20House_000152.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 401,
+          "videoFile": {
+            "name": "14 The Haunted House.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 37789373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/14%20The%20Haunted%20House.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e15",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Wild Waves",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/15%20Wild%20Waves_000149.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 423,
+          "videoFile": {
+            "name": "15 Wild Waves.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 39886618,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/15%20Wild%20Waves.mp4"
+        },
+        {
+          "archiveID": "MickeyMouse20s@e16",
+          "sourceID": "MickeyMouse20s",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Minnie's Yoo-Hoo (A Sing-Along For The Mickey Mouse Club)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/MickeyMouse20s/MickeyMouse20s.thumbs/16%20Minnie%27s%20Yoo-Hoo%20%28A%20Sing-Along%20For%20The%20Mickey%20Mouse%20Club%29_000117.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 254,
+          "videoFile": {
+            "name": "16 Minnie's Yoo-Hoo (A Sing-Along For The Mickey Mouse Club).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 49715003,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MickeyMouse20s/16%20Minnie%27s%20Yoo-Hoo%20%28A%20Sing-Along%20For%20The%20Mickey%20Mouse%20Club%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tvdb",
+  "cast": []
+}

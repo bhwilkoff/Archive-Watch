@@ -1,0 +1,185 @@
+{
+  "version": 2,
+  "seriesID": "odd-man-out-1977",
+  "sourceID": "odd-man-out-1977",
+  "tvmazeID": null,
+  "title": "Odd Man Out",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "Neville Sutcliffe (John Inman) leaves the safety of his Blackpool fish and chip shop to take over his deceased father's seaside rock factory in Littlehampton with his step-sister Dorothy.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/odd-man-out-1977.99045b8f.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "odd-man-out-1977@e01",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Odd Man Out A Chip Off The Old Block",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1362,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/01.Odd Man Out...A Chip Off The Old Block.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74986570,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/01.Odd%20Man%20Out...A%20Chip%20Off%20The%20Old%20Block.mp4"
+        },
+        {
+          "archiveID": "odd-man-out-1977@e02",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Odd Man Out Money Money Money",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1444,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/02.Odd Man Out...Money Money Money.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80241616,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/02.Odd%20Man%20Out...Money%20Money%20Money.mp4"
+        },
+        {
+          "archiveID": "odd-man-out-1977@e03",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Odd Man Out Sink Or Swim",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1419,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/03.Odd Man Out...Sink Or Swim.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81409732,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/03.Odd%20Man%20Out...Sink%20Or%20Swim.mp4"
+        },
+        {
+          "archiveID": "odd-man-out-1977@e04",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Odd Man Out Shall We Dance",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/04.Odd Man Out...Shall We Dance.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81704764,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/04.Odd%20Man%20Out...Shall%20We%20Dance.mp4"
+        },
+        {
+          "archiveID": "odd-man-out-1977@e05",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Odd Man Out Who's a Pretty Baby",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1482,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/05.Odd Man Out...Who's a Pretty Baby.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81550670,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/05.Odd%20Man%20Out...Who%27s%20a%20Pretty%20Baby.mp4"
+        },
+        {
+          "archiveID": "odd-man-out-1977@e06",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Odd Man Out Clunk Click",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/06.Odd  Man Out...Clunk Click.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81746609,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/06.Odd%20%20Man%20Out...Clunk%20Click.mp4"
+        },
+        {
+          "archiveID": "odd-man-out-1977@e07",
+          "sourceID": "odd-man-out-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Odd Man Out Ooh La La",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/07.Odd Man Out...Ooh La La.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74039210,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD%20MAN%20OUT%20%281977%29/07.Odd%20Man%20Out...Ooh%20La%20La.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": "74384",
+  "artworkSource": "generated",
+  "cast": [
+    {
+      "name": "John Inman",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Peter Butterworth",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300076/photo/623b97b385b51.jpg"
+    },
+    {
+      "name": "Josephine Tewson",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Avril Angers",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    }
+  ]
+}

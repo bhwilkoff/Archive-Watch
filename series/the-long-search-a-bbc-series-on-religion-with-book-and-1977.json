@@ -1,0 +1,276 @@
+{
+  "version": 2,
+  "seriesID": "the-long-search-a-bbc-series-on-religion-with-book-and-1977",
+  "sourceID": "the_long_search",
+  "tvmazeID": null,
+  "title": "The Long Search a BBC Series on Religion with Book and",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "Presented by theater director Ronald Eyre, the series surveys several major world religions, including Protestant, Orthodox, and Catholic Christianity. Other episodes survey Theravada and Zen Buddhism, Islam, Judaism, Hinduism, and the New Age movement. Location filming took place in India, England, Italy, Japan, Israel, Romania, Sri Lanka, Taiwan, the United States, Egypt, Indonesia, and South Africa. Scholar of religion Ninian Smart acted as editorial consultant to the show, and also authored a companion book of the same name. The federal funding that supports Public Media has been eliminated in July of 2025 by the Republicans. Your PBS viewing experience is going away. you can pay \"Attention\" … now a viable currency in 2026. Hopefully they will get big contracts from impressed educators - once the schools see the immensity of their catalog! These videos are all to be used only for free, personal, educational purposes. No other use is authorized. For classroom use: please contact Ambrose Video Publishing to purchase it. 02 Hinduism - 330 Million Gods Ronald Eyre discusses God, Hinduism, Pantheism, enlightenment and the guru. 03 Buddhism - Footprint of the Buddha India Ronald Eyre discusses Buddha, Buddhism, India, enlightenment, non duality, non-attachment, monks and suffering. 04 Catholicism - Rome Leeds and the Desert Ronald Eyre discusses God, Christ, Jesus, Catholicism, Catholics, Pope, Vatican, Jesus Christ, Salvation and priests. 05 Islam - There is no God but God Ronald Eyre discusses God, Allah, Islam, Mohammad, Mecca, Muslim, Koran, Sufis, and Sufism. 06 Orthodox Christianity - The Romanian Solution Ronald Eyre discusses God, Christ, Jesus, Orthodox Christianity, orthodox Christians, Russia, Romania, liturgy and bishops. 07 Judaism - The Chosen People Ronald Eyre discusses God, Judaism, Jerusalem, the Wall, the Torah, the Bible, and Israel. 08 Religion In Indonesia - The Way of the Ancestors Ronald Eyre discusses Indonesia, primal Religion, the way of the ancestors, ritual, gods and spirits, animism and ancestor worship. 09 Buddhism - The Buddhism The Land of the Disappearing Buddha Japan Ronald Eyre discusses Buddhism, Japan, Zen, Zen Buddhism, meditation, contemplation, roshi, koan, enlightenment, and satori. 10 African Religions - Zulu Zion Ronald Eyre discusses God, Christ, Africa, African Christianity, Sub-Saharan Christianity, animism, ancestor worship, and Christian shamanism. 11 Taoism - A Question of Balance China Ronald Eyre discusses Taoism, Chinese, yin and yang, balance, harmony, karma, Confucius, spirits, animism, Tai Chi, Lao Tzu, and the Tao tee Ching. 12 Alternative Lifestyles in California - West Meets East Ronald Eyre discusses New Age, spiritual development, Fritjof Capra, Theodore Roszak, biofeedback, meditation, and Jacob Needleman. 13 Reflections on the Long Search Ronald Eyre discusses God, truth, Carl Jung, death, life after death, and Jacob Needleman. This series took 1:17:27 upload and another minute to complete page creation - the Archive is fast today!",
+  "posterURL": "https://archive.org/services/img/the_long_search",
+  "backdropURL": null,
+  "genres": [
+    "Documentary"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the_long_search@e01",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Protestant Spirit USA",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/01%20Protestant%20Spirit%20USA_001088.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3001,
+          "videoFile": {
+            "name": "01 Protestant Spirit USA.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 319427818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/01%20Protestant%20Spirit%20USA.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e02",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Hinduism 330 Million Gods",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/02%20Hinduism%20%20330%20Million%20Gods_001144.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3148,
+          "videoFile": {
+            "name": "02 Hinduism  330 Million Gods.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 357130584,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/02%20Hinduism%20%20330%20Million%20Gods.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e03",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Buddhism Footprint of the Buddha India",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/03%20Buddhism%20%20Footprint%20of%20the%20Buddha%20India_001096.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "03 Buddhism  Footprint of the Buddha India.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 310568959,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/03%20Buddhism%20%20Footprint%20of%20the%20Buddha%20India.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e04",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Catholicism Rome Leeds and the Desert",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/04%20Catholicism%20%20Rome%20Leeds%20and%20the%20Desert_001136.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3124,
+          "videoFile": {
+            "name": "04 Catholicism  Rome Leeds and the Desert.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 351738505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/04%20Catholicism%20%20Rome%20Leeds%20and%20the%20Desert.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e05",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Islam There is no God but God",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/05%20Islam%20%20There%20is%20no%20God%20but%20God_001128.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3108,
+          "videoFile": {
+            "name": "05 Islam  There is no God but God.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 339530478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/05%20Islam%20%20There%20is%20no%20God%20but%20God.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e06",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Orthodox Christianity The Romanian Solution",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/06%20Orthodox%20Christianity%20%20The%20Romanian%20Solution_001140.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3141,
+          "videoFile": {
+            "name": "06 Orthodox Christianity  The Romanian Solution.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 385782409,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/06%20Orthodox%20Christianity%20%20The%20Romanian%20Solution.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e07",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Judaism The Chosen People",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/07%20Judaism%20%20The%20Chosen%20People_001112.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3062,
+          "videoFile": {
+            "name": "07 Judaism  The Chosen People.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 303456504,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/07%20Judaism%20%20The%20Chosen%20People.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e08",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Religion In Indonesia The Way of the Ancestors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/08%20Religion%20In%20Indonesia%20%20The%20Way%20of%20the%20Ancestors_001120.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3080,
+          "videoFile": {
+            "name": "08 Religion In Indonesia  The Way of the Ancestors.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 453057023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/08%20Religion%20In%20Indonesia%20%20The%20Way%20of%20the%20Ancestors.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e09",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Buddhism The Land of the Disappearing Buddha Japan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/09%20Buddhism%20%20The%20Land%20of%20the%20Disappearing%20Buddha%20Japan_001128.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3111,
+          "videoFile": {
+            "name": "09 Buddhism  The Land of the Disappearing Buddha Japan.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 273364238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/09%20Buddhism%20%20The%20Land%20of%20the%20Disappearing%20Buddha%20Japan.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e10",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "African Religions Zulu Zion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/10%20African%20Religions%20%20Zulu%20Zion_001112.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3062,
+          "videoFile": {
+            "name": "10 African Religions  Zulu Zion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 324103329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/10%20African%20Religions%20%20Zulu%20Zion.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e11",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Taoism A Question of Balance China",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/11%20Taoism%20A%20Question%20of%20Balance%20%20China_001136.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3129,
+          "videoFile": {
+            "name": "11 Taoism A Question of Balance  China.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 369881085,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/11%20Taoism%20A%20Question%20of%20Balance%20%20China.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e12",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Alternative Lifestyles in California West Meets East",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/12%20Alternative%20Lifestyles%20in%20California%20%20West%20Meets%20East_001136.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3127,
+          "videoFile": {
+            "name": "12 Alternative Lifestyles in California  West Meets East.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 301936751,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/12%20Alternative%20Lifestyles%20in%20California%20%20West%20Meets%20East.mp4"
+        },
+        {
+          "archiveID": "the_long_search@e13",
+          "sourceID": "the_long_search",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Reflections on the Long Search",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the_long_search/the_long_search.thumbs/13%20Reflections%20on%20the%20Long%20Search_001112.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3066,
+          "videoFile": {
+            "name": "13 Reflections on the Long Search.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 274108835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_long_search/13%20Reflections%20on%20the%20Long%20Search.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

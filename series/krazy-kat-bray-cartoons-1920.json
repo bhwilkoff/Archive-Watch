@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "seriesID": "krazy-kat-bray-cartoons-1920",
+  "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+  "tvmazeID": null,
+  "title": "Krazy Kat Bray Cartoons",
+  "yearStart": 1920,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e01",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Great Cheese Robbery (1920)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/01%20-%20The%20Great%20Cheese%20Robbery%20%281920%29_000090.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 212,
+          "videoFile": {
+            "name": "01 - The Great Cheese Robbery (1920).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 53363852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/01%20-%20The%20Great%20Cheese%20Robbery%20%281920%29.mp4"
+        },
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e02",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Love s Labor Lost (Bray Studios, 1920)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/02%20-%20Love%20s%20Labor%20Lost%20%28Bray%20Studios%2C%201920%29_000088.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 212,
+          "videoFile": {
+            "name": "02 - Love s Labor Lost (Bray Studios, 1920).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 10038696,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/02%20-%20Love%20s%20Labor%20Lost%20%28Bray%20Studios%2C%201920%29.mp4"
+        },
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e03",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Best Mouse Loses",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/03%20The%20Best%20Mouse%20Loses_000089.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 201,
+          "videoFile": {
+            "name": "03 The Best Mouse Loses.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 7953707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/03%20The%20Best%20Mouse%20Loses.mp4"
+        },
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e05",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Chinese Honeymoon (1920) - 16mm USA Keystone Black and White Silent Film Reel Print",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/05%20-%20Chinese%20Honeymoon%20%281920%29%20-%2016mm%20USA%20Keystone%20Black%20and%20White%20Silent%20Film%20Reel%20Print_000090.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 165,
+          "videoFile": {
+            "name": "05 - Chinese Honeymoon (1920) - 16mm USA Keystone Black and White Silent Film Reel Print.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71238704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/05%20-%20Chinese%20Honeymoon%20%281920%29%20-%2016mm%20USA%20Keystone%20Black%20and%20White%20Silent%20Film%20Reel%20Print.mp4"
+        },
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e07",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Krazy Kat in The Hinges on the Bar-Room Door (1921; 16mm)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/07%20-%20Krazy%20Kat%20in%20The%20Hinges%20on%20the%20Bar-Room%20Door%20%281921%3B%2016mm%29_000087.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 163,
+          "videoFile": {
+            "name": "07 - Krazy Kat in The Hinges on the Bar-Room Door (1921; 16mm).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71187906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/07%20-%20Krazy%20Kat%20in%20The%20Hinges%20on%20the%20Bar-Room%20Door%20%281921%3B%2016mm%29.mp4"
+        },
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e08",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Krazy Kat The Awful Spook 16mm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/08%20-%20Krazy%20Kat%20The%20Awful%20Spook%2016mm_000087.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 158,
+          "videoFile": {
+            "name": "08 - Krazy Kat The Awful Spook 16mm.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71993174,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/08%20-%20Krazy%20Kat%20The%20Awful%20Spook%2016mm.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@x-krazy-kat-and-the-wireless-wire",
+          "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Krazy Kat and the Wireless Wire Walkers (1920)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/Krazy%20Kat%20and%20the%20Wireless%20Wire%20Walkers%20%281920%29_000060.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 140,
+          "videoFile": {
+            "name": "Krazy Kat and the Wireless Wire Walkers (1920).mp4",
+            "format": "h.264",
+            "sizeBytes": 13187966,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/Krazy%20Kat%20and%20the%20Wireless%20Wire%20Walkers%20%281920%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

@@ -1,0 +1,262 @@
+{
+  "version": 2,
+  "seriesID": "tallahassee-7000-1961",
+  "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+  "tvmazeID": null,
+  "title": "Tallahassee 7000",
+  "yearStart": 1961,
+  "yearEnd": null,
+  "overview": "Tallahassee 7000 is a syndicated 1961 American TV series starring Walter Matthau as Special Agent Lex Rogers of the Florida Sheriffs Bureau.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.03b9682a.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e01",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Tallahassee7000 May 1 1961 The Men From Tallahassee",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/01%20Tallahassee7000%20May%201%201961%20The%20Men%20From%20Tallahassee_001108.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3108,
+          "videoFile": {
+            "name": "01 Tallahassee7000 May 1 1961 The Men From Tallahassee.mp4",
+            "format": "h.264",
+            "sizeBytes": 313380260,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01%20Tallahassee7000%20May%201%201961%20The%20Men%20From%20Tallahassee.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e02",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Feb 15 1961 The Reunion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/02%20Feb%2015%201961%20The%20Reunion_000474.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "02 Feb 15 1961 The Reunion.mp4",
+            "format": "h.264",
+            "sizeBytes": 140972795,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/02%20Feb%2015%201961%20The%20Reunion.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e03",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Jun 14 1961 Scared Witness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/03%20Jun%2014%201961%20Scared%20Witness_000416.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1300,
+          "videoFile": {
+            "name": "03 Jun 14 1961 Scared Witness.mp4",
+            "format": "h.264",
+            "sizeBytes": 131010214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/03%20Jun%2014%201961%20Scared%20Witness.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e04",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "April 12 1961 The Fugitive",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/04%20April%2012%201961%20The%20Fugitive_000480.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1301,
+          "videoFile": {
+            "name": "04 April 12 1961 The Fugitive.mp4",
+            "format": "h.264",
+            "sizeBytes": 131270079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/04%20April%2012%201961%20The%20Fugitive.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e07",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Jan 3 1961 Man Bait",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/07%20Jan%203%201961%20Man%20Bait_000477.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1287,
+          "videoFile": {
+            "name": "07 Jan 3 1961 Man Bait.mp4",
+            "format": "h.264",
+            "sizeBytes": 124663958,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/07%20Jan%203%201961%20Man%20Bait.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e08",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Jan 31 1961 Danger Road",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/08%20Jan%2031%201961%20Danger%20Road_000478.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1268,
+          "videoFile": {
+            "name": "08 Jan 31 1961 Danger Road.mp4",
+            "format": "h.264",
+            "sizeBytes": 123354037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/08%20Jan%2031%201961%20Danger%20Road.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e09",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Unknown Ep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/09%20Unknown%20Ep_000589.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1631,
+          "videoFile": {
+            "name": "09 Unknown Ep.mp4",
+            "format": "h.264",
+            "sizeBytes": 157777098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/09%20Unknown%20Ep.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e10",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mar 17 1961 The Crossroads",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/10%20%20Mar%2017%201961%20The%20Crossroads_000595.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1672,
+          "videoFile": {
+            "name": "10  Mar 17 1961 The Crossroads.mp4",
+            "format": "h.264",
+            "sizeBytes": 162136504,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/10%20%20Mar%2017%201961%20The%20Crossroads.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e11",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Dec 27 1960 Early In The Morning Far Into The Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/11%20Dec%2027%201960%20Early%20In%20The%20Morning%20Far%20Into%20The%20Night_000417.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1309,
+          "videoFile": {
+            "name": "11 Dec 27 1960 Early In The Morning Far Into The Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 126855176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/11%20Dec%2027%201960%20Early%20In%20The%20Morning%20Far%20Into%20The%20Night.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e12",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "April 7 1961 Document Of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/12%20April%207%201961%20Document%20Of%20Death_000415.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "12 April 7 1961 Document Of Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 129408941,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/12%20April%207%201961%20Document%20Of%20Death.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e13",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Mar 1961 Undercover Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/05%20March%2013%201961%20Undercover%20Man_000475.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1302,
+          "videoFile": {
+            "name": "05 March 13 1961 Undercover Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 130705160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/05%20March%2013%201961%20Undercover%20Man.mp4"
+        },
+        {
+          "archiveID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203@e20",
+          "sourceID": "01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Mar 1961 The Meet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203.thumbs/06%20March%2020%201961%20The%20Meet_000415.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1293,
+          "videoFile": {
+            "name": "06 March 20 1961 The Meet.mp4",
+            "format": "h.264",
+            "sizeBytes": 130273952,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-tallahassee-7000-may-1-1961-the-men-from-tallahassee_202203/06%20March%2020%201961%20The%20Meet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": "346817",
+  "artworkSource": "generated",
+  "cast": [
+    {
+      "name": "Walter Matthau",
+      "character": "Lex Rogers",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255031/photo/609ac870f2c8f.jpg"
+    }
+  ]
+}

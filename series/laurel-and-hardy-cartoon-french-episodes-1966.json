@@ -1,0 +1,1701 @@
+{
+  "version": 2,
+  "seriesID": "laurel-and-hardy-cartoon-french-episodes-1966",
+  "sourceID": "laurelandhardycartoonfrench",
+  "tvmazeID": null,
+  "title": "Laurel and Hardy Cartoon French Episodes",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": "Here are episodes of the Laurel and Hardy Cartoon Series (1966-1967) In French",
+  "posterURL": "https://archive.org/services/img/laurelandhardycartoonfrench",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "laurelandhardycartoonfrench@e01",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Can't Keep a Secret Agent (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/001.%20Can%27t%20Keep%20a%20Secret%20Agent%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "001. Can't Keep a Secret Agent (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28409290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/001.%20Can%27t%20Keep%20a%20Secret%20Agent%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e02",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Mutt Rut (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/002.%20Mutt%20Rut%20%28French%29_000179.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "002. Mutt Rut (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28657854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/002.%20Mutt%20Rut%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e03",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "How Green Was My Lawn Mower (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/003.%20How%20Green%20Was%20My%20Lawn%20Mower%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "003. How Green Was My Lawn Mower (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28222473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/003.%20How%20Green%20Was%20My%20Lawn%20Mower%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e04",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Prairie Panicked (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/004.%20Prairie%20Panicked%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "004. Prairie Panicked (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27287716,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/004.%20Prairie%20Panicked%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e05",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Missile Hassle (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/005.%20Missile%20Hassle%20%28French%29_000177.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "005. Missile Hassle (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28753950,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/005.%20Missile%20Hassle%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e06",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "No Moose Is A Good Moose (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/006.%20No%20Moose%20Is%20A%20Good%20Moose%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "006. No Moose Is A Good Moose (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28601308,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/006.%20No%20Moose%20Is%20A%20Good%20Moose%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e07",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Bullnick (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/007.%20The%20Bullnick%20%28French%29_000267.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "007. The Bullnick (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28698289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/007.%20The%20Bullnick%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e08",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "High Fly Guys (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/008.%20High%20Fly%20Guys%20%28French%29_000182.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "008. High Fly Guys (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28567694,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/008.%20High%20Fly%20Guys%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e09",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "False Alarms (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/009.%20False%20Alarms%20%28French%29_000267.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "009. False Alarms (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28406731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/009.%20False%20Alarms%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e13",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "You And Your Big Mouse (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/013.%20You%20And%20Your%20Big%20Mouse%20%28French%29_000120.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "013. You And Your Big Mouse (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27492806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/013.%20You%20And%20Your%20Big%20Mouse%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e14",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Sitting Roomers (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/014.%20Sitting%20Roomers%20%28French%29_000267.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "014. Sitting Roomers (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27336226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/014.%20Sitting%20Roomers%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e15",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Babes In Sea Land (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/015.%20Babes%20In%20Sea%20Land%20%28French%29_000111.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "015. Babes In Sea Land (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27118976,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/015.%20Babes%20In%20Sea%20Land%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e16",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Rome Roamers (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/016.%20Rome%20Roamers%20%28French%29_000168.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "016. Rome Roamers (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27417197,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/016.%20Rome%20Roamers%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e17",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Rocket Wreckers (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/017.%20Rocket%20Wreckers%20%28French%29_000165.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "017. Rocket Wreckers (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27263024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/017.%20Rocket%20Wreckers%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e18",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Hot Rod Hardy (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/018.%20Hot%20Rod%20Hardy%20%28French%29_000108.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "018. Hot Rod Hardy (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27362563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/018.%20Hot%20Rod%20Hardy%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e19",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Knight Mare (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/019.%20Knight%20Mare%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "019. Knight Mare (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27255490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/019.%20Knight%20Mare%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e20",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Defective Story (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/020.%20Defective%20Story%20%28French%29_000107.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "020. Defective Story (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27575912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/020.%20Defective%20Story%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e21",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Cash & Carry (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/021.%20Cash%20%26%20Carry%20%28French%29_000098.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 256,
+          "videoFile": {
+            "name": "021. Cash & Carry (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 25499450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/021.%20Cash%20%26%20Carry%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e22",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Desert Knight (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/022.%20Desert%20Knight%20%28French%29_000108.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "022. Desert Knight (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27668928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/022.%20Desert%20Knight%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e23",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Tale Of A Sale (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/023.%20Tale%20Of%20A%20Sale%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "023. Tale Of A Sale (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27759335,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/023.%20Tale%20Of%20A%20Sale%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e24",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Fancy Trance (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/024.%20Fancy%20Trance%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "024. Fancy Trance (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27566988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/024.%20Fancy%20Trance%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e25",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Suspect In Custody (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/025.%20Suspect%20In%20Custody%20%28French%29_000105.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "025. Suspect In Custody (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27641095,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/025.%20Suspect%20In%20Custody%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e26",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Auto-Matic Panic (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/026.%20Auto-Matic%20Panic%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "026. Auto-Matic Panic (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27260539,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/026.%20Auto-Matic%20Panic%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e27",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Shiver Mr. Timbers (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/027.%20Shiver%20Mr.%20Timbers%20%28French%29_000107.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "027. Shiver Mr. Timbers (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27631662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/027.%20Shiver%20Mr.%20Timbers%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e28",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Stand Out, Stand In (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/028.%20Stand%20Out%2C%20Stand%20In%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "028. Stand Out, Stand In (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27744522,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/028.%20Stand%20Out%2C%20Stand%20In%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e29",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Big Bear Bungle (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/029.%20Big%20Bear%20Bungle%20%28French%29_000105.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "029. Big Bear Bungle (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27804092,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/029.%20Big%20Bear%20Bungle%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e30",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Shrinking Shrieks (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/030.%20Shrinking%20Shrieks%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "030. Shrinking Shrieks (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27679906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/030.%20Shrinking%20Shrieks%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e31",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Mounty Rout (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/031.%20Mounty%20Rout%20%28French%29_000113.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "031. Mounty Rout (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27716598,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/031.%20Mounty%20Rout%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e32",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Bond Bombed (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/032.%20Bond%20Bombed%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "032. Bond Bombed (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27373198,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/032.%20Bond%20Bombed%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e33",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "What Fur (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/033.%20What%20Fur%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "033. What Fur (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27842098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/033.%20What%20Fur%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e34",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Spook Loot (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/034.%20Spook%20Loot%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "034. Spook Loot (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27443594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/034.%20Spook%20Loot%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e35",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Camera Bugged (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/035.%20Camera%20Bugged%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "035. Camera Bugged (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27354095,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/035.%20Camera%20Bugged%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e36",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Plumber Pudding (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/036.%20Plumber%20Pudding%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "036. Plumber Pudding (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27614466,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/036.%20Plumber%20Pudding%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e37",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Robust Robot (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/037.%20Robust%20Robot%20%28French%29_000001.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "037. Robust Robot (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27595132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/037.%20Robust%20Robot%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e38",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Vet Fret (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/038.%20Vet%20Fret%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "038. Vet Fret (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28008633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/038.%20Vet%20Fret%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e39",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Copper Bopper (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/039.%20Copper%20Bopper%20%28French%29%20_000109.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 275,
+          "videoFile": {
+            "name": "039. Copper Bopper (French) .mp4",
+            "format": "h.264",
+            "sizeBytes": 27322642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/039.%20Copper%20Bopper%20%28French%29%20.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e40",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Feud For Thought (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/040.%20Feud%20For%20Thought%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "040. Feud For Thought (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27465273,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/040.%20Feud%20For%20Thought%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e41",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Love Me, Love My Puppy (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/041.%20Love%20Me%2C%20Love%20My%20Puppy%20%28French%29_000176.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "041. Love Me, Love My Puppy (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27738322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/041.%20Love%20Me%2C%20Love%20My%20Puppy%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e42",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Squawking Squatter (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/042.%20Squawking%20Squatter%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "042. Squawking Squatter (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27533344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/042.%20Squawking%20Squatter%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e43",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Goofy Gopher Goof-Up (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/043.%20Goofy%20Gopher%20Goof-Up%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "043. Goofy Gopher Goof-Up (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27286786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/043.%20Goofy%20Gopher%20Goof-Up%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e44",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Sassy Sea Serpent (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/044.%20Sassy%20Sea%20Serpent%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "044. Sassy Sea Serpent (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27374770,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/044.%20Sassy%20Sea%20Serpent%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e45",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Wacky Quackers (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/045.%20Wacky%20Quackers%20%28French%29_000107.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "045. Wacky Quackers (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27436576,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/045.%20Wacky%20Quackers%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e46",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Truant Ruined (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/046.%20Truant%20Ruined%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "046. Truant Ruined (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27563114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/046.%20Truant%20Ruined%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e47",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Country Buzzin' (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/047.%20Country%20Buzzin%27%20%28French%29_000001.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 268,
+          "videoFile": {
+            "name": "047. Country Buzzin' (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 26828251,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/047.%20Country%20Buzzin%27%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e48",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Naps & Saps (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/048.%20Naps%20%26%20Saps%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "048. Naps & Saps (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27698039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/048.%20Naps%20%26%20Saps%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e50",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "The Missing Fink (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/050.%20The%20Missing%20Fink%20%28French%29_000177.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "050. The Missing Fink (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28097187,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/050.%20The%20Missing%20Fink%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e51",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "Always Leave 'Em Giggling (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/051.%20Always%20Leave%20%27Em%20Giggling%20%28French%29_000276.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 285,
+          "videoFile": {
+            "name": "051. Always Leave 'Em Giggling (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27974046,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/051.%20Always%20Leave%20%27Em%20Giggling%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e60",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "Leaping Leprechaun (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/060.%20Leaping%20Leprechaun%20%28French%29_000276.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 285,
+          "videoFile": {
+            "name": "060. Leaping Leprechaun (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27979761,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/060.%20Leaping%20Leprechaun%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e61",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Tourist Trouble (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/061.%20Tourist%20Trouble%20%28French%29_000276.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 285,
+          "videoFile": {
+            "name": "061. Tourist Trouble (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27794179,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/061.%20Tourist%20Trouble%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e62",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "The Genie Was Meanie (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/062.%20The%20Genie%20Was%20Meanie%20%28French%29_000276.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 285,
+          "videoFile": {
+            "name": "062. The Genie Was Meanie (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28122611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/062.%20The%20Genie%20Was%20Meanie%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e67",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Horse Detectives (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/067.%20Horse%20Detectives%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "067. Horse Detectives (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27550115,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/067.%20Horse%20Detectives%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e68",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 68,
+          "title": "The Two Musketeers (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/068.%20The%20Two%20Musketeers%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "068. The Two Musketeers (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27172338,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/068.%20The%20Two%20Musketeers%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e69",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Ali Boo Boo (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/069.%20Ali%20Boo%20Boo%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "069. Ali Boo Boo (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27598516,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/069.%20Ali%20Boo%20Boo%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e70",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "Ghost Town Clowns (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/070.%20Ghost%20Town%20Clowns%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "070. Ghost Town Clowns (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27865335,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/070.%20Ghost%20Town%20Clowns%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e71",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "Hurricane Hood (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/071.%20Hurricane%20Hood%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "071. Hurricane Hood (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27567434,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/071.%20Hurricane%20Hood%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e72",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Ride And Seek (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/072.%20Ride%20And%20Seek%20%28French%29_000105.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "072. Ride And Seek (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27824524,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/072.%20Ride%20And%20Seek%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e73",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 73,
+          "title": "Tee Pee TV (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/073.%20Tee%20Pee%20TV%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "073. Tee Pee TV (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28072122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/073.%20Tee%20Pee%20TV%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e74",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 74,
+          "title": "Shoe-Shoe Baby (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/074.%20Shoe-Shoe%20Baby%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "074. Shoe-Shoe Baby (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27937786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/074.%20Shoe-Shoe%20Baby%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e75",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 75,
+          "title": "Train Strain (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/075.%20Train%20Strain%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "075. Train Strain (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27936961,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/075.%20Train%20Strain%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e76",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 76,
+          "title": "Monster Bash (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/076.%20Monster%20Bash%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "076. Monster Bash (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27760886,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/076.%20Monster%20Bash%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e77",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 77,
+          "title": "Say Uncle, Ants (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/077.%20Say%20Uncle%2C%20Ants%20%28French%29_000176.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "077. Say Uncle, Ants (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27380205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/077.%20Say%20Uncle%2C%20Ants%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e78",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 78,
+          "title": "Kitty Pity (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/078.%20Kitty%20Pity%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "078. Kitty Pity (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27509415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/078.%20Kitty%20Pity%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e79",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 79,
+          "title": "Frigid-Ray-Gun (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/079.%20Frigid-Ray-Gun%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "079. Frigid-Ray-Gun (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27397016,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/079.%20Frigid-Ray-Gun%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e80",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 80,
+          "title": "Southern Hospital-Ity (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/080.%20Southern%20Hospital-Ity%20%28French%29_000267.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "080. Southern Hospital-Ity (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27651508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/080.%20Southern%20Hospital-Ity%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e81",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 81,
+          "title": "Frog Frolic (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/081.%20Frog%20Frolic%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "081. Frog Frolic (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27380621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/081.%20Frog%20Frolic%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e82",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 82,
+          "title": "Shutter Bugged (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/082.%20Shutter%20Bugged%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "082. Shutter Bugged (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27514354,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/082.%20Shutter%20Bugged%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e84",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 84,
+          "title": "Witch Switch (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/084.%20Witch%20Switch%20%28French%29_000112.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "084. Witch Switch (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27560293,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/084.%20Witch%20Switch%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e85",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 85,
+          "title": "Pie in the Sky (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/085.%20Pie%20in%20the%20Sky%20%28French%29_000108.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "085. Pie in the Sky (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27393133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/085.%20Pie%20in%20the%20Sky%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e87",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 87,
+          "title": "Sign Of The Times (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/087.%20Sign%20Of%20The%20Times%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "087. Sign Of The Times (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27299711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/087.%20Sign%20Of%20The%20Times%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e88",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 88,
+          "title": "Two Many Cooks (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/088.%20Two%20Many%20Cooks%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "088. Two Many Cooks (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27438718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/088.%20Two%20Many%20Cooks%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e89",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 89,
+          "title": "Flea's A Crowd (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/089.%20Flea%27s%20A%20Crowd%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "089. Flea's A Crowd (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27383128,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/089.%20Flea%27s%20A%20Crowd%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e90",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 90,
+          "title": "Dingbats (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/090.%20Dingbats%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "090. Dingbats (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27496577,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/090.%20Dingbats%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e91",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 91,
+          "title": "We Clothe At Five (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/091.%20We%20Clothe%20At%20Five%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 275,
+          "videoFile": {
+            "name": "091. We Clothe At Five (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27451422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/091.%20We%20Clothe%20At%20Five%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e92",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 92,
+          "title": "The Stone Age Kid (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/092.%20The%20Stone%20Age%20Kid%20%28French%29_000270.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "092. The Stone Age Kid (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27353389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/092.%20The%20Stone%20Age%20Kid%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e93",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 93,
+          "title": "Quick Change (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/093.%20Quick%20Change%20%28French%29_000111.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "093. Quick Change (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27405856,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/093.%20Quick%20Change%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e94",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 94,
+          "title": "Whing-A-Ding (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/094.%20Whing-A-Ding%20%28French%29_000269.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "094. Whing-A-Ding (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27184266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/094.%20Whing-A-Ding%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e95",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 95,
+          "title": "Termite Might (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/095.%20Termite%20Might%20%28French%29_000271.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "095. Termite Might (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27350258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/095.%20Termite%20Might%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e96",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 96,
+          "title": "To Bee Or Not To Bee (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/096.%20To%20Bee%20Or%20Not%20To%20Bee%20%28French%29_000108.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "096. To Bee Or Not To Bee (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27400240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/096.%20To%20Bee%20Or%20Not%20To%20Bee%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e97",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 97,
+          "title": "Mistaken Identi-Tree (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/097.%20Mistaken%20Identi-Tree%20%28French%29_000268.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "097. Mistaken Identi-Tree (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27341610,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/097.%20Mistaken%20Identi-Tree%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e98",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 98,
+          "title": "Rodeo Doug (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/098.%20Rodeo%20Doug%20%28French%29_000108.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "098. Rodeo Doug (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27271844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/098.%20Rodeo%20Doug%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e99",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 99,
+          "title": "Pet Shop Polly (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/099.%20Pet%20Shop%20Polly%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "099. Pet Shop Polly (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 26876330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/099.%20Pet%20Shop%20Polly%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e100",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 100,
+          "title": "Laff Staff (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/100.%20Laff%20Staff%20%28French%29_000168.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "100. Laff Staff (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27309285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/100.%20Laff%20Staff%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e101",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 101,
+          "title": "Try and Get It (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/101.%20Try%20and%20Get%20It%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "101. Try and Get It (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27474930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/101.%20Try%20and%20Get%20It%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e102",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 102,
+          "title": "Riverboat Detectives (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/102.%20Riverboat%20Detectives%20%28French%29_000106.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "102. Riverboat Detectives (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27546451,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/102.%20Riverboat%20Detectives%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e103",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 103,
+          "title": "Unhealthy Wealthy (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/103.%20Unhealthy%20Wealthy%20%28French%29_000105.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "103. Unhealthy Wealthy (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27455793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/103.%20Unhealthy%20Wealthy%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e104",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 104,
+          "title": "Honesty Always Pays (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/104.%20Honesty%20Always%20Pays%20%28French%29_000107.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "104. Honesty Always Pays (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27315226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/104.%20Honesty%20Always%20Pays%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e105",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 105,
+          "title": "Plant Rant (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/105.%20Plant%20Rant%20%28French%29_000164.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "105. Plant Rant (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27227321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/105.%20Plant%20Rant%20%28French%29.mp4"
+        },
+        {
+          "archiveID": "laurelandhardycartoonfrench@e106",
+          "sourceID": "laurelandhardycartoonfrench",
+          "seasonNumber": 1,
+          "episodeNumber": 106,
+          "title": "Sky-High Noon (French)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/laurelandhardycartoonfrench/laurelandhardycartoonfrench.thumbs/106.%20Sky-High%20Noon%20%28French%29_000166.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 276,
+          "videoFile": {
+            "name": "106. Sky-High Noon (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 27168666,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/106.%20Sky-High%20Noon%20%28French%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 88,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

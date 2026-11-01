@@ -1,0 +1,1662 @@
+{
+  "version": 2,
+  "seriesID": "our-gang",
+  "sourceID": "our-gang-collection",
+  "tvmazeID": null,
+  "title": "Our Gang",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "An unethical merchant moves into town and steals customers from the widowed owner of an established store; the gang steps in to help.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bsC37I23GUOHK4ZHModbrfrVka2.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1eWIxVWqjhejSy06y3VF2IrW6Kq.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [],
+  "creator": "Robert F. McGowan",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "our-gang-collection@e01",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Dog Heaven (1927 - Silent)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/01%20Dog%20Heaven%20%281927%20-%20Silent%29_001823.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1886,
+          "videoFile": {
+            "name": "01 Dog Heaven (1927 - Silent).mp4",
+            "format": "h.264",
+            "sizeBytes": 157179377,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/01%20Dog%20Heaven%20%281927%20-%20Silent%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e02",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Spook Spoofing (1928 - Silent)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/02%20Spook%20Spoofing%20%281928%20-%20Silent%29_001823.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1886,
+          "videoFile": {
+            "name": "02 Spook Spoofing (1928 - Silent).mp4",
+            "format": "h.264",
+            "sizeBytes": 166429828,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/02%20Spook%20Spoofing%20%281928%20-%20Silent%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e03",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Barnum & Ringling, Inc. (1928 - Silent)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/03%20Barnum%20%26%20Ringling%2C%20Inc.%20%281928%20-%20Silent%29_001038.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1074,
+          "videoFile": {
+            "name": "03 Barnum & Ringling, Inc. (1928 - Silent).mp4",
+            "format": "h.264",
+            "sizeBytes": 106535392,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/03%20Barnum%20%26%20Ringling%2C%20Inc.%20%281928%20-%20Silent%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e04",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bouncing Babies (1929)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/04%20Bouncing%20Babies%20%281929%29_001214.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1255,
+          "videoFile": {
+            "name": "04 Bouncing Babies (1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 121923391,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/04%20Bouncing%20Babies%20%281929%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e05",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Railroadin' (1929)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/05%20Railroadin%27%20%281929%29_001093.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1130,
+          "videoFile": {
+            "name": "05 Railroadin' (1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 108666225,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/05%20Railroadin%27%20%281929%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e06",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Lazy Days (1929)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/06%20Lazy%20Days%20%281929%29_001172.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1212,
+          "videoFile": {
+            "name": "06 Lazy Days (1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 116988684,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/06%20Lazy%20Days%20%281929%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e07",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Moan and Groan, Inc. (1929)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/07%20Moan%20and%20Groan%2C%20Inc.%20%281929%29_001202.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1243,
+          "videoFile": {
+            "name": "07 Moan and Groan, Inc. (1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 121099698,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/07%20Moan%20and%20Groan%2C%20Inc.%20%281929%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e08",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Boxing Gloves (1929)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/08%20Boxing%20Gloves%20%281929%29_001000.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1034,
+          "videoFile": {
+            "name": "08 Boxing Gloves (1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 100025574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/08%20Boxing%20Gloves%20%281929%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e09",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Small Talk (1929)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/09%20Small%20Talk%20%281929%29_001451.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "09 Small Talk (1929).mp4",
+            "format": "h.264",
+            "sizeBytes": 145432322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/09%20Small%20Talk%20%281929%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e10",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Bear Shooters (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/10%20Bear%20Shooters%20%281930%29_001183.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1224,
+          "videoFile": {
+            "name": "10 Bear Shooters (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 118213073,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/10%20Bear%20Shooters%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e11",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "When the Wind Blows (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/11%20When%20the%20Wind%20Blows%20%281930%29_001143.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1182,
+          "videoFile": {
+            "name": "11 When the Wind Blows (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 114235337,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/11%20When%20the%20Wind%20Blows%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e12",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Shivering Shakespeare (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/12%20Shivering%20Shakespeare%20%281930%29_001178.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1219,
+          "videoFile": {
+            "name": "12 Shivering Shakespeare (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 119391650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/12%20Shivering%20Shakespeare%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e13",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The First Seven Years (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/13%20The%20First%20Seven%20Years%20%281930%29_001167.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1207,
+          "videoFile": {
+            "name": "13 The First Seven Years (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 116482542,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/13%20The%20First%20Seven%20Years%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e14",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "A Tough Winter (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/14%20A%20Tough%20Winter%20%281930%29_001194.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1235,
+          "videoFile": {
+            "name": "14 A Tough Winter (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 119045008,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/14%20A%20Tough%20Winter%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e15",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Pups is Pups (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/15%20Pups%20is%20Pups%20%281930%29_001076.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1113,
+          "videoFile": {
+            "name": "15 Pups is Pups (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 107445114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/15%20Pups%20is%20Pups%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e16",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Teacher's Pet (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/16%20Teacher%27s%20Pet%20%281930%29_001208.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1249,
+          "videoFile": {
+            "name": "16 Teacher's Pet (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 122557372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/16%20Teacher%27s%20Pet%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e17",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "School's Out (1930)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/17%20School%27s%20Out%20%281930%29_001205.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1247,
+          "videoFile": {
+            "name": "17 School's Out (1930).mp4",
+            "format": "h.264",
+            "sizeBytes": 120510972,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/17%20School%27s%20Out%20%281930%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e18",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Helping Grandma (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/18%20Helping%20Grandma%20%281931%29_001216.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1258,
+          "videoFile": {
+            "name": "18 Helping Grandma (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 121101586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/18%20Helping%20Grandma%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e19",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Love Business (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/19%20Love%20Business%20%281931%29_001181.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1221,
+          "videoFile": {
+            "name": "19 Love Business (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 117684183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/19%20Love%20Business%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e20",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Little Daddy (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/20%20Little%20Daddy%20%281931%29_001224.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1266,
+          "videoFile": {
+            "name": "20 Little Daddy (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 122301621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/20%20Little%20Daddy%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e21",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Bargain Days (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/21%20Bargain%20Days%20%281931%29_001098.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1136,
+          "videoFile": {
+            "name": "21 Bargain Days (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 110134481,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/21%20Bargain%20Days%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e22",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Fly My Kite (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/22%20Fly%20My%20Kite%20%281931%29_001220.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1262,
+          "videoFile": {
+            "name": "22 Fly My Kite (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 122694852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/22%20Fly%20My%20Kite%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e23",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Big Ears (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/23%20Big%20Ears%20%281931%29_001215.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1257,
+          "videoFile": {
+            "name": "23 Big Ears (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 121438530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/23%20Big%20Ears%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e24",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Shiver My Timbers (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/24%20Shiver%20My%20Timbers%20%281931%29_001213.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1255,
+          "videoFile": {
+            "name": "24 Shiver My Timbers (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 121542017,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/24%20Shiver%20My%20Timbers%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e25",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Dogs is Dogs (1931)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/25%20Dogs%20is%20Dogs%20%281931%29_001207.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1249,
+          "videoFile": {
+            "name": "25 Dogs is Dogs (1931).mp4",
+            "format": "h.264",
+            "sizeBytes": 121363726,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/25%20Dogs%20is%20Dogs%20%281931%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e26",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Readin' and Writin' (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/26%20Readin%27%20and%20Writin%27%20%281932%29_001214.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1256,
+          "videoFile": {
+            "name": "26 Readin' and Writin' (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 122310267,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/26%20Readin%27%20and%20Writin%27%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e27",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Free Eats (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/27%20Free%20Eats%20%281932%29_001114.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1152,
+          "videoFile": {
+            "name": "27 Free Eats (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 112101770,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/27%20Free%20Eats%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e28",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Choo Choo (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/28%20Choo%20Choo%20%281932%29_001196.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1237,
+          "videoFile": {
+            "name": "28 Choo Choo (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 119939774,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/28%20Choo%20Choo%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e29",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Spanky (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/29%20Spanky%20%281932%29_001146.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1186,
+          "videoFile": {
+            "name": "29 Spanky (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 115181645,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/29%20Spanky%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e30",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Pooch (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/30%20The%20Pooch%20%281932%29_001174.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1215,
+          "videoFile": {
+            "name": "30 The Pooch (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 120677686,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/30%20The%20Pooch%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e31",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Hook and Ladder (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/31%20Hook%20and%20Ladder%20%281932%29_001053.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1089,
+          "videoFile": {
+            "name": "31 Hook and Ladder (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 105800378,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/31%20Hook%20and%20Ladder%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e32",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Free Wheeling (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/32%20Free%20Wheeling%20%281932%29_001144.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1183,
+          "videoFile": {
+            "name": "32 Free Wheeling (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 114451603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/32%20Free%20Wheeling%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e33",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Birthday Blues (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/33%20Birthday%20Blues%20%281932%29_001120.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1158,
+          "videoFile": {
+            "name": "33 Birthday Blues (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 112828175,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/33%20Birthday%20Blues%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e34",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "La An' a Lamp (1932)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/34%20La%20An%27%20a%20Lamp%20%281932%29_000986.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1020,
+          "videoFile": {
+            "name": "34 La An' a Lamp (1932).mp4",
+            "format": "h.264",
+            "sizeBytes": 98887393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/34%20La%20An%27%20a%20Lamp%20%281932%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e35",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Fish Hooky (1933)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/35%20Fish%20Hooky%20%281933%29_001070.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1107,
+          "videoFile": {
+            "name": "35 Fish Hooky (1933).mp4",
+            "format": "h.264",
+            "sizeBytes": 107806539,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/35%20Fish%20Hooky%20%281933%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e36",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Forgotten Babies (1933)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/36%20Forgotten%20Babies%20%281933%29_000979.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1012,
+          "videoFile": {
+            "name": "36 Forgotten Babies (1933).mp4",
+            "format": "h.264",
+            "sizeBytes": 98654078,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/36%20Forgotten%20Babies%20%281933%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e37",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "The Kid from Borneo (1933)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/37%20The%20Kid%20from%20Borneo%20%281933%29_001078.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1114,
+          "videoFile": {
+            "name": "37 The Kid from Borneo (1933).mp4",
+            "format": "h.264",
+            "sizeBytes": 107859994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/37%20The%20Kid%20from%20Borneo%20%281933%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e38",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Mush and Milk (1933)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/38%20Mush%20and%20Milk%20%281933%29_001056.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1092,
+          "videoFile": {
+            "name": "38 Mush and Milk (1933).mp4",
+            "format": "h.264",
+            "sizeBytes": 106144703,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/38%20Mush%20and%20Milk%20%281933%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e39",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Bedtime Worries (1933)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/39%20Bedtime%20Worries%20%281933%29_001173.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1214,
+          "videoFile": {
+            "name": "39 Bedtime Worries (1933).mp4",
+            "format": "h.264",
+            "sizeBytes": 118095750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/39%20Bedtime%20Worries%20%281933%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e40",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Wild Poses (1933)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/40%20Wild%20Poses%20%281933%29_001060.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1097,
+          "videoFile": {
+            "name": "40 Wild Poses (1933).mp4",
+            "format": "h.264",
+            "sizeBytes": 107422071,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/40%20Wild%20Poses%20%281933%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e41",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Hi Neighbor (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/41%20Hi%20Neighbor%20%281934%29_001034.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1069,
+          "videoFile": {
+            "name": "41 Hi Neighbor (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 103863878,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/41%20Hi%20Neighbor%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e42",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "For Pete's Sake (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/42%20For%20Pete%27s%20Sake%20%281934%29_001044.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1080,
+          "videoFile": {
+            "name": "42 For Pete's Sake (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 104769754,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/42%20For%20Pete%27s%20Sake%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e43",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "The First Round-Up (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/43%20The%20First%20Round-Up%20%281934%29_001083.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1120,
+          "videoFile": {
+            "name": "43 The First Round-Up (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 109008214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/43%20The%20First%20Round-Up%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e44",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Honkey Donkey (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/44%20Honkey%20Donkey%20%281934%29_000964.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 997,
+          "videoFile": {
+            "name": "44 Honkey Donkey (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 97225740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/44%20Honkey%20Donkey%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e45",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Mike Fright (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/45%20Mike%20Fright%20%281934%29_001006.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1041,
+          "videoFile": {
+            "name": "45 Mike Fright (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 101212700,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/45%20Mike%20Fright%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e46",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Washee-Ironee (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/46%20Washee-Ironee%20%281934%29_000909.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 941,
+          "videoFile": {
+            "name": "46 Washee-Ironee (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 92810639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/46%20Washee-Ironee%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e47",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Mama's Little Pirate (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/47%20Mama%27s%20Little%20Pirate%20%281934%29_001044.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1080,
+          "videoFile": {
+            "name": "47 Mama's Little Pirate (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 105126140,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/47%20Mama%27s%20Little%20Pirate%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e48",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Shrimps for a Day (1934)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/48%20Shrimps%20for%20a%20Day%20%281934%29_001187.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1228,
+          "videoFile": {
+            "name": "48 Shrimps for a Day (1934).mp4",
+            "format": "h.264",
+            "sizeBytes": 120051435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/48%20Shrimps%20for%20a%20Day%20%281934%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e49",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Anniversary Trouble (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/49%20Anniversary%20Trouble%20%281935%29_001087.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1124,
+          "videoFile": {
+            "name": "49 Anniversary Trouble (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 112146638,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/49%20Anniversary%20Trouble%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e50",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Beginner's Luck (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/50%20Beginner%27s%20Luck%20%281935%29_001078.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1114,
+          "videoFile": {
+            "name": "50 Beginner's Luck (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 108501221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/50%20Beginner%27s%20Luck%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e51",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "Teacher's Beau (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/51%20Teacher%27s%20Beau%20%281935%29_001101.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1139,
+          "videoFile": {
+            "name": "51 Teacher's Beau (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 111096072,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/51%20Teacher%27s%20Beau%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e52",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "Sprucin' Up (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/52%20Sprucin%27%20Up%20%281935%29_000981.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1015,
+          "videoFile": {
+            "name": "52 Sprucin' Up (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 98816563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/52%20Sprucin%27%20Up%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e53",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 53,
+          "title": "Little Papa (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/53%20Little%20Papa%20%281935%29_001109.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1147,
+          "videoFile": {
+            "name": "53 Little Papa (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 118206405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/53%20Little%20Papa%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e54",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "Little Sinner (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/54%20Little%20Sinner%20%281935%29_000996.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1030,
+          "videoFile": {
+            "name": "54 Little Sinner (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 101531499,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/54%20Little%20Sinner%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e55",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "Our Gang Follies (1935)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/55%20Our%20Gang%20Follies%20%281935%29_001035.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1070,
+          "videoFile": {
+            "name": "55 Our Gang Follies (1935).mp4",
+            "format": "h.264",
+            "sizeBytes": 103150704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/55%20Our%20Gang%20Follies%20%281935%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e56",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "The Pinch Singer (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/56%20The%20Pinch%20Singer%20%281936%29_000995.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1029,
+          "videoFile": {
+            "name": "56 The Pinch Singer (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 100457638,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/56%20The%20Pinch%20Singer%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e57",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "Divot Diggers (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/57%20Divot%20Diggers%20%281936%29_000843.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "57 Divot Diggers (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 84412303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/57%20Divot%20Diggers%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e58",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "Lucky Corner (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/58%20Lucky%20Corner%20%281936%29_000932.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 964,
+          "videoFile": {
+            "name": "58 Lucky Corner (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 93123077,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/58%20Lucky%20Corner%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e59",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 59,
+          "title": "Second Childhood (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/59%20Second%20Childhood%20%281936%29_001108.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1147,
+          "videoFile": {
+            "name": "59 Second Childhood (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 111265666,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/59%20Second%20Childhood%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e60",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "Arbor Day (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/60%20Arbor%20Day%20%281936%29_001009.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1044,
+          "videoFile": {
+            "name": "60 Arbor Day (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 101395491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/60%20Arbor%20Day%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e61",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Bored of Education (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/61%20Bored%20of%20Education%20%281936%29_000596.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 617,
+          "videoFile": {
+            "name": "61 Bored of Education (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 59899173,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/61%20Bored%20of%20Education%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e62",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Two Too Young (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/62%20Two%20Too%20Young%20%281936%29_000585.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 605,
+          "videoFile": {
+            "name": "62 Two Too Young (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 58777399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/62%20Two%20Too%20Young%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e63",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 63,
+          "title": "Pay As You Exit (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/63%20Pay%20As%20You%20Exit%20%281936%29_000616.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 637,
+          "videoFile": {
+            "name": "63 Pay As You Exit (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 61665363,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/63%20Pay%20As%20You%20Exit%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e64",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "Spooky Hooky (1936)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/64%20Spooky%20Hooky%20%281936%29_000614.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 635,
+          "videoFile": {
+            "name": "64 Spooky Hooky (1936).mp4",
+            "format": "h.264",
+            "sizeBytes": 61493991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/64%20Spooky%20Hooky%20%281936%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e65",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "Reunion in Rhythm (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/65%20Reunion%20in%20Rhythm%20%281937%29_000621.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 642,
+          "videoFile": {
+            "name": "65 Reunion in Rhythm (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 61990995,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/65%20Reunion%20in%20Rhythm%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e66",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 66,
+          "title": "Glove Taps (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/66%20Glove%20Taps%20%281937%29_000617.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 639,
+          "videoFile": {
+            "name": "66 Glove Taps (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 61431244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/66%20Glove%20Taps%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e67",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Hearts Are Thump (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/67%20Hearts%20Are%20Thump%20%281937%29_000611.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 632,
+          "videoFile": {
+            "name": "67 Hearts Are Thump (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 61517536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/67%20Hearts%20Are%20Thump%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e68",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 68,
+          "title": "Rushin' Ballet (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/68%20Rushin%27%20Ballet%20%281937%29_000627.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 649,
+          "videoFile": {
+            "name": "68 Rushin' Ballet (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 62861431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/68%20Rushin%27%20Ballet%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e69",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Three Smart Boys (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/69%20Three%20Smart%20Boys%20%281937%29_000607.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 628,
+          "videoFile": {
+            "name": "69 Three Smart Boys (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 62977091,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/69%20Three%20Smart%20Boys%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e70",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "Roamin' Holiday (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/70%20Roamin%27%20Holiday%20%281937%29_000614.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 635,
+          "videoFile": {
+            "name": "70 Roamin' Holiday (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 63227213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/70%20Roamin%27%20Holiday%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e71",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "Night 'n' Gales (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/71%20Night%20%27n%27%20Gales%20%281937%29_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 652,
+          "videoFile": {
+            "name": "71 Night 'n' Gales (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 63398229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/71%20Night%20%27n%27%20Gales%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e72",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Fishy Tales (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/72%20Fishy%20Tales%20%281937%29_000618.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 639,
+          "videoFile": {
+            "name": "72 Fishy Tales (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 62156153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/72%20Fishy%20Tales%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e73",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 73,
+          "title": "Framing Youth (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/73%20Framing%20Youth%20%281937%29_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 651,
+          "videoFile": {
+            "name": "73 Framing Youth (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 63397835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/73%20Framing%20Youth%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e74",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 74,
+          "title": "The Pigskin Palooka (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/74%20The%20Pigskin%20Palooka%20%281937%29_000631.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 652,
+          "videoFile": {
+            "name": "74 The Pigskin Palooka (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 62877262,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/74%20The%20Pigskin%20Palooka%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e75",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 75,
+          "title": "Mail and Female (1937)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/75%20Mail%20and%20Female%20%281937%29_000629.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 651,
+          "videoFile": {
+            "name": "75 Mail and Female (1937).mp4",
+            "format": "h.264",
+            "sizeBytes": 63063597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/75%20Mail%20and%20Female%20%281937%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e76",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 76,
+          "title": "Our Gang Follies (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/76%20Our%20Gang%20Follies%20%281938%29_001256.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1300,
+          "videoFile": {
+            "name": "76 Our Gang Follies (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 125713901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/76%20Our%20Gang%20Follies%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e77",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 77,
+          "title": "Bear Facts (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/77%20Bear%20Facts%20%281938%29_000620.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 641,
+          "videoFile": {
+            "name": "77 Bear Facts (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 65849191,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/77%20Bear%20Facts%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e78",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 78,
+          "title": "Three Men in a Tub (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/78%20Three%20Men%20in%20a%20Tub%20%281938%29_000618.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 639,
+          "videoFile": {
+            "name": "78 Three Men in a Tub (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 61864558,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/78%20Three%20Men%20in%20a%20Tub%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e79",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 79,
+          "title": "Came the Brawn (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/79%20Came%20the%20Brawn%20%281938%29_000621.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 642,
+          "videoFile": {
+            "name": "79 Came the Brawn (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 63988455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/79%20Came%20the%20Brawn%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e80",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 80,
+          "title": "Feed 'em and Weep (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/80%20Feed%20%27em%20and%20Weep%20%281938%29_000620.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 641,
+          "videoFile": {
+            "name": "80 Feed 'em and Weep (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 62313009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/80%20Feed%20%27em%20and%20Weep%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e81",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 81,
+          "title": "The Awful Tooth (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/81%20The%20Awful%20Tooth%20%281938%29_000577.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 597,
+          "videoFile": {
+            "name": "81 The Awful Tooth (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 59750498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/81%20The%20Awful%20Tooth%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e82",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 82,
+          "title": "Hide and Shriek (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/82%20Hide%20and%20Shriek%20%281938%29_000613.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 634,
+          "videoFile": {
+            "name": "82 Hide and Shriek (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 62982166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/82%20Hide%20and%20Shriek%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e83",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 83,
+          "title": "Canned Fishing (1938)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/83%20Canned%20Fishing%20%281938%29_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 652,
+          "videoFile": {
+            "name": "83 Canned Fishing (1938).mp4",
+            "format": "h.264",
+            "sizeBytes": 62900501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/83%20Canned%20Fishing%20%281938%29.mp4"
+        },
+        {
+          "archiveID": "our-gang-collection@e84",
+          "sourceID": "our-gang-collection",
+          "seasonNumber": 1,
+          "episodeNumber": 84,
+          "title": "The Story of Hal Roach and Our Gang",
+          "overview": null,
+          "stillURL": "https://archive.org/download/our-gang-collection/our-gang-collection.thumbs/84%20The%20Story%20of%20Hal%20Roach%20and%20Our%20Gang_001683.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1740,
+          "videoFile": {
+            "name": "84 The Story of Hal Roach and Our Gang.mp4",
+            "format": "h.264",
+            "sizeBytes": 170441450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/our-gang-collection/84%20The%20Story%20of%20Hal%20Roach%20and%20Our%20Gang.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 84,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Anna Mae Bilson",
+      "character": "Mary Jane",
+      "order": 0,
+      "profilePath": "/dh4wPqbZypsd81zIMxMaqo7bZH0.jpg"
+    },
+    {
+      "name": "Jackie Condon",
+      "character": "Jackie",
+      "order": 1,
+      "profilePath": "/7TtxlaKJPtV7kS1A5TWv6S23gvZ.jpg"
+    },
+    {
+      "name": "Mickey Daniels",
+      "character": "Mickey",
+      "order": 2,
+      "profilePath": "/kYS1wlzxNiRq7oZf9w9f8Sdd6y7.jpg"
+    },
+    {
+      "name": "John Hatton",
+      "character": "Rich Boy",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Sunshine Sammy Morrison",
+      "character": "Sunshine Sammy",
+      "order": 4,
+      "profilePath": "/ldASwZYfDcWt16wi6o1BoI85V8n.jpg"
+    },
+    {
+      "name": "Billy Condon",
+      "character": null,
+      "order": 5,
+      "profilePath": null
+    }
+  ]
+}

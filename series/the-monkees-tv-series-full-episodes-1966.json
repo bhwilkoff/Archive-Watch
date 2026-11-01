@@ -1,0 +1,1153 @@
+{
+  "version": 2,
+  "seriesID": "the-monkees-tv-series-full-episodes-1966",
+  "sourceID": "the-monkees-tv-series-full-episodes",
+  "tvmazeID": null,
+  "title": "The Monkees TV Series Full Episodes",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": "Episodes of The Monkees, the 1966–68 NBC comedy series following a four-man pop group's misadventures.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-monkees-tv-series-full-episodes.21026d1b.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e01",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Royal Flush",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/1%20-%20The%20Royal%20Flush_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "1 - The Royal Flush.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1267134614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/1%20-%20The%20Royal%20Flush.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e02",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Monkee See, Monkee Die",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/2%20-%20Monkee%20See%2C%20Monkee%20Die_000886.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "2 - Monkee See, Monkee Die.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1325960464,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/2%20-%20Monkee%20See%2C%20Monkee%20Die.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e03",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Monkee Vs. Machine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/3%20-%20Monkee%20Vs.%20Machine_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "3 - Monkee Vs. Machine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1439703103,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/3%20-%20Monkee%20Vs.%20Machine.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e04",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Your Friendly Neighborhood Kidnappers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/4%20-%20Your%20Friendly%20Neighborhood%20Kidnappers_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "4 - Your Friendly Neighborhood Kidnappers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1438532812,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/4%20-%20Your%20Friendly%20Neighborhood%20Kidnappers.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e05",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Spy Who Came In From The Cool",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/5%20-%20The%20Spy%20Who%20Came%20In%20From%20The%20Cool_000881.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "5 - The Spy Who Came In From The Cool.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1372801517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/5%20-%20The%20Spy%20Who%20Came%20In%20From%20The%20Cool.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e06",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Success Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/6%20-%20Success%20Story_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "6 - Success Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1452319439,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/6%20-%20Success%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e07",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Monkees In A Ghost Town",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/7%20-%20Monkees%20In%20A%20Ghost%20Town_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "7 - Monkees In A Ghost Town.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1463567793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/7%20-%20Monkees%20In%20A%20Ghost%20Town.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e08",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Don't Look A Gift Horse In The Mouth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/8%20-%20Don%27t%20Look%20A%20Gift%20Horse%20In%20The%20Mouth_000848.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1458,
+          "videoFile": {
+            "name": "8 - Don't Look A Gift Horse In The Mouth.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1688966902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/8%20-%20Don%27t%20Look%20A%20Gift%20Horse%20In%20The%20Mouth.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e09",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Chaperone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/9%20-%20The%20Chaperone_000862.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "9 - The Chaperone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1264601009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/9%20-%20The%20Chaperone.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e10",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Here Come The Monkees -- The Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/10%20-%20Here%20Come%20The%20Monkees%20--%20The%20Pilot_000889.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "10 - Here Come The Monkees -- The Pilot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1413986714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/10%20-%20Here%20Come%20The%20Monkees%20--%20The%20Pilot.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e11",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Monkees A La Carte",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/11%20-%20Monkees%20A%20La%20Carte_000881.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "11 - Monkees A La Carte.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1282206704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/11%20-%20Monkees%20A%20La%20Carte.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e12",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "I’ve Got A Little Song Here",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/12%20-%20I%E2%80%99ve%20Got%20A%20Little%20Song%20Here_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "12 - I’ve Got A Little Song Here.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1353267988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/12%20-%20I%E2%80%99ve%20Got%20A%20Little%20Song%20Here.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e13",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "One Man Shy (Peter And The Debutante)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/13%20-%20One%20Man%20Shy%20%28Peter%20And%20The%20Debutante%29_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "13 - One Man Shy (Peter And The Debutante).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1240894452,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/13%20-%20One%20Man%20Shy%20%28Peter%20And%20The%20Debutante%29.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e14",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Dance Monkee Dance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/14%20-%20Dance%20Monkee%20Dance_000867.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1488,
+          "videoFile": {
+            "name": "14 - Dance Monkee Dance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1491605738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/14%20-%20Dance%20Monkee%20Dance.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e15",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Too Many Girls (Davy And Fern)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/15%20-%20Too%20Many%20Girls%20%28Davy%20And%20Fern%29_000878.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "15 - Too Many Girls (Davy And Fern).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1227599287,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/15%20-%20Too%20Many%20Girls%20%28Davy%20And%20Fern%29.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e16",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Son Of A Gypsy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/16%20-%20Son%20Of%20A%20Gypsy_000881.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "16 - Son Of A Gypsy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1494993518,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/16%20-%20Son%20Of%20A%20Gypsy.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e17",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Case Of The Missing Monkee",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/17%20-%20The%20Case%20Of%20The%20Missing%20Monkee_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "17 - The Case Of The Missing Monkee.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1833064186,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/17%20-%20The%20Case%20Of%20The%20Missing%20Monkee.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e18",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "I Was A Teenage Monster",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/18%20-%20I%20Was%20A%20Teenage%20Monster_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "18 - I Was A Teenage Monster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1248600991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/18%20-%20I%20Was%20A%20Teenage%20Monster.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e19",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Audition (Find The Monkees)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/19%20-%20The%20Audition%20%28Find%20The%20Monkees%29_000887.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "19 - The Audition (Find The Monkees).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1346406486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/19%20-%20The%20Audition%20%28Find%20The%20Monkees%29.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e20",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Monkees In The Ring",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/20%20-%20Monkees%20In%20The%20Ring_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "20 - Monkees In The Ring.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1384774130,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/20%20-%20Monkees%20In%20The%20Ring.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e21",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Prince And The Pauper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/21%20-%20The%20Prince%20And%20The%20Pauper_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "21 - The Prince And The Pauper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1296207164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/21%20-%20The%20Prince%20And%20The%20Pauper.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e22",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Monkees At The Circus",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/22%20-%20Monkees%20At%20The%20Circus_000886.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "22 - Monkees At The Circus.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1345216407,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/22%20-%20Monkees%20At%20The%20Circus.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e23",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Captain Crocodile",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/23%20-%20Captain%20Crocodile_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "23 - Captain Crocodile.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1641590167,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/23%20-%20Captain%20Crocodile.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e24",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Monkees A La Mode",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/24%20-%20Monkees%20A%20La%20Mode_000878.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "24 - Monkees A La Mode.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1216904896,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/24%20-%20Monkees%20A%20La%20Mode.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e25",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Alias Micky Dolenz",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/25%20-%20Alias%20Micky%20Dolenz_000881.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "25 - Alias Micky Dolenz.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1183566446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/25%20-%20Alias%20Micky%20Dolenz.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e26",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Monkees Chow Mein",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/26%20-%20Monkees%20Chow%20Mein_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "26 - Monkees Chow Mein.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1332569345,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/26%20-%20Monkees%20Chow%20Mein.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e27",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Monkee Mother",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/27%20-%20Monkee%20Mother_000885.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "27 - Monkee Mother.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1344987109,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/27%20-%20Monkee%20Mother.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e28",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Monkees On The Line",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/28%20-%20Monkees%20On%20The%20Line_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "28 - Monkees On The Line.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1558073153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/28%20-%20Monkees%20On%20The%20Line.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e29",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Monkees Get Out More Dirt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/29%20-%20Monkees%20Get%20Out%20More%20Dirt_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "29 - Monkees Get Out More Dirt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1470061239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/29%20-%20Monkees%20Get%20Out%20More%20Dirt.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e30",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Monkees In Manhattan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/30%20-%20Monkees%20In%20Manhattan_000889.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "30 - Monkees In Manhattan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1438844933,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/30%20-%20Monkees%20In%20Manhattan.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e31",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Monkees At The Movies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/31%20-%20Monkees%20At%20The%20Movies_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "31 - Monkees At The Movies.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1608716050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/31%20-%20Monkees%20At%20The%20Movies.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e32",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Monkees On Tour",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/32%20-%20Monkees%20On%20Tour_000892.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "32 - Monkees On Tour.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1381073905,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/32%20-%20Monkees%20On%20Tour.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e33",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "It's A Nice Place To Visit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/33%20-%20It%27s%20A%20Nice%20Place%20To%20Visit_000881.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "33 - It's A Nice Place To Visit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1462328748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/33%20-%20It%27s%20A%20Nice%20Place%20To%20Visit.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e34",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "The Picture Frame",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/34%20-%20The%20Picture%20Frame_000876.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "34 - The Picture Frame.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1471518215,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/34%20-%20The%20Picture%20Frame.ia.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e35",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Everywhere A Sheik, Sheik",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/35%20-%20Everywhere%20A%20Sheik%2C%20Sheik_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "35 - Everywhere A Sheik, Sheik.mp4",
+            "format": "h.264",
+            "sizeBytes": 145659793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/35%20-%20Everywhere%20A%20Sheik%2C%20Sheik.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e36",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Monkee Mayor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/36%20-%20Monkee%20Mayor_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "36 - Monkee Mayor.mp4",
+            "format": "h.264",
+            "sizeBytes": 146186732,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/36%20-%20Monkee%20Mayor.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e37",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Art, For Monkees' Sake",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/37%20-%20Art%2C%20For%20Monkees%27%20Sake_000876.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "37 - Art, For Monkees' Sake.mp4",
+            "format": "h.264",
+            "sizeBytes": 144415367,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/37%20-%20Art%2C%20For%20Monkees%27%20Sake.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e38",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "I Was A 99 Lb. Weakling",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/38%20-%20I%20Was%20A%2099%20Lb.%20Weakling_000880.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "38 - I Was A 99 Lb. Weakling.mp4",
+            "format": "h.264",
+            "sizeBytes": 145333375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/38%20-%20I%20Was%20A%2099%20Lb.%20Weakling.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e39",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Hillbilly Honeymoon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/39%20-%20Hillbilly%20Honeymoon_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "39 - Hillbilly Honeymoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 145789510,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/39%20-%20Hillbilly%20Honeymoon.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e40",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Monkees Marooned",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/40%20-%20Monkees%20Marooned_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "40 - Monkees Marooned.mp4",
+            "format": "h.264",
+            "sizeBytes": 145709833,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/40%20-%20Monkees%20Marooned.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e41",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Card Carrying Red Shoes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/41%20-%20Card%20Carrying%20Red%20Shoes_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "41 - Card Carrying Red Shoes.mp4",
+            "format": "h.264",
+            "sizeBytes": 145588492,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/41%20-%20Card%20Carrying%20Red%20Shoes.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e42",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "The Wild Monkees",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/42%20-%20The%20Wild%20Monkees_000887.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "42 - The Wild Monkees.mp4",
+            "format": "h.264",
+            "sizeBytes": 145462002,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/42%20-%20The%20Wild%20Monkees.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e43",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "A Coffin Too Frequent",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/43%20-%20A%20Coffin%20Too%20Frequent_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "43 - A Coffin Too Frequent.mp4",
+            "format": "h.264",
+            "sizeBytes": 145440472,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/43%20-%20A%20Coffin%20Too%20Frequent.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e44",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Hitting The High Seas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/44%20-%20Hitting%20The%20High%20Seas_000880.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "44 - Hitting The High Seas.mp4",
+            "format": "h.264",
+            "sizeBytes": 145515850,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/44%20-%20Hitting%20The%20High%20Seas.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e45",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "The Monkees In Texas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/45%20-%20The%20Monkees%20In%20Texas_000877.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "45 - The Monkees In Texas.mp4",
+            "format": "h.264",
+            "sizeBytes": 144198010,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/45%20-%20The%20Monkees%20In%20Texas.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e46",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Monkees On The Wheel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/46%20-%20Monkees%20On%20The%20Wheel_000883.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "46 - Monkees On The Wheel.mp4",
+            "format": "h.264",
+            "sizeBytes": 146271207,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/46%20-%20Monkees%20On%20The%20Wheel.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e47",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "The Christmas Show",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/47%20-%20The%20Christmas%20Show_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "47 - The Christmas Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 146359038,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/47%20-%20The%20Christmas%20Show.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e48",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Fairy Tale",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/48%20-%20Fairy%20Tale_000885.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "48 - Fairy Tale.mp4",
+            "format": "h.264",
+            "sizeBytes": 146037245,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/48%20-%20Fairy%20Tale.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e49",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Monkees Watch Their Feet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/49%20-%20Monkees%20Watch%20Their%20Feet_000884.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "49 - Monkees Watch Their Feet.mp4",
+            "format": "h.264",
+            "sizeBytes": 146085826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/49%20-%20Monkees%20Watch%20Their%20Feet.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e50",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Monstrous Monkee Mash",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/50%20-%20Monstrous%20Monkee%20Mash_000876.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "50 - Monstrous Monkee Mash.mp4",
+            "format": "h.264",
+            "sizeBytes": 144742887,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/50%20-%20Monstrous%20Monkee%20Mash.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e51",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "The Monkees' Paw",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/51%20-%20The%20Monkees%27%20Paw_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "51 - The Monkees' Paw.mp4",
+            "format": "h.264",
+            "sizeBytes": 145726642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/51%20-%20The%20Monkees%27%20Paw.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e52",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "The Devil & Peter Tork",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/52%20-%20The%20Devil%20%26%20Peter%20Tork_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "52 - The Devil & Peter Tork.mp4",
+            "format": "h.264",
+            "sizeBytes": 145684404,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/52%20-%20The%20Devil%20%26%20Peter%20Tork.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e53",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 53,
+          "title": "Monkees Race Again",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/53%20-%20Monkees%20Race%20Again_000885.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "53 - Monkees Race Again.mp4",
+            "format": "h.264",
+            "sizeBytes": 144993153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/53%20-%20Monkees%20Race%20Again.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e54",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "The Monkees In Paris",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/54%20-%20The%20Monkees%20In%20Paris_000888.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "54 - The Monkees In Paris.mp4",
+            "format": "h.264",
+            "sizeBytes": 146263575,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/54%20-%20The%20Monkees%20In%20Paris.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e55",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "Monkees Mind Their Manor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/55%20-%20Monkees%20Mind%20Their%20Manor_000890.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "55 - Monkees Mind Their Manor.mp4",
+            "format": "h.264",
+            "sizeBytes": 145747925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/55%20-%20Monkees%20Mind%20Their%20Manor.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e56",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "Some Like It Lukewarm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/56%20-%20Some%20Like%20It%20Lukewarm_000882.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "56 - Some Like It Lukewarm.mp4",
+            "format": "h.264",
+            "sizeBytes": 145923912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/56%20-%20Some%20Like%20It%20Lukewarm.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e57",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "Monkees Blow Their Minds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/57%20-%20Monkees%20Blow%20Their%20Minds_000892.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "57 - Monkees Blow Their Minds.mp4",
+            "format": "h.264",
+            "sizeBytes": 147243118,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/57%20-%20Monkees%20Blow%20Their%20Minds.mp4"
+        },
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@e58",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "Mijacogeo - The Frodis Caper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/58%20-%20Mijacogeo%20-%20The%20Frodis%20Caper_000891.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "58 - Mijacogeo - The Frodis Caper.mp4",
+            "format": "h.264",
+            "sizeBytes": 146841454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/58%20-%20Mijacogeo%20-%20The%20Frodis%20Caper.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-monkees-tv-series-full-episodes@x-the-monkees-35mm-pilot-episode",
+          "sourceID": "the-monkees-tv-series-full-episodes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Monkees 35mm Pilot Episode",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/the-monkees-tv-series-full-episodes.thumbs/The%20Monkees%2035mm%20Pilot%20Episode_000867.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "The Monkees 35mm Pilot Episode.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94487664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-tv-series-full-episodes/The%20Monkees%2035mm%20Pilot%20Episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 59,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

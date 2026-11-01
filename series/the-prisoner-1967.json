@@ -98,25 +98,6 @@
      "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E03.Free.For.All.mp4"
     },
     {
-     "archiveID": "the-prisoner@s1e05",
-     "sourceID": "the-prisoner",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Prisoner. The General",
-     "overview": null,
-     "stillURL": "https://archive.org/download/the-prisoner/the-prisoner.thumbs/The.Prisoner.S01E05.The.General_000955.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 2895,
-     "videoFile": {
-      "name": "The.Prisoner.S01E05.The.General.mp4",
-      "format": "h.264",
-      "sizeBytes": 294560176,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E05.The.General.mp4"
-    },
-    {
      "archiveID": "the-prisoner@s1e04",
      "sourceID": "the-prisoner",
      "seasonNumber": 1,
@@ -136,8 +117,8 @@
      "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E04.The.Schizoid.Man.mp4"
     },
     {
-     "archiveID": "the-prisoner-complete-series-1967@s1e05",
-     "sourceID": "the-prisoner-complete-series-1967",
+     "archiveID": "the-prisoner@s1e05",
+     "sourceID": "the-prisoner",
      "seasonNumber": 1,
      "episodeNumber": 6,
      "title": "The General",
@@ -147,12 +128,12 @@
      "year": 1967,
      "runtimeSeconds": 3000,
      "videoFile": {
-      "name": "The Prisoner S01E05 - The General.mp4",
+      "name": "The.Prisoner.S01E05.The.General.mp4",
       "format": "h.264",
-      "sizeBytes": 284692436,
+      "sizeBytes": 294560176,
       "tier": 1
      },
-     "downloadURL": "https://archive.org/download/the-prisoner-complete-series-1967/The%20Prisoner%20S01E05%20-%20The%20General.mp4"
+     "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E05.The.General.mp4"
     },
     {
      "archiveID": "the-prisoner@s1e06",
@@ -368,25 +349,6 @@
    "seasonNumber": null,
    "episodes": [
     {
-     "archiveID": "the-prisoner@x-the-prisoner-extra-don-t-knock-y",
-     "sourceID": "the-prisoner",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Prisoner Extra Don't Knock Yourself Out",
-     "overview": null,
-     "stillURL": "https://archive.org/download/the-prisoner/the-prisoner.thumbs/The.Prisoner.Extra.Don%27t.Knock.Yourself.Out_002242.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 5677,
-     "videoFile": {
-      "name": "The.Prisoner.Extra.Don't.Knock.Yourself.Out.mp4",
-      "format": "h.264",
-      "sizeBytes": 567754104,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.Extra.Don%27t.Knock.Yourself.Out.mp4"
-    },
-    {
      "archiveID": "The_Prisoner",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -403,11 +365,30 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/The_Prisoner/ThePrisoner01Arrival.mp4"
+    },
+    {
+     "archiveID": "the-prisoner@x-the-prisoner-extra-don-t-knock-y",
+     "sourceID": "the-prisoner",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Prisoner Extra Don't Knock Yourself Out",
+     "overview": null,
+     "stillURL": "https://archive.org/download/the-prisoner/the-prisoner.thumbs/The.Prisoner.Extra.Don%27t.Knock.Yourself.Out_002242.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5677,
+     "videoFile": {
+      "name": "The.Prisoner.Extra.Don't.Knock.Yourself.Out.mp4",
+      "format": "h.264",
+      "sizeBytes": 567754104,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.Extra.Don%27t.Knock.Yourself.Out.mp4"
     }
    ]
   }
  ],
- "episodesCount": 20,
+ "episodesCount": 19,
  "canonicalEpisodesCount": 17,
  "tvmazeRating": 8,
  "tvdbID": "74805",

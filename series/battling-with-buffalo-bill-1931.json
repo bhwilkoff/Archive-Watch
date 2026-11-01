@@ -17,101 +17,6 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "PublicDomainBattlingwithBuffaloBill@e01",
-          "sourceID": "PublicDomainBattlingwithBuffaloBill",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Cornered By Redskins",
-          "overview": null,
-          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB01_000360.jpg",
-          "airDate": null,
-          "year": 1931,
-          "runtimeSeconds": 1047,
-          "videoFile": {
-            "name": "BBB01_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 76103737,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB01_512kb.mp4"
-        },
-        {
-          "archiveID": "PublicDomainBattlingwithBuffaloBill@e02",
-          "sourceID": "PublicDomainBattlingwithBuffaloBill",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Circling Death",
-          "overview": null,
-          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB02_000360.jpg",
-          "airDate": null,
-          "year": 1931,
-          "runtimeSeconds": 1027,
-          "videoFile": {
-            "name": "BBB02_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 74678393,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB02_512kb.mp4"
-        },
-        {
-          "archiveID": "PublicDomainBattlingwithBuffaloBill@e03",
-          "sourceID": "PublicDomainBattlingwithBuffaloBill",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Between Hostile Tribes",
-          "overview": null,
-          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB03_000300.jpg",
-          "airDate": null,
-          "year": 1931,
-          "runtimeSeconds": 912,
-          "videoFile": {
-            "name": "BBB03_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 66346465,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB03_512kb.mp4"
-        },
-        {
-          "archiveID": "PublicDomainBattlingwithBuffaloBill@e04",
-          "sourceID": "PublicDomainBattlingwithBuffaloBill",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Savage Horde",
-          "overview": null,
-          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB04_000300.jpg",
-          "airDate": null,
-          "year": 1931,
-          "runtimeSeconds": 908,
-          "videoFile": {
-            "name": "BBB04_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 66009112,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB04_512kb.mp4"
-        },
-        {
-          "archiveID": "PublicDomainBattlingwithBuffaloBill@e05",
-          "sourceID": "PublicDomainBattlingwithBuffaloBill",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Fatal Plunge",
-          "overview": null,
-          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB05_000300.jpg",
-          "airDate": null,
-          "year": 1931,
-          "runtimeSeconds": 964,
-          "videoFile": {
-            "name": "BBB05_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 70082137,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB05_512kb.mp4"
-        },
-        {
           "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e06",
           "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
           "seasonNumber": 1,
@@ -247,7 +152,7 @@
       ]
     }
   ],
-  "episodesCount": 12,
+  "episodesCount": 7,
   "canonicalEpisodesCount": null,
   "tvdbID": "253777",
   "artworkSource": "generated",
@@ -270,11 +175,5 @@
       "order": 2,
       "profilePath": null
     }
-  ],
-  "sourceIDs": [
-    "UniversalPicturesBattlingwithBuffaloBill",
-    "PublicDomainBattlingwithBuffaloBill"
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  ]
 }

@@ -1,0 +1,771 @@
+{
+  "version": 2,
+  "seriesID": "interpol-calling-the-angola-brights-1959",
+  "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+  "tvmazeID": null,
+  "title": "Interpol Calling: The Angola Brights",
+  "yearStart": 1959,
+  "yearEnd": null,
+  "overview": "An episode of Interpol Calling, a 1959 British television crime drama made by the Rank Organisation and Jack Wrather Productions for ITC Entertainment.",
+  "posterURL": "https://archive.org/services/img/01-interpol-calling-tv-series-the-angola-brights",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e01",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "INTERPOL CALLING Tv Series - The Angola Brights",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/01%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Angola%20Brights_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "01 INTERPOL CALLING Tv Series - The Angola Brights.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98768880,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Angola%20Brights.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e02",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "INTERPOL CALLING Tv Series - The Thirteen Innocents -Guest Star Patrick Troughton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/02%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Thirteen%20Innocents%20-Guest%20Star%20Patrick%20Troughton-_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "02 INTERPOL CALLING Tv Series - The Thirteen Innocents -Guest Star Patrick Troughton-.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103231619,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/02%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Thirteen%20Innocents%20-Guest%20Star%20Patrick%20Troughton-.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e03",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "INTERPOL CALLING Tv Series - The Money Game -Guest Star Delphi Lawrence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/03%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Money%20Game%20-Guest%20Star%20Delphi%20Lawrence-_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "03 INTERPOL CALLING Tv Series - The Money Game -Guest Star Delphi Lawrence-.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 87571382,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/03%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Money%20Game%20-Guest%20Star%20Delphi%20Lawrence-.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e04",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "INTERPOL CALLING Tv Series - The Sleeping Giant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/04%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Sleeping%20Giant_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1505,
+          "videoFile": {
+            "name": "04 INTERPOL CALLING Tv Series - The Sleeping Giant.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86626232,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/04%20INTERPOL%20CALLING%20Tv%20Series%20-%20The%20Sleeping%20Giant.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e05",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "INTERPOL CALLING -- The Two-Headed Monster",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/05%20INTERPOL%20CALLING%20--%20The%20Two-Headed%20Monster_000625.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "05 INTERPOL CALLING -- The Two-Headed Monster.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 100398222,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/05%20INTERPOL%20CALLING%20--%20The%20Two-Headed%20Monster.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e06",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "INTERPOL CALLING -- Long Weekend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/06%20INTERPOL%20CALLING%20--%20Long%20Weekend_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "06 INTERPOL CALLING -- Long Weekend.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102766413,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/06%20INTERPOL%20CALLING%20--%20Long%20Weekend.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e07",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "INTERPOL CALLING -- You Can-t Die Twice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/07%20INTERPOL%20CALLING%20--%20You%20Can-t%20Die%20Twice_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "07 INTERPOL CALLING -- You Can-t Die Twice.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94807718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/07%20INTERPOL%20CALLING%20--%20You%20Can-t%20Die%20Twice.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e08",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "INTERPOL CALLING -- Diamond S O S",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/08%20INTERPOL%20CALLING%20--%20Diamond%20S.O.S_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "08 INTERPOL CALLING -- Diamond S.O.S.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110775646,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/08%20INTERPOL%20CALLING%20--%20Diamond%20S.O.S.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e09",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "INTERPOL CALLING -- Private View",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/09%20INTERPOL%20CALLING%20--%20Private%20View_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "09 INTERPOL CALLING -- Private View.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85521050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/09%20INTERPOL%20CALLING%20--%20Private%20View.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e10",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "INTERPOL CALLING -- Dead on Arrival",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/10%20INTERPOL%20CALLING%20--%20Dead%20on%20Arrival_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "10 INTERPOL CALLING -- Dead on Arrival.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110428491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/10%20INTERPOL%20CALLING%20--%20Dead%20on%20Arrival.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e11",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "INTERPOL CALLING -- Air Switch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/11%20INTERPOL%20CALLING%20--%20Air%20Switch_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "11 INTERPOL CALLING -- Air Switch.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96645647,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/11%20INTERPOL%20CALLING%20--%20Air%20Switch.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e12",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "INTERPOL CALLING -- The Chinese Mask",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/12%20INTERPOL%20CALLING%20--%20The%20Chinese%20Mask_000628.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "12 INTERPOL CALLING -- The Chinese Mask.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108784197,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/12%20INTERPOL%20CALLING%20--%20The%20Chinese%20Mask.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e13",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "INTERPOL CALLING -- Slave Ship",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/13%20INTERPOL%20CALLING%20--%20Slave%20Ship_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "13 INTERPOL CALLING -- Slave Ship.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 92000070,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/13%20INTERPOL%20CALLING%20--%20Slave%20Ship.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e14",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "INTERPOL CALLING -- The Man-s a Clown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/14%20INTERPOL%20CALLING%20--%20The%20Man-s%20a%20Clown_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "14 INTERPOL CALLING -- The Man-s a Clown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122961358,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/14%20INTERPOL%20CALLING%20--%20The%20Man-s%20a%20Clown.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e15",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "INTERPOL CALLING -- Last Man Lucky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/15%20INTERPOL%20CALLING%20--%20Last%20Man%20Lucky_000627.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "15 INTERPOL CALLING -- Last Man Lucky.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102818772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/15%20INTERPOL%20CALLING%20--%20Last%20Man%20Lucky.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e16",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "INTERPOL CALLING -- No Flowers for Onno",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/16%20INTERPOL%20CALLING%20--%20No%20Flowers%20for%20Onno_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "16 INTERPOL CALLING -- No Flowers for Onno.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 87045141,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/16%20INTERPOL%20CALLING%20--%20No%20Flowers%20for%20Onno.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e17",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "INTERPOL CALLING -- Mr. George",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/17%20INTERPOL%20CALLING%20--%20Mr.%20George_000628.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "17 INTERPOL CALLING -- Mr. George.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109262991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/17%20INTERPOL%20CALLING%20--%20Mr.%20George.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e18",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "INTERPOL CALLING -- The Thousand Mile Alibi",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/18%20INTERPOL%20CALLING%20--%20The%20Thousand%20Mile%20Alibi_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "18 INTERPOL CALLING -- The Thousand Mile Alibi.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107181707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/18%20INTERPOL%20CALLING%20--%20The%20Thousand%20Mile%20Alibi.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e19",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "INTERPOL CALLING -- Act of Piracy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/19%20INTERPOL%20CALLING%20--%20Act%20of%20Piracy_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "19 INTERPOL CALLING -- Act of Piracy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 97033727,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/19%20INTERPOL%20CALLING%20--%20Act%20of%20Piracy.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e20",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "INTERPOL CALLING -- Game for Three Hands",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/20%20INTERPOL%20CALLING%20--%20Game%20for%20Three%20Hands_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "20 INTERPOL CALLING -- Game for Three Hands.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 111101272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/20%20INTERPOL%20CALLING%20--%20Game%20for%20Three%20Hands.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e21",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "INTERPOL CALLING -- The Collectors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/21%20INTERPOL%20CALLING%20--%20The%20Collectors_000628.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "21 INTERPOL CALLING -- The Collectors.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103814478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/21%20INTERPOL%20CALLING%20--%20The%20Collectors.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e22",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "INTERPOL CALLING -- The Heiress",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/22%20INTERPOL%20CALLING%20--%20The%20Heiress_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "22 INTERPOL CALLING -- The Heiress.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109582405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/22%20INTERPOL%20CALLING%20--%20The%20Heiress.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e23",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "INTERPOL CALLING -- Payment In Advance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/23%20INTERPOL%20CALLING%20--%20Payment%20In%20Advance_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "23 INTERPOL CALLING -- Payment In Advance.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 95427991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/23%20INTERPOL%20CALLING%20--%20Payment%20In%20Advance.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e24",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "INTERPOL CALLING -- Fingers of Guilt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/24%20INTERPOL%20CALLING%20--%20Fingers%20of%20Guilt_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "24 INTERPOL CALLING -- Fingers of Guilt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 88319021,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/24%20INTERPOL%20CALLING%20--%20Fingers%20of%20Guilt.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e25",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "INTERPOL CALLING -- The Girl with Grey Hair",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/25%20INTERPOL%20CALLING%20--%20The%20Girl%20with%20Grey%20Hair_000626.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "25 INTERPOL CALLING -- The Girl with Grey Hair.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110463076,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/25%20INTERPOL%20CALLING%20--%20The%20Girl%20with%20Grey%20Hair.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e26",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "INTERPOL CALLING -- Trial at Cranby-s Creek",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/26%20INTERPOL%20CALLING%20--%20Trial%20at%20Cranby-s%20Creek_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1505,
+          "videoFile": {
+            "name": "26 INTERPOL CALLING -- Trial at Cranby-s Creek.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 106086475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/26%20INTERPOL%20CALLING%20--%20Trial%20at%20Cranby-s%20Creek.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e27",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "INTERPOL CALLING -- Ascent to Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/27%20INTERPOL%20CALLING%20--%20Ascent%20to%20Murder_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "27 INTERPOL CALLING -- Ascent to Murder.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94801545,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/27%20INTERPOL%20CALLING%20--%20Ascent%20to%20Murder.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e28",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "INTERPOL CALLING -- Slow Boat to Amsterdam",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/28%20INTERPOL%20CALLING%20--%20Slow%20Boat%20to%20Amsterdam_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "28 INTERPOL CALLING -- Slow Boat to Amsterdam.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89981664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/28%20INTERPOL%20CALLING%20--%20Slow%20Boat%20to%20Amsterdam.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e29",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "INTERPOL CALLING -- White Blackmail",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/29%20INTERPOL%20CALLING%20--%20White%20Blackmail_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "29 INTERPOL CALLING -- White Blackmail.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 106328555,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/29%20INTERPOL%20CALLING%20--%20White%20Blackmail.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e30",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "INTERPOL CALLING -- A Foreign Body",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/30%20INTERPOL%20CALLING%20--%20A%20Foreign%20Body_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "30 INTERPOL CALLING -- A Foreign Body.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120800586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/30%20INTERPOL%20CALLING%20--%20A%20Foreign%20Body.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e31",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "INTERPOL CALLING -- In the Swim",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/31%20INTERPOL%20CALLING%20--%20In%20the%20Swim_000625.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "31 INTERPOL CALLING -- In the Swim.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94270287,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/31%20INTERPOL%20CALLING%20--%20In%20the%20Swim.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e32",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "INTERPOL CALLING -- The Three Keys",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/32%20INTERPOL%20CALLING%20--%20The%20Three%20Keys_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "32 INTERPOL CALLING -- The Three Keys.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 99786876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/32%20INTERPOL%20CALLING%20--%20The%20Three%20Keys.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e33",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "INTERPOL CALLING -- Eight Days Inclusive",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/33%20INTERPOL%20CALLING%20--%20Eight%20Days%20Inclusive_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "33 INTERPOL CALLING -- Eight Days Inclusive.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 105273104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/33%20INTERPOL%20CALLING%20--%20Eight%20Days%20Inclusive.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e34",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "INTERPOL CALLING -- Dressed to Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/34%20INTERPOL%20CALLING%20--%20Dressed%20to%20Kill_000629.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "34 INTERPOL CALLING -- Dressed to Kill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103376821,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/34%20INTERPOL%20CALLING%20--%20Dressed%20to%20Kill.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e35",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "INTERPOL CALLING -- Cargo of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/35%20INTERPOL%20CALLING%20--%20Cargo%20of%20Death_000628.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "35 INTERPOL CALLING -- Cargo of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108755760,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/35%20INTERPOL%20CALLING%20--%20Cargo%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e36",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "INTERPOL CALLING -- Desert Hijack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/36%20INTERPOL%20CALLING%20--%20Desert%20Hijack_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "36 INTERPOL CALLING -- Desert Hijack.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 116511377,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/36%20INTERPOL%20CALLING%20--%20Desert%20Hijack.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e37",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "INTERPOL CALLING -- Pipeline",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/37%20INTERPOL%20CALLING%20--%20Pipeline_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1505,
+          "videoFile": {
+            "name": "37 INTERPOL CALLING -- Pipeline.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110431924,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/37%20INTERPOL%20CALLING%20--%20Pipeline.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e38",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "INTERPOL CALLING -- The Absent Assassin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/38%20INTERPOL%20CALLING%20--%20The%20Absent%20Assassin_000624.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "38 INTERPOL CALLING -- The Absent Assassin.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108549189,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/38%20INTERPOL%20CALLING%20--%20The%20Absent%20Assassin.mp4"
+        },
+        {
+          "archiveID": "01-interpol-calling-tv-series-the-angola-brights@e39",
+          "sourceID": "01-interpol-calling-tv-series-the-angola-brights",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "INTERPOL CALLING -- Checkmate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/01-interpol-calling-tv-series-the-angola-brights.thumbs/39%20INTERPOL%20CALLING%20--%20Checkmate_000626.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "39 INTERPOL CALLING -- Checkmate.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 105448835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-interpol-calling-tv-series-the-angola-brights/39%20INTERPOL%20CALLING%20--%20Checkmate.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 39,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

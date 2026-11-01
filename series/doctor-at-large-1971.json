@@ -1,0 +1,578 @@
+{
+  "version": 2,
+  "seriesID": "doctor-at-large-1971",
+  "sourceID": "doctor-at-large-1971",
+  "tvmazeID": null,
+  "title": "Doctor at Large",
+  "yearStart": 1971,
+  "yearEnd": null,
+  "overview": "Doctor at Large is a British television comedy series based on a set of books by Richard Gordon about the misadventures of a group of newly qualified doctors.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fsGFLXLPNQizWj2OddxjCf3UOBi.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "doctor-at-large-1971@e01",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Doctor at Large . Now,Dr. Upton",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/01.Doctor at Large... Now,Dr. Upton.mp4",
+            "format": "h.264",
+            "sizeBytes": 144513583,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/01.Doctor%20at%20Large...%20Now%2CDr.%20Upton.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e02",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Doctor at Large . You've Really Landed Me in it This Time",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/02.Doctor at Large... You've Really Landed Me in it This Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 144323593,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/02.Doctor%20at%20Large...%20You%27ve%20Really%20Landed%20Me%20in%20it%20This%20Time.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e03",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Doctor at Large . You Make Me Feel So Young",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/03.Doctor at Large... You Make Me Feel So Young.mp4",
+            "format": "h.264",
+            "sizeBytes": 146866388,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/03.Doctor%20at%20Large...%20You%20Make%20Me%20Feel%20So%20Young.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e04",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Doctor at Large . Doctor Dish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/04.Doctor at Large... Doctor Dish.mp4",
+            "format": "h.264",
+            "sizeBytes": 147692869,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/04.Doctor%20at%20Large...%20Doctor%20Dish.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e05",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Doctor at Large . Modernising Major",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1469,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/05.Doctor at Large... Modernising Major.mp4",
+            "format": "h.264",
+            "sizeBytes": 142993419,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/05.Doctor%20at%20Large...%20Modernising%20Major.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e06",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Doctor at Large . Congratulations - It's a Toad",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/06.Doctor at Large... Congratulations - It's a Toad.mp4",
+            "format": "h.264",
+            "sizeBytes": 146733697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/06.Doctor%20at%20Large...%20Congratulations%20-%20It%27s%20a%20Toad.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e07",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Doctor at Large . Change Your Partners",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1446,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/07.Doctor at Large... Change Your Partners.mp4",
+            "format": "h.264",
+            "sizeBytes": 140402289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/07.Doctor%20at%20Large...%20Change%20Your%20Partners.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e08",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Doctor at Large . Trains and Notes and Veins",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/08.Doctor at Large... Trains and Notes and Veins.mp4",
+            "format": "h.264",
+            "sizeBytes": 135799402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/08.Doctor%20at%20Large...%20Trains%20and%20Notes%20and%20Veins.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e09",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Doctor at Large . Lock, Stock and Beryl",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1457,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/09.Doctor at Large... Lock, Stock and Beryl.mp4",
+            "format": "h.264",
+            "sizeBytes": 141773713,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/09.Doctor%20at%20Large...%20Lock%2C%20Stock%20and%20Beryl.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e10",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Doctor at Large . Upton Sells Out",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/10.Doctor at Large... Upton Sells Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 142713890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/10.Doctor%20at%20Large...%20Upton%20Sells%20Out.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e11",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Doctor at Large . Saturday Matinee",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1444,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/11.Doctor at Large... Saturday Matinee.mp4",
+            "format": "h.264",
+            "sizeBytes": 140048363,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/11.Doctor%20at%20Large...%20Saturday%20Matinee.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e12",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Doctor at Large . Where There's a Will",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/12.Doctor at Large... Where There's a Will.mp4",
+            "format": "h.264",
+            "sizeBytes": 146287882,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/12.Doctor%20at%20Large...%20Where%20There%27s%20a%20Will.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e13",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Doctor at Large . Students at Heart",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1459,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/13.Doctor at Large... Students at Heart.mp4",
+            "format": "h.264",
+            "sizeBytes": 141237020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/13.Doctor%20at%20Large...%20Students%20at%20Heart.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e14",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Doctor at Large . No Ill Feeling!",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/14.Doctor at Large... No Ill Feeling!.mp4",
+            "format": "h.264",
+            "sizeBytes": 146908980,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/14.Doctor%20at%20Large...%20No%20Ill%20Feeling%21.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e15",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Doctor at Large . Let's Start at The Beginning",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/15.Doctor at Large... Let's Start at The Beginning.mp4",
+            "format": "h.264",
+            "sizeBytes": 147710329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/15.Doctor%20at%20Large...%20Let%27s%20Start%20at%20The%20Beginning.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e16",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Doctor at Large . It's All in The Mind",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1413,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/16.Doctor at Large... It's All in The Mind.mp4",
+            "format": "h.264",
+            "sizeBytes": 137142983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/16.Doctor%20at%20Large...%20It%27s%20All%20in%20The%20Mind.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e17",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Doctor at Large Cynthia Darling",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/17.Doctor at Large...Cynthia Darling.mp4",
+            "format": "h.264",
+            "sizeBytes": 144878592,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/17.Doctor%20at%20Large...Cynthia%20Darling.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e18",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Doctor at Large A Little Help From My Friends",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/18.Doctor at Large...A Little Help From My Friends.mp4",
+            "format": "h.264",
+            "sizeBytes": 148594981,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/18.Doctor%20at%20Large...A%20Little%20Help%20From%20My%20Friends.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e19",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Doctor at Large Devon is Lovely at This Time of Year",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/19.Doctor at Large...Devon is Lovely at This Time of Year.mp4",
+            "format": "h.264",
+            "sizeBytes": 146541705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/19.Doctor%20at%20Large...Devon%20is%20Lovely%20at%20This%20Time%20of%20Year.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e20",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Doctor at Large . Operation Loftus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/20.Doctor at Large... Operation Loftus.mp4",
+            "format": "h.264",
+            "sizeBytes": 147609432,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/20.Doctor%20at%20Large...%20Operation%20Loftus.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e21",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Doctor at Large . Mother and Father Doing Well",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/21.Doctor at Large... Mother and Father Doing Well.mp4",
+            "format": "h.264",
+            "sizeBytes": 144554568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/21.Doctor%20at%20Large...%20Mother%20and%20Father%20Doing%20Well.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e22",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Doctor at Large . A Joke's a Joke",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/22.Doctor at Large... A Joke's a Joke.mp4",
+            "format": "h.264",
+            "sizeBytes": 147736419,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/22.Doctor%20at%20Large...%20A%20Joke%27s%20a%20Joke.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e23",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Doctor at Large Pull The Other One",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1447,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/23.Doctor at Large...Pull The Other One.mp4",
+            "format": "h.264",
+            "sizeBytes": 140468843,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/23.Doctor%20at%20Large...Pull%20The%20Other%20One.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e24",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Doctor at Large It's The Rich That Gets The Pleasure",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/24.Doctor at Large...It's The Rich That Gets The Pleasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 144722111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/24.Doctor%20at%20Large...It%27s%20The%20Rich%20That%20Gets%20The%20Pleasure.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e25",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Doctor at Large Things That Go Mump in The Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/25.Doctor at Large...Things That Go Mump in The Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 143414271,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/25.Doctor%20at%20Large...Things%20That%20Go%20Mump%20in%20The%20Night.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e26",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Doctor at Large . Mr Moon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/26.Doctor at Large... Mr Moon.mp4",
+            "format": "h.264",
+            "sizeBytes": 150603953,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/26.Doctor%20at%20Large...%20Mr%20Moon.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e27",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Doctor at Large . The Viva",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/27.Doctor at Large... The Viva.mp4",
+            "format": "h.264",
+            "sizeBytes": 143391927,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/27.Doctor%20at%20Large...%20The%20Viva.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e28",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Doctor at Large . Bewigged, Bothered and Bewildered",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/28.Doctor at Large... Bewigged, Bothered and Bewildered.mp4",
+            "format": "h.264",
+            "sizeBytes": 147432139,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/28.Doctor%20at%20Large...%20Bewigged%2C%20Bothered%20and%20Bewildered.mp4"
+        },
+        {
+          "archiveID": "doctor-at-large-1971@e29",
+          "sourceID": "doctor-at-large-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Doctor at Large . A Situation Full of Promise",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1481,
+          "videoFile": {
+            "name": "DOCTOR AT LARGE (1971)/29.Doctor at Large... A Situation Full of Promise.mp4",
+            "format": "h.264",
+            "sizeBytes": 143748510,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-at-large-1971/DOCTOR%20AT%20LARGE%20%281971%29/29.Doctor%20at%20Large...%20A%20Situation%20Full%20of%20Promise.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 29,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

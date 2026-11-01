@@ -1,0 +1,160 @@
+{
+  "version": 2,
+  "seriesID": "the-old-american-barn-dance-1953",
+  "sourceID": "theOldAmericanBarnDance1953",
+  "tvmazeID": null,
+  "title": "The old american barn dance",
+  "yearStart": 1953,
+  "yearEnd": null,
+  "overview": "Re-upload of two episodes of the Country and Western series \"The old american barn dance\", which aired on DuMont from July to September 1953: 1. Host Bill Bailey sings the western swing number \"No Supper Tonight\". Performers on the first show include Kenny Roberts (\"Cry Baby Blues\"), Kay Brewer (\"Boogie Woogie Yodel\"), the house band The Saddle Pals (\"Stomp\"), Nancy Lee (\"I''m Dyin' For Someone To Love Me\"), Homer & Jethro (\"A Screwball's Love Song\"), The Candy Mountain Girls (\"Night Train To Memphis\") and Doc Hopkins (\"Honey In The Rock\"). 2. Host Bill Bailey. Performers on the second show include Kenny Roberts (\"Let Me Saddle My Pony\"), Johnny Bond (\"Cherokee Maiden\"), Cousin Alvin (\"My Grandfather Left Me His Old Brown Pants\"), Salty Holmes (\"Down On the Farm\"), The Candy Mountain Girls (\"Tiny Cabin Light\"), country fiddler Wade Ray (\"Wade's Blues\"), Patsy Montana (\"Give me a home in Old Montana\") and Bob Schaefer (\"I heard him sigh\"). One episode added 08/28/2010. 3. Host Bill Bailey. Kenny Roberts (\"There's A Love Knot In My Lariat\"), the Candy Mountain Girls (\"Ridin' Through Town In A Buckboard\"), Salty Holmes (\"Down on the farm\"), Johnny Bond (\"Beautiful Brown Eyes\"), Cousin Alvin (\"Bessie The Heifer\"), Patsy Montana (\"Mexicali Rose\"), Bob Schaefer (\"Just A Closer Walk With Thee\"). Also featured on this show are Johnny Carlson and his national champion square dancers. One episode added 09/09/2010. 4. Host Bill Bailey sings (\"Honey, Baby mine\"). Guests include Johnny Bond (\"Glad Rags\"), Patsy Montana (\"I'm A Straight Ridin' Lassie & A She Buckaroo\"), Kenny Roberts (\"Casper The Candy Cowboy\" and \"Hillbilly Fever\"), Candy Mountain Girls (\"Adobe Hacienda\"), Salty Holmes (\"The Ghost Song\") and Bob Schaefer & Patsy Montana (\"It is no secret\"). One episode added 09/20/2010. 5. Host Bill Bailey sings (\"Remember me\"). The musical performers for this show include Johnny and Jack & the Tennessee Mountain Boys (\"Hummingbird\"), the Candy Mountain Girls (\"A little bird told me\"), Roy King (\"Sweet face and a cold heart\"), Pee Wee King (\"I wanted you so last night\"), Merle Travis (\"Catfish take a look at that worm\", \"River Road Two-Step\") and the Dezurik Sisters (\"Hillbilly Bill\"). Two episodes added 06/20/2012. 6. Host Bill Bailey welcomes Kenny Roberts (\"Goin' Down The Country\"), Nancy Lee (\"Goodnight Darlin'\"), Old Kentucky Thoroughbreds (\"Sinking in a hole\"), The Candy Mountain Girls (\"Skip to my Lou\"), Doc Hopkins (\"Legend of the Robin's Red Breast\"), Tex Williams (\"Leaf Of Love\") and Cousin Alvin (\"When The Snow Begins To Fall Next Summer\"). Re-titled for syndication in 1959: \"Your Musical Jamboree\". 7. Host Bill Bailey opens the show with \"Nine Times Out of Ten.\" The performers for this show include Pee Wee King (\"Crazy Steel Guitar Waltz\", \"I Love The Sunshine Of Your Smile\"), The Candy Mountain Girls (\"Can She Bake A Cherry Pie\"), The Chordmen (\"Climbin' Up The Mountain Children\"), Neal Burris (\"Poison Love\"), Tennessee Ernie Ford (\"Tailor Made Woman\"), the Polk County Boys (\"Goin' Down The Road Feelin' Bad\"). Re-titled for syndication in 1959: \"Your Musical Jamboree\".",
+  "posterURL": "https://archive.org/download/archivewatch-covers/theOldAmericanBarnDance1953.371db6d2.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e01",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/1_Old_american_barn_dance_1953_000540.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1667,
+          "videoFile": {
+            "name": "1_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 192585990,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/1_Old_american_barn_dance_1953.ia.mp4"
+        },
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e02",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/2_Old_american_barn_dance_1953_000540.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1617,
+          "videoFile": {
+            "name": "2_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 183882023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/2_Old_american_barn_dance_1953.ia.mp4"
+        },
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e03",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/3_Old_american_barn_dance_1953_000540.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1656,
+          "videoFile": {
+            "name": "3_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 229044992,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/3_Old_american_barn_dance_1953.ia.mp4"
+        },
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e04",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/4_Old_american_barn_dance_1953_000480.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "4_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207152867,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/4_Old_american_barn_dance_1953.ia.mp4"
+        },
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e05",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/5_Old_american_barn_dance_1953_000540.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "5_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 210334747,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/5_Old_american_barn_dance_1953.ia.mp4"
+        },
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e06",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/6_Old_american_barn_dance_1953_000474.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1475,
+          "videoFile": {
+            "name": "6_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190917149,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/6_Old_american_barn_dance_1953.ia.mp4"
+        },
+        {
+          "archiveID": "theOldAmericanBarnDance1953@e07",
+          "sourceID": "theOldAmericanBarnDance1953",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theOldAmericanBarnDance1953/theOldAmericanBarnDance1953.thumbs/7_Old_american_barn_dance_1953_000474.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1427,
+          "videoFile": {
+            "name": "7_Old_american_barn_dance_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 186009371,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theOldAmericanBarnDance1953/7_Old_american_barn_dance_1953.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

@@ -21,6 +21,25 @@
    "seasonNumber": 1,
    "episodes": [
     {
+     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s1e01",
+     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "1965- -colorized-sd",
+     "overview": null,
+     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1965-s1e1-colorized-sd_001134.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3228,
+     "videoFile": {
+      "name": "out of the unknown-1965-s1e1-colorized-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 309214291,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1965-s1e1-colorized-sd.mp4"
+    },
+    {
      "archiveID": "come-buttercup-come-daisy@s1e01",
      "sourceID": "come-buttercup-come-daisy",
      "seasonNumber": 1,
@@ -38,25 +57,6 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out%20Of%20The%20Unknown%20S01E01%20-%20No%20Place%20Like%20Earth%20-%201965.mp4"
-    },
-    {
-     "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd@s1e01",
-     "sourceID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "out of the unknown-1965- -colorized-sd",
-     "overview": null,
-     "stillURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd.thumbs/out%20of%20the%20unknown-1965-s1e1-colorized-sd_001134.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 3228,
-     "videoFile": {
-      "name": "out of the unknown-1965-s1e1-colorized-sd.mp4",
-      "format": "h.264",
-      "sizeBytes": 309214291,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out%20of%20the%20unknown-1965-s1e1-colorized-sd.mp4"
     },
     {
      "archiveID": "come-buttercup-come-daisy@s1e02",
@@ -343,7 +343,7 @@
      "sourceID": "come-buttercup-come-daisy",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Photo Gallery Series 1 Part 1",
+     "title": "Out Of The Unknown - Photo Gallery Series 1 Part 1",
      "overview": null,
      "stillURL": "https://archive.org/download/come-buttercup-come-daisy/come-buttercup-come-daisy.thumbs/Out%20Of%20The%20Unknown%20-%20Photo%20Gallery%20Series%201%20Part%201_000117.jpg",
      "airDate": null,

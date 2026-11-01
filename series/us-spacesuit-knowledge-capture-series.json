@@ -1,0 +1,274 @@
+{
+  "version": 2,
+  "seriesID": "us-spacesuit-knowledge-capture-series",
+  "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+  "tvmazeID": null,
+  "title": "US Spacesuit Knowledge Capture Series",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/UsSpacesuitKnowledgeCaptureSeries.8ed6d17c.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e01",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Chinese Space Suit Analysis",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/01_Chinese%20Space%20Suit%20Analysis_001112.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3114,
+          "videoFile": {
+            "name": "01_Chinese Space Suit Analysis.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1239264216,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/01_Chinese%20Space%20Suit%20Analysis.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e02",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Importance of Geology 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/02_Importance%20of%20Geology_2_001500.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 4200,
+          "videoFile": {
+            "name": "02_Importance of Geology_2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1671634721,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/02_Importance%20of%20Geology_2.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e03",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Sz-Universe Lawson",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/03_Sz-Universe_Lawson_001229.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3443,
+          "videoFile": {
+            "name": "03_Sz-Universe_Lawson.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1369702598,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/03_Sz-Universe_Lawson.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e04",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Joe Kosmo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/04_Joe%20Kosmo_001876.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5252,
+          "videoFile": {
+            "name": "04_Joe Kosmo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2089726105,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/04_Joe%20Kosmo.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e05",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Parazynski EVA Phys-Med",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/05_Parazynski_EVA%20Phys-Med_002068.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5792,
+          "videoFile": {
+            "name": "05_Parazynski_EVA Phys-Med.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2297029077,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/05_Parazynski_EVA%20Phys-Med.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e06",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Parazynski TPS",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/06_Parazynski_TPS_001920.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5377,
+          "videoFile": {
+            "name": "06_Parazynski_TPS.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2138719612,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/06_Parazynski_TPS.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e07",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Parazynski EVA Skills",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/07_Parazynski_EVA%20Skills_001895.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5306,
+          "videoFile": {
+            "name": "07_Parazynski_EVA Skills.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2107955634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/07_Parazynski_EVA%20Skills.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e08",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "EVDT-NASA NBL 8-14-2012",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/08_EVDT-NASA%20NBL_8-14-2012_001173.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3284,
+          "videoFile": {
+            "name": "08_EVDT-NASA NBL_8-14-2012.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1307954733,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/08_EVDT-NASA%20NBL_8-14-2012.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e10",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Apollo Black McBarron III",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/10_Apollo%20Black_McBarron%20III_001595.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 4467,
+          "videoFile": {
+            "name": "10_Apollo Black_McBarron III.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 430464577,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/10_Apollo%20Black_McBarron%20III.ia.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e11",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Launch Entry Abort",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/11_Launch%20Entry_Abort_001360.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3808,
+          "videoFile": {
+            "name": "11_Launch Entry_Abort.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 364520926,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/11_Launch%20Entry_Abort.ia.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e12",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Antartica EVA",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/12_Antartica_EVA_001815.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5083,
+          "videoFile": {
+            "name": "12_Antartica_EVA.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494265883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/12_Antartica_EVA.ia.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e13",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Human Exploration of NEAs Presentation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/13_Human%20Exploration%20of%20NEAs_Presentation_001834.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5136,
+          "videoFile": {
+            "name": "13_Human Exploration of NEAs_Presentation.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 505679770,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/13_Human%20Exploration%20of%20NEAs_Presentation.ia.mp4"
+        },
+        {
+          "archiveID": "UsSpacesuitKnowledgeCaptureSeries@e14",
+          "sourceID": "UsSpacesuitKnowledgeCaptureSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Near Earth Astroids Dr Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/UsSpacesuitKnowledgeCaptureSeries.thumbs/14_Near%20Earth%20Astroids_Dr%20Love_001779.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 4983,
+          "videoFile": {
+            "name": "14_Near Earth Astroids_Dr Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1026252937,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UsSpacesuitKnowledgeCaptureSeries/14_Near%20Earth%20Astroids_Dr%20Love.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}
