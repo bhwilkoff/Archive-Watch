@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-31T10:29:44Z",
+  "updated_at": "2026-11-01T11:12:34Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19475,
-    "wanted": 19205,
+    "total": 19480,
+    "wanted": 19210,
     "fulfilled": 270,
-    "series_with_gaps": 394
+    "series_with_gaps": 395
   },
   "wants": [
     {
@@ -137256,6 +137256,36 @@
       "added_at": "2026-06-04T08:24:27Z"
     },
     {
+      "seriesID": "the-adventures-of-long-john-silver-1957",
+      "seriesTitle": "The Adventures of Long John Silver",
+      "season": 1,
+      "episode": 1,
+      "title": "The Necklace",
+      "episodeImdbID": "tt0506069",
+      "status": "wanted",
+      "added_at": "2026-11-01T11:12:34Z"
+    },
+    {
+      "seriesID": "the-adventures-of-long-john-silver-1957",
+      "seriesTitle": "The Adventures of Long John Silver",
+      "season": 1,
+      "episode": 6,
+      "title": "The Pink Pearl",
+      "episodeImdbID": "tt0506071",
+      "status": "wanted",
+      "added_at": "2026-11-01T11:12:34Z"
+    },
+    {
+      "seriesID": "the-adventures-of-long-john-silver-1957",
+      "seriesTitle": "The Adventures of Long John Silver",
+      "season": 1,
+      "episode": 11,
+      "title": "Miss Purity's Birthday",
+      "episodeImdbID": "tt0506058",
+      "status": "wanted",
+      "added_at": "2026-11-01T11:12:34Z"
+    },
+    {
       "seriesID": "the-adventures-of-ozzie-and-harriet-1952",
       "seriesTitle": "The Adventures of Ozzie and Harriet",
       "season": 1,
@@ -163529,11 +163559,31 @@
       "seriesID": "the-jack-benny-program-1950",
       "seriesTitle": "The Jack Benny Program",
       "season": 1,
+      "episode": 1,
+      "title": "Premiere Show",
+      "episodeImdbID": "tt0613707",
+      "status": "wanted",
+      "added_at": "2026-11-01T11:12:34Z"
+    },
+    {
+      "seriesID": "the-jack-benny-program-1950",
+      "seriesTitle": "The Jack Benny Program",
+      "season": 1,
       "episode": 2,
       "title": "The Faye Emerson and Frank Sinatra Show",
       "episodeImdbID": "tt0613734",
       "status": "wanted",
       "added_at": "2026-06-07T07:52:55Z"
+    },
+    {
+      "seriesID": "the-jack-benny-program-1950",
+      "seriesTitle": "The Jack Benny Program",
+      "season": 1,
+      "episode": 3,
+      "title": "Claudette Colbert, Basil Rathbone, Robert Montgomery",
+      "episodeImdbID": "tt0613731",
+      "status": "wanted",
+      "added_at": "2026-11-01T11:12:34Z"
     },
     {
       "seriesID": "the-jack-benny-program-1950",
