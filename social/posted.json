@@ -3613,6 +3613,54 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-01T19:34:45.636892+00:00",
+   "id": "to_hear_your_banjo_play",
+   "title": "To Hear Your Banjo Play",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzbkjwzfge2i",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "pixielady"
+  },
+  {
+   "at": "2026-11-01T19:34:45.636892+00:00",
+   "id": "to_hear_your_banjo_play",
+   "title": "To Hear Your Banjo Play",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117542859908484163",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "pixielady"
+  },
+  {
+   "at": "2026-11-01T19:34:45.636892+00:00",
+   "id": "to_hear_your_banjo_play",
+   "title": "To Hear Your Banjo Play",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfNftN_lH4n/",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": "117542859532989674",
+   "reviewer": "pixielady"
+  },
+  {
+   "at": "2026-11-01T19:34:45.636892+00:00",
+   "id": "to_hear_your_banjo_play",
+   "title": "To Hear Your Banjo Play",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=pybH1exil9U",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "pixielady"
   }
  ]
 }

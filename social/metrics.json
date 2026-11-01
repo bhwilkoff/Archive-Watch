@@ -4793,6 +4793,37 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz6z65d2t32n",
+   "platform": "bluesky",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-31T19:18:37.925164+00:00",
+   "sampled": "2026-11-01T19:35:19.657267+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117537134870424533",
+   "platform": "mastodon",
+   "id": "all.-quiet.on.the.-western.-front.-1930.720p.-br-rip.-en-sub.x-264-mulvacoded",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-31T19:18:37.925164+00:00",
+   "sampled": "2026-11-01T19:35:19.657267+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
