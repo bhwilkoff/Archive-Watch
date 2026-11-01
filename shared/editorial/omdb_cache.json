@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-10-31T08:28:37Z",
+  "updated_at": "2026-11-01T09:19:13Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-10-31T08:28:37Z"
+      "last_tried": "2026-11-01T09:19:13Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-10-31T08:28:37Z"
+      "last_tried": "2026-11-01T09:19:13Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395059,6 +395059,134 @@
       ],
       "critics": null,
       "fetched_at": "2026-10-31T08:28:37Z",
+      "schema": 4
+    },
+    "tt1037027": {
+      "poster_url": null,
+      "imdb_rating": 6.8,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": "Scenes of the carnival rides at Coney Island.",
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Sport"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-01T09:19:13Z",
+      "schema": 4
+    },
+    "tt11240450": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjIwMWVhODctMmQ0OS00MWY3LTlkOWYtMWZmYWI1ODk5NDY3XkEyXkFqcGdeQXVyNTgwMzg0NjY@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 39,
+      "content_rating": null,
+      "plot": "One does not simply play Werewolf. It is a quest. A mission. Not for the faint of heart or weak of spleen. For this is Werewolf.",
+      "runtime_min": 10,
+      "director": "Markus Meedt",
+      "actors": [
+        "Shamia Chalabi",
+        "David Ellis",
+        "Alice Etches"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-01T09:19:13Z",
+      "schema": 4
+    },
+    "tt1869564": {
+      "poster_url": null,
+      "imdb_rating": 6.5,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": "Film that extols the virtues of being a good pedestrian and crossing the road in a safe manner. A young lad called Graham dreams of becoming a clown but who must negotiate various dangerous roads on the way of achieving his dream.",
+      "runtime_min": null,
+      "director": "Don Higgins",
+      "actors": [
+        "Valerie Singleton",
+        "Maryann Turner"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-01T09:19:13Z",
+      "schema": 4
+    },
+    "tt6149936": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTg1MTMzNDgyMl5BMl5BanBnXkFtZTgwODkyNDE3NDM@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 3.9,
+      "imdb_votes": 1776,
+      "content_rating": null,
+      "plot": "Returning to her home town, Eden Rock, and overwhelmed by the birth of her first born, Chloe van Heerden (19) tries to come to terms with motherhood. Alongside dealing with her super critical mother, Ruby (35), Chloe struggles with the demand of being a new mom. The incessant crying of her baby, the growing sense of guilt and paranoia sends Chloe into a dark depression. With a heightened urge to protect her son, Chloe sees danger in every situation. Distraught she pays a visit to family psychologist Dr. Timothy Reed (40s) who diagnoses her intrusive thoughts and feelings of anxiousness to a mild case of baby blues. Yet the thoughts grow worse and more violent. Chloe starts to hear voices and humming of a childhood lullaby and sees flashes of a strange entity around her child. Convinced that the entity is real, Chloe does everything in her power to protect her son. Her decline reaches fever pitch, and everybody seems to be moving against her. Desperate, Chloe finds solace in the arms of her childhood friend, Emile Hess (20s). The world around Chloe implodes and it becomes clear that she and her child are in imminent danger. But from what? Is Chloe haunted by evil or is it just the baby blues?",
+      "runtime_min": 86,
+      "director": "Darrell Roodt",
+      "actors": [
+        "Reine Swart",
+        "Thandi Puren",
+        "Brandon Auret"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "critics": {
+        "rt": 73,
+        "mc": 48
+      },
+      "fetched_at": "2026-11-01T09:19:13Z",
+      "schema": 4
+    },
+    "tt7642974": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWU3MDNiNjQtZTc0Zi00NzE5LWI2ZmYtMjY2NzI0N2Q5YzViXkEyXkFqcGdeQXVyMzMzMzI1MTg@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 14,
+      "content_rating": null,
+      "plot": "A young mother receives a mysterious package in the middle of the night. Her curiosity unleashes a chain of events that threaten her life and her baby forever.",
+      "runtime_min": 5,
+      "director": "Dale Fabrigar",
+      "actors": [
+        "Roczane Enriquez",
+        "Noreen Lanie",
+        "Isabella Magas"
+      ],
+      "genres": [
+        "Short",
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-01T09:19:13Z",
+      "schema": 4
+    },
+    "tt8726180": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODczODQyMzItMGRmOS00MjI1LWJkMGItMThkYmE0NjYxMTNhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 1227,
+      "content_rating": null,
+      "plot": "When a youth football team of 12 boys, aged 11-16, and their 25-year-old coach is trapped deep inside a cave in Northern Thailand, thousands of volunteers and soldiers from around the world unite in a race against time to find them. Once the boys are found alive ten days later, the only way out is an impossible five-hour dive-swim that only expert cave divers could survive. In Ireland, airplane factory electrician and recreational cave diver Jim Warny gets the call: \"How soon can you be here?\" Arriving in Thailand, Jim steps off the plane and into the cave - a knife-edge three-day mission is underway. Based on true events, THE CAVE tells the thrilling story of the largest international rescue mission of modern times, from the unique perspective of the men and women facing life-and-death decisions and displaying selfless determination and sacrifice, culminating in a triumphant outcome against all the odds.",
+      "runtime_min": 104,
+      "director": "Tom Waller",
+      "actors": [
+        "Jim Warny",
+        "Ekawat Niratvorapanya",
+        "James Edward Holley"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 97
+      },
+      "fetched_at": "2026-11-01T09:19:13Z",
       "schema": 4
     }
   },
