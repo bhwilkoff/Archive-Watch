@@ -3661,6 +3661,18 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": "pixielady"
+  },
+  {
+   "at": "2026-11-02T02:21:37.847381+00:00",
+   "id": "a-trip-to-the-moon-1902-tmdbid-775",
+   "title": "A Trip to the Moon",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzcbb7lbpv26",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

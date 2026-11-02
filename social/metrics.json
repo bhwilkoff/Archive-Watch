@@ -4824,6 +4824,69 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mysl5jtjut2n",
+   "platform": "bluesky",
+   "id": "sherlock-holmes-and-the-pearl-of-death",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-26T20:35:48.087550+00:00",
+   "sampled": "2026-11-02T02:21:40.547655+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117509127423733046",
+   "platform": "mastodon",
+   "id": "sherlock-holmes-and-the-pearl-of-death",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-26T20:35:48.087550+00:00",
+   "sampled": "2026-11-02T02:21:40.547655+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myt5hqg4tn2n",
+   "platform": "bluesky",
+   "id": "silent-die-nibelungen-siegfried",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-27T02:03:38.164314+00:00",
+   "sampled": "2026-11-02T02:21:40.547655+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz7q5qzo4j26",
+   "platform": "bluesky",
+   "id": "xd-38414-the-magic-key-vwr",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-01T02:10:01.372917+00:00",
+   "sampled": "2026-11-02T02:21:40.547655+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
