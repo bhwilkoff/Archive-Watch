@@ -3673,6 +3673,42 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-02T22:59:42.929685+00:00",
+   "id": "the-gay-brothers-1895",
+   "title": "Dickson Experimental Sound Film",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzegh2q3b626",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-02T22:59:42.929685+00:00",
+   "id": "the-gay-brothers-1895",
+   "title": "Dickson Experimental Sound Film",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117549327064829478",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-02T22:59:42.929685+00:00",
+   "id": "the-gay-brothers-1895",
+   "title": "Dickson Experimental Sound Film",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfQb7VbH7fo/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117549327009429069",
+   "reviewer": null
   }
  ]
 }
