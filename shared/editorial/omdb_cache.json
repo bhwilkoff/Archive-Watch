@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-01T09:19:13Z",
+  "updated_at": "2026-11-02T09:34:02Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-01T09:19:13Z"
+      "last_tried": "2026-11-02T09:34:02Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-01T09:19:13Z"
+      "last_tried": "2026-11-02T09:34:02Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395187,6 +395187,97 @@
         "rt": 97
       },
       "fetched_at": "2026-11-01T09:19:13Z",
+      "schema": 4
+    },
+    "tt0052611": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2Q2OGM5N2UtYWFkZC00YTk5LTlkMTctZDUyYjE3NjFiODVkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 2991,
+      "content_rating": "Approved",
+      "plot": "The dumping of radioactive waste in the ocean disturbs a prehistoric monster than can project electric shocks and radioactive beams. After terrorizing the English coast, it is discovered that if the creature is destroyed with conventional weaponry it would spread a dangerous amount radioactive contamination over the entire country, with this fact preventing the military from attacking the monster as it nears London.",
+      "runtime_min": 80,
+      "director": "Eugène Lourié",
+      "actors": [
+        "Gene Evans",
+        "André Morell",
+        "John Turner"
+      ],
+      "genres": [
+        "Horror",
+        "Sci-Fi"
+      ],
+      "critics": {
+        "rt": 17
+      },
+      "fetched_at": "2026-11-02T09:34:02Z",
+      "schema": 4
+    },
+    "tt0093779": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjFiOTEyNGMtN2E4MC00ZjZlLTk3ZDQtNTU1ZGNiZTA1MzJlXkEyXkFqcGc@._V1_QL75_UY562_CR3,0,380,562_.jpg",
+      "imdb_rating": 8.0,
+      "imdb_votes": 491948,
+      "content_rating": "PG",
+      "plot": "An elderly man reads the book \"The Princess Bride\" to his sick and thus currently bedridden adolescent grandson, the reading of the book which has been passed down within the family for generations. The grandson is sure he won't like the story, with a romance at its core, he prefers something with lots of action and \"no kissing\", but he lets grandfather continue, because he doesn't want to hurt his feelings. The story centers on Buttercup, a former farm girl who has been chosen as the princess bride to Prince Humperdinck of Florin. Buttercup does not love him, she who still laments the death of her one true love, Westley, five years ago. Westley was a hired hand on the farm, his stock answer of \"as you wish\" to any request she made of him which she came to understand was his way of saying that he loved her. But Westley went away to sea, only to be killed by the Dread Pirate Roberts. On a horse ride to clear her mind of her upcoming predicament of marriage, Buttercup is kidnapped by a band of bandits: Vizzini who works on his wits, and his two associates, a giant named Fezzik who works on his brawn, and a Spaniard named Inigo Montoya, who has trained himself his entire life to be an expert swordsman. They in turn are chased by the Dread Pirate Roberts himself. But chasing them all is the Prince, and his men led by Count Tyrone Rugen. What happens to these collectives is dependent partly on Buttercup, who does not want to marry the Prince, and may see other options as lesser evils, and partly on the other motives of individuals within the groups. But a larger question is what the grandson will think of the story as it proceeds and at its end, especially as he sees justice as high a priority as action.",
+      "runtime_min": 98,
+      "director": "Rob Reiner",
+      "actors": [
+        "Cary Elwes",
+        "Mandy Patinkin",
+        "Robin Wright"
+      ],
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Family"
+      ],
+      "critics": {
+        "rt": 93,
+        "mc": 78
+      },
+      "fetched_at": "2026-11-02T09:34:02Z",
+      "schema": 4
+    },
+    "tt0427276": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTI1NjkwOTgxMl5BMl5BanBnXkFtZTcwNzE0NTcyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.7,
+      "imdb_votes": 1439,
+      "content_rating": "Not Rated",
+      "plot": "THE FUTURE OF FOOD offers an in-depth investigation into the disturbing truth behind the unlabeled, patented, genetically engineered foods that have quietly filled U.S. grocery store shelves for the past decade. From the prairies of Saskatchewan, Canada to the fields of Oaxaca, Mexico, this film gives a voice to farmers whose lives and livelihoods have been negatively impacted by this new technology. The health implications, government policies and push towards globalization are all part of the reason why many people are alarmed about the introduction of genetically altered crops into our food supply. Shot on location in the U.S., Canada and Mexico, The Future of Food examines the complex web of market and political forces that are changing what we eat as huge multinational corporations seek to control the world's food system. The film also explores alternatives to large-scale industrial agriculture, placing organic and sustainable agriculture as real solutions to the farm crisis today. The Future of Food reveals that there is a revolution going on in the farm fields and on the dinner tables of America, a revolution that is transforming the very nature of the food we eat.",
+      "runtime_min": 88,
+      "director": "Deborah Koons Garcia",
+      "actors": [
+        "Charles Benbrook",
+        "Grace Booth",
+        "George W. Bush"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": {
+        "rt": 81,
+        "mc": 65
+      },
+      "fetched_at": "2026-11-02T09:34:02Z",
+      "schema": 4
+    },
+    "tt6949640": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmQ2YmRhZTctZmI3Ni00MzA3LWE2NjgtOTI3YTlmZWZlZWQyXkEyXkFqcGdeQXVyNTY2MTQ2NTA@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 61,
+      "content_rating": null,
+      "plot": "A brief montage of excerpts from home movies of gay men, with stock audio from the 20th century of personas addressing homosexuality in America.",
+      "runtime_min": 1,
+      "director": "Kevin Rios",
+      "actors": [
+        "Will Branske",
+        "Sergio Duarte",
+        "Brandon Flynn"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-02T09:34:02Z",
       "schema": 4
     }
   },
