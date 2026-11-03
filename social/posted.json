@@ -3721,6 +3721,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "Thrgfr"
+  },
+  {
+   "at": "2026-11-03T20:58:35.173163+00:00",
+   "id": "rawdeal1948",
+   "title": "Raw Deal",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzgq64yr4424",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "berger meister"
+  },
+  {
+   "at": "2026-11-03T20:58:35.173163+00:00",
+   "id": "rawdeal1948",
+   "title": "Raw Deal",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117554515421839372",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "berger meister"
+  },
+  {
+   "at": "2026-11-03T20:58:35.173163+00:00",
+   "id": "rawdeal1948",
+   "title": "Raw Deal",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DfSy7YODx7l",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "berger meister"
+  },
+  {
+   "at": "2026-11-03T20:58:35.173163+00:00",
+   "id": "rawdeal1948",
+   "title": "Raw Deal",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfSzAY3j4T4/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117554514782694494",
+   "reviewer": "berger meister"
+  },
+  {
+   "at": "2026-11-03T20:58:35.173163+00:00",
+   "id": "rawdeal1948",
+   "title": "Raw Deal",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=x-uSI28x3XU",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "berger meister"
   }
  ]
 }
