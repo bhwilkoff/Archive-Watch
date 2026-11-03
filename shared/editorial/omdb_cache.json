@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-02T09:34:02Z",
+  "updated_at": "2026-11-03T09:37:12Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-02T09:34:02Z"
+      "last_tried": "2026-11-03T09:37:12Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-02T09:34:02Z"
+      "last_tried": "2026-11-03T09:37:12Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395278,6 +395278,83 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-02T09:34:02Z",
+      "schema": 4
+    },
+    "tt0043225": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc0MDk0NDk3Nl5BMl5BanBnXkFtZTcwOTAyNjQzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 750,
+      "content_rating": null,
+      "plot": "The Double R Ranch featured \"The King of the Cowboys\" Roy, his \"Smartest Horse in the Movies\" Trigger, \"Queen of the West\" Dale, her horse Buttermilk, their dog Bullet, and even Pat's jeep, Nellybelle.",
+      "runtime_min": 30,
+      "director": null,
+      "actors": [
+        "Roy Rogers",
+        "Dale Evans",
+        "Trigger"
+      ],
+      "genres": [
+        "Family",
+        "Western"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-03T09:37:12Z",
+      "schema": 4
+    },
+    "tt0368913": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2ZjOTcwZjAtYmIyMS00OTQ4LTljNzgtYjdkYWZhNTRhY2FjXkEyXkFqcGc@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 9957,
+      "content_rating": "PG-13",
+      "plot": "The Taliban are ruling Afghanistan, they being a repressive regime especially for women, who, among other things, are not allowed to work. This situation is especially difficult for one family consisting solely of three women representing three successive generations. All the males in their family have died in various Afghani wars. The mother had been working as a nurse in a hospital, but regardless of she not being allowed to work, the Taliban has cut off funding to the hospital. The mother and grandmother make what they feel is the only decision they can to survive: they will have the preteen daughter masquerade as a boy so that she can get a job to support the family. The daughter, feeling powerless, agrees despite being scared as if the Taliban discover her masquerade, she is certain they will kill her. Partly as a symbolic measure, the daughter plants a lock of her now cut hair in a pot so that her lost femininity can flourish. The only people outside the family who know of the ruse are the milk vendor who employs the daughter - he who was a friend of her deceased father - and a local boy named Espandi who recognizes her despite her outward change in appearance. Espandi renames her Osama. The masquerade becomes more difficult when the Taliban recruit all the local boys to school, which includes military training.",
+      "runtime_min": 83,
+      "director": "Siddiq Barmak",
+      "actors": [
+        "Marina Golbahari",
+        "Zubaida Sahar",
+        "Khwaja Nader"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 96,
+        "mc": 83
+      },
+      "fetched_at": "2026-11-03T09:37:12Z",
+      "schema": 4
+    },
+    "tt2278981": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 26,
+      "director": "Guy Noffsinger",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-03T09:37:12Z",
+      "schema": 4
+    },
+    "tt8918082": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjEzOWI3NGMtZTkxMC00N2UzLWE0MDMtMGU1MTg0MzM5OTBhXkEyXkFqcGdeQXVyMjU0Mjg1Ng@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "John Beck Hofmann",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-03T09:37:12Z",
       "schema": 4
     }
   },
