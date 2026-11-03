@@ -4965,6 +4965,22 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myvolvzva424",
+   "platform": "bluesky",
+   "id": "the-bulleteers-1942",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-28T02:15:27.558363+00:00",
+   "sampled": "2026-11-03T04:03:55.736159+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
