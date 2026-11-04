@@ -198,14 +198,17 @@
     <section id="view-playlist" hidden>
       <div class="surprise-head">
         <h1 id="playlist-title"></h1>
-        <button id="playlist-share" class="btn-primary">Share</button>
+        <button id="playlist-share" class="btn-ghost">Share</button>
         <button id="playlist-rename" class="btn-ghost" type="button">Rename</button>
         <button id="playlist-delete" class="btn-ghost">Delete playlist</button>
       </div>
       <div class="browse-controls">
+        <button id="playlist-play" class="btn-primary" type="button" hidden>Play</button>
+        <button id="playlist-shuffle" class="btn-ghost" type="button" hidden>Shuffle</button>
         <select id="playlist-sort" aria-label="Sort"></select>
         <button id="playlist-edit" class="btn-ghost" type="button" aria-pressed="false">Edit</button>
       </div>
+      <p id="playlist-error" class="error" role="alert" hidden>None of these titles can be played right now.</p>
       <div id="playlist-grid" class="grid"></div>
       <p id="playlist-empty" class="muted" hidden>This playlist is empty — add titles from any Detail page.</p>
     </section>
@@ -558,6 +561,11 @@
       <button id="player-pip" aria-label="Picture in picture" hidden>⧉</button>
       <button id="player-cast" class="player-cast" aria-label="Cast to TV" hidden>Cast</button>
       <button id="player-close" aria-label="Close player">✕</button>
+    </div>
+    <div id="player-list" class="player-list" hidden>
+      <button id="player-prev" class="btn-ghost" type="button">Previous</button>
+      <span id="player-position"></span>
+      <button id="player-next" class="btn-ghost" type="button">Next</button>
     </div>
     <div class="player-stage">
       <video id="video" controls playsinline preload="auto"></video>

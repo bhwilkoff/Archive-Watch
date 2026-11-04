@@ -1129,6 +1129,7 @@
         '<span class="tv-tp-now"></span>' +
         '<div class="tv-tp-bar"><i></i></div>' +
         '<span class="tv-tp-dur"></span>' +
+        '<span class="tv-tp-pos"></span>' +
       '</div>' +
       '<p class="tv-tp-hint"></p>';
     stage.appendChild(transportEl);
@@ -1147,6 +1148,7 @@
     // THE TRANSPORT NAMES THE FILM (§5.3, Decision 037): the title always, the
     // synopsis only while paused — never painted over a picture that plays.
     var ctx = playerCtx();
+    el.querySelector('.tv-tp-pos').textContent = window.AWPlayer ? window.AWPlayer.position() : '';
     el.querySelector('.tv-tp-title').textContent =
       (ctx && ctx.title) || (document.getElementById('player-title') || {}).textContent || '';
     var desc = (document.getElementById('player-overlay-desc') || {}).textContent || '';
@@ -1212,8 +1214,8 @@
         try { localStorage.setItem('aw_rate', String(video.playbackRate)); } catch (e) { /* private */ }
       });
     }
-    if (P && P.canStep(-1)) add('Previous episode', function () { P.step(-1); return 'close'; });
-    if (P && P.canStep(1)) add(ctx.lineup ? 'Next' : 'Next episode', function () { P.step(1); return 'close'; });
+    if (P && P.canStep(-1)) add(ctx.list ? 'Previous' : 'Previous episode', function () { P.step(-1); return 'close'; });
+    if (P && P.canStep(1)) add(ctx.lineup || ctx.list ? 'Next' : 'Next episode', function () { P.step(1); return 'close'; });
     // AN EPHEMERAL LINEUP'S THREE VERBS (§5.6).
     if (ctx.lineup) {
       add(video.muted ? 'Sound on' : 'Sound off', function () { video.muted = !video.muted; });
