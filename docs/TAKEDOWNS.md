@@ -60,6 +60,12 @@ The check runs for one request at a time. It is never a catalog scan.
 | `<item>@<token>` | one file of a whole-series item |
 | `series:<slug>` | a show: card, spine and every episode |
 
+A line carrying `"rule": "file"` is written by `tools/audit_tv_rights.py`: a file of a
+compilation renewed in its own right (Decision 179). Its `"until"` is the year the work
+leaves copyright, after which the line stops holding and the next rebuild brings the
+file back. The audit keeps these lines in step with the record and never touches a
+person's.
+
 Removal reaches the catalog, DB, search, share pages, sitemap, channels, feeds and
 every app at the next publish. A viewer's own download on a phone stays until they
 delete it. Two kinds of content are not in that list and go by hand: a poster or

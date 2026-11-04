@@ -40,6 +40,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 import audit_rights as AR  # noqa: E402
+import corroborate_copyright as CC  # noqa: E402
+import takedown_lib  # noqa: E402
 
 SERIES_DIR = REPO / "series"
 CACHE = REPO / "shared" / "editorial" / "tv_rights_cache.json"
@@ -234,6 +236,28 @@ def judge(need: dict, title_years: dict, cache: dict) -> tuple[dict, int, int]:
     return drop, kept, unconfirmed
 
 
+def judge_compilations(folder: Path, apply: bool, repo=None) -> dict:
+    """Each file of a whole-series item, by its own title, against the printed
+    renewals. takedown_lib strips what this lists, and `until` brings it back the
+    year its copyright ends, so a renewed short leaves and a free one stays."""
+    bundles = []
+    for f in sorted(folder.glob("*.json")):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        if d.get("sourceID"):
+            bundles.append(d)
+    found = CC.compilation_claims(bundles, AR.PD_BY_AGE)
+    held = {str(e.get("archiveID")) for d in bundles for s in d.get("seasons") or [] for e in s.get("episodes") or []}
+    claims = {aid: {"case": f"renewal {r['r']}", "until": y + 96} for aid, (y, r) in found.items()}
+    print(f"[tv-rights] compilation files with a renewal of their own: {len(claims)} of {len(held)}")
+    if apply:
+        added, dropped = takedown_lib.write_rule_lines(claims, held, repo)
+        print(f"[tv-rights] takedown lines: {added} added, {dropped} dropped")
+    return claims
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -244,6 +268,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
+    judge_compilations(SERIES_DIR, args.apply)
     spines = load_spines(SERIES_DIR)
     need, title_years = collect_need(spines)
     ids = sorted({item_of(a) for a in need})

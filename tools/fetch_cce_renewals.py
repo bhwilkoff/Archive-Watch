@@ -65,7 +65,7 @@ _REG = r"(?P<reg>[LMJ][PU]?\s?[0-9lIO]{1,7}|[1Il][0-9lIO]{3,6}|[0-9]{3,6})"
 # volumes ("6 17Dec47; 11354"), "S1Apr44" is a damaged day, and some print a
 # comma after the date. Where the mark is lost entirely the registration number
 # after the date still says it is the original date, not the renewal's.
-ORIG = re.compile(r"(?:[©@€]|\(c\)|\b6G?\b)\s*(?:[SlIO](?=\d?[A-Z0-9]))?" + _DATE +
+ORIG = re.compile(r"(?:[©@€]|\(c\)|\b6G?\b)\s*(?:[SlIOB](?=[\dO]?[A-Z0-9]))?" + _DATE.replace("[0-9lIOSoh]", "[0-9lIOSohB]") +
                   r"(?:\s*[;,:.]?\s*" + _REG + r")?")
 ORIG_BARE = re.compile(r"(?<![A-Za-z])" + _DATE + r"\s*[;,:]\s*" + _REG)
 # "R353717", and what OCR made of it: "R3Z1016", "RB41915", "R¥91144", or an 8 after
@@ -73,7 +73,7 @@ ORIG_BARE = re.compile(r"(?<![A-Za-z])" + _DATE + r"\s*[;,:]\s*" + _REG)
 RENEW = re.compile(r"(?<![A-Za-z0-9])R\s?(?=[0-9A-Za-z¥#]*\d[0-9A-Za-z¥#]*\d)[0-9A-Za-z¥#]{5,13}"
                    r"(?![A-Za-z0-9])|(?<=[;,] )8\d{6}\b")
 # Where a title stops when the entry says what it is.
-KIND = re.compile(r"[,.]?\s+(?:a|an|4|@)\s+(?:(?:\w+[- ]){0,3}?)(?:p?photoplays?|motion\s*pictures?|series|serial|"
+KIND = re.compile(r"[,.]?\s+(?:a|an|4|@|a&,?)\s+(?:(?:\w+[- ]){0,3}?)(?:p?photoplays?|motion\s*pictures?|series|serial|"
                   r"film|cartoon|newsreel)\b", re.I)
 SERIES = re.compile(r"[,.]\s+(?:a|an|4|@)\s+(?:\w+\s+)?(?:series|serial)\b", re.I)
 # Where it stops otherwise: ". By Columbia", ". No.1151", or a period.

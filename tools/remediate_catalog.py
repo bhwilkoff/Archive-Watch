@@ -2874,6 +2874,12 @@ def exclude_takedowns(items, stats):
             it["excluded"] = True
             it["excludedReason"] = "takedown"
             stats["takedown_excluded"] += 1
+        elif not gone and it.get("excludedReason") == "takedown" and (
+                not str(aid).startswith("series:") or (REPO / "series" / f"{it.get('seriesID')}.json").exists()):
+            # "Delete a line to restore the title." The rights audit re-hides what it must.
+            it["excluded"] = False
+            it.pop("excludedReason", None)
+            stats["takedown_restored"] += 1
 
 
 def exclude_sources_of_claimed_series(items, stats):

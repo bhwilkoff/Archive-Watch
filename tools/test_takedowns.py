@@ -111,5 +111,5 @@ check("the rights reconcile keeps excludedReason (it will not un-hide it)",
       '"excludedReason"' in src.split("FOREIGN = (", 1)[1].split(")", 1)[0])
 real = json.loads(T.path().read_text())
 check("the public list names no person: only a date and a case number",
-      all(set(v) <= {"date", "case"} for k, v in real.items() if not k.startswith("_")))
+      all(set(v) <= {"date", "case", "until", "rule"} for k, v in real.items() if not k.startswith("_")))
 sys.exit(0 if ok else 1)
