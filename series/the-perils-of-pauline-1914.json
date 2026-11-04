@@ -1,0 +1,262 @@
+{
+  "version": 2,
+  "seriesID": "the-perils-of-pauline-1914",
+  "sourceID": "THEPERILSOFPAULINE191401",
+  "tvmazeID": null,
+  "title": "The Perils of Pauline",
+  "yearStart": 1914,
+  "yearEnd": null,
+  "overview": "The Perils of Pauline is a motion picture serial shown in weekly installments featuring the actress Pearl White playing the title character. Pauline has often been cited as a famous example of a damsel-in-distress, although viewers will find her character more resourceful and less helpless than the classic 'damsel' stereotype. Nine episodes (from a condensed 1916 re-release) survive to this day.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/jR5QxRKlTrrYUkID76aPW9I0rjt.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oXH4c9nXF8bPPy5DibIF2X30InQ.jpg",
+  "genres": [
+    "Drama",
+    "Action"
+  ],
+  "networks": [],
+  "creator": "Louis J. Gasnier",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e01",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156050434,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2001.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e02",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 1480,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133086287,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2002.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e03",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 1218,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108578564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2003.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e04",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 561,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 48541840,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2004.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e05",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71577785,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2005.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e06",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 937,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82328159,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2006.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e07",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 1180,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98337675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2007.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e08",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 1135,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102237123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2008.mp4"
+        },
+        {
+          "archiveID": "THEPERILSOFPAULINE191401@e09",
+          "sourceID": "THEPERILSOFPAULINE191401",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1914,
+          "runtimeSeconds": 931,
+          "videoFile": {
+            "name": "THE PERILS OF PAULINE (1914) /THE PERILS OF PAULINE (1914) - 09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83655465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/THEPERILSOFPAULINE191401/THE%20PERILS%20OF%20PAULINE%20%281914%29%20/THE%20PERILS%20OF%20PAULINE%20%281914%29%20-%2009.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Pearl White",
+      "character": null,
+      "order": 0,
+      "profilePath": "/sA7nNWkQbYsRWk3UiuU50lKAIB1.jpg"
+    },
+    {
+      "name": "Crane Wilbur",
+      "character": null,
+      "order": 1,
+      "profilePath": "/2gpp9veLSxWPrU9j5LYhwHLBaaY.jpg"
+    },
+    {
+      "name": "Paul Panzer",
+      "character": null,
+      "order": 2,
+      "profilePath": "/pZfJnLGaNLjQRdtIku3LYaI51LM.jpg"
+    },
+    {
+      "name": "Edward José",
+      "character": null,
+      "order": 3,
+      "profilePath": "/m32j3Z59YNNRdY2jg2xWNOMdsF3.jpg"
+    },
+    {
+      "name": "Donald MacKenzie",
+      "character": null,
+      "order": 4,
+      "profilePath": "/gmE75upkRaTcsz2GfOhwQ6quFGw.jpg"
+    },
+    {
+      "name": "Francis Carlyle",
+      "character": null,
+      "order": 5,
+      "profilePath": "/92ZT4tUm7MOLyUE929XjYIpG4zC.jpg"
+    },
+    {
+      "name": "Eleanor Woodruff",
+      "character": null,
+      "order": 6,
+      "profilePath": "/iF5wckJWrVHNj19T0lunDqhzTrL.jpg"
+    },
+    {
+      "name": "Jack Standing",
+      "character": null,
+      "order": 7,
+      "profilePath": "/osoFykyQQyMnTogGLqnIGIflK3Y.jpg"
+    },
+    {
+      "name": "Clifford Bruce",
+      "character": null,
+      "order": 8,
+      "profilePath": "/9wxa9dLCxFDCMO2qeCInBFIBUzd.jpg"
+    },
+    {
+      "name": "Chief Thunderbird",
+      "character": null,
+      "order": 9,
+      "profilePath": "/5pHa2ZedT3NveI3P2eDZRekk4Ep.jpg"
+    }
+  ]
+}

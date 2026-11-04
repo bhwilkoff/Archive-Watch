@@ -1,0 +1,195 @@
+{
+  "version": 2,
+  "seriesID": "tih-minh-1918",
+  "sourceID": "Tih-Minh",
+  "tvmazeID": null,
+  "title": "Tih Minh",
+  "yearStart": 1918,
+  "yearEnd": null,
+  "overview": "Jacques d'Athys, a French adventurer, returns to his home in Nice after an expedition to Indochina where he has picked up a Eurasian fiancée and a book that, unbeknownst to him, contains a coded message revealing the whereabouts of both secret treasures and sensitive government intelligence. This makes him the target of foreign spies, including a Marquise of mysterious Latin origin, a Hindu hypnotist and an evil German doctor, who will stop at nothing to obtain the book.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Tih_Minh_-_Feuillade.jpg?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3cSkGiExTaMeEykpWn6vupAED1L.jpg",
+  "genres": [
+    "silent film",
+    "Adventure",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": "Louis Feuillade",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Tih-Minh@e01",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.01_001051.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Tih-Minh.01.mp4",
+            "format": "h.264",
+            "sizeBytes": 307246865,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.01.mp4"
+        },
+        {
+          "archiveID": "Tih-Minh@e02",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.02_001053.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2967,
+          "videoFile": {
+            "name": "Tih-Minh.02.mp4",
+            "format": "h.264",
+            "sizeBytes": 307969292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.02.mp4"
+        },
+        {
+          "archiveID": "Tih-Minh@e03",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.03_001054.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "Tih-Minh.03.mp4",
+            "format": "h.264",
+            "sizeBytes": 307661299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.03.mp4"
+        },
+        {
+          "archiveID": "Tih-Minh@e04",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.04_001148.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 3236,
+          "videoFile": {
+            "name": "Tih-Minh.04.mp4",
+            "format": "h.264",
+            "sizeBytes": 335878025,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.04.mp4"
+        },
+        {
+          "archiveID": "Tih-Minh@e05",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.05_001029.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2899,
+          "videoFile": {
+            "name": "Tih-Minh.05.mp4",
+            "format": "h.264",
+            "sizeBytes": 300720832,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.05.mp4"
+        },
+        {
+          "archiveID": "Tih-Minh@e06",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.06_001052.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "Tih-Minh.06.mp4",
+            "format": "h.264",
+            "sizeBytes": 308009289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.06.mp4"
+        },
+        {
+          "archiveID": "Tih-Minh@e07",
+          "sourceID": "Tih-Minh",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Tih-Minh/Tih-Minh.thumbs/Tih-Minh.07_000774.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2351,
+          "videoFile": {
+            "name": "Tih-Minh.07.mp4",
+            "format": "h.264",
+            "sizeBytes": 243568673,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Tih-Minh/Tih-Minh.07.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Édouard Mathé",
+      "character": "Sir Francis Grey",
+      "order": 0,
+      "profilePath": "/mczsFE4xvwQuemE6Sb8KM6ziXTK.jpg"
+    },
+    {
+      "name": "Louis Leubas",
+      "character": "Kistna",
+      "order": 1,
+      "profilePath": "/yEu4dzxPRJqRGE5lSSVmFVtYiR5.jpg"
+    },
+    {
+      "name": "René Cresté",
+      "character": "Jacques d'Athys",
+      "order": 2,
+      "profilePath": "/74zMVUcXJQZNySYMR2A7ffUwC7Q.jpg"
+    },
+    {
+      "name": "Georges Biscot",
+      "character": "Placido",
+      "order": 3,
+      "profilePath": "/uS5VoUjixJEU2HTPow3yabYIsuD.jpg"
+    },
+    {
+      "name": "Gaston Michel",
+      "character": "Dr. Gilson",
+      "order": 4,
+      "profilePath": "/nqHyTN4sPzPxrC60N1rlqengnZX.jpg"
+    }
+  ]
+}

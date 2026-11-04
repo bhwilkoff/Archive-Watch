@@ -1,0 +1,277 @@
+{
+  "version": 2,
+  "seriesID": "the-lost-city-1920",
+  "sourceID": "chapter-01-living-dead-men",
+  "tvmazeID": null,
+  "title": "The Lost City",
+  "yearStart": 1920,
+  "yearEnd": null,
+  "overview": "A 15-chapter serial produced by William N. Selig, whose wild animals later formed the nucleus of the Los Angeles Zoo. Princess Elyata of Tirzah (Juanita Hansen) comes to the rescue of two Americans, Stanley Morton (George Chesebro) and Mike Donovan (Frank Clark), who wander into a village ruled by the slave trader Gagga (Hector Dion).",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Lost_City_%281920%29_-_3.jpg?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1mqWbjZiKtIDB2fvGGStWeSXKeq.jpg",
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [],
+  "creator": "E.A. Martin",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-01-living-dead-men@e01",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Living Dead-Men",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2001%20-%20Living%20Dead-Men_000665.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1668,
+          "videoFile": {
+            "name": "Chapter 01 - Living Dead-Men.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295362305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2001%20-%20Living%20Dead-Men.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e02",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Tunnel of Flame",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2002%20-%20The%20Tunnel%20of%20Flame_000475.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1243,
+          "videoFile": {
+            "name": "Chapter 02 - The Tunnel of Flame.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199623248,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2002%20-%20The%20Tunnel%20of%20Flame.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e03",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Dagger Rock",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2003%20-%20Dagger%20Rock_000478.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1196,
+          "videoFile": {
+            "name": "Chapter 03 - Dagger Rock.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 226311120,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2003%20-%20Dagger%20Rock.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e04",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Doomed",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2004%20-%20Doomed_000420.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1111,
+          "videoFile": {
+            "name": "Chapter 04 - Doomed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 229315521,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2004%20-%20Doomed.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e05",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Tiger Prey",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2005%20-%20Tiger%20Prey_000417.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1174,
+          "videoFile": {
+            "name": "Chapter 05 - Tiger Prey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 222899858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2005%20-%20Tiger%20Prey.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e06",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Human Beasts",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2006%20-%20Human%20Beasts_000417.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1106,
+          "videoFile": {
+            "name": "Chapter 06 - Human Beasts.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 182275493,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2006%20-%20Human%20Beasts.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e07",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Spider Men",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2007%20-%20Spider%20Men_000420.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1026,
+          "videoFile": {
+            "name": "Chapter 07 - Spider Men.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214333874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2007%20-%20Spider%20Men.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e08",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Human Targets",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2008%20-%20Human%20Targets_000415.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1056,
+          "videoFile": {
+            "name": "Chapter 08 - Human Targets.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 186550551,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2008%20-%20Human%20Targets.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e09",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Jungle Vengeance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2009%20-%20Jungle%20Vengeance_000539.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1395,
+          "videoFile": {
+            "name": "Chapter 09 - Jungle Vengeance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 292209013,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2009%20-%20Jungle%20Vengeance.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e10",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Lion Pit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2010%20-%20The%20Lion%20Pit_000417.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1104,
+          "videoFile": {
+            "name": "Chapter 10 - The Lion Pit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232602807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2010%20-%20The%20Lion%20Pit.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e11",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Death Ray",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2011%20-%20Death%20Ray_000483.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1236,
+          "videoFile": {
+            "name": "Chapter 11 - Death Ray.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 204457622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2011%20-%20Death%20Ray.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-living-dead-men@e12",
+          "sourceID": "chapter-01-living-dead-men",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Mad Scientist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-living-dead-men/chapter-01-living-dead-men.thumbs/Chapter%2012%20-%20The%20Mad%20Scientist_000421.jpg",
+          "airDate": null,
+          "year": 1920,
+          "runtimeSeconds": 1105,
+          "videoFile": {
+            "name": "Chapter 12 - The Mad Scientist.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163977528,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-living-dead-men/Chapter%2012%20-%20The%20Mad%20Scientist.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Juanita Hansen",
+      "character": null,
+      "order": 0,
+      "profilePath": "/7MIPfbm7WNF09sM2O6NLplKJQd3.jpg"
+    },
+    {
+      "name": "George Chesebro",
+      "character": null,
+      "order": 1,
+      "profilePath": "/s8A5WerpnAjIom4ezjiTEcDEOc4.jpg"
+    },
+    {
+      "name": "Frank Clark",
+      "character": null,
+      "order": 2,
+      "profilePath": "/c6b4cqIxBKYCjJlSTlXpr2RHKPU.jpg"
+    }
+  ]
+}

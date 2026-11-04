@@ -1,0 +1,300 @@
+{
+  "version": 2,
+  "seriesID": "the-phantom-of-the-air-1933",
+  "sourceID": "phantom-of-the-air",
+  "tvmazeID": null,
+  "title": "The Phantom of the Air",
+  "yearStart": 1933,
+  "yearEnd": null,
+  "overview": "An adventure serial presented in 12 chapters. Inventor Thomas Edmunds uses a super plane, 'The Phantom,' to protect his new anti-gravity invention, the Contragrav, from theft.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3VMSGD3MvUqNV2WAkYfugsdLnNq.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ycogat2jVquZwcRJ4EA2KaDS8CV.jpg",
+  "genres": [
+    "Action"
+  ],
+  "networks": [],
+  "creator": "Ray Taylor",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "phantom-of-the-air@e01",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Great Air Meet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/01%20The%20Great%20Air%20Meet_000474.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1233,
+          "videoFile": {
+            "name": "01 The Great Air Meet.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178031964,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/01%20The%20Great%20Air%20Meet.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e02",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Secret of the Desert",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/02%20The%20Secret%20of%20the%20Desert_000478.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1210,
+          "videoFile": {
+            "name": "02 The Secret of the Desert.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170814094,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/02%20The%20Secret%20of%20the%20Desert.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e03",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Avenging Phantom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/03%20The%20Avenging%20Phantom_000414.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1039,
+          "videoFile": {
+            "name": "03 The Avenging Phantom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 159302299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/03%20The%20Avenging%20Phantom.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e04",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Battle in the Clouds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/04%20The%20Battle%20in%20the%20Clouds_000419.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1030,
+          "videoFile": {
+            "name": "04 The Battle in the Clouds.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151753711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/04%20The%20Battle%20in%20the%20Clouds.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e05",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Terror of the Heights",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/05%20Terror%20of%20the%20Heights_000355.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 996,
+          "videoFile": {
+            "name": "05 Terror of the Heights.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153545189,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/05%20Terror%20of%20the%20Heights.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e06",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "A Wild Ride",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/06%20A%20Wild%20Ride_000356.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 998,
+          "videoFile": {
+            "name": "06 A Wild Ride.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151152937,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/06%20A%20Wild%20Ride.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e07",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Jaws of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/07%20The%20Jaws%20of%20Death_000359.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1013,
+          "videoFile": {
+            "name": "07 The Jaws of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169209612,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/07%20The%20Jaws%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e08",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Aflame in the Sky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/08%20Aflame%20in%20the%20Sky_000355.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 968,
+          "videoFile": {
+            "name": "08 Aflame in the Sky.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148566797,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/08%20Aflame%20in%20the%20Sky.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e09",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Attack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/09%20The%20Attack_000419.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1098,
+          "videoFile": {
+            "name": "09 The Attack.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 172403367,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/09%20The%20Attack.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e10",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Runaway Plane",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/10%20The%20Runaway%20Plane_000317.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 886,
+          "videoFile": {
+            "name": "10 The Runaway Plane.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 131436488,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/10%20The%20Runaway%20Plane.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e11",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "In the Enemy's Hands",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/11%20In%20the%20Enemy%27s%20Hands_000414.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1181,
+          "videoFile": {
+            "name": "11 In the Enemy's Hands.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182343405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/11%20In%20the%20Enemy%27s%20Hands.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-air@e12",
+          "sourceID": "phantom-of-the-air",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Safe Landing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-air/phantom-of-the-air.thumbs/12%20Safe%20Landing_000358.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1005,
+          "videoFile": {
+            "name": "12 Safe Landing.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150754007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-air/12%20Safe%20Landing.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Tom Tyler",
+      "character": "Bob Raymond",
+      "order": 0,
+      "profilePath": "/zvp2SbUJiFfmZN95hVf0erT8cAo.jpg"
+    },
+    {
+      "name": "Gloria Shea",
+      "character": "Mary Edmonds",
+      "order": 1,
+      "profilePath": "/3NhaPewciJIP3Z2Xc7IfwD7tWXc.jpg"
+    },
+    {
+      "name": "LeRoy Mason",
+      "character": "Mortimer Crome (as Le Roy Mason)",
+      "order": 2,
+      "profilePath": "/xMeRfIeWppJTsNXsXahVIGMDenL.jpg"
+    },
+    {
+      "name": "William Desmond",
+      "character": "Thomas Edmonds",
+      "order": 3,
+      "profilePath": "/4ZrHPcaKiybXcApPdG7bF29xvwO.jpg"
+    },
+    {
+      "name": "Sidney Bracey",
+      "character": "James Munson",
+      "order": 4,
+      "profilePath": "/zwWZ51P10q6fAydhoQk2tkOR8ei.jpg"
+    },
+    {
+      "name": "Walter Brennan",
+      "character": "'Skid' (uncredited)",
+      "order": 5,
+      "profilePath": "/7hlZ3WbT4JQxeN3fLMongUXNHma.jpg"
+    },
+    {
+      "name": "Dennis O'Keefe",
+      "character": "Party Guest (uncredited)",
+      "order": 6,
+      "profilePath": "/xwdMxksOymeFYYi9oWtn7aocFKP.jpg"
+    }
+  ]
+}

@@ -679,7 +679,7 @@
   "verdict": "bundle"
  },
  "01-l-ami-felon": {
-  "checkedAt": "2026-11-01",
+  "checkedAt": "2026-11-04",
   "files": [
    {
     "format": "Matroska",
@@ -862,7 +862,7 @@
     "name": "01-l-ami-felon.thumbs/10 Le Triomphe de l'amour_000992.jpg"
    }
   ],
-  "isize": 17299986722,
+  "isize": 17299987502,
   "reason": "ok",
   "rule": 2,
   "verdict": "bundle"
@@ -9308,8 +9308,8 @@
   "verdict": "single"
  },
  "202729_Portions_of_Twenty_Three_States_in_Two_Parts_P1": {
-  "checkedAt": "2026-11-01",
-  "isize": 8457042111,
+  "checkedAt": "2026-11-04",
+  "isize": 8457041351,
   "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
@@ -20252,9 +20252,10 @@
   "verdict": "single"
  },
  "Century21964": {
-  "checkedAt": "2026-10-18",
-  "isize": 1056353675,
+  "checkedAt": "2026-11-04",
+  "isize": 1056354460,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Centuryo1933": {
@@ -28759,9 +28760,10 @@
   "verdict": "single"
  },
  "HMUnidentifiedDetroi12021": {
-  "checkedAt": "2026-10-18",
-  "isize": 28494651386,
+  "checkedAt": "2026-11-04",
+  "isize": 28494652509,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "HMUnidentifiedDetroi12023": {
@@ -42198,9 +42200,10 @@
   "verdict": "single"
  },
  "MakingBo1947": {
-  "checkedAt": "2026-10-18",
-  "isize": 871995210,
+  "checkedAt": "2026-11-04",
+  "isize": 871995597,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "MakingaN1946_2": {
@@ -48494,6 +48497,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1803285929,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "Reel340_201405": {
+  "checkedAt": "2026-11-04",
+  "isize": 786798223,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Reet_Petite_and_Gone": {
@@ -66343,6 +66353,13 @@
   "reason": "ok",
   "verdict": "bundle"
  },
+ "UNKNOWN_1234_005_DIG": {
+  "checkedAt": "2026-11-04",
+  "isize": 108959401914,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "US-EVA-52-and-53": {
   "checkedAt": "2026-11-01",
   "isize": 234233537391,
@@ -67307,6 +67324,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2499824353,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "WMAR-DOCS-002": {
+  "checkedAt": "2026-11-04",
+  "isize": 59113482907,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "WMAR-TITLE-008-001": {
@@ -68849,6 +68873,13 @@
   "checkedAt": "2026-10-18",
   "isize": 871101914,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "acfrma-A_Christmas_Carol_1951": {
+  "checkedAt": "2026-11-04",
+  "isize": 3052904613,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "acommontongue": {
@@ -94802,6 +94833,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "dom-168217-lesvampires": {
+  "checkedAt": "2026-11-04",
+  "isize": 2556016343,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "dom-6567newnosferatu": {
   "checkedAt": "2026-11-01",
   "isize": 9743872509,
@@ -98049,6 +98087,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2107118772,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "el-turista-aka-millonario-por-un-dia-1963": {
+  "checkedAt": "2026-11-04",
+  "isize": 4191018962,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "el-ultimo-centauro-la-epopeya-del-gaucho-juan-moreyra-1924": {
@@ -110270,6 +110315,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "gov.house.energy.ti.2007.03.01": {
+  "checkedAt": "2026-11-04",
+  "isize": 7076507256,
+  "reason": "two works share a number",
+  "rule": 2,
+  "verdict": "single"
+ },
  "gov.house.hbs.hrs02TRN2167_071101.1": {
   "checkedAt": "2026-10-18",
   "isize": 4838573405,
@@ -110298,6 +110350,13 @@
   "checkedAt": "2026-10-18",
   "isize": 6390308157,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "gov.house.judiciary.2007.06.19": {
+  "checkedAt": "2026-11-04",
+  "isize": 8286344044,
+  "reason": "0 numbered of 3",
+  "rule": 2,
   "verdict": "single"
  },
  "gov.msha.dvd619": {
@@ -110379,9 +110438,10 @@
   "verdict": "single"
  },
  "gov.ntis.ava04168vnb1": {
-  "checkedAt": "2026-10-18",
-  "isize": 2628194976,
+  "checkedAt": "2026-11-04",
+  "isize": 2628195950,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "gov.ntis.ava06858vnb1": {
@@ -115447,9 +115507,10 @@
   "verdict": "single"
  },
  "invisible-man-1933-english": {
-  "checkedAt": "2026-10-18",
-  "isize": 2648900508,
+  "checkedAt": "2026-11-04",
+  "isize": 2648901178,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "invisible_diplomats": {
@@ -120839,6 +120900,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2361216765,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "la35ca-Cinema_35_-_Charade_1963": {
+  "checkedAt": "2026-11-04",
+  "isize": 3011860594,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "labor_of_thy_hands": {
@@ -144711,6 +144779,20 @@
   "rule": 2,
   "verdict": "single"
  },
+ "openmind_ep1256": {
+  "checkedAt": "2026-11-04",
+  "isize": 1747859548,
+  "reason": "0 numbered of 4",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "openmind_ep38": {
+  "checkedAt": "2026-11-04",
+  "isize": 810296974,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "openmind_ep494": {
   "checkedAt": "2026-11-01",
   "isize": 759211080,
@@ -148719,9 +148801,10 @@
   "verdict": "single"
  },
  "phantom-23.98-bw": {
-  "checkedAt": "2026-10-18",
-  "isize": 100401517651,
+  "checkedAt": "2026-11-04",
+  "isize": 100401999335,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "phantom-23.98-tinted": {
@@ -188409,9 +188492,10 @@
   "verdict": "single"
  },
  "the-cocoanuts-1929-bluray-1080-p-aac-2.0-x-265": {
-  "checkedAt": "2026-10-18",
-  "isize": 2109156476,
+  "checkedAt": "2026-11-04",
+  "isize": 2109157160,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-cocoanuts-pnm": {
@@ -199105,8 +199189,8 @@
   "verdict": "single"
  },
  "the-lucy-show-lucy-buys-a-boat": {
-  "checkedAt": "2026-11-01",
-  "isize": 31830257735,
+  "checkedAt": "2026-11-04",
+  "isize": 31830257423,
   "reason": "0 numbered of 152",
   "rule": 2,
   "verdict": "single"
@@ -201847,7 +201931,7 @@
   "verdict": "bundle"
  },
  "the-monkees-tv-series-full-episodes": {
-  "checkedAt": "2026-11-01",
+  "checkedAt": "2026-11-04",
   "files": [
    {
     "format": "h.264 IA",
@@ -202904,7 +202988,7 @@
     "name": "the-monkees-tv-series-full-episodes.thumbs/The Monkees 35mm Pilot Episode_000867.jpg"
    }
   ],
-  "isize": 136286066714,
+  "isize": 136286067551,
   "reason": "ok",
   "rule": 2,
   "verdict": "bundle"
@@ -216667,8 +216751,8 @@
   "verdict": "single"
  },
  "themonkees.series": {
-  "checkedAt": "2026-11-01",
-  "isize": 10410427215,
+  "checkedAt": "2026-11-04",
+  "isize": 10410427530,
   "reason": "numbers do not form a run (101..226 over 58)",
   "rule": 2,
   "verdict": "single"
@@ -220090,6 +220174,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "tobacco_jvj23e00": {
+  "checkedAt": "2026-11-04",
+  "isize": 1314118323,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "tobacco_kpv08h00": {
   "checkedAt": "2026-10-18",
   "isize": 1736555958,
@@ -220100,6 +220191,13 @@
   "checkedAt": "2026-10-18",
   "isize": 239972874,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "tobacco_lym02b00": {
+  "checkedAt": "2026-11-04",
+  "isize": 1483835616,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "tobacco_ndo23e00": {
@@ -220118,6 +220216,20 @@
   "checkedAt": "2026-10-18",
   "isize": 3135582250,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "tobacco_rja84e00": {
+  "checkedAt": "2026-11-04",
+  "isize": 3164584394,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "tobacco_sjq74e00": {
+  "checkedAt": "2026-11-04",
+  "isize": 1034414051,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "tobacco_tle13d00": {
@@ -220218,9 +220330,10 @@
   "verdict": "single"
  },
  "touch_of_his_hand": {
-  "checkedAt": "2026-10-18",
-  "isize": 2784669676,
+  "checkedAt": "2026-11-04",
+  "isize": 2784669876,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "tough_to_handle": {
@@ -224413,9 +224526,10 @@
   "verdict": "single"
  },
  "woman_in_brown": {
-  "checkedAt": "2026-10-18",
-  "isize": 4855559296,
+  "checkedAt": "2026-11-04",
+  "isize": 4855559919,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "women-of-the-night": {

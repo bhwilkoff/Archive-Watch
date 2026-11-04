@@ -1,0 +1,276 @@
+{
+  "version": 2,
+  "seriesID": "the-last-frontier-1926",
+  "sourceID": "the.-last.-frontier.-e-02",
+  "tvmazeID": null,
+  "title": "The Last Frontier",
+  "yearStart": 1926,
+  "yearEnd": null,
+  "overview": "Impoverished by the Civil War and eager to replenish his fortune in the West, Colonel Halliday, his wife, and his daughter, Beth, proceed toward Salina, Kansas by wagon train, at the persuasion of Tom Kirby, a government scout and...",
+  "posterURL": "https://image.tmdb.org/t/p/w780/4fME3QbHx9Rllh5gRd4Do5EQPvg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2OQyE161zmLgY7bKOIJFAEV9hOy.jpg",
+  "genres": [
+    "Western"
+  ],
+  "networks": [],
+  "creator": "George B. Seitz",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e01",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E01_000475.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1216,
+          "videoFile": {
+            "name": "The.Last.Frontier.E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 116374113,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E01.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e02",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E02_000476.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1245,
+          "videoFile": {
+            "name": "The.Last.Frontier.E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 119137704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E02.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e03",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E03_000420.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1061,
+          "videoFile": {
+            "name": "The.Last.Frontier.E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 101455282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E03.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e04",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E04_000354.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 940,
+          "videoFile": {
+            "name": "The.Last.Frontier.E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 90331322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E04.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e05",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E05_000360.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 956,
+          "videoFile": {
+            "name": "The.Last.Frontier.E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 91993247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E05.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e06",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E06_000360.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1025,
+          "videoFile": {
+            "name": "The.Last.Frontier.E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 98342524,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E06.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e07",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E07_000420.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1124,
+          "videoFile": {
+            "name": "The.Last.Frontier.E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 107605564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E07.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e08",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E08_000414.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1072,
+          "videoFile": {
+            "name": "The.Last.Frontier.E08.mp4",
+            "format": "h.264",
+            "sizeBytes": 102575306,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E08.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e09",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E09_000417.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1091,
+          "videoFile": {
+            "name": "The.Last.Frontier.E09.mp4",
+            "format": "h.264",
+            "sizeBytes": 104319539,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E09.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e10",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E10_000415.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 1158,
+          "videoFile": {
+            "name": "The.Last.Frontier.E10.mp4",
+            "format": "h.264",
+            "sizeBytes": 110723359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E10.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e11",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E11_000354.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 935,
+          "videoFile": {
+            "name": "The.Last.Frontier.E11.mp4",
+            "format": "h.264",
+            "sizeBytes": 89351034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E11.mp4"
+        },
+        {
+          "archiveID": "the.-last.-frontier.-e-02@e12",
+          "sourceID": "the.-last.-frontier.-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the.-last.-frontier.-e-02/the.-last.-frontier.-e-02.thumbs/The.Last.Frontier.E12_000355.jpg",
+          "airDate": null,
+          "year": 1926,
+          "runtimeSeconds": 925,
+          "videoFile": {
+            "name": "The.Last.Frontier.E12.mp4",
+            "format": "h.264",
+            "sizeBytes": 88495195,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.-last.-frontier.-e-02/The.Last.Frontier.E12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "William Boyd",
+      "character": null,
+      "order": 0,
+      "profilePath": "/iQNPrDYIzyHRFHmUWe3gjVA2s4r.jpg"
+    },
+    {
+      "name": "Marguerite De La Motte",
+      "character": null,
+      "order": 1,
+      "profilePath": "/lVTbD5zc5luU1vS64SPF2d7k8Ov.jpg"
+    },
+    {
+      "name": "Jack Hoxie",
+      "character": null,
+      "order": 2,
+      "profilePath": "/6Ct8EodKuxf8hZnwBNQ4oQxxrKJ.jpg"
+    }
+  ]
+}

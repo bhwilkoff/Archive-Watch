@@ -1,282 +1,295 @@
 {
   "version": 2,
   "seriesID": "adventures-of-captain-marvel-1941",
-  "sourceID": "2_20240410_202404",
+  "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
   "tvmazeID": null,
   "title": "Adventures of Captain Marvel",
   "yearStart": 1941,
   "yearEnd": null,
-  "overview": "Adventures of Captain Marvel is a 1941 American 12-chapter black-and-white movie serial from Republic Pictures, produced by Hiram S. Brown, Jr., directed by John English and William Witney, that stars Tom Tyler in the title role of Captain Marvel and Frank Coghlan, Jr. as his alter ego, Billy Batson. The serial was adapted from the popular Captain Marvel comic book character, then appearing in the Fawcett Comics publications Whiz Comics and Captain Marvel Adventures. The character is now owned by DC Comics and is known as Shazam. Adventures of Captain Marvel was the 21st of 66 film serials produced by Republic and their first comic book character adaptation (not counting comic strips ). The serial featured the Fawcett Comics superhero, placed within an original screen story. It is considered the first comic book superhero movie. Captain Marvel fights a masked criminal mastermind called the Scorpion, who is determined to gain control of an ancient weapon. It is made in the form of a large metallic scorpion with adjustable legs, tail, and removable lenses that must be properly aligned in order to activate its powerful ray.",
-  "posterURL": "https://archive.org/download/archivewatch-covers/2_20240410_202404.7da4ba55.jpg",
-  "backdropURL": null,
+  "overview": "On a scientific expedition to Siam young Billy Batson is given the ability to change himself into the super-powered Captain Marvel by the wizard Shazam, who tells him his powers will last only as long as the Golden Scorpion idol is threatened. Finding the idol, the scientists realize it could be the most powerful weapon in the world and remove the lenses that energize it, distributing them among themselves so that no one would be able to use the idol by himself. Back in the US, Billy Batson, as Captain Marvel, wages a battle against an evil, hooded figure, the Scorpion, who hopes to accumulate all five lenses, thereby gaining control of the super-powerful weapon",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Adventures_of_Captain_Marvel_%281941_serial%29_12.jpg?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nLQFKvG22mtcH4xKAtv3kdXVNJX.jpg",
   "genres": [
-    "Sci-Fi"
+    "action television series",
+    "fantasy television series"
   ],
   "networks": [],
-  "creator": null,
+  "creator": "William Witney",
   "seasons": [
     {
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "2_20240410_202404@e01",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e01",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Episode 1",
+          "title": "Adventures of Captain Marvel_ch01",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode1-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch01_000615.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 741,
+          "runtimeSeconds": 1809,
           "videoFile": {
-            "name": "captain marvel-episode1-1941-colorized serial-720p-hd.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 94930295,
+            "name": "AdventuresOfCaptainMarvel_ch01.mp4",
+            "format": "h.264",
+            "sizeBytes": 188066208,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode1-1941-colorized%20serial-720p-hd.ia.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch01.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e02",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e02",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 2,
-          "title": "Episode 2",
+          "title": "Adventures of Captain Marvel_ch02",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode2-1941-colorized%20serial-720p-hd_000238.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch02_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 659,
+          "runtimeSeconds": 994,
           "videoFile": {
-            "name": "captain marvel-episode2-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch02.mp4",
             "format": "h.264",
-            "sizeBytes": 62656827,
+            "sizeBytes": 103429263,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode2-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch02.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e03",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e03",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 3,
-          "title": "Episode 3",
+          "title": "Adventures of Captain Marvel_ch03",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode3-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch03_000390.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 763,
+          "runtimeSeconds": 1071,
           "videoFile": {
-            "name": "captain marvel-episode3-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch03.mp4",
             "format": "h.264",
-            "sizeBytes": 72352491,
+            "sizeBytes": 111376578,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode3-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch03.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e04",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e04",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 4,
-          "title": "Episode 4",
+          "title": "Adventures of Captain Marvel_ch04",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode4-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch04_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 743,
+          "runtimeSeconds": 1010,
           "videoFile": {
-            "name": "captain marvel-episode4-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch04.mp4",
             "format": "h.264",
-            "sizeBytes": 70947141,
+            "sizeBytes": 105141117,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode4-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch04.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e05",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e05",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 5,
-          "title": "Episode 5",
+          "title": "Adventures of Captain Marvel_ch05",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode5-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch05_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 727,
+          "runtimeSeconds": 1005,
           "videoFile": {
-            "name": "captain marvel-episode5-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch05.mp4",
             "format": "h.264",
-            "sizeBytes": 69459952,
+            "sizeBytes": 104533900,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode5-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch05.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e06",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e06",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 6,
-          "title": "Episode 6",
+          "title": "Adventures of Captain Marvel_ch06",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode6-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch06_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 736,
+          "runtimeSeconds": 1005,
           "videoFile": {
-            "name": "captain marvel-episode6-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch06.mp4",
             "format": "h.264",
-            "sizeBytes": 70042555,
+            "sizeBytes": 104408020,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode6-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch06.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e07",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e07",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 7,
-          "title": "Episode 7",
+          "title": "Adventures of Captain Marvel_ch07",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode7-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch07_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 737,
+          "runtimeSeconds": 1026,
           "videoFile": {
-            "name": "captain marvel-episode7-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch07.mp4",
             "format": "h.264",
-            "sizeBytes": 70264230,
+            "sizeBytes": 106448492,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode7-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch07.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e08",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e08",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 8,
-          "title": "Episode 8",
+          "title": "Adventures of Captain Marvel_ch08",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode8-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch08_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 710,
+          "runtimeSeconds": 1033,
           "videoFile": {
-            "name": "captain marvel-episode8-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch08.mp4",
             "format": "h.264",
-            "sizeBytes": 67760249,
+            "sizeBytes": 107329003,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode8-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch08.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e09",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e09",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 9,
-          "title": "Episode 9",
+          "title": "Adventures of Captain Marvel_ch09",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode9-1941-colorized%20serial-720p-hd_000268.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch09_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 740,
+          "runtimeSeconds": 1002,
           "videoFile": {
-            "name": "captain marvel-episode9-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch09.mp4",
             "format": "h.264",
-            "sizeBytes": 70063586,
+            "sizeBytes": 103776549,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode9-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch09.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e10",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e10",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 10,
-          "title": "Episode 10",
+          "title": "Adventures of Captain Marvel_ch10",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode10-1941-colorized%20serial-720p-hd_000298.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch10_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 744,
+          "runtimeSeconds": 997,
           "videoFile": {
-            "name": "captain marvel-episode10-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch10.mp4",
             "format": "h.264",
-            "sizeBytes": 70894904,
+            "sizeBytes": 103642138,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode10-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch10.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e11",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e11",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 11,
-          "title": "Episode 11",
+          "title": "Adventures of Captain Marvel_ch11",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode11-1941-colorized%20serial-720p-hd_000238.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch11_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 609,
+          "runtimeSeconds": 1011,
           "videoFile": {
-            "name": "captain marvel-episode11-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch11.mp4",
             "format": "h.264",
-            "sizeBytes": 57939237,
+            "sizeBytes": 105332889,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode11-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch11.mp4"
         },
         {
-          "archiveID": "2_20240410_202404@e12",
-          "sourceID": "2_20240410_202404",
+          "archiveID": "TheAdventuresOfCaptainMarvelSerial194112Chapters@e12",
+          "sourceID": "TheAdventuresOfCaptainMarvelSerial194112Chapters",
           "seasonNumber": 1,
           "episodeNumber": 12,
-          "title": "Episode 12",
+          "title": "Adventures of Captain Marvel_ch12",
           "overview": null,
-          "stillURL": "https://archive.org/download/2_20240410_202404/2_20240410_202404.thumbs/captain%20marvel-episode12-1941-colorized%20serial-720p-hd_000208.jpg",
+          "stillURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/TheAdventuresOfCaptainMarvelSerial194112Chapters.thumbs/AdventuresOfCaptainMarvel_ch12_000330.jpg",
           "airDate": null,
           "year": 1941,
-          "runtimeSeconds": 562,
+          "runtimeSeconds": 1006,
           "videoFile": {
-            "name": "captain marvel-episode12-1941-colorized serial-720p-hd.mp4",
+            "name": "AdventuresOfCaptainMarvel_ch12.mp4",
             "format": "h.264",
-            "sizeBytes": 53187489,
+            "sizeBytes": 104524658,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/2_20240410_202404/captain%20marvel-episode12-1941-colorized%20serial-720p-hd.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfCaptainMarvelSerial194112Chapters/AdventuresOfCaptainMarvel_ch12.mp4"
         }
       ]
     }
   ],
   "episodesCount": 12,
   "canonicalEpisodesCount": null,
-  "tvdbID": "131741",
-  "artworkSource": "generated",
+  "tvdbID": null,
+  "artworkSource": "commons",
   "cast": [
     {
-      "name": "Tom Tyler",
-      "character": "Captain Marvel",
+      "name": "William Benedict",
+      "character": "Whitey Murphy",
       "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/354113/photo/66ab253610ec6.jpg"
-    },
-    {
-      "name": "Frank Coghlan Jr.",
-      "character": "Billy Batson (as Frank Coghlan, Jr.)",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7907378/photo/66ab256a71155.jpg"
-    },
-    {
-      "name": "William 'Billy' Benedict",
-      "character": "Whitey Murphy (as William Benedict)",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7907379/photo/66ab25988badd.jpg"
+      "profilePath": "/lSqQnBkKiS72DXaoEES3y4LaPBV.jpg"
     },
     {
       "name": "Louise Currie",
       "character": "Betty Wallace",
+      "order": 1,
+      "profilePath": "/fypixYxOgLhwd1E4V0xFH0WfDf.jpg"
+    },
+    {
+      "name": "Bryant Washburn",
+      "character": "Harry Carlyle",
+      "order": 2,
+      "profilePath": "/5UlSMWoAnoXIoa5cTv7yf1yECRn.jpg"
+    },
+    {
+      "name": "Frank Coghlan, Jr.",
+      "character": "Billy Batson",
       "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/487351/photo/66ab25d3c7edd.jpg"
+      "profilePath": "/iYZWpMRLhI2JbyvZ65aWC6woPvW.jpg"
+    },
+    {
+      "name": "John Davidson",
+      "character": null,
+      "order": 4,
+      "profilePath": "/aKZ1uTIXgjhsUXxMNMyQ2ishVyO.jpg"
+    },
+    {
+      "name": "Tom Tyler",
+      "character": "Captain Marvel",
+      "order": 5,
+      "profilePath": "/zvp2SbUJiFfmZN95hVf0erT8cAo.jpg"
     }
   ]
 }

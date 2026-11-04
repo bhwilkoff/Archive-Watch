@@ -1,0 +1,601 @@
+{
+  "version": 2,
+  "seriesID": "snow-white-1916",
+  "sourceID": "4-snow-white",
+  "tvmazeID": null,
+  "title": "Snow White",
+  "yearStart": 1916,
+  "yearEnd": null,
+  "overview": "\"Mirror, mirror on the wall who's the fairest of them all?\" The Wicked Queen knows that the looking glass will always answer, \"you are.\" But one day, the magic mirror has something new to say: Snow White, the Queen's stepdaughter, has grown into the most beautiful woman in the land. Enraged by this news, the Wicked Queen orders one of her underlings to murder the girl. But the assassin does not have the heart to hurt such a lovely and innocent creature. Instead, he tells Snow White of the Queen's evil plot, and urges her to escape. Frightened by the news, Snow White flees the castle and finds a new home with a family of gold-mining dwarfs. But her jealous stepmother possesses powers that may still bring harm to the sweet and generous girl...",
+  "posterURL": "https://image.tmdb.org/t/p/w780/alfIOU50f93FmJSFMPk12ozcyAg.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Family",
+    "Fantasy"
+  ],
+  "networks": [],
+  "creator": "Charles Weston",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "4-snow-white@e01",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/1%20Snow%20White_000442.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1126,
+          "videoFile": {
+            "name": "1 Snow White.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 56750855,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/1%20Snow%20White.ia.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e02",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/2%20Snow%20White_000608.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1238,
+          "videoFile": {
+            "name": "2 Snow White.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 62281903,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/2%20Snow%20White.ia.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e03",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/3%20Snow%20White_000611.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1247,
+          "videoFile": {
+            "name": "3 Snow White.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 68525034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/3%20Snow%20White.ia.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e04",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/4%20Snow%20White_000601.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1224,
+          "videoFile": {
+            "name": "4 Snow White.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 70220897,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/4%20Snow%20White.ia.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e05",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/5%20Snow%20White_000256.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 520,
+          "videoFile": {
+            "name": "5 Snow White.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 27911694,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/5%20Snow%20White.ia.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e06",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/6%20Snow%20White_000580.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1182,
+          "videoFile": {
+            "name": "6 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28147707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/6%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e07",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/7%20Snow%20White_000571.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1160,
+          "videoFile": {
+            "name": "7 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28231052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/7%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e08",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/8%20Snow%20White_000576.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1175,
+          "videoFile": {
+            "name": "8 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 32120050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/8%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e09",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/9%20Snow%20White_000584.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1191,
+          "videoFile": {
+            "name": "9 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31008574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/9%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e10",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/10%20Snow%20White_000576.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1172,
+          "videoFile": {
+            "name": "10 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30506142,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/10%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e11",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/11%20Snow%20White_000565.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1154,
+          "videoFile": {
+            "name": "11 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28888888,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/11%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e12",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/12%20Snow%20White_000547.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1115,
+          "videoFile": {
+            "name": "12 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28066813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/12%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e13",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/13%20Snow%20White_000522.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1066,
+          "videoFile": {
+            "name": "13 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29228633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/13%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e14",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/14%20Snow%20White_000581.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1186,
+          "videoFile": {
+            "name": "14 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 31996634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/14%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e15",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/15%20Snow%20White_000554.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1122,
+          "videoFile": {
+            "name": "15 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27283723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/15%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e16",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/16%20Snow%20White_000586.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1191,
+          "videoFile": {
+            "name": "16 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 30873097,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/16%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e17",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/17%20Snow%20White_000579.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1179,
+          "videoFile": {
+            "name": "17 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29696631,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/17%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e18",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/18%20Snow%20White_000592.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1208,
+          "videoFile": {
+            "name": "18 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29109027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/18%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e19",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/19%20Snow%20White_000581.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1178,
+          "videoFile": {
+            "name": "19 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27780957,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/19%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e20",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/20%20Snow%20White_000290.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 591,
+          "videoFile": {
+            "name": "20 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 14499392,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/20%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e21",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/21%20Snow%20White_000558.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1138,
+          "videoFile": {
+            "name": "21 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33608348,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/21%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e22",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/22%20Snow%20White_000544.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1108,
+          "videoFile": {
+            "name": "22 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28144965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/22%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e23",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/23%20Snow%20White_000580.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1178,
+          "videoFile": {
+            "name": "23 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28302365,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/23%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e24",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/24%20Snow%20White_000576.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1176,
+          "videoFile": {
+            "name": "24 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27323689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/24%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e25",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/25%20Snow%20White_000585.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1190,
+          "videoFile": {
+            "name": "25 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33800112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/25%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e26",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/26%20Snow%20White_000667.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "26 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35708714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/26%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e27",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/27%20Snow%20White_000560.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1142,
+          "videoFile": {
+            "name": "27 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27454807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/27%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e28",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/28%20Snow%20White_000549.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1118,
+          "videoFile": {
+            "name": "28 Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 26750814,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/28%20Snow%20White.mp4"
+        },
+        {
+          "archiveID": "4-snow-white@e29",
+          "sourceID": "4-snow-white",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "FINAL",
+          "overview": null,
+          "stillURL": "https://archive.org/download/4-snow-white/4-snow-white.thumbs/29%20FINAL%20Snow%20White_000580.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1183,
+          "videoFile": {
+            "name": "29 FINAL Snow White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33355609,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-snow-white/29%20FINAL%20Snow%20White.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 29,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Aimee Ehrlich",
+      "character": null,
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Ruth Richie",
+      "character": null,
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Eleanor Assmus",
+      "character": null,
+      "order": 2,
+      "profilePath": null
+    }
+  ]
+}

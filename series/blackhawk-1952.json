@@ -1,0 +1,375 @@
+{
+  "version": 2,
+  "seriesID": "blackhawk-1952",
+  "sourceID": "blackhawk-colorized",
+  "tvmazeID": null,
+  "title": "Blackhawk",
+  "yearStart": 1952,
+  "yearEnd": null,
+  "overview": "Based on a successful comic book that began in 1941, the Blackhawks were seven flyers who banded together during WW II to fight the Nazis. After the war, they continued to fight evil where ever they find it. In this movie, they are battling a group of spies and saboteurs bent on destroying democracy. The Blackhawks foil a succession of plots, with a cliff hanger ending in each episode.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/7n4ImkE3fhwOBgKaf5Eqghxcip6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oj9Y83BV33t2pNeukbjQiiMOO3o.jpg",
+  "genres": [
+    "Action"
+  ],
+  "networks": [],
+  "creator": "Spencer Gordon Bennet",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "blackhawk-colorized@e01",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Distress Call from Space",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/01%20Distress%20Call%20from%20Space_000534.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "01 Distress Call from Space.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229162978,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/01%20Distress%20Call%20from%20Space.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e02",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Blackhawk Traps a Traitor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/02%20Blackhawk%20Traps%20a%20Traitor_000361.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 953,
+          "videoFile": {
+            "name": "02 Blackhawk Traps a Traitor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133518478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/02%20Blackhawk%20Traps%20a%20Traitor.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e03",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "In the Enemy's Hideout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/03%20In%20the%20Enemy%27s%20Hideout_000356.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 920,
+          "videoFile": {
+            "name": "03 In the Enemy's Hideout.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 114409936,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/03%20In%20the%20Enemy%27s%20Hideout.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e04",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Iron Monster",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/04%20The%20Iron%20Monster_000301.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 856,
+          "videoFile": {
+            "name": "04 The Iron Monster.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 104600773,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/04%20The%20Iron%20Monster.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e05",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Human Targets",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/05%20Human%20Targets_000299.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 863,
+          "videoFile": {
+            "name": "05 Human Targets.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 104341145,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/05%20Human%20Targets.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e06",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Blackhawk's Leap for Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/06%20Blackhawk%27s%20Leap%20for%20Life_000334.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 887,
+          "videoFile": {
+            "name": "06 Blackhawk's Leap for Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108999043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/06%20Blackhawk%27s%20Leap%20for%20Life.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e07",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Mystery Fuel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/07%20Mystery%20Fuel_000328.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "07 Mystery Fuel.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 129623293,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/07%20Mystery%20Fuel.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e08",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Blasted from the Sky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/08%20Blasted%20from%20the%20Sky_000350.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 882,
+          "videoFile": {
+            "name": "08 Blasted from the Sky.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 100794915,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/08%20Blasted%20from%20the%20Sky.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e09",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Blackhawk Tempts Fate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/09%20Blackhawk%20Tempts%20Fate_000352.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "09 Blackhawk Tempts Fate.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96738266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/09%20Blackhawk%20Tempts%20Fate.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e10",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Chase for Element X",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/10%20Chase%20for%20Element%20X_000304.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 882,
+          "videoFile": {
+            "name": "10 Chase for Element X.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 99348026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/10%20Chase%20for%20Element%20X.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e11",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Forced Down",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/11%20Forced%20Down_000298.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 859,
+          "videoFile": {
+            "name": "11 Forced Down.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91346593,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/11%20Forced%20Down.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e12",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Drums of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/12%20Drums%20of%20Doom_000333.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 832,
+          "videoFile": {
+            "name": "12 Drums of Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 99464862,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/12%20Drums%20of%20Doom.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e13",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Blackhawk's Daring Plan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/13%20Blackhawk%27s%20Daring%20Plan_000293.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 841,
+          "videoFile": {
+            "name": "13 Blackhawk's Daring Plan.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96745993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/13%20Blackhawk%27s%20Daring%20Plan.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e14",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Blackhawk's Wild Ride",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/14%20Blackhawk%27s%20Wild%20Ride_000331.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 829,
+          "videoFile": {
+            "name": "14 Blackhawk's Wild Ride.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 99522372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/14%20Blackhawk%27s%20Wild%20Ride.mp4"
+        },
+        {
+          "archiveID": "blackhawk-colorized@e15",
+          "sourceID": "blackhawk-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Leader Unmasked",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blackhawk-colorized/blackhawk-colorized.thumbs/15%20The%20Leader%20Unmasked_000338.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 854,
+          "videoFile": {
+            "name": "15 The Leader Unmasked.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96186071,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blackhawk-colorized/15%20The%20Leader%20Unmasked.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Kirk Alyn",
+      "character": null,
+      "order": 0,
+      "profilePath": "/l7d3Zk9B1F3EsGgF9us587zb8kB.jpg"
+    },
+    {
+      "name": "Carol Forman",
+      "character": null,
+      "order": 1,
+      "profilePath": "/uINQcR2lDPpaEn0LnEKQSR7ClOw.jpg"
+    },
+    {
+      "name": "John Crawford",
+      "character": null,
+      "order": 2,
+      "profilePath": "/82pqVVILPiC6GpjenmepSTjnOMB.jpg"
+    },
+    {
+      "name": "Michael Fox",
+      "character": null,
+      "order": 3,
+      "profilePath": "/2JB4FMgQmnhbBlQ4SxWFN9EIVDi.jpg"
+    },
+    {
+      "name": "Don C. Harvey",
+      "character": null,
+      "order": 4,
+      "profilePath": "/fu0TL4OisSESWMtzouWJBDZeCKL.jpg"
+    },
+    {
+      "name": "Rick Vallin",
+      "character": null,
+      "order": 5,
+      "profilePath": "/7dMOEKv7uTCH6GzjCZbrod1h7qr.jpg"
+    },
+    {
+      "name": "Larry Stewart",
+      "character": null,
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Weaver Levy",
+      "character": null,
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Zon Murray",
+      "character": null,
+      "order": 8,
+      "profilePath": "/xRNq5EltWYMP89fwmCG8GirgNRV.jpg"
+    },
+    {
+      "name": "Nick Stuart",
+      "character": null,
+      "order": 9,
+      "profilePath": "/eTNssAQpJSZWTmzYjiFvl5DrI8O.jpg"
+    }
+  ]
+}

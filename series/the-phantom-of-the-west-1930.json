@@ -1,0 +1,274 @@
+{
+  "version": 2,
+  "seriesID": "the-phantom-of-the-west-1930",
+  "sourceID": "phantom-of-the-west",
+  "tvmazeID": null,
+  "title": "The Phantom of the West",
+  "yearStart": 1930,
+  "yearEnd": null,
+  "overview": "A young man's father is murdered and the man convicted of the crime escapes prison, leaving a note intimating that seven local men know the real killer's true identity. The murdered man's son sets out to locate the seven men and find his father's slayer in this ten episode serial.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/a7Wrpr7pVCoqsLv1PZ9KINwuQ6T.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/p9F2YrKducWY8ftpXgmJwrZg0jX.jpg",
+  "genres": [
+    "Western"
+  ],
+  "networks": [],
+  "creator": "D. Ross Lederman",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "phantom-of-the-west@e01",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Ghost Riders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/01%20The%20Ghost%20Riders_000480.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "01 The Ghost Riders.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265729467,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/01%20The%20Ghost%20Riders.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e02",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Stairway of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/02%20The%20Stairway%20of%20Doom_000416.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1106,
+          "videoFile": {
+            "name": "02 The Stairway of Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224084883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/02%20The%20Stairway%20of%20Doom.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e03",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Horror in the Dark",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/03%20The%20Horror%20in%20the%20Dark_000302.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "03 The Horror in the Dark.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188807010,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/03%20The%20Horror%20in%20the%20Dark.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e04",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Battle of the Strong",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/04%20The%20Battle%20of%20the%20Strong_000416.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1052,
+          "videoFile": {
+            "name": "04 The Battle of the Strong.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 213086744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/04%20The%20Battle%20of%20the%20Strong.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e05",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The League of the Lawless",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/05%20The%20League%20of%20the%20Lawless_000269.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 754,
+          "videoFile": {
+            "name": "05 The League of the Lawless.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 159984639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/05%20The%20League%20of%20the%20Lawless.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e06",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Canyon of Calamity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/06%20The%20Canyon%20of%20Calamity_000420.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1015,
+          "videoFile": {
+            "name": "06 The Canyon of Calamity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 256393047,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/06%20The%20Canyon%20of%20Calamity.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e07",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Price of Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/07%20The%20Price%20of%20Silence_000358.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1007,
+          "videoFile": {
+            "name": "07 The Price of Silence.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 284719691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/07%20The%20Price%20of%20Silence.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e08",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The House of Hate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/08%20The%20House%20of%20Hate_000269.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 747,
+          "videoFile": {
+            "name": "08 The House of Hate.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 191242969,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/08%20The%20House%20of%20Hate.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e09",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Fatal Secret",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/09%20The%20Fatal%20Secret_000355.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 994,
+          "videoFile": {
+            "name": "09 The Fatal Secret.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246831623,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/09%20The%20Fatal%20Secret.mp4"
+        },
+        {
+          "archiveID": "phantom-of-the-west@e10",
+          "sourceID": "phantom-of-the-west",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Rogues Roundup",
+          "overview": null,
+          "stillURL": "https://archive.org/download/phantom-of-the-west/phantom-of-the-west.thumbs/10%20Rogues%20Roundup_000333.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 891,
+          "videoFile": {
+            "name": "10 Rogues Roundup.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235552051,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/phantom-of-the-west/10%20Rogues%20Roundup.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Tom Tyler",
+      "character": null,
+      "order": 0,
+      "profilePath": "/zvp2SbUJiFfmZN95hVf0erT8cAo.jpg"
+    },
+    {
+      "name": "William Desmond",
+      "character": null,
+      "order": 1,
+      "profilePath": "/4ZrHPcaKiybXcApPdG7bF29xvwO.jpg"
+    },
+    {
+      "name": "Tom Santschi",
+      "character": null,
+      "order": 2,
+      "profilePath": "/8TCS8pRx9LjfFXApYZZReYpTFpa.jpg"
+    },
+    {
+      "name": "Dorothy Gulliver",
+      "character": null,
+      "order": 3,
+      "profilePath": "/8V5fHkRuQa2kXF7LFaQ5ESyomNx.jpg"
+    },
+    {
+      "name": "Philo McCullough",
+      "character": null,
+      "order": 4,
+      "profilePath": "/3rRW4z7GBHrXMzGNvTJldipaLBF.jpg"
+    },
+    {
+      "name": "Frank Lanning",
+      "character": null,
+      "order": 5,
+      "profilePath": "/tMsezDnDRNaYNs3yYBNk3e2WfJ2.jpg"
+    },
+    {
+      "name": "Tom Dugan",
+      "character": null,
+      "order": 6,
+      "profilePath": "/1rxaHndaUBGKLtZSliGovHN2nsK.jpg"
+    },
+    {
+      "name": "Joe Bonomo",
+      "character": null,
+      "order": 7,
+      "profilePath": "/9iUlrtqxErFBCUVxnRhIoJYNE37.jpg"
+    },
+    {
+      "name": "Frank Hagney",
+      "character": null,
+      "order": 8,
+      "profilePath": "/eUun6Blqa6hEBrlscgz9qnH6Ly0.jpg"
+    }
+  ]
+}

@@ -1,0 +1,437 @@
+{
+  "version": 2,
+  "seriesID": "the-shadow-1940",
+  "sourceID": "the-shadow-1940",
+  "tvmazeID": null,
+  "title": "The Shadow",
+  "yearStart": 1940,
+  "yearEnd": null,
+  "overview": "The Shadow battles a villain known as The Black Tiger, who has the power to make himself invisible and is trying to take over the world with his death ray.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Shadow_Serial.jpg?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3KdCN3eOS7UqQnCL0T8aB5Xqc3A.jpg",
+  "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": "James W. Horne",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-shadow-1940@e01",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Doomed City",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/01%20The%20Doomed%20City_000655.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1834,
+          "videoFile": {
+            "name": "01 The Doomed City.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 257552766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/01%20The%20Doomed%20City.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e02",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Shadow Attacks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/02%20The%20Shadow%20Attacks_000415.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1178,
+          "videoFile": {
+            "name": "02 The Shadow Attacks.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 172505246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/02%20The%20Shadow%20Attacks.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e03",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Shadow's Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/03%20The%20Shadow%27s%20Peril_000481.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1213,
+          "videoFile": {
+            "name": "03 The Shadow's Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178605250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/03%20The%20Shadow%27s%20Peril.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e04",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "In the Tiger's Lair",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/04%20In%20the%20Tiger%27s%20Lair_000415.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1029,
+          "videoFile": {
+            "name": "04 In the Tiger's Lair.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148815333,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/04%20In%20the%20Tiger%27s%20Lair.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e05",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Danger Above",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/05%20Danger%20Above_000415.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1073,
+          "videoFile": {
+            "name": "05 Danger Above.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177799342,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/05%20Danger%20Above.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e06",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Shadow's Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/06%20The%20Shadow%27s%20Trap_000419.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1035,
+          "videoFile": {
+            "name": "06 The Shadow's Trap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145396067,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/06%20The%20Shadow%27s%20Trap.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e07",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Where Horror Waits",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/07%20Where%20Horror%20Waits_000356.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 907,
+          "videoFile": {
+            "name": "07 Where Horror Waits.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 116498755,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/07%20Where%20Horror%20Waits.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e08",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Shadow Rides the Rails",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/08%20The%20Shadow%20Rides%20the%20Rails_000358.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1014,
+          "videoFile": {
+            "name": "08 The Shadow Rides the Rails.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 130435258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/08%20The%20Shadow%20Rides%20the%20Rails.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e09",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Devil in White",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/09%20The%20Devil%20in%20White_000414.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1097,
+          "videoFile": {
+            "name": "09 The Devil in White.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138420875,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/09%20The%20Devil%20in%20White.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e10",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Underground Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/10%20The%20Underground%20Trap_000415.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1028,
+          "videoFile": {
+            "name": "10 The Underground Trap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133791209,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/10%20The%20Underground%20Trap.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e11",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Chinatown Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/11%20Chinatown%20Night_000363.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1006,
+          "videoFile": {
+            "name": "11 Chinatown Night.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128417107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/11%20Chinatown%20Night.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e12",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Murder by Remote Control",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/12%20Murder%20by%20Remote%20Control_000414.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1020,
+          "videoFile": {
+            "name": "12 Murder by Remote Control.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 123916774,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/12%20Murder%20by%20Remote%20Control.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e13",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Wheels of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/13%20Wheels%20of%20Death_000361.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1017,
+          "videoFile": {
+            "name": "13 Wheels of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151302929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/13%20Wheels%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e14",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Sealed Room",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/14%20The%20Sealed%20Room_000362.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 983,
+          "videoFile": {
+            "name": "14 The Sealed Room.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128583763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/14%20The%20Sealed%20Room.mp4"
+        },
+        {
+          "archiveID": "the-shadow-1940@e15",
+          "sourceID": "the-shadow-1940",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Shadow's Net Closes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-1940/the-shadow-1940.thumbs/15%20The%20Shadow%27s%20Net%20Closes_000356.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 980,
+          "videoFile": {
+            "name": "15 The Shadow's Net Closes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 116859166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-1940/15%20The%20Shadow%27s%20Net%20Closes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Charles McAvoy",
+      "character": "Police Guard at Rand's",
+      "order": 0,
+      "profilePath": "/d8xrlwxH7tqbT3Dkhe6iBiDh7VJ.jpg"
+    },
+    {
+      "name": "Charles Dorety",
+      "character": "Henchman",
+      "order": 1,
+      "profilePath": "/iOuMFXWTg867OvR1z2Z2lR0q7jT.jpg"
+    },
+    {
+      "name": "Rex Lease",
+      "character": "Garage Henchman",
+      "order": 2,
+      "profilePath": "/bzbAoS9GVC8s8hIum8Ccd58zYcm.jpg"
+    },
+    {
+      "name": "Lee Shumway",
+      "character": "Frank Milford",
+      "order": 3,
+      "profilePath": "/AnA5fg9fU5vqbYIauvkhHj6lGqh.jpg"
+    },
+    {
+      "name": "Jack Perrin",
+      "character": "Plane Mechanic",
+      "order": 4,
+      "profilePath": "/fe4eeqLKNkRGPaI2ZQEE1xzSgOA.jpg"
+    },
+    {
+      "name": "Mary MacLaren",
+      "character": "Nurse Plunkitt",
+      "order": 5,
+      "profilePath": "/Agteg70nmBZmFT9XQMD72TVqiiw.jpg"
+    },
+    {
+      "name": "Al Thompson",
+      "character": "Henchman",
+      "order": 6,
+      "profilePath": "/a8DesAPIItunu5e8ZRk2UisXz3j.jpg"
+    },
+    {
+      "name": "Edward Peil",
+      "character": null,
+      "order": 7,
+      "profilePath": "/tkebpmT8PggXYd2Qu028umqEZzc.jpg"
+    },
+    {
+      "name": "Murdock MacQuarrie",
+      "character": "Richards",
+      "order": 8,
+      "profilePath": "/xjXY0di1hFXfnErsfAwkOgBSCjd.jpg"
+    },
+    {
+      "name": "Lloyd Ingraham",
+      "character": "Judge",
+      "order": 9,
+      "profilePath": "/rt2FD3CxxiBDcyQAUvyb9P0OasY.jpg"
+    },
+    {
+      "name": "Lester Dorr",
+      "character": "Henchman",
+      "order": 10,
+      "profilePath": "/nK5reCjLrPSwosUTZxXAIaxjUbD.jpg"
+    },
+    {
+      "name": "Horace B. Carpenter",
+      "character": "Hijacked Car Driver",
+      "order": 11,
+      "profilePath": "/o9P9mo9EaE2QXPEGYR569GW1CbA.jpg"
+    },
+    {
+      "name": "Harry Tenbrook",
+      "character": "Adams",
+      "order": 12,
+      "profilePath": "/6fvZdgmRw8aOSdDHW6QKGLyTo00.jpg"
+    },
+    {
+      "name": "Griff Barnett",
+      "character": "Stephen Prescott",
+      "order": 13,
+      "profilePath": "/4Ym8oMPKHbvA4aKQPXe7o3kWS1f.jpg"
+    },
+    {
+      "name": "Veda Ann Borg",
+      "character": "Margo Lane",
+      "order": 14,
+      "profilePath": "/lrTa0ymMWDWQVBckPkrAjTaFJPS.jpg"
+    },
+    {
+      "name": "Eddie Fetherston",
+      "character": "Williams",
+      "order": 15,
+      "profilePath": "/tWoMtn9jYC0ZixRJQgLIfzh9xHQ.jpg"
+    },
+    {
+      "name": "Charles King",
+      "character": "Russell",
+      "order": 16,
+      "profilePath": "/cC6z5DhZSCkC8SjWRN8a4DR6sVj.jpg"
+    },
+    {
+      "name": "Charles K. French",
+      "character": "Joseph Rand",
+      "order": 17,
+      "profilePath": "/klBMBRZUcXayr6BcdcJg0fDN3Eg.jpg"
+    },
+    {
+      "name": "Edward LeSaint",
+      "character": "Dr. Grant",
+      "order": 18,
+      "profilePath": "/rCA5jMyJYJOZmZT3enMdv4ZfPKk.jpg"
+    },
+    {
+      "name": "Sam Lufkin",
+      "character": "Kirk",
+      "order": 19,
+      "profilePath": "/6rlIeNS8hDFKjNYN7HX3TS0AxOA.jpg"
+    }
+  ]
+}

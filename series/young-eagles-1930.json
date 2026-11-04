@@ -1,0 +1,276 @@
+{
+  "version": 2,
+  "seriesID": "young-eagles-1930",
+  "sourceID": "chapter-01-the-crash",
+  "tvmazeID": null,
+  "title": "Young Eagles",
+  "yearStart": 1930,
+  "yearEnd": null,
+  "overview": "Lt. Robert Banks (Charles Rogers) shoots down and captures a German ace and is betrayed by the woman he loves.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/c3hLJ0AjSGfaytAREd804Po4WGr.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/24RT0pbwaeasbEs94jb1LENvI37.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "networks": [],
+  "creator": "William A. Wellman",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-01-the-crash@e01",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Crash",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2001%20-%20The%20Crash_000757.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1903,
+          "videoFile": {
+            "name": "Chapter 01 - The Crash.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 342715011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2001%20-%20The%20Crash.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e02",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Drums of Hate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2002%20-%20The%20Drums%20of%20Hate_000416.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1102,
+          "videoFile": {
+            "name": "Chapter 02 - The Drums of Hate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 213725689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2002%20-%20The%20Drums%20of%20Hate.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e03",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "City of the Dead",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2003%20-%20City%20of%20the%20Dead_000483.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1205,
+          "videoFile": {
+            "name": "Chapter 03 - City of the Dead.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 230552568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2003%20-%20City%20of%20the%20Dead.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e04",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bridge of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2004%20-%20Bridge%20of%20Doom_000418.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1085,
+          "videoFile": {
+            "name": "Chapter 04 - Bridge of Doom.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 246214586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2004%20-%20Bridge%20of%20Doom.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e05",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Treasure Trails",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2005%20-%20Treasure%20Trails_000418.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1038,
+          "videoFile": {
+            "name": "Chapter 05 - Treasure Trails.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232656179,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2005%20-%20Treasure%20Trails.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e06",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Fangs of Flame",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2006%20-%20Fangs%20of%20Flame_000414.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1057,
+          "videoFile": {
+            "name": "Chapter 06 - Fangs of Flame.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 178738281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2006%20-%20Fangs%20of%20Flame.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e07",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Tropic Fury",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2007%20-%20Tropic%20Fury_000416.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 939,
+          "videoFile": {
+            "name": "Chapter 07 - Tropic Fury.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144671854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2007%20-%20Tropic%20Fury.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e08",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Wings of Terror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2008%20-%20Wings%20of%20Terror_000422.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1013,
+          "videoFile": {
+            "name": "Chapter 08 - Wings of Terror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 192418778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2008%20-%20Wings%20of%20Terror.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e09",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Lost Lagoon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2009%20-%20The%20Lost%20Lagoon_000476.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1113,
+          "videoFile": {
+            "name": "Chapter 09 - The Lost Lagoon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179132655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2009%20-%20The%20Lost%20Lagoon.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e10",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Jungle Outlaws",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2010%20-%20Jungle%20Outlaws_000354.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 952,
+          "videoFile": {
+            "name": "Chapter 10 - Jungle Outlaws.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136435535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2010%20-%20Jungle%20Outlaws.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e11",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Trapped",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2011%20-%20Trapped_000420.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1106,
+          "videoFile": {
+            "name": "Chapter 11 - Trapped.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 141226964,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2011%20-%20Trapped.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-crash@e12",
+          "sourceID": "chapter-01-the-crash",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Out of the Sky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-crash/chapter-01-the-crash.thumbs/Chapter%2012%20-%20Out%20of%20the%20Sky_000423.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1075,
+          "videoFile": {
+            "name": "Chapter 12 - Out of the Sky.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 119057455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-crash/Chapter%2012%20-%20Out%20of%20the%20Sky.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Charles 'Buddy' Rogers",
+      "character": null,
+      "order": 0,
+      "profilePath": "/gE4DZo9Z4FXxsC4bt1ixXztBkUj.jpg"
+    },
+    {
+      "name": "Jean Arthur",
+      "character": null,
+      "order": 1,
+      "profilePath": "/h46KhIQOOMPUMIdGNSN3A4zwcGQ.jpg"
+    },
+    {
+      "name": "Paul Lukas",
+      "character": null,
+      "order": 2,
+      "profilePath": "/uPN8hpMtacoFylb0Ez9j800bilZ.jpg"
+    }
+  ]
+}

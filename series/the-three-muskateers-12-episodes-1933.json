@@ -1,0 +1,355 @@
+{
+  "version": 2,
+  "seriesID": "the-three-muskateers-12-episodes-1933",
+  "sourceID": "TheThreeMuskateers",
+  "tvmazeID": null,
+  "title": "The Three Muskateers (12 episodes)",
+  "yearStart": 1933,
+  "yearEnd": null,
+  "overview": "Tom Wayne rescues Clancy, Renard and Schmidt in the Arabian desert and they join him in going after El Shaitan, a bad guy who is never seen as he tries to wipe out the Foreign Legion. CHAPTER TITLES: 1. The Fiery Circle; 2. One For All, All For One; 3. The Master Spy; 4. Pirates of the Desert; 5. Rebel Rifles; 6. Death's Marathon; 7. Naked Steel; 8. The Master Strikes; 9. The Fatal Cave; 10. Trapped!; 11. The Measure of a Man; 12.The Value of Comrades.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Three_Musketeers-1933-001.png?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9aGUwml9KLAeErOPSZ0xX0giOA0.jpg",
+  "genres": [
+    "Thriller",
+    "Action"
+  ],
+  "networks": [],
+  "creator": "Armand Schaefer",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheThreeMuskateers@e01",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Fiery Circle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/1_The_Fiery_Circle_000530.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1657,
+          "videoFile": {
+            "name": "1_The_Fiery_Circle_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 120356946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/1_The_Fiery_Circle_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e02",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "One for All and All for One",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/2_One_for_All_and_All_for_One_000360.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1143,
+          "videoFile": {
+            "name": "2_One_for_All_and_All_for_One_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 83071984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/2_One_for_All_and_All_for_One_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e03",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Master Spy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/3_The_Master_Spy_000360.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1062,
+          "videoFile": {
+            "name": "3_The_Master_Spy_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 77183227,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/3_The_Master_Spy_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e04",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Pirates of the Desert",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/4_Pirates_of_the_Desert_000360.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1058,
+          "videoFile": {
+            "name": "4_Pirates_of_the_Desert_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 76943263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/4_Pirates_of_the_Desert_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e05",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Rebel Rifles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/5_Rebel_Rifles_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1008,
+          "videoFile": {
+            "name": "5_Rebel_Rifles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 73241601,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/5_Rebel_Rifles_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e06",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Deaths Marathon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/6_Deaths_Marathon_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 949,
+          "videoFile": {
+            "name": "6_Deaths_Marathon_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 68988026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/6_Deaths_Marathon_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e07",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Naked Steel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/7_Naked_Steel_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 982,
+          "videoFile": {
+            "name": "7_Naked_Steel_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71416588,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/7_Naked_Steel_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e08",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Master Strikes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/8_The_Master_Strikes_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 998,
+          "videoFile": {
+            "name": "8_The_Master_Strikes_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 72495559,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/8_The_Master_Strikes_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e09",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Fatal Cave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/9_The_Fatal_Cave_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 961,
+          "videoFile": {
+            "name": "9_The_Fatal_Cave_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 69846009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/9_The_Fatal_Cave_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e10",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Trapped",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/10_Trapped_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 991,
+          "videoFile": {
+            "name": "10_Trapped_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 72026561,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/10_Trapped_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e11",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Measure of a Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/11_The_Measure_of_a_Man_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 911,
+          "videoFile": {
+            "name": "11_The_Measure_of_a_Man_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 66092860,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/11_The_Measure_of_a_Man_512kb.mp4"
+        },
+        {
+          "archiveID": "TheThreeMuskateers@e12",
+          "sourceID": "TheThreeMuskateers",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Glory of Comrades",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheThreeMuskateers/TheThreeMuskateers.thumbs/12_The_Glory_of_Comrades_000300.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 913,
+          "videoFile": {
+            "name": "12_The_Glory_of_Comrades_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 66269517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheThreeMuskateers/12_The_Glory_of_Comrades_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Gordon De Main",
+      "character": "Colonel Duval",
+      "order": 0,
+      "profilePath": "/99B8IX2Evs7QJCueWHkVweJQCgz.jpg"
+    },
+    {
+      "name": "Hooper Atchley",
+      "character": "El Kadur",
+      "order": 1,
+      "profilePath": "/ab6UN3WPvemElRJfApwyrR4MclU.jpg"
+    },
+    {
+      "name": "Francis X. Bushman, Jr.",
+      "character": "Dutch Schmidt",
+      "order": 2,
+      "profilePath": "/eEFnfSZ1LjSazkdBxVcy0F2ahed.jpg"
+    },
+    {
+      "name": "Edward Peil",
+      "character": null,
+      "order": 3,
+      "profilePath": "/tkebpmT8PggXYd2Qu028umqEZzc.jpg"
+    },
+    {
+      "name": "Al Ferguson",
+      "character": "Ali",
+      "order": 4,
+      "profilePath": "/pqsu8OuPrGPMwuvvPsL1cVMzEMr.jpg"
+    },
+    {
+      "name": "Jack Mulhall",
+      "character": "Clancy",
+      "order": 5,
+      "profilePath": "/4r33PICmACJZ2Bjum0v1EkvOxbx.jpg"
+    },
+    {
+      "name": "Ruth Hall",
+      "character": "Elaine Corday",
+      "order": 6,
+      "profilePath": "/keV5J9Jc1HG2eDJjhFXHCRUHVdh.jpg"
+    },
+    {
+      "name": "Noah Beery Jr.",
+      "character": "Noah Stubbs",
+      "order": 7,
+      "profilePath": "/oFdEn3ePUmhltOmF16Ggu1h1pQk.jpg"
+    },
+    {
+      "name": "George Magrill",
+      "character": "El Maghreb",
+      "order": 8,
+      "profilePath": "/t3vYcOrJ6EAzjjMdiXfNWXUn1wt.jpg"
+    },
+    {
+      "name": "Robert Frazer",
+      "character": "Major Booth",
+      "order": 9,
+      "profilePath": "/t6vR9YlN5O7D1NXQvOIOV0fDMEy.jpg"
+    },
+    {
+      "name": "Robert Warwick",
+      "character": "Col. Brent",
+      "order": 10,
+      "profilePath": "/dEOopjfb85VTKf0vRqBQtod550B.jpg"
+    },
+    {
+      "name": "William Desmond",
+      "character": "Capt. Boncour",
+      "order": 11,
+      "profilePath": "/4ZrHPcaKiybXcApPdG7bF29xvwO.jpg"
+    },
+    {
+      "name": "Lon Chaney Jr.",
+      "character": "Lt. Armand Corday",
+      "order": 12,
+      "profilePath": "/4DHZ2jXQFbTuslsaOmrmrJ9HMMd.jpg"
+    },
+    {
+      "name": "Yakima Canutt",
+      "character": null,
+      "order": 13,
+      "profilePath": "/j1KK4F240wbX1cL7Gg4mVBDKoiq.jpg"
+    },
+    {
+      "name": "Raymond Hatton",
+      "character": "Renard",
+      "order": 14,
+      "profilePath": "/eTiQiDcMhwD3DCE6yINa7RKd5NJ.jpg"
+    },
+    {
+      "name": "John Wayne",
+      "character": "Lt. Tom Wayne",
+      "order": 15,
+      "profilePath": "/4VmiGmCwSnratHtYmT2AyXrdQ64.jpg"
+    }
+  ]
+}

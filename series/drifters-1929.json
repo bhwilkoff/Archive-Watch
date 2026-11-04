@@ -1,0 +1,257 @@
+{
+  "version": 2,
+  "seriesID": "drifters-1929",
+  "sourceID": "drifters-202605",
+  "tvmazeID": null,
+  "title": "Drifters",
+  "yearStart": 1929,
+  "yearEnd": null,
+  "overview": "A silent documentary film by John Grierson telling the story of Britain's North Sea herring fishery.",
+  "posterURL": "https://m.media-amazon.com/images/M/MV5BMTljZGUxZGQtMWZkMC00ZjYwLWJhMWEtYjdkNTA4M2Q4MjIyXkEyXkFqcGc@._V1_SX300.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Documentary"
+  ],
+  "networks": [],
+  "creator": "John Grierson",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "drifters-202605@s1e01",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E1_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "Drifters S1E1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148627783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E1.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e02",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E2_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148293930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E2.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e03",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E3_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E3.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137399827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E3.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e04",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E4_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 106723789,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E4.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e05",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E5_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E5.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109706290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E5.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e06",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E6_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E6.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 117848749,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E6.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e07",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E7_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E7.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 130454439,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E7.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e08",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E8_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E8.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 97308265,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E8.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e09",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E9_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E9.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 115637369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E9.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e10",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E10_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98597158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E10.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e11",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E11_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Drifters S1E11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98477435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E11.mp4"
+        },
+        {
+          "archiveID": "drifters-202605@s1e12",
+          "sourceID": "drifters-202605",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/drifters-202605/drifters-202605.thumbs/Drifters%20S1E12_000480.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1423,
+          "videoFile": {
+            "name": "Drifters S1E12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128836672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/drifters-202605/Drifters%20S1E12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "omdb",
+  "cast": []
+}

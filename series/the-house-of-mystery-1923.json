@@ -1,0 +1,280 @@
+{
+  "version": 2,
+  "seriesID": "the-house-of-mystery-1923",
+  "sourceID": "01-l-ami-felon",
+  "tvmazeID": null,
+  "title": "The House of Mystery",
+  "yearStart": 1923,
+  "yearEnd": null,
+  "overview": "Julien Villandrit is the owner of the estate of Les Basses-Bruyères and its textile factory, where the manager is his childhood friend Corradin. Julien marries his neighbour Régine, unaware that Corradin also loves her. Julien is sent to gaol for a murder actually committed by Corradin. The only witness to the truth is the woodsman Rudeberg and Corradin buys his silence by paying for the education of his son Pascal. Julien's struggle to clear his name and to rescue Régine and their daughter Christiane from Corradin's scheming extends over many years and faces many setbacks.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/iMHsJzaGuElwm6D6IHFHGb5uFWv.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lBgcC4swfEJpuNp4BYKFoYiSicy.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "networks": [],
+  "creator": "Alexandre Volkoff",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "01-l-ami-felon@e01",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "L'Ami félon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/01%20L%27Ami%20f%C3%A9lon_001258.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 3164,
+          "videoFile": {
+            "name": "01 L'Ami félon.mp4",
+            "format": "h.264",
+            "sizeBytes": 319209819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/01%20L%27Ami%20f%C3%A9lon.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e02",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Le Secret de l'étang",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/02%20Le%20Secret%20de%20l%27%C3%A9tang_000597.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 1742,
+          "videoFile": {
+            "name": "02 Le Secret de l'étang.mp4",
+            "format": "h.264",
+            "sizeBytes": 175227512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/02%20Le%20Secret%20de%20l%27%C3%A9tang.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e03",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "L'Ambition au service de la haine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/03%20L%27Ambition%20au%20service%20de%20la%20haine_000753.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 2064,
+          "videoFile": {
+            "name": "03 L'Ambition au service de la haine.mp4",
+            "format": "h.264",
+            "sizeBytes": 208739491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/03%20L%27Ambition%20au%20service%20de%20la%20haine.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e04",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "L'Implacable verdict",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/04%20L%27Implacable%20verdict_000984.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 2479,
+          "videoFile": {
+            "name": "04 L'Implacable verdict.mp4",
+            "format": "h.264",
+            "sizeBytes": 249695747,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/04%20L%27Implacable%20verdict.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e05",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Le Pont vivant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/05%20Le%20Pont%20vivant_000779.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 1959,
+          "videoFile": {
+            "name": "05 Le Pont vivant.mp4",
+            "format": "h.264",
+            "sizeBytes": 196000169,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/05%20Le%20Pont%20vivant.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e06",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "La Voix du sang",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/06%20La%20Voix%20du%20sang_000536.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 1468,
+          "videoFile": {
+            "name": "06 La Voix du sang.mp4",
+            "format": "h.264",
+            "sizeBytes": 147630352,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/06%20La%20Voix%20du%20sang.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e07",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Les Caprices du destin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/07%20%20Les%20Caprices%20du%20destin_001095.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 2759,
+          "videoFile": {
+            "name": "07  Les Caprices du destin.mp4",
+            "format": "h.264",
+            "sizeBytes": 273785906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/07%20%20Les%20Caprices%20du%20destin.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e08",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Champ clos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/08%20Champ%20clos_001043.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 2629,
+          "videoFile": {
+            "name": "08 Champ clos.mp4",
+            "format": "h.264",
+            "sizeBytes": 259565658,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/08%20Champ%20clos.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e09",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Les Angoisses de Corradin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/09%20Les%20Angoisses%20de%20Corradin_000855.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 2152,
+          "videoFile": {
+            "name": "09 Les Angoisses de Corradin.mp4",
+            "format": "h.264",
+            "sizeBytes": 215634932,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/09%20Les%20Angoisses%20de%20Corradin.mp4"
+        },
+        {
+          "archiveID": "01-l-ami-felon@e10",
+          "sourceID": "01-l-ami-felon",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Le Triomphe de l'amour",
+          "overview": null,
+          "stillURL": "https://archive.org/download/01-l-ami-felon/01-l-ami-felon.thumbs/10%20Le%20Triomphe%20de%20l%27amour_000992.jpg",
+          "airDate": null,
+          "year": 1923,
+          "runtimeSeconds": 2730,
+          "videoFile": {
+            "name": "10 Le Triomphe de l'amour.mp4",
+            "format": "h.264",
+            "sizeBytes": 264537297,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-l-ami-felon/10%20Le%20Triomphe%20de%20l%27amour.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Ivan Mosjoukine",
+      "character": "Julien Villandrit",
+      "order": 0,
+      "profilePath": "/3t0mkRloYibAYNN64ZC9o7xadQX.jpg"
+    },
+    {
+      "name": "Charles Vanel",
+      "character": "Henri Corradin",
+      "order": 1,
+      "profilePath": "/ymJLGi92PXIQJSnGoJJxPGrsAmO.jpg"
+    },
+    {
+      "name": "Hélène Darly",
+      "character": "Régine de Bettigny",
+      "order": 2,
+      "profilePath": "/9xfJinaiCGZr8ExeisFobzXWf2D.jpg"
+    },
+    {
+      "name": "Francine Mussey",
+      "character": "Christiane",
+      "order": 3,
+      "profilePath": "/enhporrDeaCM15NwY2C2xTmeM39.jpg"
+    },
+    {
+      "name": "Claude Benedict",
+      "character": "Général de Bettigny",
+      "order": 4,
+      "profilePath": "/23KFMucE6tuILTFI3ChherLaS1w.jpg"
+    },
+    {
+      "name": "Gilbert Dacheux",
+      "character": "Urbain",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Simone Genevois",
+      "character": "Christiane enfant",
+      "order": 6,
+      "profilePath": "/fvBKPMuUp1o1hT057wmtFSqwspn.jpg"
+    },
+    {
+      "name": "Sylvia Gray",
+      "character": "Marjorie",
+      "order": 7,
+      "profilePath": "/xMYpeHL4wSN3YYYSgtTyxplw3xJ.jpg"
+    },
+    {
+      "name": "Fabien Haziza",
+      "character": "Pascal enfant",
+      "order": 8,
+      "profilePath": "/3nOZdySVY4egSrYZeTJAOA4ilPr.jpg"
+    },
+    {
+      "name": "Pierre Hot",
+      "character": "Il sostituto",
+      "order": 9,
+      "profilePath": null
+    }
+  ]
+}
