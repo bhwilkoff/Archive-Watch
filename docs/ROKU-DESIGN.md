@@ -356,6 +356,14 @@ voice or from Roku's Continue Watching row must begin **playback immediately** �
 it may not land on a details screen. A link from browse or search lands on
 Detail.
 
+**7.6 A node the firmware lacks is a state, never a halt.** OS 9.1 has neither
+`StandardKeyboardDialog` nor `StandardMessageDialog`: `CreateObject` answers
+invalid, and writing a field to that halted the channel at "New playlist…"
+(Roku 2 XD, 2026-11-04). Ask `CreateObject`, never the firmware's version, and
+go through `openEntry` / `showRoomProblem`, which fall back to `EntryPanel`. It
+uses `MiniKeyboard`, the node Search already ships through certification, and
+never `KeyboardDialog`, which 4.12's static analysis flags.
+
 ---
 
 ## 8. What is deliberately not built, and why
@@ -383,8 +391,8 @@ well as anything. So a Roku JOINS; it never hosts.
 - **Where**: Library ▸ Options ▸ *Join a Watch Together room…* — the same place
   Android TV puts it (§11.9), and the one options panel that is not about the
   focused film.
-- **How**: `StandardKeyboardDialog` (certification 4.12, and `wasClosed`
-  observed — `openNamer`'s two traps), the code normalized by the shared
+- **How**: `openEntry` (`StandardKeyboardDialog`, or §7.6's `EntryPanel`), the
+  code normalized by the shared
   alphabet rule (§8.34), the room read ONCE off the render thread, then that
   film starts AT THE ROOM'S POSITION through the same DetailTask every id-play
   uses, and `PlayerScreen.roomCode` follows.
@@ -653,8 +661,22 @@ own transport carries it too, so OK always answers. The first title of a run add
 "Up and Down move through the list". That is the one exception to §13.8, on
 §6.9's ground: a verb with nothing drawn for it cannot be found by looking.
 
-Watched on Roku is a bookmark at 95%, so restarting a watched title and leaving
-it early makes it unwatched, and Play stops there next time.
+A title that will not play is passed in the direction of travel, so Previous
+keeps going back. Pressing past a dead title at either end leaves the film
+playing where it is; a film the player itself refused going back returns to the
+one the viewer left. The `Video` node reports `finished` straight after `error`,
+and that second report is ignored: read as an ending it skipped the next good
+title too, in every queue on the channel.
+
+Once watched stays watched (2026-11-04). A progress row carries a `w` on its
+duration once it has reached 95%, so leaving a rewatch early keeps its place AND
+its Watched mark; the title can then sit in both Watched and Continue Watching.
+Only **Mark as not watched** takes it back. **Start from the beginning** moves
+the bookmark and leaves the mark.
+
+A playlist is arranged and kept where it is seen, as iOS-DESIGN §4.3a asks: `*` on
+a film offers **Move this film earlier / later** and Remove; on any part of the
+row **Rename this playlist…** and **Delete this playlist…**, always confirmed.
 
 ## 13. The design upgrade (2026-09-04) — from functional to designed
 

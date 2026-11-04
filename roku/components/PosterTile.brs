@@ -108,6 +108,8 @@ sub onContent()
     if m.isTile
         m.art.uri = ""
         m.art.visible = false
+        ' A recycled tile may have had its plate hidden by the art it last showed.
+        m.plate.visible = true
         m.tileLabel.visible = true
         m.tileLabel.text = c.title
         m.caption.text = ""

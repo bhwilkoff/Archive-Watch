@@ -31,7 +31,7 @@ end sub
 
 sub onFocus()
     if m.pill = invalid or m.label = invalid then return
-    lit = (m.top.focusPercent > 0.5)
+    lit = (m.top.focusPercent > 0.5 and m.top.listHasFocus)
     if lit
         m.pill.opacity = 1
         m.label.color = m.t.canvas

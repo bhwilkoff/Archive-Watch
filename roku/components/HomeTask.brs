@@ -161,9 +161,12 @@ sub run()
         ' Decision 149: index column 18 marks a film no row may CHOOSE.
         noRec = (row.Count() > 18 and row[18] = 1)
         if row[5] = 1 and Left(fmt(aid), 7) <> "series:" and not noRec
-            if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
-                ' The same 1,000-vote floor Browse uses: without it a single
-                ' 10/10 rating outranks Citizen Kane (Decision 050).
+            ' Decision 171: best rated means `ratingRank`, never a raw rating.
+            if row.Count() > 19 and row[19] <> invalid
+                topRated.Push({ s: Int(row[19]), r: row })
+            else if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
+                ' An older index has no rank. The same 1,000-vote floor Browse
+                ' uses: without it a single 10/10 outranks Citizen Kane (D050).
                 if Int(row[11]) >= 1000 then topRated.Push({ s: Int(row[10]), r: row })
             end if
             if row[2] <> invalid and Int(row[2]) = pdYear and pdDay.Count() < 20 then pdDay.Push(row)
