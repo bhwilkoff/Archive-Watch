@@ -63,6 +63,7 @@ sub run()
     ' on "Nothing here yet" under a header counting its own rows. Serve the
     ' newest such query now; `served` keeps a queued duplicate from answering
     ' twice, which would misroute the second result in the Scene.
+    sxStart()
     if m.top.queryId > m.served then runQuery()
     ' An id set between the observer above and this line is BOTH in the field
     ' and in the port; serve it once and let its event pass.
@@ -74,8 +75,15 @@ sub run()
     if pendingIds <> invalid
         if pendingIds.Count() > 0 then resolveIds(pendingIds)
     end if
+    sxStart()
     while true
-        msg = wait(0, port)
+        ' Idle time builds the search text; a query that arrives first finishes it.
+        if m.sx.next < m.items.Count()
+            msg = wait(20, port)
+            if msg = invalid then sxBuild(96)
+        else
+            msg = wait(0, port)
+        end if
         if type(msg) = "roSGNodeEvent"
             f = msg.GetField()
             if f = "queryId" and m.top.queryId > m.served then runQuery()
@@ -673,21 +681,20 @@ function withSeriesArt(r as Object, seriesByKey as Object) as Object
 end function
 
 sub appendRow(root as Object, r as Object)
+    ' Three calls, not twelve: a node call costs more here than anything else in
+    ' this sub. `id` is its own write: setFields does not reach it on OS 9.1, and a
+    ' row with no id opens nothing and resolves no Library item.
     it = root.CreateChild("ContentNode")
     it.id = r[0]
-    it.title = StripHTML(fmt(r[1]))
-    it.AddField("awBif", "boolean", false)
-    if r.Count() > 15 then it.awBif = (r[15] = 1)
-    it.HDPOSTERURL = r[4]
-    it.SHORTDESCRIPTIONLINE1 = metaFor(r)
-    it.AddField("awBackdrop", "string", false)
-    it.AddField("awType", "string", false)
-    it.AddField("awRating", "integer", false)
-    if r[7] <> invalid then it.awBackdrop = r[7]
-    if r[3] <> invalid then it.awType = r[3]
+    it.setFields({ title: StripHTML(fmt(r[1])), HDPOSTERURL: r[4], SHORTDESCRIPTIONLINE1: metaFor(r) })
+    extra = { awBif: false, awBackdrop: "", awType: "", awRating: 0 }
+    if r.Count() > 15 then extra.awBif = (r[15] = 1)
+    if r[7] <> invalid then extra.awBackdrop = r[7]
+    if r[3] <> invalid then extra.awType = r[3]
     if r.Count() > 11 and r[10] <> invalid and r[11] <> invalid
-        if r[11] >= 100 then it.awRating = r[10]
+        if r[11] >= 100 then extra.awRating = r[10]
     end if
+    it.AddFields(extra)
 end sub
 
 sub runQuery()
@@ -755,10 +762,34 @@ sub runQuery()
     wantScope = LCase(fmt(q.qScope))
     decade = 0
     if q.qDecade <> invalid then decade = q.qDecade
-    text = LCase(fmt(q.qText))
+    text = AWFold(LCase(fmt(q.qText)))
     wantGenre = fmt(q.qGenre)
     sort = fmt(q.qSort)
     wantLength = fmt(q.qLength)
+
+    terms = []
+    ads = false
+    if text <> ""
+        terms = sxTerms(text)
+        text = sxJoin(terms)
+        for each t in terms
+            if Left(t, 10) = "commercial" then ads = true
+        end for
+        ' Search asks for exactly this. The filtered and commercial cases are rare
+        ' and take the row-by-row rule below, which is the same rule, slowly.
+        if not ads and wantScope = "" and (wantType = "" or wantType = "all") and decade = 0 and wantGenre = "" and wantLength = "" and sort = "popular"
+            found = sxSearch(terms, text)
+            ' The viewer has typed on: drawing this one only delays that one.
+            if m.top.queryId > m.served then return
+            root = CreateObject("roSGNode", "ContentNode")
+            for each i in found.rows
+                appendRow(root, m.items[i])
+            end for
+            print "AWSVC query text='"; text; "' hits="; found.total; " scan "; found.ms; "ms, all "; span.TotalMilliseconds(); "ms"
+            publish(root, found.total)
+            return
+        end if
+    end if
 
     hits = []
     for each r in m.items
@@ -826,12 +857,13 @@ sub runQuery()
             if not awSkip then awSkip = (y < decade or y > decade + 9)
         end if
         if not awSkip and text <> ""
-            ' Title first, then the prebuilt search blob — the index carries a
-            ' keyword field precisely so a client does not have to fetch more.
-            hay = LCase(fmt(r[1]))
-            if Instr(1, hay, text) = 0
-                blob = LCase(fmt(r[6]))
-                awSkip = (Instr(1, blob, text) = 0)
+            if r[3] = "commercial" and not ads then awSkip = true
+            if not awSkip
+                ' Title, the search blob and the director, folded: the web's rule.
+                hay = AWFold(LCase(fmt(r[1]))) + " " + AWFold(LCase(fmt(r[6]))) + " " + AWFold(LCase(fmt(r[12])))
+                for each t in terms
+                    if Instr(1, hay, t) = 0 then awSkip = true
+                end for
             end if
         end if
         if not awSkip then hits.Push(r)
@@ -960,6 +992,228 @@ sub runQuery()
     end for
     print "AWSVC query type="; wantType; " decade="; decade; " genre='"; wantGenre; "' sort="; sort; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
     publish(root, total)
+end sub
+
+' ---- Search text (ROKU-DESIGN §6.4a). Measured on the Roku 2 XD: a call into
+' the firmware costs ~30 us whatever it does, so LCase and Instr on each of 41,795
+' rows took 10-14 s, while one Instr runs through a string at 130 MB/s. So the text
+' is built once, folded and lower-cased, into strings of 64 records, and a query
+' is a few native calls per string.
+'
+'   C  ^A title ^B director ^C search blob ^D nnnn    the web's haystack
+'   T  ^A title ^B director ^D nnnn                   what the rank looks at
+'
+' nnnn is the row, in control characters like the separators: a query cannot
+' contain them, where digits would match "19" in every record. So
+' ^A + query finds a title's start and query + ^B its end. Professional art and
+' the rest are kept apart, which makes AWSearchRank's eight buckets eight passes
+' in order, stopping once the rows to draw are in hand. Position is not free (Mid and Instr
+' walk from the start of the string at ~30 ns a character), which is why the
+' strings are short. Commercials are left out: search skips them unless asked.
+sub sxStart()
+    if m.sx <> invalid then return
+    m.sx = { next: 0, cp: [], cn: [], tp: [], tn: [], acp: "", acn: "", atp: "", atn: "", np: 0, nn: 0, ms: 0,
+             c1: Chr(1), c2: Chr(2), c3: Chr(3), c4: Chr(4), enc: [], dec: {} }
+    for a = 0 to 17
+        for b = 0 to 17
+            pair = Chr(14 + a) + Chr(14 + b)
+            m.sx.dec[pair] = m.sx.enc.Count()
+            m.sx.enc.Push(pair)
+        end for
+    end for
+end sub
+
+sub sxBuild(rows as Integer)
+    span = CreateObject("roTimespan")
+    s = m.sx
+    last = s.next + rows - 1
+    if last > m.items.Count() - 1 then last = m.items.Count() - 1
+    c1 = s.c1 : c2 = s.c2 : c3 = s.c3 : c4 = s.c4
+    enc = s.enc
+    for i = s.next to last
+        r = m.items[i]
+        if r[3] <> "commercial"
+            ' Each string is written out: a call to fmt costs more than the test.
+            head = r[1]
+            if head = invalid then head = ""
+            d = r[12]
+            if d = invalid then d = ""
+            head = c1 + head + c2 + d
+            blob = r[6]
+            if blob = invalid then blob = ""
+            tail = c4 + enc[Int(i / 324)] + enc[i mod 324]
+            if r[5] = 1
+                ' Short strings first: every + copies all that is to its left.
+                rec = head + c3 + blob + tail
+                t = head + tail
+                s.acp = s.acp + rec
+                s.atp = s.atp + t
+                s.np = s.np + 1
+                if s.np >= 64 then sxFlush(true)
+            else
+                rec = head + c3 + blob + tail
+                t = head + tail
+                s.acn = s.acn + rec
+                s.atn = s.atn + t
+                s.nn = s.nn + 1
+                if s.nn >= 64 then sxFlush(false)
+            end if
+        end if
+    end for
+    s.next = last + 1
+    s.ms = s.ms + span.TotalMilliseconds()
+    if s.next >= m.items.Count()
+        sxFlush(true)
+        sxFlush(false)
+        print "AWSVC search text ready strings="; s.cp.Count() + s.cn.Count(); " work "; s.ms; "ms"
+    end if
+end sub
+
+sub sxFlush(pro as Boolean)
+    s = m.sx
+    if pro
+        if s.np = 0 then return
+        s.cp.Push(AWFoldLong(LCase(s.acp)))
+        s.tp.Push(AWFoldLong(LCase(s.atp)))
+        s.acp = "" : s.atp = "" : s.np = 0
+    else
+        if s.nn = 0 then return
+        s.cn.Push(AWFoldLong(LCase(s.acn)))
+        s.tn.Push(AWFoldLong(LCase(s.atn)))
+        s.acn = "" : s.atn = "" : s.nn = 0
+    end if
+end sub
+
+function sxTerms(text as String) as Object
+    out = []
+    str = text
+    for each t in str.Split(" ")
+        if t <> "" then out.Push(t)
+    end for
+    return out
+end function
+
+function sxJoin(terms as Object) as String
+    out = ""
+    for each t in terms
+        if out <> "" then out = out + " "
+        out = out + t
+    end for
+    return out
+end function
+
+' Every term must be in the record, as on the web; the rank judges the whole
+' query, `fq`, and a title holding the phrase holds each term.
+function sxSearch(terms as Object, fq as String) as Object
+    span = CreateObject("roTimespan")
+    while m.sx.next < m.items.Count()
+        sxBuild(1024)
+    end while
+    s = m.sx
+    out = { rows: [], seen: {}, total: 0, ms: 0, limit: AWSearchLimit() }
+    if terms.Count() = 0 then return out
+    ' Exact and prefix hits are title hits: only strings holding the query count.
+    tp = sxHolding(s.tp, fq)
+    tn = sxHolding(s.tn, fq)
+    exact = s.c1 + fq + s.c2
+    sxWalk(tp, exact, "", out)
+    sxWalk(tn, exact, "", out)
+    sxWalk(tp, s.c1 + fq, s.c1 + "the " + fq, out)
+    sxWalk(tn, s.c1 + fq, s.c1 + "the " + fq, out)
+    sxWalk(tp, fq, "", out)
+    sxWalk(tn, fq, "", out)
+    if terms.Count() = 1
+        sxWalk(s.cp, fq, "", out)
+        sxWalk(s.cn, fq, "", out)
+    else
+        sxEvery(s.cp, terms, out)
+        sxEvery(s.cn, terms, out)
+    end if
+    ' One past the rows drawn says "more than". An exact count cost 2-3 s on the
+    ' Roku 2 XD to print a number nobody acts on.
+    out.total = out.rows.Count()
+    if out.total > out.limit then out.rows.Pop()
+    out.ms = span.TotalMilliseconds()
+    return out
+end function
+
+function sxHolding(chunks as Object, term as String) as Object
+    out = []
+    for each c in chunks
+        if Instr(1, c, term) > 0 then out.Push(c)
+    end for
+    return out
+end function
+
+' Adds the rows holding `a` or `b` in index order, until one past the limit.
+sub sxWalk(chunks as Object, a as String, b as String, out as Object)
+    c4 = m.sx.c4
+    dec = m.sx.dec
+    for each c in chunks
+        p = Instr(1, c, a)
+        q = 0
+        if b <> "" then q = Instr(1, c, b)
+        if p > 0 or q > 0
+            got = []
+            while p > 0
+                e = Instr(p, c, c4)
+                got.Push(dec[Mid(c, e + 1, 2)] * 324 + dec[Mid(c, e + 3, 2)])
+                p = Instr(e + 5, c, a)
+            end while
+            if b <> ""
+                while q > 0
+                    e = Instr(q, c, c4)
+                    got.Push(dec[Mid(c, e + 1, 2)] * 324 + dec[Mid(c, e + 3, 2)])
+                    q = Instr(e + 5, c, b)
+                end while
+                got.Sort()
+            end if
+            for each i in got
+                sxAdd(i, out)
+            end for
+            if out.rows.Count() > out.limit then return
+        end if
+    end for
+end sub
+
+' Several terms can sit anywhere in a record, so a string that holds them all is
+' cut into its records. A piece starts with the row of the record BEFORE it.
+sub sxEvery(chunks as Object, terms as Object, out as Object)
+    c4 = m.sx.c4
+    dec = m.sx.dec
+    for each c in chunks
+        if out.rows.Count() > out.limit then return
+        held = true
+        for each t in terms
+            if held and Instr(1, c, t) = 0 then held = false
+        end for
+        if held
+            str = c
+            parts = str.Split(c4)
+            for j = 0 to parts.Count() - 2
+                rec = parts[j]
+                if Instr(1, rec, terms[0]) > 0
+                    if j > 0 then rec = Mid(rec, 5)
+                    every = true
+                    for each t in terms
+                        if every and Instr(1, rec, t) = 0 then every = false
+                    end for
+                    if every
+                        n = parts[j + 1]
+                        sxAdd(dec[Left(n, 2)] * 324 + dec[Mid(n, 3, 2)], out)
+                    end if
+                end if
+            end for
+        end if
+    end for
+end sub
+
+sub sxAdd(i as Integer, out as Object)
+    if out.rows.Count() > out.limit then return
+    k = fmt(i)
+    if out.seen.DoesExist(k) then return
+    out.seen[k] = true
+    out.rows.Push(i)
 end sub
 
 ' Insertion sort is fine here: the filtered set is what gets sorted, not the

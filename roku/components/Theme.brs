@@ -194,6 +194,9 @@ end function
 ' a Label from the network goes through here.
 function StripHTML(src as String) as String
     if src = "" then return src
+    ' Nothing to strip is nearly every title, and the walk below is per character.
+    if m.awTagRx = invalid then m.awTagRx = CreateObject("roRegex", "[<&\t\r\n]|  |^ | $", "")
+    if not m.awTagRx.IsMatch(src) then return src
     out = ""
     depth = 0
     for i = 0 to Len(src) - 1
@@ -541,22 +544,93 @@ end function
 
 ' A RowList jumps to [0, 0] whenever its content is replaced. These two find
 ' the row the viewer stood in again, by its title, after a repaint.
+' Accents out, so "melies" finds Méliès (watch.js foldText). BrightScript has no
+' Unicode normalization, so this is the Latin half of NFD by table: the keyboards
+' here type nothing else. `ø`, `ł`, `ß` have no decomposition and stay, as on the
+' web. Both cases are listed: LCase does not reach non-ASCII on every firmware.
+function AWFold(s as String) as String
+    if m.awFoldAny = invalid
+        m.awFoldTo = {}
+        m.awFoldTo.SetModeCaseSensitive()
+        all = ""
+        for each f in [["a", "àáâãäåāăąÀÁÂÃÄÅĀĂĄ"], ["c", "çćĉċčÇĆĈĊČ"], ["d", "ďĎ"], ["e", "èéêëēĕėęěÈÉÊËĒĔĖĘĚ"],
+                       ["g", "ĝğġģĜĞĠĢ"], ["h", "ĥĤ"], ["i", "ìíîïĩīĭįÌÍÎÏĨĪĬĮİ"], ["j", "ĵĴ"], ["k", "ķĶ"],
+                       ["l", "ĺļľĹĻĽ"], ["n", "ñńņňÑŃŅŇ"], ["o", "òóôõöōŏőơÒÓÔÕÖŌŎŐƠ"], ["r", "ŕŗřŔŖŘ"],
+                       ["s", "śŝşšŚŜŞŠ"], ["t", "ţťŢŤ"], ["u", "ùúûüũūŭůűųưÙÚÛÜŨŪŬŮŰŲƯ"], ["w", "ŵŴ"],
+                       ["y", "ýÿŷÝŶŸ"], ["z", "źżžŹŻŽ"]]
+            all = all + f[1]
+            for i = 1 to Len(f[1])
+                m.awFoldTo[Mid(f[1], i, 1)] = f[0]
+            end for
+        end for
+        m.awFoldAny = CreateObject("roRegex", "[" + all + "]", "")
+    end if
+    found = m.awFoldAny.MatchAll(s)
+    if found.Count() = 0 then return s
+    out = s
+    done = {}
+    done.SetModeCaseSensitive()
+    for each h in found
+        c = h[0]
+        if not done.DoesExist(c)
+            done[c] = true
+            out = out.Replace(c, m.awFoldTo[c])
+        end if
+    end for
+    return out
+end function
+
+' How many results Search draws. Drawing them is most of a query on the Roku 2 XD
+' (3.7 ms a row, and the posters of the last result fight it for the CPU).
+function AWSearchLimit() as Integer
+    if AWIsLegacy() then return 96
+    return 300
+end function
+
+' The same fold for a long string. The regex reads ~200 KB/s on the Roku 2 XD and
+' Instr ~130 MB/s, so across the whole catalog it is cheaper to ask for each
+' letter in turn. The string must already be through LCase.
+function AWFoldLong(s as String) as String
+    AWFold("")
+    out = s
+    for each c in m.awFoldTo
+        if Instr(1, out, c) > 0 then out = out.Replace(c, m.awFoldTo[c])
+    end for
+    return out
+end function
+
 ' 0..7: exact title, then a title starting with the query (or "the " + it), then
 ' a title or director containing it, then the rest; professional art first in
 ' each. `q` is already lower case.
 function AWSearchRank(title as String, director as String, pro as Boolean, q as String) as Integer
-    t = LCase(title)
+    t = AWFold(LCase(title))
     tier = 3
     if t = q
         tier = 0
     else if Left(t, Len(q)) = q or Left(t, Len(q) + 4) = "the " + q
         tier = 1
-    else if Instr(1, t, q) > 0 or Instr(1, LCase(director), q) > 0
+    else if Instr(1, t, q) > 0 or Instr(1, AWFold(LCase(director)), q) > 0
         tier = 2
     end if
     if pro then return tier * 2
     return tier * 2 + 1
 end function
+
+' OS 9.1 stretches a 9-patch as a flat bitmap, so a Button's pill came out a
+' lens. There a chip keeps no bitmap of its own and its slice pill, the one Detail
+' draws, lights instead. Called on the legacy tier only: a modern chip is untouched.
+sub AWChipsUseSlices(chips as Object)
+    for each b in chips
+        b.focusBitmapUri = "pkg:/images/focus_none.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
+    end for
+end sub
+
+sub AWChipsPaint(chips as Object, pills as Object)
+    for i = 0 to chips.Count() - 1
+        if chips[i].hasFocus() then AWPillStyle(pills[i], "focus") else AWPillStyle(pills[i], "rest")
+    end for
+end sub
 
 ' A playlist row's Play and Shuffle tiles sit among its films in the row's
 ' content; anything acting on "the focused film" has to tell them apart.

@@ -1268,7 +1268,6 @@ sub playIDLineup()
     if l.kind = "playlist"
         place = fmt(l.index + 1) + " of " + fmt(l.ids.Count())
         hint = (l.told = false and l.ids.Count() > 1)
-        l.told = true
     end if
     m.pendingEpisode = { id: l.ids[l.index], title: t, meta: label + "  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
                          queue: l.ids, queueTitles: l.titles, index: l.index, fromLibrary: (l.kind = "playlist"),
@@ -2273,7 +2272,10 @@ sub playPendingEpisode(d as Object)
         m.player.ObserveField("menuRequested", "openPlayerOptions")
     end if
     m.episodeQueue = e
-    if m.idLineup <> invalid then m.idLineup.moving = false
+    if m.idLineup <> invalid
+        m.idLineup.moving = false
+        if e.hint = true then m.idLineup.told = true
+    end if
     ' F31 — "Party play... plays things with the surprise tiles in the
     ' foreground". This path is shared by episodes, playlists, user channels,
     ' Channels and Party Play, and it hid only the SERIES screen — so every
@@ -3354,6 +3356,8 @@ sub onPlaybackFailed()
         end if
     end if
     if m.idLineup <> invalid
+        ' The hint went to a title that never played.
+        if m.player.lineupHint then m.idLineup.told = false
         m.pendingNotice = skipped
         if skipLineupItem() then return
         m.pendingNotice = ""

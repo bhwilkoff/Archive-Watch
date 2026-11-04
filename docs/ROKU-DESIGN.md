@@ -364,6 +364,11 @@ go through `openEntry` / `showRoomProblem`, which fall back to `EntryPanel`. It
 uses `MiniKeyboard`, the node Search already ships through certification, and
 never `KeyboardDialog`, which 4.12's static analysis flags.
 
+**7.7 OS 9.1 stretches a 9-patch as a flat bitmap**, so a pill comes out a lens. On
+the legacy tier (`AWIsLegacy`) a Browse or Search chip lights its own slice pill,
+the one Detail draws, and a `LabelList` takes a PNG at its exact row size with its
+text centered. Every such branch is behind that test, so a modern Roku is unchanged.
+
 ---
 
 ## 8. What is deliberately not built, and why
@@ -640,6 +645,20 @@ watched film absent from Home's shelves could not be drawn in Library; and a
 service query issued before the catalog task started was lost (Library opened
 by deep link sat on "Nothing here yet" under a header counting its rows), then
 a repaint that turned an empty Library into rows left focus on the Group.
+
+### §6.4a — Search reads strings, not rows (2026-11-04)
+
+The rule is the web's (watch.js): every term in the folded title, blob or director,
+commercials left out unless asked for, ordered by `AWSearchRank`, which is
+`searchRank`. Search draws the first 300, or 96 on the legacy tier; past that the
+status says "More than 300 titles match", because the exact count cost 2-3 s on a
+Roku 2 XD and nobody acts on it.
+A row-by-row scan took 7-14 s there: a firmware call costs ~30 us, and it made three
+per row. `CatalogService` therefore builds the folded text once, in idle time after
+the index loads, as short strings, and a query is native `Instr` over them. The
+row-by-row rule stays in `runQuery` for a filtered or commercial query. It is also
+the check: any change here is compared with it on the device. Never use `roRegex`
+on the whole text; it reads 200 KB/s on that box.
 
 ### §6.9b — A playlist plays (2026-11-04)
 

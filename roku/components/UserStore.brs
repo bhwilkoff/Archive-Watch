@@ -546,6 +546,11 @@ function awStoreSelfTest() as String
     end if
     awWriteKey("uch", savedUch)
 
+    if AWFold("château élysée ñandú") <> "chateau elysee nandu" then fails.Push("fold: " + AWFold("château élysée ñandú"))
+    if AWFold(LCase("MÉLIÈS")) <> "melies" then fails.Push("fold of capitals")
+    if AWFold("Blacksmith") <> "Blacksmith" then fails.Push("fold touched plain text")
+    if AWSearchRank("Georges Méliès", "", true, "melies") <> 4 then fails.Push("rank did not fold the title")
+    if AWSearchRank("Le Voyage", "Georges Méliès", true, "melies") <> 4 then fails.Push("rank did not fold the director")
     if AWSearchRank("Kane", "", true, "kane") <> 0 then fails.Push("exact title is not first")
     if AWSearchRank("The Kane Mutiny", "", false, "kane") <> 3 then fails.Push("the + query is not a prefix")
     if AWSearchRank("Citizen Kane", "", true, "kane") <> 4 then fails.Push("title containing the query")
@@ -561,7 +566,7 @@ function awStoreSelfTest() as String
     awWriteKey("prog", savedProg)
     awWriteKey("pl", savedPl)
 
-    if fails.Count() = 0 then return "AWPL selftest PASS (42 assertions)"
+    if fails.Count() = 0 then return "AWPL selftest PASS (47 assertions)"
     out = "AWPL selftest FAIL:"
     for each f in fails
         out = out + Chr(10) + "   - " + f

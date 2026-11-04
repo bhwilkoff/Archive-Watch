@@ -31,6 +31,11 @@ sub init()
     m.rowsG.focusedColor = m.t.canvas
     m.rowsG.focusBitmapUri = "pkg:/images/pill_focus.9.png"
     m.rowsG.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+    if AWIsLegacy()
+        m.rowsG.focusBitmapUri = "pkg:/images/pill_focus_642x78.png"
+        m.rowsG.focusFootprintBitmapUri = "pkg:/images/pill_rest_642x78.png"
+        m.rowsG.textHorizAlign = "center"
+    end if
     m.rowsG.drawFocusFeedbackOnTop = false
     m.rowsG.vertFocusAnimationStyle = "floatingFocus"
     m.rowsG.ObserveField("itemSelected", "onRow")
