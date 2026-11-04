@@ -28,3 +28,11 @@ namespace_id = "7302"
   [ratelimits.simple]
   limit = 10
   period = 60
+
+# The removal form (takedown.js). Per client address, counted for the window only.
+[[ratelimits]]
+name = "TAKEDOWN_LIMITER"
+namespace_id = "7303"
+  [ratelimits.simple]
+  limit = 5
+  period = 60

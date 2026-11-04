@@ -28,6 +28,7 @@ import { handleMCP } from "./mcp.js";
 import { handleTogether, sweepRooms } from "./together.js";
 import { handleLive } from "./live.js";
 import { handleXtream } from "./xtream.js";
+import { handleTakedown, sweepTakedowns } from "./takedown.js";
 
 const ALLOW = "https://archivewatch.org";
 
@@ -96,6 +97,7 @@ const cors = {
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(sweepRooms(env));
+    ctx.waitUntil(sweepTakedowns(env));
   },
 
   async fetch(request, env) {
@@ -130,6 +132,10 @@ export default {
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: cors });
+    }
+
+    if (url.pathname.startsWith("/takedown")) {
+      return handleTakedown(url, request, env, cors);
     }
 
     // The beacon. Answers 204 with no body: nothing is set, nothing returned,

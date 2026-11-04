@@ -34,13 +34,83 @@
       from Archive Watch too.
     </p>
 
-    <h3>To remove a title from Archive Watch</h3>
+    <h3>To remove something from Archive Watch</h3>
     <p>
-      Email <a href="mailto:ben@learningischange.com?subject=Removal%20request">ben@learningischange.com</a>
-      with the title's link (archivewatch.org/item/… or archive.org/details/…)
-      and why it should come down. A removed title comes off every Archive Watch
-      app and this website, including search, shares and every feed, and stays
-      off.
+      This form covers anything Archive Watch shows: a film, a series, an episode
+      or a single file. What is removed comes off every Archive Watch app and
+      this website, including search, shares and every feed, and stays off.
+    </p>
+
+    <form class="request-form" id="takedown-form" novalidate>
+      <fieldset>
+        <legend>This request is about</legend>
+        <label class="choice"><input type="radio" name="kind" value="copyright" checked> A copyright I hold or represent</label>
+        <label class="choice"><input type="radio" name="kind" value="other"> Something else, such as privacy</label>
+      </fieldset>
+
+      <label for="td-links">Links, one per line</label>
+      <textarea id="td-links" name="links" rows="3" required
+        placeholder="https://archivewatch.org/item/…"></textarea>
+
+      <div data-for="copyright">
+        <label for="td-work">The work you hold rights in</label>
+        <textarea id="td-work" name="work" rows="2"></textarea>
+      </div>
+
+      <div data-for="other" hidden>
+        <label for="td-reason">Why it should come down</label>
+        <textarea id="td-reason" name="reason" rows="3"></textarea>
+      </div>
+
+      <label for="td-name">Your name</label>
+      <input id="td-name" name="name" autocomplete="name" required>
+
+      <label for="td-email">Email</label>
+      <input id="td-email" name="email" type="email" autocomplete="email" required>
+
+      <div data-for="copyright">
+        <label for="td-org">Company or rights holder you represent (optional)</label>
+        <input id="td-org" name="org" autocomplete="organization">
+
+        <label for="td-phone">Phone</label>
+        <input id="td-phone" name="phone" type="tel" autocomplete="tel">
+
+        <label for="td-address">Postal address</label>
+        <textarea id="td-address" name="address" rows="2" autocomplete="street-address"></textarea>
+
+        <label class="choice"><input type="checkbox" name="goodFaith"> I believe in good faith that this use is not authorized by the rights holder, its agent, or the law.</label>
+        <label class="choice"><input type="checkbox" name="accurate"> The information in this request is accurate and, under penalty of perjury, I am the rights holder or authorized to act for them.</label>
+
+        <label for="td-signature">Type your full name as your signature</label>
+        <input id="td-signature" name="signature">
+      </div>
+
+      <div class="request-trap" aria-hidden="true">
+        <label for="td-website">Leave this empty</label>
+        <input id="td-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit">Send request</button>
+      <p class="request-status" id="takedown-status" role="status"></p>
+    </form>
+
+    <p>
+      Your details are kept private (<a href="privacy.html">Privacy Policy</a>).
+    </p>
+
+    <h3>Designated agent</h3>
+    <p>
+      Archive Watch's agent for copyright notices is registered with the U.S.
+      Copyright Office as
+      <a href="https://dmca.copyright.gov/osp/" rel="noopener">DMCA-1083942</a>.
+      Notices can also go to
+      <a href="mailto:ben@learningischange.com?subject=Removal%20request">ben@learningischange.com</a>
+      with everything the form asks for.
+    </p>
+
+    <h3>If something was removed by mistake</h3>
+    <p>
+      Email the same address with the link and why it should return.
     </p>
   </main>
 
@@ -49,5 +119,6 @@
     <a href="privacy.html">Privacy Policy</a>
   </footer>
 
+  <script src="js/takedown.js" defer></script>
 </body>
 </html>

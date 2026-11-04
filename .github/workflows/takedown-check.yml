@@ -1,0 +1,71 @@
+name: Takedown check
+
+# Reads open removal cases from the private record, checks each file, and applies
+# what the rule decides (docs/TAKEDOWNS.md, Decision 175). The log is public:
+# tools/takedown_cases.py prints case numbers, archive ids and fixed reasons only.
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: takedown-check
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      TAKEDOWN_TOKEN: ${{ secrets.TAKEDOWN_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg and numpy
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          pip install -q numpy requests
+      - name: Test the rule
+        run: |
+          python tools/test_takedown_check.py
+          python tools/test_takedowns.py
+      - name: Judge open cases
+        run: python tools/takedown_cases.py judge --out "$RUNNER_TEMP/updates.json"
+      - name: Publish the list
+        id: push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A shared/editorial/takedowns.json series/
+          if git diff --cached --quiet; then
+            echo "nothing to remove"; echo "removed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git commit -m "Removal cases: update the takedown list [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main && git push; then
+              echo "removed=true" >> "$GITHUB_OUTPUT"; exit 0
+            fi
+            sleep $((i * 10))
+          done
+          echo "::error::could not push the takedown list"; exit 1
+      # Recorded only after the list is on main, so a failed push leaves the case
+      # open for the next run instead of closed with the title still served.
+      - name: Record the outcome
+        run: python tools/takedown_cases.py report --updates "$RUNNER_TEMP/updates.json"
+      - name: Publish the catalog
+        if: steps.push.outputs.removed == 'true'
+        run: gh workflow run publish-db.yml
