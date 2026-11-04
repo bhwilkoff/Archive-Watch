@@ -547,6 +547,11 @@ recognizer that never fails. `ChannelSurfPresses` in AVPlayerScreen.swift.
 - **Apply metadata to EVERY player surface.** The episode player originally set
   no `externalMetadata`, so it still showed the asset's year. Movie + episode
   players must both apply the title + the date suppressor.
+- **The transport bar shows only menu items with an image.** A disabled
+  `UIAction` with a title and no image never reached the glass, so a playlist's
+  "2 of 3" lived in the menu and nobody saw it (2026-11-04). It rides as
+  `.iTunesMetadataTrackSubTitle`, above the title. AVKit puts a dot in front of
+  it, from the empty date override.
 - A bare 4-digit year is NOT a valid date for `.commonIdentifierCreationDate` —
   AVKit reinterprets it (we once saw 2035/2045). Either omit creation date
   entirely or supply a real ISO date; never a bare year.

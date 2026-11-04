@@ -211,6 +211,13 @@ struct RootView: View {
                 LiveCaptions.transcribeWhenMissing = (v == "1")
                 awdiag("[AWCAP] transcribeWhenMissing set to %@ via env", v)
             }
+            #if DEBUG
+            PlaylistTestDoor.sweep(modelContext)
+            if let list = PlaylistTestDoor.makeList(modelContext) {
+                router.tab = .favorites
+                router.favoritesPath.append(PlaylistRoute(id: list))
+            }
+            #endif
             guard let id = ProcessInfo.processInfo.environment["AW_START_ITEM"] else { return }
             openDeepLinkedItem(
                 id, autoplay: ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1")

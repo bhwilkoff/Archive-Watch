@@ -2196,11 +2196,12 @@ struct PlayerScreen: View {
         // demand instead of only at end-of-film (the episode player already has
         // "Next Episode"; movies/channels had no manual next).
         let playNext = UIAction(
-            title: "Play Next",
-            image: UIImage(systemName: "forward.end.fill")
+            title: isPlaylist ? "Next" : "Play Next",
+            image: UIImage(systemName: "forward.end.fill"),
+            attributes: isPlaylist && lineupIndex + 1 >= (lineup?.count ?? 0) ? .disabled : []
         ) { _ in advanceNow() }
         let playlistSteps: [UIMenuElement] = {
-            guard let lineup, !ephemeralLineup, lineup.count > 1 else { return [] }
+            guard let lineup, isPlaylist, lineup.count > 1 else { return [] }
             return [
                 UIAction(title: "Previous",
                          image: UIImage(systemName: "backward.end.fill"),
@@ -2209,8 +2210,6 @@ struct PlayerScreen: View {
                     lineupIndex -= 1
                     current = lineup[lineupIndex]
                 },
-                UIAction(title: PlaylistPlay.position(lineupIndex, of: lineup.count),
-                         attributes: .disabled) { _ in },
             ]
         }()
         let muteToggle = UIAction(
@@ -2451,8 +2450,8 @@ struct PlayerScreen: View {
                                 image: UIImage(systemName: "rectangle.stack"),
                                 children: versionActions))
         }
-        items.append(UIMenu(title: "Autoplay Next",
-                            image: UIImage(systemName: "play.circle"), children: actions))
+        if !isPlaylist { items.append(UIMenu(title: "Autoplay Next",
+                            image: UIImage(systemName: "play.circle"), children: actions)) }
         return items
     }
 
@@ -2483,6 +2482,9 @@ struct PlayerScreen: View {
         setupPlayer()
     }
 
+    /// A list the viewer chose, as opposed to a channel, party or cartoon session.
+    private var isPlaylist: Bool { lineup != nil && !ephemeralLineup }
+
     /// Advance to the next title now: the next lineup item if any, otherwise the
     /// autoplay pick. Falls back to "More Like This" when autoplay is Off so the
     /// manual control is never a dead end. Shared by the manual "Play Next" (#5)
@@ -2499,7 +2501,7 @@ struct PlayerScreen: View {
         }
         // A playlist ends where it ends (iOS-DESIGN §4.3b); only a channel,
         // party or cartoon session runs on into the catalog.
-        if lineup != nil, !ephemeralLineup {
+        if isPlaylist {
             dismiss()
             return
         }
@@ -2730,6 +2732,13 @@ struct PlayerScreen: View {
         }
         if let active {
             playerItem.externalMetadata = makeExternalMetadata(for: active)
+            // The transport bar drops a menu item with no image, so the place
+            // in a list rides as the title's subtitle (§4.3b).
+            if let lineup, isPlaylist, lineup.count > 1,
+               let place = metaEntry(.iTunesMetadataTrackSubTitle,
+                                     PlaylistPlay.position(lineupIndex, of: lineup.count)) {
+                playerItem.externalMetadata.append(place)
+            }
         }
         // Cap commercial breaks at the user's preferred length (Channels view /
         // Settings; 0 = play in full). When capped, AVFoundation fires
@@ -2741,6 +2750,11 @@ struct PlayerScreen: View {
         let p = AVPlayer(playerItem: playerItem)
         tunePlaybackBuffering(item: playerItem, player: p)
         p.isMuted = muted   // #3 party play (persists across lineup advances)
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { p.isMuted = true }
+        awdiag("AWLIST title=%@ index=%d of=%d muted=%@", activeArchiveID, lineupIndex,
+               lineup?.count ?? 0, p.isMuted ? "yes" : "no")
+        #endif
         player = p
         playerArchiveID = activeArchiveID
         if PlaybackDiag.enabled {
@@ -2961,6 +2975,12 @@ struct PlayerScreen: View {
                 if let lineup, lineupIndex + 1 < lineup.count {
                     lineupIndex += 1
                     current = lineup[lineupIndex]
+                    return
+                }
+                // §4.3b: a playlist ends with its last title, whatever the
+                // Autoplay setting says.
+                if isPlaylist {
+                    dismiss()
                     return
                 }
                 guard let cur = current else { return }

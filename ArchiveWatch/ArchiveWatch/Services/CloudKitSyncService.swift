@@ -103,6 +103,9 @@ final class CloudKitSyncService {
         // the device without a Sign in with Apple identity, whichever caller asks.
         guard AccountStore.hasStoredSignIn, !isPurging else { return }
         guard let database, !isSyncing else { return }
+        #if DEBUG
+        if PlaylistTestDoor.offline { return }
+        #endif
         isSyncing = true
         defer { isSyncing = false }
         let epoch = purgeEpoch
