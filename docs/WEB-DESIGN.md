@@ -330,11 +330,17 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   is a ghost beside it, because a television arrives on the page's one
   `.btn-primary`) and **Shuffle** lead the Sort row. They read `ListPlay`, which
   builds the same `Player` queue Channels and Party Play use; a queue entry has
-  no URL until `Player.goTo` reaches it, so a long list costs nothing to start,
-  and a title found to have no file leaves the queue. The player draws Previous,
-  the position and Next in a row of its own, under its head, only in a playlist
-  of two or more. A list ends by closing the player: the end card's autoplay
-  would carry on past it. If nothing in the list can play, the page says so.
+  no URL until `Player.goTo` reaches it, so a long list costs nothing to start.
+  A title with no file, or whose file a server refuses before a frame arrives
+  (`API.fileAnswers` tells that from a dropped connection), leaves the queue and
+  playing goes on the way it was going; one nobody could answer for stays and is
+  asked again when next reached. The player draws Previous, the position and
+  Next in a row of its own, under its head, only in a playlist of two or more. A
+  list ends by closing the player: the end card's autoplay would carry on past
+  it. If the list could not go on, the page says so. A shared list (`/list/#`)
+  has the same two buttons, its order the link's and what is watched the
+  viewer's own; Add to my library is a ghost beside them for the same reason
+  Share is.
 - **§4.10a Sort is remembered** per kind of grid (`browseSort.tv|browse|
   category`, localStorage, try/catch); a `?sort=` in the URL wins; TV grids
   start A–Z; Z–A everywhere; Top Rated sorts on the index's `ratingRank100`

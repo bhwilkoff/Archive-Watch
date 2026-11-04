@@ -1269,7 +1269,11 @@
       swap();
       return;
     }
-    document.startViewTransition(swap);
+    // A second navigation before the animation starts skips this one: `ready`
+    // rejects, and nothing is wrong, because swap has still run.
+    document.startViewTransition(swap).ready.catch(e => {
+      if (e.name !== 'AbortError') throw e;
+    });
   }
 
   /* ---------------------------------------------------------------- *
@@ -1783,6 +1787,7 @@
     },
   };
   // --- end playlist play ---
+  const LIST_STUCK = 'Nothing more in this list can be played right now.';
 
   /** A remembered choice on this browser; storage may be absent or refuse. */
   const Remembered = {
@@ -2461,10 +2466,42 @@
     url(blob) { return `${new URL('list/', PAGES_ROOT)}#${blob}`; },
   };
 
+  /** Play and Shuffle for a list page (iOS-DESIGN §4.3b). `films` is the page's
+   *  [listed id, row] pairs in the order on screen; what is watched is always
+   *  this viewer's own. */
+  function wireListPlay(films, play, shuffled, failed) {
+    const queue = ListPlay.queue(films);
+    failed.hidden = true;
+    const begin = async (q, at) => {
+      failed.hidden = true;
+      // A copy: a title that turns out to have no file leaves the queue it is in.
+      const plan = { queue: [...q], queueIndex: at, persist: true,
+                     list: { heading: 1, stuck: () => { failed.hidden = false; } } };
+      if (!await Player.goTo(plan, at, 1)) {
+        $('video').pause();
+        plan.list.stuck();
+      }
+    };
+    play.hidden = queue.length < 1;
+    play.onclick = async () => {
+      Player.bless();
+      await Watched.refresh();
+      begin(queue, ListPlay.startAt(queue, Watched.ids));
+    };
+    shuffled.hidden = queue.length < 2;
+    shuffled.onclick = () => {
+      Player.bless();
+      begin(shuffle(queue), 0);
+    };
+  }
+
   const SharedList = {
     async render(blob) {
       const title = $('list-title'), note = $('list-note'), imp = $('list-import');
       imp.hidden = true;
+      $('list-play').hidden = true;
+      $('list-shuffle').hidden = true;
+      $('list-error').hidden = true;
       let pl;
       try { pl = await ShareList.decode(blob); }
       catch {
@@ -2477,8 +2514,11 @@
       title.textContent = pl.name;
       await Data.episodesReady;
       const alias = await Aliases.rows(pl.ids);
-      const rows = pl.ids.map(aid => Data.byID.get(aid) || alias.get(aid)).filter(Boolean);
+      const films = pl.ids.map(aid => [aid, Data.byID.get(aid) || alias.get(aid)])
+        .filter(f => f[1]);
+      const rows = films.map(f => f[1]);
       fillGrid($('list-grid'), rows);
+      wireListPlay(films, $('list-play'), $('list-shuffle'), $('list-error'));
       $('list-empty').hidden = rows.length > 0;
 
       // A title in the link that this catalog no longer serves is a fact worth
@@ -2553,24 +2593,7 @@
       sel.hidden = films.length < 2;
       sel.disabled = this.arranging;
       sel.onchange = () => { Remembered.set(key, sel.value); this.render(id); };
-      const queue = ListPlay.queue(shown);
-      const failed = $('playlist-error');
-      failed.hidden = true;
-      const begin = async (q, at) => {
-        failed.hidden = true;
-        // A copy: a title found to have no file leaves the queue it is in.
-        const plan = { queue: [...q], queueIndex: at, persist: true, list: true };
-        failed.hidden = await Player.goTo(plan, at, 1);
-      };
-      const play = $('playlist-play');
-      play.hidden = queue.length < 1;
-      play.onclick = async () => {
-        await Watched.refresh();
-        begin(queue, ListPlay.startAt(queue, Watched.ids));
-      };
-      const shuffled = $('playlist-shuffle');
-      shuffled.hidden = queue.length < 2;
-      shuffled.onclick = () => begin(shuffle(queue), 0);
+      wireListPlay(shown, $('playlist-play'), $('playlist-shuffle'), $('playlist-error'));
       const edit = $('playlist-edit');
       if (!films.length) this.arranging = false;
       edit.hidden = !films.length;
@@ -4125,32 +4148,55 @@
       await this.start({ id, title: row[1], url });
     },
 
-    /** The file a queue entry with no baked URL plays, or null. */
+    /** Safari counts a play() as the viewer's only while their press is being
+        handled, and finding a list's first file takes longer than that. Calling
+        play() on the element now, inside the press, is what permits the one
+        that follows; it has no source yet and the new one replaces it. */
+    bless() {
+      if (document.documentElement.classList.contains('tv')) return;
+      const p = $('video').play();
+      if (p) p.catch(() => {});
+    },
+
+    /** The file a queue entry with no baked URL plays: its URL, null when it
+        has none, undefined when nobody could say. */
     async urlFor(id) {
       const det = await Details.get(id).catch(() => null);
       if (det?.downloadURL) return Versions.preferred(id, det.downloadURL);
       if (id.includes('@')) return null;      // its item's file is another episode
-      const meta = await Meta.get(id, { timeoutMs: 12000 }).catch(() => null);
-      const file = meta && API.summarize(meta).videoFile;
+      const meta = await Meta.get(id, { timeoutMs: 12000 })
+        .catch(e => (e.absent ? null : undefined));
+      if (!meta) return meta;
+      const file = API.summarize(meta).videoFile;
       return file ? Versions.url(id, file.name) : null;
     },
 
     /** Play the queue entry at `i`, going on in direction `d` past any entry
-        with no file; such an entry leaves the queue, so "3 of 12" stays true.
-        False when nothing that way can play. A later press, a new film or a
-        close while a file is being looked up wins, and counts as handled. */
+        that cannot be reached. One with no file leaves the queue, so "3 of 12"
+        stays true; one nobody could answer for stays, and is asked again when
+        it is next reached. False when nothing that way can play. A later press,
+        a new film or a close during a lookup wins, and counts as handled. */
     moving: null,
     async goTo(plan, i, d) {
       const run = this.moving = {};
-      const { queue } = plan;
+      const { queue, list } = plan;
+      if (list) {
+        list.heading = d;
+        list.unreached = false;
+      }
       while (i >= 0 && i < queue.length) {
         const entry = queue[i];
         const url = entry.url || await this.urlFor(entry.id);
         if (this.moving !== run) return true;
+        if (url === undefined) {
+          list.unreached = true;
+          i += d;
+          continue;
+        }
         if (url) {
           this.start({ ...entry, url, queue, queueIndex: i, persist: plan.persist,
                        muted: plan.muted, lineup: plan.lineup, channel: plan.channel,
-                       list: plan.list });
+                       list });
           return true;
         }
         queue.splice(i, 1);
@@ -4160,6 +4206,31 @@
       this.moving = null;
       this.paintList();
       return false;
+    },
+
+    /** A list's title whose file failed before a frame arrived. If the server
+        answered, the title is dead: it leaves the list and playing goes on the
+        way it was going, turning forward when nothing lies behind it. If the
+        server could not be reached, this is the network, and the ordinary
+        recovery keeps the viewer on this title. */
+    async fileFailed(c, url) {
+      const answered = await API.fileAnswers(url);
+      if (this.ctx !== c || !$('player').open) return;
+      if (!answered) { this.recover('error'); return; }
+      const { queue, queueIndex: at, list } = c;
+      queue.splice(at, 1);
+      const back = list.heading < 0;
+      if (await this.goTo(c, back ? at - 1 : at, list.heading)) return;
+      if (back && await this.goTo(c, at, 1)) return;
+      this.finishList(c);
+    },
+
+    /** The end of a list is the end: the chooser's autoplay would carry on into
+        a film nobody put on it. The page says so if the list could not go on. */
+    finishList(c) {
+      Watched.refresh();
+      this.close();
+      if (c.list.unreached || !c.list.played) c.list.stuck();
     },
 
     /** Previous, Next and "3 of 12": a playlist's, and only with somewhere to go. */
@@ -4181,8 +4252,8 @@
         `queue`/`queueIndex` enable binge: on ended, the next queued entry
         plays. `startAt` joins a channel program in progress; `persist:false`
         keeps channel playback out of Continue Watching (the apps' rule).
-        `list` is a playlist: Previous and Next on screen, and it stops at its
-        last title. */
+        `list` is a playlist's own record of this play-through: Previous and
+        Next on screen, and it stops at its last title. */
     noteTimer: null,
     /** `ms` 0 keeps the note up until something hides it. */
     flashNote(text, ms = 3000) {
@@ -4196,7 +4267,7 @@
 
     async start({ id, title, url, queue = null, queueIndex = 0,
                   startAt = 0, persist = true, muted = false, room = false,
-                  lineup = null, channel = null, list = false }) {
+                  lineup = null, channel = null, list = null }) {
       this.moving = null;
       this.ctx = { id, title, queue, queueIndex, persist, muted, room, lineup, channel, list,
                    remembered: false };
@@ -4210,6 +4281,27 @@
       awCount(`/item/${id}`, muted ? 'ambient' : 'play');
       $('player-endcard').hidden = true;      // never survives into the next film
       const video = $('video');
+      // Before the source is set: a file that fails fails while this function
+      // is still waiting on play(), and the first film has no handler yet.
+      // AN ERROR AT THE END IS THE END. Tizen's pipeline (Samsung S90C, Tizen
+      // 9.0, 2026-10-03) reports MEDIA_ERR_NETWORK "PIPELINE_ERROR_NETWORK" as
+      // a progressive download runs out, with `ended` already true and no
+      // `ended` event — so a finished film was "recovered" instead of offering
+      // what to watch next. Anything else still gets the full reset.
+      video.onerror = () => {
+        // A real duration and a playhead at it — `ended` alone can be stale
+        // from the previous film on this same element (seen on the S90C: the
+        // card came up over a film that had just started).
+        const left = isFinite(video.duration) && video.duration > 0
+          ? video.duration - video.currentTime : Infinity;
+        if (left < 2) { video.onended?.(); return; }
+        const c = this.ctx;
+        if (c?.list && video.readyState === 0 && video.error?.code >= 3) {
+          this.fileFailed(c, video.src);
+          return;
+        }
+        this.recover('error');
+      };
       // Party Play is background visuals, so it starts silent. Set on every
       // start(), not once: the queue advances by calling start() again, and a
       // lineup that regained its audio at the first change of film would be
@@ -4318,20 +4410,6 @@
         }
       }, 3000);
 
-      // AN ERROR AT THE END IS THE END. Tizen's pipeline (Samsung S90C, Tizen
-      // 9.0, 2026-10-03) reports MEDIA_ERR_NETWORK "PIPELINE_ERROR_NETWORK" as
-      // a progressive download runs out, with `ended` already true and no
-      // `ended` event — so a finished film was "recovered" instead of offering
-      // what to watch next. Anything else still gets the full reset.
-      video.onerror = () => {
-        // A real duration and a playhead at it — `ended` alone can be stale
-        // from the previous film on this same element (seen on the S90C: the
-        // card came up over a film that had just started).
-        const left = isFinite(video.duration) && video.duration > 0
-          ? video.duration - video.currentTime : Infinity;
-        if (left < 2) { video.onended?.(); return; }
-        this.recover('error');
-      };
       this._lastBufferedEnd = 0;
       video.onwaiting = () => this.armStall();
       video.onseeking = () => { this.lastSeekAt = Date.now(); };
@@ -4342,6 +4420,7 @@
         const card = $('player-endcard');
         if (card && !card.hidden) { card.hidden = true; clearInterval(this.countdown); }
         if (this.ctx) this.ctx.finished = false;
+        if (this.ctx?.list) this.ctx.list.played = true;
       };
       video.onended = async () => {
         const c = this.ctx;
@@ -4350,13 +4429,7 @@
         this.persist();
         syncNudge();                           // a film's end is worth telling the cloud
         if (c?.queue && await this.goTo(c, c.queueIndex + 1, 1)) return;
-        // The end of a playlist is the end: the chooser's autoplay would carry
-        // on into a film nobody put on the list.
-        if (c?.list) {
-          Watched.refresh();
-          this.close();
-          return;
-        }
+        if (c?.list) { this.finishList(c); return; }
         // A standalone film used to end by closing the dialog, which drops the
         // viewer back where they started with nothing offered. The apps have an
         // autoplay setting; doing that here would make the viewer passive, so
@@ -4630,7 +4703,9 @@
       if (!this.canStep(d)) return false;
       const c = Player.ctx;
       Player.persist();
-      Player.goTo(c, c.queueIndex + d, d);
+      Player.goTo(c, c.queueIndex + d, d).then(moved => {
+        if (!moved && c.list) Player.flashNote(LIST_STUCK);
+      });
       return true;
     },
     /** "3 of 12" in a playlist of two or more; otherwise empty. */
@@ -4779,11 +4854,14 @@
       e.textContent = `The catalog index couldn't load (${err.message}). ` +
         'Check your connection and reload.';
       e.hidden = false;
+      document.documentElement.dataset.catalog = 'failed';
       return;
     }
     $('boot').hidden = true;
     window.addEventListener('hashchange', route);
     route();
+    // tv.js waits on this: a cold index can take longer than any fixed wait.
+    Data.episodesReady.then(() => { document.documentElement.dataset.catalog = 'ready'; });
 
     // Cold-resume refresh: a tab or installed PWA left open for days otherwise
     // renders forever from the rows parsed at first boot. Never re-render while

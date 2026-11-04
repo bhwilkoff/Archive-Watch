@@ -656,9 +656,11 @@ input[type="search"] {
   padding-right: var(--pad);
 }
 .list-head h2 { flex: 1; }
-.list-head [hidden], #view-playlist [hidden] { display: none; }
-#view-playlist .surprise-head { flex-wrap: wrap; gap: 8px; }
-#view-playlist .surprise-head h1 { flex-basis: 100%; }
+.list-head [hidden], #view-playlist [hidden], #view-list [hidden] { display: none; }
+#view-playlist .surprise-head {
+  flex-wrap: wrap; gap: 8px; justify-content: flex-start; padding-left: var(--pad);
+}
+#view-playlist .surprise-head h1 { flex-basis: 100%; margin-left: 0; margin-right: 0; }
 @media (min-width: 700px) {
   #view-playlist .surprise-head h1 { flex-basis: auto; }
 }
