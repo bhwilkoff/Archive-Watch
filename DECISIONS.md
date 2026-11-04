@@ -266,6 +266,7 @@ into every session and the index alone carries every title.)
 - 173 — The pipeline fails loudly: pipefail everywhere, nothing publishes from a cancelled or failed build, and a publish carries its deletions
 - 174 — A cartoon of racist caricature is never recommended and always findable, on a record a reader can open or the title's own tags
 - 175 — A complete notice removes a title unless the file contradicts it; the file is read automatically, and a requester's name never reaches the repository
+- 176 — The catalog is swapped into place under another name; the release is never without it, and a missing asset is never a first run
 
 ---
 
@@ -754,3 +755,23 @@ work. A new kind of served content needs a key in `takedown_lib.blocked` and a
 control in `test_takedowns.py`. The soundtrack test belongs to a request; the owner
 declined a catalog-wide scan. Tune the logo threshold against
 `takedown_check.LOGO_MIN`'s measurements, never by a list of ids.
+
+## 176 — The catalog is swapped into place under another name; the release is never without it, and a missing asset is never a first run
+*Date: 2026-11-04*
+
+`catalog_release.publish` uploads to `catalog.json.gz.next-*`, renames the old asset
+aside, renames the new one into place, and only then deletes the old. `fetch` waits
+six minutes for an asset that is not listed and then fails; only `--bootstrap`, typed
+by a person, seeds a release. A publisher that loses the name re-merges and tries
+again (Decision 173's carrying of deletions still applies).
+
+**Why**: `gh release upload --clobber` deletes before it uploads, so for about a
+minute of every publish there was no catalog. Three runs fell in that gap in four
+days: TMDb enrich could not fetch (41438592015), Color collided on the name
+(41344444991), and the rights audit was told "bootstrap", went on with no catalog
+and crashed (41792247208). That last answer is the dangerous one: Decision 089
+already said a missing asset is an emergency.
+
+**How to apply**: never call `release upload --clobber` on an asset other jobs
+read. Proved against a real throwaway release, because a fake cannot prove GitHub
+accepts the calls.

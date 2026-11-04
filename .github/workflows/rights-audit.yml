@@ -61,6 +61,7 @@ jobs:
       - run: pip install requests
 
       - name: Fetch catalog
+        id: fetch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
@@ -118,8 +119,9 @@ jobs:
       - name: Publish annotated catalog to release
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # two monthly passes in a row. A run that never had a catalog has
+        # nothing to publish (Decision 173).
+        if: ${{ !cancelled() && steps.fetch.outcome == 'success' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

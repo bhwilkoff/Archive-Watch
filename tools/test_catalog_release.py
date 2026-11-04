@@ -61,6 +61,9 @@ class Fake:
             self.uploads.append(Path(args[3]).read_bytes())
         return types.SimpleNamespace(returncode=0, stdout="", stderr="")
 
+    def swap_in(self, name):
+        return "ok"
+
 
 def setup(base_doc, mine_doc, moves=None):
     tmp = Path(tempfile.mkdtemp())
@@ -73,6 +76,7 @@ def setup(base_doc, mine_doc, moves=None):
     f = Fake(base_doc, tmp)
     f.moves = moves or {}
     C._asset_stamp = f.asset_stamp
+    C._swap_in = f.swap_in
     C._gh_net = f.gh_net
     C._asset_size = lambda: 0
     C._release_state = lambda: "present"
@@ -128,6 +132,101 @@ check("control: a release that keeps moving is refused", C.publish() == 3 and no
 f = setup(doc(items(5000)), doc(items(1200)), moves={1: other_writer})
 check("control: a merge that would remove most of the catalog is refused",
       C.publish() == 3 and not f.uploads)
+
+
+# The swap: a release that is never without its catalog.
+import importlib
+importlib.reload(C)
+NS = types.SimpleNamespace
+
+
+class Assets:
+    def __init__(self, names):
+        self.a = {n: (str(i), "2026-11-04T00:00:00Z") for i, n in enumerate(names, 1)}
+        self.log, self.deny, self.gaps = [], set(), 0
+
+    def net(self, *args):
+        if args[0] != "api":
+            return NS(returncode=0, stdout="", stderr="")
+        if "-X" not in args:
+            return NS(returncode=0, stderr="", stdout="".join(
+                f"{i} {c} {n}\n" for n, (i, c) in self.a.items()))
+        aid = args[3].rsplit("/", 1)[1]
+        name = next((n for n, v in self.a.items() if v[0] == aid), None)
+        if args[2] == "DELETE":
+            self.a.pop(name, None)
+            self.log.append("delete")
+            return NS(returncode=0, stdout="", stderr="")
+        to = args[5].split("=", 1)[1]
+        if name is None or to in self.deny or to in self.a:
+            self.deny.discard(to)
+            return NS(returncode=1, stdout="", stderr="HTTP 422")
+        self.a[to] = self.a.pop(name)
+        self.log.append("rename")
+        if C.ASSET not in self.a:
+            self.gaps += 1
+        return NS(returncode=0, stdout="", stderr="")
+
+
+s = Assets([C.ASSET, C.ASSET + ".next-1"])
+C._gh_net = s.net
+check("a swap succeeds", C._swap_in(C.ASSET + ".next-1") == "ok")
+check("the new bytes hold the name", s.a[C.ASSET][0] == "2")
+check("nothing else is left on the release", list(s.a) == [C.ASSET])
+check("nothing is deleted until the new catalog is in place", s.log == ["rename", "rename", "delete"])
+s = Assets([C.ASSET, C.ASSET + ".next-1"])
+s.deny = {C.ASSET}
+C._gh_net = s.net
+check("a lost race reports itself", C._swap_in(C.ASSET + ".next-1") == "raced")
+check("and the old catalog is put back", s.a.get(C.ASSET, ("",))[0] == "1")
+s = Assets([C.ASSET])
+C._gh_net = s.net
+check("an upload that is not there changes nothing",
+      C._swap_in(C.ASSET + ".next-9") == "failed" and list(s.a) == [C.ASSET])
+s = Assets([C.ASSET, C.ASSET + ".next-1", C.ASSET + ".old-7"])
+s.a[C.ASSET + ".old-7"] = ("3", "2020-01-01T00:00:00Z")
+C._gh_net = s.net
+C._swap_in(C.ASSET + ".next-1")
+check("a leftover of a killed run is cleared", list(s.a) == [C.ASSET])
+s = Assets([C.ASSET, C.ASSET + ".next-1", C.ASSET + ".next-2"])
+s.a[C.ASSET + ".next-2"] = ("3", "2999-01-01T00:00:00Z")
+C._gh_net = s.net
+C._swap_in(C.ASSET + ".next-1")
+check("CONTROL: another run's fresh upload is left alone", C.ASSET + ".next-2" in s.a)
+
+# Fetch: a missing asset is a publish mid-swap, never a first run.
+class Release:
+    def __init__(self, appears_after):
+        self.left, self.downloads = appears_after, 0
+
+    def net(self, *args):
+        self.downloads += 1
+        if self.left > 0:
+            self.left -= 1
+            return NS(returncode=1, stdout="", stderr="no assets match the file pattern")
+        with gzip.open(C.GZ, "wb") as fo:
+            fo.write(json.dumps(doc(items(3))).encode())
+        return NS(returncode=0, stdout="", stderr="")
+
+    def gh(self, *args, **kw):
+        return NS(returncode=0, stderr="", stdout=C.ASSET if self.left == 0 else "other.bin")
+
+
+def fetch_case(appears_after, **kw):
+    tmp = Path(tempfile.mkdtemp())
+    C.REPO, C.CATALOG, C.GZ = tmp, tmp / "catalog.json", tmp / "catalog.json.gz"
+    C.BASE, C.STAMP = tmp / ".base.gz", tmp / ".stamp"
+    r = Release(appears_after)
+    C._gh_net, C._gh = r.net, r.gh
+    C._release_state = lambda: "present"
+    C._asset_stamp = lambda: "id|v1"
+    C.time.sleep = lambda s: None
+    return C.fetch(**kw), C.CATALOG.exists()
+
+
+check("a catalog mid-swap is waited for", fetch_case(2) == (0, True))
+check("a catalog that never returns fails the run", fetch_case(99) == (1, False))
+check("a person may still seed a new release", fetch_case(99, bootstrap=True) == (0, False))
 
 print("PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)

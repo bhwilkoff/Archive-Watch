@@ -26,6 +26,7 @@ Requires the `gh` CLI authenticated (GH_TOKEN in CI).
 import argparse
 import gzip
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -108,7 +109,7 @@ def _asset_stamp():
     return (a.stdout or "").strip() if a.returncode == 0 else ""
 
 
-def fetch():
+def fetch(bootstrap=False):
     state = _release_state()
     if state == "absent":
         print(f"[catalog] release '{TAG}' not found — leaving local catalog.json as-is (bootstrap)")
@@ -127,30 +128,38 @@ def fetch():
     # in that window. `_gh_net` rightly treats a 404 as definite (a missing
     # release must not be retried into a false bootstrap), so the wait for
     # this one shape lives here: the release exists, the asset is listed.
+    #
+    # AN ASSET THAT IS NOT LISTED IS A PUBLISH MID-SWAP, not a first run. The
+    # catalog was on this release before this run and will be again, and treating
+    # the gap as a bootstrap sent a rights audit on with no catalog at all
+    # (2026-11-04, run 41792247208). Decision 089: a missing asset is an
+    # emergency. Only `--bootstrap`, typed by a person, seeds a new release.
+    listed = None
     for delay in (15, 30, 45, 60, 90, 120):
         if r.returncode == 0 and GZ.exists():
             break
-        if "HTTP 404" not in f"{r.stderr or ''} {r.stdout or ''}":
-            break
         a = _gh("release", "view", TAG, "--json", "assets",
                 "--jq", ".assets[].name", check=False, capture=True)
-        if a.returncode != 0 or ASSET not in (a.stdout or ""):
+        if a.returncode != 0:
             break
-        print(f"[catalog] '{ASSET}' is listed but not served (HTTP 404) — "
-              f"retrying in {delay}s", file=sys.stderr)
+        listed = ASSET in (a.stdout or "")
+        said = f"{r.stderr or ''} {r.stdout or ''}"
+        if listed and "HTTP 404" not in said and "no assets match" not in said:
+            break
+        if not listed and bootstrap:
+            print(f"[catalog] asset '{ASSET}' not on release '{TAG}' — bootstrap, leaving local file")
+            return 0
+        print(f"[catalog] '{ASSET}' is {'listed but not served (HTTP 404)' if listed else 'not listed'}"
+              f" — retrying in {delay}s", file=sys.stderr)
         time.sleep(delay)
         r = _gh_net("release", "download", TAG, "--pattern", ASSET, "--clobber",
                     "--dir", str(REPO))
     if r.returncode != 0 or not GZ.exists():
-        # The release exists, so a missing asset is only a bootstrap case if
-        # the asset list (fetched successfully) really lacks it.
-        a = _gh("release", "view", TAG, "--json", "assets",
-                "--jq", ".assets[].name", check=False, capture=True)
-        if a.returncode == 0 and ASSET not in (a.stdout or ""):
-            print(f"[catalog] asset '{ASSET}' not on release '{TAG}' — bootstrap, leaving local file")
-            return 0
         err = (r.stderr or '').strip()[:300]
-        if "HTTP 404" in err:
+        if listed is False:
+            print(f"[catalog] '{ASSET}' has been missing from '{TAG}' for 6 minutes. "
+                  f"That is an emergency, not a first run: {err}", file=sys.stderr)
+        elif "HTTP 404" in err:
             print(f"[catalog] '{ASSET}' is listed on '{TAG}' but GitHub has not "
                   f"served it for 6 minutes (HTTP 404) — a GitHub-side fault, not "
                   f"a missing catalog; the next scheduled run will pick it up: {err}",
@@ -286,7 +295,63 @@ def _same_as_base(raw: bytes, doc: dict) -> bool:
         {k: v for k, v in doc.items() if k not in skip}
 
 
-def publish(if_unchanged=False):
+def _assets() -> dict:
+    """{name: (id, created_at)} on the release, or None if it cannot be read."""
+    r = _gh_net("api", f"repos/{{owner}}/{{repo}}/releases/tags/{TAG}",
+                "--jq", '.assets[] | "\\(.id) \\(.created_at) \\(.name)"')
+    if r.returncode != 0:
+        return None
+    out = {}
+    for line in (r.stdout or "").splitlines():
+        aid, created, name = line.split(" ", 2)
+        out[name] = (aid, created)
+    return out
+
+
+def _rename(aid, name) -> bool:
+    return _gh_net("api", "-X", "PATCH", f"repos/{{owner}}/{{repo}}/releases/assets/{aid}",
+                   "-f", f"name={name}").returncode == 0
+
+
+def _delete(aid) -> bool:
+    return _gh_net("api", "-X", "DELETE",
+                   f"repos/{{owner}}/{{repo}}/releases/assets/{aid}").returncode == 0
+
+
+def _swap_in(next_name: str) -> str:
+    """Make the uploaded `next_name` the catalog. 'ok', 'raced' or 'failed'.
+
+    `gh release upload --clobber` deletes the asset, then uploads 58 MB, and for
+    that whole minute the release has no catalog. Three runs fell into that gap
+    in a week (2026-11-01 to 11-04): one could not fetch, one was told it was a
+    first run, and two publishers collided on the name. The bytes are uploaded
+    under another name first, so the gap is two renames long.
+    """
+    assets = _assets()
+    if assets is None or next_name not in assets:
+        return "failed"
+    new = assets[next_name][0]
+    # Leftovers of a run killed mid-swap. A day old, so never another run's.
+    cutoff = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() - 86400))
+    for name, (aid, created) in assets.items():
+        if name.startswith(ASSET + ".") and name != next_name and created < cutoff:
+            _delete(aid)
+    old = assets[ASSET][0] if ASSET in assets else None
+    if old and not _rename(old, f"{ASSET}.old-{new}"):
+        _delete(new)
+        return "raced"
+    if not _rename(new, ASSET):
+        # Another publisher took the name, or it failed; put ours back if not.
+        if old:
+            _rename(old, ASSET)
+        _delete(new)
+        return "raced"
+    if old:
+        _delete(old)
+    return "ok"
+
+
+def publish(if_unchanged=False, _tries=2):
     if not CATALOG.exists():
         print(f"[catalog] no {CATALOG} to publish", file=sys.stderr)
         return 1
@@ -318,8 +383,7 @@ def publish(if_unchanged=False):
         # A catalog written by two processes at once (2026-09-17: a backgrounded
         # overlay publish woke during a local apply) is a byte-spliced file that
         # still gzips and uploads; every reader downstream then fails. Parse
-        # before shipping — the only copy of the previous asset is destroyed by
-        # --clobber, so a bad upload has nothing to roll back to. The bytes
+        # before shipping: readers take whatever is swapped in. The bytes
         # parsed are the bytes gzipped: a second read could see another write.
         raw = CATALOG.read_bytes()
         try:
@@ -382,12 +446,25 @@ def publish(if_unchanged=False):
         print(f"[catalog] cannot reach release '{TAG}' — refusing to publish "
               f"({state})", file=sys.stderr)
         return 1
-    up = _gh_net("release", "upload", TAG, str(GZ), "--clobber")
+    nxt = REPO / f"{ASSET}.next-{os.getpid()}-{int(time.time())}"
+    GZ.replace(nxt)
+    up = _gh_net("release", "upload", TAG, str(nxt), "--clobber")
     if up.returncode != 0:
+        nxt.unlink()
         print(f"[catalog] upload of {ASSET} failed after retries: {(up.stderr or '').strip()[:300]}",
               file=sys.stderr)
         return 1
-    GZ.unlink()
+    swap = _swap_in(nxt.name)
+    nxt.unlink()
+    if swap == "raced":
+        print("[catalog] another publish landed during the swap", file=sys.stderr)
+        if if_unchanged or not _tries:
+            return 3
+        return publish(_tries=_tries - 1)
+    if swap != "ok":
+        print(f"[catalog] could not swap {ASSET} into place; the old catalog stands",
+              file=sys.stderr)
+        return 1
     print(f"[catalog] published {ASSET} to release '{TAG}'")
     return 0
 
@@ -397,8 +474,10 @@ def main():
     ap.add_argument("action", choices=["fetch", "publish"])
     ap.add_argument("--if-unchanged", action="store_true",
                     help="refuse (exit 3) when the release moved since the last fetch")
+    ap.add_argument("--bootstrap", action="store_true",
+                    help="seed a brand-new release: a missing asset is not an error")
     args = ap.parse_args()
-    return fetch() if args.action == "fetch" else publish(if_unchanged=args.if_unchanged)
+    return fetch(bootstrap=args.bootstrap) if args.action == "fetch" else publish(if_unchanged=args.if_unchanged)
 
 
 if __name__ == "__main__":
