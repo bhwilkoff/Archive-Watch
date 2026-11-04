@@ -43,15 +43,30 @@ try {
   await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
   let n = 0; const pending = new Map(); const errors = [];
   let details = {};
+  // What the network does: a file a server refuses, a file nobody can reach,
+  // archive.org's metadata cut off or answering, and an index held back.
+  const dead = new Set(), cutFiles = new Set();
+  let metaCut = false, metaFile = null, holdIndexMs = 0;
   const cors = [{ name: "Access-Control-Allow-Origin", value: "*" }];
   const answer = (id, url) => {
     const json = (o) => cdp("Fetch.fulfillRequest", { requestId: id, responseCode: 200,
       responseHeaders: [...cors, { name: "Content-Type", value: "application/json" }],
       body: Buffer.from(JSON.stringify(o)).toString("base64") });
+    if (/catalog-index\.json/.test(url)) return setTimeout(() => cdp("Fetch.continueRequest", { requestId: id }), holdIndexMs);
     if (/\/details\/[0-9a-f]{2}\.json/.test(url)) return json(details);
-    if (/archive\.org\/download\//.test(url)) return cdp("Fetch.fulfillRequest", { requestId: id, responseCode: 200,
-      responseHeaders: [...cors, { name: "Content-Type", value: "video/webm" }], body: clip });
-    if (/archive\.org\/metadata\//.test(url)) return json({ files: [] });
+    const file = /archive\.org\/download\/([^/]+)\//.exec(url);
+    if (file) {
+      const item = decodeURIComponent(file[1]);
+      if (cutFiles.has(item)) return cdp("Fetch.failRequest", { requestId: id, errorReason: "ConnectionFailed" });
+      if (dead.has(item)) return cdp("Fetch.fulfillRequest", { requestId: id, responseCode: 404, responseHeaders: cors, body: "" });
+      return cdp("Fetch.fulfillRequest", { requestId: id, responseCode: 200,
+        responseHeaders: [...cors, { name: "Content-Type", value: "video/webm" }], body: clip });
+    }
+    if (/archive\.org\/metadata\//.test(url)) {
+      if (metaCut) return cdp("Fetch.failRequest", { requestId: id, errorReason: "ConnectionFailed" });
+      return json(metaFile && url.includes(encodeURIComponent(metaFile)) ? { metadata: { identifier: metaFile },
+        files: [{ name: "film.mp4", format: "h.264", source: "derivative", size: "1000" }] } : {});
+    }
     return cdp("Fetch.failRequest", { requestId: id, errorReason: "BlockedByClient" });
   };
   ws.onmessage = (e) => { const m = JSON.parse(e.data);
@@ -72,24 +87,29 @@ try {
   await cdp("Runtime.enable");
   await cdp("Page.enable");
   await cdp("Fetch.enable", { patterns: [{ urlPattern: "*/details/*" }, { urlPattern: "*archive.org/*" },
-    { urlPattern: "*workers.dev*" }] });
+    { urlPattern: "*workers.dev*" }, { urlPattern: "*catalog-index.json*" }] });
 
   await cdp("Page.navigate", { url: `${SITE}#/library` });
   await until("!!document.getElementById('library-playlists')");
   const rows = await until(`fetch('catalog-index.json').then(r => r.json()).then(d => {
-    const f = d.items.filter(r => r[3] === 'feature-film' && r[8] === 1).slice(0, 5).map(r => [r[0], r[1]]);
+    const f = d.items.filter(r => r[3] === 'feature-film' && r[8] === 1).slice(0, 8).map(r => [r[0], r[1]]);
     const s = d.items.find(r => r[3] === 'tv-series');
     return { f, s: [s[0], s[1]] }; })`);
-  check("the local index has five films and a series card", rows?.f?.length === 5 && !!rows.s, JSON.stringify(rows?.s));
-  const [A, B, C, D, E] = rows.f.map((r) => r[0]);
+  check("the local index has eight films and a series card", rows?.f?.length === 8 && !!rows.s, JSON.stringify(rows?.s));
+  const [A, B, C, D, E, X, N, G] = rows.f.map((r) => r[0]);
   const title = Object.fromEntries(rows.f);
   const S = rows.s[0];
   // E is the title with no file: no shard record, and archive.org lists none.
-  for (const id of [A, B, C, D]) details[id] = [`https://archive.org/download/${encodeURIComponent(id)}/film.webm`];
+  // X's file is refused, G's cannot be reached, and N has no record of its own,
+  // so finding its file means asking archive.org.
+  dead.add(X);
+  for (const id of [A, B, C, D, X, G]) details[id] = [`https://archive.org/download/${encodeURIComponent(id)}/film.webm`];
 
   const list = (id, ids) => ({ id, name: id, archiveIDs: ids, createdAt: 1000, modifiedAt: 1000 });
   const lists = [list("main", [A, S, B, C]), list("one", [A]), list("series", [S]), list("film-series", [A, S]),
-    list("gap", [A, E, B]), list("empty-handed", [E]), list("two", [C, D])];
+    list("gap", [A, E, B]), list("empty-handed", [E]), list("two", [C, D]),
+    list("dead-mid", [A, X, B]), list("dead-first", [X, A]), list("dead-last", [A, X]), list("all-dead", [X]),
+    list("net-lookup", [A, N, B]), list("net-file", [A, G, B])];
   const store = (name, mode, body) => ev(`new Promise((res, rej) => { const q = indexedDB.open('archivewatch');
     q.onsuccess = () => { const t = q.result.transaction('${name}', '${mode}'); const s = t.objectStore('${name}'); let out; ${body}
       t.oncomplete = () => { q.result.close(); res(out); }; t.onerror = () => rej(t.error); }; q.onerror = () => rej(q.error); })`);
@@ -220,6 +240,120 @@ try {
   check("nothing playable says so on the page", await until(shown("playlist-error"), 120));
   check("and no player opens", (await ev("document.getElementById('player').open")) === false);
 
+  // --- the press itself reaches play(): Safari counts nothing later as the viewer's
+  await markWatched([]);
+  await open("two");
+  check("play() is called inside the press, before any lookup",
+    await ev(`(function () { const v = document.getElementById('video'); let n = 0; const real = v.play;
+      v.play = function () { n++; return real.apply(this, arguments); };
+      document.getElementById('playlist-play').click();
+      const during = n; delete v.play; return during === 1 && !v.getAttribute('src'); })()`));
+  check("and the list then plays", await playing(title[C]), await nowTitle());
+  await closePlayer();
+
+  // --- a file the server refuses: the list moves on by itself, the way it was going
+  await markWatched([]);
+  await open("dead-mid");
+  await ev("document.getElementById('playlist-play').click()");
+  check("dead file: the list starts", await playing(title[A]), await nowTitle());
+  await ev("document.getElementById('player-next').click()");
+  check("Next onto a dead file carries on by itself", await playing(title[B]), await nowTitle());
+  check("and the position stays true", (await at()) === "2 of 2", await at());
+  await closePlayer();
+  await markWatched([A, X]);
+  await ev("document.getElementById('playlist-play').click()");
+  check("from the last title", await playing(title[B]), await nowTitle());
+  check("at 3 of 3", (await at()) === "3 of 3", await at());
+  await ev("document.getElementById('player-prev').click()");
+  check("Previous onto a dead file keeps going back", await playing(title[A]), await nowTitle());
+  check("to 1 of 2", (await at()) === "1 of 2", await at());
+  await closePlayer();
+  await markWatched([X]);
+  await open("dead-first");
+  await ev("document.getElementById('playlist-play').click()");
+  check("from behind a dead first title", await playing(title[A]), await nowTitle());
+  await ev("document.getElementById('player-prev').click()");
+  check("nothing behind it: the list turns around", await until("window.AWPlayer.ctx().queue.length === 1 && document.getElementById('player').open"));
+  check("and plays", await playing(title[A]), await nowTitle());
+  await closePlayer();
+  await markWatched([]);
+  await open("dead-last");
+  await ev("document.getElementById('playlist-play').click()");
+  check("a dead last title: the one before plays out", await playing(title[A]), await nowTitle());
+  check("and the list ends there", await until("!document.getElementById('player').open", 80));
+  check("with nothing to apologize for", !(await ev(shown("playlist-error"))));
+  await cdp("Page.reload");      // a fresh page: the player has never played anything
+  await until("!!document.getElementById('library-playlists')");
+  await sleep(800);
+  await open("all-dead");
+  await ev("document.getElementById('playlist-play').click()");
+  check("every file dead: the page says so", await until(shown("playlist-error"), 120));
+  check("and the player is not left open", (await ev("document.getElementById('player').open")) === false);
+
+  // --- a lookup nobody could answer: the title stays, and is asked again
+  await markWatched([]);
+  await open("net-lookup");
+  metaCut = true;
+  await ev("document.getElementById('playlist-play').click()");
+  check("network: the list starts", await playing(title[A]), await nowTitle());
+  await ev("document.getElementById('player-next').click()");
+  check("Next passes a title it cannot reach", await playing(title[B]), await nowTitle());
+  check("which keeps its place in the count", (await at()) === "3 of 3", await at());
+  metaCut = false; metaFile = N;
+  await ev("document.getElementById('player-prev').click()");
+  check("reached again, with the network back, it plays", await playing(title[N]), await nowTitle());
+  check("in its own place", (await at()) === "2 of 3", await at());
+  await closePlayer();
+  metaFile = null;
+
+  // --- a file nobody can reach is the network, not a dead title
+  cutFiles.add(G);
+  await open("net-file");
+  await ev("document.getElementById('playlist-play').click()");
+  check("unreachable file: the list starts", await playing(title[A]), await nowTitle());
+  await ev("document.getElementById('player-next').click()");
+  await until(`document.getElementById('player-title').textContent === ${JSON.stringify(title[G])}`);
+  await sleep(3000);
+  check("the title stays where it is", (await nowTitle()) === title[G], await nowTitle());
+  check("and in the count", (await at()) === "2 of 3", await at());
+  await closePlayer();
+  cutFiles.clear();
+
+  // --- a shared list: same two buttons, the link's order, this viewer's watched
+  await open("main");
+  await ev("(function () { const keep = s => { window.__link = s; return Promise.resolve(); }; Object.defineProperty(navigator, 'share', { value: d => keep(d.url), configurable: true }); })()");
+  await ev("document.getElementById('playlist-share').click()");
+  const link = await until("window.__link");
+  check("the page makes a share link", /\/list\/#/.test(link || ""), link);
+  const blob = (link || "").split("#")[1];
+  await markWatched([A]);
+  await ev(`location.hash = '#/list/' + ${JSON.stringify(blob)}`);
+  await until("!document.getElementById('view-list').hidden && document.querySelectorAll('#list-grid .card').length === 4");
+  await sleep(350);
+  check("a shared list offers Play and Shuffle", await ev(shown("list-play")) && await ev(shown("list-shuffle")));
+  await shot("shared-1280");
+  await ev("document.getElementById('list-play').click()");
+  check("shared: Play starts at this viewer's first unwatched title", await playing(title[B]), await nowTitle());
+  check("shared: the series card is skipped", (await at()) === "2 of 3", await at());
+  await sleep(1100);
+  await ev("document.getElementById('player-next').click()");
+  check("shared: Next moves on", await playing(title[C]), await nowTitle());
+  check("shared: this viewer's progress is saved", (await progress()).some((p) => p.id === B && p.position > 0.5));
+  await closePlayer();
+  await ev("document.getElementById('list-shuffle').click()");
+  await until("document.getElementById('player').open");
+  check("shared: Shuffle starts at 1 of 3", (await at()) === "1 of 3", await at());
+  await closePlayer();
+  await ev("location.hash = '#/list/not-a-real-link'");
+  await until("!document.getElementById('list-empty').hidden");
+  check("a link that cannot be read offers neither", !(await ev(shown("list-play"))) && !(await ev(shown("list-shuffle"))));
+
+  // --- quick navigation: a skipped view transition is not an error
+  for (const h of ["#/library", "#/surprise", "#/library", "#/browse", "#/surprise", "#/library"]) {
+    await ev(`location.hash = '${h}'; new Promise(r => requestAnimationFrame(r))`);
+  }
+  await sleep(600);
+
   // --- nothing else changed: a single film keeps its end card, and no controls
   await ev(`location.hash = '#/item/${encodeURIComponent(A)}'`);
   await until("!document.getElementById('item-play').disabled && !document.getElementById('view-item').hidden");
@@ -251,6 +385,8 @@ try {
   check("390: Play fits", await ev(await fits("playlist-play")));
   check("390: Shuffle fits", await ev(await fits("playlist-shuffle")));
   check("390: the page does not scroll sideways", await ev(inFrame("document.documentElement.scrollWidth <= 390")));
+  const edge = (id) => ev(inFrame(`document.getElementById('${id}').getBoundingClientRect().left`));
+  check("390: Share lines up with the title", (await edge("playlist-share")) === (await edge("playlist-title")), `${await edge("playlist-share")} vs ${await edge("playlist-title")}`);
   await shot("playlist-390");
   await ev(inFrame("document.getElementById('playlist-play').click()"));
   await until(inFrame("document.getElementById('player').open && document.getElementById('player-position').textContent === '1 of 3'"));
@@ -258,16 +394,19 @@ try {
   check("390: Previous, position and Next fit", await ev(await fits("player-prev")) && await ev(await fits("player-position")) && await ev(await fits("player-next")));
   await shot("player-390");
   await ev(inFrame("window.AWPlayer.close()"));
+  await ev(inFrame(`window.location.hash = '#/list/' + ${JSON.stringify(blob)}`));
+  await until(inFrame("document.querySelectorAll('#list-grid .card').length === 4"));
+  await sleep(500);
+  check("390: a shared list's Play and Shuffle fit", await ev(await fits("list-play")) && await ev(await fits("list-shuffle")));
+  await shot("shared-390");
 
   // --- the television: same queue, the remote's verbs
   await markWatched([A]);
-  // Arrive from another page, as a viewer does: the pursuit of the primary
-  // action gives up after six seconds, and a cold index on an emulated engine
-  // takes longer than that.
-  await cdp("Page.navigate", { url: `${SITE}?tv=1#/library` });
-  await until("document.querySelectorAll('#library-playlists .playlist-card').length > 0", 400);
-  await ev("location.hash = '#/playlist/main'");
-  await until("document.getElementById('playlist-title').textContent === 'main' && !document.getElementById('view-playlist').hidden");
+  // A cold deep link with the index held back longer than any fixed wait.
+  holdIndexMs = 9000;
+  await cdp("Page.navigate", { url: `${SITE}?tv=1#/playlist/main` });
+  await until("document.getElementById('playlist-title') && document.getElementById('playlist-title').textContent === 'main' && !document.getElementById('view-playlist').hidden", 400);
+  holdIndexMs = 0;
   check("TV: the layer is on", await until("document.documentElement.classList.contains('tv')"));
   check("TV: the remote arrives on Play", await until("document.activeElement && document.activeElement.id === 'playlist-play'", 60), await ev("document.activeElement && (document.activeElement.id || document.activeElement.className)"));
   await shot("playlist-tv");

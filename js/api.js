@@ -51,10 +51,16 @@ const API = (() => {
       headers: { 'Accept': 'application/json' },
       signal: AbortSignal.timeout(timeoutMs)
     });
-    if (!resp.ok) throw new Error(`Archive ${resp.status} for "${id}"`);
+    if (!resp.ok) {
+      const err = new Error(`Archive ${resp.status} for "${id}"`);
+      err.absent = resp.status === 404;
+      throw err;
+    }
     const data = await resp.json();
     if (!data || !data.metadata) {
-      throw new Error(`No item found for "${id}"`);
+      const err = new Error(`No item found for "${id}"`);
+      err.absent = true;     // archive.org answered: there is no such item
+      throw err;
     }
     return data;
   }
@@ -187,12 +193,21 @@ const API = (() => {
     };
   }
 
+  /** Did the server answer for this file at all, whatever it said? A video
+      element reports a 404 and a dropped connection alike, and a media host
+      sends no CORS, so the answer is opaque: reaching it is the whole result. */
+  function fileAnswers(url) {
+    return fetch(url, { method: 'HEAD', mode: 'no-cors', signal: AbortSignal.timeout(8000) })
+      .then(() => true, () => false);
+  }
+
   return {
     normalizeIdentifier,
     sourceItem,
     detailsURL,
     thumbnailURL,
     fetchMetadata,
+    fileAnswers,
     summarize,
     scrape
   };

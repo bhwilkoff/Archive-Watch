@@ -892,12 +892,13 @@
    * presses away.
    *
    * Arrival therefore waits for the surface to render and then takes the
-   * primary action. It gives up after six seconds, and ANY key press cancels
+   * primary action. It waits for the catalog (a cold index on a television
+   * takes as long as it takes), gives up six seconds after, and ANY key press cancels
    * it — if the viewer has started navigating, focus is theirs and must not be
    * yanked out from under them. A route we are RETURNING to is left alone
    * entirely: the remembered tile wins over the primary action, because Back
    * means "where I was", not "start again". */
-  var arriving = false, arriveTimer = null;
+  var arriving = false, arriveReadyAt = 0;
 
   // ONLY A BACK RESTORES. This used to test "has this route been focused
   // before", so a film page opened FRESH from a card (the end-of-film card,
@@ -923,12 +924,11 @@
     returning = false;
     if (back && lastFocus[routeKey()]) return;      // returning: Back owns the choice
     arriving = true;
-    clearTimeout(arriveTimer);
-    arriveTimer = setTimeout(function () { arriving = false; }, 6000);
+    arriveReadyAt = 0;
     pursueArrival();
   }
 
-  function cancelArrival() { arriving = false; clearTimeout(arriveTimer); }
+  function cancelArrival() { arriving = false; }
 
   function pursueArrival() {
     if (!arriving) return;
@@ -936,6 +936,10 @@
       return el.classList && el.classList.contains('btn-primary');
     });
     if (primary) { cancelArrival(); focusEl(primary); return; }
+    if (document.documentElement.dataset.catalog) {
+      arriveReadyAt = arriveReadyAt || Date.now();
+      if (Date.now() - arriveReadyAt > 6000) { cancelArrival(); return; }
+    }
     setTimeout(pursueArrival, 200);
   }
 

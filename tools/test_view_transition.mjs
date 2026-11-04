@@ -17,7 +17,7 @@ const m = src.match(/function showView\(name\) \{[\s\S]*?\n  \}/);
 if (!m) { console.error('FAIL: showView not found in watch.js'); process.exit(1); }
 
 // Minimal DOM: the views, the nav, and a scrollable main.
-function makeEnv({ hasAPI, reducedMotion }) {
+function makeEnv({ hasAPI, reducedMotion, skipped = false }) {
   const state = { hidden: {}, current: {}, scrollTop: 99, transitions: 0 };
   const VIEWS = ['home', 'browse', 'search', 'item'];
   for (const v of VIEWS) state.hidden[`view-${v}`] = false;
@@ -28,7 +28,9 @@ function makeEnv({ hasAPI, reducedMotion }) {
     querySelectorAll: () => [{ dataset: { nav: 'home' },
       setAttribute: (k, v) => { state.current[k] = v; } }],
   };
-  if (hasAPI) document.startViewTransition = (cb) => { state.transitions++; cb(); return {}; };
+  if (hasAPI) document.startViewTransition = (cb) => { state.transitions++; cb();
+    return { ready: skipped ? Promise.reject(Object.assign(new Error('Transition was skipped'), { name: 'AbortError' }))
+                            : Promise.resolve() }; };
   const matchMedia = (q) => ({ matches: reducedMotion && q.includes('reduce') });
   const fn = new Function('VIEWS', '$', 'document', 'matchMedia',
     `${m[0]}; return showView;`)(VIEWS, $, document, matchMedia);
@@ -39,6 +41,7 @@ const cases = [
   ['modern browser: swap happens', { hasAPI: true, reducedMotion: false }, 1],
   ['no API (older browser): swap still happens', { hasAPI: false, reducedMotion: false }, 0],
   ['reduced motion: swap happens, NO transition', { hasAPI: true, reducedMotion: true }, 0],
+  ['skipped by a newer navigation: swap happens', { hasAPI: true, reducedMotion: false, skipped: true }, 1],
 ];
 
 let pass = 0, fail = 0;
@@ -54,6 +57,14 @@ for (const [name, env, wantTransitions] of cases) {
   check(`${name}`, swapped && state.transitions === wantTransitions);
   if (!swapped) console.log('        state:', JSON.stringify(state));
 }
+
+// A skipped transition rejects `ready`, and a viewer who navigates quickly does
+// that all the time; left unhandled it is an error on the page for nothing.
+let unhandled = 0;
+process.on('unhandledRejection', () => { unhandled++; });
+makeEnv({ hasAPI: true, reducedMotion: false, skipped: true }).fn('browse');
+await new Promise((r) => setTimeout(r, 20));
+check('a skipped transition leaves no unhandled rejection', unhandled === 0);
 
 console.log(`\n${pass}/${pass + fail} passed`);
 process.exit(fail === 0 ? 0 : 1);
