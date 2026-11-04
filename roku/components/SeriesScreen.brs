@@ -85,6 +85,13 @@ sub init()
     ' and it is now the same idiom as the rest.
     m.seasons.focusBitmapUri = "pkg:/images/pill_focus.9.png"
     m.seasons.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+    ' OS 9.1 stretches a 9-patch into a lens: there the pill is drawn at the
+    ' row's own size, and the text centered because a LabelList cannot inset it.
+    if AWIsLegacy()
+        m.seasons.focusBitmapUri = "pkg:/images/pill_focus_252x66.png"
+        m.seasons.focusFootprintBitmapUri = "pkg:/images/pill_rest_252x66.png"
+        m.seasons.textHorizAlign = "center"
+    end if
     m.seasons.drawFocusFeedbackOnTop = false
     ' NOT fixedFocusWrap: a wrapping list draws its own contents again below a
     ' divider, so a 7-season show showed "Season 18, 19, 23, Unsorted" and then

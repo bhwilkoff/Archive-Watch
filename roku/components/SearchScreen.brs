@@ -102,6 +102,10 @@ sub init()
         m.chips.Push(b)
         cx = cx + 336
     end for
+    if AWIsLegacy()
+        AWChipsUseSlices(m.chips)
+        m.chipGroup.ObserveField("focusedChild", "onChipFocus")
+    end if
     m.chipGroup.visible = false
     m.chipFocus = 0
 
@@ -126,6 +130,10 @@ sub init()
     m.zone = 0        ' 0 = keyboard, 1 = doors, 2 = results
 end sub
 
+sub onChipFocus()
+    AWChipsPaint(m.chips, m.restPills)
+end sub
+
 sub onText()
     q = m.kb.text
     if q = invalid then q = ""
@@ -141,7 +149,7 @@ sub onText()
         m.allResults = invalid
         m.doorGroup.visible = true
         m.doorsLabel.visible = true
-        m.status.text = "Type to search 26,965 titles — or pick a door."
+        m.status.text = "Type to search, or pick a door."
         return
     end if
     ' The whole query record in one write (AWQuerySpec): a Browse tab's scope,
@@ -334,7 +342,12 @@ sub applyFilters()
         ' it, where Browse honestly shows its full total.
         shown = m.matchTotal
         if wantType <> "" or wantDec <> "" then shown = n
-        m.status.text = AWPlural(shown, "title") + " match “" + m.kb.text + "”"
+        ' Search stops one past what it draws (sxSearch).
+        if shown > AWSearchLimit()
+            m.status.text = "More than " + fmt(AWSearchLimit()) + " titles match “" + m.kb.text + "”"
+        else
+            m.status.text = AWPlural(shown, "title") + " match “" + m.kb.text + "”"
+        end if
     end if
 end sub
 

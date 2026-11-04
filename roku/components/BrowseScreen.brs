@@ -96,6 +96,10 @@ sub init()
         x = x + 318
     end for
     m.chipGroup.translation = [42, 240]
+    if AWIsLegacy()
+        AWChipsUseSlices(m.chips)
+        m.chipGroup.ObserveField("focusedChild", "onChipFocus")
+    end if
     m.focusRow = 0      ' 0 = chips, 1 = grid
     m.focusChip = 0
     m.collectionID = ""
@@ -446,6 +450,10 @@ end sub
 
 sub onFocusOn()
     if m.top.focusOn then focusHere()
+end sub
+
+sub onChipFocus()
+    AWChipsPaint(m.chips, m.restPills)
 end sub
 
 sub focusHere()
