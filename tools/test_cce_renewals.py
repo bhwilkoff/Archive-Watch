@@ -101,6 +101,13 @@ PARAMOUNT NEWS, a series of motion pictures by Paramount.
 506. © 30Oct36; MP6936. 28Sep64; R345642.
 
 
+PARAMOUNT SOUND NEWS,
+
+A series of newsreels by Publix Corp. 1 reel each.
+Renewed by Paramount Pictures Corp. (PWH)
+88. © 4Jun30; M1737. 5Jul57; R194827.
+
+
 FOLIES PARISIENNE, a photoplay in two
 reels by Universal Pictures Co.
 © 9Apr40O; LP9529. Universal Pictures, Inc. (PWH); 2May67; R408977.
@@ -129,6 +136,8 @@ if by.get(("FLAMING OIL", "THE SECRET CODE"), {}).get("sr") != 1:
     bad.append("a series of photoplays must read as a serial")
 if by.get(("PARAMOUNT NEWS", "PARAMOUNT NEWS"), {}).get("sr"):
     bad.append("a newsreel's numbered issues are not one work")
+if ("PARAMOUNT SOUND NEWS", "PARAMOUNT SOUND NEWS") not in by:
+    bad.append("a series header on the line under its title")
 # The renewal date fixes a year OCR ruined, and overrules one it misread.
 d = lambda s: F.DATE.search(s)
 for raw, renewed, want in [("4Junt0", (1968, 6, 19), 1940), ("2Oct4O", (1970, 9, 21), 1942), ("16Ju145", (1971, 5, 27), 1943),
@@ -140,6 +149,7 @@ for raw, renewed, want in [("4Junt0", (1968, 6, 19), 1940), ("2Oct4O", (1970, 9,
 C._CCE = {}
 for r in rows + [{"t": "THE RAVEN", "y": 1942, "reg": "M1", "r": "R1", "rl": 1, "vol": "x"},
                  {"t": "A MOTH", "y": 1941, "reg": "L1", "r": "R2", "rl": 7, "vol": "x"},
+                 {"t": "2/68 by Vitaphone Corp", "y": 1934, "reg": "L1", "r": "R5", "vol": "x"},
                  {"t": "Chapter 1", "s": "BATMAN", "ch": "1", "sr": 1, "y": 1943, "r": "R3", "reg": "", "vol": "x"},
                  {"t": "The electrical brain", "s": "BATMAN", "ch": "1", "sr": 1, "y": 1943, "r": "R4", "reg": "", "vol": "x"}]:
     C._CCE.setdefault(C.norm_title(r.get("s") or r["t"]), []).append(r)
@@ -154,7 +164,8 @@ CASES = [("Spy Smasher", 1942, None, None, True), ("Spy Smasher", 1944, None, No
          ("The Raven", 1942, 92, "feature-film", False),          # Le Corbeau is not the one-reel The Raven
          ("The Raven", 1942, 9, "animation", True),
          ("A Moth", 1941, 7, "animation", False),                 # a cartoon is not a piece of a photoplay
-         ("A Moth", 1941, 12, "feature-film", True)]              # a fragment of the film still is the film
+         ("A Moth", 1941, 12, "feature-film", True),              # a fragment of the film still is the film
+         ("\ub9c8\ubd80\uc81c \ubc15\uc0ac 2", 1933, None, None, False)]    # another script keys as its digits
 for t, y, m, k, want in CASES:
     if bool(C.cce_renewal(t, y, m, k)) != want:
         bad.append(f"match {t} {y} {m} {k}: want {want}")

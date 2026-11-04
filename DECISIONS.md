@@ -269,6 +269,7 @@ into every session and the index alone carries every title.)
 - 176 — The catalog is swapped into place under another name; the release is never without it, and a missing asset is never a first run
 - 177 — A checker that can no longer find a known claim refuses to clear anyone, and a hidden series takes its episodes and its uploads with it
 - 178 — A series' year comes from evidence about the series, is searched for continually, and is never borrowed from a same-named film
+- 179 — A printed renewal is read to its chapter and its damaged date, a compilation is judged file by file, and a stored year yields to a later date of the item's own
 
 ---
 
@@ -831,3 +832,46 @@ of a year says nothing against a show (1.47.18), so never treat it as a claim.
 which is why Flash Gordon and Batman read as free; the renewals here were found in the
 raw text, and the parser is the open fix. A bundle stamps one year on every file, so
 per-file claims in compilations (Flip the Frog, early Warner cartoons) are still open.
+
+## 179 — A printed renewal is read to its chapter and its damaged date, a compilation is judged file by file, and a stored year yields to a later date of the item's own
+*Date: 2026-11-04*
+
+`fetch_cce_renewals` treats the text between two renewal numbers as one entry and
+reads "a series of photoplays" and its chapters (`s`, `ch`, `sr` for a serial), the
+1974-77 "(Cody of the pony express, episode no. 5)" form, chapters a cross-reference
+names, and a year OCR ruined, from the renewal date. `corroborate_copyright` matches a
+serial by its series, a chapter's name never as a film, and refuses a row whose printed
+reels contradict the file. `compilation_claims` asks each file of a whole-series item by
+its own title; `audit_tv_rights` writes `<item>@<token>` lines to `takedowns.json` with
+`until`, the year the work leaves copyright, and `"rule": "file"`. `build_bundle_series`
+gives a file the date its own title prints, else its film record's release.
+`remediate_catalog.own_later_year` moves a pre-age-line year when the item's id, a
+decade opening its title, or the uploader's account of the making names a later one;
+`audio_track` hides an audio upload wearing a film's identity.
+
+**Why**: the owner, 2026-11-04: *"The goal is the best possible data and the best
+possible database,"* and *"everything that can be displayed is displayed."* The reader
+needed an entry whole in one paragraph with a clean date: 123 serial headers in print,
+2 in the table, every October lost to "0ct". It had read 11,910 of about 21,000 renewals,
+so Laura, The Killers, Notorious and Scarface passed as presumed public domain. A renewal
+falls in a work's 28th year, so its date fixes the original's: 8,109 of 8,319 clean
+entries agree, and the rest are OCR'd years ("31Mar59" for 39). Flip the Frog had to come
+down whole because a bundle stamps one year on every file. The rights audit trusted a
+bare date, and a stock-footage house types the subject's: Yesterday's Newsreel, a 1950s
+TV show, read 1915.
+
+**How to apply**: a title alone is not a claim in a compilation: the bare match took The
+Mechanical Cow (Oswald 1927) for a CBS cartoon of 1937. A row counts for a claimant who
+renewed three titles of that compilation, or in the same filing batch, and a release
+before the age line is free whatever year its registration carries. A year in an id must
+be date-shaped; read as any number, it took Space: 1999, Studio One's "1984" and KNTV's
+accession numbers (Decision 169). A person's lines in `takedowns.json` and an
+`agent-reviewed` year are never touched by a rule. `CCE_RULE` re-asks every pre-1950
+title when the table changes. Tests: `test_cce_renewals`, `test_compilation_claims`,
+`test_date_plausibility`.
+
+**Consequences**: the first rights-audit after this lands hides 830 or so visible items
+on printed renewals. Flip the Frog's renewed files return from 2027 to 2029 by `until`
+and the next rebuild. A compilation's file with no film record and no printed date keeps
+the item's year and is judged by its renewal's date. Sermons in folksoundomy (no sermon
+collection, feature length) wear film identities still; the rule leaves them.

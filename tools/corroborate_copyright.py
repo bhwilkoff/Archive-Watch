@@ -108,7 +108,8 @@ def cce_renewal(title, year, minutes=None, kind=None):
         except Exception:
             pass
     want = norm_title(title)
-    if not want or not isinstance(year, int):
+    # Another script reads as its digits alone: "마부제 박사 2" is the key "2".
+    if not re.search(r"[a-z]{3}", want) or not isinstance(year, int):
         return None
     for r in _CCE.get(want, []):
         # A renewed newsreel issue says nothing of the next one; a serial is one work.

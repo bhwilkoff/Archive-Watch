@@ -75,7 +75,7 @@ RENEW = re.compile(r"(?<![A-Za-z0-9])R\s?(?=[0-9A-Za-z¥#]*\d[0-9A-Za-z¥#]*\d)[
 # Where a title stops when the entry says what it is.
 KIND = re.compile(r"[,.]?\s+(?:a|an|4|@|a&,?)\s+(?:(?:\w+[- ]){0,3}?)(?:p?photoplays?|motion\s*pictures?|series|serial|"
                   r"film|cartoon|newsreel)\b", re.I)
-SERIES = re.compile(r"[,.]\s+(?:a|an|4|@)\s+(?:\w+\s+)?(?:series|serial)\b", re.I)
+SERIES = re.compile(r"(?:^|[,.]\s+)(?:a|an|4|@)\s+(?:\w+\s+)?(?:series|serial)\b", re.I)
 # Where it stops otherwise: ". By Columbia", ". No.1151", or a period.
 TITLE_END = re.compile(r",\s+(?:a|an)\s|\.\s+(?:By|No\.|A\s+motion|A\s+photoplay)\b|(?<![A-Z])(?<!Mr)(?<!Mrs)(?<!Dr)(?<!St)"
                        r"(?<!Mt)(?<!Jr)\.\s|,\s+(?:by|in)\s")
@@ -287,6 +287,9 @@ def parse(text, vol):
         elif hp:
             hdr = SERIES.search(hp)
             name, _ = _part(_clean_title(hp[:hdr.start()]))
+            if not name:                # "PARAMOUNT SOUND NEWS, / A series of newsreels"
+                above = [p for p in head.split("\n")[:head.split("\n").index(hp)] if p.strip()]
+                name = _clean_title(above[-1]) if above else ""
             cl = re.search(r"[©@]\s*([^©@]{3,90}?\(PWH\)?)", head.replace("\n", " "))
             serial = bool(re.search(r"photoplays?|serial|episodes", hp[hdr.start():hdr.end() + 40], re.I))
             series = {"t": name, "c": cl.group(1) if cl else "", "serial": serial}

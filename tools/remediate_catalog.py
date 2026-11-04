@@ -30,6 +30,7 @@ Operates on catalog.json (root). Idempotent. `--dry-run` to preview.
 """
 
 import argparse
+import datetime as _dt
 import html as _html
 import json
 import re
@@ -997,16 +998,81 @@ def _is_vintage(it):
 # Miracle of the White Stallions (1963) as a 1919 film, Vengeance Is Mine (1979,
 # a YTS rip) as 1917 — all public domain by age, all silent. Decision 114's id
 # check only fired for ids of 1978+, so 1931-77 passed.
+_AGE_LINE = _dt.date.today().year - 95
 _REISSUE_MARK = re.compile(r"restor|remaster|re-?issue|re-?release|riedizione|anniversary|"
                            r"\bedition\b|criterion|\bkino\b", re.I)
 _CAMERA_ID = re.compile(r"^(img|dsc|mvi|vid|pxl|gopr)[-_]?\d", re.I)
+
+
+# A date in an id is date-shaped: "_1955", "-1933-720p", "Hill1968Ace", "Carlo1954"
+# at the end. Not "2000sdvd", and not an accession number: "hsj2023-17_kntv", or a
+# year with a serial after it. A range is the last year of what the item holds
+# ("1907to1957", "1925-to-1968").
+_ID_YEAR = re.compile(r"(?:(?<![0-9a-z])|(?<=[a-z])(?=\d{4}(?:[A-Z]|$)))(1[89]\d\d|20[0-2]\d)(?![0-9a-z])(?![-_]\d{2,3}(?:[-_]|$))")
+_ID_RANGE = re.compile(r"(?<![0-9])(?:1[89]\d\d|20[0-2]\d)(?:-to-|to|[-_])(1[89]\d\d|20[0-2]\d)(?![0-9])")
+_TITLE_DECADE = re.compile(r"^\W*(1[89]\d0|20[01]0)['\u2019]?s\b")
+# The uploader saying when the film was MADE, not what it shows: "produced in 1967",
+# "Made in 1954", "this 1950 Warner Brothers film", "Dating to 1930", "This late 1940s
+# black and white travel film", "an early 1950s TV show". Not "compiled in 1959" or
+# "restored": those date an older work's new copy.
+_MADE_IN = re.compile(
+    r"\b(?:produced|made|created|filmed|shot|released)\b[^.]{0,60}?\b(?:in|around|circa|c\.)\s+"
+    r"(?:the\s+)?(?:(?:early|mid|late)[- ])?(1[89]\d\d|20[0-2]\d)(?!\d)|"
+    r"\bdat(?:ing|es) (?:to|from)\s+(?:the\s+)?(1[89]\d\d|20[0-2]\d)(?!\d)|"
+    r"\b(?:this|a|an)\s+(?:(?:early|mid|late)[- ])?(1[89]\d\d|20[0-2]\d)(?:['\u2019]?s)?\s+"
+    r"(?:[\w,-]+\s+){0,5}?(?:film|movie|documentary|newsreel|short|tv show|program|production)\b", re.I)
+_REDATES = re.compile(r"restor|remaster|re-?issue|re-?releas|re-?edit|colori[sz]|digiti[sz]|compiled", re.I)
+
+
+def _year_is_title(y, t):
+    """The year is part of the NAME, not a date: "Koko in 1999", "20,000 Leagues",
+    "Space: 1999". A year in brackets is the title dating itself."""
+    return str(y) in re.sub(r"\D", "", re.sub(r"[\[(]\s*\d{4}\s*[\])]", " ", t))
+
+
+def own_later_year(it):
+    """A date of the item's own, past the age line, later than the year it carries:
+    that year is then not evidence (Decision 179). The stored year of an uploaded
+    film is whatever the uploader typed in archive.org's date field, and a stock
+    footage house types the subject's: Yesterday's Newsreel, a 1950s TV show, read
+    1915. Space: 1999, Studio One's "1984" and KNTV's accession numbers read as
+    years when the question was any number in a title (Decision 169), so this reads
+    date-shaped tokens of the id, a decade that opens the title, and what the
+    uploader says of the making, and never a number in a title."""
+    y = it.get("year")
+    aid = it.get("archiveID") or ""
+    if not isinstance(y, int) or y >= _AGE_LINE or aid.startswith("series:") or it.get("yearSource") == "agent-reviewed":
+        return None
+    t = it.get("title") or ""
+    found = []
+    syn = it.get("synopsis") or ""
+    if not it.get("imdbID"):     # a match to a film record outranks an uploader's aside
+        for m in _MADE_IN.finditer(syn):
+            if not _REDATES.search(syn[max(0, m.start() - 60):m.end()]):
+                found.append(int(next(g for g in m.groups() if g)))
+    d = _TITLE_DECADE.match(t)
+    if d:
+        found.append(int(d.group(1)))
+    if not (_REISSUE_MARK.search(f"{aid} {t}") or _CAMERA_ID.search(aid)):
+        ends = [int(v) for v in _ID_RANGE.findall(aid)]
+        tokens = ends or [int(v) for v in _ID_YEAR.findall(aid)]
+        if len(set(tokens)) == 1 and not _year_is_title(tokens[0], t):
+            found.append(tokens[0])
+    # Under the age line nothing turns on it, so a match to a film record stands.
+    later = [v for v in found if v - y >= 3 and v >= _AGE_LINE - (0 if it.get("imdbID") else 1)]
+    return max(later) if later else None
 
 
 def old_year_on_newer_upload(it):
     """-> the item's own later year when its stored silent-era year is borrowed."""
     y = it.get("year")
     if not isinstance(y, int) or y >= SILENT_CUTOFF + 2 or it.get("yearSource") == "agent-reviewed":
-        return None
+        return own_later_year(it)
+    return _borrowed_year(it) or own_later_year(it)
+
+
+def _borrowed_year(it):
+    y = it.get("year")
     # archive.org de-duplicates an identifier with an upload-month suffix
     # (macbeth_202004): a date the uploader never wrote.
     sy = source_year({**it, "archiveID": re.sub(r"_20\d{4}$", "", it.get("archiveID") or "")})
@@ -1016,13 +1082,7 @@ def old_year_on_newer_upload(it):
                                       (it.get("videoFile") or {}).get("name")) if v)
     if _REISSUE_MARK.search(names) or _CAMERA_ID.search(it.get("archiveID") or ""):
         return None
-    t = it.get("title") or ""
-    # The year is part of the NAME, not a date: "Koko in 1999", "20,000 Leagues".
-    if re.search(rf"\b(in|year|of)\s+{sy}\b", t, re.I) or any(
-            str(sy) in run.replace(",", "") and run.replace(",", "") != str(sy)
-            for run in re.findall(r"\d[\d,]*", t)):
-        return None
-    return sy
+    return None if _year_is_title(sy, it.get("title") or "") else sy
 
 
 def fix_old_year_on_newer_upload(it):
@@ -2854,6 +2914,42 @@ def exclude_not_films(items, stats):
                 it["excludedReason"] = "not_a_film"
 
 
+_AUDIO_COLLECTIONS = {"folksoundomy", "acidplanet", "opensource_audio", "audio_music", "audio_religion", "audio_sermons",
+                      "audio_bookspoetry", "audio_news", "audio_podcast", "audio_tech", "audio_foreign", "netlabels", "etree"}
+_OWN_AUDIO_ID = re.compile(r"(?:^|[-_])audio(?:[-_]|$)", re.I)
+_VIDEO_RIP = re.compile(r"x-?26[45]|[-._]h26[45]|xvid|divx|dvd|blu-?ray|bdrip|web-?dl|\d{3,4}p\b", re.I)
+_SERMONS = {"audio_religion", "audio_sermons"}
+_SONG_SECONDS = 540
+
+
+def audio_track(it):
+    """An upload archive.org files as AUDIO that has taken a film's identity from its
+    title alone: ACIDplanet's "Othello", Deep Purple's "Speed King". The MP4 is a song
+    with a still. The collection alone is not enough, because Wings (1927) sits in
+    folksoundomy too: it takes the item's own word (`-audio-`), a song's length, or a
+    collection of sermons, and only with a film's identity on it; a file that names
+    its own year or is plainly a video rip is left alone."""
+    if not (set(it.get("collections") or []) & _AUDIO_COLLECTIONS):
+        return False
+    aid = it.get("archiveID") or ""
+    if _OWN_AUDIO_ID.search(aid):
+        return True
+    if not it.get("imdbID") or _VIDEO_RIP.search(aid) or str(it.get("year")) in aid:
+        return False
+    if set(it.get("collections") or []) & _SERMONS:
+        return True          # a sermon runs a feature's length, and its title is a film's by chance
+    secs = it.get("fileRuntimeSeconds")
+    return isinstance(secs, (int, float)) and 0 < secs <= _SONG_SECONDS
+
+
+def exclude_audio_tracks(items, stats):
+    for it in items:
+        if not it.get("excluded") and audio_track(it):
+            it["excluded"] = True
+            it["excludedReason"] = "not_a_film"
+            stats["audio_track_excluded"] += 1
+
+
 def exclude_takedowns(items, stats):
     """Removal requests (docs/TAKEDOWNS.md, Decision 175). Whatever
     shared/editorial/takedowns.json lists is hidden on every surface, every
@@ -4259,6 +4355,7 @@ def remediate(items):
     exclude_hate_propaganda(items, stats)
     flag_propaganda(items, stats)
     exclude_not_films(items, stats)
+    exclude_audio_tracks(items, stats)
     exclude_takedowns(items, stats)
     exclude_sources_of_claimed_series(items, stats)
     refilter_reviews(items, stats)
