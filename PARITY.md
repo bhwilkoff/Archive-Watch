@@ -448,6 +448,7 @@ same sentence that offers what it CAN do.
 | Favorites | ✅ | ✅ | ✅ Detail heart + Library | ✅ | ✅ | local store per platform |
 | Playlists | ✅ | ✅ | ✅ `PlaylistSheet` + Library | ✅ | ✅ | |
 | Playlists in My Order (`Playlist.sortIndex`, synced) | ✅ shown in My Order | ✅ drag to arrange the list (Edit) and a list's films | ✅ Move Up / Move Down on a shelf | ✅ Edit: Move up/down + drag | ✅ long-press Move up/down (lists and films) | 2026-10-27, iOS-DESIGN §4.3a. A list with no place (new) sorts first. Every sync writer must carry `sortIndex`: one that drops it erases the order on every other device. tvOS shows the order; arranging with a remote is not built |
+| A playlist plays: Play, Shuffle, Previous/Next and "3 of 12" (iOS-DESIGN §4.3b) | ✅ transport menu; compiled, not run | ✅ capsule; iPhone 12 | ✅ toolbar; compiled, not run | ✅ incl. web-TV; headless Chrome + Chromium 85 | ⏳ branch, see below | Roku ✅ tiles at the head of the row; Roku 2 XD only. Nothing new is stored or synced |
 | Remove a film from a playlist, where it is shown | ✅ context menu | ✅ long-press + Edit | ⏳ via the Playlist sheet only | ✅ Edit: Remove | ✅ long-press | iOS-DESIGN §4.3a |
 | Rename a playlist | 🔮 | ✅ title menu + row menu | ✅ shelf menu | ✅ | ✅ | never existed on any platform before 2026-10-27 |
 | Sort a playlist's films and the list (My Order · A–Z · Z–A · Newest · Oldest), remembered | 🔮 | ✅ `playlistSort.<id>` / `.lists` | 🔮 | ✅ | ✅ | |
