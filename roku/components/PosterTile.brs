@@ -125,6 +125,7 @@ sub onContent()
         m.tileRule.visible = true
         m.tileLabel.color = m.t.textPri
         setSize(m.t.posterW, m.t.posterH)
+        positionRing()
         return
     end if
     m.art.visible = true
@@ -183,7 +184,13 @@ sub onArtLoaded()
 end sub
 
 sub positionRing()
-    AWFramePlace(m.frame, m.art, m.focused = true)
+    ' A typographic tile has no art, and a recycled Poster still reports the
+    ' last bitmap: the corners landed inside the plate (Stick, 2026-11-04).
+    if m.isTile = true
+        AWFramePlace(m.frame, m.plate, m.focused = true)
+    else
+        AWFramePlace(m.frame, m.art, m.focused = true)
+    end if
 end sub
 
 sub onFocusChanged()
@@ -213,6 +220,7 @@ sub onFocusChanged()
         else
             m.plate.color = "0x1C1C22FF"
         end if
+        positionRing()
         return
     end if
     ' The title is ALWAYS on. Showing it only under the focused tile meant a

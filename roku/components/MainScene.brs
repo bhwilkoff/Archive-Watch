@@ -2274,7 +2274,8 @@ sub playPendingEpisode(d as Object)
     m.episodeQueue = e
     if m.idLineup <> invalid
         m.idLineup.moving = false
-        if e.hint = true then m.idLineup.told = true
+        ' A skip's notice takes the same line (showPendingNotice), so the hint waits.
+        if e.hint = true and fmt(m.pendingNotice) = "" then m.idLineup.told = true
     end if
     ' F31 — "Party play... plays things with the surprise tiles in the
     ' foreground". This path is shared by episodes, playlists, user channels,
@@ -2644,6 +2645,7 @@ sub openLibrary()
 end sub
 
 sub closeLibrary()
+    m.libNotice = ""
     if m.library <> invalid
         m.library.visible = false
         m.library.focusOn = false
