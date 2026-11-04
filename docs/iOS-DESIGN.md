@@ -368,6 +368,22 @@ the film Detail and the series page show "IMDb 7.8" in their meta line, or
 "TVmaze 8.9" for a series IMDb does not rate; archive.org's reviewers keep the
 community row.
 
+4.3b **A playlist plays.** Owner, 2026-11-04: *"I'd like for it to be easy to set up
+playlists as 'Series' that you want to play through. I'd also like to add the
+ability to 'shuffle' the playlist to allow it to play in any order."* The same rule
+on every platform:
+- **Play** and **Shuffle** at the head of the list; there is no setting to turn on.
+  Play appears with one playable title, Shuffle with two.
+- Play follows the order on screen (the viewer's sort), starting at the first title
+  not marked watched, or the top if all are. Shuffle is a fresh random order, each
+  title once, from the start.
+- Titles follow one another whatever the Autoplay setting says, and playing stops
+  at the end of the list.
+- The player offers Previous and Next and says where it is ("3 of 12"), in the
+  platform's episode controls (§8.5).
+- A title with no file of its own (a series card) is skipped. Nothing new is stored
+  or synced: the place comes from watch history (Decision 170's rule on sync writers).
+
 4.3a **A playlist is edited where it is seen, and a swipe is never the only
 way to a verb.** A viewer, 2026-10-23 to 10-27: he could not remove a film,
 rename a list or arrange either, and found Delete by swiping by accident; the
