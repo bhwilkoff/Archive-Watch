@@ -541,6 +541,23 @@ end function
 
 ' A RowList jumps to [0, 0] whenever its content is replaced. These two find
 ' the row the viewer stood in again, by its title, after a repaint.
+' 0..7: exact title, then a title starting with the query (or "the " + it), then
+' a title or director containing it, then the rest; professional art first in
+' each. `q` is already lower case.
+function AWSearchRank(title as String, director as String, pro as Boolean, q as String) as Integer
+    t = LCase(title)
+    tier = 3
+    if t = q
+        tier = 0
+    else if Left(t, Len(q)) = q or Left(t, Len(q) + 4) = "the " + q
+        tier = 1
+    else if Instr(1, t, q) > 0 or Instr(1, LCase(director), q) > 0
+        tier = 2
+    end if
+    if pro then return tier * 2
+    return tier * 2 + 1
+end function
+
 ' A playlist row's Play and Shuffle tiles sit among its films in the row's
 ' content; anything acting on "the focused film" has to tell them apart.
 function AWIsListTile(id as String) as Boolean

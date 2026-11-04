@@ -6,6 +6,9 @@
   <interface>
     <field id="itemContent" type="node" onChange="onContent" />
     <field id="focusPercent" type="float" onChange="onFocus" />
+    <!-- EntryPanel's buttons sit beside a keyboard: a list keeps its focused
+         row lit after focus leaves it, and only one thing may be lit. -->
+    <field id="listHasFocus" type="boolean" value="true" onChange="onFocus" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />

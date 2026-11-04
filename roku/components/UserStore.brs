@@ -109,7 +109,12 @@ function awProgressRows() as Object
             if parts.Count() >= 4 then own = parts[3]
             ttl = ""
             if parts.Count() >= 5 then ttl = parts[4]
-            r = { id: parts[0], posn: Int(Val(parts[1])), dur: Int(Val(parts[2])), owner: own, title: ttl }
+            ' A trailing "w" on the duration says this title has been watched
+            ' once, whatever the position says now (awSetProgress). There, not
+            ' in a field of its own: awSplit drops empty fields, so a sixth
+            ' field would slide left on a film, and Val() reads "66w" as 66.
+            r = { id: parts[0], posn: Int(Val(parts[1])), dur: Int(Val(parts[2])), owner: own, title: ttl,
+                  seen: (Right(parts[2], 1) = "w") }
             rows.Push(r)
             if byId[r.id] = invalid then byId[r.id] = r
         end if
@@ -151,7 +156,9 @@ function awProgressTitle(t as String) as String
 end function
 
 function awProgressLine(r as Object) as String
-    line = r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur) + "|" + fmt(r.owner)
+    line = r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur)
+    if r.seen = true then line = line + "w"
+    line = line + "|" + fmt(r.owner)
     if r.title <> invalid and r.title <> "" then line = line + "|" + r.title
     return line
 end function
@@ -168,15 +175,20 @@ sub awSetProgress(id as String, posn as Integer, dur as Integer, owner = "" as S
     own = owner
     ttl = ""
     if own <> "" then ttl = awProgressTitle(title)
+    ' Once watched stays watched: restarting a title and leaving early used to
+    ' overwrite the 95% bookmark, and it read as never seen. Only "Mark as not
+    ' watched" (awClearProgressFor) takes it back.
+    seen = (dur > 0 and posn >= (dur * 95) / 100)
     for each r in rows
         if r.id = id
             if own = "" and r.owner <> "" then own = r.owner
             if ttl = "" and r.title <> "" then ttl = r.title
+            if awRowWatched(r) then seen = true
         end if
     end for
     ' Only an episode keeps a title: a film's comes from the index.
     if own = "" then ttl = ""
-    out = [{ id: id, posn: posn, dur: dur, owner: own, title: ttl }]
+    out = [{ id: id, posn: posn, dur: dur, owner: own, title: ttl, seen: seen }]
     for each r in rows
         if r.id <> id and out.Count() < awMaxProgress() then out.Push(r)
     end for
@@ -208,9 +220,14 @@ end function
 function awWatchedIds() as Object
     out = {}
     for each r in awProgressRows()
-        if r.dur > 0 and r.posn >= (r.dur * 95) / 100 then out[r.id] = true
+        if awRowWatched(r) then out[r.id] = true
     end for
     return out
+end function
+
+function awRowWatched(r as Object) as Boolean
+    if r.seen = true then return true
+    return r.dur > 0 and r.posn >= (r.dur * 95) / 100
 end function
 
 ' How full the 32 KB budget is, so Library can tell the truth about it.
@@ -260,11 +277,16 @@ sub awClearProgressFor(id as String)
     awWriteKey("prog", awJoin(out, Chr(10)))
 end sub
 
+' "Start from the beginning" moves the bookmark; it says nothing about whether
+' the title has been seen.
+sub awRestartProgress(id as String)
+    if awIsWatched(id) then awSetProgress(id, 0, awGetDuration(id)) else awClearProgressFor(id)
+end sub
+
 function awIsWatched(id as String) as Boolean
-    posn = awGetProgress(id)
-    dur = awGetDuration(id)
-    if dur <= 0 then return false
-    return posn >= (dur * 95) / 100
+    r = awProgressRow(id)
+    if r = invalid then return false
+    return awRowWatched(r)
 end function
 
 ' Where Play starts (iOS-DESIGN 4.3b): the first title not marked watched, or
@@ -374,6 +396,35 @@ function awAddToPlaylist(plID as String, aid as String) as Boolean
     return false
 end function
 
+sub awRenamePlaylist(plID as String, name as String)
+    clean = awSanitizeName(name)
+    if clean = "" then return
+    lists = awPlaylists()
+    for each p in lists
+        if p.id = plID then p.name = clean
+    end for
+    awWritePlaylists(lists)
+end sub
+
+' Moves one title one place; false when it is already at that end.
+function awMoveInPlaylist(plID as String, aid as String, delta as Integer) as Boolean
+    lists = awPlaylists()
+    for each p in lists
+        if p.id = plID
+            for i = 0 to p.ids.Count() - 1
+                if p.ids[i] = aid
+                    j = i + delta
+                    if j < 0 or j >= p.ids.Count() then return false
+                    t = p.ids[j] : p.ids[j] = p.ids[i] : p.ids[i] = t
+                    awWritePlaylists(lists)
+                    return true
+                end if
+            end for
+        end if
+    end for
+    return false
+end function
+
 sub awRemoveFromPlaylist(plID as String, aid as String)
     lists = awPlaylists()
     for each p in lists
@@ -427,10 +478,21 @@ function awStoreSelfTest() as String
     if awIsWatched("aw_test_b") then fails.Push("25% counted as watched")
     awMarkWatched("aw_test_b", 1200)
     if not awIsWatched("aw_test_b") then fails.Push("markWatched did not stick")
+    awSetProgress("aw_test_b", 300, 1200)
+    if not awIsWatched("aw_test_b") then fails.Push("leaving a rewatch early lost watched")
+    if awGetProgress("aw_test_b") <> 300 then fails.Push("a rewatch lost its place")
+    awSetProgress("aw_test_b", 320, 1200, "aw-show", "An episode")
+    if not awIsWatched("aw_test_b") then fails.Push("watched did not survive an owner and title")
+    awRestartProgress("aw_test_b")
+    if not awIsWatched("aw_test_b") or awGetProgress("aw_test_b") <> 0 then fails.Push("Start from the beginning lost watched")
+    awSetProgress("aw_test_h", 300, 1200)
+    awRestartProgress("aw_test_h")
+    if awGetDuration("aw_test_h") <> 0 then fails.Push("restart left an unwatched row")
     if awFirstUnwatched(["aw_test_b", "aw_test_g"]) <> 1 then fails.Push("Play did not skip a watched title")
     if awFirstUnwatched(["aw_test_b"]) <> 0 then fails.Push("Play did not return to the top of a watched list")
     awClearProgressFor("aw_test_b")
     if awGetProgress("aw_test_b") <> 0 then fails.Push("clearProgressFor left a row")
+    if awIsWatched("aw_test_b") then fails.Push("Mark as not watched left it watched")
 
     order = awShuffledOrder(12)
     seen = {}
@@ -455,6 +517,13 @@ function awStoreSelfTest() as String
         if awPlaylists()[0].ids.Count() <> 1 then fails.Push("duplicate id was stored twice")
         awAddToPlaylist(id, "aw_test_d")
         if awPlaylists()[0].ids.Count() <> 2 then fails.Push("second id not stored")
+        awAddToPlaylist(id, "aw_test_e")
+        if not awMoveInPlaylist(id, "aw_test_e", -1) then fails.Push("move refused")
+        if awPlaylists()[0].ids[1] <> "aw_test_e" then fails.Push("move did not move")
+        if awMoveInPlaylist(id, "aw_test_c", -1) then fails.Push("move ran past the top")
+        awRemoveFromPlaylist(id, "aw_test_e")
+        awRenamePlaylist(id, "Renamed")
+        if awPlaylists()[0].name <> "Renamed" then fails.Push("rename did not stick")
         awRemoveFromPlaylist(id, "aw_test_c")
         if awPlaylists()[0].ids.Count() <> 1 then fails.Push("removeFromPlaylist did not remove")
         awDeletePlaylist(id)
@@ -477,6 +546,12 @@ function awStoreSelfTest() as String
     end if
     awWriteKey("uch", savedUch)
 
+    if AWSearchRank("Kane", "", true, "kane") <> 0 then fails.Push("exact title is not first")
+    if AWSearchRank("The Kane Mutiny", "", false, "kane") <> 3 then fails.Push("the + query is not a prefix")
+    if AWSearchRank("Citizen Kane", "", true, "kane") <> 4 then fails.Push("title containing the query")
+    if AWSearchRank("Onibaba", "Kaneto Shindo", true, "kane") <> 4 then fails.Push("director containing the query")
+    if AWSearchRank("Onibaba", "", false, "kane") <> 7 then fails.Push("a blob match ranks last")
+
     awSetSetting("aw_test_flag", true)
     if not awGetSetting("aw_test_flag", false) then fails.Push("setting did not persist")
     awSetSetting("aw_test_flag", false)
@@ -486,7 +561,7 @@ function awStoreSelfTest() as String
     awWriteKey("prog", savedProg)
     awWriteKey("pl", savedPl)
 
-    if fails.Count() = 0 then return "AWPL selftest PASS (27 assertions)"
+    if fails.Count() = 0 then return "AWPL selftest PASS (42 assertions)"
     out = "AWPL selftest FAIL:"
     for each f in fails
         out = out + Chr(10) + "   - " + f

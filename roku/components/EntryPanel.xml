@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §7.6 — what stands in for Roku's Standard dialogs on firmware
+     that does not have them (OS 9.1). The same fields as those dialogs, so one
+     set of handlers serves both. MiniKeyboard is the node Search already ships
+     with. With a `message` it shows the words instead of a keyboard. -->
+<component name="EntryPanel" extends="Group">
+  <interface>
+    <field id="text" type="string" />
+    <field id="buttonSelected" type="integer" alwaysNotify="true" />
+    <field id="wasClosed" type="boolean" alwaysNotify="true" />
+    <function name="open" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/EntryPanel.brs" />
+  <children>
+    <Rectangle id="dim" />
+    <Rectangle id="plate" />
+    <Label id="head" />
+    <Label id="body" />
+    <MiniKeyboard id="kb" />
+    <MarkupList id="list" />
+  </children>
+</component>

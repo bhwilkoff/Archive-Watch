@@ -934,20 +934,21 @@ sub runQuery()
         end for
     end if
 
-    ' A TEXT search ranks title matches above blob matches. The blob carries
-    ' keywords, cast and director, so searching "kane" returned four Kaneto
-    ' Shindo films above "Martin Kane" — every one a legitimate hit, and none
-    ' of them what was asked for. The blob matches still appear; they follow.
+    ' A TEXT search ranks the title and director above the rest of the blob
+    ' (keywords, cast), which still appears, after them.
+    '
+    ' The order is every platform's (watch.js searchRank, CatalogDB.search), in
+    ' buckets so popularity keeps breaking ties: BrightScript has no stable sort
+    ' for arrays of arrays.
     if text <> ""
-        titled = []
-        rest = []
+        buckets = [[], [], [], [], [], [], [], []]
         for each r in hits
-            if Instr(1, LCase(fmt(r[1])), text) > 0 then titled.Push(r) else rest.Push(r)
+            buckets[AWSearchRank(fmt(r[1]), fmt(r[12]), r[5] = 1, text)].Push(r)
         end for
-        for each r in rest
-            titled.Push(r)
+        hits = []
+        for each b in buckets
+            hits.Append(b)
         end for
-        hits = titled
     end if
 
     total = hits.Count()

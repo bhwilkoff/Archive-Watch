@@ -434,7 +434,7 @@ function libraryPayload() as Object
     end for
     watched = []
     for each r in awProgressRows()
-        if r.dur > 0 and r.posn >= (r.dur * 95) / 100 then watched.Push(r.id)
+        if awRowWatched(r) then watched.Push(r.id)
     end for
     ' Watched last: a record, not a recommendation, and it must not bury the
     ' playlists the viewer made.
@@ -446,6 +446,8 @@ function libraryPayload() as Object
     ' the viewer has.
     budget = AWPlural(favs.Count(), "saved item") + "  ·  " + fmt(cw.Count()) + " in progress  ·  " + AWPlural(awPlaylists().Count(), "playlist")
     if awStorageUsed() > 29000 then budget = budget + "  ·  Library nearly full"
+    ' The rows repaint again as user items resolve; a failure must outlast that.
+    if m.libNotice <> invalid and m.libNotice <> "" then budget = m.libNotice
     return { rows: root, meta: meta, budget: budget }
 end function
 
@@ -503,6 +505,7 @@ function playlistFilms(plID as String) as Object
 end function
 
 sub startPlaylist(plID as String, shuffled as Boolean)
+    m.libNotice = ""
     f = playlistFilms(plID)
     if f.ids.Count() = 0 then return
     if shuffled
@@ -960,8 +963,13 @@ sub openLibraryOptions()
         ' Not on the legacy tier: a playlist code is v23-v27 and the encode
         ' blocks the render thread for seconds on a 2014 box (AWCan).
         if AWCan("shareList") then opts.Push({ id: "sharelist", label: "Share this playlist" })
-        if not AWIsListTile(fmt(m.library.focusedItem)) then opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
-        opts.Push({ id: "deletelist", label: "Delete this playlist" })
+        if not AWIsListTile(fmt(m.library.focusedItem))
+            opts.Push({ id: "moveup", label: "Move this film earlier" })
+            opts.Push({ id: "movedown", label: "Move this film later" })
+            opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
+        end if
+        opts.Push({ id: "renamelist", label: "Rename this playlist…" })
+        opts.Push({ id: "deletelist", label: "Delete this playlist…" })
     end if
     ' Watch Together: JOIN a friend's room (SHAREPLAY §11.9, ROKU-DESIGN §8a).
     ' A Roku cannot host — rooms serve a live stream, and hosting is the Mac.
@@ -994,10 +1002,7 @@ sub onLibraryOptionPicked(pick as String)
         return
     else if pick = "sharelist" and plID <> ""
         sh = awPlaylistShareURL(plID)
-        name = ""
-        for each pl in awPlaylists()
-            if pl.id = plID then name = pl.name
-        end for
+        name = playlistName(plID)
         ' Say WHAT is being shared when the list was clipped. A viewer who put
         ' 70 films in a playlist and scans a code holding 50 must be told here,
         ' not left to discover it on their phone.
@@ -1011,7 +1016,23 @@ sub onLibraryOptionPicked(pick as String)
     else if pick = "removeitem" and plID <> ""
         awRemoveFromPlaylist(plID, m.library.focusedItem)
         m.library.callFunc("showRows", libraryPayload())
+    else if (pick = "moveup" or pick = "movedown") and plID <> ""
+        film = fmt(m.library.focusedItem)
+        delta = 1
+        if pick = "moveup" then delta = -1
+        if awMoveInPlaylist(plID, film, delta)
+            m.library.callFunc("showRows", libraryPayload())
+            m.library.callFunc("focusFilm", film)
+        end if
+    else if pick = "renamelist" and plID <> ""
+        m.renameID = plID
+        m.renamer = openEntry("Rename this playlist", ["Save", "Cancel"], "onRenameButton", "onRenameClosed", playlistName(plID))
+        return
     else if pick = "deletelist" and plID <> ""
+        m.moreMode = "library"
+        m.more.callFunc("open", { title: "Delete " + playlistName(plID) + "?", options: [{ id: "deleteyes", label: "Delete this playlist" }, { id: "cancel", label: "Keep it" }] })
+        return
+    else if pick = "deleteyes" and plID <> ""
         awDeletePlaylist(plID)
         m.library.callFunc("showRows", libraryPayload())
     else if pick = "settings"
@@ -1024,21 +1045,40 @@ sub onLibraryOptionPicked(pick as String)
     refocus(m.library)
 end sub
 
+function playlistName(plID as String) as String
+    for each pl in awPlaylists()
+        if pl.id = plID then return pl.name
+    end for
+    return ""
+end function
+
+sub onRenameClosed()
+    closeEntry(m.renamer)
+    m.renamer = invalid
+    refocus(m.library)
+end sub
+
+sub onRenameButton()
+    k = m.renamer
+    if k = invalid then return
+    if k.buttonSelected = 0 then awRenamePlaylist(m.renameID, k.text)
+    closeEntry(k)
+    m.renamer = invalid
+    m.library.callFunc("showRows", libraryPayload())
+    refocus(m.library)
+end sub
+
 ' ---- Watch Together: join a room (ROKU-DESIGN §8a). The same two dialog
 ' traps as openNamer: StandardKeyboardDialog, and wasClosed observed.
 sub openRoomCode()
-    k = CreateObject("roSGNode", "StandardKeyboardDialog")
-    k.title = "Enter the room code"
-    k.buttons = ["Join", "Cancel"]
-    k.ObserveField("buttonSelected", "onRoomCodeButton")
-    k.ObserveField("wasClosed", "onRoomCodeClosed")
-    m.roomKeyboard = k
-    m.top.dialog = k
+    m.roomKeyboard = openEntry("Enter the room code", ["Join", "Cancel"], "onRoomCodeButton", "onRoomCodeClosed")
 end sub
 
 sub onRoomCodeClosed()
-    m.top.dialog = invalid
+    closeEntry(m.roomKeyboard)
+    closeEntry(m.roomNotice)
     m.roomKeyboard = invalid
+    m.roomNotice = invalid
     refocus(m.library)
 end sub
 
@@ -1046,9 +1086,10 @@ sub onRoomCodeButton()
     k = m.roomKeyboard
     if k = invalid then return
     typed = k.text
-    m.top.dialog = invalid
+    picked = k.buttonSelected
+    closeEntry(k)
     m.roomKeyboard = invalid
-    if k.buttonSelected <> 0
+    if picked <> 0
         refocus(m.library)
         return
     end if
@@ -1088,12 +1129,17 @@ end sub
 
 sub showRoomProblem(text as String)
     d = CreateObject("roSGNode", "StandardMessageDialog")
-    d.title = "Could not join"
-    d.message = [text]
-    d.buttons = ["OK"]
+    if d = invalid
+        d = entryPanel("Could not join", text, ["OK"])
+    else
+        d.title = "Could not join"
+        d.message = [text]
+        d.buttons = ["OK"]
+        m.top.dialog = d
+    end if
     d.ObserveField("buttonSelected", "onRoomCodeClosed")
     d.ObserveField("wasClosed", "onRoomCodeClosed")
-    m.top.dialog = d
+    m.roomNotice = d
 end sub
 
 ' The room names the film and where it is: play THAT film from THERE, then
@@ -1164,9 +1210,43 @@ sub startIDLineup(ids as Object, origin as String, kind as String, titles = inva
         end if
         names.Push(t)
     end for
-    m.idLineup = { ids: ids, titles: names, index: first, origin: origin, kind: kind, told: false }
+    m.idLineup = { ids: ids, titles: names, index: first, origin: origin, kind: kind, told: false,
+                   dir: 1, from: first, moving: false }
     playIDLineup()
 end sub
+
+' A title that will not play is passed in the direction of travel: Previous
+' keeps going back. True when the lineup went on; false when it has run out.
+' Run out on a key press and the film still playing stays where it is. Run out
+' going back and a dead film has already replaced it: return to the one left.
+function skipLineupItem() as Boolean
+    l = m.idLineup
+    if l = invalid then return false
+    nxt = l.index + l.dir
+    if nxt >= 0 and nxt < l.ids.Count()
+        print "AWSER lineup skips "; l.index; " -> "; nxt
+        l.index = nxt
+        playIDLineup()
+        return true
+    end if
+    if l.moving
+        print "AWSER lineup move ran out, staying on "; l.from
+        l.index = l.from
+        l.moving = false
+        l.dir = 1
+        m.pendingEpisode = invalid
+        if m.player <> invalid then m.player.callFunc("showNotice", "That title would not play.")
+        return true
+    end if
+    if l.dir < 0
+        print "AWSER lineup back to "; l.from
+        l.dir = 1
+        l.index = l.from
+        playIDLineup()
+        return true
+    end if
+    return false
+end function
 
 sub playIDLineup()
     l = m.idLineup
@@ -1369,25 +1449,50 @@ end sub
 '  * Without `buttons` there is a keyboard to type into and NOTHING to confirm
 '    with: `buttonSelected` never fires and the only exit is Back.
 sub openNamer()
-    ' StandardKeyboardDialog, not KeyboardDialog: certification 4.12 rejects
-    ' the older node for voice entry. This dialog only names a playlist, so
-    ' the rule arguably does not bite — but static analysis flags the NODE,
-    ' not what it collects, and the newer one takes the same title/buttons.
+    m.namer = openEntry("Name this playlist", ["Save", "Cancel"], "onNamerButton", "onNamerClosed")
+end sub
+
+' StandardKeyboardDialog, not KeyboardDialog: certification 4.12 rejects the
+' older node for voice entry, and static analysis flags the NODE, not what it
+' collects. OS 9.1 has no Standard dialogs at all: CreateObject answers invalid
+' and the first field written halted the channel (Roku 2 XD, 2026-11-04). There
+' EntryPanel stands in, on the MiniKeyboard Search already ships with.
+function openEntry(title as String, buttons as Object, onButton as String, onClosed as String, text = "" as String) as Object
     k = CreateObject("roSGNode", "StandardKeyboardDialog")
-    k.title = "Name this playlist"
-    k.buttons = ["Save", "Cancel"]
-    k.ObserveField("buttonSelected", "onNamerButton")
+    if k = invalid
+        print "AWENTRY no StandardKeyboardDialog on this firmware: EntryPanel"
+        k = entryPanel(title, invalid, buttons, text)
+    else
+        k.title = title
+        k.buttons = buttons
+        k.text = text
+        m.top.dialog = k
+    end if
+    k.ObserveField("buttonSelected", onButton)
     ' A dialog dismissed with Back closes itself; without this the Scene keeps
     ' a dead dialog assigned and every later key goes to it.
-    k.ObserveField("wasClosed", "onNamerClosed")
-    m.namer = k
-    m.top.dialog = k
+    k.ObserveField("wasClosed", onClosed)
+    return k
+end function
+
+function entryPanel(title as String, message as Dynamic, buttons as Object, text = "" as String) as Object
+    k = m.top.FindNode("options").CreateChild("EntryPanel")
+    k.callFunc("open", { title: title, message: message, buttons: buttons, text: text })
+    return k
+end function
+
+sub closeEntry(k as Dynamic)
+    m.top.dialog = invalid
+    if k = invalid then return
+    if k.subtype() <> "EntryPanel" then return
+    p = k.getParent()
+    if p <> invalid then p.removeChild(k)
 end sub
 
 sub onNamerClosed()
-    m.top.dialog = invalid
+    closeEntry(m.namer)
     m.namer = invalid
-    refocus(m.detail)
+    if m.plFrom = "series" then refocus(m.series) else refocus(m.detail)
 end sub
 
 sub onNamerButton()
@@ -1423,7 +1528,7 @@ sub onNamerButton()
             end if
         end if
     end if
-    m.top.dialog = invalid
+    closeEntry(k)
     m.namer = invalid
     if m.plFrom = "series"
         refocus(m.series)
@@ -1671,7 +1776,7 @@ sub onMorePicked()
         awClearProgressFor(id)
         m.detail.toast = "Marked as not watched."
     else if pick = "restart"
-        awClearProgressFor(id)
+        awRestartProgress(id)
         m.detail.toast = "Next play starts from the beginning."
     else if pick = "save" or pick = "unsave"
         r = awToggleFavorite(id)
@@ -2151,8 +2256,10 @@ sub playPendingEpisode(d as Object)
             return
         end if
         if m.idLineup <> invalid
-            m.idLineup.index = m.idLineup.index + 1
+            if skipLineupItem() then return
+            m.idLineup.index = m.idLineup.ids.Count()
             playIDLineup()
+            noticeOnRoute("That title would not play.")
             return
         end if
         if m.series <> invalid then m.series.visible = true
@@ -2166,6 +2273,7 @@ sub playPendingEpisode(d as Object)
         m.player.ObserveField("menuRequested", "openPlayerOptions")
     end if
     m.episodeQueue = e
+    if m.idLineup <> invalid then m.idLineup.moving = false
     ' F31 — "Party play... plays things with the surprise tiles in the
     ' foreground". This path is shared by episodes, playlists, user channels,
     ' Channels and Party Play, and it hid only the SERIES screen — so every
@@ -2885,18 +2993,12 @@ sub onDetailTaskStatus()
     ' once something has played, so a lineup whose FIRST film was dead
     ' simply stopped.
     if e <> invalid and m.idLineup <> invalid
-        m.idLineup.index = m.idLineup.index + 1
-        if m.idLineup.index < m.idLineup.ids.Count()
-            print "AWSER skipping unresolvable lineup item, advancing to "; m.idLineup.index
-            playIDLineup()
-            return
-        end if
+        if skipLineupItem() then return
         ' The lineup ran out on a dead film: leave the finished one too.
         m.idLineup = invalid
-        if m.route = "player"
-            closePlayer()
-            return
-        end if
+        if m.route = "player" then closePlayer()
+        noticeOnRoute("That title would not play.")
+        return
     end if
     q = m.episodeQueue
     if e <> invalid and q <> invalid
@@ -3252,12 +3354,9 @@ sub onPlaybackFailed()
         end if
     end if
     if m.idLineup <> invalid
-        if m.idLineup.index + 1 < m.idLineup.ids.Count()
-            m.idLineup.index = m.idLineup.index + 1
-            m.pendingNotice = skipped
-            playIDLineup()
-            return
-        end if
+        m.pendingNotice = skipped
+        if skipLineupItem() then return
+        m.pendingNotice = ""
     end if
     q = m.episodeQueue
     if q <> invalid and m.idLineup = invalid and m.lineup = invalid and m.chQueue = invalid
@@ -3283,6 +3382,9 @@ sub noticeOnRoute(msg as String)
         m.series.callFunc("showNotice", msg)
     else if m.route = "channels" and m.channels <> invalid
         m.channels.callFunc("sayNoMatch", msg)
+    else if m.route = "library" and m.library <> invalid
+        m.libNotice = msg
+        m.library.callFunc("showRows", libraryPayload())
     else
         print "AWPLAY notice with nowhere to show it (route="; m.route; "): "; msg
     end if
@@ -3309,6 +3411,7 @@ sub onPlaybackEnded()
         return
     end if
     if m.idLineup <> invalid
+        m.idLineup.dir = 1
         m.idLineup.index = m.idLineup.index + 1
         playIDLineup()
         return
@@ -3536,7 +3639,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             nxt = l.index + delta
             if nxt >= 0 and nxt < l.ids.Count()
                 print "AWSER lineup move "; l.index; " -> "; nxt
-                m.idLineup.index = nxt
+                l.dir = delta
+                if not l.moving then l.from = l.index
+                l.moving = true
+                l.index = nxt
                 playIDLineup()
             else
                 print "AWSER lineup move refused at edge "; l.index

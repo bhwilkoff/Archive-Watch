@@ -151,6 +151,15 @@ def installer_messages(html):
     for m in re.finditer(r'\{"text":"((?:[^"\\]|\\.)*)","text_type":"[^"]*","type":"([a-z]+)"\}', html):
         text = m.group(1).encode().decode("unicode_escape").strip()
         out.append((m.group(2), text))
+    if out:
+        return out
+    # OS 9.1 has no JSON blob: its page writes each message into a hidden
+    # <font color="red"> element "so old scripts can continue to work", with
+    # "Install Failure: ..." and the compile errors in the same place.
+    for m in re.finditer(r'<font color="red">(.*?)</font>', html, re.S):
+        text = re.sub(r"<[^>]+>", " ", m.group(1)).strip()
+        if text:
+            out.append(("error" if "fail" in text.lower() else "success", text))
     return out
 
 

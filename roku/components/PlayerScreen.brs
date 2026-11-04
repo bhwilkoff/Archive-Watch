@@ -76,6 +76,7 @@ sub onUrl()
     m.bookOwner = m.top.progressOwner
     m.bookTitle = m.top.progressTitle
     m.bookTicks = 0
+    m.didFail = false
     ' Whatever the last film said about itself does not apply to this one.
     m.diag.visible = false
     ' A url with a raw space is not a url, and the Video node will not open
@@ -174,6 +175,9 @@ sub onState()
     else if s = "paused"
         writeBookmark("-pause")
     else if s = "finished"
+        ' The node reports `finished` straight after `error`. Read as an ending,
+        ' it moved a queue on a second time, past the good title that follows.
+        if m.didFail = true then return
         m.dog.control = "stop"
         writeBookmark("-end")
         m.top.ended = true
@@ -181,6 +185,7 @@ sub onState()
         ' Say WHY. A silent failure here is the single most expensive thing on
         ' this platform, and the error fields are the only account we get.
         print "AWPLAY error code="; m.video.errorCode; " msg="; m.video.errorMsg
+        m.didFail = true
         ' The code goes to the CONSOLE, never the screen. The comment below
         ' has always said so; the line above it did the opposite, and left
         ' "Playback error -5" sitting in the bottom-left corner. It was set

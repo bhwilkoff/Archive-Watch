@@ -91,6 +91,17 @@ sub onRowFocused()
     end if
 end sub
 
+' Focus follows a film moved within its row; the repaint restores the COLUMN.
+sub focusFilm(id as String)
+    idx = m.rows.rowItemFocused
+    if idx = invalid or m.rows.content = invalid then return
+    row = m.rows.content.GetChild(idx[0])
+    if row = invalid then return
+    for i = 0 to row.GetChildCount() - 1
+        if row.GetChild(i).id = id then m.rows.jumpToRowItem = [idx[0], i]
+    end for
+end sub
+
 ' The ids in the focused row, in order — what Play All needs.
 function focusedRowIDs() as Object
     out = []

@@ -191,6 +191,12 @@ sub showSeries(d as Object)
         bits.Push(span)
     end if
     if d.networks <> invalid and d.networks.Count() > 0 then bits.Push(fmt(d.networks[0]))
+    ' A rating names its crowd (Decision 171); IMDb's is the star, as on Detail.
+    if d.imdbRating <> invalid and d.imdbRating > 0
+        bits.Push(AWStar() + " " + Left(fmt(d.imdbRating), 3))
+    else if d.tvmazeRating <> invalid and d.tvmazeRating > 0
+        bits.Push("TVmaze " + Left(fmt(d.tvmazeRating), 3))
+    end if
     ' The HONEST episode count: how many we can actually play, against how many
     ' the show has. A series page that claims 39 and holds 18 is a promise the
     ' archive cannot keep.
