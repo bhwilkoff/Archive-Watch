@@ -57,6 +57,10 @@ check("a post-1978 PA registration (trailer, colorized version) is NOT a claim o
       not C.renewal_in(plan9, "Plan 9 from Outer Space", 1959))
 song = [record("RE", "music", "Charade.  From Charade.  w Johnny Mercer, m Henry Mancini.", 1963)]
 check("a renewal of the film's SONG is not a claim on the film", not C.renewal_in(song, "Charade", 1963))
+check("not even under the film's exact title",
+      not C.renewal_in([record("RE", "music", "Charade.", 1963)], "Charade", 1963))
+check("nor is a renewal of the play",
+      not C.renewal_in([record("RE", "dramatic_work", "Charade.", 1963)], "Charade", 1963))
 check("a different title is not a match",
       not C.renewal_in([record("RE", "motion_picture", "Kiss me Kate.", 1955)], "Kiss Me Deadly", 1955))
 # Gentlemen Prefer Blondes (1953): the Office titles it "Gentlemen prefer
