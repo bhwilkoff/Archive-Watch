@@ -138,7 +138,13 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   Rename… / Delete playlist… in its overflow; a long-press on a film offers
   Move earlier / Move later (My Order) and Remove from playlist. Move items, not
   drag: Compose foundation has no built-in reorderable list. `sortIndex` rides
-  in the Drive blob both ways. Browse remembers its sort per kind of grid
+  in the Drive blob both ways.
+  **A playlist plays** (iOS-DESIGN §4.3b): Play and Shuffle lead the grid
+  (`PlaylistPlay`, a `PlaySpec.queue` flagged `playlist`). Previous and Next are
+  Media3's own transport buttons plus rows in the options sheet; "3 of 12" sits
+  in the player's top bar. Each title resumes from its own progress. The Copies
+  picker stays off in a queue, because swapping a copy replaces the timeline.
+  Browse remembers its sort per kind of grid
   (`browseSort.*`, SharedPreferences), TV starts A–Z, Z–A everywhere. Top
   Rated orders by `ratingRank` (Decision 171). **A rating names its crowd**:
   IMDb's keeps the star ("★ 8.8") on Detail and the series page; a series IMDb

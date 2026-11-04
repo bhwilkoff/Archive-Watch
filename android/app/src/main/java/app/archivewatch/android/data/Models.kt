@@ -416,7 +416,17 @@ data class PlaySpec(
     // A preset or user channel tuned from the guide: its row in ChannelSurf,
     // so the player can change channel. Null for everything else.
     val channelIndex: Int? = null,
+    // The queue is a playlist (iOS-DESIGN §4.3b): the player names its place
+    // in the list and each title takes up where the viewer left it.
+    val playlist: Boolean = false,
 )
+
+/** The tracks of the title now playing. A season queue carries none: only the
+ *  episode the viewer pressed Play on brings its own, on the spec. */
+fun PlaySpec.captionsFor(playingID: String): List<Caption> {
+    val entry = queue.firstOrNull { it.id == playingID } ?: return captions
+    return if (entry.captions.isEmpty() && playingID == id) captions else entry.captions
+}
 
 /** A viewer-facing line saying where the synopsis came from. Every source is
  *  named, not only the weak one: provenance is the point. */
@@ -440,6 +450,7 @@ data class QueueEntry(
     val subtitle: String? = null,
     val url: String,
     val captions: List<Caption> = emptyList(),
+    val description: String? = null,
 )
 
 

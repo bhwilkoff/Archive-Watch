@@ -92,6 +92,7 @@ import app.archivewatch.android.ui.StudioReadout
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.data.captionsFor
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -220,6 +221,9 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 ).setLoadErrorHandlingPolicy(policy),
             )
             .setLoadControl(loadControl)
+            // Media3's Previous rewinds the title past 3 s. In a list of films
+            // that throws away the viewer's place instead of going back.
+            .apply { if (spec.playlist) setMaxSeekToPreviousPositionMs(Long.MAX_VALUE) }
             .build()
             .apply {
                 // Binge queue (episodes): all entries load as Media3 items so
@@ -241,6 +245,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                                 MediaMetadata.Builder()
                                     .setTitle(e.title)
                                     .setSubtitle(e.subtitle)
+                                    .setDescription(e.description)
                                     .build(),
                             )
                             .build()
@@ -382,6 +387,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 if (d <= 0) return
                 val id = player.currentMediaItem?.mediaId ?: spec.id
                 val pos = player.currentPosition
+                // Coming back to a queue title whose length is already known
+                // stops the player at 0 before its resume seek lands; saving
+                // that would erase the place it is about to resume from.
+                if (pos <= 0 && spec.playlist) return
                 notifiedAt = System.currentTimeMillis()
                 effect.launch { container.userState.saveProgress(id, pos, d) }
             }
@@ -393,6 +402,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 // its last five-second mark.
                 val pos = if (reason == Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) lastDur else lastPos
                 val d = lastDur
+                // Spent: the next title has not been sampled yet, and a second
+                // transition must not read this title's numbers as its own.
+                lastID = null
+                lastDur = 0L
                 notifiedAt = System.currentTimeMillis()
                 effect.launch { container.userState.saveProgress(prev, pos, d) }
             }
@@ -493,6 +506,13 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     var upNext by remember { mutableStateOf<app.archivewatch.android.data.CatalogItem?>(null) }
     var nowTitle by remember { mutableStateOf(spec.title) }
     var nowDescription by remember { mutableStateOf(spec.description) }
+    var nowID by remember { mutableStateOf(spec.id) }
+    val nowCaptions = spec.captionsFor(nowID)
+    val listPosition = if (spec.playlist) {
+        app.archivewatch.android.data.PlaylistPlay.position(
+            spec.queue.indexOfFirst { it.id == nowID }, spec.queue.size,
+        )
+    } else null
     // Surfaced only once recovery is spent — a film that recovers should say
     // nothing at all.
     var playbackError by remember(spec.url) { mutableStateOf<String?>(null) }
@@ -530,6 +550,14 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 recoveries++
                 lastRecoveryAt = now
                 val pos = player.currentPosition
+                // setMediaItem replaces the whole timeline: a queue would lose
+                // every title after this one and stop at the end of it.
+                if (player.mediaItemCount > 1) {
+                    player.seekTo(player.currentMediaItemIndex, pos)
+                    player.prepare()
+                    player.play()
+                    return
+                }
                 player.currentMediaItem?.let {
                     player.setMediaItem(it, pos)
                     player.prepare()
@@ -541,6 +569,18 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 item?.mediaMetadata?.let { md ->
                     nowTitle = md.title?.toString() ?: spec.title
                     nowDescription = md.description?.toString() ?: md.subtitle?.toString()
+                }
+                item?.mediaId?.let { nowID = it }
+                playbackError = null
+                // setMediaItems' start position reaches only the first title.
+                val id = item?.mediaId
+                if (spec.playlist && id != null) {
+                    scope.launch {
+                        val saved = container.userState.progressFor(id)
+                        if (saved?.isResumable == true && player.currentMediaItem?.mediaId == id) {
+                            player.seekTo(saved.positionMs)
+                        }
+                    }
                 }
             }
 
@@ -666,6 +706,8 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             while (!player.isPlaying) delay(500)
             controlsVisible = false
         }
+        // A new title in a list says what it is and where the list has reached.
+        LaunchedEffect(nowID) { if (spec.playlist) tvInteraction += 1 }
         // The ten-foot Back contract (tvOS parity): overlay visible -> Back
         // dismisses it; only a second Back leaves the film. The options panel
         // takes precedence (registered later = wins).
@@ -1010,6 +1052,15 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(1f),
                     )
+                    listPosition?.let {
+                        Text(
+                            it,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = Color.White,
+                            maxLines = 1,
+                            modifier = Modifier.padding(start = 8.dp, end = 4.dp),
+                        )
+                    }
                     if (CastSupport.IS_SUPPORTED) {
                         // Sized explicitly: unbounded in a Row, the
                         // MediaRouteButton measured to the whole remaining
@@ -1094,6 +1145,13 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         color = Color.White.copy(alpha = 0.85f),
                     )
                 }
+                listPosition?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color.White.copy(alpha = 0.85f),
+                    )
+                }
                 Text(
                     text = nowTitle,
                     style = MaterialTheme.typography.titleLarge,
@@ -1142,6 +1200,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             PhonePlayerOptionsSheet(
                 player = player,
                 spec = spec,
+                captions = nowCaptions,
                 container = container,
                 onDismiss = { showPhoneMenu = false },
             )
@@ -1151,6 +1210,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             TvPlayerOptionsPanel(
                 player = player,
                 spec = spec,
+                captions = nowCaptions,
                 container = container,
                 onDismiss = { showTvMenu = false },
                 onOpenTitle = { id ->
@@ -1176,6 +1236,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
 private fun PhonePlayerOptionsSheet(
     player: ExoPlayer,
     spec: PlaySpec,
+    captions: List<app.archivewatch.android.data.Caption>,
     container: AppContainer,
     onDismiss: () -> Unit,
 ) {
@@ -1210,8 +1271,21 @@ private fun PhonePlayerOptionsSheet(
             // A channel keeps the one clock: no skipping its programs.
             if (spec.channelIndex == null && player.hasNextMediaItem()) {
                 ListItem(
-                    headlineContent = { Text(if (spec.persistProgress) "Play next episode" else "Play next") },
-                    modifier = Modifier.clickable { player.seekToNextMediaItem(); onDismiss() },
+                    headlineContent = {
+                        Text(when {
+                            spec.playlist -> "Next"
+                            spec.persistProgress -> "Play next episode"
+                            else -> "Play next"
+                        })
+                    },
+                    modifier = Modifier.clickable { player.skipInQueue(forward = true); onDismiss() },
+                )
+                HorizontalDivider()
+            }
+            if (spec.playlist && player.hasPreviousMediaItem()) {
+                ListItem(
+                    headlineContent = { Text("Previous") },
+                    modifier = Modifier.clickable { player.skipInQueue(forward = false); onDismiss() },
                 )
                 HorizontalDivider()
             }
@@ -1255,7 +1329,7 @@ private fun PhonePlayerOptionsSheet(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 4.dp),
             )
-            if (spec.captions.isEmpty()) {
+            if (captions.isEmpty()) {
                 Text(
                     "No subtitles are published for this copy. Use Get Subtitles on the title page.",
                     style = MaterialTheme.typography.bodyMedium,
@@ -1272,7 +1346,7 @@ private fun PhonePlayerOptionsSheet(
                         textOff = true
                     },
                 )
-                spec.captions.forEach { c ->
+                captions.forEach { c ->
                     ListItem(
                         headlineContent = { Text(c.displayLabel) },
                         leadingContent = {
@@ -1344,6 +1418,7 @@ private fun PhonePlayerOptionsSheet(
 private fun TvPlayerOptionsPanel(
     player: androidx.media3.exoplayer.ExoPlayer,
     spec: PlaySpec,
+    captions: List<app.archivewatch.android.data.Caption>,
     container: AppContainer,
     onDismiss: () -> Unit,
     onOpenTitle: (String) -> Unit = {},
@@ -1387,10 +1462,23 @@ private fun TvPlayerOptionsPanel(
             LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 // A channel keeps the one clock: no skipping its programs.
                 val canSkip = spec.channelIndex == null && player.hasNextMediaItem()
+                val canGoBack = spec.playlist && player.hasPreviousMediaItem()
                 if (canSkip) {
                     item(key = "next") {
-                        TvMenuRow(if (spec.persistProgress) "Play Next Episode" else "Play Next", null, firstFocus) {
-                            player.seekToNextMediaItem(); onDismiss()
+                        val label = when {
+                            spec.playlist -> "Next"
+                            spec.persistProgress -> "Play Next Episode"
+                            else -> "Play Next"
+                        }
+                        TvMenuRow(label, null, firstFocus) {
+                            player.skipInQueue(forward = true); onDismiss()
+                        }
+                    }
+                }
+                if (canGoBack) {
+                    item(key = "previous") {
+                        TvMenuRow("Previous", null, if (canSkip) null else firstFocus) {
+                            player.skipInQueue(forward = false); onDismiss()
                         }
                     }
                 }
@@ -1398,7 +1486,7 @@ private fun TvPlayerOptionsPanel(
                     TvMenuRow(
                         if (muted) "Unmute" else "Mute",
                         null,
-                        if (canSkip) null else firstFocus,
+                        if (canSkip || canGoBack) null else firstFocus,
                     ) {
                         muted = !muted
                         player.volume = if (muted) 0f else 1f
@@ -1433,7 +1521,7 @@ private fun TvPlayerOptionsPanel(
                         }
                     }
                 }
-                if (spec.captions.isNotEmpty()) {
+                if (captions.isNotEmpty()) {
                     item(key = "subs-head") {
                         Text("Subtitles", style = MaterialTheme.typography.labelLarge,
                             color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 10.dp))
@@ -1445,8 +1533,8 @@ private fun TvPlayerOptionsPanel(
                             textOff = true
                         }
                     }
-                    items(spec.captions.size, key = { "sub" + it }) { i ->
-                        val c = spec.captions[i]
+                    items(captions.size, key = { "sub" + it }) { i ->
+                        val c = captions[i]
                         TvMenuRow(c.displayLabel, if (!textOff) "✓" else null, null) {
                             player.trackSelectionParameters = player.trackSelectionParameters
                                 .buildUpon()
@@ -1512,6 +1600,16 @@ private fun TvMenuRow(
             Text(it, style = MaterialTheme.typography.bodyMedium, color = Color(0xFFFF5C35),
                 modifier = Modifier.padding(start = 10.dp))
         }
+    }
+}
+
+/** A title that failed leaves the player idle, where a seek alone plays
+ *  nothing: Next is how a viewer gets past it. */
+private fun Player.skipInQueue(forward: Boolean) {
+    if (forward) seekToNextMediaItem() else seekToPreviousMediaItem()
+    if (playbackState == Player.STATE_IDLE) {
+        prepare()
+        play()
     }
 }
 
