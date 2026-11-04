@@ -599,7 +599,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                             val next = nextFilm(container, spec.id)
                             if (next != null) upNext = next else if (isTv) nav.pop()
                         }
-                    } else if (isTv) nav.pop()
+                    } else if (isTv || spec.playlist) nav.pop()   // a list ends where it ends (§4.3b)
                 }
             }
 

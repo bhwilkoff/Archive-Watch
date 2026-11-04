@@ -181,7 +181,11 @@ struct PlayerWindow: View {
         // A playlist follows its own order whatever Autoplay says, and ends with
         // its last title (iOS-DESIGN §4.3b).
         if !router.playlistRun.isEmpty {
-            router.stepPlaylist(1)
+            // Past the last title the list is over: back to where it was started.
+            if !router.stepPlaylist(1) {
+                router.playlistRun = []
+                router.nowPlaying = nil
+            }
             return
         }
         guard store.autoplayMode != .off,

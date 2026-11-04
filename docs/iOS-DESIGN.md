@@ -377,8 +377,8 @@ on every platform:
 - Play follows the order on screen (the viewer's sort), starting at the first title
   not marked watched, or the top if all are. Shuffle is a fresh random order, each
   title once, from the start.
-- Titles follow one another whatever the Autoplay setting says, and playing stops
-  at the end of the list.
+- Titles follow one another whatever the Autoplay setting says, and at the end of
+  the list playing stops and the viewer is back on the list.
 - The player offers Previous and Next and says where it is ("3 of 12"), in the
   platform's episode controls (§8.5).
 - A title with no file of its own (a series card) is skipped. Nothing new is stored
