@@ -1,5 +1,35 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-10-28 — best ratings everywhere; a full audit of every platform; Play Console errors (Decisions 171-173)
+
+Owner: *"Please make use of the best ratings available per content. Can you please
+do a full audit of all platforms, all surfaces, for parity, coding inefficiencies,
+and other bugs to fix and then push new versions to every platform for review,"*
+then *"look at the errors and issues identified on the Google play console."*
+v1.47.1-1.47.3 (2152-2154).
+
+- **Ratings (D171)**: Top Rated sorts on `ratingRank` (largest crowd: IMDb, then
+  archive.org reviewers, TVmaze when nothing counted; measured against its own
+  crowd, discounted for a small one). 240 series now carry IMDb's rating via
+  TVmaze `externals.imdb` (`enrich_tv_ratings`). Seen on the iPhone 12: Detail reads
+  "IMDb 7.8".
+- **Audit**: seven read-only audits, seven fix passes (PARITY "2026-10-28 full
+  audit"). Worst: resume points saved under the next title; CloudKit synced signed
+  out (Delete Account undone); an Android launch extra could go live with no
+  confirmation; a web HTML sink; Roku crash paths. Data (D172/173): yearless
+  matches cleared (116 visible), ~1,107 fragments noRecommend, copyright claims
+  reach every copy (40), pipefail in all 50 workflows.
+- **On the glass**: the iPhone 12 found a Library crash the audit introduced (lazy
+  stateful filter) before any upload went to review; 13/13 UI tests then pass.
+  The iPad Pro refused UI automation ("Timed out while enabling automation mode").
+- **Play**: Cast chooser crash (non-AppCompat theme, Android 12) fixed and tested
+  on the Pixel; duplicate-key Compose crash (scene seconds, playlist grid) fixed;
+  ANR 0.9% on Chromecast with Google TV is render-bound, main-thread work cut.
+**Open**: Roku not run on a device (the Stick was suspended — ask before waking);
+iPad UI automation needs the owner; Samsung/LG/Roku uploads need the owner's
+browser; B4 bundle re-scan may add questionable spines (1srh99 Arabic lectures,
+MickeyMouse20s compilations) — review after the next tv-canonical.
+
 ### 2026-10-27 — the Antigravity stash recovered; wrong data found by following one warning (Decision 169)
 
 Owner: *"I did some work with Antigravity in this repository, but I don't know

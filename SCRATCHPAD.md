@@ -760,36 +760,6 @@ keep serving it.
 
 ## Session Log
 
-### 2026-10-28 — best ratings everywhere; a full audit of every platform; Play Console errors (Decisions 171-173)
-
-Owner: *"Please make use of the best ratings available per content. Can you please
-do a full audit of all platforms, all surfaces, for parity, coding inefficiencies,
-and other bugs to fix and then push new versions to every platform for review,"*
-then *"look at the errors and issues identified on the Google play console."*
-v1.47.1-1.47.3 (2152-2154).
-
-- **Ratings (D171)**: Top Rated sorts on `ratingRank` (largest crowd: IMDb, then
-  archive.org reviewers, TVmaze when nothing counted; measured against its own
-  crowd, discounted for a small one). 240 series now carry IMDb's rating via
-  TVmaze `externals.imdb` (`enrich_tv_ratings`). Seen on the iPhone 12: Detail reads
-  "IMDb 7.8".
-- **Audit**: seven read-only audits, seven fix passes (PARITY "2026-10-28 full
-  audit"). Worst: resume points saved under the next title; CloudKit synced signed
-  out (Delete Account undone); an Android launch extra could go live with no
-  confirmation; a web HTML sink; Roku crash paths. Data (D172/173): yearless
-  matches cleared (116 visible), ~1,107 fragments noRecommend, copyright claims
-  reach every copy (40), pipefail in all 50 workflows.
-- **On the glass**: the iPhone 12 found a Library crash the audit introduced (lazy
-  stateful filter) before any upload went to review; 13/13 UI tests then pass.
-  The iPad Pro refused UI automation ("Timed out while enabling automation mode").
-- **Play**: Cast chooser crash (non-AppCompat theme, Android 12) fixed and tested
-  on the Pixel; duplicate-key Compose crash (scene seconds, playlist grid) fixed;
-  ANR 0.9% on Chromecast with Google TV is render-bound, main-thread work cut.
-**Open**: Roku not run on a device (the Stick was suspended — ask before waking);
-iPad UI automation needs the owner; Samsung/LG/Roku uploads need the owner's
-browser; B4 bundle re-scan may add questionable spines (1srh99 Arabic lectures,
-MickeyMouse20s compilations) — review after the next tv-canonical.
-
 ### 2026-11-04 — the first copyright notices; a removal process (Decision 175)
 
 Owner: *"There are two takedown emails from the Google Search Console and I'd
@@ -805,5 +775,21 @@ like to figure out how to approach them,"* then the five requirements now in
 - **Also live**: the form, the private D1 record, `takedown-check.yml`. Measured
   on 14 films.
 **Open**: the withdrawal email to the agency is a Gmail draft, the owner's to send.
+
+### 2026-11-04 (later) — John Howard's second round, failed builds, the data behind them (Decisions 176-179)
+
+Owner: *"The goal is the best possible data and the best possible database."*
+v1.47.10-1.47.30. Apple 1.47.28 in review on all three (withdrew 1.47.13).
+- **Failures**: three were one race (`release upload --clobber`); fixed (D176).
+- **Renewal check was blind from ~10-28** (the Office changed its response); fixed
+  with a canary (D177). Printed-renewal table 11,910 -> 21,056 rows (D179). The
+  audit found 835 more renewals; catalog 41,737 -> 41,035.
+- **Series years** are evidence-based and searched every TV rebuild (D178).
+- **Play and Shuffle** on every playlist and shared list, all platforms (iOS-DESIGN
+  §4.3b). Roku: crash on OS 9.1, dead-title skip, search 10 s -> 1-2 s.
+**Open**: Play production (versionCode 72) and Amazon submit were refused to the
+agent by the permission system. Roku 1.0.81 is signed in build/roku/, and the
+Dashboard needs a signed-in Chrome profile the tools can drive. Fire TV adb needs its
+prompt accepted at the TV. LG needs a Seller Lounge account. Mac device pass not run.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
