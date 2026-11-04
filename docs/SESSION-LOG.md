@@ -1,5 +1,37 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-10-27 — the Antigravity stash recovered; wrong data found by following one warning (Decision 169)
+
+Owner: *"I did some work with Antigravity in this repository, but I don't know
+that it fully saved correctly"*, then *"Fix anything that doesn't look right.
+There is no reason to leave bad data rather than investigating and fixing
+it"*, then *"Yes, solve for all open issues like this one."* v1.46.17 (2142-2145).
+
+- **The stash** ("gsc fixes", 10-26, never committed) was Gemini's Search
+  Console work: series aliases forward to `/series/<slug>/`, episodes without a
+  page forward to their series, `404.html` noindex, 38 year-compilation cards
+  titled after the file each plays (all 38 checked). One defect fixed (an
+  episode redirect overwrote a merge's). The stale `catalog-index.json` was not
+  restored.
+- **A Sherlock Holmes pilot wore Abbott and Costello Meet the Invisible Man**
+  (title, poster, subtitles, merged into its card): `match_rejects`. A new
+  remediate rule drops a subtitle fetched for an IMDb id the item no longer
+  carries (17).
+- **109 "not in the catalog" ids were series episodes**, and their spines held
+  three defects (Decision 169): placement confirmed itself from the slot's
+  title (306 placements change, reviewed file by file); `not_films` bound only
+  the catalog (LTT101, a Looney Tunes rip, was ~260 episodes); other programs
+  sat in shows (2002 Twilight Zone, 2020-21 Family Feud, 1999 Emmerdale) —
+  `episode_rejects.json`. tv-canonical run 40583885569 applies it.
+- **The two archive.org defects** (scratchpad, 10-22) are fixed: a search
+  archive.org does not answer raises `ArchiveUnavailable` instead of reading as
+  "nothing found"; ingest keeps it queued, discovery reports the feed unread.
+  The 7,991 June "unresolved" were checked (0 of 40 resolve today), so none
+  were re-queued. The CORS contradiction was re-measured: MP4 206s still send
+  none, MP3s do; recorded in CATALOG-CONTRACT.
+**Open**: confirm run 40583885569 committed the spines and that remediate's
+`not_films` warning is gone.
+
 ### 2026-10-20 — whole series filed in one item become their shows' episodes (Decision 167)
 
 A viewer (echosoft.llc@gmail.com) asked for Fireball XL5's 39 colorized

@@ -265,6 +265,7 @@ into every session and the index alone carries every title.)
 - 172 — An identity must fit the file it is on, a fragment is never recommended, and a copyright claim belongs to the film, not the copy
 - 173 — The pipeline fails loudly: pipefail everywhere, nothing publishes from a cancelled or failed build, and a publish carries its deletions
 - 174 — A cartoon of racist caricature is never recommended and always findable, on a record a reader can open or the title's own tags
+- 175 — A complete notice removes a title unless the file contradicts it; the file is read automatically, and a requester's name never reaches the repository
 
 ---
 
@@ -721,3 +722,35 @@ A picker that chooses for the viewer must skip `noRecommend` (the web Party
 Play now checks it as well as the pool builder). Uncertain cases left for the
 owner: Cannibal Capers, Jungle Drums, Uncle Tom and Little Eva.
 
+## 175 — A complete notice removes a title unless the file contradicts it; the file is read automatically, and a requester's name never reaches the repository
+*Date: 2026-11-04*
+
+Removal requests arrive by a form on `takedown.html`, by email to the DMCA agent
+(DMCA-1083942, shared with Ear Drama) or from Google, and become cases in a
+private D1 table. `takedown-check.yml` reads each file named: a burned-in logo, a
+soundtrack on a silent film, and whether the claim names the title or one word
+of it. A complete notice removes the title unless that evidence contradicts it;
+a contradiction opens an issue the owner answers with `remove` or `keep`.
+`takedowns.json` takes an item, one file or a whole series, and holds a date and
+a case number only. Runbook: `docs/TAKEDOWNS.md`.
+
+**Why**: the owner, on the first two notices (2026-11-04): *"If it is a copyright
+work, we should remove it. We are a public domain streaming app"*, *"any piece of
+content that we serve should be able to receive a request"*, *"We need to protect
+folks privacy"*, and *"Manual review might be quite difficult."* The notices showed
+why the file has to be read. Metadata cleared both. `Madame Dubarry`, a 1919 film,
+was an ARTE broadcast with a logo and soundtrack that archive.org's record never
+mentions, so the claim may have been sound. `Home Movie: 97390: Unidentified` was
+claimed as "UNIDENTIFIED", a word match. The repository and Actions logs are public,
+so `takedowns.json` could not keep the `from` field it was built with. Reading frames
+for pixels that do not change scored ARTE's translucent logo 0; a gradient that
+points the same way in every frame scored it 111, against 0 for ten clean films.
+
+**How to apply**: never ask a requester for more than 17 U.S.C. 512(c)(3) does.
+Decision 151's readable evidence is the bar for what WE hide unprompted, not for a
+notice. A file that could not be read must not hold a removal back. Nothing a
+requester wrote may reach the workflow's log or an issue, including the name of the
+work. A new kind of served content needs a key in `takedown_lib.blocked` and a
+control in `test_takedowns.py`. The soundtrack test belongs to a request; the owner
+declined a catalog-wide scan. Tune the logo threshold against
+`takedown_check.LOGO_MIN`'s measurements, never by a list of ids.
