@@ -2906,7 +2906,12 @@ def exclude_hate_propaganda(items, stats):
         if it.get("excluded"):
             continue
         text = f"{it.get('archiveID') or ''} {it.get('title') or ''}"
-        if _HATE_MARKERS.search(text):
+        subjects = " ".join(str(x) for x in it.get("subjects") or [])
+        # Its uploader may say so only in the subjects: "The Last Days of the Big
+        # Lie" was live as a 1918 film. "Holocaust" and "denier" together, because
+        # a film ABOUT either word alone is a film we want.
+        said = re.search(r"\bholocaust\b", subjects, re.I) and re.search(r"\bdeniers?\b", subjects, re.I)
+        if _HATE_MARKERS.search(text) or said:
             it["excluded"] = True
             it["excludedReason"] = "hate_propaganda"
             stats["hate_propaganda_excluded"] += 1

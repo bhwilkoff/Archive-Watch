@@ -268,6 +268,7 @@ into every session and the index alone carries every title.)
 - 175 — A complete notice removes a title unless the file contradicts it; the file is read automatically, and a requester's name never reaches the repository
 - 176 — The catalog is swapped into place under another name; the release is never without it, and a missing asset is never a first run
 - 177 — A checker that can no longer find a known claim refuses to clear anyone, and a hidden series takes its episodes and its uploads with it
+- 178 — A series' year comes from evidence about the series, is searched for continually, and is never borrowed from a same-named film
 
 ---
 
@@ -801,3 +802,32 @@ come back true, checked before anything is recorded. A new audit field on a seri
 card goes in `AUDIT_FIELDS`. Bundle series may be blocked by any `noRecommend` reason
 except `fragment`. The 28-year window misses a late renewal; that is left for a person
 rather than widened, because the original date is no longer published.
+
+## 178 — A series' year comes from evidence about the series, is searched for continually, and is never borrowed from a same-named film
+*Date: 2026-11-04*
+
+`shared/editorial/series_years.json` holds each series' year with where it came from.
+`enrich_series_years.py` fills it in every TV rebuild (an episode's air date, TVmaze on
+an exact title, the show's own overview), an entry marked `reviewed` is a person's, and
+remediate puts it on the card. A reviewed year survives the rule against pre-television
+years, and a year before 1888 is no year. A work with a renewal on record leaves through
+`takedowns.json`, its series and its source uploads together, the case naming the renewal.
+
+**Why**: the owner, 2026-11-04: *"We should be constantly searching for that information
+and making sure that everything that can be displayed in the app is displayed. The goal
+is the best possible data and the best possible database."* Thirty-two shows sat hidden
+with no year. Restoring the years the spines held would have been worse than hiding
+them: a title match had given Columbia's 1941 The Iron Claw the year of Pathe's 1916
+film, and the same for The Secret Code, Winners of the West and Daredevils of the Red
+Circle, so 1940s serials passed as public domain by age. A Great Courses lecture read
+1801 and a 1997 telenovela 1905. A Holocaust denial video was live as a 1918 film.
+
+**How to apply**: a year on a bundle spine is a claim, not a fact: check chapters and
+episode counts against the work. `-1960` in a slug is a placeholder. Men into Space and
+Alan Watts stay undated on purpose; their rights are the owner's call. A hide for want
+of a year says nothing against a show (1.47.18), so never treat it as a claim.
+
+**Consequences**: `cce_renewals.json` barely reads "a series of photoplays" entries,
+which is why Flash Gordon and Batman read as free; the renewals here were found in the
+raw text, and the parser is the open fix. A bundle stamps one year on every file, so
+per-file claims in compilations (Flip the Frog, early Warner cartoons) are still open.

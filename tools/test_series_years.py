@@ -75,5 +75,10 @@ check("CONTROL: an unknown stays unknown", by["series:gone"]["year"] is None)
 check("CONTROL: an unreviewed pre-television series year is still cleared", by["series:bad"]["year"] is None)
 check("a year before film existed is no year", by["lecture"]["year"] is None and by["lecture"]["yearWas"] == 1801)
 check("CONTROL: the first films keep theirs", by["early"]["year"] == 1888)
+hate = [{"archiveID": "a", "title": "A Documentary", "subjects": ["Holocaust", "Denier"]},
+        {"archiveID": "b", "title": "Night and Fog", "subjects": ["Holocaust", "Documentary"]}]
+R.exclude_hate_propaganda(hate, Counter())
+check("denial named only in the subjects is hidden", hate[0].get("excludedReason") == "hate_propaganda")
+check("CONTROL: a film about the Holocaust is not", "excluded" not in hate[1])
 print("PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)
