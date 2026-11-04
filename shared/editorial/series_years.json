@@ -5,6 +5,11 @@
   "year": 1959,
   "yearEnd": 1960
  },
+ "alan-watts-1960": {
+  "how": "reviewed",
+  "source": "https://americanarchive.org/catalog/cpb-aacip_55-78tb3njk",
+  "year": 1959
+ },
  "classic-car-commercial-1960": {
   "how": "reviewed",
   "source": "https://archive.org/details/DeSoto7",
@@ -69,6 +74,11 @@
   "how": "reviewed",
   "source": "https://en.wikipedia.org/wiki/Meet_Corliss_Archer_(TV_series)",
   "year": 1954
+ },
+ "men-into-space": {
+  "how": "reviewed",
+  "source": "https://www.tvmaze.com/shows/3511/men-into-space",
+  "year": 1959
  },
  "sick-cylinders-1929": {
   "how": "reviewed",

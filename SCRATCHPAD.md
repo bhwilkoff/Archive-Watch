@@ -57,8 +57,6 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-11-04. **LEFT FROM THE RIGHTS AND PLAYLIST DAY.** Mac and Android phone stay on the player at a list's end (Apple TV, iPhone, Google TV return to the list): match them. Fire TV needs its debugging prompt accepted at the TV; Mac device pass not run. Roku needs package 1.0.81 and the owner's upload. John Howard's Gmail draft needs updating, then sending by the owner. Owner calls: Men into Space, Alan Watts, The Evil of the Daleks, The Groovy Goolies, Doctor Who, Green Acres, Popeye 1933's free files.
-
 0-NEW-2026-10-08. **1.46.0 IS IN REVIEW (iOS, macOS, tvOS)** with the new header,
    search asset and screenshots. Still open, nothing blocked: the closed-Duo
    screenshots wait in the Asset Library for the first store build made with
