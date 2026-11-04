@@ -262,6 +262,7 @@ html.tv .share-menu-trigger {
  * exits) and a transport that swallowed a press would take it from the film.
  *
  * Sized for ten feet: the time is 32px, not the 11px Chrome uses. */
+html.tv .player-list { display: none; }   /* Player Options carries both; the transport the position */
 .tv .player-head { display: none; }        /* rate <select>, PiP, Cast, ✕ — all pointer chrome */
 
 .tv #player,
@@ -319,6 +320,7 @@ html.tv .share-menu-trigger {
   color: #fff;
 }
 .tv-tp-state { width: 1.2em; }
+.tv-tp-pos:empty { display: none; }
 .tv-tp-bar {
   flex: 1; height: 8px; border-radius: 999px;
   background: rgba(255, 255, 255, 0.28);

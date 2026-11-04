@@ -326,6 +326,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   confirmed: "It is removed from your other devices too." **Both sync writers
   (CloudKit and Drive) carry `sortIndex`**: a writer that drops it erases the
   order on every other device.
+  **A playlist plays** (2026-11-04, iOS-DESIGN §4.3b): **Play** (primary; Share
+  is a ghost beside it, because a television arrives on the page's one
+  `.btn-primary`) and **Shuffle** lead the Sort row. They read `ListPlay`, which
+  builds the same `Player` queue Channels and Party Play use; a queue entry has
+  no URL until `Player.goTo` reaches it, so a long list costs nothing to start,
+  and a title found to have no file leaves the queue. The player draws Previous,
+  the position and Next in a row of its own, under its head, only in a playlist
+  of two or more. A list ends by closing the player: the end card's autoplay
+  would carry on past it. If nothing in the list can play, the page says so.
 - **§4.10a Sort is remembered** per kind of grid (`browseSort.tv|browse|
   category`, localStorage, try/catch); a `?sort=` in the URL wins; TV grids
   start A–Z; Z–A everywhere; Top Rated sorts on the index's `ratingRank100`

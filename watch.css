@@ -814,6 +814,13 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 .player-head button {
   background: none; border: 0; color: var(--text); font-size: 1.1rem; padding: 4px 8px;
 }
+/* A playlist's place in the player (iOS-DESIGN §4.3b). */
+.player-list {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 0 14px 10px; font-variant-numeric: tabular-nums;
+}
+.player-list[hidden] { display: none; }
+.player-list button:disabled { opacity: 0.45; }
 .player-stage { position: relative; }
 #video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; }
 /* Title + description overlay — a top scrim over the video that fades IN/OUT in

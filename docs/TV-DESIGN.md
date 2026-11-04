@@ -391,7 +391,9 @@ on the first; ◀ ▶ move along it, OK acts, Down or Back closes it. A button
 appears only where it applies, and says its current state:
 **Subtitles: Off / English / …** (cycles through the film's tracks; §5.5),
 **Speed 1×** (not in a room — a room plays at the host's rate),
-**Previous episode / Next episode** (a queue), **Sound on / Sound off** and
+**Previous episode / Next episode** (a queue; **Previous / Next** in a
+playlist, whose position reads after the duration on the transport, iOS-DESIGN
+§4.3b), **Sound on / Sound off** and
 **Open title** and **Remember this film** (an ephemeral lineup: Party Play, a
 channel, a marathon — §5.6), **Choose copy** (two or more copies; not in a
 room or a channel), **Autoplay next: On / Off** (a single film).

@@ -1757,6 +1757,33 @@
   };
   // --- end sort rules ---
 
+  /* A PLAYLIST PLAYS (iOS-DESIGN §4.3b). tools/test_web_playlist_play.mjs reads
+   * this block out of the shipped file. */
+  // --- playlist play ---
+  const ListPlay = {
+    /** A series card has no file of its own; column 8 is 0 for it, and for a
+     *  title whose copy the liveness check could not reach. */
+    playable(row) {
+      return row[3] !== 'tv-series' && (row[8] === undefined || row[8] === 1);
+    },
+    /** The player's queue from the page's [listed id, row] pairs, in the order
+     *  on screen. Two listed ids can be one film after a merge: it plays once. */
+    queue(films) {
+      const seen = new Set();
+      return films.filter(([, row]) => {
+        if (!ListPlay.playable(row) || seen.has(row[0])) return false;
+        seen.add(row[0]);
+        return true;
+      }).map(([listed, row]) => ({ id: row[0], title: row[1], listed }));
+    },
+    /** The first title not watched, or the top when every one is. */
+    startAt(queue, watched) {
+      const at = queue.findIndex(q => !watched.has(q.id) && !watched.has(q.listed));
+      return at < 0 ? 0 : at;
+    },
+  };
+  // --- end playlist play ---
+
   /** A remembered choice on this browser; storage may be absent or refuse. */
   const Remembered = {
     get(key, allowed, fallback) {
@@ -2526,6 +2553,24 @@
       sel.hidden = films.length < 2;
       sel.disabled = this.arranging;
       sel.onchange = () => { Remembered.set(key, sel.value); this.render(id); };
+      const queue = ListPlay.queue(shown);
+      const failed = $('playlist-error');
+      failed.hidden = true;
+      const begin = async (q, at) => {
+        failed.hidden = true;
+        // A copy: a title found to have no file leaves the queue it is in.
+        const plan = { queue: [...q], queueIndex: at, persist: true, list: true };
+        failed.hidden = await Player.goTo(plan, at, 1);
+      };
+      const play = $('playlist-play');
+      play.hidden = queue.length < 1;
+      play.onclick = async () => {
+        await Watched.refresh();
+        begin(queue, ListPlay.startAt(queue, Watched.ids));
+      };
+      const shuffled = $('playlist-shuffle');
+      shuffled.hidden = queue.length < 2;
+      shuffled.onclick = () => begin(shuffle(queue), 0);
       const edit = $('playlist-edit');
       if (!films.length) this.arranging = false;
       edit.hidden = !films.length;
@@ -4080,10 +4125,64 @@
       await this.start({ id, title: row[1], url });
     },
 
+    /** The file a queue entry with no baked URL plays, or null. */
+    async urlFor(id) {
+      const det = await Details.get(id).catch(() => null);
+      if (det?.downloadURL) return Versions.preferred(id, det.downloadURL);
+      if (id.includes('@')) return null;      // its item's file is another episode
+      const meta = await Meta.get(id, { timeoutMs: 12000 }).catch(() => null);
+      const file = meta && API.summarize(meta).videoFile;
+      return file ? Versions.url(id, file.name) : null;
+    },
+
+    /** Play the queue entry at `i`, going on in direction `d` past any entry
+        with no file; such an entry leaves the queue, so "3 of 12" stays true.
+        False when nothing that way can play. A later press, a new film or a
+        close while a file is being looked up wins, and counts as handled. */
+    moving: null,
+    async goTo(plan, i, d) {
+      const run = this.moving = {};
+      const { queue } = plan;
+      while (i >= 0 && i < queue.length) {
+        const entry = queue[i];
+        const url = entry.url || await this.urlFor(entry.id);
+        if (this.moving !== run) return true;
+        if (url) {
+          this.start({ ...entry, url, queue, queueIndex: i, persist: plan.persist,
+                       muted: plan.muted, lineup: plan.lineup, channel: plan.channel,
+                       list: plan.list });
+          return true;
+        }
+        queue.splice(i, 1);
+        if (i < plan.queueIndex) plan.queueIndex -= 1;
+        if (d < 0) i -= 1;
+      }
+      this.moving = null;
+      this.paintList();
+      return false;
+    },
+
+    /** Previous, Next and "3 of 12": a playlist's, and only with somewhere to go. */
+    paintList() {
+      const P = window.AWPlayer;
+      const at = P.position();
+      $('player-list').hidden = !at;
+      if (!at) return;
+      $('player-position').textContent = at;
+      const prev = $('player-prev');
+      const next = $('player-next');
+      prev.disabled = !P.canStep(-1);
+      next.disabled = !P.canStep(1);
+      prev.onclick = () => P.step(-1);
+      next.onclick = () => P.step(1);
+    },
+
     /** Direct-URL entry (episodes carry downloadURL in the series spine).
         `queue`/`queueIndex` enable binge: on ended, the next queued entry
         plays. `startAt` joins a channel program in progress; `persist:false`
-        keeps channel playback out of Continue Watching (the apps' rule). */
+        keeps channel playback out of Continue Watching (the apps' rule).
+        `list` is a playlist: Previous and Next on screen, and it stops at its
+        last title. */
     noteTimer: null,
     /** `ms` 0 keeps the note up until something hides it. */
     flashNote(text, ms = 3000) {
@@ -4097,8 +4196,9 @@
 
     async start({ id, title, url, queue = null, queueIndex = 0,
                   startAt = 0, persist = true, muted = false, room = false,
-                  lineup = null, channel = null }) {
-      this.ctx = { id, title, queue, queueIndex, persist, muted, room, lineup, channel,
+                  lineup = null, channel = null, list = false }) {
+      this.moving = null;
+      this.ctx = { id, title, queue, queueIndex, persist, muted, room, lineup, channel, list,
                    remembered: false };
       /* WHICH FILM was played, as one aggregate count. Fired HERE rather than
          on a `play` event because the queue advances by calling start() again:
@@ -4117,6 +4217,7 @@
       video.muted = muted;
 
       $('player-title').textContent = title;
+      this.paintList();
       $('player-error').hidden = true;
       video.querySelectorAll('track').forEach(t => t.remove());   // clear last title's subs
       video.dataset.awItem = id;
@@ -4166,7 +4267,9 @@
           () => { video.currentTime = seekTo; }, { once: true });
       }
 
-      $('player').showModal();
+      // A queue arrives here with the player already open, and the 2022 Samsung
+      // floor (Chromium 85, Decision 162) throws on showing an open dialog.
+      if (!$('player').open) $('player').showModal();
       // A room plays at the host's rate; a TV whose player cannot change rate
       // (Tizen: AWTV.fixedRate) never has a saved speed applied.
       video.playbackRate = (room || window.AWTV?.fixedRate) ? 1 : savedRate();
@@ -4240,17 +4343,18 @@
         if (card && !card.hidden) { card.hidden = true; clearInterval(this.countdown); }
         if (this.ctx) this.ctx.finished = false;
       };
-      video.onended = () => {
-        if (this.ctx?.finished) return;        // the error path may also call this
-        if (this.ctx) this.ctx.finished = true;
+      video.onended = async () => {
+        const c = this.ctx;
+        if (c?.finished) return;               // the error path may also call this
+        if (c) c.finished = true;
         this.persist();
         syncNudge();                           // a film's end is worth telling the cloud
-        const { queue, queueIndex, persist } = this.ctx || {};
-        if (queue && queueIndex + 1 < queue.length) {
-          const next = queue[queueIndex + 1];
-          this.start({ ...next, queue, queueIndex: queueIndex + 1, persist,
-                       muted: this.ctx?.muted, lineup: this.ctx?.lineup,
-                       channel: this.ctx?.channel });
+        if (c?.queue && await this.goTo(c, c.queueIndex + 1, 1)) return;
+        // The end of a playlist is the end: the chooser's autoplay would carry
+        // on into a film nobody put on the list.
+        if (c?.list) {
+          Watched.refresh();
+          this.close();
           return;
         }
         // A standalone film used to end by closing the dialog, which drops the
@@ -4398,9 +4502,9 @@
         const alt = (await Versions.list(id)).find(v =>
           /H\.264/.test(v.format) && !tried.has(Versions.url(v.item, v.name)));
         if (alt && this.ctx?.id === id) {
-          const { queue, queueIndex, persist, muted } = this.ctx;
+          const { queue, queueIndex, persist, muted, list } = this.ctx;
           return this.start({ id, title, url: Versions.url(alt.item, alt.name), queue, queueIndex,
-                              persist, muted, startAt: $('video').currentTime || 0 });
+                              persist, muted, list, startAt: $('video').currentTime || 0 });
         }
       }
       if (this.ctx?.id !== id) return;
@@ -4490,6 +4594,7 @@
 
     close() {
       const video = $('video');
+      this.moving = null;
       this.persist();
       if (this.ctx) syncNudge();
       clearInterval(this.saveTimer);
@@ -4525,9 +4630,13 @@
       if (!this.canStep(d)) return false;
       const c = Player.ctx;
       Player.persist();
-      Player.start({ ...c.queue[c.queueIndex + d], queue: c.queue, queueIndex: c.queueIndex + d,
-                     persist: c.persist, muted: c.muted, lineup: c.lineup, channel: c.channel });
+      Player.goTo(c, c.queueIndex + d, d);
       return true;
+    },
+    /** "3 of 12" in a playlist of two or more; otherwise empty. */
+    position() {
+      const c = Player.ctx;
+      return c?.list && c.queue.length > 1 ? `${c.queueIndex + 1} of ${c.queue.length}` : '';
     },
     surf: d => ChannelsView.surf(d),
     remember: () => Player.remember(),
@@ -4552,7 +4661,7 @@
       const url = Versions.preferred(c.id, det?.downloadURL);
       if (!url) return;
       Player.start({ id: c.id, title: c.title, url, startAt: $('video').currentTime || 0,
-                     persist: c.persist });
+                     persist: c.persist, queue: c.queue, queueIndex: c.queueIndex, list: c.list });
     },
     get autoplay() { return Prefs.autoplay; },
     set autoplay(v) { Prefs.autoplay = v; },
