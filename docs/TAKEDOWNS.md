@@ -3,9 +3,9 @@
 How a request to remove something from Archive Watch is received, judged, recorded
 and undone. Decision 175. Read this before changing any part of it.
 
-**Status (2026-11-04)**: enforcement is live on `main`. The form, the private
-case record and the file check are on branch `takedown-intake`, waiting on the
-Worker deploy, which is the owner's: `tools/takedown_setup.sh`, then merge.
+The Worker is deployed by `tools/takedown_setup.sh`, which also sets the token.
+Agent details on `takedown.html` are as registered for DMCA-1083942; if the
+registration changes, change the page the same day.
 
 ## The path
 

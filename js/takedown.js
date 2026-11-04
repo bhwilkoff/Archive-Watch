@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   const ENDPOINT = 'https://archivewatch-pulse.benwilkoff.workers.dev/takedown';
-  const FALLBACK = 'Please try again, or email ben@learningischange.com.';
+  const FALLBACK = 'Please try again, or email benwilkoff@gmail.com.';
   const FIELD_NAMES = {
     links: 'the links', name: 'your name', email: 'a valid email address',
     work: 'the work you hold rights in', address: 'your postal address',

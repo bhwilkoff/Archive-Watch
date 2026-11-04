@@ -57,10 +57,6 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-11-04. **REMOVAL INTAKE WAITS ON ONE DEPLOY.** Run
-   `tools/takedown_setup.sh`, then merge branch `takedown-intake`
-   (`docs/TAKEDOWNS.md`). Until then the removal page is the old email route.
-
 0-NEW-2026-10-08. **1.46.0 IS IN REVIEW (iOS, macOS, tvOS)** with the new header,
    search asset and screenshots. Still open, nothing blocked: the closed-Duo
    screenshots wait in the Asset Library for the first store build made with
@@ -806,11 +802,8 @@ like to figure out how to approach them,"* then the five requirements now in
 - **Live on main**: removal of items, single files and whole series; public list
   holds a date and case number; share pages no longer say "public domain" on
   every title.
-- **On branch `takedown-intake`, tested, NOT live**: the form, the private D1
-  record, `takedown-check.yml`. Measured on 14 films.
-**Open**: the owner runs `tools/takedown_setup.sh` (the Worker deploy was refused
-to the agent); then merge, open the two real cases, and add the agent's registered
-name, address and phone to `takedown.html`. The withdrawal email to the agency is
-the owner's to send.
+- **Also live**: the form, the private D1 record, `takedown-check.yml`. Measured
+  on 14 films.
+**Open**: the withdrawal email to the agency is a Gmail draft, the owner's to send.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

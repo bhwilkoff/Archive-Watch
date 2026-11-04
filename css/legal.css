@@ -203,3 +203,4 @@
 }
 .request-status { margin: var(--space-3) 0 0; }
 .request-status.is-error { color: var(--color-danger); }
+.request-agent { font-style: normal; }
