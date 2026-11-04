@@ -451,21 +451,73 @@ end function
 
 sub addLibRow(root as Object, meta as Object, title as String, ids as Object, plID as String)
     if ids.Count() = 0 then return
-    row = root.CreateChild("ContentNode")
-    row.title = title
-    n = 0
+    items = []
+    films = 0
     for each id in ids
         src = findAnywhere(fmt(id))
         if src <> invalid
-            row.AppendChild(src.Clone(false))
-            n = n + 1
+            items.Push(src)
+            if Left(fmt(id), 7) <> "series:" then films = films + 1
         end if
     end for
-    if n = 0
-        root.RemoveChild(row)
-        return
+    if items.Count() = 0 then return
+    row = root.CreateChild("ContentNode")
+    row.title = title
+    ' A playlist plays (iOS-DESIGN 4.3b, ROKU-DESIGN 6.9b): its verbs are the
+    ' head of its own row, not a line in the `*` panel.
+    if plID <> ""
+        if films >= 1 then addListTile(row, "Play", "listplay:" + plID)
+        if films >= 2 then addListTile(row, "Shuffle", "listshuffle:" + plID)
     end if
+    for each src in items
+        row.AppendChild(src.Clone(false))
+    end for
     meta.Push(plID)
+end sub
+
+sub addListTile(row as Object, label as String, id as String)
+    c = row.CreateChild("ContentNode")
+    c.id = id
+    c.title = label
+end sub
+
+' What a playlist's Play and Shuffle run through: the row as drawn, less the
+' series cards, which have no file of their own for the lineup to resolve.
+function playlistFilms(plID as String) as Object
+    out = { ids: [], names: [] }
+    for each p in awPlaylists()
+        if p.id = plID
+            for each x in p.ids
+                a = fmt(x)
+                if Left(a, 7) <> "series:"
+                    src = findAnywhere(a)
+                    if src <> invalid
+                        out.ids.Push(a)
+                        out.names.Push(fmt(src.title))
+                    end if
+                end if
+            end for
+        end if
+    end for
+    return out
+end function
+
+sub startPlaylist(plID as String, shuffled as Boolean)
+    f = playlistFilms(plID)
+    if f.ids.Count() = 0 then return
+    if shuffled
+        ids = [] : names = []
+        for each i in awShuffledOrder(f.ids.Count())
+            ids.Push(f.ids[i])
+            names.Push(f.names[i])
+        end for
+        print "AWLIST shuffle "; FormatJson(ids)
+        startIDLineup(ids, "library", "playlist", names)
+    else
+        first = awFirstUnwatched(f.ids)
+        print "AWLIST play from "; first; " of "; FormatJson(f.ids)
+        startIDLineup(f.ids, "library", "playlist", f.names, first)
+    end if
 end sub
 
 ' Continue Watching in Library, built by the same rule as Home's row (cwItem):
@@ -902,12 +954,13 @@ sub openLibraryOptions()
         m.more.ObserveField("closed", "onMoreClosed")
     end if
     plID = m.library.focusedPlaylist
-    opts = [{ id: "playall", label: "Play all in this row" }]
+    opts = []
+    if plID = "" then opts.Push({ id: "playall", label: "Play all in this row" })
     if plID <> ""
         ' Not on the legacy tier: a playlist code is v23-v27 and the encode
         ' blocks the render thread for seconds on a 2014 box (AWCan).
         if AWCan("shareList") then opts.Push({ id: "sharelist", label: "Share this playlist" })
-        opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
+        if not AWIsListTile(fmt(m.library.focusedItem)) then opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
         opts.Push({ id: "deletelist", label: "Delete this playlist" })
     end if
     ' Watch Together: JOIN a friend's room (SHAREPLAY §11.9, ROKU-DESIGN §8a).
@@ -1100,7 +1153,7 @@ end function
 ' `kind` names it. A party is a CLOCK, like a channel (F17): it never writes
 ' resume progress — the owner's Continue Watching was filling with cartoons
 ' a party had shown the room — and it plays MUTED, as tvOS's does.
-sub startIDLineup(ids as Object, origin as String, kind as String, titles = invalid as Dynamic)
+sub startIDLineup(ids as Object, origin as String, kind as String, titles = invalid as Dynamic, first = 0 as Integer)
     ' The titles travel with the ids, so the player names each film from the
     ' first frame rather than printing its archive.org id.
     names = []
@@ -1111,7 +1164,7 @@ sub startIDLineup(ids as Object, origin as String, kind as String, titles = inva
         end if
         names.Push(t)
     end for
-    m.idLineup = { ids: ids, titles: names, index: 0, origin: origin, kind: kind }
+    m.idLineup = { ids: ids, titles: names, index: first, origin: origin, kind: kind, told: false }
     playIDLineup()
 end sub
 
@@ -1130,9 +1183,17 @@ sub playIDLineup()
     if l.titles <> invalid
         if l.index < l.titles.Count() then t = fmt(l.titles[l.index])
     end if
+    place = ""
+    hint = false
+    if l.kind = "playlist"
+        place = fmt(l.index + 1) + " of " + fmt(l.ids.Count())
+        hint = (l.told = false and l.ids.Count() > 1)
+        l.told = true
+    end if
     m.pendingEpisode = { id: l.ids[l.index], title: t, meta: label + "  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
                          queue: l.ids, queueTitles: l.titles, index: l.index, fromLibrary: (l.kind = "playlist"),
-                         origin: l.origin, ephemeral: ephemeral, muted: (l.kind = "party") }
+                         origin: l.origin, ephemeral: ephemeral, muted: (l.kind = "party"),
+                         place: place, hint: hint }
     runDetail(l.ids[l.index])
 end sub
 
@@ -2141,6 +2202,8 @@ sub playPendingEpisode(d as Object)
     m.player.playTitle = t
     m.player.playMeta = e.meta
     m.player.captionUrl = ""
+    m.player.lineupPlace = fmt(e.place)
+    m.player.lineupHint = (e.hint = true)
     setChromeVisible(false)
     m.player.playUrl = u
     if e.roomCode <> invalid then m.player.roomCode = e.roomCode else m.player.roomCode = ""
@@ -2481,8 +2544,17 @@ end sub
 
 sub onLibraryChosen()
     id = m.library.chosen
+    if id = invalid or id = "" then return
+    if Left(id, 9) = "listplay:"
+        startPlaylist(Mid(id, 10), false)
+        return
+    end if
+    if Left(id, 12) = "listshuffle:"
+        startPlaylist(Mid(id, 13), true)
+        return
+    end if
     ' openDetail already forwards a `series:` id to the series screen.
-    if id <> invalid and id <> "" then openDetail(id)
+    openDetail(id)
 end sub
 
 sub openSearch()
@@ -3266,6 +3338,10 @@ sub closePlayer()
     ' Detail started silent, and a guest who left a room kept following it.
     m.player.muted = false
     m.player.roomCode = ""
+    m.player.lineupPlace = ""
+    ' Cleared because `playUrl` only fires on a CHANGE: pressing Play on the
+    ' same film again would otherwise start nothing.
+    m.player.playUrl = ""
     m.pendingEpisode = invalid
     m.pendingNotice = ""
     setChromeVisible(true)

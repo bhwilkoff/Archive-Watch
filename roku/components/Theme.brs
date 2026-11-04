@@ -541,6 +541,12 @@ end function
 
 ' A RowList jumps to [0, 0] whenever its content is replaced. These two find
 ' the row the viewer stood in again, by its title, after a repaint.
+' A playlist row's Play and Shuffle tiles sit among its films in the row's
+' content; anything acting on "the focused film" has to tell them apart.
+function AWIsListTile(id as String) as Boolean
+    return Left(id, 9) = "listplay:" or Left(id, 12) = "listshuffle:"
+end function
+
 function AWRowFocusBefore(rl as Object) as Object
     if rl = invalid then return invalid
     idx = rl.rowItemFocused

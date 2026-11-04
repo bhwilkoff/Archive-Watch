@@ -33,6 +33,9 @@
          blank for an ephemeral lineup on purpose, so it cannot serve. -->
     <field id="ephemeral" type="boolean" value="false" />
     <field id="currentID" type="string" />
+    <!-- Where a playlist is ("3 of 12"), and whether to name its keys. -->
+    <field id="lineupPlace" type="string" />
+    <field id="lineupHint" type="boolean" value="false" />
     <field id="menuRequested" type="boolean" alwaysNotify="true" />
     <field id="ended" type="boolean" alwaysNotify="true" />
     <!-- A failure the VIEWER has to be told about, not just a console line. -->

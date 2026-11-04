@@ -267,6 +267,28 @@ function awIsWatched(id as String) as Boolean
     return posn >= (dur * 95) / 100
 end function
 
+' Where Play starts (iOS-DESIGN 4.3b): the first title not marked watched, or
+' the top when all of them are.
+function awFirstUnwatched(ids as Object) as Integer
+    for i = 0 to ids.Count() - 1
+        if not awIsWatched(ids[i]) then return i
+    end for
+    return 0
+end function
+
+' A fresh random order of 0..n-1, each index once (Fisher-Yates).
+function awShuffledOrder(n as Integer) as Object
+    out = []
+    for i = 0 to n - 1
+        out.Push(i)
+    end for
+    for i = n - 1 to 1 step -1
+        j = Rnd(i + 1) - 1
+        t = out[i] : out[i] = out[j] : out[j] = t
+    end for
+    return out
+end function
+
 ' ---- playlists ------------------------------------------------------------
 '
 ' One registry key, one line per playlist: id <TAB> name <TAB> id,id,id
@@ -405,8 +427,18 @@ function awStoreSelfTest() as String
     if awIsWatched("aw_test_b") then fails.Push("25% counted as watched")
     awMarkWatched("aw_test_b", 1200)
     if not awIsWatched("aw_test_b") then fails.Push("markWatched did not stick")
+    if awFirstUnwatched(["aw_test_b", "aw_test_g"]) <> 1 then fails.Push("Play did not skip a watched title")
+    if awFirstUnwatched(["aw_test_b"]) <> 0 then fails.Push("Play did not return to the top of a watched list")
     awClearProgressFor("aw_test_b")
     if awGetProgress("aw_test_b") <> 0 then fails.Push("clearProgressFor left a row")
+
+    order = awShuffledOrder(12)
+    seen = {}
+    for each o in order
+        seen[fmt(o)] = true
+    end for
+    if seen.Count() <> 12 then fails.Push("shuffle did not hold each title exactly once")
+    if FormatJson(order) = FormatJson(awShuffledOrder(12)) then fails.Push("two shuffles came back identical")
 
     id = awCreatePlaylist("Test " + Chr(9) + "List")
     if id = invalid
@@ -454,7 +486,7 @@ function awStoreSelfTest() as String
     awWriteKey("prog", savedProg)
     awWriteKey("pl", savedPl)
 
-    if fails.Count() = 0 then return "AWPL selftest PASS (23 assertions)"
+    if fails.Count() = 0 then return "AWPL selftest PASS (27 assertions)"
     out = "AWPL selftest FAIL:"
     for each f in fails
         out = out + Chr(10) + "   - " + f

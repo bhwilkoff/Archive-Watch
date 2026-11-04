@@ -633,6 +633,29 @@ service query issued before the catalog task started was lost (Library opened
 by deep link sat on "Nothing here yet" under a header counting its rows), then
 a repaint that turned an empty Library into rows left focus on the Group.
 
+### §6.9b — A playlist plays (2026-11-04)
+
+iOS-DESIGN 4.3b binds here. A Roku playlist is a Library row, so its head is the
+row's own first tiles: **Play** (one playable title) and **Shuffle** (two), in the
+language of Home's `browse:` tiles, ids `listplay:<id>` and `listshuffle:<id>`. A
+series card stays in the row and is left out of the lineup and the count. In a
+playlist row `*` no longer offers "Play all in this row", and on these two tiles
+no "Remove this film"; Favorites and Watched keep Play all.
+
+It runs on the id lineup Play all already used (`startIDLineup`), which advances
+before the Autoplay setting is read, stops at the end of the list, and bookmarks
+each title under its own id. Nothing new is stored: the start comes from
+`awFirstUnwatched` over the progress rows.
+
+Previous and Next are **Up** and **Down**, the only pair the `Video` node leaves
+free. The HUD line says "3 of 12" as each title starts, and the title in Roku's
+own transport carries it too, so OK always answers. The first title of a run adds
+"Up and Down move through the list". That is the one exception to §13.8, on
+§6.9's ground: a verb with nothing drawn for it cannot be found by looking.
+
+Watched on Roku is a bookmark at 95%, so restarting a watched title and leaving
+it early makes it unwatched, and Play stops there next time.
+
 ## 13. The design upgrade (2026-09-04) — from functional to designed
 
 **Binding.** The owner, after the channel reached functional parity: "Everything
