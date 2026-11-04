@@ -38,6 +38,9 @@ def main():
             "contentType": "ephemeral", "genres": ["Family"], "year": 1962, "downloadURL": "https://x/y.mp4"}
     keep = dict(base, archiveID="tt-keep", tmdbID=123, metaSource="tmdb")
     items = [copy.deepcopy(base), copy.deepcopy(keep)]
+    # The whole pass strips real spines through exclude_takedowns; this test
+    # is about genres, and must not touch the checkout.
+    R.exclude_takedowns = lambda *_: None
     R.remediate(items)
     a, b = items
     ok1 = "Family" not in (a.get("genres") or [])
