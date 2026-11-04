@@ -528,8 +528,12 @@ def series_evidence(it: dict, rows: list[dict]) -> str | None:
     cols = [str(c) for c in it.get("collections") or []]
     # a series card is put in front of viewers, so nothing that may not be recommended
     # (Decisions 149/156) and nothing archive.org itself de-emphasizes
+    # "fragment" is not one of those: a serial's card plays chapter one, so it
+    # always reads as a piece of itself, and that flag alone deleted 21 serials
+    # (Batman, Radar Men from the Moon) on 2026-11-01.
+    blocked = it.get("noRecommend") and not str(it.get("noRecommendReason") or "").startswith("fragment")
     if it.get("contentType") in ("commercial", "ephemeral") or it.get("mediatype") == "audio" \
-            or it.get("noRecommend") or "deemphasize" in cols or any(c.startswith("audio_") for c in cols):
+            or blocked or "deemphasize" in cols or any(c.startswith("audio_") for c in cols):
         return None
     eps = [r for r in rows if r["episode"] is not None]
     typed_tv = it.get("contentType") == "tv-special" or it.get("network") or it.get("tvmazeID") \

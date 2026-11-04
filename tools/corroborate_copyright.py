@@ -60,6 +60,10 @@ RECHECK_DAYS = 90
 # a popular title's renewal sits deep in its results (The Pink Panther's
 # RE0000523059 is record 54 of 5,525), and popular is who renewed.
 RULE = 2
+RENEWAL_YEARS = (27, 29)
+# Stamps made while the Office's new response was being misread say nothing: every
+# title in this window read "no claim found". They are asked again.
+BLIND_FROM, BLIND_TO = "2026-10-28", "2026-11-04"
 CHECKED_BUCKETS = {"presumed_pd", "renewal_zone", "renewal_zone_bw", "unknown_year",
                    "safe_archive_license", "safe_cc", "commercial_keep"}
 YEARLESS_HIDES = {"no_evidence", "unknown_year", "modern_noyear_risk"}
@@ -109,30 +113,41 @@ def cce_renewal(title, year):
 
 
 def renewal_in(records, title, year):
-    """The first record that is verifiable renewal evidence for (title, year)."""
+    """The first record that is verifiable renewal evidence for (title, year).
+
+    Since about 2026-10-28 the Office's search no longer returns the ORIGINAL
+    registration's date, only the renewal's own. A work's renewal term came due
+    in its 28th year, so the renewal must be dated 27 to 29 years after the film.
+    A later one proves nothing here, and is left for a person."""
     want = norm_title(title)
     if not want or not isinstance(year, int):
         return None
     for h in records or []:
         r = h.get("hit", h)
-        if r.get("registration_class") != "RE" or r.get("type_of_work") != "motion_picture":
+        number = str(r.get("registration_number") or "")
+        if not number.startswith("RE") or r.get("type_of_work_to_english") != "Motion Pictures":
             continue
         variants = (r.get("title_variant_title_list") or {}).get("title_variant_title") or []
         if isinstance(variants, str):
             variants = [variants]
         if want not in {norm_title(t) for t in [r.get("title_concatenated"), *variants]}:
             continue
-        for x in r.get("registration_number_list", []):
-            if "Renewal registration for" not in (x.get("copyright_number_display_text") or ""):
-                continue
-            m = re.match(r"(\d{4})", (x.get("registration_date") or "").strip())
-            if m and abs(int(m.group(1)) - year) <= 1:
-                claimant = ((r.get("claimants_list") or [{}])[0].get("claimant_full_name") or "").strip()
-                return {"source": USCO_RECORD + r.get("public_records_id", ""),
-                        "via": f"US Copyright Office renewal {r.get('registration_number')} of "
-                               f"{(x.get('registration_number') or '').strip(' /')} ({m.group(1)})",
-                        "claimant": claimant}
+        m = re.match(r"(\d{4})", str(r.get("registration_date") or "").strip())
+        if m and RENEWAL_YEARS[0] <= int(m.group(1)) - year <= RENEWAL_YEARS[1]:
+            claimant = ((r.get("claimants_list") or [{}])[0].get("claimant_full_name") or "").strip()
+            return {"source": USCO_RECORD + r.get("public_records_id", ""),
+                    "via": f"US Copyright Office renewal {number} ({m.group(1)}) of a {year} film",
+                    "claimant": claimant}
     return None
+
+
+def office_answers_as_expected():
+    """A title whose renewal is on record must be found, or the parser and the
+    Office have parted. They did on about 2026-10-28, and for a week every title
+    was stamped "no claim found" while the runs stayed green. Kiss Me Deadly
+    (1955, RE0000168113); None means the Office could not be asked."""
+    recs = usco_search("Kiss Me Deadly")
+    return None if recs is None else bool(renewal_in(recs, "Kiss Me Deadly", 1955))
 
 
 def cce_renewal_any(it):
@@ -142,7 +157,7 @@ def cce_renewal_any(it):
     Black was renewed as U-Boat 29 (2026-09-30). An alternate title can name a
     different film (Liebesbriefe's "Love Letters"), so the evidence says which
     name matched, and a wrong one goes in copyright_evidence_overrides.json."""
-    y = it.get("year")
+    y = film_year(it)
     hit = cce_renewal(it.get("title") or "", y)
     if hit:
         return hit
@@ -155,15 +170,25 @@ def cce_renewal_any(it):
 
 
 def usco_search(title):
-    url = USCO + "?" + urllib.parse.urlencode({"page_number": 1, "query": title,
-                                               "field_type": "title", "records_per_page": 100})
-    for attempt in range(3):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-            return json.load(urllib.request.urlopen(req, timeout=30)).get("data", [])
-        except Exception:  # noqa: BLE001
-            time.sleep(3 * (attempt + 1))
-    return None   # a failed check is not a verdict (Decision 027)
+    """Up to three pages: recordations fill the first hundred results of a busy
+    title, and The Pink Panther's renewal sits behind them."""
+    out = []
+    for page in (1, 2, 3):
+        url = USCO + "?" + urllib.parse.urlencode({"page_number": page, "query": title,
+                                                   "field_type": "title", "records_per_page": 100})
+        for attempt in range(3):
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+                data = json.load(urllib.request.urlopen(req, timeout=30)).get("data", [])
+                break
+            except Exception:  # noqa: BLE001
+                time.sleep(3 * (attempt + 1))
+        else:
+            return None   # a failed check is not a verdict (Decision 027)
+        out += data
+        if len(data) < 100:
+            break
+    return out
 
 
 def wikidata_claims(qids, ias):
@@ -241,8 +266,18 @@ def judge_wikidata(rows, today):
     return out
 
 
+def film_year(it):
+    """The year to ask under: its own, else the release date a match gave it.
+    Thirty-three titles with a release date and no year were never asked."""
+    y = it.get("year")
+    if isinstance(y, int):
+        return y
+    m = re.match(r"(\d{4})", str(it.get("releaseDate") or ""))
+    return int(m.group(1)) if m else None
+
+
 def _asked(it):
-    return f"{it.get('title')}|{it.get('year')}"
+    return f"{it.get('title')}|{film_year(it)}"
 
 
 def targets(items, today):
@@ -256,7 +291,7 @@ def targets(items, today):
         if it.get("copyrightClaimEvidence") or (
                 it.get("excluded") and it.get("rightsAudit") not in YEARLESS_HIDES):
             continue
-        y = it.get("year")
+        y = film_year(it)
         if not isinstance(y, int) or y < AR.PD_BY_AGE:
             continue
         b = AR.bucket(it)[0]
@@ -265,6 +300,8 @@ def targets(items, today):
         if b not in CHECKED_BUCKETS and not prelinger_only:
             continue
         seen = it.get("copyrightChecked")
+        if seen and BLIND_FROM <= seen <= BLIND_TO:
+            seen = None
         # The match is by title AND year, so a verdict belongs to the pair it was
         # made for: a corrected year or title is a new question (2026-09-29, the
         # 356 borrowed silent-era years remediate now replaces).
@@ -294,6 +331,14 @@ def main():
     budget = float(args[args.index("--budget-min") + 1]) * 60 if "--budget-min" in args else 150 * 60
     start = time.time()
     today = dt.date.today()
+    canary = office_answers_as_expected()
+    if canary is False:
+        print("::error::the Copyright Office search no longer matches a known renewal: "
+              "refusing to record anyone as clear")
+        return 1
+    if canary is None:
+        print("::warning::the Copyright Office could not be asked; nothing recorded")
+        return 0
     cat = json.loads(CATALOG.read_text(encoding="utf-8"))
     todo = targets(cat["items"], today)
     if limit:
@@ -309,7 +354,7 @@ def main():
         if e:
             it["copyrightClaimEvidence"] = {**e, "at": now}
             n_wd += 1
-        elif it["year"] >= USCO_FIRST_YEAR:
+        elif film_year(it) >= USCO_FIRST_YEAR:
             usco_todo.append(it)
         elif cce_renewal_any(it):
             it["copyrightClaimEvidence"] = {**cce_renewal_any(it), "at": now}
@@ -326,7 +371,7 @@ def main():
         recs = usco_search(it["title"])
         if recs is None:
             return it, "error", None
-        return it, "done", renewal_in(recs, it["title"], it["year"])
+        return it, "done", renewal_in(recs, it["title"], film_year(it))
 
     with cf.ThreadPoolExecutor(2) as ex:        # polite: two in flight
         for it, state, ev in ex.map(check, usco_todo):

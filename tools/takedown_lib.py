@@ -85,7 +85,30 @@ def strip_spines(table=None, repo=None) -> dict:
     return out
 
 
+def hidden_series_slugs(items) -> set:
+    return {it.get("seriesID") for it in items
+            if str(it.get("archiveID") or "").startswith("series:") and it.get("excluded")}
+
+
+def drop_hidden_series(repo=None) -> int:
+    """A series the rights audit hid still had its spine, so its episodes were in
+    the DB, search and feeds behind a hidden card. publish-db runs this before it
+    builds; the files stay in git, so a card that returns brings them back."""
+    repo = repo or REPO
+    cat = json.loads((repo / "catalog.json").read_text(encoding="utf-8"))
+    n = 0
+    for slug in hidden_series_slugs(cat["items"]):
+        f = repo / "series" / f"{slug}.json"
+        if slug and f.exists():
+            f.unlink()
+            n += 1
+    return n
+
+
 if __name__ == "__main__":
+    if "--hidden-series" in sys.argv:
+        print(f"spines of hidden series left out of this build: {drop_hidden_series()}")
+        sys.exit(0)
     r = strip_spines()
     print(f"takedowns: {r['episodes']} episodes stripped, "
           f"{len(r['emptied'])} spines removed")

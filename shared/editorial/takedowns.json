@@ -1,7 +1,23 @@
 {
-  "_how": "One line per thing removed: \"<item>\", \"<item>@<token>\" or \"series:<slug>\" -> {\"date\": \"YYYY-MM-DD\", \"case\": \"<case number>\"}. The case number is a TD- reference, or the reference of a notice sent to Google. This file is public: never put a person, company or email here. Delete a line to restore the title.",
+  "_how": "One line per thing removed: \"<item>\", \"<item>@<token>\" or \"series:<slug>\" -> {\"date\": \"YYYY-MM-DD\", \"case\": \"<case number>\"}. The case is a TD- reference, the reference of a notice sent to Google, or the copyright renewal that found it. This file is public: never put a person, company or email here. Delete a line to restore the title.",
   "BillSpragueCollectionMadameDubarry": {
     "date": "2026-11-04",
     "case": "google-4-3760000042329-0915352292"
+  },
+  "ThePinkPanther-cartoons": {
+    "date": "2026-11-04",
+    "case": "renewal RE0000643837"
+  },
+  "max-fleischers-animated-antics-5-episode-compilation-1940-41": {
+    "date": "2026-11-04",
+    "case": "renewal R434045"
+  },
+  "max-fleischers-stone-age-5-episode-compilation-1940": {
+    "date": "2026-11-04",
+    "case": "renewal R434939"
+  },
+  "the-mark-of-zero-1967": {
+    "date": "2026-11-04",
+    "case": "renewal RE0000482759"
   }
 }

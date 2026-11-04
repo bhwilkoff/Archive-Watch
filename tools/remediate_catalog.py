@@ -420,7 +420,8 @@ def yearless_match_conflict(it):
     contradicted by the file's runtime, else None. Pure; reads the OMDb cache."""
     if not (it.get("imdbID") or it.get("tmdbID")) or it.get("contentType") in ("tv-series", "tv-episode"):
         return None
-    if it.get("yearSource") != "omdb":
+    # No year at all means nothing vouches for the match either.
+    if it.get("yearSource") != "omdb" and it.get("year") is not None:
         return None
     if it.get("matchVerdict") == "verified" or it.get("archiveID") in _runtime_keep():
         return None
@@ -2875,6 +2876,29 @@ def exclude_takedowns(items, stats):
             stats["takedown_excluded"] += 1
 
 
+def exclude_sources_of_claimed_series(items, stats):
+    """A whole-series upload keeps a card of its own beside its series (Decision
+    166), under a title the Copyright Office never knew: "Banacek - Complete
+    Series" stayed up after Banacek was hidden. A claim on the show reaches the
+    uploads that are the show."""
+    by_id = {it.get("archiveID"): it for it in items}
+    for card in items:
+        if not (str(card.get("archiveID") or "").startswith("series:")
+                and card.get("excluded") and card.get("copyrightClaimEvidence")):
+            continue
+        f = REPO / "series" / f"{card.get('seriesID')}.json"
+        if not f.exists():
+            continue
+        spine = json.loads(f.read_text(encoding="utf-8"))
+        for src in [spine.get("sourceID"), *(spine.get("sourceIDs") or [])]:
+            it = by_id.get(src)
+            if it and not it.get("excluded"):
+                it["excluded"] = True
+                it["excludedReason"] = "series_claim"
+                it["copyrightClaimFrom"] = card["archiveID"]
+                stats["series_claim_sources"] += 1
+
+
 def exclude_hate_propaganda(items, stats):
     """Reversibly exclude uploads whose own title advertises Holocaust denial or
     child sexual abuse material (Decision 027's `excluded` mechanism)."""
@@ -4225,6 +4249,7 @@ def remediate(items):
     flag_propaganda(items, stats)
     exclude_not_films(items, stats)
     exclude_takedowns(items, stats)
+    exclude_sources_of_claimed_series(items, stats)
     refilter_reviews(items, stats)
     stamp_reviewed_provenance(items, stats)
     # After the year/runtime rules above have settled — flag_trailers reads both.

@@ -45,6 +45,17 @@ def dump(p, d):
     p.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+# What the rights audits write on a card. The rebuild owns everything else.
+AUDIT_FIELDS = ("copyrightClaimEvidence", "copyrightClaimFrom", "copyrightChecked",
+                "copyrightCheckedFor", "copyrightRule", "excluded", "excludedReason",
+                "rightsAudit", "rightsBucket", "rightsEvidence")
+
+
+def with_audit(card, old):
+    """A rebuilt card, keeping what the audits wrote on the one it replaces."""
+    return {**card, **{k: old[k] for k in AUDIT_FIELDS if k in (old or {})}}
+
+
 def series_card(s):
     """Build a catalog tv-series card from a canonical series dict, including
     every field Catalog.Item requires to decode."""
@@ -187,6 +198,7 @@ def main():
     def transform(catalog, label):
         items = catalog["items"]
         kept, dropped_old_series, dropped_to_episode, reclassed = [], 0, 0, 0
+        old = {it.get("archiveID"): it for it in items if it.get("seriesID")}
         for it in items:
             ct = it.get("contentType")
             aid = it.get("archiveID")
@@ -207,7 +219,10 @@ def main():
             kept.append(it)
         # Add canonical cards present in THIS catalog's id space. Seed gets all
         # canonical series cards too (small, enables first-launch TV browsing).
-        kept.extend([dict(c) for c in cards])
+        # A rebuilt card keeps what the audits found: without this, every run
+        # wiped the evidence, and a renewed series came back until the nightly
+        # check found it again (2026-11-04: 16 series, 278 episodes).
+        kept.extend([with_audit(c, old.get(c["archiveID"])) for c in cards])
         catalog["items"] = kept
         # refresh stats.totalItems if present
         if isinstance(catalog.get("stats"), dict):

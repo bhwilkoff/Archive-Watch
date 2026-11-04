@@ -183,6 +183,11 @@ jobs:
         # it happens (2026-09-30, eleven renewed films one publish from the screen).
         run: python tools/coverage_report.py --json coverage.json || echo "::warning::coverage report did not run"
 
+      # A hidden series must not leave its episodes behind in the DB, search and
+      # feeds. The files stay in git; a card that returns brings them back.
+      - name: Leave hidden series out of this build
+        run: python tools/takedown_lib.py --hidden-series
+
       - name: Build SQLite catalog
         id: build
         run: python tools/build_sqlite.py --aliases-out aliases.json | tee db.log

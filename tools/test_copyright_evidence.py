@@ -24,23 +24,31 @@ def check(name, cond):
 
 
 def record(cls, work, title, orig_year=None, pid="voyager_1", reg="RE0000168113"):
-    r = {"registration_class": cls, "type_of_work": work, "title_concatenated": title,
-         "public_records_id": pid, "registration_number": reg,
-         "claimants_list": [{"claimant_full_name": "United Artists Corporation (PWH)"}],
-         "registration_number_list": [{"registration_number": reg}]}
+    """The Office's record as served since about 2026-10-28 (see Kiss Me Deadly's
+    live record): the class is the number's prefix, the work type is in English,
+    and the only date is the renewal's own."""
+    english = {"motion_picture": "Motion Pictures", "dramatic_work": "Dramatic Works; or Choreography",
+               "music": "Music"}.get(work, work)
+    number = reg if cls == "RE" else cls + "0000000001"
+    r = {"record_schema_type": "registration", "type_of_work_to_english": english,
+         "title_concatenated": title, "public_records_id": pid, "registration_number": number,
+         "claimants_list": [{"claimant_full_name": "United Artists Corporation (PWH)"}]}
     if orig_year:
-        r["registration_number_list"].append({"registration_date": f"{orig_year}-04-20 ",
-                                              "registration_number": "LP0000004659 /",
-                                              "copyright_number_display_text": "Renewal registration for:"})
+        r["registration_date"] = f"{orig_year + 28}-05-23"
     return {"hit": r}
 
 
 # ---- the Copyright Office matcher ----
+check("a release date stands in for a missing year",
+      C.film_year({"year": None, "releaseDate": "1945-11-30"}) == 1945)
+check("CONTROL: an item's own year wins", C.film_year({"year": 1950, "releaseDate": "1945"}) == 1950)
 kiss = [record("RE", "motion_picture", "Kiss me deadly.  By Parklane Pictures, Inc.", 1955)]
 ev = C.renewal_in(kiss, "Kiss Me Deadly", 1955)
 check("a motion-picture renewal of the same title and year is evidence", bool(ev))
-check("  ...and names the renewal and the original registration",
-      ev and "RE0000168113" in ev["via"] and "LP0000004659" in ev["via"] and ev["source"].endswith("voyager_1"))
+check("  ...and names the renewal and links its record",
+      ev and "RE0000168113" in ev["via"] and ev["source"].endswith("voyager_1"))
+check("a renewal outside the 28th year proves nothing",
+      not C.renewal_in([record("RE", "motion_picture", "Kiss me deadly.", 1970)], "Kiss Me Deadly", 1955))
 check("a leading article does not break the match", bool(C.renewal_in(kiss, "The Kiss Me Deadly", 1955)))
 check("an original registration five years away is another film", not C.renewal_in(kiss, "Kiss Me Deadly", 1960))
 plan9 = [record("PA", "motion_picture", "Plan nine from outer space :trailer."),

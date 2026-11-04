@@ -126,6 +126,8 @@ rows, _ = B.parse_bundle(serial)
 check("control: a de-emphasized item is never a series card",
       B.series_evidence({"collections": ["fringe", "deemphasize"]}, rows) is None
       and B.series_evidence({"noRecommend": True}, rows) is None
+      and B.series_evidence({"noRecommend": True, "noRecommendReason": "URAA — fr"}, rows) is None
+      and B.series_evidence({"noRecommend": True, "noRecommendReason": "fragment — 20 of 94 min"}, rows) is not None
       and B.series_evidence({"contentType": "commercial"}, rows) is None
       and B.series_evidence({}, rows) == "episode names")
 

@@ -267,6 +267,7 @@ into every session and the index alone carries every title.)
 - 174 — A cartoon of racist caricature is never recommended and always findable, on a record a reader can open or the title's own tags
 - 175 — A complete notice removes a title unless the file contradicts it; the file is read automatically, and a requester's name never reaches the repository
 - 176 — The catalog is swapped into place under another name; the release is never without it, and a missing asset is never a first run
+- 177 — A checker that can no longer find a known claim refuses to clear anyone, and a hidden series takes its episodes and its uploads with it
 
 ---
 
@@ -775,3 +776,28 @@ already said a missing asset is an emergency.
 **How to apply**: never call `release upload --clobber` on an asset other jobs
 read. Proved against a real throwaway release, because a fake cannot prove GitHub
 accepts the calls.
+
+## 177 — A checker that can no longer find a known claim refuses to clear anyone, and a hidden series takes its episodes and its uploads with it
+*Date: 2026-11-04*
+
+`corroborate_copyright` asks the Office about Kiss Me Deadly before each run and
+stops if the known renewal is not found. It reads the Office's new record (the class
+is the number's prefix; the only date is the renewal's, so a renewal must fall 27 to
+29 years after the film) and reads three pages. Stamps from the blind window are
+void. A rebuilt series card keeps what the audits wrote (`AUDIT_FIELDS`). A hidden
+series leaves publish-db's build, and a claim on a show reaches its source uploads.
+
+**Why**: a viewer's list of series led to an investigation that found the Office had
+changed its response around 2026-10-28. `renewal_in` skipped every record, so about
+700 titles were stamped "no claim found" and the runs stayed green: ENGINEERING-PROCESS
+§2 again. Each tv-canonical run also wiped a series card's evidence, and the nightly
+check used to restore it, so the two faults together put 16 renewed series (278
+episodes) back on screen, Banacek and Ironside among them. A hidden card had also
+never stopped its episodes. Separately, Decision 172's fragment flag deleted 21
+serials on 11-01: a serial's card plays chapter one, so it reads as a piece of itself.
+
+**How to apply**: any reader of an outside service needs a canary: a fact that must
+come back true, checked before anything is recorded. A new audit field on a series
+card goes in `AUDIT_FIELDS`. Bundle series may be blocked by any `noRecommend` reason
+except `fragment`. The 28-year window misses a late renewal; that is left for a person
+rather than widened, because the original date is no longer published.

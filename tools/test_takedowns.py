@@ -76,6 +76,31 @@ r = T.strip_spines(repo=tmp)
 check("a rebuilt spine cannot bring a removal back", not (tmp / "series/gone-show.json").exists()
       and r["episodes"] == 2)
 
+(tmp / "series/claimed-show.json").write_text(json.dumps(
+    {"seriesID": "claimed-show", "sourceID": "claimed-upload", "seasons": []}))
+items2 = [{"archiveID": "series:claimed-show", "seriesID": "claimed-show", "excluded": True,
+           "copyrightClaimEvidence": {"via": "renewal"}},
+          {"archiveID": "claimed-upload"}, {"archiveID": "unrelated-upload"}]
+R.exclude_sources_of_claimed_series(items2, Counter())
+check("a claim on a show reaches the upload that is the show", items2[1].get("excluded") is True
+      and items2[1].get("copyrightClaimFrom") == "series:claimed-show")
+check("CONTROL: another upload stays", "excluded" not in items2[2])
+(tmp / "catalog.json").write_text(json.dumps({"items": items2 + [
+    {"archiveID": "series:untouched", "seriesID": "untouched"}]}))
+check("a hidden series is left out of the build", T.drop_hidden_series(tmp) == 1
+      and not (tmp / "series/claimed-show.json").exists())
+check("CONTROL: a visible series stays in it", (tmp / "series/untouched.json").exists())
+
+import reconcile_tv_catalog as RC
+was = {"archiveID": "series:x", "title": "Old", "excluded": True, "rightsAudit": "copyright_claim",
+       "copyrightClaimEvidence": {"via": "RE1"}}
+now = RC.with_audit({"archiveID": "series:x", "title": "New"}, was)
+check("a rebuilt series keeps the claim the audit found", now.get("copyrightClaimEvidence") == {"via": "RE1"}
+      and now.get("excluded") is True and now.get("rightsAudit") == "copyright_claim")
+check("and takes everything else from the rebuild", now["title"] == "New")
+check("CONTROL: a new series has nothing to keep",
+      "excluded" not in RC.with_audit({"archiveID": "series:y"}, None))
+
 src = Path(A.__file__).read_text()
 check("the rights reconcile keeps excludedReason (it will not un-hide it)",
       '"excludedReason"' in src.split("FOREIGN = (", 1)[1].split(")", 1)[0])
