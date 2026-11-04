@@ -87,6 +87,110 @@ final class AuditUITests: XCTestCase {
 
     // MARK: - 2.1 tab bar
 
+    /// John Howard, 2026-10-27 and 10-29: tapping a TV Special "seemingly
+    /// failed to reveal its catalog", and pressing Home revealed everything he
+    /// had tapped. A tile must open its page on the screen being looked at.
+    func test_31_tvSpecialOpensWhereItWasTapped() {
+        launch()
+        app.tabBars.buttons["Browse"].tap()
+        sleep(1)
+        let tvChip = app.buttons["TV"].firstMatch
+        if tvChip.waitForExistence(timeout: 5) { tvChip.tap() }
+        sleep(2)
+        snap("31-browse-tv")
+        let specials = app.buttons.matching(NSPredicate(format: "label CONTAINS 'TV Specials'")).firstMatch
+        XCTAssertTrue(specials.waitForExistence(timeout: 8), "TV Specials entry")
+        specials.tap()
+        sleep(3)
+        snap("31-specials-grid")
+        for round in 0..<3 {
+            let tile = app.scrollViews.buttons.element(boundBy: round + 1)
+            XCTAssertTrue(tile.waitForExistence(timeout: 8), "a tile")
+            let label = tile.label
+            let tapped = Date()
+            tile.tap()
+            // A second tap as soon as the first seems to have done nothing: the
+            // viewer's own move. It must not stack a second page.
+            let again = app.scrollViews.buttons.element(boundBy: round + 2)
+            if again.exists, again.isHittable { again.tap() }
+            let play = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Play' OR label BEGINSWITH 'Resume'")).firstMatch
+            XCTAssertTrue(play.waitForExistence(timeout: 10), "Detail opened for \(label)")
+            snap("31-open-\(Int(Date().timeIntervalSince(tapped) * 1000))ms")
+            sleep(1)
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            sleep(2)
+        }
+        app.tabBars.buttons["Home"].tap()
+        sleep(2)
+        snap("31-home-after")
+        XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Play' OR label BEGINSWITH 'Resume'")).firstMatch.exists,
+                       "Home is at its root: nothing was stacked there")
+    }
+
+    /// John Howard, 2026-11-01: the player's capsules were cut off in portrait,
+    /// sat over the film in landscape and never hid; and captions came back on
+    /// for every episode. The capsule must clear the notch, fade, return on a tap.
+    func test_32_playerControlsAndCaptionMemory() {
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        let play = app.buttons.matching(NSPredicate(format:
+            "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
+        guard play.waitForExistence(timeout: 12) else { XCTFail("no Play"); return }
+        play.tap()
+        let captions = app.buttons["Captions"].firstMatch
+        XCTAssertTrue(captions.waitForExistence(timeout: 15), "caption control")
+        snap("32-portrait-shown")
+        XCTAssertGreaterThan(captions.frame.minY, 40, "clear of the notch")
+        sleep(7)
+        snap("32-portrait-faded")
+        XCTAssertFalse(captions.isHittable, "faded after a few seconds")
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        sleep(1)
+        snap("32-portrait-tapped")
+        XCTAssertTrue(captions.isHittable, "a tap brings it back")
+        XCUIDevice.shared.orientation = .landscapeLeft
+        sleep(2)
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        sleep(1)
+        snap("32-landscape")
+        sleep(7)
+        snap("32-landscape-faded")
+        XCUIDevice.shared.orientation = .portrait
+    }
+
+    /// The last caption choice holds for the next title, across launches. Puts
+    /// the viewer's setting back and asserts that it did.
+    func test_33_captionChoiceIsRemembered() {
+        func openPlayer(_ id: String) -> XCUIElement {
+            launch(["AW_START_ITEM": id])
+            let play = app.buttons.matching(NSPredicate(format:
+                "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
+            XCTAssertTrue(play.waitForExistence(timeout: 12), "Play")
+            play.tap()
+            let c = app.buttons["Captions"].firstMatch
+            XCTAssertTrue(c.waitForExistence(timeout: 15), "caption control")
+            return c
+        }
+        func choose(_ c: XCUIElement, _ name: String) {
+            if !c.isHittable { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1) }
+            c.tap(); sleep(1)
+            app.buttons[name].firstMatch.tap(); sleep(2)
+        }
+        var c = openPlayer("his_girl_friday")
+        let before = c.value as? String ?? ""
+        snap("33-start-\(before)")
+        let other = before == "Off" ? "Automatic" : "Off"
+        choose(c, other)
+        app.terminate()
+        c = openPlayer("Shadows_on_the_Stairs_1941")
+        snap("33-next-film")
+        XCTAssertEqual(c.value as? String == "Off" ? "Off" : "On",
+                       other == "Off" ? "Off" : "On", "the choice held for another title")
+        choose(c, "Off")
+        app.terminate()
+        c = openPlayer("his_girl_friday")
+        XCTAssertEqual(c.value as? String, "Off", "restored to Off")
+    }
+
     func test_01_everyTabOpens() {
         launch()
         // Search LAST: on iOS 26 the search tab REPLACES the tab bar with a

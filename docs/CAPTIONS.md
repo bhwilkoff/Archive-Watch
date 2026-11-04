@@ -79,6 +79,9 @@ films already make).
 - **Whether captions appear at all** is the viewer's system accessibility
   preference (`MACaptionAppearanceGetDisplayType`). The app never overrides a
   viewer's selection and never selects anything for a forced-only viewer.
+  **The last choice made in the app holds** for every later title and episode,
+  on every Apple platform (`CaptionPreference`); until there is one, iOS and
+  macOS start with captions on only for a viewer who set them to always on.
 - **Style** (font, size, color) is the system caption style everywhere — the
   native tracks obey it natively; the live overlay reads the same settings
   (`SystemCaptionStyle`). There is deliberately no in-app style UI.

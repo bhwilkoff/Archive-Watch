@@ -96,16 +96,23 @@ final class Router {
     /// When the last push landed. A tap that arrives before the page it opened
     /// has appeared is not a new request: a viewer tapped five TV Specials
     /// while the first Detail was still coming and found all five stacked
-    /// (2026-10-27).
+    /// (2026-10-27). Half a second was not enough (2026-10-29: "still exists"),
+    /// so a page holds the door until it says it appeared; five seconds bounds
+    /// a page that never does.
     @ObservationIgnored private var lastPushAt = Date.distantPast
+    @ObservationIgnored private var awaitingPage = false
+
+    func pageAppeared() { awaitingPage = false }
 
     /// Push any registered destination onto the active tab's stack. False
     /// when the tap was dropped as a repeat of one still landing.
     @discardableResult
     func push<V: Hashable>(_ value: V) -> Bool {
         let now = Date()
-        guard now.timeIntervalSince(lastPushAt) > 0.5 else { return false }
+        let held = now.timeIntervalSince(lastPushAt)
+        guard held > (awaitingPage ? 5 : 0.5) else { return false }
         lastPushAt = now
+        awaitingPage = value is Catalog.Item
         switch tab {
         case .home: homePath.append(value)
         case .browse: browsePath.append(value)

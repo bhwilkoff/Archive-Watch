@@ -80,4 +80,11 @@ enum SystemCaptionStyle {
     static var viewerWantsCaptions: Bool {
         MACaptionAppearanceGetDisplayType(.user) != .forcedOnly
     }
+
+    /// The viewer turned captions on in the system's own settings. Stricter
+    /// than `viewerWantsCaptions`: `.automatic` is the system deciding, not a
+    /// person asking.
+    static var viewerAskedForCaptions: Bool {
+        MACaptionAppearanceGetDisplayType(.user) == .alwaysOn
+    }
 }

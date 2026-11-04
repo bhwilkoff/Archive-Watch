@@ -690,7 +690,13 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
         /// controller whose menu gets rebuilt for checkmark state.
         private var captionChoice: CaptionCoordinator.CaptionChoice?
         private weak var lastVC: AVPlayerViewController?
-        init(_ parent: EpisodeAVPlayerContainer) { self.parent = parent }
+        init(_ parent: EpisodeAVPlayerContainer) {
+            self.parent = parent
+            // The last choice made anywhere holds for this episode too.
+            captionChoice = CaptionPreference.rememberedStart(hasFile: false)
+                .flatMap { CaptionCoordinator.CaptionChoice(rawValue: $0.rawValue) }
+            captions.setCaptionChoice(captionChoice)
+        }
 
         func apply(to vc: AVPlayerViewController) {
             let prev = UIAction(title: "Previous Episode",
@@ -717,6 +723,7 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
                              image: UIImage(systemName: "waveform"),
                              state: effective == .automatic ? .on : .off) { [weak self] _ in
                         self?.captionChoice = .automatic
+                        CaptionPreference.remembered = .automatic
                         self?.captions.setCaptionChoice(.automatic)
                         if let vc = self?.lastVC { self?.apply(to: vc) }
                     },
@@ -724,6 +731,7 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
                              image: UIImage(systemName: "captions.bubble"),
                              state: effective == .off ? .on : .off) { [weak self] _ in
                         self?.captionChoice = .off
+                        CaptionPreference.remembered = .off
                         self?.captions.setCaptionChoice(.off)
                         if let vc = self?.lastVC { self?.apply(to: vc) }
                     },

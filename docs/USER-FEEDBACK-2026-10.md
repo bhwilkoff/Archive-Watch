@@ -215,3 +215,17 @@ F6 repro and the two router fixes (small, a defect) → F4.1 remember + F4.2 Z�
 delete + the `createdAt` sync fix → F3.4 sort + arrange contents → F4.4 and the
 owner-call items. Each lands with its `PARITY.md` rows and is pressed on a real
 iPhone before it is called done.
+
+---
+
+## Second round — 2026-10-29 and 11-01
+
+| # | What he reported | What it really is | State |
+|---|---|---|---|
+| G1 | Captions default to Automatic and reset every episode | True on iOS: it ignored the system setting tvOS already read, and only the first episode kept a choice | **Fixed** 1.47.13, Apple platforms; `test_33` |
+| G2 | Player capsules cut off in portrait, over the film in landscape, never hide | A parent `.ignoresSafeArea()` put them under the notch; on the iPhone they also sat on AVKit's volume control | **Fixed** 1.47.13; `test_32`, seen on the iPhone 12 |
+| G3 | Hidden queuing still exists | **Not reproduced**: Browse, TV, TV Specials on the iPhone 12 opens each page, and a fast second tap stacks nothing. A page takes 2.4-3.2 s to appear (measured through XCUITest). Pushes now wait for the page, up to 5 s | Guarded; which iPhone and which way held still unknown |
+| G4 | Drag to rearrange snaps back; "shaky" delete | Menus do this; he says he is "happy enough" | Not built |
+| G5 | Another menu forgets its choice | He did not name it | Asked |
+| G6 | Whole series under More Versions; missing works | See the catalog investigation | Open |
+| G7 | Build my own series from films | A new feature | Owner call |

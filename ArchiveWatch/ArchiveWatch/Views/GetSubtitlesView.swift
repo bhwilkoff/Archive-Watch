@@ -9,6 +9,34 @@ enum CaptionPlaybackChoice: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+/// What a playback starts with, on every Apple platform. The last choice made
+/// anywhere holds for the next film and the next episode; before there is one,
+/// captions are on only if the viewer turned them on in the system's settings
+/// (CAPTIONS.md). A viewer, 2026-11-01: *"the Caption menu default should be OFF,
+/// not Automatic. I spend much effort trying to ensure captions are disabled
+/// ... for each and every episode."*
+enum CaptionPreference {
+    private static let key = "captionChoice"
+
+    static var remembered: CaptionPlaybackChoice? {
+        get { UserDefaults.standard.string(forKey: key).flatMap(CaptionPlaybackChoice.init(rawValue:)) }
+        set { UserDefaults.standard.set(newValue?.rawValue, forKey: key) }
+    }
+
+    /// "On" means the best words the title has: a person's, then the engine's.
+    static func start(hasFile: Bool) -> CaptionPlaybackChoice {
+        guard remembered.map({ $0 != .off }) ?? SystemCaptionStyle.viewerAskedForCaptions else {
+            return .off
+        }
+        return hasFile ? .file : .automatic
+    }
+
+    /// The same, or nil when nothing was chosen yet (tvOS's own default stands).
+    static func rememberedStart(hasFile: Bool) -> CaptionPlaybackChoice? {
+        remembered == nil ? nil : start(hasFile: hasFile)
+    }
+}
+
 /// Session-scoped per-title choice. macOS needs it because Detail and the
 /// player are DIFFERENT WINDOWS (player-as-window-root, macOS-DESIGN): the
 /// sheet writes here, the player window reads it when it opens.
@@ -97,8 +125,11 @@ struct GetSubtitlesView: View {
                     .font(.subheadline.weight(.semibold))
                 Picker("Captions", selection: Binding(
                     get: { sel.wrappedValue
-                            ?? (item.subtitleHLSURL != nil ? .file : .automatic) },
-                    set: { sel.wrappedValue = $0 })) {
+                            ?? CaptionPreference.start(hasFile: item.subtitleHLSURL != nil) },
+                    set: {
+                        sel.wrappedValue = $0
+                        CaptionPreference.remembered = $0
+                    })) {
                     if item.subtitleHLSURL != nil {
                         Text("Subtitle File").tag(CaptionPlaybackChoice.file)
                     }

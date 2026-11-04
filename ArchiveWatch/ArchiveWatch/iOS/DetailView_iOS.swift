@@ -25,6 +25,7 @@ struct DetailView: View {
     @State private var aliasIDs: Set<String> = []
     @State private var related: [Catalog.Item] = []
     @State private var playerHandle = PlayerHandle()
+    @State private var playerChrome = PlayerChromeTimer()
     @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var startingSharePlay = false
     @State private var goingLive = false
@@ -439,18 +440,22 @@ struct DetailView: View {
                                                playbackError = message
                                            })
                 } else {
-                    PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
-                        playRequest = nil
-                        playbackError = message
-                    }, captionChoice: req.captionChoice, startAt: req.startAt)
-                    .controlled(by: playerHandle)
-                    .overlay(alignment: .topTrailing) {
-                        CaptionChoiceCapsule(handle: playerHandle)
-                            .padding(.top, 8).padding(.trailing, 16)
+                    // The film reaches the edges; its controls stay inside the
+                    // safe area, or the notch cuts them in half (§8.5).
+                    ZStack(alignment: .topTrailing) {
+                        PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
+                            playRequest = nil
+                            playbackError = message
+                        }, captionChoice: req.captionChoice, startAt: req.startAt)
+                        .controlled(by: playerHandle)
+                        .onTapVideo { playerChrome.toggle() }
+                        .ignoresSafeArea()
+                        PlayerChrome(timer: playerChrome) {
+                            CaptionChoiceCapsule(handle: playerHandle)
+                        }
                     }
                 }
             }
-            .ignoresSafeArea()
             // A room guest's one line (SHAREPLAY §11.6.1).
             .overlay(alignment: .top) {
                 StudioRoomNotice().padding(.top, 12)
@@ -489,7 +494,10 @@ struct DetailView: View {
         }
         // Re-read when the page comes back into view: a film finished in the
         // player, or marked on another screen, is watched here too.
-        .onAppear { refreshWatched() }
+        .onAppear {
+            refreshWatched()
+            router.pageAppeared()
+        }
         // "Play a Surprise Film" (Go menu): the router names the film to play
         // as its page opens. Consumed once; after the screen settles, since a
         // cover presented with the push is dropped (the door's same wait).

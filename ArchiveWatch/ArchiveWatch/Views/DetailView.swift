@@ -1725,6 +1725,15 @@ struct PlayerScreen: View {
               let c = CaptionChoiceSession.byItem[item] else { return nil }
         return CaptionCoordinator.CaptionChoice(rawValue: c.rawValue)
     }()
+    /// The menu's choice for this film, or the last one made anywhere.
+    private var startingCaptionChoice: CaptionCoordinator.CaptionChoice? {
+        captionChoice ?? CaptionPreference.rememberedStart(hasFile: hasFileSubtitles)
+            .flatMap { CaptionCoordinator.CaptionChoice(rawValue: $0.rawValue) }
+    }
+    private func chooseCaptions(_ choice: CaptionCoordinator.CaptionChoice) {
+        captionChoice = choice
+        CaptionPreference.remembered = CaptionPlaybackChoice(rawValue: choice.rawValue)
+    }
     // #92: seconds to seek into the FIRST program when joining a channel live.
     // Consumed once (zeroed after the first setup) so lineup advances start at 0.
     @State private var joinOffset: TimeInterval = 0
@@ -1801,7 +1810,7 @@ struct PlayerScreen: View {
                                   archiveID: current?.archiveID ?? archiveID,
                                   liveCaptionURL: liveCaptionSource,
                                   reviewSource: subtitleReviewSource,
-                                  captionChoice: captionChoice,
+                                  captionChoice: startingCaptionChoice,
                                   onChannelStep: onChannelStep)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
@@ -2376,7 +2385,7 @@ struct PlayerScreen: View {
         // replacement, now with the choice the owner asked for.
         let autoAvailable = LiveCaptions.isSupported
         if hasFileSubtitles || autoAvailable {
-            let effective: CaptionCoordinator.CaptionChoice = captionChoice
+            let effective: CaptionCoordinator.CaptionChoice = startingCaptionChoice
                 ?? (SystemCaptionStyle.viewerWantsCaptions
                     ? (hasFileSubtitles ? .file : .automatic) : .off)
             var subtitleActions: [UIAction] = []
@@ -2385,7 +2394,7 @@ struct PlayerScreen: View {
                     title: "Subtitle File",
                     image: UIImage(systemName: "doc.text"),
                     state: effective == .file ? .on : .off) { _ in
-                        captionChoice = .file
+                        chooseCaptions(.file)
                     })
             }
             if autoAvailable {
@@ -2393,14 +2402,14 @@ struct PlayerScreen: View {
                     title: "Automatic",
                     image: UIImage(systemName: "waveform"),
                     state: effective == .automatic ? .on : .off) { _ in
-                        captionChoice = .automatic
+                        chooseCaptions(.automatic)
                     })
             }
             subtitleActions.append(UIAction(
                 title: "Off",
                 image: UIImage(systemName: "captions.bubble"),
                 state: effective == .off ? .on : .off) { _ in
-                    captionChoice = .off
+                    chooseCaptions(.off)
                 })
             items.append(UIMenu(title: "Subtitles",
                                 image: UIImage(systemName: "captions.bubble"),

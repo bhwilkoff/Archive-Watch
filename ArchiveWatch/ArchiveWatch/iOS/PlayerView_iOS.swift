@@ -78,6 +78,12 @@ struct PlayerView: UIViewControllerRepresentable {
         return copy
     }
 
+    private static func startingChoice(archiveID: String, hls: URL?) -> CaptionPlaybackChoice {
+        CaptionPreference.start(hasFile: hls != nil
+            || SubtitleStore.cachedVTT(for: archiveID) != nil
+            || OfflineLibrary.subtitleURL(for: archiveID) != nil)
+    }
+
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
     init(item: Catalog.Item, autoplayIn store: AppStore? = nil,
@@ -86,6 +92,7 @@ struct PlayerView: UIViewControllerRepresentable {
          onPlayerReady: ((AVPlayer) -> Void)? = nil,
          startAt: TimeInterval? = nil) {
         self.captionChoice = captionChoice
+            ?? Self.startingChoice(archiveID: item.archiveID, hls: item.subtitleHLSURL)
         startOffset = startAt
         self.onPlayerReady = onPlayerReady
         archiveID = item.archiveID
@@ -114,6 +121,7 @@ struct PlayerView: UIViewControllerRepresentable {
          onAdvance: ((String) -> Void)? = nil) {
         startOffset = startAt
         self.captionChoice = captionChoice
+            ?? Self.startingChoice(archiveID: episode.archiveID, hls: nil)
         self.onUnplayable = onUnplayable
         archiveID = episode.archiveID
         videoURL = episode.videoURLParsed
@@ -1469,8 +1477,57 @@ final class PlayerHandle {
     var hasFile = false
 
     func setCaptionChoice(_ choice: CaptionPlaybackChoice) {
+        CaptionPreference.remembered = choice
         guard let c = coordinator, let vc = c.playerVC else { return }
         c.setCaptionChoice(choice, on: vc)
+    }
+}
+
+/// When the player's overlay controls show: with AVKit's own, on a tap, and
+/// gone a few seconds later so nothing sits over the film. They fade rather
+/// than leave, because a menu open from them must survive the timer. VoiceOver
+/// keeps them: a control that vanishes on a clock cannot be reached by swiping.
+@MainActor
+@Observable
+final class PlayerChromeTimer {
+    private(set) var visible = true
+    @ObservationIgnored private var hideTask: Task<Void, Never>?
+
+    func show() {
+        visible = true
+        hideTask?.cancel()
+        guard !UIAccessibility.isVoiceOverRunning else { return }
+        hideTask = Task { [weak self] in
+            try? await Task.sleep(for: .seconds(4))
+            guard !Task.isCancelled else { return }
+            self?.visible = false
+        }
+    }
+
+    func toggle() {
+        if visible, !UIAccessibility.isVoiceOverRunning {
+            hideTask?.cancel()
+            visible = false
+        } else {
+            show()
+        }
+    }
+}
+
+struct PlayerChrome<Content: View>: View {
+    let timer: PlayerChromeTimer
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        content
+            .opacity(timer.visible ? 1 : 0)
+            .allowsHitTesting(timer.visible)
+            .accessibilityHidden(!timer.visible)
+            .animation(.easeInOut(duration: 0.25), value: timer.visible)
+            // Below AVKit's top row: its volume control holds the corner in
+            // both orientations, and a capsule there sits on top of it.
+            .padding(.top, 64).padding(.trailing, 16)
+            .onAppear { timer.show() }
     }
 }
 
@@ -1499,6 +1556,7 @@ struct CaptionChoiceCapsule: View {
                 .background(.black.opacity(0.45), in: .capsule)
         }
         .accessibilityLabel("Captions")
+        .accessibilityValue(handle.choice == .off ? "Off" : handle.choice == .file ? "Subtitle File" : "Automatic")
     }
 }
 

@@ -591,7 +591,12 @@ no custom-transport API on iOS, so manual episode navigation lives in
 `EpisodePlayerContainer`'s top-trailing capsule (chevrons + SxE label);
 switching recreates the player via `.id(episode.archiveID)`, and auto-advance
 reports back through `onAdvance` so the capsule stays anchored to what's
-actually playing. New in-player affordances follow this overlay pattern.
+actually playing. New in-player affordances follow this overlay pattern, through
+`PlayerChrome`: inside the safe area, below AVKit's top row, faded with the
+controls and back on a tap. A viewer, 2026-11-01: *"in portrait view, all three
+are cut-off mid-height; and in landscape view the Captioning button overlaps the
+movie."* The player alone ignores the safe area; a parent `.ignoresSafeArea()`
+puts the capsule under the notch.
 
 8.6 **Channels weave commercials** between programs (vintage PD ads from
 `randomCommercials`), and emphasize color for animation pools (Decision 025,

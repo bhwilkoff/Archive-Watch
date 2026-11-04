@@ -41,9 +41,11 @@ struct PlayerWindow: View {
                           // engine (or nothing) captions; File keeps it.
                           subtitleHLS: {
                               let c = CaptionChoiceSession.byItem[item.archiveID]
+                                  ?? CaptionPreference.start(hasFile: item.subtitleHLSURL != nil)
                               return (c == .automatic || c == .off) ? nil : item.subtitleHLSURL
                           }(),
-                          captionsOff: CaptionChoiceSession.byItem[item.archiveID] == .off,
+                          captionsOff: (CaptionChoiceSession.byItem[item.archiveID]
+                              ?? CaptionPreference.start(hasFile: item.subtitleHLSURL != nil)) == .off,
                           runtimeSeconds: item.runtimeSeconds.map { Double($0) },
                           publishedVTT: item.publishedVTTURL,
                           onEnded: autoplayNext,

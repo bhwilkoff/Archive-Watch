@@ -162,7 +162,7 @@ struct SeriesDetailView: View {
             }
         }
         .fullScreenCover(item: $playingEpisode) { ep in
-            EpisodePlayerContainer(start: ep, in: series).ignoresSafeArea()
+            EpisodePlayerContainer(start: ep, in: series)
         }
         .onChange(of: playingEpisode) { _, now in
             if now == nil { upNext = SeriesUpNext.compute(for: series, in: modelContext) }
@@ -171,6 +171,7 @@ struct SeriesDetailView: View {
             ClipStudioView(source: ep.clipSource)
         }
         .task { await load() }
+        .onAppear { router.pageAppeared() }
     }
 
     private func load() async {
@@ -289,6 +290,7 @@ struct EpisodePlayerContainer: View {
     @State private var episode: Episode
     @State private var firstID: String
     @State private var handle = PlayerHandle()
+    @State private var chrome = PlayerChromeTimer()
 
     init(start: Episode, in series: Series?, startAt: TimeInterval? = nil,
          captionChoice: CaptionPlaybackChoice? = nil,
@@ -306,42 +308,54 @@ struct EpisodePlayerContainer: View {
 
     var body: some View {
         let isFirst = episode.archiveID == firstID
-        PlayerView(episode: episode, in: series,
-                   startAt: isFirst ? startAt : nil,
-                   captionChoice: isFirst ? captionChoice : nil,
-                   onUnplayable: onUnplayable) { advancedID in
-            if let e = series?.flatEpisodes.first(where: { $0.archiveID == advancedID }) {
-                firstID = ""
-                episode = e
-            }
-        }
-        .controlled(by: handle)
-        .id(episode.archiveID)
-        .overlay(alignment: .topTrailing) {
-            HStack(spacing: 10) {
-                CaptionChoiceCapsule(handle: handle)
-                if series != nil, prev != nil || next != nil {
-                    HStack(spacing: 18) {
-                        Button { if let p = prev { firstID = ""; episode = p } } label: {
-                            Image(systemName: "backward.end.fill")
-                        }
-                        .disabled(prev == nil)
-                        if let n = episode.numberLabel {
-                            Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
-                        }
-                        Button { if let n = next { firstID = ""; episode = n } } label: {
-                            Image(systemName: "forward.end.fill")
-                        }
-                        .disabled(next == nil)
-                    }
-                    .font(.body)
-                    .tint(.white)
-                    .padding(.horizontal, 14).padding(.vertical, 8)
-                    .background(.black.opacity(0.45), in: .capsule)
+        // The film reaches the edges; its controls stay inside the safe area,
+        // or the notch cuts them in half (§8.5).
+        ZStack(alignment: .topTrailing) {
+            PlayerView(episode: episode, in: series,
+                       startAt: isFirst ? startAt : nil,
+                       captionChoice: isFirst ? captionChoice : nil,
+                       onUnplayable: onUnplayable) { advancedID in
+                if let e = series?.flatEpisodes.first(where: { $0.archiveID == advancedID }) {
+                    firstID = ""
+                    episode = e
                 }
             }
-            .padding(.top, 8).padding(.trailing, 16)
+            .controlled(by: handle)
+            .onTapVideo { chrome.toggle() }
+            .id(episode.archiveID)
+            .ignoresSafeArea()
+            PlayerChrome(timer: chrome) {
+                HStack(spacing: 10) {
+                    CaptionChoiceCapsule(handle: handle)
+                    if series != nil, prev != nil || next != nil {
+                        HStack(spacing: 18) {
+                            Button { step(to: prev) } label: {
+                                Image(systemName: "backward.end.fill")
+                            }
+                            .disabled(prev == nil)
+                            if let n = episode.numberLabel {
+                                Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
+                            }
+                            Button { step(to: next) } label: {
+                                Image(systemName: "forward.end.fill")
+                            }
+                            .disabled(next == nil)
+                        }
+                        .font(.body)
+                        .tint(.white)
+                        .padding(.horizontal, 14).padding(.vertical, 8)
+                        .background(.black.opacity(0.45), in: .capsule)
+                    }
+                }
+            }
         }
+    }
+
+    private func step(to target: Episode?) {
+        guard let target else { return }
+        firstID = ""
+        episode = target
+        chrome.show()
     }
 }
 
