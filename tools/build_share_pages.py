@@ -640,7 +640,7 @@ def main() -> int:
         desc = clip(synopsis, 180) if synopsis else meta
         if "free" not in desc.lower():
             desc = (desc.rstrip(" .") + ". ") if desc else ""
-            desc += "Free to watch on Archive Watch — public domain."
+            desc += "Free to watch on Archive Watch."
 
         cast_rows = at(d, D_CAST) or []
         cast = [str(c[0] if isinstance(c, list) else c) for c in cast_rows if c][:40]

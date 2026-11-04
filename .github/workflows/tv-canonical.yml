@@ -190,6 +190,9 @@ jobs:
         # never on a cancelled run.
         if: ${{ !cancelled() && steps.tvrights.outcome == 'success' }}
         run: |
+          # A rebuild pools episodes from TVmaze and archive.org again, so a
+          # removal request is honored here too (Decision 175).
+          python tools/takedown_lib.py
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A series/ \

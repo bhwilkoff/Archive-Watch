@@ -2854,17 +2854,22 @@ def exclude_not_films(items, stats):
 
 
 def exclude_takedowns(items, stats):
-    """Removal requests (2026-09-26, takedown.html): every archiveID in
-    shared/editorial/takedowns.json is hidden on every surface, every build.
-    `excludedReason` is a marker the rights reconcile keeps (Decision 083), so
-    a removal holds; ingest never re-adds an item already in the catalog. An
-    entry names who asked and when, so a removal can be audited or undone by
-    deleting the line."""
-    p = REPO / "shared/editorial/takedowns.json"
-    table = json.loads(p.read_text()) if p.exists() else {}
-    table = {k: v for k, v in table.items() if not k.startswith("_")}
+    """Removal requests (docs/TAKEDOWNS.md, Decision 175). Whatever
+    shared/editorial/takedowns.json lists is hidden on every surface, every
+    build: a card by id, every episode or file of a listed item, a whole show
+    by `series:<slug>`. `excludedReason` is a marker the rights reconcile keeps
+    (Decision 083), so a removal holds. Episodes are not catalog items, so they
+    leave their spines here; every reader of series/*.json then agrees."""
+    import takedown_lib
+    table = takedown_lib.load(REPO)
+    spines = takedown_lib.strip_spines(table, REPO)
+    stats["takedown_episodes"] += spines["episodes"]
+    emptied = set(spines["emptied"])
     for it in items:
-        if it.get("archiveID") in table and it.get("excludedReason") != "takedown":
+        aid = it.get("archiveID")
+        gone = (takedown_lib.blocked(aid, table, it.get("sourceID"))
+                or (str(aid).startswith("series:") and it.get("seriesID") in emptied))
+        if gone and it.get("excludedReason") != "takedown":
             it["excluded"] = True
             it["excludedReason"] = "takedown"
             stats["takedown_excluded"] += 1

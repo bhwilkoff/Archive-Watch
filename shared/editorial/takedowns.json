@@ -1,3 +1,7 @@
 {
-  "_how": "One entry per removal request: \"<archiveID>\": {\"date\": \"YYYY-MM-DD\", \"from\": \"who asked\", \"note\": \"what they said\"}. remediate_catalog.exclude_takedowns hides each on every surface, every build. Delete the line to restore it."
+  "_how": "One line per thing removed: \"<item>\", \"<item>@<token>\" or \"series:<slug>\" -> {\"date\": \"YYYY-MM-DD\", \"case\": \"<case number>\"}. The case number is a TD- reference, or the reference of a notice sent to Google. This file is public: never put a person, company or email here. Delete a line to restore the title.",
+  "BillSpragueCollectionMadameDubarry": {
+    "date": "2026-11-04",
+    "case": "google-4-3760000042329-0915352292"
+  }
 }
