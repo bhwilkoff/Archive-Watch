@@ -25,6 +25,7 @@ struct PlaylistDetailView: View {
     /// not on every render — each with the id it is STORED under.
     @State private var entries: [Entry] = []
     @State private var resolved = false
+    @State private var run: PlaylistRun?
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
     init(playlist: Playlist) {
@@ -70,6 +71,7 @@ struct PlaylistDetailView: View {
                 arrangeList
             } else {
                 ScrollView {
+                    playControls
                     LazyVGrid(columns: cols, spacing: 18) {
                         ForEach(shown) { item in
                             Button { router.openDetail(item) } label: { PosterTile(item: item) }
@@ -114,6 +116,7 @@ struct PlaylistDetailView: View {
             }
         }
         .environment(\.editMode, $editMode)
+        .fullScreenCover(item: $run) { PlaylistPlayerContainer(run: $0) }
         .confirmationDialog("Delete “\(playlist.name)”?", isPresented: $confirmDelete,
                             titleVisibility: .visible) {
             Button("Delete Playlist", role: .destructive) { deletePlaylist() }
@@ -128,6 +131,35 @@ struct PlaylistDetailView: View {
             entries = store.storedItems(playlist.archiveIDs).map { Entry(storedID: $0.storedID, item: $0.item) }
             resolved = true
         }
+    }
+
+    /// §4.3b. Play follows the order on screen, Shuffle any order.
+    @ViewBuilder private var playControls: some View {
+        let titles = PlaylistPlay.playable(shown)
+        if !titles.isEmpty {
+            HStack(spacing: 12) {
+                Button { play(titles) } label: {
+                    Label("Play", systemImage: "play.fill").frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                if titles.count > 1 {
+                    Button { run = PlaylistRun(items: titles.shuffled(), start: 0) } label: {
+                        Label("Shuffle", systemImage: "shuffle").frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                }
+            }
+            .controlSize(.large)
+            .padding(.horizontal).padding(.top, 8)
+        }
+    }
+
+    private func play(_ titles: [Catalog.Item]) {
+        let completed = store.completedArchiveIDs
+        let start = PlaylistPlay.startIndex(titles) {
+            completed.contains($0) || WatchProgress.isWatched(archiveID: $0, in: ctx)
+        }
+        run = PlaylistRun(items: titles, start: start)
     }
 
     private var arrangeList: some View {

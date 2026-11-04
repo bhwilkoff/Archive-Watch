@@ -191,6 +191,79 @@ final class AuditUITests: XCTestCase {
         XCTAssertEqual(c.value as? String, "Off", "restored to Off")
     }
 
+    /// §4.3b: a playlist plays through in the order shown, with its place on
+    /// screen. Makes its own two-film list, and asserts it is gone afterward:
+    /// lists sync to the owner's devices. A device with no list must not read
+    /// as a pass, so nothing here may skip.
+    func test_34_playlistPlaysThrough() {
+        let name = "Play audit \(Int(Date().timeIntervalSince1970) % 10000)"
+        launch()
+        app.buttons["Library"].firstMatch.tap(); sleep(2)
+        let lists = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Playlists'")).firstMatch
+        if lists.waitForExistence(timeout: 8) { lists.tap(); sleep(2); sweepTestPlaylists() }
+        app.terminate()
+        createPlaylistWithHisGirlFriday(name)
+
+        // The second film, added to the same list.
+        app.terminate()
+        launch(["AW_START_TAB": "search"])
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 12), "search field")
+        search.tap(); search.typeText("Shadows on the Stairs"); sleep(5)
+        let hit = app.staticTexts["Shadows on the Stairs"].firstMatch
+        XCTAssertTrue(hit.waitForExistence(timeout: 12), "second film in Search")
+        hit.tap(); sleep(3)
+        openAddToPlaylist()
+        let existing = app.staticTexts[name].firstMatch
+        XCTAssertTrue(existing.waitForExistence(timeout: 8), "the list in the sheet")
+        existing.tap(); sleep(2)
+        if app.buttons["Done"].firstMatch.exists { app.buttons["Done"].firstMatch.tap(); sleep(1) }
+
+        app.buttons["Library"].firstMatch.tap(); sleep(2)
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Playlists'")).firstMatch.tap(); sleep(2)
+        let row = app.staticTexts[name].firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 8), "the list just made")
+        row.tap(); sleep(3)
+        snap("34-playlist")
+        let play = app.buttons["Play"].firstMatch
+        XCTAssertTrue(play.waitForExistence(timeout: 6), "Play at the head of the list")
+        XCTAssertTrue(app.buttons["Shuffle"].firstMatch.exists, "Shuffle beside it")
+        play.tap()
+        let next = app.buttons["Next"].firstMatch
+        XCTAssertTrue(next.waitForExistence(timeout: 20), "Next in the player")
+        sleep(1)
+        snap("34-playing")
+        let position = app.staticTexts.matching(NSPredicate(format: "label MATCHES '[0-9]+ of 2'")).firstMatch
+        XCTAssertTrue(position.exists, "the player says where it is")
+        let first = position.label
+        func reveal() {
+            if !next.isHittable { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1) }
+        }
+        reveal()
+        if first == "1 of 2" {
+            next.tap(); sleep(4); reveal()
+            XCTAssertEqual(position.label, "2 of 2", "Next moved on")
+            snap("34-next")
+            XCTAssertFalse(next.isEnabled, "nothing after the last title")
+        }
+        let close = app.buttons.matching(NSPredicate(format: "label == 'Close' OR label == 'Done'")).firstMatch
+        if !close.isHittable { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1) }
+        close.tap(); sleep(2)
+
+        // Shuffle opens the same player on the same list.
+        app.buttons["Shuffle"].firstMatch.tap()
+        XCTAssertTrue(next.waitForExistence(timeout: 20), "Shuffle plays")
+        snap("34-shuffle")
+        if !close.isHittable { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1) }
+        close.tap(); sleep(2)
+
+        app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
+        deletePlaylist(row)
+        sweepTestPlaylists()
+        XCTAssertFalse(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Play audit '")).firstMatch.exists,
+                       "CLEANUP FAILED: a test playlist is still in the Library")
+    }
+
     func test_01_everyTabOpens() {
         launch()
         // Search LAST: on iOS 26 the search tab REPLACES the tab bar with a
@@ -497,7 +570,7 @@ final class AuditUITests: XCTestCase {
     /// by a run that failed before its cleanup: never anything else of the
     /// owner's. Run on the Playlists screen, before and after a test.
     private func sweepTestPlaylists() {
-        for prefix in ["Share audit ", "Edit audit "] {
+        for prefix in ["Share audit ", "Edit audit ", "Play audit "] {
             for _ in 0..<12 {
                 let stray = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", prefix)).firstMatch
                 guard stray.exists else { break }

@@ -58,7 +58,31 @@ final class AppRouter {
     }
     func openPerson(_ name: String) { path.append(PersonRoute(name: name)) }
     func openCollection(_ id: String, _ title: String) { path.append(CollectionRoute(id: id, title: title)) }
+    /// The playlist playing through (iOS-DESIGN §4.3b), and where it is. A film
+    /// played any other way ends it.
+    var playlistRun: [Catalog.Item] = []
+    var playlistIndex = 0
+
+    func playList(_ items: [Catalog.Item], from index: Int) {
+        guard items.indices.contains(index) else { return }
+        play(items[index])
+        guard nowPlaying?.archiveID == items[index].archiveID else { return }
+        playlistRun = items
+        playlistIndex = index
+    }
+
+    /// Previous or Next. False when the list has nothing that way.
+    @discardableResult
+    func stepPlaylist(_ by: Int) -> Bool {
+        let target = playlistIndex + by
+        guard playlistRun.indices.contains(target) else { return false }
+        let run = playlistRun
+        playList(run, from: target)
+        return true
+    }
+
     func play(_ item: Catalog.Item, at start: TimeInterval? = nil) {
+        playlistRun = []
         // ONE FILM, ONE PLAYER (§D7). While the Studio window holds a film, a
         // film played here would tear its surface down as a "projection" —
         // during a show, the audience's picture.

@@ -1775,11 +1775,14 @@ struct PlayerScreen: View {
     /// #1 channels / #3 party / #2 cartoon: start a continuous lineup at item 0.
     /// `startOffset` joins the first program in progress (#92 channels live tune-in).
     init?(lineup: [Catalog.Item], startMuted: Bool = false, startOffset: TimeInterval = 0,
-          channelContext: Bool = false, ephemeralLineup: Bool = true) {
-        guard let first = lineup.first, let url = first.videoURLParsed else { return nil }
+          channelContext: Bool = false, ephemeralLineup: Bool = true, startIndex: Int = 0) {
+        guard lineup.indices.contains(startIndex) else { return nil }
+        let first = lineup[startIndex]
+        guard let url = first.videoURLParsed else { return nil }
         self.init(url: url, archiveID: first.archiveID, catalogItem: first,
                   lineup: lineup, startMuted: startMuted, startOffset: startOffset,
                   channelContext: channelContext, ephemeralLineup: ephemeralLineup)
+        _lineupIndex = State(initialValue: startIndex)
     }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
@@ -2196,6 +2199,20 @@ struct PlayerScreen: View {
             title: "Play Next",
             image: UIImage(systemName: "forward.end.fill")
         ) { _ in advanceNow() }
+        let playlistSteps: [UIMenuElement] = {
+            guard let lineup, !ephemeralLineup, lineup.count > 1 else { return [] }
+            return [
+                UIAction(title: "Previous",
+                         image: UIImage(systemName: "backward.end.fill"),
+                         attributes: lineupIndex > 0 ? [] : .disabled) { _ in
+                    guard studioFilm == nil, lineupIndex > 0 else { return }
+                    lineupIndex -= 1
+                    current = lineup[lineupIndex]
+                },
+                UIAction(title: PlaylistPlay.position(lineupIndex, of: lineup.count),
+                         attributes: .disabled) { _ in },
+            ]
+        }()
         let muteToggle = UIAction(
             title: muted ? "Play with Sound" : "Mute",
             image: UIImage(systemName: muted ? "speaker.wave.2.fill" : "speaker.slash.fill")
@@ -2357,7 +2374,7 @@ struct PlayerScreen: View {
             image: UIImage(systemName: "person.2.wave.2"),
             children: studioFilm != nil ? liveChildren : [withFriends, withTheWorld])
         var items: [UIMenuElement] = studioFilm == nil
-            ? [playNext, muteToggle, watchTogether]
+            ? playlistSteps + [playNext, muteToggle, watchTogether]
             : [muteToggle, watchTogether]
         // An EPHEMERAL lineup (Party Play, a channel, a cartoon marathon) is a
         // wall of films the viewer did not choose — so the two questions it
@@ -2478,6 +2495,12 @@ struct PlayerScreen: View {
         if let lineup, lineupIndex + 1 < lineup.count {
             lineupIndex += 1
             current = lineup[lineupIndex]
+            return
+        }
+        // A playlist ends where it ends (iOS-DESIGN §4.3b); only a channel,
+        // party or cartoon session runs on into the catalog.
+        if lineup != nil, !ephemeralLineup {
+            dismiss()
             return
         }
         guard let cur = current else { return }

@@ -26,6 +26,7 @@ private struct LibraryShelves {
 
 struct LibraryView: View {
     @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
     @Query(sort: \Favorite.addedAt, order: .reverse) private var favorites: [Favorite]
     @Query(sort: \Playlist.modifiedAt, order: .reverse) private var allPlaylists: [Playlist]
@@ -85,6 +86,22 @@ struct LibraryView: View {
                     ShelfRow(title: pl.name, items: entries.map(\.item),
                              storedIDs: Self.storedIDs(entries),
                              emptyText: "Empty playlist") {
+                        // §4.3b. A shelf's order is the list's own.
+                        let titles = PlaylistPlay.playable(entries.map(\.item))
+                        if !titles.isEmpty {
+                            Button { play(titles) } label: { Image(systemName: "play.fill") }
+                                .buttonStyle(.borderless)
+                                .help("Play this playlist")
+                                .accessibilityLabel("Play \(pl.name)")
+                        }
+                        if titles.count > 1 {
+                            Button { router.playList(titles.shuffled(), from: 0) } label: {
+                                Image(systemName: "shuffle")
+                            }
+                            .buttonStyle(.borderless)
+                            .help("Shuffle this playlist")
+                            .accessibilityLabel("Shuffle \(pl.name)")
+                        }
                         if let url {
                             ShareLink(item: url) { Image(systemName: "square.and.arrow.up") }
                                 .buttonStyle(.borderless)
@@ -197,6 +214,13 @@ struct LibraryView: View {
                   seen.insert(item.archiveID).inserted else { return nil }
             return LibraryEntry(storedID: id, item: item)
         }
+    }
+
+    /// §4.3b: the list's order, from the first title not yet watched.
+    private func play(_ titles: [Catalog.Item]) {
+        router.playList(titles, from: PlaylistPlay.startIndex(titles) {
+            store.completedArchiveIDs.contains($0) || WatchProgress.isWatched(archiveID: $0, in: ctx)
+        })
     }
 
     /// Pull first: an order built from a stale copy of the lists would push

@@ -30,7 +30,7 @@ struct PlayerView: UIViewControllerRepresentable {
     /// The film's running time from the catalog: the loopback proxy paces its
     /// delivery by the film's bitrate (size ÷ running time; `ProxyPace`).
     var runtimeSeconds: Double? = nil
-    let queue: PlaybackQueue?
+    var queue: PlaybackQueue?
     // Shown in the title+description overlay that fades with the transport
     // controls (AVPlayerViewController shows no title on iOS, so this overlay is
     // the only place the user sees what's playing).
@@ -143,6 +143,16 @@ struct PlayerView: UIViewControllerRepresentable {
         persistsProgress = false   // live TV: no resume, no Watched pollution
         overlayTitle = first.title
         overlayDescription = first.synopsis
+    }
+
+    /// One title of a playlist (§4.3b): the rest follow it whatever the Autoplay
+    /// setting says, and each saves its own place, unlike a channel.
+    init(playlist items: [Catalog.Item], at index: Int,
+         onUnplayable: ((String) -> Void)? = nil,
+         onAdvance: ((String) -> Void)? = nil) {
+        self.init(item: items[index], onUnplayable: onUnplayable)
+        queue = LineupQueue(lineup: items, startAt: items[index].archiveID, from: index)
+        self.onAdvance = onAdvance
     }
 
     private var onAdvance: ((String) -> Void)? = nil
@@ -1435,9 +1445,9 @@ final class MovieAutoplayQueue: PlaybackQueue {
 final class LineupQueue: PlaybackQueue {
     private let items: [Catalog.Item]
     private var idx: Int
-    init(lineup: [Catalog.Item], startAt archiveID: String) {
+    init(lineup: [Catalog.Item], startAt archiveID: String, from index: Int? = nil) {
         items = lineup
-        idx = lineup.firstIndex(where: { $0.archiveID == archiveID }) ?? 0
+        idx = index ?? lineup.firstIndex(where: { $0.archiveID == archiveID }) ?? 0
     }
 
     func next(afterFinishing _: String) -> (id: String, url: URL, title: String, description: String?)? {

@@ -59,6 +59,22 @@ struct PlayerWindow: View {
                 // the old AVPlayer, and its periodic save wrote the old film's
                 // position under the new film's id.
                 .id(item.archiveID)
+                .toolbar {
+                    if router.playlistRun.count > 1 {
+                        ToolbarItemGroup(placement: .navigation) {
+                            Button { router.stepPlaylist(-1) } label: {
+                                Image(systemName: "backward.end.fill")
+                            }
+                            .disabled(router.playlistIndex == 0).help("Previous")
+                            Text(PlaylistPlay.position(router.playlistIndex, of: router.playlistRun.count))
+                                .font(.caption).monospacedDigit()
+                            Button { router.stepPlaylist(1) } label: {
+                                Image(systemName: "forward.end.fill")
+                            }
+                            .disabled(router.playlistIndex + 1 >= router.playlistRun.count).help("Next")
+                        }
+                    }
+                }
                 // §B13d: health is pinned over the player, OUTSIDE
                 // AVPlayerView's floating HUD, because the HUD auto-hides and
                 // health may not (WATCH-TOGETHER §4).
@@ -161,7 +177,14 @@ struct PlayerWindow: View {
     private func autoplayNext() {
         // Not while live (launch audit A11): the Studio's engine is attached
         // to THIS film, and the next one never passed the rights gate.
-        guard !StudioSession.shared.isLive, store.autoplayMode != .off,
+        guard !StudioSession.shared.isLive else { return }
+        // A playlist follows its own order whatever Autoplay says, and ends with
+        // its last title (iOS-DESIGN §4.3b).
+        if !router.playlistRun.isEmpty {
+            router.stepPlaylist(1)
+            return
+        }
+        guard store.autoplayMode != .off,
               let next = ContinuousPlayback.next(after: item, mode: store.autoplayMode, store: store)
         else { return }
         router.play(next)

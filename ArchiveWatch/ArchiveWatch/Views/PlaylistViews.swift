@@ -127,8 +127,14 @@ struct PlaylistDetailView: View {
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var ctx
     @Query private var playlists: [Playlist]
-    @State private var playing: [Catalog.Item]?
+    @State private var playing: LineupRun?
     @State private var shareURL: String?
+
+    /// §4.3b: the order on screen, from the first title not yet watched.
+    private func play(_ titles: [Catalog.Item]) {
+        let start = PlaylistPlay.startIndex(titles) { WatchProgress.isWatched(archiveID: $0, in: ctx) }
+        playing = LineupRun(items: titles, start: start)
+    }
 
     private var playlist: Playlist? { playlists.first { $0.id == playlistID } }
     /// Each title with the id the list stores it under (a merged-away id
@@ -158,12 +164,23 @@ struct PlaylistDetailView: View {
                         .scaledFont(48, weight: .heavy, design: .serif)
                         .foregroundStyle(.white)
                     if !items.isEmpty {
-                        Button { playing = items } label: {
-                            Label("Play All", systemImage: "play.fill")
-                                .scaledFont(22, weight: .semibold)
-                                .padding(.horizontal, 24).padding(.vertical, 12)
+                        let titles = PlaylistPlay.playable(items)
+                        if !titles.isEmpty {
+                            Button { play(titles) } label: {
+                                Label("Play", systemImage: "play.fill")
+                                    .scaledFont(22, weight: .semibold)
+                                    .padding(.horizontal, 24).padding(.vertical, 12)
+                            }
+                            .buttonStyle(.borderedProminent)
                         }
-                        .buttonStyle(.borderedProminent)
+                        if titles.count > 1 {
+                            Button { playing = LineupRun(items: titles.shuffled(), start: 0) } label: {
+                                Label("Shuffle", systemImage: "shuffle")
+                                    .scaledFont(22, weight: .semibold)
+                                    .padding(.horizontal, 24).padding(.vertical, 12)
+                            }
+                            .buttonStyle(.bordered)
+                        }
 
                         // SHARE. A television has no share sheet and no
                         // clipboard worth the name, so the link becomes a QR
@@ -210,11 +227,11 @@ struct PlaylistDetailView: View {
             .padding(.vertical, 40)
         }
         .background(Color.black.ignoresSafeArea())
-        .fullScreenCover(item: Binding(get: { playing.map { LineupBox(items: $0) } },
-                                       set: { playing = $0?.items })) { box in
+        .fullScreenCover(item: $playing) { box in
             // A playlist is DELIBERATE viewing — it keeps WatchProgress/resume,
             // unlike the ephemeral channel/party/cartoon lineups (audit fix #2).
-            if let screen = PlayerScreen(lineup: box.items, ephemeralLineup: false) { screen }
+            if let screen = PlayerScreen(lineup: box.items, ephemeralLineup: false,
+                                         startIndex: box.start) { screen }
         }
         .sheet(item: Binding(get: { shareURL.map { ShareURLBox(url: $0) } },
                              set: { shareURL = $0?.url })) { box in
@@ -225,7 +242,11 @@ struct PlaylistDetailView: View {
 
 private struct ShareURLBox: Identifiable { let id = UUID(); let url: String }
 
-private struct LineupBox: Identifiable { let id = UUID(); let items: [Catalog.Item] }
+private struct LineupRun: Identifiable {
+    let id = UUID()
+    let items: [Catalog.Item]
+    let start: Int
+}
 
 // The ONE watch surface (owner, 2026-08-15 and 2026-08-17): every title ever
 // played on any synced device — finished or not, deliberate or a channel
