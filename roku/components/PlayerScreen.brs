@@ -87,6 +87,8 @@ sub onUrl()
 
     c = CreateObject("roSGNode", "ContentNode")
     c.title = m.top.playTitle
+    ' Roku's own transport prints this, so OK always answers "where am I?".
+    if m.top.lineupPlace <> "" then c.title = m.top.playTitle + "  ·  " + m.top.lineupPlace
     c.url = url
     ' archive.org serves progressive MP4 behind a 302 to a storage node.
     c.streamFormat = "mp4"
@@ -132,6 +134,11 @@ sub onUrl()
     ' An ephemeral lineup says how to reach its three verbs, once, up front —
     ' the owner spent a whole Party Play unable to find out what was playing.
     if m.top.ephemeral and meta = "" then meta = "Press Up for sound, this film's page, and more"
+    if meta = "" and m.top.lineupPlace <> ""
+        meta = m.top.lineupPlace
+        if m.top.lineupHint then meta = meta + "  ·  Up and Down move through the list"
+    end if
+    print "AWLIST hud '"; meta; "' title '"; c.title; "'"
     m.hudMeta.text = meta
     m.hasNotice = (meta <> "")
     m.capReported = false

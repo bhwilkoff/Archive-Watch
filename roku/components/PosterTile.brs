@@ -104,7 +104,7 @@ sub onContent()
     ' crashes the channel (PosterTile.brs:104, seen once on the store,
     ' 2026-09-11). init() re-runs onContent, so returning loses nothing.
     if m.tileRule = invalid or m.art = invalid or m.plate = invalid then return
-    m.isTile = (Left(fmt(c.id), 7) = "browse:")
+    m.isTile = (Left(fmt(c.id), 7) = "browse:" or AWIsListTile(fmt(c.id)))
     if m.isTile
         m.art.uri = ""
         m.art.visible = false
