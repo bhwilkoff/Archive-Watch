@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-03T09:37:12Z",
+  "updated_at": "2026-11-04T09:20:47Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-03T09:37:12Z"
+      "last_tried": "2026-11-04T09:20:47Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-03T09:37:12Z"
+      "last_tried": "2026-11-04T09:20:47Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395355,6 +395355,137 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-03T09:37:12Z",
+      "schema": 4
+    },
+    "tt0277667": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGVmZWRmMjAtZThmMy00OTRjLWFjODMtM2Y1YjgzZmQ2YWIwXkEyXkFqcGdeQXVyMTYxNjkxOQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.7,
+      "imdb_votes": 271,
+      "content_rating": null,
+      "plot": "A journalist investigates a newspaper story of the execution of an Arab princess.",
+      "runtime_min": 115,
+      "director": "Antony Thomas",
+      "actors": [
+        "Sawsan Badr",
+        "Paul Freeman",
+        "Judy Parfitt"
+      ],
+      "genres": [
+        "Biography",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-04T09:20:47Z",
+      "schema": 4
+    },
+    "tt0303344": {
+      "poster_url": null,
+      "imdb_rating": 7.2,
+      "imdb_votes": 16,
+      "content_rating": null,
+      "plot": "Over the past 20 years Hip Hop has evolved from the underground 'CNN of the ghetto' to the biggest game in the record business. Yet, despite its socially conscious foundation, Hip Hop is now a multi-billion dollar industry; tightly controlled by a handful of record labels, a music video monopoly, and payola-ridden corporate radio. If there was ever a need for a reformer, the time is now. Enter 2000 Grand Slam Champion, poet Taalam Acey. In the wake of CHHANGE's Hip Hop Summit and MTV's Hip Hop week, GNN releases When The Smoke Clearz, a scathing indictment of the current state of Hip Hop by one of the most political voices to hit the mic since Chuck D and KRS-1. Cut to the beat of Dead Prez's Hip Hop and featuring some of Hip Hop's most memorable video clips, dug out from the crates of the 80's, 90's and new millennium, GNN's unique brand of video scratch brings a visual dimension to Taalam's acclaimed slam epic Smoke Clearz.",
+      "runtime_min": 4,
+      "director": "Ian Inaba, Stephen Marshall",
+      "actors": [
+        "Taalam Acey"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-04T09:20:47Z",
+      "schema": 4
+    },
+    "tt0423370": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE2Njk3NTkzNF5BMl5BanBnXkFtZTcwNTgyMjgyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 553,
+      "content_rating": "R",
+      "plot": "Jake Cassevetes is a world renowned shooter just back from being embedded during the U.S. invasion of Iraq. As a well-paid stringer for the networks, Jake does not buy into the currently vogue, left-wing conspiracy theory of a corporate-controlled press. But, after discovering much of his best footage in Iraq was censored by the network, Jake is growing disillusioned with his corporate masters. When he gets an assignment to shoot on the streets of the Republican National Convention protests, he meets Seven, one of the young leaders of the masked anarchist Black Bloc. Jake quickly wins the trust of the group and is allowed to shadow them as they move through the demo. Later that night, after shooting Seven with her mask down describing the Bloc's militant objectives, the videotape is mistakenly returned to the network with the rest of his footage. When he goes to retrieve the tape, he is told the network made a deal with Homeland Security to review all footage to look for potential terror suspects. Realizing the danger he has brought to Seven and the Black Bloc itself, Jake decides to use his skills and access at the network to jam the government controlled corporate media and broadcast the truth of the protests and the message of a new generation of activists.",
+      "runtime_min": 95,
+      "director": "Stephen Marshall",
+      "actors": [
+        "Rosario Dawson",
+        "Nathan Crooker",
+        "Amy Redford"
+      ],
+      "genres": [
+        "Drama",
+        "Romance",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 18,
+        "mc": 36
+      },
+      "fetched_at": "2026-11-04T09:20:47Z",
+      "schema": 4
+    },
+    "tt1564961": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDUzYTA5ODYtYjZmNC00MGI1LTllNjctMWZkYmU0YWMyMTQ5XkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Clip: Something Evil",
+      "runtime_min": 90,
+      "director": "Andreas Apostolidis",
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": {
+        "rt": 40
+      },
+      "fetched_at": "2026-11-04T09:20:47Z",
+      "schema": 4
+    },
+    "tt3416536": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzQ2Y2EyMzgtYjQ0YS00Njk4LTlkODQtMjczODdlZGI3ZjI3XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 28817,
+      "content_rating": "R",
+      "plot": "Teenager Daniel Middleton (Timothée Chalamet) spends the summer in the vacation paradise of Cape Cod. \"Danny,\" who is still coming to terms with his father's untimely death, struggles to fit in with the rich kids. When the unassuming newcomer shows nerves of steel by hiding a bag of marijuana from the police for small-town dealer Hunter (Alex Roe), he wins the trust of the heartthrob and bad boy. The slight but clever Daniel gets into the business and convinces Hunter to work for a big fish. Dex (Emory Cohen), the henchman of their powerful major supplier, expects absolute loyalty, however. Hunter also makes a demanding request of his partner, who is growing increasingly confident: He must keep his hands off his sister McKayla (Maika Monroe), who hasn't spoken to him since their mother's death. Although the slight Daniel sees little chance with the most sought-after girl in the area, he doesn't keep his promise. The temptation to secretly get into the harder drug trade against Hunter's wishes also lands him in dangerous trouble.",
+      "runtime_min": 107,
+      "director": "Elijah Bynum",
+      "actors": [
+        "Timothée Chalamet",
+        "Maika Monroe",
+        "Alex Roe"
+      ],
+      "genres": [
+        "Crime",
+        "Drama",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 46,
+        "mc": 44
+      },
+      "fetched_at": "2026-11-04T09:20:47Z",
+      "schema": 4
+    },
+    "tt4123432": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjJmNDc3NTMtZjU4Yy00N2FkLTljYWEtMGZlOTA4ODcwNTc3XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 196000,
+      "content_rating": "PG-13",
+      "plot": "Professor Albus Dumbledore knows the powerful Dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts Magizoologist Newt Scamander to lead an intrepid team of wizards, witches and one brave Muggle baker on a dangerous mission, where they encounter old and new beasts and clash with Grindelwald's growing legion of followers. But with the stakes so high, how long can Dumbledore remain on the sidelines?",
+      "runtime_min": 142,
+      "director": "David Yates",
+      "actors": [
+        "Eddie Redmayne",
+        "Jude Law",
+        "Ezra Miller"
+      ],
+      "genres": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "critics": {
+        "rt": 46,
+        "mc": 47
+      },
+      "fetched_at": "2026-11-04T09:20:47Z",
       "schema": 4
     }
   },
