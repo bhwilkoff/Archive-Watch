@@ -85,10 +85,10 @@ def norm_title(t):
 _CCE = None
 # Bumped with the Catalog of Copyright Entries table (2026-09-29): every
 # pre-1950 title checked under an older rule is asked again, once.
-CCE_RULE = 6
+CCE_RULE = 7
 
 
-def cce_renewal(title, year):
+def cce_renewal(title, year, minutes=None, kind=None):
     """A renewal printed in the Catalog of Copyright Entries, 1950-77
     (tools/fetch_cce_renewals.py): the pre-1950 half of the record the Copyright
     Office's online search does not have. Same title rule and year tolerance as
@@ -98,17 +98,67 @@ def cce_renewal(title, year):
         _CCE = {}
         try:
             for r in json.loads((REPO / "shared/editorial/cce_renewals.json").read_text()):
-                _CCE.setdefault(norm_title(r["t"]), []).append(r)
+                # A chapter's own name says nothing about a film of that name:
+                # Overland with Kit Carson's "The fight for life" is not Pare
+                # Lorentz's. A chapter answers for its series, here, and for
+                # itself only through cce_chapter.
+                _CCE.setdefault(norm_title(r.get("s") or r["t"]), []).append(r)
+                if r.get("s"):
+                    _CCE.setdefault("\0" + norm_title(r["s"]), []).append(r)
         except Exception:
             pass
     want = norm_title(title)
     if not want or not isinstance(year, int):
         return None
     for r in _CCE.get(want, []):
-        if abs(r["y"] - year) <= 1:
+        # A renewed newsreel issue says nothing of the next one; a serial is one work.
+        if r.get("s") and not r.get("sr"):
+            continue
+        if abs(r["y"] - year) <= 1 and same_length(r.get("rl"), minutes, kind):
             return {"source": f"https://archive.org/details/{r['vol']}",
-                    "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']})",
+                    "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']})"
+                           + (f", {r['s']}" if r.get("s") else ""),
                     "claimant": r.get("c", "")}
+    return None
+
+
+def same_length(reels, minutes, kind=None):
+    """The reels the entry prints against the running time of the file. Le Corbeau
+    (92 minutes, shown in the US as The Raven) is not the one-reel The Raven of 1942.
+    A feature's fragment stays: a short file can be a piece of a long film, but a
+    cartoon is never a piece of a photoplay. Unknown on either side is no contradiction."""
+    if not reels or not minutes:
+        return True
+    if minutes > reels * 22:
+        return False
+    return not (kind == "animation" and reels >= 5 and minutes < 20)
+
+
+def _minutes(it):
+    s = it.get("fileRuntimeSeconds")
+    if isinstance(s, (int, float)) and s > 0:
+        return s / 60
+    m = it.get("runtimeMinutes")
+    return m if isinstance(m, (int, float)) and m > 0 else None
+
+
+def cce_chapter(series, chapter, number, year):
+    """The printed renewal of one chapter of a named series (Decision 179): its
+    title, else its number. None when the series is not on record, or is but this
+    chapter is not: a renewed chapter says nothing about its neighbors."""
+    cce_renewal("", None)
+    want, name = norm_title(series), norm_title(chapter)
+    for r in _CCE.get("\0" + want, []):
+        if abs(r["y"] - (year or r["y"])) <= 1:
+            lo, _, hi = str(r.get("ch") or "").partition("-")
+            same = bool(name) and norm_title(r["t"]) == name
+            numbered = number is not None and lo.isdigit() and int(lo) <= number <= int(hi or lo) and \
+                (not name or norm_title(r["t"]) == want)
+            if same or numbered:
+                return {"source": f"https://archive.org/details/{r['vol']}",
+                        "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']}), "
+                               f"chapter of {r['s']}",
+                        "claimant": r.get("c", "")}
     return None
 
 
@@ -157,13 +207,13 @@ def cce_renewal_any(it):
     Black was renewed as U-Boat 29 (2026-09-30). An alternate title can name a
     different film (Liebesbriefe's "Love Letters"), so the evidence says which
     name matched, and a wrong one goes in copyright_evidence_overrides.json."""
-    y = film_year(it)
-    hit = cce_renewal(it.get("title") or "", y)
+    y, mins, kind = film_year(it), _minutes(it), it.get("contentType")
+    hit = cce_renewal(it.get("title") or "", y, mins, kind)
     if hit:
         return hit
     for n in [it.get("canonicalTitle"), it.get("originalTitle"), *(it.get("akaTitles") or [])]:
         if isinstance(n, str) and n.strip() and n != it.get("title"):
-            hit = cce_renewal(n, y)
+            hit = cce_renewal(n, y, mins, kind)
             if hit:
                 return {**hit, "via": f"{hit['via']}, under the alternate title \"{n}\""}
     return None
