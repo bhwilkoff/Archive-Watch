@@ -395,6 +395,11 @@ appears only where it applies, and says its current state:
 **Open title** and **Remember this film** (an ephemeral lineup: Party Play, a
 channel, a marathon — §5.6), **Choose copy** (two or more copies; not in a
 room or a channel), **Autoplay next: On / Off** (a single film).
+A playlist (iOS-DESIGN §4.3b) is a queue: **Previous / Next** without the word
+episode, and its place ("3 of 12") above the title in the overlay, which shows
+again when a new title starts. On Android TV these are rows of the options
+panel, because the remote's D-pad seeks and most remotes have no ⏭ ⏮. The
+playlist page leads with Play, then Shuffle, and Play takes the first focus.
 
 **The transport names the film**: its title above the progress bar, with the
 synopsis's first lines while paused (§5.3, Decision 037) — never painted over

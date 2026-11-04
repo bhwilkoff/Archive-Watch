@@ -38,7 +38,14 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.ui.focus.FocusRequester
 import app.archivewatch.android.data.PlaylistOrder
+import app.archivewatch.android.data.PlaylistPlay
+import app.archivewatch.android.ui.tv.ClaimInitialFocus
 import app.archivewatch.android.data.PlaylistSort
 import app.archivewatch.android.data.UserPlaylist
 import app.archivewatch.android.sync.DriveSync
@@ -440,6 +447,18 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
             }
         }
     }
+    // Play and Shuffle (iOS-DESIGN §4.3b). `shown` is the list in the order on
+    // screen; the queue is built when pressed, so a sort or a film watched
+    // since the page opened is already in it.
+    val onPlay: (List<Pair<String, CatalogItem>>) -> Unit = { shown ->
+        scope.launch {
+            PlaylistPlay.play(shown, container.userState.completedIDs())
+                ?.let { nav.push(Route.Player(it)) }
+        }
+    }
+    val onShuffle: (List<Pair<String, CatalogItem>>) -> Unit = { shown ->
+        PlaylistPlay.shuffle(shown)?.let { nav.push(Route.Player(it)) }
+    }
     // TV. Three things the phone page cannot lend a television, and the middle
     // one was not a layout problem at all:
     //
@@ -451,9 +470,13 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
     //     playlist on one press, with no question and no undo, which is not
     //     something to hand a remote.
     if (isTv) {
-        val rows = state?.second.orEmpty().map { it.second }
+        val shown = state?.second.orEmpty()
+        val rows = shown.map { it.second }
+        val playableCount = PlaylistPlay.playable(rows).size
         var confirmDelete by remember { mutableStateOf(false) }
         val railFocus = LocalTvRailFocus.current
+        val playFocus = remember { FocusRequester() }
+        ClaimInitialFocus(playFocus, key = playableCount > 0, enabled = playableCount > 0)
         Box(Modifier.fillMaxSize()) {
             Column(Modifier.fillMaxSize()) {
                 TvPageHeader(
@@ -466,11 +489,23 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                     },
                     compact = true,
                 ) {
+                    if (playableCount > 0) {
+                        TvActionPill(
+                            label = "Play",
+                            onClick = { onPlay(shown) },
+                            focusRequester = playFocus,
+                            primary = true,
+                            exitLeftTo = railFocus,
+                        )
+                    }
+                    if (playableCount > 1) {
+                        TvActionPill(label = "Shuffle", onClick = { onShuffle(shown) })
+                    }
                     TvActionPill(
                         label = "Share",
                         onClick = onShare,
-                        primary = true,
-                        exitLeftTo = railFocus,
+                        primary = playableCount == 0,
+                        exitLeftTo = if (playableCount == 0) railFocus else null,
                     )
                     TvActionPill(label = "Delete", onClick = { confirmDelete = true })
                 }
@@ -607,6 +642,23 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                 // two stored ids and one card id, and a repeated card id is a
                 // duplicate lazy key, which crashes the grid.
                 val shown = PlaylistOrder.sortedFilms(films, sort) { it.second }.uniqueBy { it.first }
+                val playableCount = PlaylistPlay.playable(shown.map { it.second }).size
+                if (playableCount > 0) {
+                    item(key = "play-head", span = { GridItemSpan(maxLineSpan) }) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                            Button(onClick = { onPlay(shown) }) {
+                                Icon(Icons.Default.PlayArrow, contentDescription = null)
+                                Text("Play")
+                            }
+                            if (playableCount > 1) {
+                                FilledTonalButton(onClick = { onShuffle(shown) }) {
+                                    Icon(Icons.Default.Shuffle, contentDescription = null)
+                                    Text("Shuffle")
+                                }
+                            }
+                        }
+                    }
+                }
                 items(shown, key = { it.first }) { (storedID, item) ->
                     // Long-press, as History removes a film (§4.5). Arranging
                     // happens in My Order only: in any other order a move has
