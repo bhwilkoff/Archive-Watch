@@ -233,10 +233,12 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   archive.org reviews ran past the right edge of the window.
 - **§4.3c Removal requests** (2026-09-26): `takedown.html`, linked from the
   footer, says the file is the Internet Archive's to remove and how to ask for a
-  title to come off Archive Watch (the published contact address). A request is
-  honored by adding the id to `shared/editorial/takedowns.json`; every publish
-  hides it on every surface (`remediate_catalog.exclude_takedowns`,
-  `tools/test_takedowns.py`).
+  title to come off Archive Watch. Owner, 2026-11-04: *"I don't want the takedown
+  to be highlighted on our site, but I do still want it to be easy for people to
+  submit a request."* So the page keeps that one footer link, stays out of every
+  app's main surfaces, and carries the form itself (`docs/TAKEDOWNS.md`). A request
+  is honored through `shared/editorial/takedowns.json`; every publish hides it on
+  every surface (`remediate_catalog.exclude_takedowns`, `tools/test_takedowns.py`).
 - **§4.3a Search ranking** (2026-09-28, the apps' rule, tvOS-DESIGN §3.3b):
   every match is ranked before the 200 cap by `searchRank` — exact title, title
   prefix (or "the " + it), title or director containing the query, then `pro`

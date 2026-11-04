@@ -57,6 +57,10 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-11-04. **REMOVAL INTAKE WAITS ON ONE DEPLOY.** Run
+   `tools/takedown_setup.sh`, then merge branch `takedown-intake`
+   (`docs/TAKEDOWNS.md`). Until then the removal page is the old email route.
+
 0-NEW-2026-10-08. **1.46.0 IS IN REVIEW (iOS, macOS, tvOS)** with the new header,
    search asset and screenshots. Still open, nothing blocked: the closed-Duo
    screenshots wait in the Asset Library for the first store build made with
@@ -760,38 +764,6 @@ keep serving it.
 
 ## Session Log
 
-### 2026-10-27 — the Antigravity stash recovered; wrong data found by following one warning (Decision 169)
-
-Owner: *"I did some work with Antigravity in this repository, but I don't know
-that it fully saved correctly"*, then *"Fix anything that doesn't look right.
-There is no reason to leave bad data rather than investigating and fixing
-it"*, then *"Yes, solve for all open issues like this one."* v1.46.17 (2142-2145).
-
-- **The stash** ("gsc fixes", 10-26, never committed) was Gemini's Search
-  Console work: series aliases forward to `/series/<slug>/`, episodes without a
-  page forward to their series, `404.html` noindex, 38 year-compilation cards
-  titled after the file each plays (all 38 checked). One defect fixed (an
-  episode redirect overwrote a merge's). The stale `catalog-index.json` was not
-  restored.
-- **A Sherlock Holmes pilot wore Abbott and Costello Meet the Invisible Man**
-  (title, poster, subtitles, merged into its card): `match_rejects`. A new
-  remediate rule drops a subtitle fetched for an IMDb id the item no longer
-  carries (17).
-- **109 "not in the catalog" ids were series episodes**, and their spines held
-  three defects (Decision 169): placement confirmed itself from the slot's
-  title (306 placements change, reviewed file by file); `not_films` bound only
-  the catalog (LTT101, a Looney Tunes rip, was ~260 episodes); other programs
-  sat in shows (2002 Twilight Zone, 2020-21 Family Feud, 1999 Emmerdale) —
-  `episode_rejects.json`. tv-canonical run 40583885569 applies it.
-- **The two archive.org defects** (scratchpad, 10-22) are fixed: a search
-  archive.org does not answer raises `ArchiveUnavailable` instead of reading as
-  "nothing found"; ingest keeps it queued, discovery reports the feed unread.
-  The 7,991 June "unresolved" were checked (0 of 40 resolve today), so none
-  were re-queued. The CORS contradiction was re-measured: MP4 206s still send
-  none, MP3s do; recorded in CATALOG-CONTRACT.
-**Open**: confirm run 40583885569 committed the spines and that remediate's
-`not_films` warning is gone.
-
 ### 2026-10-28 — best ratings everywhere; a full audit of every platform; Play Console errors (Decisions 171-173)
 
 Owner: *"Please make use of the best ratings available per content. Can you please
@@ -821,5 +793,24 @@ v1.47.1-1.47.3 (2152-2154).
 iPad UI automation needs the owner; Samsung/LG/Roku uploads need the owner's
 browser; B4 bundle re-scan may add questionable spines (1srh99 Arabic lectures,
 MickeyMouse20s compilations) — review after the next tv-canonical.
+
+### 2026-11-04 — the first copyright notices; a removal process (Decision 175)
+
+Owner: *"There are two takedown emails from the Google Search Console and I'd
+like to figure out how to approach them,"* then the five requirements now in
+`docs/TAKEDOWNS.md`. v1.47.8-1.47.9.
+
+- **Two Blue Efficience notices**: `BillSpragueCollectionMadameDubarry` was an
+  ARTE broadcast (logo, soundtrack) and is removed; `HMUnidentified97390` is a
+  Prelinger home movie claimed as "UNIDENTIFIED" and stays.
+- **Live on main**: removal of items, single files and whole series; public list
+  holds a date and case number; share pages no longer say "public domain" on
+  every title.
+- **On branch `takedown-intake`, tested, NOT live**: the form, the private D1
+  record, `takedown-check.yml`. Measured on 14 films.
+**Open**: the owner runs `tools/takedown_setup.sh` (the Worker deploy was refused
+to the agent); then merge, open the two real cases, and add the agent's registered
+name, address and phone to `takedown.html`. Withdrawal email to Blue Efficience is
+the owner's to send.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
