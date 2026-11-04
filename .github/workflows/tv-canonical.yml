@@ -158,6 +158,10 @@ jobs:
           python tools/enrich_tv_ratings.py --max-calls 300 | tee tvratings.log \
             || echo "::warning::enrich_tv_ratings found no IMDb-rated series; read the log above"
 
+      # Keep looking for the year of every series that has none (Decision 178).
+      - name: Series years
+        run: python tools/enrich_series_years.py
+
       - name: Reconcile catalog TV cards
         run: |
           python tools/reconcile_tv_catalog.py | tee tvreconcile.log
@@ -200,6 +204,7 @@ jobs:
                   shared/editorial/tv_rebuild_report.json \
                   shared/editorial/tv_rights_cache.json \
                   shared/editorial/tv_rights_removed.csv \
+                  shared/editorial/series_years.json \
                   shared/editorial/bundle_scan.json \
                   shared/editorial/omdb_series_cache.json \
                   shared/editorial/tvmaze_externals.json

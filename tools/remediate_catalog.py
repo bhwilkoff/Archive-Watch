@@ -4258,6 +4258,8 @@ def remediate(items):
     restore_mistyped_trailers(items, stats)
     encode_download_urls(items, stats)
     retype_seriesless_series(items, stats)
+    apply_series_years(items, stats)
+    clear_impossible_film_years(items, stats)
     clear_impossible_tv_years(items, stats)
     fix_artwork_flag(items, stats)
     return stats
@@ -4301,6 +4303,45 @@ def fix_artwork_flag(items, stats):
 # --- A television programme cannot predate television -----------------------
 _TV_TYPES = ("tv-special", "tv-episode", "tv-series")
 _FIRST_TELEVISION_YEAR = 1928        # first experimental broadcasts; regular service 1936
+_FIRST_FILM_YEAR = 1888              # Roundhay Garden Scene
+
+
+def apply_series_years(items, stats):
+    """Decision 178. A series card is rebuilt from its spine, so the year found for
+    it (tools/enrich_series_years.py, or a person) is put on here, every build."""
+    p = REPO / "shared/editorial/series_years.json"
+    table = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    for it in items:
+        if not str(it.get("archiveID") or "").startswith("series:"):
+            continue
+        e = table.get(it.get("seriesID")) or {}
+        y = e.get("year")
+        if not y:
+            continue
+        reviewed = e.get("how") == "reviewed"
+        if it.get("year") != y:
+            stats["series_years_applied"] += 1
+        it["year"] = y
+        it["decade"] = y // 10 * 10
+        if e.get("yearEnd"):
+            it["yearEnd"] = e["yearEnd"]
+        it["yearSource"] = "agent-reviewed" if reviewed else "series-evidence"
+        if e.get("source"):
+            it["yearEvidence"] = e["source"]
+
+
+def clear_impossible_film_years(items, stats):
+    """A date before film existed is an uploader's placeholder, and it passed as
+    public domain by age: Brother Elias's lecture series read 1801."""
+    for it in items:
+        y = it.get("year")
+        if isinstance(y, int) and y < _FIRST_FILM_YEAR:
+            it["yearWas"] = y
+            it["year"] = None
+            it["decade"] = None
+            it["yearSource"] = None
+            stats["impossible_film_years_cleared"] += 1
+
 
 
 def clear_impossible_tv_years(items, stats):
@@ -4328,6 +4369,9 @@ def clear_impossible_tv_years(items, stats):
             continue
         y = it.get("year")
         if not isinstance(y, int) or y >= _FIRST_TELEVISION_YEAR:
+            continue
+        # A silent serial is filed as a series and is not television.
+        if it.get("yearSource") == "agent-reviewed" and str(it.get("archiveID") or "").startswith("series:"):
             continue
         if it.get("yearSource") == "agent-reviewed":
             # A person dated it before television existed, so the TV TYPE is
