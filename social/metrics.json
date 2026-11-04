@@ -5075,6 +5075,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz23gsedf32n",
+   "platform": "bluesky",
+   "id": "animal-crackers-pnm",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-29T20:15:53.712260+00:00",
+   "sampled": "2026-11-04T21:18:14.722034+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117526034810000703",
+   "platform": "mastodon",
+   "id": "animal-crackers-pnm",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-29T20:15:53.712260+00:00",
+   "sampled": "2026-11-04T21:18:14.722034+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzgq64yr4424",
+   "platform": "bluesky",
+   "id": "rawdeal1948",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-03T20:58:35.173163+00:00",
+   "sampled": "2026-11-04T21:18:14.722034+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117554515421839372",
+   "platform": "mastodon",
+   "id": "rawdeal1948",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-03T20:58:35.173163+00:00",
+   "sampled": "2026-11-04T21:18:14.722034+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
