@@ -8,6 +8,10 @@ shared/editorial/takedowns.json holds one line per thing removed, keyed by:
     <item>@<token>    one file of a whole-series item, and nothing else in it
     series:<slug>     a whole show: its card, spine and every episode
 
+A line may carry "until": the year it stops holding, because its work leaves
+copyright then. Lines with "rule" are written by audit_tv_rights (Decision 179),
+which keeps them in step with the record; a person's lines are never touched.
+
 This repository is public, so a line holds a date and a case number and never
 a person. Who asked is in the private case record (worker/src/takedown.js).
 
@@ -15,6 +19,7 @@ Run directly it strips the spines and reports what it removed; remediate_catalog
 calls strip_spines on every build, so a spine rebuilt from TVmaze cannot bring
 an episode back.
 """
+import datetime as dt
 import json
 import sys
 from pathlib import Path
@@ -30,7 +35,26 @@ def path(repo=None) -> Path:
 def load(repo=None) -> dict:
     p = path(repo)
     table = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
-    return {k: v for k, v in table.items() if not k.startswith("_")}
+    year = dt.date.today().year
+    return {k: v for k, v in table.items() if not k.startswith("_") and v.get("until", year + 1) > year}
+
+
+def write_rule_lines(claims, held, repo=None):
+    """Bring the rule's lines into step: `claims` {id: {case, until}} is what the
+    record says now, `held` the files that could be asked. A line for a file that
+    is not in a spine is left alone: nobody asked about it. Returns (added, dropped)."""
+    p = path(repo)
+    table = json.loads(p.read_text(encoding="utf-8"))
+    dropped = [k for k, v in table.items() if isinstance(v, dict) and v.get("rule") and k in held and k not in claims]
+    for k in dropped:
+        del table[k]
+    added = [k for k in claims if k not in table]
+    for k, v in claims.items():
+        if k in added or table[k].get("rule"):
+            table[k] = {"date": table.get(k, {}).get("date") or dt.date.today().isoformat(), **v, "rule": "file"}
+    if added or dropped:
+        p.write_text(json.dumps(table, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return len(added), len(dropped)
 
 
 def item_of(aid: str) -> str:

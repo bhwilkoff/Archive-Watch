@@ -85,10 +85,10 @@ def norm_title(t):
 _CCE = None
 # Bumped with the Catalog of Copyright Entries table (2026-09-29): every
 # pre-1950 title checked under an older rule is asked again, once.
-CCE_RULE = 6
+CCE_RULE = 7
 
 
-def cce_renewal(title, year):
+def cce_renewal(title, year, minutes=None, kind=None):
     """A renewal printed in the Catalog of Copyright Entries, 1950-77
     (tools/fetch_cce_renewals.py): the pre-1950 half of the record the Copyright
     Office's online search does not have. Same title rule and year tolerance as
@@ -98,18 +98,162 @@ def cce_renewal(title, year):
         _CCE = {}
         try:
             for r in json.loads((REPO / "shared/editorial/cce_renewals.json").read_text()):
-                _CCE.setdefault(norm_title(r["t"]), []).append(r)
+                # A chapter's own name says nothing about a film of that name:
+                # Overland with Kit Carson's "The fight for life" is not Pare
+                # Lorentz's. A chapter answers for its series, here, and for
+                # itself only through cce_chapter.
+                _CCE.setdefault(norm_title(r.get("s") or r["t"]), []).append(r)
+                if r.get("s"):
+                    _CCE.setdefault("\0" + norm_title(r["s"]), []).append(r)
         except Exception:
             pass
     want = norm_title(title)
-    if not want or not isinstance(year, int):
+    # Another script reads as its digits alone: "마부제 박사 2" is the key "2".
+    if not re.search(r"[a-z]{3}", want) or not isinstance(year, int):
         return None
     for r in _CCE.get(want, []):
-        if abs(r["y"] - year) <= 1:
+        # A renewed newsreel issue says nothing of the next one; a serial is one work.
+        if r.get("s") and not r.get("sr"):
+            continue
+        if abs(r["y"] - year) <= 1 and same_length(r.get("rl"), minutes, kind):
             return {"source": f"https://archive.org/details/{r['vol']}",
-                    "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']})",
+                    "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']})"
+                           + (f", {r['s']}" if r.get("s") else ""),
                     "claimant": r.get("c", "")}
     return None
+
+
+def same_length(reels, minutes, kind=None):
+    """The reels the entry prints against the running time of the file. Le Corbeau
+    (92 minutes, shown in the US as The Raven) is not the one-reel The Raven of 1942.
+    A feature's fragment stays: a short file can be a piece of a long film, but a
+    cartoon is never a piece of a photoplay. Unknown on either side is no contradiction."""
+    if not reels or not minutes:
+        return True
+    if minutes > reels * 22:
+        return False
+    return not (kind == "animation" and reels >= 5 and minutes < 20)
+
+
+def _minutes(it):
+    s = it.get("fileRuntimeSeconds")
+    if isinstance(s, (int, float)) and s > 0:
+        return s / 60
+    m = it.get("runtimeMinutes")
+    return m if isinstance(m, (int, float)) and m > 0 else None
+
+
+def cce_chapter(series, chapter, number, year):
+    """The printed renewal of one chapter of a named series (Decision 179): its
+    title, else its number. None when the series is not on record, or is but this
+    chapter is not: a renewed chapter says nothing about its neighbors."""
+    cce_renewal("", None)
+    want, name = norm_title(series), norm_title(chapter)
+    for r in _CCE.get("\0" + want, []):
+        if abs(r["y"] - (year or r["y"])) <= 1:
+            lo, _, hi = str(r.get("ch") or "").partition("-")
+            same = bool(name) and norm_title(r["t"]) == name
+            numbered = number is not None and lo.isdigit() and int(lo) <= number <= int(hi or lo) and \
+                (not name or norm_title(r["t"]) == want)
+            if same or numbered:
+                return {"source": f"https://archive.org/details/{r['vol']}",
+                        "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']}), "
+                               f"chapter of {r['s']}",
+                        "claimant": r.get("c", "")}
+    return None
+
+
+def stated_year(title):
+    """A date the file's own title prints: "Big Man from the North [1-19-31 LT]",
+    "Soda Squirt (1933)". Only a bracketed date counts: a bare number in a title is
+    as often the title (Space: 1999)."""
+    m = re.search(r"[\[(]\s*\d{1,2}[-/]\d{1,2}[-/](\d{2})\b", title or "")
+    if m:
+        return 1900 + int(m.group(1))
+    m = re.search(r"[\[(]\s*(?:produced\s+\w+\s+)?(1[89]\d{2})\s*[\])\s]", title or "")
+    return int(m.group(1)) if m else None
+
+
+def file_title(title, show):
+    """What a file's title says it is: without its brackets, its show's name in
+    front, or the capitals of a run-together name ("TheVillageSpecialist")."""
+    t = re.sub(r"\s*[\[(].*$", "", title or "")
+    t = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", t).strip()
+    if show and t.lower().startswith(show.lower()):
+        t = t[len(show):].lstrip(" -:.")
+    return t
+
+
+def run_of(spine):
+    """The years a compilation can span: from the year it carries to its stated
+    end, else ten years on (Flip the Frog carries 1930 and ran to 1933)."""
+    y = spine.get("yearStart")
+    if not isinstance(y, int):
+        return None
+    return y - 1, spine.get("yearEnd") or y + 10
+
+
+def _batch(r):
+    m = re.fullmatch(r"R(\d{5,6})", r["r"])
+    return (r["vol"], int(m.group(1))) if m else None
+
+
+def _claimant(r):
+    """The claimant's name in a form OCR's stray letters do not change."""
+    words = re.findall(r"[A-Z][a-z]{3,}", (r.get("c") or "").replace("Exelusive", "Exclusive"))
+    return words[0] if words else None
+
+
+def compilation_claims(spines, age_line):
+    """{file id: (year, row)} for each file of a whole-series item that is renewed
+    in its own right. A bundle stamps one year on every file, so a renewal has to be
+    asked of each file's own title (Decision 179).
+
+    A title alone is not enough: "The Mechanical Cow" (an Oswald of 1927) and When
+    the Cat's Away (a Mickey of 1929) share names with later cartoons another studio
+    renewed. A row counts only for a claimant who renewed at least three titles of
+    this compilation, or when it was filed in the same batch as one of theirs, which
+    is what answers a claimant OCR ruined. And a file whose own date is older than
+    the age line is free by age, whatever year its registration carries.
+
+    Only printed renewals are asked, so a title never renewed reads as free; that is
+    the rule of Decision 151 (not knowing is not a claim), and it covers 1931-50 only."""
+    cce_renewal("", None)
+    if not _CCE:
+        raise RuntimeError("the renewal table could not be read")   # absence is not a verdict
+    out = {}
+    for d in spines:
+        span = run_of(d)
+        if not span:
+            continue
+        found = []
+        for s in d.get("seasons") or []:
+            for e in s.get("episodes") or []:
+                t = file_title(e.get("title"), d.get("title"))
+                bare = re.sub(r"[^a-z0-9]", "", re.sub(r"^(the|a|an)\s+", "", t.lower()))
+                mins = (e.get("runtimeSeconds") or 0) / 60
+                hits = [r for r in _CCE.get(bare, []) if not r.get("s")
+                        and span[0] <= r["y"] <= span[1] and same_length(r.get("rl"), mins, "animation")]
+                if hits:
+                    found.append((e, hits))
+        names = {}
+        for e, hits in found:
+            for n in {_claimant(r) for r in hits} - {None}:
+                names[n] = names.get(n, 0) + 1
+        owners = {n for n, c in names.items() if c >= 3}
+        filed = [_batch(r) for _, hits in found for r in hits if _claimant(r) in owners]
+        for e, hits in found:
+            for r in hits:
+                b = _batch(r)
+                if _claimant(r) in owners or (b and any(f and f[0] == b[0] and abs(f[1] - b[1]) <= 30 for f in filed)):
+                    # Registered in 1931 and released in 1930 is 1930. Ten years
+                    # from it is a same-named film, and the printed date stands.
+                    own = e.get("year") if e.get("yearSource") else None
+                    y = own if isinstance(own, int) and abs(own - r["y"]) <= 1 else r["y"]
+                    if y >= age_line:
+                        out[e["archiveID"]] = (y, r)
+                    break
+    return out
 
 
 def renewal_in(records, title, year):
@@ -157,13 +301,13 @@ def cce_renewal_any(it):
     Black was renewed as U-Boat 29 (2026-09-30). An alternate title can name a
     different film (Liebesbriefe's "Love Letters"), so the evidence says which
     name matched, and a wrong one goes in copyright_evidence_overrides.json."""
-    y = film_year(it)
-    hit = cce_renewal(it.get("title") or "", y)
+    y, mins, kind = film_year(it), _minutes(it), it.get("contentType")
+    hit = cce_renewal(it.get("title") or "", y, mins, kind)
     if hit:
         return hit
     for n in [it.get("canonicalTitle"), it.get("originalTitle"), *(it.get("akaTitles") or [])]:
         if isinstance(n, str) and n.strip() and n != it.get("title"):
-            hit = cce_renewal(n, y)
+            hit = cce_renewal(n, y, mins, kind)
             if hit:
                 return {**hit, "via": f"{hit['via']}, under the alternate title \"{n}\""}
     return None

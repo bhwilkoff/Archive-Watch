@@ -204,6 +204,7 @@ jobs:
                   shared/editorial/tv_rebuild_report.json \
                   shared/editorial/tv_rights_cache.json \
                   shared/editorial/tv_rights_removed.csv \
+                  shared/editorial/takedowns.json \
                   shared/editorial/series_years.json \
                   shared/editorial/bundle_scan.json \
                   shared/editorial/omdb_series_cache.json \

@@ -1,5 +1,5 @@
 {
-  "_how": "One line per thing removed: \"<item>\", \"<item>@<token>\" or \"series:<slug>\" -> {\"date\": \"YYYY-MM-DD\", \"case\": \"<case number>\"}. The case is a TD- reference, the reference of a notice sent to Google, or the copyright renewal that found it. This file is public: never put a person, company or email here. Delete a line to restore the title.",
+  "_how": "One line per thing removed: \"<item>\", \"<item>@<token>\" or \"series:<slug>\" -> {\"date\": \"YYYY-MM-DD\", \"case\": \"<case number>\"}. The case is a TD- reference, the reference of a notice sent to Google, or the copyright renewal that found it. This file is public: never put a person, company or email here. Delete a line to restore the title. A line with \"rule\" is written by tools/audit_tv_rights.py from the printed renewals, and \"until\" is the year its work leaves copyright.",
   "BillSpragueCollectionMadameDubarry": {
     "date": "2026-11-04",
     "case": "google-4-3760000042329-0915352292"
@@ -140,14 +140,6 @@
     "date": "2026-11-04",
     "case": "renewal RE0000579645"
   },
-  "series:flip-the-frog-all-38-shorts-1930": {
-    "date": "2026-11-04",
-    "case": "renewal R233745"
-  },
-  "flip-the-frog-4x-04-bulloney": {
-    "date": "2026-11-04",
-    "case": "renewal R233745"
-  },
   "series:ancient-rome-lecture-series-1801": {
     "date": "2026-11-04",
     "case": "The Teaching Company 1999"
@@ -191,5 +183,191 @@
   "the-last-daysofthe-big-lie-documentary": {
     "date": "2026-11-04",
     "case": "Holocaust denial"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e01": {
+    "date": "2026-11-04",
+    "case": "renewal R253740",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e02": {
+    "date": "2026-11-04",
+    "case": "renewal R233739",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e03": {
+    "date": "2026-11-04",
+    "case": "renewal R233742",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e04": {
+    "date": "2026-11-04",
+    "case": "renewal R233741",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e05": {
+    "date": "2026-11-04",
+    "case": "renewal R253738",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e06": {
+    "date": "2026-11-04",
+    "case": "renewal R2337357",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e07": {
+    "date": "2026-11-04",
+    "case": "renewal R246618",
+    "until": 2027,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e08": {
+    "date": "2026-11-04",
+    "case": "renewal R246616",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e09": {
+    "date": "2026-11-04",
+    "case": "renewal R246617",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s2e10": {
+    "date": "2026-11-04",
+    "case": "renewal R246622",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e01": {
+    "date": "2026-11-04",
+    "case": "renewal R246621",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e02": {
+    "date": "2026-11-04",
+    "case": "renewal R246623",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e03": {
+    "date": "2026-11-04",
+    "case": "renewal R246619",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e04": {
+    "date": "2026-11-04",
+    "case": "renewal R246624",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e05": {
+    "date": "2026-11-04",
+    "case": "renewal R246625",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e06": {
+    "date": "2026-11-04",
+    "case": "renewal R246626",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e07": {
+    "date": "2026-11-04",
+    "case": "renewal R246627",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e09": {
+    "date": "2026-11-04",
+    "case": "renewal R246620",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e10": {
+    "date": "2026-11-04",
+    "case": "renewal R246629",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e11": {
+    "date": "2026-11-04",
+    "case": "renewal R261914",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e12": {
+    "date": "2026-11-04",
+    "case": "renewal R261915",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e13": {
+    "date": "2026-11-04",
+    "case": "renewal R261916",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e14": {
+    "date": "2026-11-04",
+    "case": "renewal R261917",
+    "until": 2028,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e01": {
+    "date": "2026-11-04",
+    "case": "renewal R271960",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e02": {
+    "date": "2026-11-04",
+    "case": "renewal R272362",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e03": {
+    "date": "2026-11-04",
+    "case": "renewal R272363",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e04": {
+    "date": "2026-11-04",
+    "case": "renewal R272364",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e05": {
+    "date": "2026-11-04",
+    "case": "renewal R272365",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e06": {
+    "date": "2026-11-04",
+    "case": "renewal R278927",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s4e07": {
+    "date": "2026-11-04",
+    "case": "renewal R278928",
+    "until": 2029,
+    "rule": "file"
+  },
+  "flip-the-frog-4x-04-bulloney@s3e08": {
+    "date": "2026-11-04",
+    "case": "renewal R246628",
+    "until": 2028,
+    "rule": "file"
   }
 }

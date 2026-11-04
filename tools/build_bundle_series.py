@@ -53,6 +53,7 @@ import requests
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 from archive_lib import ARCHIVE_META, UA, download_url, pick_video, runtime_from_file  # noqa: E402
+import corroborate_copyright as CC  # noqa: E402
 
 SERIES_DIR = REPO / "series"
 CATALOG = REPO / "catalog.json"
@@ -390,6 +391,36 @@ def build_spine(it: dict, rows: list[dict], files: list[dict]) -> dict:
     }
 
 
+def film_years(items: list[dict]) -> dict:
+    """{title key: {(year, minutes)}} of cards matched to a film record, which is
+    where a short of a compilation has a release date of its own."""
+    out = {}
+    for it in items:
+        if it.get("imdbID") and isinstance(it.get("year"), int) \
+                and it.get("contentType") not in ("tv-series", "tv-episode"):
+            out.setdefault(CC.norm_title(it.get("title")), set()).add((it["year"], CC._minutes(it)))
+    return out
+
+
+def stamp_years(spine: dict, films: dict) -> None:
+    """Give a file the year it can show for itself, in place of the one year the
+    whole item carries (Decision 179): the date its own title prints, else the
+    release of the same-titled film record inside the compilation's run."""
+    span = CC.run_of(spine)
+    for s in spine.get("seasons") or []:
+        for e in s.get("episodes") or []:
+            y, why = CC.stated_year(e.get("title")), "title"
+            if not y and span:
+                mins = (e.get("runtimeSeconds") or 0) / 60
+                known = {v for v, m in films.get(CC.norm_title(CC.file_title(e.get("title"), spine.get("title"))), ())
+                         if not m or not mins or 0.65 <= m / mins <= 1.5}
+                # Two records years apart are two films of one name: neither dates this file.
+                if known and max(known) - min(known) <= 1 and span[0] <= min(known) <= span[1]:
+                    y, why = min(known), "film"
+            if y:
+                e["year"], e["yearSource"] = y, why
+
+
 # ── catalog + cache ────────────────────────────────────────────────────────
 
 def load_cache() -> dict:
@@ -668,6 +699,7 @@ def apply(items, cache, dry_run=False):
     taken = {f.stem for f in SERIES_DIR.glob("*.json")} - {f.stem for f in existing.values()}
     wrote, removed = [], []
     best = {}
+    films = film_years(items)
     for aid, e in sorted(cache.items()):
         if e.get("verdict") != "bundle" or aid not in eligible:
             continue
@@ -676,6 +708,7 @@ def apply(items, cache, dry_run=False):
         if not rows or not series_evidence(by_id[aid], rows):
             continue
         spine = build_spine(by_id[aid], rows, files)
+        stamp_years(spine, films)
         if spine["seriesID"] in taken:
             # a TVmaze spine of the same show owns the slug; never overwrite it
             spine["seriesID"] = f"{spine['seriesID']}-{re.sub(r'[^a-z0-9]+', '-', aid.lower()).strip('-')}"
