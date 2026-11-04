@@ -36,7 +36,7 @@ struct SharedListView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var playlists: [Playlist]
 
-    @State private var playing: [Catalog.Item]?
+    @State private var playing: SharedLineupBox?
     @State private var added = false
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
@@ -76,12 +76,27 @@ struct SharedListView: View {
                         .foregroundStyle(.white)
 
                     if !items.isEmpty {
-                        Button { playing = items } label: {
-                            Label("Play All", systemImage: "play.fill")
-                                .font(.system(size: 22, weight: .semibold))
-                                .padding(.horizontal, 24).padding(.vertical, 12)
+                        let titles = PlaylistPlay.playable(items)
+                        if !titles.isEmpty {
+                            Button {
+                                playing = SharedLineupBox(items: titles, start: PlaylistPlay.startIndex(titles) {
+                                    WatchProgress.isWatched(archiveID: $0, in: ctx)
+                                })
+                            } label: {
+                                Label("Play", systemImage: "play.fill")
+                                    .font(.system(size: 22, weight: .semibold))
+                                    .padding(.horizontal, 24).padding(.vertical, 12)
+                            }
+                            .buttonStyle(.borderedProminent)
                         }
-                        .buttonStyle(.borderedProminent)
+                        if titles.count > 1 {
+                            Button { playing = SharedLineupBox(items: titles.shuffled(), start: 0) } label: {
+                                Label("Shuffle", systemImage: "shuffle")
+                                    .font(.system(size: 22, weight: .semibold))
+                                    .padding(.horizontal, 24).padding(.vertical, 12)
+                            }
+                            .buttonStyle(.bordered)
+                        }
 
                         if added || alreadyHave {
                             Label(added ? "Added to your library" : "Already in your library",
@@ -124,12 +139,12 @@ struct SharedListView: View {
             .padding(.vertical, 40)
         }
         .background(Color.black.ignoresSafeArea())
-        .fullScreenCover(item: Binding(get: { playing.map { SharedLineupBox(items: $0) } },
-                                       set: { playing = $0?.items })) { box in
+        .fullScreenCover(item: $playing) { box in
             // Deliberate viewing, so it keeps resume — the same call
             // PlaylistDetailView makes, and the opposite of the ephemeral
             // channel lineups.
-            if let screen = PlayerScreen(lineup: box.items, ephemeralLineup: false) { screen }
+            if let screen = PlayerScreen(lineup: box.items, ephemeralLineup: false,
+                                         startIndex: box.start) { screen }
         }
     }
 
@@ -143,7 +158,11 @@ struct SharedListView: View {
     }
 }
 
-private struct SharedLineupBox: Identifiable { let id = UUID(); let items: [Catalog.Item] }
+private struct SharedLineupBox: Identifiable {
+    let id = UUID()
+    let items: [Catalog.Item]
+    let start: Int
+}
 
 #endif
 
@@ -164,6 +183,7 @@ struct SharedListView: View {
     @Query private var playlists: [Playlist]
 
     @State private var added = false
+    @State private var run: PlaylistRun?
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
@@ -199,6 +219,7 @@ struct SharedListView: View {
                         description: Text("None of these titles are in the catalog any more."))
                         .padding(.top, 40)
                 } else {
+                    playControls
                     LazyVGrid(columns: cols, spacing: 18) {
                         ForEach(items) { item in
                             Button { router.push(item) } label: { PosterTile(item: item) }
@@ -211,6 +232,7 @@ struct SharedListView: View {
         }
         .navigationTitle(shared.name)
         .navigationBarTitleDisplayMode(.inline)
+        .fullScreenCover(item: $run) { PlaylistPlayerContainer(run: $0) }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 if added || alreadyHave {
@@ -223,6 +245,32 @@ struct SharedListView: View {
                     }
                 }
             }
+        }
+    }
+
+    /// §4.3b, the same on a list someone sent.
+    @ViewBuilder private var playControls: some View {
+        let titles = PlaylistPlay.playable(items)
+        if !titles.isEmpty {
+            HStack(spacing: 12) {
+                Button {
+                    let completed = store.completedArchiveIDs
+                    run = PlaylistRun(items: titles, start: PlaylistPlay.startIndex(titles) {
+                        completed.contains($0) || WatchProgress.isWatched(archiveID: $0, in: ctx)
+                    })
+                } label: {
+                    Label("Play", systemImage: "play.fill").frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                if titles.count > 1 {
+                    Button { run = PlaylistRun(items: titles.shuffled(), start: 0) } label: {
+                        Label("Shuffle", systemImage: "shuffle").frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                }
+            }
+            .controlSize(.large)
+            .padding(.horizontal)
         }
     }
 
@@ -247,6 +295,7 @@ struct SharedListView: View {
     let shared: PlaylistShare.Shared
 
     @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
     @Query private var playlists: [Playlist]
 
@@ -277,6 +326,21 @@ struct SharedListView: View {
                         .font(.callout)
                         .foregroundStyle(.secondary)
                     Spacer()
+                    // §4.3b, the same on a list someone sent.
+                    let titles = PlaylistPlay.playable(items)
+                    if !titles.isEmpty {
+                        Button {
+                            router.playList(titles, from: PlaylistPlay.startIndex(titles) {
+                                store.completedArchiveIDs.contains($0)
+                                    || WatchProgress.isWatched(archiveID: $0, in: ctx)
+                            })
+                        } label: { Label("Play", systemImage: "play.fill") }
+                    }
+                    if titles.count > 1 {
+                        Button { router.playList(titles.shuffled(), from: 0) } label: {
+                            Label("Shuffle", systemImage: "shuffle")
+                        }
+                    }
                     if added || alreadyHave {
                         Label(added ? "Added to your library" : "In your library",
                               systemImage: "checkmark.circle.fill")

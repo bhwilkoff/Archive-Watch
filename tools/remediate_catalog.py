@@ -4333,6 +4333,10 @@ def apply_series_years(items, stats):
         it["yearSource"] = "agent-reviewed" if reviewed else "series-evidence"
         if e.get("source"):
             it["yearEvidence"] = e["source"]
+        # A card is built with no collections, so a government work reads as an
+        # unlicensed modern one until the entry says whose it is.
+        if e.get("collections"):
+            it["collections"] = e["collections"]
 
 
 def clear_impossible_film_years(items, stats):

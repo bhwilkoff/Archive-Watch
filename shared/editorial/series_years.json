@@ -106,6 +106,9 @@
   "year": 1918
  },
  "us-spacesuit-knowledge-capture-series": {
+  "collections": [
+   "nasa"
+  ],
   "how": "reviewed",
   "source": "https://ntrs.nasa.gov/api/citations/20160002044/downloads/20160002044.pdf",
   "year": 2007

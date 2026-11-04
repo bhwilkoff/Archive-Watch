@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -13,10 +14,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Shuffle
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Button
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -32,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
+import app.archivewatch.android.data.PlaylistPlay
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
@@ -131,6 +138,33 @@ fun SharedListScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
+                // iOS-DESIGN §4.3b, the same on a list someone sent.
+                val shown = rows.map { it.archiveID to it }
+                val playable = PlaylistPlay.playable(rows).size
+                if (playable > 0) {
+                    Row(
+                        Modifier.padding(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    ) {
+                        Button(onClick = {
+                            scope.launch {
+                                PlaylistPlay.play(shown, container.userState.completedIDs())
+                                    ?.let { nav.push(Route.Player(it)) }
+                            }
+                        }) {
+                            Icon(Icons.Default.PlayArrow, contentDescription = null)
+                            Text("Play")
+                        }
+                        if (playable > 1) {
+                            FilledTonalButton(onClick = {
+                                PlaylistPlay.shuffle(shown)?.let { nav.push(Route.Player(it)) }
+                            }) {
+                                Icon(Icons.Default.Shuffle, contentDescription = null)
+                                Text("Shuffle")
+                            }
+                        }
+                    }
+                }
                 LazyVerticalGrid(
                 columns = GridCells.Adaptive(minSize = 110.dp),
                 contentPadding = PaddingValues(16.dp),

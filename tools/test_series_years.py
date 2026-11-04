@@ -54,10 +54,12 @@ check("a failed search is not a verdict", err >= 1 and "c" not in t)
 
 (tmp / "shared/editorial/series_years.json").write_text(json.dumps({
     "serial": {"year": 1918, "how": "reviewed", "source": "https://x"},
+    "nasa": {"year": 2007, "how": "reviewed", "collections": ["nasa"]},
     "show": {"year": 1957, "how": "air date"}, "gone": {"year": None, "checked": "2026-11-04"}}))
 R.REPO = tmp
 items = [{"archiveID": "series:serial", "seriesID": "serial", "contentType": "tv-series", "year": None},
          {"archiveID": "series:show", "seriesID": "show", "contentType": "tv-series", "year": None},
+         {"archiveID": "series:nasa", "seriesID": "nasa", "contentType": "tv-series", "year": None, "collections": []},
          {"archiveID": "series:gone", "seriesID": "gone", "contentType": "tv-series", "year": None},
          {"archiveID": "series:bad", "seriesID": "bad", "contentType": "tv-series", "year": 1916},
          {"archiveID": "lecture", "contentType": "short-film", "year": 1801},
@@ -71,6 +73,7 @@ check("a reviewed year reaches the card", by["series:serial"]["year"] == 1918 an
 check("and survives the rule against pre-television years",
       by["series:serial"]["year"] == 1918 and by["series:serial"]["contentType"] == "tv-series")
 check("a found year reaches the card", by["series:show"]["year"] == 1957)
+check("a government series says whose it is", by["series:nasa"]["collections"] == ["nasa"])
 check("CONTROL: an unknown stays unknown", by["series:gone"]["year"] is None)
 check("CONTROL: an unreviewed pre-television series year is still cleared", by["series:bad"]["year"] is None)
 check("a year before film existed is no year", by["lecture"]["year"] is None and by["lecture"]["yearWas"] == 1801)

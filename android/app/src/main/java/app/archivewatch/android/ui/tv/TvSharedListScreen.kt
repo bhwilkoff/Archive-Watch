@@ -28,8 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
-import app.archivewatch.android.data.PlaySpec
-import app.archivewatch.android.data.QueueEntry
+import app.archivewatch.android.data.PlaylistPlay
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.ResolvedList
 import app.archivewatch.android.ui.resolveListRows
@@ -140,7 +139,8 @@ fun TvSharedListScreen(
         )
 
         val railFocus = LocalTvRailFocus.current
-        val playable = rows.filter { it.downloadURL != null }
+        val playable = PlaylistPlay.playable(rows)
+        val shown = rows.map { it.archiveID to it }
         Row(
             Modifier.padding(start = TvDims.OverscanH, bottom = 22.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -150,23 +150,10 @@ fun TvSharedListScreen(
                     Modifier
                         .tvFocusable(
                             onClick = {
-                                val first = playable.first()
-                                nav.push(
-                                    Route.Player(
-                                        PlaySpec(
-                                            id = first.archiveID,
-                                            title = first.title,
-                                            url = first.downloadURL!!,
-                                            queue = playable.map {
-                                                QueueEntry(
-                                                    id = it.archiveID,
-                                                    title = it.title,
-                                                    url = it.downloadURL!!,
-                                                )
-                                            },
-                                        ),
-                                    ),
-                                )
+                                scope.launch {
+                                    PlaylistPlay.play(shown, container.userState.completedIDs())
+                                        ?.let { nav.push(Route.Player(it)) }
+                                }
                             },
                             focusRequester = playButton,
                             shape = RoundedCornerShape(28.dp),
@@ -175,10 +162,26 @@ fun TvSharedListScreen(
                         .background(SharedAccent, RoundedCornerShape(28.dp)),
                 ) {
                     Text(
-                        "Play all",
+                        "Play",
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Medium,
                         color = Color.Black,
+                        modifier = Modifier.padding(horizontal = 32.dp, vertical = 14.dp),
+                    )
+                }
+            }
+            if (playable.size > 1) {
+                Box(
+                    Modifier.tvFocusable(
+                        onClick = { PlaylistPlay.shuffle(shown)?.let { nav.push(Route.Player(it)) } },
+                        shape = RoundedCornerShape(28.dp),
+                    ),
+                ) {
+                    Text(
+                        "Shuffle",
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.White,
                         modifier = Modifier.padding(horizontal = 32.dp, vertical = 14.dp),
                     )
                 }
