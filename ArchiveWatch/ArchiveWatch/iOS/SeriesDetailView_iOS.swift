@@ -333,6 +333,7 @@ struct EpisodePlayerContainer: View {
                                 Image(systemName: "backward.end.fill")
                             }
                             .disabled(prev == nil)
+                            .accessibilityLabel("Previous")
                             if let n = episode.numberLabel {
                                 Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
                             }
@@ -340,6 +341,7 @@ struct EpisodePlayerContainer: View {
                                 Image(systemName: "forward.end.fill")
                             }
                             .disabled(next == nil)
+                            .accessibilityLabel("Next")
                         }
                         .font(.body)
                         .tint(.white)

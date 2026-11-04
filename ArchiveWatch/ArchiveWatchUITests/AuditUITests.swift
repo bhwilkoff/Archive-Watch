@@ -15,6 +15,8 @@ import XCTest
 final class AuditUITests: XCTestCase {
 
     var app: XCUIApplication!
+    /// Every launch of a test that plays: silent, and off the owner's cloud.
+    private var baseEnv: [String: String] = [:]
 
     override func setUpWithError() throws {
         continueAfterFailure = true          // one dead button must not end the audit
@@ -24,7 +26,7 @@ final class AuditUITests: XCTestCase {
     // MARK: - helpers
 
     private func launch(_ env: [String: String] = [:]) {
-        app.launchEnvironment = env
+        app.launchEnvironment = baseEnv.merging(env) { _, new in new }
         app.launch()
         // The full catalog swaps in after the seed; shelves are only real once
         // it has (Decision 053).
@@ -196,6 +198,7 @@ final class AuditUITests: XCTestCase {
     /// lists sync to the owner's devices. A device with no list must not read
     /// as a pass, so nothing here may skip.
     func test_34_playlistPlaysThrough() {
+        baseEnv = ["AW_MUTE": "1", "AW_NO_SYNC": "1"]
         let name = "Play audit \(Int(Date().timeIntervalSince1970) % 10000)"
         launch()
         app.buttons["Library"].firstMatch.tap(); sleep(2)
@@ -262,6 +265,136 @@ final class AuditUITests: XCTestCase {
         sweepTestPlaylists()
         XCTAssertFalse(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Play audit '")).firstMatch.exists,
                        "CLEANUP FAILED: a test playlist is still in the Library")
+
+        playlistRunsByItself()
+    }
+
+    /// The half of §4.3b that needs a title to END: two films under a minute,
+    /// nothing pressed between them. Watch history is what the rule reads, so
+    /// this starts from none for these two and leaves none.
+    private func playlistRunsByItself() {
+        let first = "LaSortieDeLUsineLumireLyon", second = "silent-the-kiss"
+        let sweep = ["AW_TEST_SWEEP": "\(first),\(second)"]
+        let name = "Play audit \(Int(Date().timeIntervalSince1970) % 10000)b"
+
+        app.terminate()
+        launch(sweep.merging(["AW_START_ITEM": first]) { a, _ in a })
+        openAddToPlaylist()
+        let field = app.textFields["Name"].firstMatch
+        XCTAssertTrue(field.waitForExistence(timeout: 8), "MISSING playlist name field")
+        field.tap(); field.typeText(name + "\n"); sleep(2)
+        if app.buttons["Done"].firstMatch.exists { app.buttons["Done"].firstMatch.tap(); sleep(1) }
+        app.terminate()
+        launch(["AW_START_ITEM": second])
+        openAddToPlaylist()
+        let existing = app.staticTexts[name].firstMatch
+        XCTAssertTrue(existing.waitForExistence(timeout: 8), "the list in the sheet")
+        existing.tap(); sleep(2)
+        if app.buttons["Done"].firstMatch.exists { app.buttons["Done"].firstMatch.tap(); sleep(1) }
+
+        app.buttons["Library"].firstMatch.tap(); sleep(2)
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Playlists'")).firstMatch.tap(); sleep(2)
+        let row = app.staticTexts[name].firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 8), "the list just made")
+        row.tap(); sleep(3)
+
+        let play = app.buttons["Play"].firstMatch
+        let next = app.buttons["Next"].firstMatch
+        let position = app.staticTexts.matching(NSPredicate(format: "label MATCHES '[0-9]+ of 2'")).firstMatch
+        /// The position, bringing the controls back if they have faded.
+        func place() -> String? {
+            if !position.exists { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1) }
+            return position.exists ? position.label : nil
+        }
+        func close() {
+            let done = app.buttons.matching(NSPredicate(format: "label == 'Close' OR label == 'Done'")).firstMatch
+            if !done.exists || !done.isHittable {
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1)
+            }
+            done.tap(); sleep(2)
+        }
+
+        XCTAssertTrue(play.waitForExistence(timeout: 6), "Play at the head of the list")
+        play.tap()
+        XCTAssertTrue(next.waitForExistence(timeout: 20), "Next in the player")
+        XCTAssertEqual(place(), "1 of 2", "nothing watched: the list starts at the top")
+        snap("34-ends-first")
+
+        var moved = false
+        for _ in 0..<30 where !moved {
+            sleep(5)
+            moved = place() == "2 of 2"
+        }
+        XCTAssertTrue(moved, "the first title ended and the second did not start")
+        sleep(8)
+        _ = place()
+        snap("34-ended-next-playing")
+        close()
+
+        XCTAssertTrue(play.waitForExistence(timeout: 6), "back on the list")
+        play.tap()
+        XCTAssertTrue(next.waitForExistence(timeout: 20), "Next in the player")
+        XCTAssertEqual(place(), "2 of 2", "Play starts at the first title not watched")
+        snap("34-first-unwatched")
+
+        // The last title ends: playing stops and the viewer is back on the list.
+        // Hittable, not exists: Play stays in the tree behind the player.
+        var back = false
+        for _ in 0..<30 where !back {
+            sleep(3)
+            back = play.isHittable
+        }
+        XCTAssertTrue(back, "the list ended and left the player open")
+        snap("34-list-ended")
+
+        play.tap()
+        XCTAssertTrue(next.waitForExistence(timeout: 20), "Next in the player")
+        XCTAssertEqual(place(), "1 of 2", "all watched: Play starts at the top")
+        close()
+
+        app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
+        deletePlaylist(row)
+        sweepTestPlaylists()
+        XCTAssertFalse(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Play audit '")).firstMatch.exists,
+                       "CLEANUP FAILED: a test playlist is still in the Library")
+
+        app.terminate()
+        launch(sweep.merging(["AW_START_ITEM": first]) { a, _ in a })
+        let more = app.buttons["detail.more"].firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 20), "MISSING More on Detail")
+        sleep(2)
+        more.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        XCTAssertTrue(app.buttons["Mark as Watched"].firstMatch.waitForExistence(timeout: 4),
+                      "CLEANUP FAILED: the test left this title marked watched")
+    }
+
+    /// PlayerChrome's other tenant, photographed the way a playlist's capsule
+    /// was: both orientations, and its controls inside the screen.
+    func test_35_episodeCapsule() {
+        baseEnv = ["AW_MUTE": "1", "AW_NO_SYNC": "1"]
+        launch(["AW_START_ITEM": "the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on"])
+        let play = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Play' OR label BEGINSWITH 'Resume'")).firstMatch
+        XCTAssertTrue(play.waitForExistence(timeout: 20), "Play on the episode")
+        play.tap()
+        let next = app.buttons["Next"].firstMatch
+        XCTAssertTrue(next.waitForExistence(timeout: 25), "the episode capsule")
+        // Frames after a rotation read in the old orientation, so a frame
+        // check says nothing here: hit-testing is the device's own answer.
+        func onScreen(_ orientation: String) {
+            if !next.isHittable { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap(); sleep(1) }
+            snap("35-capsule-\(orientation)")
+            for b in [app.buttons["Previous"].firstMatch, next] {
+                XCTAssertTrue(b.isHittable, "\(b.label) cannot be pressed in \(orientation)")
+            }
+        }
+        sleep(10)   // the picture is up, or the photograph shows only the capsule
+        onScreen("portrait")
+        XCUIDevice.shared.orientation = .landscapeLeft
+        sleep(3)
+        onScreen("landscape")
+        XCUIDevice.shared.orientation = .portrait
+        sleep(2)
+        app.terminate()
     }
 
     func test_01_everyTabOpens() {

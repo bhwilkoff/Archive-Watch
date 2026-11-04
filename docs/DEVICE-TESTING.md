@@ -288,12 +288,31 @@ for rapid iteration").
 | `AW_OPEN_SETTINGS=1` | the Settings sheet |
 | `AW_HOME_SCROLL=categories\|decades` | Home scrolled to a row |
 | `AW_TYPE_SIZE=xxxLarge\|accessibility2\|accessibility3` | the whole app at that Dynamic Type size |
+| `AW_NO_SYNC=1` | nothing leaves the device for this launch (iPhone and Apple TV) |
+| `AW_TEST_SWEEP=<id,id>` | removes every "Play audit" list and those titles' watch history, and logs `AWLIST sweep ... listsLeft= historyLeft=` (iPhone and Apple TV) |
+| `AW_TEST_LIST=<Play audit name>\|<id,id>` | Apple TV only: makes that list and opens it, because the remote cannot type. `AW_MUTE=1` silences its player too |
 
 Picture-in-picture is exercised by playing a film (`AW_AUTOPLAY` + `AW_MUTE`),
 launching another app (`com.apple.Preferences`) so PiP starts automatically,
 then launching Archive Watch again WITHOUT `--terminate-existing`; judge motion
 by differencing two screenshots of the PiP window. Restore needs a tap and is
 not automated.
+
+### 8b. Pressing an Apple TV's remote
+
+Measured on Fireplace, 2026-11-04, each one read as a product defect first:
+
+- `atvremote select` sends the press and waits for the reply before the
+  release. On a loaded Mac that gap is a LONG press: Play did nothing and a
+  poster opened its context menu, while up, down and left all worked. Send
+  both halves together over one connection (`asyncio.gather` of
+  `api.hid_command(True, c)` and `(False, c)`): 15 ms, and select works.
+- With the transport bar hidden, right is skip ahead and select is pause. The
+  bar lasts about five seconds, and a screenshot takes about that long, so
+  press `up`, `right`, `select` inside one connection.
+- A launch with `--terminate-existing` over an open player can come up on the
+  tvOS Home screen. Read the screen before pressing anything: a select there
+  opens whichever app has focus.
 
 ## 9. Severing the network without severing yourself
 

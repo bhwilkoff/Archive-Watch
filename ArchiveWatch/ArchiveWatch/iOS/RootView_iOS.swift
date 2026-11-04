@@ -370,6 +370,9 @@ struct RootView: View {
             // bundled seed) opens once the downloaded DB swaps in.
             .task(id: store.dbVersion) {
                 let env = ProcessInfo.processInfo.environment
+                #if DEBUG
+                PlaylistTestDoor.sweep(modelContext)
+                #endif
                 if let raw = env["AW_START_TAB"], let t = Router.Tab(rawValue: raw) {
                     router.tab = t
                 }

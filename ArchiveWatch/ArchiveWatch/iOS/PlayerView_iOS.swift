@@ -149,13 +149,17 @@ struct PlayerView: UIViewControllerRepresentable {
     /// setting says, and each saves its own place, unlike a channel.
     init(playlist items: [Catalog.Item], at index: Int,
          onUnplayable: ((String) -> Void)? = nil,
+         onFinished: (() -> Void)? = nil,
          onAdvance: ((String) -> Void)? = nil) {
         self.init(item: items[index], onUnplayable: onUnplayable)
         queue = LineupQueue(lineup: items, startAt: items[index].archiveID, from: index)
         self.onAdvance = onAdvance
+        self.onFinished = onFinished
     }
 
     private var onAdvance: ((String) -> Void)? = nil
+    /// A list has played out; a film with nothing after it stays on its last frame.
+    private var onFinished: (() -> Void)? = nil
     private var startOffset: TimeInterval? = nil
     private var persistsProgress = true
 
@@ -163,7 +167,7 @@ struct PlayerView: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
 
     func makeCoordinator() -> Coordinator {
-        let c = Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance,
+        let c = Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance, onFinished: onFinished,
                             persistsProgress: persistsProgress)
         c.onUnplayable = onUnplayable
         // A captioned film that drops to the plain MP4 loses its subtitle track
@@ -406,6 +410,12 @@ struct PlayerView: UIViewControllerRepresentable {
             }
         }
         #endif
+        #if DEBUG
+        // Harness door: a silent player for device runs (never audible at the owner).
+        if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { player.isMuted = true }
+        // AW_MUTE=quiet: audio still renders, at 0.1% (caption research, 2026-09-28).
+        if ProcessInfo.processInfo.environment["AW_MUTE"] == "quiet" { player.volume = 0.001 }
+        #endif
         // SharePlay: main player only — never the caption scout (see
         // WatchTogether.attach). Re-attached on every build because a rebuilt
         // player carries a new coordinator.
@@ -421,12 +431,6 @@ struct PlayerView: UIViewControllerRepresentable {
             #if DEBUG
             // A door join makes no sound in the room the test phone sits in.
             if ProcessInfo.processInfo.environment["AW_ROOM_JOIN"] != nil { player.isMuted = true }
-            #if DEBUG
-            // Harness door: a silent player for device runs (never audible at the owner).
-            if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { player.isMuted = true }
-            // AW_MUTE=quiet: audio still renders, at 0.1% (caption research, 2026-09-28).
-            if ProcessInfo.processInfo.environment["AW_MUTE"] == "quiet" { player.volume = 0.001 }
-            #endif
             #endif
             Task { @MainActor in
                 await StudioSyncFollower.shared.join(code: code, player: player) { _ in }
@@ -524,6 +528,7 @@ struct PlayerView: UIViewControllerRepresentable {
         let ctx: ModelContext
         let queue: PlaybackQueue?
         let onAdvance: ((String) -> Void)?
+        let onFinished: (() -> Void)?
         let persistsProgress: Bool
         var loader: ResilientStreamLoader?
         weak var playerVC: AVPlayerViewController?
@@ -711,9 +716,11 @@ struct PlayerView: UIViewControllerRepresentable {
         private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
-             onAdvance: ((String) -> Void)? = nil, persistsProgress: Bool = true) {
+             onAdvance: ((String) -> Void)? = nil, onFinished: (() -> Void)? = nil,
+             persistsProgress: Bool = true) {
             self.archiveID = archiveID; self.ctx = ctx; self.queue = queue
             self.onAdvance = onAdvance
+            self.onFinished = onFinished
             self.persistsProgress = persistsProgress
         }
 
@@ -1289,7 +1296,10 @@ struct PlayerView: UIViewControllerRepresentable {
 
         private func advance() {
             persist(player, syncNow: true)   // captures end position → WatchProgress marks complete
-            guard let player, let nxt = queue?.next(afterFinishing: archiveID) else { return }
+            guard let player, let nxt = queue?.next(afterFinishing: archiveID) else {
+                onFinished?()
+                return
+            }
             archiveID = nxt.id
             onAdvance?(nxt.id)
             // Everything below belonged to the title that just ended: its

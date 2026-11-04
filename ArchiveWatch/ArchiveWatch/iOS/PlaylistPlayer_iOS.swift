@@ -17,6 +17,7 @@ struct PlaylistPlayerContainer: View {
     @State private var handle = PlayerHandle()
     @State private var chrome = PlayerChromeTimer()
     @State private var unplayable: String?
+    @Environment(\.dismiss) private var dismiss
 
     init(run: PlaylistRun) {
         self.run = run
@@ -30,7 +31,7 @@ struct PlaylistPlayerContainer: View {
         ZStack(alignment: .topTrailing) {
             PlayerView(playlist: run.items, at: index, onUnplayable: { message in
                 if hasNext { step(1) } else { unplayable = message }
-            }) { _ in
+            }, onFinished: { dismiss() }) { _ in
                 if hasNext { index += 1 }
             }
             .controlled(by: handle)
