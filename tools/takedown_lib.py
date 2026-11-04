@@ -86,12 +86,16 @@ def strip_spines(table=None, repo=None) -> dict:
 
 
 def hidden_series_slugs(items) -> set:
+    """Series under a claim a reader can open. Not every hidden card: 32 are hidden
+    only for want of a year (`no_evidence`), which says nothing against the show,
+    and dropping them took The Iron Claw (1916) and NASA's own series off the air."""
     return {it.get("seriesID") for it in items
-            if str(it.get("archiveID") or "").startswith("series:") and it.get("excluded")}
+            if str(it.get("archiveID") or "").startswith("series:") and it.get("excluded")
+            and it.get("copyrightClaimEvidence")}
 
 
 def drop_hidden_series(repo=None) -> int:
-    """A series the rights audit hid still had its spine, so its episodes were in
+    """A series under a copyright claim still had its spine, so its episodes were in
     the DB, search and feeds behind a hidden card. publish-db runs this before it
     builds; the files stay in git, so a card that returns brings them back."""
     repo = repo or REPO

@@ -85,11 +85,16 @@ R.exclude_sources_of_claimed_series(items2, Counter())
 check("a claim on a show reaches the upload that is the show", items2[1].get("excluded") is True
       and items2[1].get("copyrightClaimFrom") == "series:claimed-show")
 check("CONTROL: another upload stays", "excluded" not in items2[2])
+spine("yearless-show", [ep("yearless-1")])
 (tmp / "catalog.json").write_text(json.dumps({"items": items2 + [
-    {"archiveID": "series:untouched", "seriesID": "untouched"}]}))
-check("a hidden series is left out of the build", T.drop_hidden_series(tmp) == 1
+    {"archiveID": "series:untouched", "seriesID": "untouched"},
+    {"archiveID": "series:yearless-show", "seriesID": "yearless-show", "excluded": True,
+     "rightsAudit": "no_evidence"}]}))
+check("a series under a claim is left out of the build", T.drop_hidden_series(tmp) == 1
       and not (tmp / "series/claimed-show.json").exists())
 check("CONTROL: a visible series stays in it", (tmp / "series/untouched.json").exists())
+check("CONTROL: a card hidden only for want of a year keeps its episodes",
+      (tmp / "series/yearless-show.json").exists())
 
 import reconcile_tv_catalog as RC
 was = {"archiveID": "series:x", "title": "Old", "excluded": True, "rightsAudit": "copyright_claim",
