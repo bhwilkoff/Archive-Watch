@@ -93,7 +93,7 @@ reinstate, so it is the last resort, and worth a lawyer.
 
 ## The first case
 
-2026-11-04, two notices from Blue Efficience. `Madame Dubarry` was an ARTE
+2026-11-04, two notices from one rights agency. `Madame Dubarry` was an ARTE
 broadcast of the 1919 film: removed, and the two clean silent copies stayed.
 `Home Movie: 97390: Unidentified` is a family home movie in the Prelinger
 collection, claimed as "UNIDENTIFIED": kept.

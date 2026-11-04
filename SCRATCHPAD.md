@@ -800,7 +800,7 @@ Owner: *"There are two takedown emails from the Google Search Console and I'd
 like to figure out how to approach them,"* then the five requirements now in
 `docs/TAKEDOWNS.md`. v1.47.8-1.47.9.
 
-- **Two Blue Efficience notices**: `BillSpragueCollectionMadameDubarry` was an
+- **Two notices from one agency**: `BillSpragueCollectionMadameDubarry` was an
   ARTE broadcast (logo, soundtrack) and is removed; `HMUnidentified97390` is a
   Prelinger home movie claimed as "UNIDENTIFIED" and stays.
 - **Live on main**: removal of items, single files and whole series; public list
@@ -810,7 +810,7 @@ like to figure out how to approach them,"* then the five requirements now in
   record, `takedown-check.yml`. Measured on 14 films.
 **Open**: the owner runs `tools/takedown_setup.sh` (the Worker deploy was refused
 to the agent); then merge, open the two real cases, and add the agent's registered
-name, address and phone to `takedown.html`. Withdrawal email to Blue Efficience is
+name, address and phone to `takedown.html`. The withdrawal email to the agency is
 the owner's to send.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
