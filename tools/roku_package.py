@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Package the Roku channel into a signed .pkg for submission.
 
-Roku has NO submission API — every step after this one happens by hand in the
-Developer Dashboard (see docs/ROKU-SUBMISSION.md). What IS scriptable is the
+Roku has NO submission API — every step after this one is an agent driving the
+Developer Dashboard in Chrome (see docs/ROKU-SUBMISSION.md). What IS scriptable is the
 part that produces the artifact, and that is what this does:
 
     showkey   -> is the device keyed at all?

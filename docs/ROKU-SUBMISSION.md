@@ -7,8 +7,8 @@ An agent does this upload, not the owner: see "Uploading a package IS automatabl
 Every other store in this project is scripted — `tools/asc_release.py` submits
 to Apple over REST (Decision 101), `tools/submit-play.sh` uploads to Google
 Play. **Roku has no equivalent** for submission. App creation, the store listing, the package
-upload, the self-serve tests and the publish schedule all happen by hand in the
-Developer Dashboard. Roku's own publishing guide documents no programmatic
+upload, the self-serve tests and the publish schedule all happen in the Developer
+Dashboard, driven by an agent in Chrome; the owner never presses any of them. Roku's own publishing guide documents no programmatic
 path, and there is no partner endpoint to fall back on.
 
 What IS scriptable is producing the artifact, and `tools/roku_package.py` does
