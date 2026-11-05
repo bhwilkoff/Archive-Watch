@@ -8,7 +8,8 @@ Every other store in this project is scripted — `tools/asc_release.py` submits
 to Apple over REST (Decision 101), `tools/submit-play.sh` uploads to Google
 Play. **Roku has no equivalent** for submission. App creation, the store listing, the package
 upload, the self-serve tests and the publish schedule all happen in the Developer
-Dashboard, driven by an agent in Chrome; the owner never presses any of them. Roku's own publishing guide documents no programmatic
+Dashboard, driven by an agent in Chrome. The owner's only step is the last: the
+three certifications in the Schedule dialog, and Submit. Roku's own publishing guide documents no programmatic
 path, and there is no partner endpoint to fall back on.
 
 What IS scriptable is producing the artifact, and `tools/roku_package.py` does
@@ -240,6 +241,13 @@ window-only `screencapture -l`, and press with `cliclick`. Before each press,
 check the pointer is where the last press left it, so a returning owner stops the
 run. The app's URLs (`/apps/public/881015/package`, `/staticAnalysis`,
 `/channelBehaviorAnalysis`, `/overview`) open directly.
+
+**Schedule publishing ends with the owner** (2026-11-05, 1.0.81). The dialog
+shows the earliest date, then Continue opens required **Release notes** and three
+checkboxes: legal statements about testing, authority and content rights, and
+privacy. The agent writes the notes from the commits since the last package,
+naming only what reaches a device on the package's firmware floor, and leaves the
+dialog open. The owner ticks the boxes and presses Submit.
 
 Everything after the upload — the minimum-firmware combobox, Save, Save & run
 static analysis, Run analysis, Publish — is ordinary DOM and drives fine.

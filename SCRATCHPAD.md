@@ -225,7 +225,7 @@ because the loop was stopped mid-stride for a Claude update.
 5. LG and Samsung store submissions (accounts + a device to test on).
 6. **Roku 1.0.75 (deep-link fix + options panel, Decision 126)**: uploaded to
    the beta (published) and the store (App Behavior Analysis running; then
-   **Schedule publishing** is the agent's press). Ticket 110523 needs a reply
+   **Schedule publishing** is the agent's press, its certifications the owner's). Ticket 110523 needs a reply
    asking for the Search Beta re-test — the Dashboard's Submit for review is
    disabled while the feed is FEED VALIDATED (= in certification).
 7-NEW. **WATCH TOGETHER HAS BROADCAST TO YOUTUBE** (2026-09-18 ~14:40). The
@@ -788,9 +788,9 @@ v1.47.10-1.47.30. Apple 1.47.28 in review on all three (withdrew 1.47.13).
 - **Play and Shuffle** on every playlist and shared list, all platforms (iOS-DESIGN
   §4.3b). Roku: crash on OS 9.1, dead-title skip, search 10 s -> 1-2 s.
 **Done 11-05**: Play production and Amazon both at versionCode 73 (Decision 180).
-**Roku 1.0.81** uploaded 11-05, static analysis clean of errors, App Behavior Analysis
-queued; Schedule publishing follows, by the agent (a Chrome that cannot click is not a
-blocker: ROKU-SUBMISSION). Fire TV adb needs its prompt accepted at the TV. LG needs a Seller Lounge
+**Roku 1.0.81** uploaded 11-05, no static errors, App Behavior Analysis 4/4; the Schedule
+dialog is open with notes filled, for the owner to certify and Submit (a Chrome that
+cannot click is not a blocker: ROKU-SUBMISSION). Fire TV adb needs its prompt accepted at the TV. LG needs a Seller Lounge
 account. Mac device pass not run.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
