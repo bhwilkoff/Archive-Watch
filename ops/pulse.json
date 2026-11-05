@@ -3,13 +3,9 @@
   {
    "store": "App Store",
    "platform": "Apple TV",
-   "state": "WAITING_FOR_REVIEW",
+   "state": "READY_FOR_SALE",
    "version": "1.47.28",
-   "live": "1.47.3",
-   "inFlight": {
-    "version": "1.47.28",
-    "state": "WAITING_FOR_REVIEW"
-   },
+   "live": "1.47.28",
    "repoVersion": "1.47.30",
    "repoBuild": "2181",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
@@ -88,13 +84,15 @@
    "store": "Roku Channel Store",
    "platform": "Roku",
    "state": "LIVE",
-   "version": "1.0.65",
-   "since": "2026-09-15",
+   "version": "1.0.80",
+   "since": "2026-10-30",
    "note": "Channel 881015. 1.0.65 published 2026-09-15 (Dashboard: Last publish Sep 15, 2026) — the first build the legacy tier can run. Roku has no API to read this from; the app's own analytics arrive daily by scheduled delivery. NOTE: sunset players on Roku OS 9.1 (Roku 2 XD etc.) are NOT offered new channels by the Streaming Store regardless of the package's v8.0.0 floor — see ROKU-SUBMISSION.md §Legacy players.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null,
    "route": "no API — its Looker dashboards deliver to us daily",
-   "manual": true
+   "manual": true,
+   "live": "1.0.80",
+   "read": "seen in Roku's own delivery"
   },
   {
    "store": "LG Content Store",
@@ -124,8 +122,8 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "1dcee76",
-   "since": "2026-11-05T00:04:08Z",
+   "version": "0f8568a",
+   "since": "2026-11-05T16:26:20Z",
    "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
@@ -363,6 +361,21 @@
  "social": {
   "posts": [
    {
+    "at": "2026-11-05T03:32:10.992991+00:00",
+    "platform": "bluesky",
+    "title": "Drácula",
+    "id": "dra-cula.-eng.-mp-4.",
+    "slot": "now-showing",
+    "format": "video",
+    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzjwmfthav24",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
     "at": "2026-11-04T21:16:53.460787+00:00",
     "platform": "bluesky",
     "title": "Another Fine Mess",
@@ -445,11 +458,11 @@
     "slot": "double-bill",
     "format": "video",
     "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzhet336co24",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null,
+    "window": "24h",
     "live": true
    },
    {
@@ -839,7 +852,7 @@
     "reposts": 0,
     "replies": 0,
     "views": null,
-    "window": "24h",
+    "window": "7d",
     "live": true
    },
    {
@@ -2146,31 +2159,16 @@
     "views": null,
     "window": null,
     "live": null
-   },
-   {
-    "at": "2026-10-14T19:24:20.957697+00:00",
-    "platform": "instagram",
-    "title": "Abraham Lincoln",
-    "id": "AbrahamLincoln_877",
-    "slot": "double-bill",
-    "format": "card",
-    "url": "https://www.instagram.com/p/DefIRSHlEfC/",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
-    "views": null,
-    "window": null,
-    "live": null
    }
   ],
   "byPlatform": {
    "bluesky": {
-    "posts": 43,
+    "posts": 44,
     "likes": 1,
     "replies": 0,
     "reposts": 0,
     "views": 0,
-    "measured": 41
+    "measured": 42
    },
    "mastodon": {
     "posts": 22,
@@ -2189,7 +2187,7 @@
     "measured": 0
    },
    "instagram": {
-    "posts": 22,
+    "posts": 21,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2206,11 +2204,11 @@
    }
   },
   "totalPosts": 120,
-  "measured": 172,
+  "measured": 173,
   "reach": {
    "bluesky": {
-    "followers": 26,
-    "posts": 116
+    "followers": 27,
+    "posts": 117
    },
    "mastodon": {
     "followers": 1,
@@ -2225,7 +2223,7 @@
    }
   },
   "deleted": 0,
-  "unverified": 55
+  "unverified": 54
  },
  "health": {
   "applePerf": {
@@ -2521,88 +2519,122 @@
       "Desktop": 2,
       "iPad": 3
      }
+    },
+    {
+     "date": "2026-11-04",
+     "units": 33,
+     "byDevice": {
+      "Apple TV": 7,
+      "iPhone": 20,
+      "iPad": 6
+     }
     }
    ],
-   "total14d": 428,
-   "total28d": 865,
+   "total14d": 438,
+   "total28d": 877,
    "byDevice": {
-    "iPhone": 628,
-    "Apple TV": 149,
-    "iPad": 126,
+    "iPhone": 648,
+    "Apple TV": 156,
+    "iPad": 132,
     "Desktop": 31
    },
    "byCountry": {
-    "US": 384,
-    "GB": 47,
-    "CA": 37,
+    "US": 396,
+    "GB": 49,
+    "CA": 40,
     "AU": 34,
-    "SA": 32,
-    "FR": 22,
+    "SA": 33,
+    "FR": 23,
     "DE": 22,
-    "RU": 20,
-    "NG": 19,
+    "RU": 21,
+    "NG": 20,
+    "SE": 12,
+    "PT": 11,
     "AE": 11,
-    "PT": 10,
-    "MA": 10,
-    "SE": 9,
-    "MX": 9
+    "IL": 10,
+    "IN": 10
    },
    "byVersion": {
     "1.46.0": 318,
+    "1.47.3": 246,
     "1.46.14": 222,
-    "1.47.3": 213,
     "1.45.0": 181
    },
    "perDevice": {
-    "iPhone": {
-     "byCountry": {
-      "US": 221,
-      "GB": 30,
-      "SA": 26,
-      "FR": 19,
-      "NG": 19,
-      "RU": 17,
-      "DE": 13,
-      "CA": 13,
-      "AU": 11,
-      "MA": 10,
-      "AE": 9,
-      "TZ": 8,
-      "MX": 8,
-      "KZ": 8
-     },
-     "byVersion": {
-      "1.46.0": 236,
-      "1.46.14": 141,
-      "1.47.3": 135,
-      "1.45.0": 116
-     },
-     "units": 628
-    },
     "Apple TV": {
      "byCountry": {
-      "US": 84,
+      "US": 87,
       "AU": 15,
-      "CA": 9,
+      "CA": 11,
       "DE": 8,
       "GB": 7,
-      "SE": 5,
+      "SE": 6,
       "DK": 4,
       "BE": 3,
+      "FR": 2,
       "NL": 2,
       "ES": 2,
       "ZA": 2,
       "CO": 1,
-      "RU": 1,
-      "IE": 1
+      "RU": 1
      },
      "byVersion": {
+      "1.47.3": 45,
       "1.46.14": 44,
-      "1.47.3": 38,
       "1.46.0": 38,
       "1.45.0": 29
      },
-     "units": 149
+     "units": 156
+    },
+    "iPhone": {
+     "byCountry": {
+      "US": 226,
+      "GB": 31,
+      "SA": 27,
+      "NG": 20,
+      "FR": 19,
+      "RU": 18,
+      "CA": 14,
+      "DE": 13,
+      "AU": 11,
+      "MA": 10,
+      "TZ": 9,
+      "IL": 9,
+      "IN": 9,
+      "AE": 9
+     },
+     "byVersion": {
+      "1.46.0": 236,
+      "1.47.3": 155,
+      "1.46.14": 141,
+      "1.45.0": 116
+     },
+     "units": 648
+    },
+    "iPad": {
+     "byCountry": {
+      "US": 69,
+      "CA": 12,
+      "GB": 6,
+      "SA": 6,
+      "AU": 5,
+      "IT": 3,
+      "PT": 3,
+      "JP": 2,
+      "NO": 2,
+      "AE": 2,
+      "KW": 2,
+      "IQ": 2,
+      "BR": 2,
+      "ES": 2
+     },
+     "byVersion": {
+      "1.47.3": 39,
+      "1.46.0": 35,
+      "1.46.14": 30,
+      "1.45.0": 28
+     },
+     "units": 132
     },
     "Desktop": {
      "byCountry": {
@@ -2624,36 +2656,11 @@
       "1.46.14": 7
      },
      "units": 31
-    },
-    "iPad": {
-     "byCountry": {
-      "US": 65,
-      "CA": 12,
-      "SA": 6,
-      "GB": 5,
-      "AU": 5,
-      "IT": 3,
-      "PT": 3,
-      "NO": 2,
-      "AE": 2,
-      "KW": 2,
-      "IQ": 2,
-      "BR": 2,
-      "ES": 2,
-      "RU": 1
-     },
-     "byVersion": {
-      "1.46.0": 35,
-      "1.47.3": 33,
-      "1.46.14": 30,
-      "1.45.0": 28
-     },
-     "units": 126
     }
    },
    "skippedProductTypes": {
-    "F7": 6423,
-    "F3": 297
+    "F7": 6452,
+    "F3": 307
    }
   },
   "playVitals": {
@@ -3072,16 +3079,8 @@
    "window": "2026-10-08..2026-11-04"
   },
   "playInstalls": {
-   "asOf": "2026-10-31",
+   "asOf": "2026-11-01",
    "daily": [
-    {
-     "date": "2026-10-04",
-     "installs": 49,
-     "uninstalls": 0,
-     "upgrades": 0,
-     "activeDevices": 988,
-     "userInstalls": 42
-    },
     {
      "date": "2026-10-05",
      "installs": 43,
@@ -3297,11 +3296,19 @@
      "upgrades": 0,
      "activeDevices": 1644,
      "userInstalls": 85
+    },
+    {
+     "date": "2026-11-01",
+     "installs": 0,
+     "uninstalls": 0,
+     "upgrades": 0,
+     "activeDevices": 1689,
+     "userInstalls": 0
     }
    ],
-   "installs28d": 2650,
+   "installs28d": 2601,
    "uninstalls28d": 0,
-   "activeDevices": 1644,
+   "activeDevices": 1689,
    "byCountry": {
     "US": 680,
     "KE": 418,
@@ -3373,9 +3380,10 @@
     "es_ES": 60
    },
    "readVia": "service account",
-   "staleDays": 5,
+   "staleDays": 4,
    "monthsFound": [
-    "2026-10"
+    "2026-10",
+    "2026-11"
    ]
   },
   "playDaily": {
@@ -4320,32 +4328,32 @@
      "name": "crashMetricSet",
      "description": "App crash metrics",
      "metrics": [
-      "crashRate28dUserWeighted",
-      "userPerceivedCrashRate7dUserWeighted",
-      "userPerceivedCrashRate28dUserWeighted",
       "crashCount",
-      "distinctDevices",
-      "crashRate7dUserWeighted",
+      "userPerceivedCrashRate28dUserWeighted",
+      "userPerceivedCrashRate7dUserWeighted",
+      "crashRate28dUserWeighted",
+      "userPerceivedCrashRate",
       "crashRate",
-      "userPerceivedCrashRate"
+      "crashRate7dUserWeighted",
+      "distinctDevices"
      ],
      "dimensions": [
-      "deviceName",
       "deviceOS",
-      "deviceModel",
-      "countryCode",
-      "deviceType",
+      "deviceName",
+      "versionCode",
       "osVersion",
-      "versionCode"
+      "deviceType",
+      "countryCode",
+      "deviceModel"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-11-04T22"
+       "latestDataTimestamp": "2026-11-05T14"
       },
       {
        "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-11-03"
+       "latestDataTimestamp": "2026-11-04"
       }
      ]
     },
@@ -4353,32 +4361,32 @@
      "name": "anrMetricSet",
      "description": "App ANR (Application Not Responding) metrics",
      "metrics": [
-      "anrCount",
-      "anrRate28dUserWeighted",
       "userPerceivedAnrRate28dUserWeighted",
-      "distinctDevices",
-      "anrRate7dUserWeighted",
-      "anrRate",
+      "anrRate28dUserWeighted",
+      "anrCount",
+      "userPerceivedAnrRate7dUserWeighted",
       "userPerceivedAnrRate",
-      "userPerceivedAnrRate7dUserWeighted"
+      "anrRate",
+      "anrRate7dUserWeighted",
+      "distinctDevices"
      ],
      "dimensions": [
-      "versionCode",
       "deviceName",
-      "deviceOS",
-      "deviceModel",
-      "countryCode",
+      "versionCode",
+      "osVersion",
       "deviceType",
-      "osVersion"
+      "countryCode",
+      "deviceModel",
+      "deviceOS"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-11-04T22"
+       "latestDataTimestamp": "2026-11-05T14"
       },
       {
        "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-11-03"
+       "latestDataTimestamp": "2026-11-04"
       }
      ]
     },
@@ -4386,32 +4394,32 @@
      "name": "lmkMetricSet",
      "description": "Low Memory Killer metrics",
      "metrics": [
-      "lmkRate7dUserWeighted",
-      "lmkRate",
-      "userPerceivedLmkRate",
-      "userPerceivedLmkRate7dUserWeighted",
       "distinctDevices",
       "lmkCount",
       "lmkRate28dUserWeighted",
-      "userPerceivedLmkRate28dUserWeighted"
+      "userPerceivedLmkRate28dUserWeighted",
+      "lmkRate7dUserWeighted",
+      "lmkRate",
+      "userPerceivedLmkRate",
+      "userPerceivedLmkRate7dUserWeighted"
      ],
      "dimensions": [
-      "deviceName",
-      "deviceOS",
       "deviceModel",
       "countryCode",
       "deviceType",
       "osVersion",
-      "versionCode"
+      "versionCode",
+      "deviceName",
+      "deviceOS"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-11-04T22"
+       "latestDataTimestamp": "2026-11-05T14"
       },
       {
        "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-11-03"
+       "latestDataTimestamp": "2026-11-04"
       }
      ]
     }
@@ -4497,12 +4505,20 @@
     {
      "date": "2026-11-03",
      "installs": 2
+    },
+    {
+     "date": "2026-11-04",
+     "installs": 1
+    },
+    {
+     "date": "2026-11-05",
+     "installs": 1
     }
    ],
    "byCountry": [
     {
      "key": "US",
-     "value": 23
+     "value": 24
     },
     {
      "key": "GB",
@@ -4511,6 +4527,10 @@
     {
      "key": "AU",
      "value": 3
+    },
+    {
+     "key": "KE",
+     "value": 1
     },
     {
      "key": "IE",
@@ -4529,14 +4549,14 @@
      "value": 1
     }
    ],
-   "total": 36,
+   "total": 38,
    "periods": [
     "2026-11",
     "2026-10"
    ],
    "noReport": [],
    "transactionTypes": {
-    "Charge": 36
+    "Charge": 38
    },
    "readVia": "Appstore Sales Reporting API (free installs are $0.00 Charge rows)",
    "console": "https://developer.amazon.com/apps-and-games/console/reports/download-center.html"
@@ -4554,14 +4574,1280 @@
    "console": "https://developer.amazon.com/apps-and-games/console/apps/list.html"
   },
   "rokuEngagement": {
-   "daily": [],
-   "headline": {},
-   "tiles": [],
-   "dropsRead": 0,
+   "daily": [
+    {
+     "date": "2026-10-28",
+     "Channel Installs": 121.0,
+     "Channel Uninstalls": 16.0,
+     "Net Installs": 105.0,
+     "Total Minutes Streamed": 8054.0,
+     "Average Minutes per Streaming Account": 37.28703703703704,
+     "Streaming Accounts / Cumulative Installs": 1.722,
+     "Visitors": 319.0,
+     "Viewers": 216.0,
+     "Bounce Rate": 32.288,
+     "Total Hours Streamed": 265.0,
+     "Ratio of Streams to Visits": 0.33,
+     "Average Stream Duration (Minutes)": 48.5,
+     "Rebuffers per Streaming Hour": 0.04,
+     "Visits": 993.0,
+     "Streams": 327.0
+    },
+    {
+     "date": "2026-10-29",
+     "Channel Installs": 130.0,
+     "Channel Uninstalls": 15.0,
+     "Net Installs": 115.0,
+     "Total Minutes Streamed": 9822.0,
+     "Average Minutes per Streaming Account": 45.055045871559635,
+     "Streaming Accounts / Cumulative Installs": 1.72,
+     "Visitors": 332.0,
+     "Viewers": 218.0,
+     "Bounce Rate": 34.337,
+     "Total Hours Streamed": 248.0,
+     "Ratio of Streams to Visits": 0.39,
+     "Average Stream Duration (Minutes)": 44.8,
+     "Rebuffers per Streaming Hour": 0.06,
+     "Visits": 849.0,
+     "Streams": 333.0
+    },
+    {
+     "date": "2026-10-30",
+     "Channel Installs": 125.0,
+     "Channel Uninstalls": 25.0,
+     "Net Installs": 100.0,
+     "Total Minutes Streamed": 10248.0,
+     "Average Minutes per Streaming Account": 43.60851063829787,
+     "Streaming Accounts / Cumulative Installs": 1.836,
+     "Visitors": 355.0,
+     "Viewers": 235.0,
+     "Bounce Rate": 33.803,
+     "Total Hours Streamed": 478.0,
+     "Ratio of Streams to Visits": 0.32,
+     "Average Stream Duration (Minutes)": 53.1,
+     "Rebuffers per Streaming Hour": 0.09,
+     "Visits": 1702.0,
+     "Streams": 541.0,
+     "Error Count": 1.0,
+     "Total Count of Crashes": 1.0,
+     "Total Count of Devices with Crashes": 1.0
+    },
+    {
+     "date": "2026-10-31",
+     "Channel Installs": 145.0,
+     "Channel Uninstalls": 20.0,
+     "Net Installs": 125.0,
+     "Total Minutes Streamed": 12565.0,
+     "Average Minutes per Streaming Account": 48.701550387596896,
+     "Streaming Accounts / Cumulative Installs": 1.993,
+     "Visitors": 391.0,
+     "Viewers": 258.0,
+     "Bounce Rate": 34.015,
+     "Total Hours Streamed": 707.0,
+     "Ratio of Streams to Visits": 0.35,
+     "Average Stream Duration (Minutes)": 52.4,
+     "Rebuffers per Streaming Hour": 0.05,
+     "Visits": 2343.0,
+     "Streams": 809.0,
+     "Error Count": 1.0,
+     "Total Count of Crashes": 1.0,
+     "Total Count of Devices with Crashes": 1.0
+    },
+    {
+     "date": "2026-11-01",
+     "Channel Installs": 183.0,
+     "Channel Uninstalls": 20.0,
+     "Net Installs": 163.0,
+     "Total Minutes Streamed": 14461.0,
+     "Average Minutes per Streaming Account": 47.884105960264904,
+     "Streaming Accounts / Cumulative Installs": 2.3,
+     "Visitors": 429.0,
+     "Viewers": 302.0,
+     "Bounce Rate": 29.604,
+     "Total Hours Streamed": 867.0,
+     "Ratio of Streams to Visits": 0.42,
+     "Average Stream Duration (Minutes)": 50.8,
+     "Rebuffers per Streaming Hour": 0.4,
+     "Visits": 2412.0,
+     "Streams": 1023.0,
+     "Error Count": 1.0,
+     "Total Count of Crashes": 1.0,
+     "Total Count of Devices with Crashes": 1.0
+    },
+    {
+     "date": "2026-11-02",
+     "Channel Installs": 124.0,
+     "Channel Uninstalls": 13.0,
+     "Net Installs": 111.0,
+     "Total Minutes Streamed": 10436.0,
+     "Average Minutes per Streaming Account": 45.572052401746724,
+     "Streaming Accounts / Cumulative Installs": 1.728,
+     "Visitors": 354.0,
+     "Viewers": 229.0,
+     "Bounce Rate": 35.311,
+     "Total Hours Streamed": 392.0,
+     "Ratio of Streams to Visits": 0.33,
+     "Average Stream Duration (Minutes)": 57.8,
+     "Rebuffers per Streaming Hour": 0.11,
+     "Visits": 1232.0,
+     "Streams": 407.0,
+     "Error Count": 3.0,
+     "Total Count of Crashes": 3.0,
+     "Total Count of Devices with Crashes": 2.0
+    },
+    {
+     "date": "2026-11-03",
+     "Channel Installs": 105.0,
+     "Channel Uninstalls": 20.0,
+     "Net Installs": 85.0,
+     "Total Minutes Streamed": 8641.0,
+     "Average Minutes per Streaming Account": 47.74033149171271,
+     "Streaming Accounts / Cumulative Installs": 1.355,
+     "Visitors": 285.0,
+     "Viewers": 181.0,
+     "Bounce Rate": 36.491,
+     "Total Hours Streamed": 647.0,
+     "Ratio of Streams to Visits": 0.36,
+     "Average Stream Duration (Minutes)": 54.5,
+     "Rebuffers per Streaming Hour": 0.08,
+     "Visits": 1957.0,
+     "Streams": 713.0,
+     "Error Count": 4.0,
+     "Total Count of Crashes": 4.0,
+     "Total Count of Devices with Crashes": 3.0
+    },
+    {
+     "date": "2026-11-04",
+     "Error Count": 4.0,
+     "Total Count of Crashes": 4.0,
+     "Total Count of Devices with Crashes": 1.0
+    }
+   ],
+   "headline": {
+    "Avg Daily Viewers": 234.0,
+    "Account Channel Installs": 933.0,
+    "Account Channel Uninstalls": 129.0,
+    "Hours Streamed": 1237.0,
+    "Average Minutes Streamed per Viewer": 45.29,
+    "Rebuffers per Hours Streamed": 0.17,
+    "Rebuffers Sum": 526.0,
+    "Average Video Start Time (Seconds)": 10.113,
+    "Average Bitrate (Megabits)": 0.127945693678,
+    "Buffering as % of Total Streaming Time": 0.75,
+    "Channel Crashes as % of Total Devices Streaming": 0.6,
+    "Channel Crashes per Streaming Hour": 0.0128
+   },
+   "tiles": [
+    "amarillo_1080",
+    "amarillo_4k",
+    "athens",
+    "austin_mustang",
+    "ave_minutes___visitor",
+    "average_daily_visitors",
+    "bailey",
+    "bayside",
+    "benjamin",
+    "benjamin-w",
+    "brewster",
+    "brightscript_crash_logs",
+    "brightscript_crash_logs_with_stacktraces",
+    "briscoe",
+    "bryan",
+    "bryan_2",
+    "camden",
+    "channel_crashes_by_product",
+    "channel_visitors_and_streaming_viewers",
+    "chico",
+    "cooper",
+    "cumulative_net_installs",
+    "damon",
+    "data_transfer_speeds",
+    "devices_with_channel_crashes",
+    "devices_with_channel_crashes_by_product",
+    "el_paso",
+    "fruitland",
+    "ftworth",
+    "gilbert",
+    "gilbert_4k",
+    "install_base_growth",
+    "lakeport",
+    "liberty",
+    "littlefield",
+    "lockhart",
+    "logan",
+    "longview",
+    "madison",
+    "malone",
+    "marlin",
+    "miami",
+    "midland",
+    "minutes_streamed",
+    "nemo",
+    "new_installs",
+    "rebuffers-tile",
+    "rebuffers_per_streaming_hour",
+    "reno",
+    "rockett",
+    "roma",
+    "roxton",
+    "sandia",
+    "shiner",
+    "streaming_ratios",
+    "total_hours_streamed",
+    "trinidad",
+    "uninstalls",
+    "viewership_details",
+    "visits_and_streams"
+   ],
+   "dropsRead": 4,
    "unreadable": [],
-   "byReport": {},
-   "versionsSeen": [],
-   "reportsSeen": [],
+   "byReport": {
+    "App Engagement": {
+     "daily": [
+      {
+       "date": "2026-10-28",
+       "Channel Installs": 121.0,
+       "Channel Uninstalls": 16.0,
+       "Net Installs": 105.0,
+       "Total Minutes Streamed": 8054.0,
+       "Average Minutes per Streaming Account": 37.28703703703704,
+       "Streaming Accounts / Cumulative Installs": 1.722,
+       "Visitors": 319.0,
+       "Viewers": 216.0,
+       "Bounce Rate": 32.288
+      },
+      {
+       "date": "2026-10-29",
+       "Channel Installs": 130.0,
+       "Channel Uninstalls": 15.0,
+       "Net Installs": 115.0,
+       "Total Minutes Streamed": 9822.0,
+       "Average Minutes per Streaming Account": 45.055045871559635,
+       "Streaming Accounts / Cumulative Installs": 1.72,
+       "Visitors": 332.0,
+       "Viewers": 218.0,
+       "Bounce Rate": 34.337
+      },
+      {
+       "date": "2026-10-30",
+       "Channel Installs": 125.0,
+       "Channel Uninstalls": 25.0,
+       "Net Installs": 100.0,
+       "Total Minutes Streamed": 10248.0,
+       "Average Minutes per Streaming Account": 43.60851063829787,
+       "Streaming Accounts / Cumulative Installs": 1.836,
+       "Visitors": 355.0,
+       "Viewers": 235.0,
+       "Bounce Rate": 33.803
+      },
+      {
+       "date": "2026-10-31",
+       "Channel Installs": 145.0,
+       "Channel Uninstalls": 20.0,
+       "Net Installs": 125.0,
+       "Total Minutes Streamed": 12565.0,
+       "Average Minutes per Streaming Account": 48.701550387596896,
+       "Streaming Accounts / Cumulative Installs": 1.993,
+       "Visitors": 391.0,
+       "Viewers": 258.0,
+       "Bounce Rate": 34.015
+      },
+      {
+       "date": "2026-11-01",
+       "Channel Installs": 183.0,
+       "Channel Uninstalls": 20.0,
+       "Net Installs": 163.0,
+       "Total Minutes Streamed": 14461.0,
+       "Average Minutes per Streaming Account": 47.884105960264904,
+       "Streaming Accounts / Cumulative Installs": 2.3,
+       "Visitors": 429.0,
+       "Viewers": 302.0,
+       "Bounce Rate": 29.604
+      },
+      {
+       "date": "2026-11-02",
+       "Channel Installs": 124.0,
+       "Channel Uninstalls": 13.0,
+       "Net Installs": 111.0,
+       "Total Minutes Streamed": 10436.0,
+       "Average Minutes per Streaming Account": 45.572052401746724,
+       "Streaming Accounts / Cumulative Installs": 1.728,
+       "Visitors": 354.0,
+       "Viewers": 229.0,
+       "Bounce Rate": 35.311
+      },
+      {
+       "date": "2026-11-03",
+       "Channel Installs": 105.0,
+       "Channel Uninstalls": 20.0,
+       "Net Installs": 85.0,
+       "Total Minutes Streamed": 8641.0,
+       "Average Minutes per Streaming Account": 47.74033149171271,
+       "Streaming Accounts / Cumulative Installs": 1.355,
+       "Visitors": 285.0,
+       "Viewers": 181.0,
+       "Bounce Rate": 36.491
+      }
+     ],
+     "headline": {
+      "Avg Daily Viewers": 234.0,
+      "Account Channel Installs": 933.0,
+      "Account Channel Uninstalls": 129.0,
+      "Hours Streamed": 1237.0,
+      "Average Minutes Streamed per Viewer": 45.29
+     },
+     "tiles": [
+      "ave_minutes___visitor",
+      "average_daily_visitors",
+      "channel_visitors_and_streaming_viewers",
+      "cumulative_net_installs",
+      "install_base_growth",
+      "minutes_streamed",
+      "new_installs",
+      "total_hours_streamed",
+      "uninstalls"
+     ],
+     "tables": {
+      "cumulative_net_installs": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-03",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "13,360"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-02",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "13,255"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-01",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "13,129"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-31",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "12,946"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-30",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "12,801"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-29",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "12,676"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-28",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "12,546"
+       }
+      ],
+      "install_base_growth": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-28",
+        "Channel Installs": "121",
+        "Channel Uninstalls": "16",
+        "Net Installs": "105"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-29",
+        "Channel Installs": "130",
+        "Channel Uninstalls": "15",
+        "Net Installs": "115"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-30",
+        "Channel Installs": "125",
+        "Channel Uninstalls": "25",
+        "Net Installs": "100"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-31",
+        "Channel Installs": "145",
+        "Channel Uninstalls": "20",
+        "Net Installs": "125"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-01",
+        "Channel Installs": "183",
+        "Channel Uninstalls": "20",
+        "Net Installs": "163"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-02",
+        "Channel Installs": "124",
+        "Channel Uninstalls": "13",
+        "Net Installs": "111"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-03",
+        "Channel Installs": "105",
+        "Channel Uninstalls": "20",
+        "Net Installs": "85"
+       }
+      ],
+      "minutes_streamed": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-03",
+        "Total Minutes Streamed": "8,641",
+        "Average Minutes per Streaming Account": "47.74033149171271",
+        "Streaming Accounts / Cumulative Installs": "1.355%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-02",
+        "Total Minutes Streamed": "10,436",
+        "Average Minutes per Streaming Account": "45.572052401746724",
+        "Streaming Accounts / Cumulative Installs": "1.728%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-01",
+        "Total Minutes Streamed": "14,461",
+        "Average Minutes per Streaming Account": "47.884105960264904",
+        "Streaming Accounts / Cumulative Installs": "2.300%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-31",
+        "Total Minutes Streamed": "12,565",
+        "Average Minutes per Streaming Account": "48.701550387596896",
+        "Streaming Accounts / Cumulative Installs": "1.993%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-30",
+        "Total Minutes Streamed": "10,248",
+        "Average Minutes per Streaming Account": "43.60851063829787",
+        "Streaming Accounts / Cumulative Installs": "1.836%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-29",
+        "Total Minutes Streamed": "9,822",
+        "Average Minutes per Streaming Account": "45.055045871559635",
+        "Streaming Accounts / Cumulative Installs": "1.720%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-28",
+        "Total Minutes Streamed": "8,054",
+        "Average Minutes per Streaming Account": "37.28703703703704",
+        "Streaming Accounts / Cumulative Installs": "1.722%"
+       }
+      ],
+      "channel_visitors_and_streaming_viewers": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-03",
+        "Visitors": "285",
+        "Viewers": "181",
+        "Bounce Rate": "36.491%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-02",
+        "Visitors": "354",
+        "Viewers": "229",
+        "Bounce Rate": "35.311%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-01",
+        "Visitors": "429",
+        "Viewers": "302",
+        "Bounce Rate": "29.604%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-31",
+        "Visitors": "391",
+        "Viewers": "258",
+        "Bounce Rate": "34.015%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-30",
+        "Visitors": "355",
+        "Viewers": "235",
+        "Bounce Rate": "33.803%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-29",
+        "Visitors": "332",
+        "Viewers": "218",
+        "Bounce Rate": "34.337%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-28",
+        "Visitors": "319",
+        "Viewers": "216",
+        "Bounce Rate": "32.288%"
+       }
+      ]
+     },
+     "emptyTiles": []
+    },
+    "Viewership Summary": {
+     "daily": [
+      {
+       "date": "2026-10-28",
+       "Total Hours Streamed": 265.0,
+       "Ratio of Streams to Visits": 0.33,
+       "Average Stream Duration (Minutes)": 48.5,
+       "Rebuffers per Streaming Hour": 0.04,
+       "Visits": 993.0,
+       "Streams": 327.0
+      },
+      {
+       "date": "2026-10-29",
+       "Total Hours Streamed": 248.0,
+       "Ratio of Streams to Visits": 0.39,
+       "Average Stream Duration (Minutes)": 44.8,
+       "Rebuffers per Streaming Hour": 0.06,
+       "Visits": 849.0,
+       "Streams": 333.0
+      },
+      {
+       "date": "2026-10-30",
+       "Total Hours Streamed": 478.0,
+       "Ratio of Streams to Visits": 0.32,
+       "Average Stream Duration (Minutes)": 53.1,
+       "Rebuffers per Streaming Hour": 0.09,
+       "Visits": 1702.0,
+       "Streams": 541.0
+      },
+      {
+       "date": "2026-10-31",
+       "Total Hours Streamed": 707.0,
+       "Ratio of Streams to Visits": 0.35,
+       "Average Stream Duration (Minutes)": 52.4,
+       "Rebuffers per Streaming Hour": 0.05,
+       "Visits": 2343.0,
+       "Streams": 809.0
+      },
+      {
+       "date": "2026-11-01",
+       "Total Hours Streamed": 867.0,
+       "Ratio of Streams to Visits": 0.42,
+       "Average Stream Duration (Minutes)": 50.8,
+       "Rebuffers per Streaming Hour": 0.4,
+       "Visits": 2412.0,
+       "Streams": 1023.0
+      },
+      {
+       "date": "2026-11-02",
+       "Total Hours Streamed": 392.0,
+       "Ratio of Streams to Visits": 0.33,
+       "Average Stream Duration (Minutes)": 57.8,
+       "Rebuffers per Streaming Hour": 0.11,
+       "Visits": 1232.0,
+       "Streams": 407.0
+      },
+      {
+       "date": "2026-11-03",
+       "Total Hours Streamed": 647.0,
+       "Ratio of Streams to Visits": 0.36,
+       "Average Stream Duration (Minutes)": 54.5,
+       "Rebuffers per Streaming Hour": 0.08,
+       "Visits": 1957.0,
+       "Streams": 713.0
+      }
+     ],
+     "headline": {},
+     "tiles": [
+      "rebuffers_per_streaming_hour",
+      "streaming_ratios",
+      "viewership_details",
+      "visits_and_streams"
+     ],
+     "tables": {
+      "streaming_ratios": [
+       {
+        "date": "2026-11-03",
+        "Total Hours Streamed": "647",
+        "Ratio of Streams to Visits": "0.36",
+        "Average Stream Duration (Minutes)": "54.5"
+       },
+       {
+        "date": "2026-11-02",
+        "Total Hours Streamed": "392",
+        "Ratio of Streams to Visits": "0.33",
+        "Average Stream Duration (Minutes)": "57.8"
+       },
+       {
+        "date": "2026-11-01",
+        "Total Hours Streamed": "867",
+        "Ratio of Streams to Visits": "0.42",
+        "Average Stream Duration (Minutes)": "50.8"
+       },
+       {
+        "date": "2026-10-31",
+        "Total Hours Streamed": "707",
+        "Ratio of Streams to Visits": "0.35",
+        "Average Stream Duration (Minutes)": "52.4"
+       },
+       {
+        "date": "2026-10-30",
+        "Total Hours Streamed": "478",
+        "Ratio of Streams to Visits": "0.32",
+        "Average Stream Duration (Minutes)": "53.1"
+       },
+       {
+        "date": "2026-10-29",
+        "Total Hours Streamed": "248",
+        "Ratio of Streams to Visits": "0.39",
+        "Average Stream Duration (Minutes)": "44.8"
+       },
+       {
+        "date": "2026-10-28",
+        "Total Hours Streamed": "265",
+        "Ratio of Streams to Visits": "0.33",
+        "Average Stream Duration (Minutes)": "48.5"
+       }
+      ],
+      "rebuffers_per_streaming_hour": [
+       {
+        "date": "2026-11-03",
+        "Total Hours Streamed": "647",
+        "Rebuffers per Streaming Hour": "0.08"
+       },
+       {
+        "date": "2026-11-02",
+        "Total Hours Streamed": "392",
+        "Rebuffers per Streaming Hour": "0.11"
+       },
+       {
+        "date": "2026-11-01",
+        "Total Hours Streamed": "867",
+        "Rebuffers per Streaming Hour": "0.40"
+       },
+       {
+        "date": "2026-10-31",
+        "Total Hours Streamed": "707",
+        "Rebuffers per Streaming Hour": "0.05"
+       },
+       {
+        "date": "2026-10-30",
+        "Total Hours Streamed": "478",
+        "Rebuffers per Streaming Hour": "0.09"
+       },
+       {
+        "date": "2026-10-29",
+        "Total Hours Streamed": "248",
+        "Rebuffers per Streaming Hour": "0.06"
+       },
+       {
+        "date": "2026-10-28",
+        "Total Hours Streamed": "265",
+        "Rebuffers per Streaming Hour": "0.04"
+       }
+      ],
+      "viewership_details": [
+       {
+        "Hardware": "Amarillo_1080",
+        "Roku Model": "3800X",
+        "Visits": "104",
+        "Streams": "133",
+        "Total Hours Streamed": "97",
+        "Rebuffers per Streaming Hour": "1.57"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810RW",
+        "Visits": "15",
+        "Streams": "7",
+        "Total Hours Streamed": "6",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3811X",
+        "Visits": "39",
+        "Streams": "50",
+        "Total Hours Streamed": "25",
+        "Rebuffers per Streaming Hour": "0.56"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810RW2",
+        "Visits": "225",
+        "Streams": "116",
+        "Total Hours Streamed": "80",
+        "Rebuffers per Streaming Hour": "0.34"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810X",
+        "Visits": "47",
+        "Streams": "13",
+        "Total Hours Streamed": "7",
+        "Rebuffers per Streaming Hour": "2.19"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810R",
+        "Visits": "222",
+        "Streams": "52",
+        "Total Hours Streamed": "46",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G813X",
+        "Visits": "27",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G848X",
+        "Visits": "1",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G136X",
+        "Visits": "78",
+        "Streams": "36",
+        "Total Hours Streamed": "18",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G834X",
+        "Visits": "2",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G108X",
+        "Visits": "2",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G816X",
+        "Visits": "2",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GG11X",
+        "Visits": "3",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G236X",
+        "Visits": "19",
+        "Streams": "2",
+        "Total Hours Streamed": "1",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G208X",
+        "Visits": "60",
+        "Streams": "20",
+        "Total Hours Streamed": "23",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G512X",
+        "Visits": "3",
+        "Streams": "2",
+        "Total Hours Streamed": "1",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G801X",
+        "Visits": "27",
+        "Streams": "2",
+        "Total Hours Streamed": "3",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G812X",
+        "Visits": "31",
+        "Streams": "15",
+        "Total Hours Streamed": "17",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G137X",
+        "Visits": "15",
+        "Streams": "18",
+        "Total Hours Streamed": "7",
+        "Rebuffers per Streaming Hour": "0.82"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G817X",
+        "Visits": "5",
+        "Streams": "5",
+        "Total Hours Streamed": "2",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G231X",
+        "Visits": "2",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G855X",
+        "Visits": "85",
+        "Streams": "21",
+        "Total Hours Streamed": "23",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G218X",
+        "Visits": "11",
+        "Streams": "4",
+        "Total Hours Streamed": "3",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G830X",
+        "Visits": "3",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G803X",
+        "Visits": "3",
+        "Streams": "6",
+        "Total Hours Streamed": "2",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GE03X",
+        "Visits": "4",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G409X",
+        "Visits": "1",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G849X",
+        "Visits": "2",
+        "Streams": "2",
+        "Total Hours Streamed": "2",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GE05X",
+        "Visits": "2",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G309X",
+        "Visits": "8",
+        "Streams": "5",
+        "Total Hours Streamed": "9",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G217X",
+        "Visits": "24",
+        "Streams": "15",
+        "Total Hours Streamed": "7",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G851X",
+        "Visits": "7",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G891X",
+        "Visits": "1",
+        "Streams": "1",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G235X",
+        "Visits": "4",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G133X",
+        "Visits": "3",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G847X",
+        "Visits": "33",
+        "Streams": "23",
+        "Total Hours Streamed": "12",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G139X",
+        "Visits": "2",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G140X",
+        "Visits": "29",
+        "Streams": "14",
+        "Total Hours Streamed": "10",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GD24X",
+        "Visits": "5",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GE27X",
+        "Visits": "10",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       }
+      ],
+      "visits_and_streams": [
+       {
+        "date": "2026-11-03",
+        "Visits": "1,957",
+        "Streams": "713"
+       },
+       {
+        "date": "2026-11-02",
+        "Visits": "1,232",
+        "Streams": "407"
+       },
+       {
+        "date": "2026-11-01",
+        "Visits": "2,412",
+        "Streams": "1,023"
+       },
+       {
+        "date": "2026-10-31",
+        "Visits": "2,343",
+        "Streams": "809"
+       },
+       {
+        "date": "2026-10-30",
+        "Visits": "1,702",
+        "Streams": "541"
+       },
+       {
+        "date": "2026-10-29",
+        "Visits": "849",
+        "Streams": "333"
+       },
+       {
+        "date": "2026-10-28",
+        "Visits": "993",
+        "Streams": "327"
+       }
+      ]
+     },
+     "emptyTiles": []
+    },
+    "App Health": {
+     "daily": [
+      {
+       "date": "2026-10-30",
+       "Error Count": 1.0,
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0
+      },
+      {
+       "date": "2026-10-31",
+       "Error Count": 1.0,
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0
+      },
+      {
+       "date": "2026-11-01",
+       "Error Count": 1.0,
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0
+      },
+      {
+       "date": "2026-11-02",
+       "Error Count": 3.0,
+       "Total Count of Crashes": 3.0,
+       "Total Count of Devices with Crashes": 2.0
+      },
+      {
+       "date": "2026-11-03",
+       "Error Count": 4.0,
+       "Total Count of Crashes": 4.0,
+       "Total Count of Devices with Crashes": 3.0
+      },
+      {
+       "date": "2026-11-04",
+       "Error Count": 4.0,
+       "Total Count of Crashes": 4.0,
+       "Total Count of Devices with Crashes": 1.0
+      }
+     ],
+     "headline": {
+      "Rebuffers per Hours Streamed": 0.17,
+      "Rebuffers Sum": 526.0,
+      "Average Video Start Time (Seconds)": 10.113,
+      "Average Bitrate (Megabits)": 0.127945693678,
+      "Buffering as % of Total Streaming Time": 0.75,
+      "Channel Crashes as % of Total Devices Streaming": 0.6,
+      "Channel Crashes per Streaming Hour": 0.0128
+     },
+     "tiles": [
+      "brightscript_crash_logs",
+      "brightscript_crash_logs_with_stacktraces",
+      "channel_crashes_by_product",
+      "data_transfer_speeds",
+      "devices_with_channel_crashes",
+      "devices_with_channel_crashes_by_product",
+      "rebuffers-tile"
+     ],
+     "tables": {
+      "brightscript_crash_logs_with_stacktraces": [
+       {
+        "Error Key Date": "2026-11-04",
+        "Error Count": "4",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
+       },
+       {
+        "Error Key Date": "2026-11-03",
+        "Error Count": "4",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
+       },
+       {
+        "Error Key Date": "2026-11-02",
+        "Error Count": "3",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
+       },
+       {
+        "Error Key Date": "2026-11-01",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
+       },
+       {
+        "Error Key Date": "2026-10-31",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
+       },
+       {
+        "Error Key Date": "2026-10-30",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
+       }
+      ],
+      "brightscript_crash_logs": [
+       {
+        "Date": "2026-11-03",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.80",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
+        "Total Count of Crashes": "4",
+        "Total Count of Devices with Crashes": "3"
+       },
+       {
+        "Date": "2026-11-02",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.80",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
+        "Total Count of Crashes": "3",
+        "Total Count of Devices with Crashes": "2"
+       },
+       {
+        "Date": "2026-11-01",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.80",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-30",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.80",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-11-04",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.80",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
+        "Total Count of Crashes": "4",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-31",
+        "Roku OS Release": "G2",
+        "App Version": "1.0.80",
+        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       }
+      ]
+     },
+     "emptyTiles": [
+      "channel_crashes_by_product",
+      "devices_with_channel_crashes_by_product"
+     ]
+    },
+    "App Stability": {
+     "daily": [],
+     "headline": {},
+     "tiles": [
+      "amarillo_1080",
+      "amarillo_4k",
+      "athens",
+      "austin_mustang",
+      "bailey",
+      "bayside",
+      "benjamin",
+      "benjamin-w",
+      "brewster",
+      "briscoe",
+      "bryan",
+      "bryan_2",
+      "camden",
+      "chico",
+      "cooper",
+      "damon",
+      "el_paso",
+      "fruitland",
+      "ftworth",
+      "gilbert",
+      "gilbert_4k",
+      "lakeport",
+      "liberty",
+      "littlefield",
+      "lockhart",
+      "logan",
+      "longview",
+      "madison",
+      "malone",
+      "marlin",
+      "miami",
+      "midland",
+      "nemo",
+      "reno",
+      "rockett",
+      "roma",
+      "roxton",
+      "sandia",
+      "shiner",
+      "trinidad"
+     ],
+     "tables": {},
+     "emptyTiles": [
+      "amarillo_1080",
+      "amarillo_4k",
+      "athens",
+      "austin_mustang",
+      "bailey",
+      "bayside",
+      "benjamin",
+      "benjamin-w",
+      "brewster",
+      "briscoe",
+      "bryan",
+      "bryan_2",
+      "camden",
+      "chico",
+      "cooper",
+      "damon",
+      "el_paso",
+      "fruitland",
+      "ftworth",
+      "gilbert",
+      "gilbert_4k",
+      "lakeport",
+      "liberty",
+      "littlefield",
+      "lockhart",
+      "logan",
+      "longview",
+      "madison",
+      "malone",
+      "marlin",
+      "miami",
+      "midland",
+      "nemo",
+      "reno",
+      "rockett",
+      "roma",
+      "roxton",
+      "sandia",
+      "shiner",
+      "trinidad"
+     ]
+    }
+   },
+   "versionsSeen": [
+    {
+     "version": "1.0.80",
+     "firstSeen": "2026-10-30",
+     "lastSeen": "2026-11-04"
+    }
+   ],
+   "reportsSeen": [
+    "App Engagement",
+    "App Health",
+    "App Stability",
+    "Viewership Summary"
+   ],
    "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
    "console": "https://developer.roku.com/apps/analytics/engagement/881015"
   },
@@ -4598,17 +5884,12 @@
     "external": true
    }
   ],
-  "workflows": [
-   {
-    "severity": "FAILED",
-    "workflow": "Rights audit (confirm) conclusion=failure — but a manual run on 2026-11-04 SUCCEEDED, so this may already be fixed and awaiting its next scheduled run"
-   }
-  ],
+  "workflows": [],
   "catalog": {
    "schema": 16,
    "items": 41034,
    "playable": 40597,
-   "professionalArt": 11560,
+   "professionalArt": 11559,
    "withBif": 10665,
    "builtAt": null
   },
@@ -4901,27 +6182,27 @@
     },
     {
      "date": "2026-11-05",
-     "views": 142,
-     "visits": 42
+     "views": 2280,
+     "visits": 548
     }
    ],
-   "views28d": 89786,
-   "views7d": 26573,
-   "visits28d": 24980,
-   "visits7d": 7627,
+   "views28d": 91924,
+   "views7d": 28711,
+   "visits28d": 25486,
+   "visits7d": 8133,
    "byPath": {
-    "/item": 56376,
-    "/": 48204,
-    "/browse": 42173,
-    "/search": 15600,
-    "/series": 3381,
-    "/channels": 2996,
-    "/library": 2228,
-    "/surprise": 1606,
-    "/collections": 1157,
-    "/collection": 808,
-    "/other": 708,
-    "/about": 329
+    "/item": 57247,
+    "/": 48631,
+    "/browse": 42672,
+    "/search": 15794,
+    "/series": 3437,
+    "/channels": 3017,
+    "/library": 2251,
+    "/surprise": 1622,
+    "/collections": 1162,
+    "/collection": 812,
+    "/other": 728,
+    "/about": 331
    },
    "since": "2026-08-07",
    "splitFrom": "2026-09-10"
@@ -4935,11 +6216,11 @@
     },
     {
      "id": "charlie_chaplin_film_fest",
-     "count": 97
+     "count": 98
     },
     {
      "id": "silent-akt-skulpturen-studienfilm-fr-bildende-knstler",
-     "count": 82
+     "count": 84
     },
     {
      "id": "suddenly",
@@ -4955,7 +6236,7 @@
     },
     {
      "id": "tarzans_revenge",
-     "count": 74
+     "count": 75
     },
     {
      "id": "she-killed-in-ecstasy-sie-totete-in-ekstase-1971-soledad-miranda-fred-williams-h",
@@ -4970,16 +6251,16 @@
      "count": 60
     },
     {
-     "id": "that-certain-thing-1928",
+     "id": "Horror_Hotel",
      "count": 56
     },
     {
-     "id": "Horror_Hotel",
-     "count": 54
+     "id": "ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
+     "count": 56
     },
     {
-     "id": "ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
-     "count": 53
+     "id": "that-certain-thing-1928",
+     "count": 56
     },
     {
      "id": "TheNakedWitch",
@@ -5014,12 +6295,12 @@
      "count": 43
     },
     {
-     "id": "dishonored_lady",
-     "count": 41
+     "id": "The_Sadist",
+     "count": 42
     },
     {
-     "id": "The_Sadist",
-     "count": 40
+     "id": "dishonored_lady",
+     "count": 41
     },
     {
      "id": "cleopatra-1963_202511",
@@ -5049,7 +6330,7 @@
     },
     {
      "id": "series:the-twilight-zone-1959",
-     "count": 275
+     "count": 279
     },
     {
      "id": "boob-tube-the-1975-colleen-brennan-john-alderman-lyllah-torena-elana-casey-jon-r",
@@ -5064,24 +6345,24 @@
      "count": 145
     },
     {
+     "id": "series:the-addams-family-1964",
+     "count": 143
+    },
+    {
+     "id": "charlie_chaplin_film_fest",
+     "count": 135
+    },
+    {
      "id": "she-killed-in-ecstasy-sie-totete-in-ekstase-1971-soledad-miranda-fred-williams-h",
      "count": 134
     },
     {
-     "id": "charlie_chaplin_film_fest",
-     "count": 134
-    },
-    {
-     "id": "series:the-addams-family-1964",
-     "count": 134
-    },
-    {
      "id": "series:adam-12-1968",
-     "count": 116
+     "count": 119
     },
     {
      "id": "his_girl_friday",
-     "count": 109
+     "count": 110
     },
     {
      "id": "reefer_madness1938",
@@ -5089,10 +6370,14 @@
     },
     {
      "id": "suddenly",
-     "count": 104
+     "count": 105
     },
     {
      "id": "Horror_Hotel",
+     "count": 104
+    },
+    {
+     "id": "silent-akt-skulpturen-studienfilm-fr-bildende-knstler",
      "count": 103
     },
     {
@@ -5100,32 +6385,28 @@
      "count": 102
     },
     {
-     "id": "silent-akt-skulpturen-studienfilm-fr-bildende-knstler",
-     "count": 102
-    },
-    {
      "id": "series:all-in-the-family-1971",
      "count": 99
+    },
+    {
+     "id": "a-propos-de-nice_1930",
+     "count": 96
     },
     {
      "id": "dishonored_lady",
      "count": 95
     },
     {
-     "id": "a-propos-de-nice_1930",
-     "count": 95
+     "id": "tarzans_revenge",
+     "count": 94
     },
     {
      "id": "Sita1080pFLAC",
-     "count": 92
+     "count": 93
     },
     {
      "id": "morocco-30-1538596735589",
      "count": 91
-    },
-    {
-     "id": "tarzans_revenge",
-     "count": 90
     },
     {
      "id": "candy1968hdchristianmarquandmoviehdmpgun.com",
@@ -5396,20 +6677,20 @@
     },
     {
      "date": "2026-11-05",
-     "open": 31,
-     "play": 15
+     "open": 620,
+     "play": 315
     }
    ],
-   "distinctPlayed": 6396,
-   "distinctOpened": 9743,
+   "distinctPlayed": 6492,
+   "distinctOpened": 9870,
    "totals": {
-    "open": 37886,
-    "play": 17822
+    "open": 38475,
+    "play": 18122
    },
    "scope": "the WEBSITE only — the apps collect nothing, and they are most of the audience, so this is a sample rather than the platform"
   },
   "searchConsole": {
-   "through": "2026-11-02",
+   "through": "2026-11-03",
    "daily": [
     {
      "date": "2026-09-20",
@@ -5718,28 +6999,35 @@
      "impressions": 10529,
      "ctr": 0.0324,
      "position": 7.83
+    },
+    {
+     "date": "2026-11-03",
+     "clicks": 320,
+     "impressions": 8957,
+     "ctr": 0.0357,
+     "position": 7.98
     }
    ],
    "last28": {
-    "clicks": 5849,
-    "impressions": 176824,
-    "ctr": 0.0331,
-    "position": 8.1,
+    "clicks": 5921,
+    "impressions": 181446,
+    "ctr": 0.0326,
+    "position": 8.11,
     "days": 28
    },
    "prev28": {
-    "clicks": 1779,
-    "impressions": 36465,
-    "ctr": 0.0488,
-    "position": 7.32,
-    "days": 16
+    "clicks": 2027,
+    "impressions": 40800,
+    "ctr": 0.0497,
+    "position": 7.33,
+    "days": 17
    },
    "queries": [
     {
      "key": "archive watch",
-     "clicks": 1068,
-     "impressions": 1422,
-     "ctr": 0.7511,
+     "clicks": 1025,
+     "impressions": 1379,
+     "ctr": 0.7433,
      "position": 1.02,
      "prevClicks": null,
      "prevImpressions": null,
@@ -5747,60 +7035,60 @@
     },
     {
      "key": "internet archive movies",
-     "clicks": 439,
-     "impressions": 18026,
-     "ctr": 0.0244,
-     "position": 5.01,
+     "clicks": 436,
+     "impressions": 17954,
+     "ctr": 0.0243,
+     "position": 4.99,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "archive.org movies",
-     "clicks": 179,
-     "impressions": 5849,
-     "ctr": 0.0306,
-     "position": 5.31,
+     "clicks": 185,
+     "impressions": 5855,
+     "ctr": 0.0316,
+     "position": 5.28,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "internet archive movies free",
-     "clicks": 141,
-     "impressions": 3851,
-     "ctr": 0.0366,
-     "position": 4.66,
+     "clicks": 140,
+     "impressions": 3877,
+     "ctr": 0.0361,
+     "position": 4.63,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "movie archive",
-     "clicks": 98,
-     "impressions": 2030,
-     "ctr": 0.0483,
-     "position": 7.08,
+     "clicks": 99,
+     "impressions": 2065,
+     "ctr": 0.0479,
+     "position": 7.03,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "archive org",
-     "clicks": 64,
-     "impressions": 8801,
-     "ctr": 0.0073,
-     "position": 6.26,
+     "clicks": 69,
+     "impressions": 9371,
+     "ctr": 0.0074,
+     "position": 6.24,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "archive movies",
-     "clicks": 55,
-     "impressions": 947,
-     "ctr": 0.0581,
-     "position": 4.22,
+     "clicks": 54,
+     "impressions": 954,
+     "ctr": 0.0566,
+     "position": 4.16,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -5810,16 +7098,16 @@
      "clicks": 42,
      "impressions": 121,
      "ctr": 0.3471,
-     "position": 1.47,
+     "position": 1.46,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "archivewatch",
-     "clicks": 36,
-     "impressions": 62,
-     "ctr": 0.5806,
+     "clicks": 37,
+     "impressions": 63,
+     "ctr": 0.5873,
      "position": 1.0,
      "prevClicks": null,
      "prevImpressions": null,
@@ -5827,9 +7115,9 @@
     },
     {
      "key": "movies archive",
-     "clicks": 33,
-     "impressions": 416,
-     "ctr": 0.0793,
+     "clicks": 31,
+     "impressions": 421,
+     "ctr": 0.0736,
      "position": 4.21,
      "prevClicks": null,
      "prevImpressions": null,
@@ -5837,30 +7125,30 @@
     },
     {
      "key": "archive.org",
-     "clicks": 26,
-     "impressions": 3443,
-     "ctr": 0.0076,
-     "position": 6.34,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "movie archives",
-     "clicks": 25,
-     "impressions": 394,
-     "ctr": 0.0635,
-     "position": 5.01,
+     "clicks": 30,
+     "impressions": 3719,
+     "ctr": 0.0081,
+     "position": 6.28,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "archive org movies",
-     "clicks": 23,
-     "impressions": 571,
-     "ctr": 0.0403,
+     "clicks": 26,
+     "impressions": 564,
+     "ctr": 0.0461,
      "position": 5.26,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "movie archives",
+     "clicks": 26,
+     "impressions": 397,
+     "ctr": 0.0655,
+     "position": 4.89,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -5878,19 +7166,9 @@
     {
      "key": "internet archive free movies",
      "clicks": 15,
-     "impressions": 392,
-     "ctr": 0.0383,
+     "impressions": 393,
+     "ctr": 0.0382,
      "position": 4.63,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "free movie archive",
-     "clicks": 15,
-     "impressions": 104,
-     "ctr": 0.1442,
-     "position": 3.39,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -5907,19 +7185,19 @@
     },
     {
      "key": "internet archive",
-     "clicks": 13,
-     "impressions": 2952,
+     "clicks": 14,
+     "impressions": 3216,
      "ctr": 0.0044,
-     "position": 7.44,
+     "position": 7.47,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "the internet archive movies",
-     "clicks": 13,
-     "impressions": 524,
-     "ctr": 0.0248,
+     "clicks": 14,
+     "impressions": 516,
+     "ctr": 0.0271,
      "position": 4.94,
      "prevClicks": null,
      "prevImpressions": null,
@@ -5927,20 +7205,40 @@
     },
     {
      "key": "film archive",
-     "clicks": 13,
-     "impressions": 315,
-     "ctr": 0.0413,
-     "position": 9.39,
+     "clicks": 14,
+     "impressions": 331,
+     "ctr": 0.0423,
+     "position": 9.27,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "archieve watch",
+     "key": "free movie archive",
+     "clicks": 14,
+     "impressions": 99,
+     "ctr": 0.1414,
+     "position": 3.41,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "internet archives movies",
      "clicks": 13,
-     "impressions": 16,
-     "ctr": 0.8125,
-     "position": 1.06,
+     "impressions": 759,
+     "ctr": 0.0171,
+     "position": 4.72,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "internet movie archive",
+     "clicks": 13,
+     "impressions": 725,
+     "ctr": 0.0179,
+     "position": 4.36,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -5956,61 +7254,51 @@
      "prevPosition": null
     },
     {
-     "key": "internet archives movies",
-     "clicks": 12,
-     "impressions": 757,
-     "ctr": 0.0159,
-     "position": 4.74,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "internet movie archive",
-     "clicks": 12,
-     "impressions": 728,
-     "ctr": 0.0165,
-     "position": 4.35,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "internet archive film",
-     "clicks": 11,
-     "impressions": 948,
-     "ctr": 0.0116,
-     "position": 5.43,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "internet archive movie",
-     "clicks": 11,
-     "impressions": 481,
-     "ctr": 0.0229,
-     "position": 5.61,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archive movies free",
-     "clicks": 11,
-     "impressions": 135,
-     "ctr": 0.0815,
-     "position": 3.44,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
      "key": "twilight zone archive",
+     "clicks": 12,
+     "impressions": 74,
+     "ctr": 0.1622,
+     "position": 6.18,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archieve watch",
+     "clicks": 12,
+     "impressions": 15,
+     "ctr": 0.8,
+     "position": 1.07,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archive org film gratis",
      "clicks": 11,
-     "impressions": 69,
-     "ctr": 0.1594,
-     "position": 6.3,
+     "impressions": 245,
+     "ctr": 0.0449,
+     "position": 5.16,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "mechanized death",
+     "clicks": 11,
+     "impressions": 152,
+     "ctr": 0.0724,
+     "position": 5.34,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "movie archive website",
+     "clicks": 11,
+     "impressions": 128,
+     "ctr": 0.0859,
+     "position": 3.58,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6018,9 +7306,19 @@
     {
      "key": "movie archive free",
      "clicks": 11,
-     "impressions": 58,
-     "ctr": 0.1897,
-     "position": 3.55,
+     "impressions": 59,
+     "ctr": 0.1864,
+     "position": 3.56,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "internet archive movie",
+     "clicks": 10,
+     "impressions": 465,
+     "ctr": 0.0215,
+     "position": 5.63,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6028,19 +7326,19 @@
     {
      "key": "www.archive.org movies",
      "clicks": 10,
-     "impressions": 227,
-     "ctr": 0.0441,
-     "position": 5.28,
+     "impressions": 228,
+     "ctr": 0.0439,
+     "position": 5.27,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "archive.org movie",
+     "key": "archive org movies free",
      "clicks": 10,
-     "impressions": 159,
-     "ctr": 0.0629,
-     "position": 5.09,
+     "impressions": 208,
+     "ctr": 0.0481,
+     "position": 4.54,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6048,19 +7346,19 @@
     {
      "key": "movies archive.org",
      "clicks": 10,
-     "impressions": 154,
-     "ctr": 0.0649,
-     "position": 4.91,
+     "impressions": 152,
+     "ctr": 0.0658,
+     "position": 4.92,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "mechanized death",
+     "key": "archive movies free",
      "clicks": 10,
-     "impressions": 148,
-     "ctr": 0.0676,
-     "position": 5.4,
+     "impressions": 138,
+     "ctr": 0.0725,
+     "position": 3.43,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6068,19 +7366,19 @@
     {
      "key": "archive watch app",
      "clicks": 10,
-     "impressions": 54,
-     "ctr": 0.1852,
-     "position": 1.94,
+     "impressions": 55,
+     "ctr": 0.1818,
+     "position": 1.95,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "archive.org film",
+     "key": "internet archive film",
      "clicks": 9,
-     "impressions": 947,
-     "ctr": 0.0095,
-     "position": 6.99,
+     "impressions": 938,
+     "ctr": 0.0096,
+     "position": 5.46,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6088,9 +7386,19 @@
     {
      "key": "internet archive films",
      "clicks": 9,
-     "impressions": 406,
-     "ctr": 0.0222,
-     "position": 5.41,
+     "impressions": 408,
+     "ctr": 0.0221,
+     "position": 5.38,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archive.org movie",
+     "clicks": 9,
+     "impressions": 159,
+     "ctr": 0.0566,
+     "position": 5.06,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6098,29 +7406,9 @@
     {
      "key": "archives.org movies",
      "clicks": 9,
-     "impressions": 132,
-     "ctr": 0.0682,
-     "position": 4.6,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "movie archive website",
-     "clicks": 9,
-     "impressions": 126,
-     "ctr": 0.0714,
-     "position": 3.63,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archive films",
-     "clicks": 9,
-     "impressions": 102,
-     "ctr": 0.0882,
-     "position": 5.19,
+     "impressions": 119,
+     "ctr": 0.0756,
+     "position": 4.65,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6128,9 +7416,9 @@
     {
      "key": "twilight zone internet archive season 1",
      "clicks": 9,
-     "impressions": 65,
-     "ctr": 0.1385,
-     "position": 6.83,
+     "impressions": 67,
+     "ctr": 0.1343,
+     "position": 6.82,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6138,9 +7426,29 @@
     {
      "key": "the twilight zone internet archive",
      "clicks": 9,
-     "impressions": 62,
-     "ctr": 0.1452,
-     "position": 6.68,
+     "impressions": 66,
+     "ctr": 0.1364,
+     "position": 6.62,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "public domain video archive",
+     "clicks": 9,
+     "impressions": 37,
+     "ctr": 0.2432,
+     "position": 6.35,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archive.org film",
+     "clicks": 8,
+     "impressions": 940,
+     "ctr": 0.0085,
+     "position": 7.05,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6150,47 +7458,27 @@
      "clicks": 8,
      "impressions": 220,
      "ctr": 0.0364,
-     "position": 5.43,
+     "position": 5.4,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "archive org movies free",
+     "key": "archive films",
      "clicks": 8,
-     "impressions": 207,
-     "ctr": 0.0386,
-     "position": 4.57,
+     "impressions": 102,
+     "ctr": 0.0784,
+     "position": 4.98,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "public domain video archive",
-     "clicks": 8,
-     "impressions": 36,
-     "ctr": 0.2222,
-     "position": 6.33,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archives watch",
-     "clicks": 8,
-     "impressions": 28,
-     "ctr": 0.2857,
-     "position": 1.18,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archive org film gratis",
+     "key": "internet archive videos",
      "clicks": 7,
-     "impressions": 231,
-     "ctr": 0.0303,
-     "position": 5.41,
+     "impressions": 291,
+     "ctr": 0.0241,
+     "position": 7.18,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6198,9 +7486,19 @@
     {
      "key": "movies free download internet archive",
      "clicks": 7,
-     "impressions": 166,
-     "ctr": 0.0422,
-     "position": 7.36,
+     "impressions": 193,
+     "ctr": 0.0363,
+     "position": 7.04,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "internet archive org movies",
+     "clicks": 7,
+     "impressions": 116,
+     "ctr": 0.0603,
+     "position": 4.85,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6218,9 +7516,19 @@
     {
      "key": "archive internet movies",
      "clicks": 6,
-     "impressions": 142,
-     "ctr": 0.0423,
-     "position": 3.89,
+     "impressions": 146,
+     "ctr": 0.0411,
+     "position": 3.84,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "internet archive full movies",
+     "clicks": 6,
+     "impressions": 116,
+     "ctr": 0.0517,
+     "position": 6.45,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6228,29 +7536,9 @@
     {
      "key": "dracula 1931 internet archive",
      "clicks": 6,
-     "impressions": 117,
-     "ctr": 0.0513,
-     "position": 5.99,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "movie archives free",
-     "clicks": 6,
-     "impressions": 105,
-     "ctr": 0.0571,
-     "position": 3.74,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "internet archive org movies",
-     "clicks": 6,
-     "impressions": 104,
-     "ctr": 0.0577,
-     "position": 5.01,
+     "impressions": 111,
+     "ctr": 0.0541,
+     "position": 6.14,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6258,9 +7546,19 @@
     {
      "key": "the internet archive film",
      "clicks": 6,
-     "impressions": 99,
-     "ctr": 0.0606,
+     "impressions": 98,
+     "ctr": 0.0612,
      "position": 4.73,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archieve.org movies",
+     "clicks": 6,
+     "impressions": 95,
+     "ctr": 0.0632,
+     "position": 4.84,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6276,21 +7574,21 @@
      "prevPosition": null
     },
     {
-     "key": "free movies archive",
+     "key": "old movie archive",
      "clicks": 6,
-     "impressions": 43,
-     "ctr": 0.1395,
-     "position": 2.86,
+     "impressions": 30,
+     "ctr": 0.2,
+     "position": 3.1,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "archive free movies",
+     "key": "archives watch",
      "clicks": 6,
-     "impressions": 42,
-     "ctr": 0.1429,
-     "position": 3.81,
+     "impressions": 26,
+     "ctr": 0.2308,
+     "position": 1.19,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6298,49 +7596,29 @@
     {
      "key": "movies internet archive",
      "clicks": 5,
-     "impressions": 425,
-     "ctr": 0.0118,
-     "position": 5.64,
+     "impressions": 413,
+     "ctr": 0.0121,
+     "position": 5.72,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "internet archive videos",
+     "key": "archive .org",
      "clicks": 5,
-     "impressions": 269,
-     "ctr": 0.0186,
-     "position": 7.21,
+     "impressions": 315,
+     "ctr": 0.0159,
+     "position": 6.56,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "internet archive full movies",
+     "key": "movie archives free",
      "clicks": 5,
-     "impressions": 115,
-     "ctr": 0.0435,
-     "position": 6.5,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archieve.org movies",
-     "clicks": 5,
-     "impressions": 100,
-     "ctr": 0.05,
-     "position": 4.85,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "film archive free",
-     "clicks": 5,
-     "impressions": 74,
-     "ctr": 0.0676,
-     "position": 2.47,
+     "impressions": 99,
+     "ctr": 0.0505,
+     "position": 3.8,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6348,9 +7626,9 @@
     {
      "key": "internet archive public domain movies",
      "clicks": 5,
-     "impressions": 71,
-     "ctr": 0.0704,
-     "position": 4.39,
+     "impressions": 69,
+     "ctr": 0.0725,
+     "position": 4.32,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6358,19 +7636,19 @@
     {
      "key": "archive streaming",
      "clicks": 5,
-     "impressions": 62,
-     "ctr": 0.0806,
-     "position": 5.65,
+     "impressions": 64,
+     "ctr": 0.0781,
+     "position": 5.58,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "internet archives movies free",
+     "key": "the twilight zone internet archive season 1",
      "clicks": 5,
-     "impressions": 57,
-     "ctr": 0.0877,
-     "position": 4.3,
+     "impressions": 62,
+     "ctr": 0.0806,
+     "position": 6.18,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6386,11 +7664,21 @@
      "prevPosition": null
     },
     {
-     "key": "archive org public domain movies",
+     "key": "free movies archive",
      "clicks": 5,
-     "impressions": 29,
-     "ctr": 0.1724,
-     "position": 4.72,
+     "impressions": 43,
+     "ctr": 0.1163,
+     "position": 2.84,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archive free movies",
+     "clicks": 5,
+     "impressions": 40,
+     "ctr": 0.125,
+     "position": 3.88,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6398,29 +7686,19 @@
     {
      "key": "internet video archive",
      "clicks": 5,
+     "impressions": 34,
+     "ctr": 0.1471,
+     "position": 10.35,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archive org public domain movies",
+     "clicks": 5,
      "impressions": 29,
      "ctr": 0.1724,
-     "position": 11.1,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "free film archives",
-     "clicks": 5,
-     "impressions": 28,
-     "ctr": 0.1786,
-     "position": 4.32,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "old movie archive",
-     "clicks": 5,
-     "impressions": 28,
-     "ctr": 0.1786,
-     "position": 3.43,
+     "position": 4.79,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6431,6 +7709,16 @@
      "impressions": 27,
      "ctr": 0.1852,
      "position": 7.04,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "free film archives",
+     "clicks": 5,
+     "impressions": 26,
+     "ctr": 0.1923,
+     "position": 4.42,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6448,9 +7736,9 @@
     {
      "key": "adam 12 internet archive",
      "clicks": 5,
-     "impressions": 17,
-     "ctr": 0.2941,
-     "position": 5.06,
+     "impressions": 19,
+     "ctr": 0.2632,
+     "position": 5.11,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6458,19 +7746,9 @@
     {
      "key": "hiroshima mon amour internet archive",
      "clicks": 5,
-     "impressions": 11,
-     "ctr": 0.4545,
-     "position": 6.55,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archive .org",
-     "clicks": 4,
-     "impressions": 288,
-     "ctr": 0.0139,
-     "position": 6.59,
+     "impressions": 13,
+     "ctr": 0.3846,
+     "position": 6.38,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6478,9 +7756,9 @@
     {
      "key": "movies on internet archive",
      "clicks": 4,
-     "impressions": 209,
-     "ctr": 0.0191,
-     "position": 7.64,
+     "impressions": 204,
+     "ctr": 0.0196,
+     "position": 7.56,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6488,8 +7766,8 @@
     {
      "key": "archive. org movies",
      "clicks": 4,
-     "impressions": 170,
-     "ctr": 0.0235,
+     "impressions": 168,
+     "ctr": 0.0238,
      "position": 5.28,
      "prevClicks": null,
      "prevImpressions": null,
@@ -6498,9 +7776,9 @@
     {
      "key": "fawlty towers internet archive",
      "clicks": 4,
-     "impressions": 155,
-     "ctr": 0.0258,
-     "position": 6.77,
+     "impressions": 161,
+     "ctr": 0.0248,
+     "position": 6.73,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6508,9 +7786,9 @@
     {
      "key": "archives movies",
      "clicks": 4,
-     "impressions": 116,
-     "ctr": 0.0345,
-     "position": 5.63,
+     "impressions": 119,
+     "ctr": 0.0336,
+     "position": 5.65,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6518,29 +7796,29 @@
     {
      "key": "إنترنت أرشيف أفلام",
      "clicks": 4,
-     "impressions": 115,
-     "ctr": 0.0348,
-     "position": 6.57,
+     "impressions": 116,
+     "ctr": 0.0345,
+     "position": 6.47,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "the twilight zone internet archive season 1",
+     "key": "moviearchive",
      "clicks": 4,
-     "impressions": 60,
-     "ctr": 0.0667,
-     "position": 6.22,
+     "impressions": 107,
+     "ctr": 0.0374,
+     "position": 6.72,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "archive movie watch online",
+     "key": "achieve.org movies",
      "clicks": 4,
-     "impressions": 57,
-     "ctr": 0.0702,
-     "position": 5.14,
+     "impressions": 104,
+     "ctr": 0.0385,
+     "position": 5.04,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6548,9 +7826,29 @@
     {
      "key": "twilight zone internet archive",
      "clicks": 4,
-     "impressions": 54,
-     "ctr": 0.0741,
-     "position": 7.31,
+     "impressions": 58,
+     "ctr": 0.069,
+     "position": 7.22,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "internet archives movies free",
+     "clicks": 4,
+     "impressions": 56,
+     "ctr": 0.0714,
+     "position": 4.29,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "film archive free",
+     "clicks": 4,
+     "impressions": 53,
+     "ctr": 0.0755,
+     "position": 2.66,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6558,9 +7856,9 @@
     {
      "key": "movies on archive.org",
      "clicks": 4,
-     "impressions": 51,
-     "ctr": 0.0784,
-     "position": 8.25,
+     "impressions": 52,
+     "ctr": 0.0769,
+     "position": 8.4,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6580,7 +7878,7 @@
      "clicks": 4,
      "impressions": 42,
      "ctr": 0.0952,
-     "position": 3.4,
+     "position": 3.45,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6588,9 +7886,9 @@
     {
      "key": "old movies website",
      "clicks": 4,
-     "impressions": 39,
-     "ctr": 0.1026,
-     "position": 7.95,
+     "impressions": 40,
+     "ctr": 0.1,
+     "position": 7.97,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6598,9 +7896,9 @@
     {
      "key": "free movie download internet archive",
      "clicks": 4,
-     "impressions": 36,
-     "ctr": 0.1111,
-     "position": 8.86,
+     "impressions": 38,
+     "ctr": 0.1053,
+     "position": 8.63,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6618,9 +7916,9 @@
     {
      "key": "archive movie site",
      "clicks": 4,
-     "impressions": 29,
-     "ctr": 0.1379,
-     "position": 3.59,
+     "impressions": 28,
+     "ctr": 0.1429,
+     "position": 3.64,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6628,9 +7926,9 @@
     {
      "key": "movie archieve",
      "clicks": 4,
-     "impressions": 27,
-     "ctr": 0.1481,
-     "position": 6.26,
+     "impressions": 28,
+     "ctr": 0.1429,
+     "position": 6.25,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6658,19 +7956,19 @@
     {
      "key": "archive . org",
      "clicks": 3,
-     "impressions": 162,
-     "ctr": 0.0185,
-     "position": 7.04,
+     "impressions": 176,
+     "ctr": 0.017,
+     "position": 6.98,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "achieve.org movies",
+     "key": "archive org film",
      "clicks": 3,
-     "impressions": 107,
-     "ctr": 0.028,
-     "position": 5.02,
+     "impressions": 136,
+     "ctr": 0.0221,
+     "position": 6.64,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6678,9 +7976,19 @@
     {
      "key": "archive .org movies",
      "clicks": 3,
-     "impressions": 92,
-     "ctr": 0.0326,
-     "position": 5.29,
+     "impressions": 93,
+     "ctr": 0.0323,
+     "position": 5.31,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "archive movie watch online",
+     "clicks": 3,
+     "impressions": 60,
+     "ctr": 0.05,
+     "position": 5.33,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6688,9 +7996,9 @@
     {
      "key": "archive org سایت",
      "clicks": 3,
-     "impressions": 45,
-     "ctr": 0.0667,
-     "position": 7.91,
+     "impressions": 46,
+     "ctr": 0.0652,
+     "position": 8.17,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6706,31 +8014,11 @@
      "prevPosition": null
     },
     {
-     "key": "archive.org tv shows",
-     "clicks": 3,
-     "impressions": 33,
-     "ctr": 0.0909,
-     "position": 7.97,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
      "key": "archive movies website",
      "clicks": 3,
      "impressions": 28,
      "ctr": 0.1071,
-     "position": 3.18,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "archive of movies",
-     "clicks": 3,
-     "impressions": 16,
-     "ctr": 0.1875,
-     "position": 3.88,
+     "position": 3.07,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6739,50 +8027,60 @@
    "pages": [
     {
      "key": "https://archivewatch.org/",
-     "clicks": 4229,
-     "impressions": 111436,
-     "ctr": 0.038,
-     "position": 7.13,
+     "clicks": 4232,
+     "impressions": 113142,
+     "ctr": 0.0374,
+     "position": 7.14,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "https://archivewatch.org/index.html",
-     "clicks": 72,
-     "impressions": 5585,
-     "ctr": 0.0129,
-     "position": 7.56,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/the-twilight-zone-1959-s-01-e-00-original-pilot/",
-     "clicks": 59,
-     "impressions": 697,
-     "ctr": 0.0846,
-     "position": 10.59,
+     "clicks": 88,
+     "impressions": 6304,
+     "ctr": 0.014,
+     "position": 7.55,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "https://archivewatch.org/series/the-twilight-zone-1959/",
-     "clicks": 58,
-     "impressions": 599,
-     "ctr": 0.0968,
-     "position": 7.86,
+     "clicks": 67,
+     "impressions": 691,
+     "ctr": 0.097,
+     "position": 7.76,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "https://archivewatch.org/item/dracula-1931-colorized/",
-     "clicks": 17,
-     "impressions": 243,
-     "ctr": 0.07,
-     "position": 8.54,
+     "key": "https://archivewatch.org/item/the-twilight-zone-1959-s-01-e-00-original-pilot/",
+     "clicks": 61,
+     "impressions": 703,
+     "ctr": 0.0868,
+     "position": 10.42,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/series/the-addams-family-1964/",
+     "clicks": 19,
+     "impressions": 139,
+     "ctr": 0.1367,
+     "position": 10.99,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/item/je-taime-moi-non-plus-1976-jane-birkin-joe-dallesandro-hugues-quester-reinhard-k/",
+     "clicks": 16,
+     "impressions": 181,
+     "ctr": 0.0884,
+     "position": 10.03,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6790,49 +8088,39 @@
     {
      "key": "https://archivewatch.org/series/adam-12-1968/",
      "clicks": 16,
-     "impressions": 153,
-     "ctr": 0.1046,
-     "position": 15.0,
+     "impressions": 175,
+     "ctr": 0.0914,
+     "position": 14.57,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "https://archivewatch.org/item/je-taime-moi-non-plus-1976-jane-birkin-joe-dallesandro-hugues-quester-reinhard-k/",
-     "clicks": 15,
-     "impressions": 176,
-     "ctr": 0.0852,
-     "position": 10.12,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/series/the-addams-family-1964/",
-     "clicks": 15,
-     "impressions": 109,
-     "ctr": 0.1376,
-     "position": 9.29,
+     "key": "https://archivewatch.org/item/dracula-1931-colorized/",
+     "clicks": 14,
+     "impressions": 225,
+     "ctr": 0.0622,
+     "position": 8.68,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "https://archivewatch.org/item/43804MechanizedDeath/",
-     "clicks": 12,
-     "impressions": 201,
-     "ctr": 0.0597,
-     "position": 5.77,
+     "clicks": 13,
+     "impressions": 207,
+     "ctr": 0.0628,
+     "position": 5.7,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "https://archivewatch.org/item/silence/",
-     "clicks": 12,
-     "impressions": 153,
-     "ctr": 0.0784,
-     "position": 12.18,
+     "clicks": 10,
+     "impressions": 133,
+     "ctr": 0.0752,
+     "position": 12.56,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6850,9 +8138,19 @@
     {
      "key": "https://archivewatch.org/item/harakiri-1962_202510/",
      "clicks": 9,
-     "impressions": 92,
-     "ctr": 0.0978,
-     "position": 9.16,
+     "impressions": 105,
+     "ctr": 0.0857,
+     "position": 9.57,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/series/alfred-hitchcock-presents-1955/",
+     "clicks": 8,
+     "impressions": 68,
+     "ctr": 0.1176,
+     "position": 12.46,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6860,9 +8158,9 @@
     {
      "key": "https://archivewatch.org/curate/",
      "clicks": 7,
-     "impressions": 703,
-     "ctr": 0.01,
-     "position": 5.36,
+     "impressions": 732,
+     "ctr": 0.0096,
+     "position": 5.22,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6870,9 +8168,19 @@
     {
      "key": "https://archivewatch.org/item/LDFT7579/",
      "clicks": 7,
-     "impressions": 402,
-     "ctr": 0.0174,
-     "position": 7.21,
+     "impressions": 410,
+     "ctr": 0.0171,
+     "position": 7.19,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/item/scooby-doo_20210808/",
+     "clicks": 7,
+     "impressions": 75,
+     "ctr": 0.0933,
+     "position": 11.41,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6880,19 +8188,9 @@
     {
      "key": "https://archivewatch.org/item/6218_Adam_and_Eve_01_00_53_18/",
      "clicks": 7,
-     "impressions": 70,
-     "ctr": 0.1,
-     "position": 10.7,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/series/alfred-hitchcock-presents-1955/",
-     "clicks": 7,
-     "impressions": 53,
-     "ctr": 0.1321,
-     "position": 12.0,
+     "impressions": 71,
+     "ctr": 0.0986,
+     "position": 10.03,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6900,9 +8198,9 @@
     {
      "key": "https://archivewatch.org/item/hiroshimamonamourpart1/",
      "clicks": 7,
-     "impressions": 50,
-     "ctr": 0.14,
-     "position": 10.08,
+     "impressions": 53,
+     "ctr": 0.1321,
+     "position": 9.89,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6910,9 +8208,9 @@
     {
      "key": "https://archivewatch.org/item/GreenAcresCompleteSeries/",
      "clicks": 6,
-     "impressions": 120,
-     "ctr": 0.05,
-     "position": 5.26,
+     "impressions": 119,
+     "ctr": 0.0504,
+     "position": 5.28,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6922,17 +8220,7 @@
      "clicks": 6,
      "impressions": 64,
      "ctr": 0.0938,
-     "position": 6.45,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/scooby-doo_20210808/",
-     "clicks": 6,
-     "impressions": 60,
-     "ctr": 0.1,
-     "position": 12.35,
+     "position": 5.75,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6940,9 +8228,9 @@
     {
      "key": "https://archivewatch.org/series/planet-of-the-apes-tv-series-1974/",
      "clicks": 6,
-     "impressions": 37,
-     "ctr": 0.1622,
-     "position": 12.62,
+     "impressions": 38,
+     "ctr": 0.1579,
+     "position": 12.45,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6958,11 +8246,21 @@
      "prevPosition": null
     },
     {
+     "key": "https://archivewatch.org/item/oswald-the-lucky-rabbit-lost-cartoons/",
+     "clicks": 6,
+     "impressions": 27,
+     "ctr": 0.2222,
+     "position": 10.04,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
      "key": "https://archivewatch.org/item/a-city-decides-1956/",
      "clicks": 6,
-     "impressions": 11,
-     "ctr": 0.5455,
-     "position": 7.0,
+     "impressions": 16,
+     "ctr": 0.375,
+     "position": 7.12,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6980,9 +8278,9 @@
     {
      "key": "https://archivewatch.org/series/thunderbirds-1965/",
      "clicks": 5,
-     "impressions": 102,
-     "ctr": 0.049,
-     "position": 12.62,
+     "impressions": 119,
+     "ctr": 0.042,
+     "position": 13.75,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -6990,9 +8288,19 @@
     {
      "key": "https://archivewatch.org/item/the-inheritance/",
      "clicks": 5,
-     "impressions": 73,
-     "ctr": 0.0685,
-     "position": 8.6,
+     "impressions": 74,
+     "ctr": 0.0676,
+     "position": 8.61,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/series/n-y-p-d-1967/",
+     "clicks": 5,
+     "impressions": 67,
+     "ctr": 0.0746,
+     "position": 11.73,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7000,9 +8308,9 @@
     {
      "key": "https://archivewatch.org/item/haxanwitchcraftthroughtheages1922/",
      "clicks": 5,
-     "impressions": 66,
-     "ctr": 0.0758,
-     "position": 11.02,
+     "impressions": 65,
+     "ctr": 0.0769,
+     "position": 11.0,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7010,9 +8318,19 @@
     {
      "key": "https://archivewatch.org/item/milo-murphys-law-pilot/",
      "clicks": 5,
-     "impressions": 58,
-     "ctr": 0.0862,
-     "position": 7.53,
+     "impressions": 57,
+     "ctr": 0.0877,
+     "position": 7.54,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/item/the-hitler-gang-1944/",
+     "clicks": 5,
+     "impressions": 42,
+     "ctr": 0.119,
+     "position": 7.19,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7040,29 +8358,19 @@
     {
      "key": "https://archivewatch.org/item/alfred-hitchcock-presents-s-3e-1-colorized-sd/",
      "clicks": 5,
-     "impressions": 32,
-     "ctr": 0.1562,
-     "position": 17.72,
+     "impressions": 33,
+     "ctr": 0.1515,
+     "position": 17.48,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "https://archivewatch.org/item/oswald-the-lucky-rabbit-lost-cartoons/",
-     "clicks": 5,
-     "impressions": 26,
-     "ctr": 0.1923,
-     "position": 10.04,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/the.-adventures.-of.-prince.-achmed.-1926.720p.-blu-ray.x-264-public-hd_202508/",
+     "key": "https://archivewatch.org/item/ladies-of-the-chorus-free-movie-marilyn-monroe-adele-jergens/",
      "clicks": 5,
      "impressions": 25,
      "ctr": 0.2,
-     "position": 5.96,
+     "position": 6.76,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7072,7 +8380,7 @@
      "clicks": 5,
      "impressions": 19,
      "ctr": 0.2632,
-     "position": 5.0,
+     "position": 4.84,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7080,9 +8388,9 @@
     {
      "key": "https://archivewatch.org/privacy.html",
      "clicks": 4,
-     "impressions": 364,
-     "ctr": 0.011,
-     "position": 3.85,
+     "impressions": 353,
+     "ctr": 0.0113,
+     "position": 3.99,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7090,9 +8398,9 @@
     {
      "key": "https://archivewatch.org/item/the-cabinet-of-dr-caligari-1920_202501/",
      "clicks": 4,
-     "impressions": 333,
-     "ctr": 0.012,
-     "position": 10.3,
+     "impressions": 348,
+     "ctr": 0.0115,
+     "position": 10.36,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7100,29 +8408,19 @@
     {
      "key": "https://archivewatch.org/item/metropolis-1927-4-k-u-rnemls-bwry/",
      "clicks": 4,
-     "impressions": 196,
-     "ctr": 0.0204,
-     "position": 8.65,
+     "impressions": 201,
+     "ctr": 0.0199,
+     "position": 8.99,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "https://archivewatch.org/series/n-y-p-d-1967/",
+     "key": "https://archivewatch.org/item/the.-passion.of.-joan.of.-arc.-1928.-remastered.-1080p.-blu-ray.-h-264.-aac-rarbg/",
      "clicks": 4,
-     "impressions": 66,
-     "ctr": 0.0606,
-     "position": 11.71,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/la-roue-1923/",
-     "clicks": 4,
-     "impressions": 55,
-     "ctr": 0.0727,
-     "position": 8.67,
+     "impressions": 83,
+     "ctr": 0.0482,
+     "position": 10.51,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7130,9 +8428,19 @@
     {
      "key": "https://archivewatch.org/item/WildlifeOnOneEp95OasisDavidAttenborough23Feb1988/",
      "clicks": 4,
-     "impressions": 54,
-     "ctr": 0.0741,
-     "position": 6.89,
+     "impressions": 58,
+     "ctr": 0.069,
+     "position": 7.0,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/item/la-roue-1923/",
+     "clicks": 4,
+     "impressions": 53,
+     "ctr": 0.0755,
+     "position": 8.6,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7140,9 +8448,9 @@
     {
      "key": "https://archivewatch.org/item/GrazieNonnaLoverBoy1975FullMovieItalian/",
      "clicks": 4,
-     "impressions": 44,
-     "ctr": 0.0909,
-     "position": 18.09,
+     "impressions": 50,
+     "ctr": 0.08,
+     "position": 17.94,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7150,9 +8458,9 @@
     {
      "key": "https://archivewatch.org/item/force-of-evil-1948-colorized-movie-720p-hd/",
      "clicks": 4,
-     "impressions": 44,
-     "ctr": 0.0909,
-     "position": 9.59,
+     "impressions": 45,
+     "ctr": 0.0889,
+     "position": 9.53,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7160,18 +8468,28 @@
     {
      "key": "https://archivewatch.org/item/gemini-man-complete-series-1976/",
      "clicks": 4,
-     "impressions": 43,
-     "ctr": 0.093,
-     "position": 13.95,
+     "impressions": 44,
+     "ctr": 0.0909,
+     "position": 13.82,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "https://archivewatch.org/item/the-hitler-gang-1944/",
+     "key": "https://archivewatch.org/item/jack-LaLanne-episode-16mm/",
      "clicks": 4,
-     "impressions": 38,
-     "ctr": 0.1053,
+     "impressions": 33,
+     "ctr": 0.1212,
+     "position": 5.7,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "https://archivewatch.org/item/mowglisbrothers_201706/",
+     "clicks": 4,
+     "impressions": 29,
+     "ctr": 0.1379,
      "position": 6.97,
      "prevClicks": null,
      "prevImpressions": null,
@@ -7180,9 +8498,9 @@
     {
      "key": "https://archivewatch.org/item/jason-king-the-complete-series-1971/",
      "clicks": 4,
-     "impressions": 25,
-     "ctr": 0.16,
-     "position": 16.24,
+     "impressions": 26,
+     "ctr": 0.1538,
+     "position": 16.19,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7200,75 +8518,55 @@
     {
      "key": "https://archivewatch.org/item/Magic_Hat--Stage_7/",
      "clicks": 4,
-     "impressions": 19,
-     "ctr": 0.2105,
-     "position": 3.74,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/alfred-hitchcock-presents-1959-s-5e-1-colorized-sd/",
-     "clicks": 4,
-     "impressions": 18,
-     "ctr": 0.2222,
-     "position": 17.78,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/6151_Human_Voice_The_01_15_58_16/",
-     "clicks": 4,
-     "impressions": 15,
-     "ctr": 0.2667,
-     "position": 7.2,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "https://archivewatch.org/item/tz_promos_s2_1960-61/",
-     "clicks": 3,
-     "impressions": 263,
-     "ctr": 0.0114,
-     "position": 6.79,
+     "impressions": 20,
+     "ctr": 0.2,
+     "position": 3.6,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     }
    ],
    "filmPages": {
-    "clicks": 1546,
-    "impressions": 21904,
+    "clicks": 1574,
+    "impressions": 22588,
     "pages": 992,
     "top": [
      {
-      "key": "https://archivewatch.org/item/the-twilight-zone-1959-s-01-e-00-original-pilot/",
-      "clicks": 59,
-      "impressions": 697,
-      "ctr": 0.0846,
-      "position": 10.59,
-      "prevClicks": null,
-      "prevImpressions": null,
-      "prevPosition": null
-     },
-     {
       "key": "https://archivewatch.org/series/the-twilight-zone-1959/",
-      "clicks": 58,
-      "impressions": 599,
-      "ctr": 0.0968,
-      "position": 7.86,
+      "clicks": 67,
+      "impressions": 691,
+      "ctr": 0.097,
+      "position": 7.76,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
      },
      {
-      "key": "https://archivewatch.org/item/dracula-1931-colorized/",
-      "clicks": 17,
-      "impressions": 243,
-      "ctr": 0.07,
-      "position": 8.54,
+      "key": "https://archivewatch.org/item/the-twilight-zone-1959-s-01-e-00-original-pilot/",
+      "clicks": 61,
+      "impressions": 703,
+      "ctr": 0.0868,
+      "position": 10.42,
+      "prevClicks": null,
+      "prevImpressions": null,
+      "prevPosition": null
+     },
+     {
+      "key": "https://archivewatch.org/series/the-addams-family-1964/",
+      "clicks": 19,
+      "impressions": 139,
+      "ctr": 0.1367,
+      "position": 10.99,
+      "prevClicks": null,
+      "prevImpressions": null,
+      "prevPosition": null
+     },
+     {
+      "key": "https://archivewatch.org/item/je-taime-moi-non-plus-1976-jane-birkin-joe-dallesandro-hugues-quester-reinhard-k/",
+      "clicks": 16,
+      "impressions": 181,
+      "ctr": 0.0884,
+      "position": 10.03,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7276,49 +8574,39 @@
      {
       "key": "https://archivewatch.org/series/adam-12-1968/",
       "clicks": 16,
-      "impressions": 153,
-      "ctr": 0.1046,
-      "position": 15.0,
+      "impressions": 175,
+      "ctr": 0.0914,
+      "position": 14.57,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
      },
      {
-      "key": "https://archivewatch.org/item/je-taime-moi-non-plus-1976-jane-birkin-joe-dallesandro-hugues-quester-reinhard-k/",
-      "clicks": 15,
-      "impressions": 176,
-      "ctr": 0.0852,
-      "position": 10.12,
-      "prevClicks": null,
-      "prevImpressions": null,
-      "prevPosition": null
-     },
-     {
-      "key": "https://archivewatch.org/series/the-addams-family-1964/",
-      "clicks": 15,
-      "impressions": 109,
-      "ctr": 0.1376,
-      "position": 9.29,
+      "key": "https://archivewatch.org/item/dracula-1931-colorized/",
+      "clicks": 14,
+      "impressions": 225,
+      "ctr": 0.0622,
+      "position": 8.68,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
      },
      {
       "key": "https://archivewatch.org/item/43804MechanizedDeath/",
-      "clicks": 12,
-      "impressions": 201,
-      "ctr": 0.0597,
-      "position": 5.77,
+      "clicks": 13,
+      "impressions": 207,
+      "ctr": 0.0628,
+      "position": 5.7,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
      },
      {
       "key": "https://archivewatch.org/item/silence/",
-      "clicks": 12,
-      "impressions": 153,
-      "ctr": 0.0784,
-      "position": 12.18,
+      "clicks": 10,
+      "impressions": 133,
+      "ctr": 0.0752,
+      "position": 12.56,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7336,9 +8624,19 @@
      {
       "key": "https://archivewatch.org/item/harakiri-1962_202510/",
       "clicks": 9,
-      "impressions": 92,
-      "ctr": 0.0978,
-      "position": 9.16,
+      "impressions": 105,
+      "ctr": 0.0857,
+      "position": 9.57,
+      "prevClicks": null,
+      "prevImpressions": null,
+      "prevPosition": null
+     },
+     {
+      "key": "https://archivewatch.org/series/alfred-hitchcock-presents-1955/",
+      "clicks": 8,
+      "impressions": 68,
+      "ctr": 0.1176,
+      "position": 12.46,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7346,9 +8644,19 @@
      {
       "key": "https://archivewatch.org/item/LDFT7579/",
       "clicks": 7,
-      "impressions": 402,
-      "ctr": 0.0174,
-      "position": 7.21,
+      "impressions": 410,
+      "ctr": 0.0171,
+      "position": 7.19,
+      "prevClicks": null,
+      "prevImpressions": null,
+      "prevPosition": null
+     },
+     {
+      "key": "https://archivewatch.org/item/scooby-doo_20210808/",
+      "clicks": 7,
+      "impressions": 75,
+      "ctr": 0.0933,
+      "position": 11.41,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7356,19 +8664,9 @@
      {
       "key": "https://archivewatch.org/item/6218_Adam_and_Eve_01_00_53_18/",
       "clicks": 7,
-      "impressions": 70,
-      "ctr": 0.1,
-      "position": 10.7,
-      "prevClicks": null,
-      "prevImpressions": null,
-      "prevPosition": null
-     },
-     {
-      "key": "https://archivewatch.org/series/alfred-hitchcock-presents-1955/",
-      "clicks": 7,
-      "impressions": 53,
-      "ctr": 0.1321,
-      "position": 12.0,
+      "impressions": 71,
+      "ctr": 0.0986,
+      "position": 10.03,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7376,9 +8674,9 @@
      {
       "key": "https://archivewatch.org/item/hiroshimamonamourpart1/",
       "clicks": 7,
-      "impressions": 50,
-      "ctr": 0.14,
-      "position": 10.08,
+      "impressions": 53,
+      "ctr": 0.1321,
+      "position": 9.89,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7386,9 +8684,9 @@
      {
       "key": "https://archivewatch.org/item/GreenAcresCompleteSeries/",
       "clicks": 6,
-      "impressions": 120,
-      "ctr": 0.05,
-      "position": 5.26,
+      "impressions": 119,
+      "ctr": 0.0504,
+      "position": 5.28,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7398,17 +8696,7 @@
       "clicks": 6,
       "impressions": 64,
       "ctr": 0.0938,
-      "position": 6.45,
-      "prevClicks": null,
-      "prevImpressions": null,
-      "prevPosition": null
-     },
-     {
-      "key": "https://archivewatch.org/item/scooby-doo_20210808/",
-      "clicks": 6,
-      "impressions": 60,
-      "ctr": 0.1,
-      "position": 12.35,
+      "position": 5.75,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7416,9 +8704,9 @@
      {
       "key": "https://archivewatch.org/series/planet-of-the-apes-tv-series-1974/",
       "clicks": 6,
-      "impressions": 37,
-      "ctr": 0.1622,
-      "position": 12.62,
+      "impressions": 38,
+      "ctr": 0.1579,
+      "position": 12.45,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7434,11 +8722,21 @@
       "prevPosition": null
      },
      {
+      "key": "https://archivewatch.org/item/oswald-the-lucky-rabbit-lost-cartoons/",
+      "clicks": 6,
+      "impressions": 27,
+      "ctr": 0.2222,
+      "position": 10.04,
+      "prevClicks": null,
+      "prevImpressions": null,
+      "prevPosition": null
+     },
+     {
       "key": "https://archivewatch.org/item/a-city-decides-1956/",
       "clicks": 6,
-      "impressions": 11,
-      "ctr": 0.5455,
-      "position": 7.0,
+      "impressions": 16,
+      "ctr": 0.375,
+      "position": 7.12,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7456,9 +8754,9 @@
      {
       "key": "https://archivewatch.org/series/thunderbirds-1965/",
       "clicks": 5,
-      "impressions": 102,
-      "ctr": 0.049,
-      "position": 12.62,
+      "impressions": 119,
+      "ctr": 0.042,
+      "position": 13.75,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7466,29 +8764,19 @@
      {
       "key": "https://archivewatch.org/item/the-inheritance/",
       "clicks": 5,
-      "impressions": 73,
-      "ctr": 0.0685,
-      "position": 8.6,
+      "impressions": 74,
+      "ctr": 0.0676,
+      "position": 8.61,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
      },
      {
-      "key": "https://archivewatch.org/item/haxanwitchcraftthroughtheages1922/",
+      "key": "https://archivewatch.org/series/n-y-p-d-1967/",
       "clicks": 5,
-      "impressions": 66,
-      "ctr": 0.0758,
-      "position": 11.02,
-      "prevClicks": null,
-      "prevImpressions": null,
-      "prevPosition": null
-     },
-     {
-      "key": "https://archivewatch.org/item/milo-murphys-law-pilot/",
-      "clicks": 5,
-      "impressions": 58,
-      "ctr": 0.0862,
-      "position": 7.53,
+      "impressions": 67,
+      "ctr": 0.0746,
+      "position": 11.73,
       "prevClicks": null,
       "prevImpressions": null,
       "prevPosition": null
@@ -7498,30 +8786,30 @@
    "countries": [
     {
      "key": "usa",
-     "clicks": 1714,
-     "impressions": 60726,
-     "ctr": 0.0282,
-     "position": 8.77,
+     "clicks": 1704,
+     "impressions": 62278,
+     "ctr": 0.0274,
+     "position": 8.78,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "ind",
-     "clicks": 516,
-     "impressions": 12399,
-     "ctr": 0.0416,
-     "position": 6.65,
+     "clicks": 540,
+     "impressions": 12619,
+     "ctr": 0.0428,
+     "position": 6.68,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "gbr",
-     "clicks": 350,
-     "impressions": 12599,
+     "clicks": 362,
+     "impressions": 13037,
      "ctr": 0.0278,
-     "position": 8.64,
+     "position": 8.59,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7529,149 +8817,149 @@
     {
      "key": "can",
      "clicks": 201,
-     "impressions": 6154,
-     "ctr": 0.0327,
-     "position": 8.72,
+     "impressions": 6302,
+     "ctr": 0.0319,
+     "position": 8.75,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "pak",
-     "clicks": 138,
-     "impressions": 2603,
-     "ctr": 0.053,
-     "position": 6.54,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "phl",
-     "clicks": 117,
-     "impressions": 2755,
-     "ctr": 0.0425,
-     "position": 7.79,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "aus",
-     "clicks": 116,
-     "impressions": 4014,
-     "ctr": 0.0289,
-     "position": 8.46,
+     "clicks": 139,
+     "impressions": 2677,
+     "ctr": 0.0519,
+     "position": 6.57,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "deu",
-     "clicks": 116,
-     "impressions": 3020,
-     "ctr": 0.0384,
-     "position": 8.22,
+     "clicks": 124,
+     "impressions": 3117,
+     "ctr": 0.0398,
+     "position": 8.21,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "aus",
+     "clicks": 123,
+     "impressions": 4126,
+     "ctr": 0.0298,
+     "position": 8.44,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "phl",
+     "clicks": 118,
+     "impressions": 2812,
+     "ctr": 0.042,
+     "position": 7.8,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "irn",
-     "clicks": 99,
-     "impressions": 3211,
-     "ctr": 0.0308,
-     "position": 6.31,
+     "clicks": 98,
+     "impressions": 3244,
+     "ctr": 0.0302,
+     "position": 6.35,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "fra",
-     "clicks": 91,
-     "impressions": 2687,
-     "ctr": 0.0339,
-     "position": 10.04,
+     "clicks": 94,
+     "impressions": 2755,
+     "ctr": 0.0341,
+     "position": 9.98,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "ita",
-     "clicks": 87,
-     "impressions": 3736,
-     "ctr": 0.0233,
-     "position": 7.36,
+     "clicks": 88,
+     "impressions": 3819,
+     "ctr": 0.023,
+     "position": 7.35,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "ken",
-     "clicks": 82,
-     "impressions": 1783,
-     "ctr": 0.046,
-     "position": 5.05,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "zaf",
-     "clicks": 80,
-     "impressions": 2069,
-     "ctr": 0.0387,
-     "position": 6.16,
+     "clicks": 81,
+     "impressions": 1795,
+     "ctr": 0.0451,
+     "position": 5.07,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "bra",
-     "clicks": 76,
-     "impressions": 3949,
-     "ctr": 0.0192,
-     "position": 11.57,
+     "clicks": 80,
+     "impressions": 4039,
+     "ctr": 0.0198,
+     "position": 11.66,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "zaf",
+     "clicks": 79,
+     "impressions": 2093,
+     "ctr": 0.0377,
+     "position": 6.21,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "esp",
-     "clicks": 74,
-     "impressions": 2020,
-     "ctr": 0.0366,
-     "position": 8.42,
+     "clicks": 77,
+     "impressions": 2067,
+     "ctr": 0.0373,
+     "position": 8.45,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "nga",
-     "clicks": 72,
-     "impressions": 1970,
-     "ctr": 0.0365,
-     "position": 5.31,
+     "clicks": 75,
+     "impressions": 1990,
+     "ctr": 0.0377,
+     "position": 5.3,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "nld",
-     "clicks": 68,
-     "impressions": 1916,
-     "ctr": 0.0355,
-     "position": 7.9,
+     "clicks": 75,
+     "impressions": 1982,
+     "ctr": 0.0378,
+     "position": 7.79,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "are",
-     "clicks": 65,
-     "impressions": 1053,
-     "ctr": 0.0617,
-     "position": 6.4,
+     "key": "egy",
+     "clicks": 63,
+     "impressions": 1042,
+     "ctr": 0.0605,
+     "position": 7.37,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7679,59 +8967,69 @@
     {
      "key": "sau",
      "clicks": 62,
-     "impressions": 1139,
-     "ctr": 0.0544,
-     "position": 6.51,
+     "impressions": 1154,
+     "ctr": 0.0537,
+     "position": 6.52,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "egy",
+     "key": "are",
      "clicks": 61,
-     "impressions": 1020,
-     "ctr": 0.0598,
-     "position": 7.25,
+     "impressions": 1069,
+     "ctr": 0.0571,
+     "position": 6.43,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "idn",
-     "clicks": 52,
-     "impressions": 2100,
-     "ctr": 0.0248,
-     "position": 9.07,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "irl",
-     "clicks": 50,
-     "impressions": 1312,
-     "ctr": 0.0381,
-     "position": 6.93,
+     "clicks": 53,
+     "impressions": 2092,
+     "ctr": 0.0253,
+     "position": 9.11,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "swe",
-     "clicks": 48,
-     "impressions": 1134,
-     "ctr": 0.0423,
-     "position": 7.29,
+     "clicks": 49,
+     "impressions": 1151,
+     "ctr": 0.0426,
+     "position": 7.27,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "pol",
+     "key": "tur",
+     "clicks": 48,
+     "impressions": 1604,
+     "ctr": 0.0299,
+     "position": 8.24,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "irl",
      "clicks": 47,
-     "impressions": 1366,
-     "ctr": 0.0344,
-     "position": 7.66,
+     "impressions": 1350,
+     "ctr": 0.0348,
+     "position": 6.95,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "bgd",
+     "clicks": 47,
+     "impressions": 1224,
+     "ctr": 0.0384,
+     "position": 9.77,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7739,49 +9037,39 @@
     {
      "key": "mex",
      "clicks": 46,
-     "impressions": 1853,
-     "ctr": 0.0248,
-     "position": 8.45,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "tur",
-     "clicks": 46,
-     "impressions": 1540,
-     "ctr": 0.0299,
-     "position": 8.06,
+     "impressions": 1893,
+     "ctr": 0.0243,
+     "position": 8.44,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "arg",
-     "clicks": 44,
-     "impressions": 1655,
-     "ctr": 0.0266,
-     "position": 9.66,
+     "clicks": 46,
+     "impressions": 1713,
+     "ctr": 0.0269,
+     "position": 9.62,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "bgd",
-     "clicks": 44,
-     "impressions": 1196,
-     "ctr": 0.0368,
-     "position": 9.55,
+     "key": "pol",
+     "clicks": 46,
+     "impressions": 1408,
+     "ctr": 0.0327,
+     "position": 7.72,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "mar",
-     "clicks": 44,
-     "impressions": 663,
-     "ctr": 0.0664,
-     "position": 6.4,
+     "clicks": 45,
+     "impressions": 679,
+     "ctr": 0.0663,
+     "position": 6.51,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7789,9 +9077,9 @@
     {
      "key": "isr",
      "clicks": 43,
-     "impressions": 703,
-     "ctr": 0.0612,
-     "position": 7.32,
+     "impressions": 728,
+     "ctr": 0.0591,
+     "position": 7.37,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7799,9 +9087,9 @@
     {
      "key": "mys",
      "clicks": 42,
-     "impressions": 909,
-     "ctr": 0.0462,
-     "position": 8.1,
+     "impressions": 903,
+     "ctr": 0.0465,
+     "position": 8.0,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7809,9 +9097,9 @@
     {
      "key": "dza",
      "clicks": 42,
-     "impressions": 742,
-     "ctr": 0.0566,
-     "position": 6.65,
+     "impressions": 764,
+     "ctr": 0.055,
+     "position": 6.63,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7819,9 +9107,9 @@
     {
      "key": "bel",
      "clicks": 37,
-     "impressions": 1132,
-     "ctr": 0.0327,
-     "position": 6.87,
+     "impressions": 1152,
+     "ctr": 0.0321,
+     "position": 6.84,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7829,19 +9117,19 @@
     {
      "key": "grc",
      "clicks": 35,
-     "impressions": 1058,
-     "ctr": 0.0331,
-     "position": 7.46,
+     "impressions": 1076,
+     "ctr": 0.0325,
+     "position": 7.38,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "jpn",
-     "clicks": 33,
-     "impressions": 785,
-     "ctr": 0.042,
-     "position": 7.78,
+     "clicks": 35,
+     "impressions": 830,
+     "ctr": 0.0422,
+     "position": 7.79,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7849,39 +9137,59 @@
     {
      "key": "che",
      "clicks": 31,
-     "impressions": 623,
-     "ctr": 0.0498,
-     "position": 8.73,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "gha",
-     "clicks": 29,
-     "impressions": 670,
-     "ctr": 0.0433,
-     "position": 5.13,
+     "impressions": 643,
+     "ctr": 0.0482,
+     "position": 8.7,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "tza",
-     "clicks": 27,
-     "impressions": 832,
-     "ctr": 0.0325,
+     "clicks": 28,
+     "impressions": 849,
+     "ctr": 0.033,
      "position": 4.62,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
+     "key": "rou",
+     "clicks": 27,
+     "impressions": 949,
+     "ctr": 0.0285,
+     "position": 8.23,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
      "key": "ukr",
-     "clicks": 25,
-     "impressions": 648,
-     "ctr": 0.0386,
-     "position": 9.04,
+     "clicks": 26,
+     "impressions": 679,
+     "ctr": 0.0383,
+     "position": 8.85,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "gha",
+     "clicks": 26,
+     "impressions": 677,
+     "ctr": 0.0384,
+     "position": 5.09,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "fin",
+     "clicks": 24,
+     "impressions": 687,
+     "ctr": 0.0349,
+     "position": 8.19,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7889,39 +9197,39 @@
     {
      "key": "cze",
      "clicks": 24,
-     "impressions": 399,
-     "ctr": 0.0602,
-     "position": 7.38,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "rou",
-     "clicks": 23,
-     "impressions": 902,
-     "ctr": 0.0255,
-     "position": 8.17,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "fin",
-     "clicks": 23,
-     "impressions": 657,
-     "ctr": 0.035,
-     "position": 8.23,
+     "impressions": 417,
+     "ctr": 0.0576,
+     "position": 7.35,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "prt",
-     "clicks": 22,
-     "impressions": 607,
-     "ctr": 0.0362,
+     "clicks": 23,
+     "impressions": 630,
+     "ctr": 0.0365,
      "position": 6.79,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "vnm",
+     "clicks": 23,
+     "impressions": 516,
+     "ctr": 0.0446,
+     "position": 9.21,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "npl",
+     "clicks": 22,
+     "impressions": 388,
+     "ctr": 0.0567,
+     "position": 6.37,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -7929,99 +9237,79 @@
     {
      "key": "rus",
      "clicks": 21,
-     "impressions": 917,
-     "ctr": 0.0229,
-     "position": 11.54,
+     "impressions": 960,
+     "ctr": 0.0219,
+     "position": 11.59,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "nor",
-     "clicks": 20,
-     "impressions": 571,
-     "ctr": 0.035,
-     "position": 7.23,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "vnm",
-     "clicks": 20,
-     "impressions": 492,
-     "ctr": 0.0407,
-     "position": 8.58,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "chl",
-     "clicks": 20,
-     "impressions": 429,
-     "ctr": 0.0466,
-     "position": 9.15,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "npl",
-     "clicks": 20,
-     "impressions": 372,
-     "ctr": 0.0538,
-     "position": 6.32,
+     "clicks": 21,
+     "impressions": 576,
+     "ctr": 0.0365,
+     "position": 7.21,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "nzl",
-     "clicks": 19,
-     "impressions": 711,
-     "ctr": 0.0267,
-     "position": 8.79,
-     "prevClicks": null,
-     "prevImpressions": null,
-     "prevPosition": null
-    },
-    {
-     "key": "eth",
-     "clicks": 19,
-     "impressions": 381,
-     "ctr": 0.0499,
-     "position": 6.19,
+     "clicks": 20,
+     "impressions": 737,
+     "ctr": 0.0271,
+     "position": 8.77,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "alb",
-     "clicks": 19,
-     "impressions": 186,
-     "ctr": 0.1022,
-     "position": 6.62,
+     "clicks": 20,
+     "impressions": 203,
+     "ctr": 0.0985,
+     "position": 6.47,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "irq",
-     "clicks": 18,
-     "impressions": 516,
-     "ctr": 0.0349,
-     "position": 7.72,
+     "clicks": 19,
+     "impressions": 519,
+     "ctr": 0.0366,
+     "position": 7.91,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "lka",
+     "clicks": 19,
+     "impressions": 412,
+     "ctr": 0.0461,
+     "position": 5.4,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "chl",
      "clicks": 18,
-     "impressions": 402,
-     "ctr": 0.0448,
-     "position": 5.53,
+     "impressions": 440,
+     "ctr": 0.0409,
+     "position": 9.05,
+     "prevClicks": null,
+     "prevImpressions": null,
+     "prevPosition": null
+    },
+    {
+     "key": "eth",
+     "clicks": 17,
+     "impressions": 385,
+     "ctr": 0.0442,
+     "position": 6.2,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -8029,9 +9317,9 @@
     {
      "key": "tun",
      "clicks": 17,
-     "impressions": 239,
-     "ctr": 0.0711,
-     "position": 6.69,
+     "impressions": 244,
+     "ctr": 0.0697,
+     "position": 6.73,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -8039,8 +9327,8 @@
     {
      "key": "dnk",
      "clicks": 16,
-     "impressions": 516,
-     "ctr": 0.031,
+     "impressions": 533,
+     "ctr": 0.03,
      "position": 7.14,
      "prevClicks": null,
      "prevImpressions": null,
@@ -8049,49 +9337,49 @@
     {
      "key": "col",
      "clicks": 16,
-     "impressions": 503,
-     "ctr": 0.0318,
-     "position": 9.21,
+     "impressions": 514,
+     "ctr": 0.0311,
+     "position": 9.18,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "sgp",
-     "clicks": 15,
-     "impressions": 658,
-     "ctr": 0.0228,
-     "position": 7.61,
+     "clicks": 14,
+     "impressions": 678,
+     "ctr": 0.0206,
+     "position": 7.75,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "tha",
-     "clicks": 15,
-     "impressions": 643,
-     "ctr": 0.0233,
-     "position": 9.91,
+     "clicks": 14,
+     "impressions": 676,
+     "ctr": 0.0207,
+     "position": 9.62,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "hun",
-     "clicks": 14,
-     "impressions": 424,
-     "ctr": 0.033,
-     "position": 7.9,
+     "clicks": 13,
+     "impressions": 453,
+     "ctr": 0.0287,
+     "position": 7.63,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
-     "key": "kor",
-     "clicks": 13,
-     "impressions": 592,
-     "ctr": 0.022,
-     "position": 7.63,
+     "key": "aut",
+     "clicks": 12,
+     "impressions": 494,
+     "ctr": 0.0243,
+     "position": 7.72,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -8100,19 +9388,19 @@
    "devices": [
     {
      "key": "MOBILE",
-     "clicks": 2944,
-     "impressions": 78709,
-     "ctr": 0.0374,
-     "position": 7.31,
+     "clicks": 2956,
+     "impressions": 80516,
+     "ctr": 0.0367,
+     "position": 7.34,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
     },
     {
      "key": "DESKTOP",
-     "clicks": 2597,
-     "impressions": 91530,
-     "ctr": 0.0284,
+     "clicks": 2658,
+     "impressions": 94205,
+     "ctr": 0.0282,
      "position": 8.84,
      "prevClicks": null,
      "prevImpressions": null,
@@ -8120,10 +9408,10 @@
     },
     {
      "key": "TABLET",
-     "clicks": 308,
-     "impressions": 6585,
-     "ctr": 0.0468,
-     "position": 7.16,
+     "clicks": 307,
+     "impressions": 6725,
+     "ctr": 0.0457,
+     "position": 7.11,
      "prevClicks": null,
      "prevImpressions": null,
      "prevPosition": null
@@ -8146,17 +9434,16 @@
   "searchIndex": {
    "published": 41034,
    "sampled": 150,
-   "indexedShare": 0.48,
+   "indexedShare": 0.427,
    "byState": {
-    "Submitted and indexed": 72,
-    "Discovered - currently not indexed": 62,
-    "URL is unknown to Google": 13,
-    "Crawled - currently not indexed": 3
+    "Submitted and indexed": 64,
+    "Discovered - currently not indexed": 53,
+    "URL is unknown to Google": 33
    },
    "faults": [],
    "examples": [
     {
-     "url": "https://archivewatch.org/item/besos-perdidos-1945/",
+     "url": "https://archivewatch.org/item/HMUnidentifiedDetroi71154/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8164,7 +9451,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/the-wizard-the-prince-and-the-good-fairy-1900-le-sorcier-le-prince-et-le-bon-gen/",
+     "url": "https://archivewatch.org/item/Lunar_Habitat-Structure/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8172,7 +9459,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/SavedFromHimself1911_245/",
+     "url": "https://archivewatch.org/item/ISS-Resource-Reel/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8180,63 +9467,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/Automobiles/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/11090_hm_san_francisco_family/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/gov.dod.dimoc.25126/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/gov.archives.arc.98577.r1/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/ok-white-fire-1953-colorized-movie-720p-hd/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/NasaConnect-Wygtya-Gps/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/BorrowedHero/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/97261_hm_salinas_rodeo/",
+     "url": "https://archivewatch.org/item/0928_Niagara_Falls_Various_Views_of_Americas_Most_Famous_Waterfall_15_00_13_06/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8244,79 +9475,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/race-symphony_1928/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/the-restless-gun-1957-pilot-episode/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/ExileExpressupgraded_901/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/do-zavtra_1929/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/forefathers_of_history/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/escape_1930/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/BonjourJeansCommercial1983/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/SoLongPal/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/0458_HM_Laubscher_Collection_Shrine_Parade_San_Francisco_1932_01_45_35_15/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/the-spieler_1928/",
+     "url": "https://archivewatch.org/item/BeeCity1951/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8324,71 +9483,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/battleofculloden_201705/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/NasaKsnn-MarsRovers/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/TheNevadan/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/098266/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/takovy-je-zivot_1930/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/flight_to_nowhere/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/1911-a-victim-of-the-mormons/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/establos-familia-cruz-cortijo-tercia-ca-1977-san-jeronimo-sevilla-espana/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/Fire1946/",
+     "url": "https://archivewatch.org/item/BlackHand06/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8396,7 +9491,23 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/0337_Fluids_in_Weightlessness_14_22_49_00/",
+     "url": "https://archivewatch.org/item/1913juvecontrefantomas/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/Speeding1950/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/the-phantom-of-the-opera-1925-ben-model-score-sd/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8404,7 +9515,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/rorevus_talks_about_worms/",
+     "url": "https://archivewatch.org/item/YourFire1949/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/MrDenningDrives/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8412,7 +9531,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/6008_Uncle_Franks_Farm_A_Film_Lesson_in_Citizenship_09_16_27_00/",
+     "url": "https://archivewatch.org/item/silent-der-verlorene-schuh/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8420,7 +9539,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/TheAdventuresOfCaptainMarvelSerial1941Chapter02/",
+     "url": "https://archivewatch.org/item/Jailbait_339/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/silent-pazar-i-kasapi/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8428,7 +9555,23 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/thelastrhino/",
+     "url": "https://archivewatch.org/item/1933-der-grosse-trick-hans-moser-attila-horbiger-kurzfilm/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/1945-08-16_Reconversion_Outlook/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/silent-le-printemps--pisode-1-lveil-des-sources--lveil-des-nids-aka-spring/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8436,7 +9579,143 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/HMColorado98326/",
+     "url": "https://archivewatch.org/item/ludwig-der-zweite-konig-von-bayern_1930/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/Passenge1955/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/the-dawn-trail-1930-buck-jones-cowboy-western/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/silent-the-dirigible-los-angeles/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/TheMarinesareComing/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/1935-Ein-Dorf-im-roten-Sturm/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/170004-004/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/TheJapaneseArmyAndNavy/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/silent-the-phable-of-the-phat-woman/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/RockBabyRock/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/1953_Movie_Trailers_Peace_on_Earth/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/rare-miki-matsubara-1984-department-store-commercial-song/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/tango_201908/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/HMTravelinginColora97324/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/Precisel1937/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/theplanets_201602/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/BillSpragueCollection-THETAKINGOFLUKEMCVANETHEFUGITIVE-WilliamS.Hart-1915PUBLICDOMAIN/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/SoundAndTheS/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8452,15 +9731,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/12152_brt40con133_hm_unidentified_detroit_family_7/",
-     "state": "Crawled - currently not indexed",
+     "url": "https://archivewatch.org/item/roman-punch-1930/",
+     "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
-     "lastCrawl": "2026-10-18T18:24:19Z",
-     "fetch": "SUCCESSFUL",
-     "googleCanonical": "https://archivewatch.org/item/12152_brt40con133_hm_unidentified_detroit_family_7/"
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/prem-pujari-1970-2-cd-dv-drip-musical-romance-rd-y/",
+     "url": "https://archivewatch.org/item/ssfSTRK1917/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8468,8 +9747,16 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/ANA-DIG-BUVO-AVV-0153/",
-     "state": "URL is unknown to Google",
+     "url": "https://archivewatch.org/item/a-few-quick-facts-fear-1945/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/AtomicFurnaces/",
+     "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
      "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
@@ -8694,67 +9981,60 @@
    "roomsSince": "2026-09-25",
    "youtubeDaily": [
     {
+     "date": "2026-09-18",
+     "calls": 35,
+     "errors": 14,
+     "units": 35,
+     "lives": 0
+    },
+    {
      "date": "2026-09-19",
-     "calls": 259,
-     "errors": 46,
-     "units": 1043,
-     "lives": 4
-    },
-    {
-     "date": "2026-09-20",
-     "calls": 277,
-     "errors": 0,
-     "units": 2335,
-     "lives": 14
-    },
-    {
-     "date": "2026-09-21",
-     "calls": 120,
-     "errors": 0,
-     "units": 1590,
+     "calls": 418,
+     "errors": 32,
+     "units": 2084,
      "lives": 10
     },
     {
-     "date": "2026-09-22",
-     "calls": 17,
+     "date": "2026-09-20",
+     "calls": 119,
+     "errors": 0,
+     "units": 1736,
+     "lives": 11
+    },
+    {
+     "date": "2026-09-21",
+     "calls": 101,
      "errors": 2,
-     "units": 17,
+     "units": 1130,
+     "lives": 7
+    },
+    {
+     "date": "2026-09-22",
+     "calls": 76,
+     "errors": 0,
+     "units": 76,
      "lives": 0
     },
     {
      "date": "2026-09-23",
-     "calls": 187,
+     "calls": 111,
      "errors": 2,
-     "units": 383,
+     "units": 307,
      "lives": 1
     },
     {
      "date": "2026-09-24",
-     "calls": 1737,
-     "errors": 2,
-     "units": 9870,
-     "lives": 12
-    },
-    {
-     "date": "2026-09-25",
-     "calls": 258,
-     "errors": 1,
-     "units": 1218,
-     "lives": 3
+     "calls": 1995,
+     "errors": 3,
+     "units": 11088,
+     "lives": 15
     },
     {
      "date": "2026-09-26",
-     "calls": 139,
+     "calls": 262,
      "errors": 0,
-     "units": 728,
-     "lives": 1
-    },
-    {
-     "date": "2026-09-27",
-     "calls": 123,
-     "errors": 0,
-     "units": 1446,
-     "lives": 4
+     "units": 2174,
+     "lives": 5
     },
     {
      "date": "2026-10-01",
@@ -8765,17 +10045,10 @@
     },
     {
      "date": "2026-10-03",
-     "calls": 744,
+     "calls": 794,
      "errors": 0,
-     "units": 3368,
+     "units": 3418,
      "lives": 1
-    },
-    {
-     "date": "2026-10-04",
-     "calls": 50,
-     "errors": 0,
-     "units": 50,
-     "lives": 0
     }
    ],
    "youtubeByMethod": {
@@ -8849,55 +10122,56 @@
    "livesNote": "YouTube sign-in shows only",
    "daily": [
     {
+     "date": "2026-09-18",
+     "lives": 0,
+     "units": 35
+    },
+    {
      "date": "2026-09-19",
-     "lives": 4,
-     "units": 1043
+     "lives": 10,
+     "units": 2084
     },
     {
      "date": "2026-09-20",
-     "lives": 14,
-     "units": 2335
+     "lives": 11,
+     "units": 1736
     },
     {
      "date": "2026-09-21",
-     "lives": 10,
-     "units": 1590
+     "lives": 7,
+     "units": 1130
     },
     {
      "date": "2026-09-22",
      "lives": 0,
-     "units": 17
+     "units": 76
     },
     {
      "date": "2026-09-23",
      "lives": 1,
-     "units": 383
+     "units": 307
     },
     {
      "date": "2026-09-24",
-     "lives": 12,
-     "units": 9870
+     "lives": 15,
+     "units": 11088
     },
     {
      "date": "2026-09-25",
      "rooms": 1,
-     "guests": 1,
-     "lives": 3,
-     "units": 1218
+     "guests": 1
     },
     {
      "date": "2026-09-26",
      "rooms": 12,
      "guests": 10,
-     "lives": 1,
-     "units": 728
+     "lives": 5,
+     "units": 2174
     },
     {
      "date": "2026-09-27",
      "rooms": 0,
-     "guests": 0,
-     "lives": 4,
-     "units": 1446
+     "guests": 0
     },
     {
      "date": "2026-09-28",
@@ -8931,14 +10205,12 @@
      "rooms": 3,
      "guests": 3,
      "lives": 1,
-     "units": 3368
+     "units": 3418
     },
     {
      "date": "2026-10-04",
      "rooms": 0,
-     "guests": 0,
-     "lives": 0,
-     "units": 50
+     "guests": 0
     },
     {
      "date": "2026-10-05",
@@ -9365,13 +10637,20 @@
      "play": 49,
      "channel": 342,
      "mcp": 0
+    },
+    {
+     "date": "2026-11-05",
+     "signin": 8,
+     "play": 2,
+     "channel": 73,
+     "mcp": 0
     }
    ],
    "since": "2026-09-27",
    "last28": {
-    "signin": 700,
-    "play": 1415,
-    "channel": 3658,
+    "signin": 708,
+    "play": 1417,
+    "channel": 3731,
     "mcp": 2
    },
    "prev28": {
@@ -9463,222 +10742,222 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-11-05T00:53:11+00:00"
+   "at": "2026-11-05T16:30:33+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "8 review(s)",
-   "at": "2026-11-05T00:53:12+00:00"
+   "at": "2026-11-05T16:30:33+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.3 from 10",
-   "at": "2026-11-05T00:53:12+00:00"
+   "at": "2026-11-05T16:30:34+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-11-05T00:53:13+00:00"
+   "at": "2026-11-05T16:30:34+00:00"
   },
   "apple_downloads": {
    "ok": true,
-   "note": "934 first-time download(s) over 30 day(s), 4 device type(s), 100 country/countries; skipped 6720 unit(s) across 2 other product type(s)",
-   "at": "2026-11-05T00:53:36+00:00"
+   "note": "967 first-time download(s) over 31 day(s), 4 device type(s), 100 country/countries; skipped 6759 unit(s) across 2 other product type(s)",
+   "at": "2026-11-05T16:31:01+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-11-05T00:53:38+00:00"
+   "at": "2026-11-05T16:31:03+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-11-05T00:53:39+00:00"
+   "at": "2026-11-05T16:31:04+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.00707, anrRate=0.01498",
-   "at": "2026-11-05T00:53:41+00:00"
+   "at": "2026-11-05T16:31:06+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "20 cluster(s), 0 still on build 70",
-   "at": "2026-11-05T00:54:09+00:00"
+   "at": "2026-11-05T16:31:40+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "20 day(s) of users, 2 dimension(s)",
-   "at": "2026-11-05T00:54:15+00:00"
+   "at": "2026-11-05T16:31:45+00:00"
   },
   "play_reports": {
    "ok": true,
-   "note": "2650 install(s) over 28 day(s) to 2026-10-31 (5d behind — Play's normal reporting lag), 7 report(s)",
-   "at": "2026-11-05T00:54:34+00:00"
+   "note": "2601 install(s) over 28 day(s) to 2026-11-01 (4d behind — Play's normal reporting lag), 7 report(s)",
+   "at": "2026-11-05T16:31:54+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 58 day(s) to 2026-10-31, crashes: 40 day(s) to 2026-11-01",
-   "at": "2026-11-05T00:54:35+00:00"
+   "at": "2026-11-05T16:32:08+00:00"
   },
   "play_rating": {
    "ok": true,
    "note": "3.83 from an uncounted number of rating(s), via Play's daily export to 2026-10-31",
-   "at": "2026-11-05T00:54:36+00:00"
+   "at": "2026-11-05T16:32:09+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "2055 acquisition(s) from 4013 visitor(s) to 2026-10-28, 51% conversion",
-   "at": "2026-11-05T00:54:39+00:00"
+   "at": "2026-11-05T16:32:13+00:00"
   },
   "play_listing_manual": {
    "ok": true,
    "note": "1180 install click(s) to 2026-10-03, read by hand on 2026-10-07",
-   "at": "2026-11-05T00:54:39+00:00"
+   "at": "2026-11-05T16:32:13+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "3 metric set(s) with data, 0 empty",
-   "at": "2026-11-05T00:54:40+00:00"
+   "at": "2026-11-05T16:32:14+00:00"
   },
   "amazon_installs": {
    "ok": true,
-   "note": "36 install(s) across 2 month(s), 7 countries",
-   "at": "2026-11-05T00:54:40+00:00"
+   "note": "38 install(s) across 2 month(s), 8 countries",
+   "at": "2026-11-05T16:32:15+00:00"
   },
   "amazon_live": {
    "ok": true,
    "note": "versionCode 70 is live on Fire TV",
-   "at": "2026-11-05T00:54:50+00:00"
+   "at": "2026-11-05T16:32:26+00:00"
   },
   "roku_engagement": {
    "ok": true,
-   "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-11-05T00:54:51+00:00"
+   "note": "4 drop(s), 8 day(s), 60 tile(s) from 4 report(s) [App Engagement, App Health, App Stability, Viewership Summary]",
+   "at": "2026-11-05T16:32:27+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-11-05T00:54:51+00:00"
+   "at": "2026-11-05T16:32:27+00:00"
   },
   "social_program": {
    "ok": true,
-   "note": "322 post(s) across 5 platform(s), 172 measured",
-   "at": "2026-11-05T00:54:51+00:00"
+   "note": "323 post(s) across 5 platform(s), 173 measured",
+   "at": "2026-11-05T16:32:27+00:00"
   },
   "social_reach": {
    "ok": true,
-   "note": "bluesky=26, mastodon=1, instagram=0",
-   "at": "2026-11-05T00:54:52+00:00"
+   "note": "bluesky=27, mastodon=1, instagram=0",
+   "at": "2026-11-05T16:32:29+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "2 reply/mention notification(s)",
-   "at": "2026-11-05T00:54:52+00:00"
+   "at": "2026-11-05T16:32:30+00:00"
   },
   "social_liveness": {
    "ok": true,
-   "note": "65 live, 0 deleted, 55 could not be checked",
-   "at": "2026-11-05T00:54:59+00:00"
+   "note": "66 live, 0 deleted, 54 could not be checked",
+   "at": "2026-11-05T16:32:41+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-11-05T00:55:00+00:00"
+   "at": "2026-11-05T16:32:42+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-05T00:55:01+00:00"
+   "at": "2026-11-05T16:32:43+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-11-05T00:55:02+00:00"
+   "at": "2026-11-05T16:32:43+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-05T00:55:03+00:00"
+   "at": "2026-11-05T16:32:45+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-05T00:55:03+00:00"
+   "at": "2026-11-05T16:32:45+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-11-05T00:55:04+00:00"
+   "at": "2026-11-05T16:32:46+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-05T00:55:07+00:00"
+   "at": "2026-11-05T16:32:50+00:00"
   },
   "github": {
    "ok": true,
    "note": "2 star(s), 3 open issue(s), 2 from outside",
-   "at": "2026-11-05T00:55:10+00:00"
+   "at": "2026-11-05T16:32:51+00:00"
   },
   "workflows": {
    "ok": true,
-   "note": "1 finding(s), 0 urgent",
-   "at": "2026-11-05T00:56:27+00:00"
+   "note": "0 finding(s), 0 urgent",
+   "at": "2026-11-05T16:34:23+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "41034 items, schema 16",
-   "at": "2026-11-05T00:56:28+00:00"
+   "at": "2026-11-05T16:34:23+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "175788 route view(s) and 51421 visit(s) over 58 day(s), 14 surface(s)",
-   "at": "2026-11-05T00:56:28+00:00"
+   "note": "177926 route view(s) and 51927 visit(s) over 58 day(s), 14 surface(s)",
+   "at": "2026-11-05T16:34:23+00:00"
   },
   "web_titles": {
    "ok": true,
-   "note": "6396 film(s) played, 9743 opened, over 53 day(s)",
-   "at": "2026-11-05T00:56:29+00:00"
+   "note": "6492 film(s) played, 9870 opened, over 53 day(s)",
+   "at": "2026-11-05T16:34:24+00:00"
   },
   "search_console": {
    "ok": true,
-   "note": "5849 clicks / 176824 impressions in 28 days to 2026-11-02 (prior 28: 1779 / 36465)",
-   "at": "2026-11-05T00:56:31+00:00"
+   "note": "5921 clicks / 181446 impressions in 28 days to 2026-11-03 (prior 28: 2027 / 40800)",
+   "at": "2026-11-05T16:34:26+00:00"
   },
   "search_index": {
    "ok": true,
-   "note": "72/150 sampled film pages indexed of 41,034 published; 0 technical fault(s)",
-   "at": "2026-11-05T00:58:31+00:00"
+   "note": "64/150 sampled film pages indexed of 41,034 published; 0 technical fault(s)",
+   "at": "2026-11-05T16:36:28+00:00"
   },
   "together_rooms": {
    "ok": true,
    "note": "32 room(s), 35 guest join(s) since the tally began",
-   "at": "2026-11-05T00:58:31+00:00"
+   "at": "2026-11-05T16:36:28+00:00"
   },
   "youtube_usage": {
    "ok": true,
-   "note": "52 YouTube broadcast(s) in 90 days; peak quota day 9,870/10,000 units",
-   "at": "2026-11-05T00:58:32+00:00"
+   "note": "52 YouTube broadcast(s) in 90 days; peak quota day 11,088/10,000 units",
+   "at": "2026-11-05T16:36:29+00:00"
   },
   "together_summary": {
    "ok": true,
    "note": "28 days: {'rooms': 13, 'guests': 15, 'lives': 0}",
-   "at": "2026-11-05T00:58:32+00:00"
+   "at": "2026-11-05T16:36:29+00:00"
   },
   "feeds_usage": {
    "ok": true,
-   "note": "28 days: 700 player sign-in(s), 1415 play(s), 3658 channel tune(s), 2 assistant call(s)",
-   "at": "2026-11-05T00:58:32+00:00"
+   "note": "28 days: 708 player sign-in(s), 1417 play(s), 3731 channel tune(s), 2 assistant call(s)",
+   "at": "2026-11-05T16:36:29+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 8 rated",
-   "at": "2026-11-05T00:58:32+00:00"
+   "at": "2026-11-05T16:36:29+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 8 bit(s) of praise",
-   "at": "2026-11-05T00:58:32+00:00"
+   "at": "2026-11-05T16:36:29+00:00"
   }
  },
  "_apply": true,
@@ -10689,16 +11968,16 @@
    "mentions": 8,
    "posts": 120,
    "likes": 1,
-   "followers": 27,
+   "followers": 28,
    "stars": 2,
    "views14d": null,
    "catalogItems": 41034,
-   "filmPagesIndexed": 0.48,
-   "searchClicks28d": 5849,
+   "filmPagesIndexed": 0.427,
+   "searchClicks28d": 5921,
    "urgent": 0
   }
  ],
- "generatedAt": "2026-11-05T00:58:32+00:00",
+ "generatedAt": "2026-11-05T16:36:29+00:00",
  "repoVersion": "1.47.30",
  "repoBuild": "2181",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
