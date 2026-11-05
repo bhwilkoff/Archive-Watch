@@ -9477,7 +9477,7 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-11-05T19:26:15+00:00"
+   "at": "2026-11-05T19:27:16+00:00"
   },
   "apple_reviews": {
    "ok": true,
@@ -9502,7 +9502,7 @@
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-11-05T19:26:17+00:00"
+   "at": "2026-11-05T19:27:17+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -9517,7 +9517,7 @@
   "play_crashes": {
    "ok": true,
    "note": "20 cluster(s), 0 still on build 73",
-   "at": "2026-11-05T19:26:45+00:00"
+   "at": "2026-11-05T19:27:51+00:00"
   },
   "play_users": {
    "ok": true,
@@ -9562,17 +9562,17 @@
   "amazon_live": {
    "ok": true,
    "note": "versionCode 73 in the OPEN edit — a submission is in flight, so this is what is staged rather than what is live",
-   "at": "2026-11-05T19:26:49+00:00"
+   "at": "2026-11-05T19:27:55+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-11-05T19:26:49+00:00"
+   "at": "2026-11-05T19:27:55+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-11-05T19:26:49+00:00"
+   "at": "2026-11-05T19:27:56+00:00"
   },
   "social_program": {
    "ok": true,
@@ -10712,7 +10712,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-11-05T19:26:49+00:00",
+ "generatedAt": "2026-11-05T19:27:56+00:00",
  "repoVersion": "1.47.31",
  "repoBuild": "2182",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
