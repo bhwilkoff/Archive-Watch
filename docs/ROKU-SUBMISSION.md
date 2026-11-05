@@ -227,6 +227,20 @@ the input AFTER clicking; on the beta app's page it is present on load. The
 owner spotted this — the control accepts a drop, which is what gives it a real
 input.
 
+**The blue "Upload" link beside a staged file REMOVES the file** (2026-11-05,
+1.0.81). Attaching stages it; **Save & run static analysis** is what uploads. On
+that date the public page showed the dropzone on load, with no Upload press.
+
+**If the browser tooling reads a page but cannot click it** ("Cannot attach to
+this target", on every site, in the one profile signed in to Roku): `find`,
+`read_page`, `get_page_text`, `navigate`, `form_input` and `file_upload` all still
+work, so only the presses are missing. Wait for the Mac to sit idle, bring the tab
+forward with Chrome's AppleScript (`set active tab index`, `activate`), take a
+window-only `screencapture -l`, and press with `cliclick`. Before each press,
+check the pointer is where the last press left it, so a returning owner stops the
+run. The app's URLs (`/apps/public/881015/package`, `/staticAnalysis`,
+`/channelBehaviorAnalysis`, `/overview`) open directly.
+
 Everything after the upload — the minimum-firmware combobox, Save, Save & run
 static analysis, Run analysis, Publish — is ordinary DOM and drives fine.
 
