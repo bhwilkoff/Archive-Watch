@@ -3865,6 +3865,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "𝔟𝔢𝔟𝔶𝔟𝔢𝔱✧.*"
+  },
+  {
+   "at": "2026-11-05T21:33:34.051345+00:00",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "title": "The Gorilla",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzlszzx7k427",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "ubang"
+  },
+  {
+   "at": "2026-11-05T21:33:34.051345+00:00",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "title": "The Gorilla",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117565977010342675",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "ubang"
+  },
+  {
+   "at": "2026-11-05T21:33:34.051345+00:00",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "title": "The Gorilla",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DfYAgPriWL2",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "ubang"
+  },
+  {
+   "at": "2026-11-05T21:33:34.051345+00:00",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "title": "The Gorilla",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfYAk7TCQm3/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117565975814034645",
+   "reviewer": "ubang"
+  },
+  {
+   "at": "2026-11-05T21:33:34.051345+00:00",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "title": "The Gorilla",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=shnsn6j1rbw",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "ubang"
   }
  ]
 }
