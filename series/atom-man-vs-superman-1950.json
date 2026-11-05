@@ -1,77 +1,78 @@
 {
- "version": 2,
- "seriesID": "atom-man-vs-superman-1950",
- "tvmazeID": 7077,
- "title": "Atom Man vs. Superman",
- "yearStart": 1950,
- "yearEnd": 1950,
- "overview": "In Atom Man vs. Superman Kent/Superman is pitted against bald-pated Lex Luthor, who, disguised as Atom Man, threatens to devastate Metropolis with any number of devilish devices-the deadliest of which is a disintegration machine. Luthor stumbles onto Superman's Achilles' heel: Kryptonite. Once our hero has been exposed to this fatal ore, Metropolis becomes a wide-open town for criminals of all varieties. But Superman regains his full powers in time to stop Luthor from laying waste to Metropolis with his latest demon machine, a sonic vibrator.",
- "posterURL": "https://artworks.thetvdb.com/banners/posters/168321-3.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "atom-man-vs-superman-1950",
+  "tvmazeID": 7077,
+  "title": "Atom Man vs. Superman",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": "In Atom Man vs. Superman Kent/Superman is pitted against bald-pated Lex Luthor, who, disguised as Atom Man, threatens to devastate Metropolis with any number of devilish devices-the deadliest of which is a disintegration machine. Luthor stumbles onto Superman's Achilles' heel: Kryptonite. Once our hero has been exposed to this fatal ore, Metropolis becomes a wide-open town for criminals of all varieties. But Superman regains his full powers in time to stop Luthor from laying waste to Metropolis with his latest demon machine, a sonic vibrator.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/168321-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Superman Saves the Universe",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
-     "airDate": "1950-10-26",
-     "year": 1950,
-     "runtimeSeconds": 900,
-     "videoFile": {
-      "name": "Atom Man Vs. Superman 1950 1x15 Superman Salva el Universo.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 127578753,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo/Atom%20Man%20Vs.%20Superman%201950%201x15%20Superman%20Salva%20el%20Universo.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Superman Saves the Universe",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
+          "airDate": "1950-10-26",
+          "year": 1950,
+          "runtimeSeconds": 900,
+          "videoFile": {
+            "name": "Atom Man Vs. Superman 1950 1x15 Superman Salva el Universo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127578753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo/Atom%20Man%20Vs.%20Superman%201950%201x15%20Superman%20Salva%20el%20Universo.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 15,
- "tvmazeRating": 8,
- "tvdbID": "168321",
- "artworkSource": "tvdb",
- "cast": [
-  {
-   "name": "Kirk Alyn",
-   "character": "Superman / Clark Kent",
-   "order": 0,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/286636/photo/66ab2313934ad.jpg"
-  },
-  {
-   "name": "Noel Neill",
-   "character": "Lois Lane",
-   "order": 1,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/380981/photo/62f2f64487dec.jpg"
-  },
-  {
-   "name": "Lyle Talbot",
-   "character": "Luthor / The Atom Man",
-   "order": 2,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258162/photo/66ab23ad7acf8.jpg"
-  },
-  {
-   "name": "Tommy Bond",
-   "character": "Jimmy Olsen",
-   "order": 3,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/619425/photo/649c76e94d841.jpg"
-  }
- ],
- "seriesImdbID": "tt0042211"
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 15,
+  "tvmazeRating": 8,
+  "tvdbID": "168321",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Kirk Alyn",
+      "character": "Superman / Clark Kent",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/286636/photo/66ab2313934ad.jpg"
+    },
+    {
+      "name": "Noel Neill",
+      "character": "Lois Lane",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/380981/photo/62f2f64487dec.jpg"
+    },
+    {
+      "name": "Lyle Talbot",
+      "character": "Luthor / The Atom Man",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258162/photo/66ab23ad7acf8.jpg"
+    },
+    {
+      "name": "Tommy Bond",
+      "character": "Jimmy Olsen",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/619425/photo/649c76e94d841.jpg"
+    }
+  ],
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
