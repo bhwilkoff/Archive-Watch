@@ -787,9 +787,11 @@ v1.47.10-1.47.30. Apple 1.47.28 in review on all three (withdrew 1.47.13).
 - **Series years** are evidence-based and searched every TV rebuild (D178).
 - **Play and Shuffle** on every playlist and shared list, all platforms (iOS-DESIGN
   §4.3b). Roku: crash on OS 9.1, dead-title skip, search 10 s -> 1-2 s.
-**Open**: Play production (versionCode 72) and Amazon submit were refused to the
-agent by the permission system. Roku 1.0.81 is signed in build/roku/, and the
-Dashboard needs a signed-in Chrome profile the tools can drive. Fire TV adb needs its
-prompt accepted at the TV. LG needs a Seller Lounge account. Mac device pass not run.
+**Done 11-05**: Play production and Amazon both at versionCode 73 (Decision 180).
+**Open**: Roku 1.0.81 is signed in build/roku/; upload it by ROKU-SUBMISSION's
+automatable path, then static analysis, App Behavior Analysis -> Run analysis, Schedule
+publishing. Blocked only because the Chrome connection answers "Cannot attach to this
+target". Fire TV adb needs its prompt accepted at the TV. LG needs a Seller Lounge
+account. Mac device pass not run.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

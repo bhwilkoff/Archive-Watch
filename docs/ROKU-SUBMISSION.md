@@ -1,6 +1,8 @@
 # Submitting Archive Watch to the Roku Channel Store
 
-## The headline: there is no submission API
+## The headline: there is no submission API, and the Dashboard can still be driven
+
+An agent does this upload, not the owner: see "Uploading a package IS automatable" below.
 
 Every other store in this project is scripted — `tools/asc_release.py` submits
 to Apple over REST (Decision 101), `tools/submit-play.sh` uploads to Google

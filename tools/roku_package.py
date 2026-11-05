@@ -156,7 +156,7 @@ def main():
     if size > 4 * 1024 * 1024:
         print("WARNING: over the 4 MB certification limit")
         return 1
-    print("Upload this .pkg in the Developer Dashboard — there is no submission API.")
+    print("Upload this .pkg through the Dashboard's dzu-input: docs/ROKU-SUBMISSION.md, 'Uploading a package IS automatable'.")
     return 0
 
 
