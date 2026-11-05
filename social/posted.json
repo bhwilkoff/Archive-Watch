@@ -3853,6 +3853,18 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-05T03:32:10.992991+00:00",
+   "id": "dra-cula.-eng.-mp-4.",
+   "title": "Drácula",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzjwmfthav24",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "𝔟𝔢𝔟𝔶𝔟𝔢𝔱✧.*"
   }
  ]
 }
