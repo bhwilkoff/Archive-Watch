@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-04T09:20:47Z",
+  "updated_at": "2026-11-05T09:33:05Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-04T09:20:47Z"
+      "last_tried": "2026-11-05T09:33:05Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-04T09:20:47Z"
+      "last_tried": "2026-11-05T09:33:05Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395486,6 +395486,96 @@
         "mc": 47
       },
       "fetched_at": "2026-11-04T09:20:47Z",
+      "schema": 4
+    },
+    "tt10203788": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWVmY2M3NjMtNDIwZS00OWQ5LWIwMzktZTgwZGY2ZTMzMzU4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 75,
+      "content_rating": null,
+      "plot": "In an era of crime, drugs and violence, the streets of South Central Los Angeles walk in fear as the gangs, police and criminals take over. Four heroic men take matters into their own hands and bring a nightmare on the streets that they can't wake up from. No justice, no peace and if peace is far out of reach, so will the idea of being a law abiding citizen. The criminals leaned in the ear of the city and said a storm is coming, The Council leaned back and whispered...\"WE ARE THE STORM!\"",
+      "runtime_min": 114,
+      "director": "JayTee Thompson",
+      "actors": [
+        "Brandon Michael Thomas",
+        "JayTee Thompson",
+        "Kendon Tillis"
+      ],
+      "genres": [
+        "Crime"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-05T09:33:05Z",
+      "schema": 4
+    },
+    "tt10515988": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTE3MDhiNTctMzAwNi00ZDQ2LWEwYTUtMmQxODQzYWQ3OGM3XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 20998,
+      "content_rating": "R",
+      "plot": "Margot, a standard young adult with a dark past. As such, she takes advantage of the Internet to look into her ancestry. Margot turns out to be related to an Amish man named Samuel , who may have some answers or information about why her mother abandoned her as a baby. Together with her friends Chris and Dale , they set out to the middle of nowhere to make a documentary about where she comes from.",
+      "runtime_min": 98,
+      "director": "William Eubank",
+      "actors": [
+        "Emily Bader",
+        "Roland Buck III",
+        "Dan Lippert"
+      ],
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 32,
+        "mc": 37
+      },
+      "fetched_at": "2026-11-05T09:33:05Z",
+      "schema": 4
+    },
+    "tt2023765": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTY3NjQwMTg3OF5BMl5BanBnXkFtZTcwNzQzOTg4OQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 655,
+      "content_rating": "Not Rated",
+      "plot": "Jackie Kimball is a likable, normal 17-year-old girl in every way but one: she has been in love all her life with her brother Matthew, one year older than her. Matthew is bringing his new girlfriend Yolanda home to dinner at the Kimball house, and Jackie's melodramatic anguish disrupts the family's preparations. Surprisingly sociable during the dinner, Jackie later confronts her brother tearfully in the attic room that is their traditional meeting place. Matthew and Jackie have been symbiotically close all their lives, but Matthew doesn't share Jackie's incestuous inclinations, and Jackie has no choice but to deal with the intrusion of adult life upon their childhood intimacy. Long widowed, Jackie's mother Alice is a sympathetic but detached presence, often found at her writing desk, drinking coffee and composing letters and journals. An older brother, Will, is an exchange student abroad; sister Jeanne, impatient with Jackie's flamboyance, is poised to leave home soon. Though Jackie makes little effort to hide her love for Matthew, the family prefers to interpret the attraction as a long-standing childhood phase. Jackie has school friends, but no interest in other boys. Matthew's unexpected breakup with Yolanda gives Jackie a temporary reprieve from her grief, and brother and sister spend a pleasant summer together, capped by an idyllic evening out at a concert. Always monitoring Matthew for any sign that he might become receptive to her overtures, Jackie is filled with melancholy as summer wanes and Matthew's departure for college approaches. Jackie takes the separation hard, and her concerned mother sends her to psychotherapy. Though the therapy is paralyzed at first by her habitual secrecy about her feelings for Matthew, Jackie eventually becomes close to her therapist Linda and develops a fascination with the therapeutic process. Meanwhile, she and Matthew keep up contact via video letters and a host of electronic media. Out of restlessness, Jackie tries her hand with boys, and manages to seduce an attractive classmate named Tristan. Though she learns that she enjoys sex, she has little emotion invested in this new pastime, and she does not hesitate to alienate Tristan when Matthew returns on vacation. Delighted at Matthew's return, Jackie regales him with tales of her sexual explorations. Encouraged at Matthew's unfazed response, and emboldened by her recent experiences, Jackie makes a final attempt to attain her life-long goal.",
+      "runtime_min": 91,
+      "director": "Dan Sallitt",
+      "actors": [
+        "Tallie Medel",
+        "Sky Hirschkron",
+        "Aundrea Fares"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 89,
+        "mc": 76
+      },
+      "fetched_at": "2026-11-05T09:33:05Z",
+      "schema": 4
+    },
+    "tt6627620": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzIyMmQ1ODMtMjkwMi00NTU2LTgxNjctZDJkMzRmZmNmZTIzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 8.3,
+      "imdb_votes": 13,
+      "content_rating": "PG",
+      "plot": "Each of the executive empresses followed a different path to where they are today, but faced similar barriers and challenges. The naysayers are alive and well but none of these women gave in to the negative messages and continued to believe in their idea. It wasn't an easy road...from bootstrapping to bearing fruit, we weave together the stories of these inspiring creators in a full length documentary to inspire other women who may be considering starting their own businesses. The production is set in Beautiful Central Florida, where an amazing synergy is taking place like never before. We follow various local groups that have popped up to support and nurture the female entrepreneur and explore the love economy in action with the legendary feminist and futurist, Hazel Henderson.",
+      "runtime_min": 72,
+      "director": "Gina Watson",
+      "actors": [
+        "Selloane Nkhela",
+        "Hazel Henderson",
+        "Misty Wheeler-Belin"
+      ],
+      "genres": [
+        "Documentary",
+        "Biography",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-05T09:33:05Z",
       "schema": 4
     }
   },
