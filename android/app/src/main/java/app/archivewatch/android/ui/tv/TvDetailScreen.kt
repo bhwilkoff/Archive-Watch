@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.tv
 
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.theme.BrandSurface
 import app.archivewatch.android.studio.canHostWatchTogether
 import androidx.compose.foundation.background
@@ -611,7 +612,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH * 2),
                         horizontalArrangement = Arrangement.spacedBy(TvDims.PosterSpacing),
                     ) {
-                        items(scenes, key = { it.seconds }) { scene ->
+                        items(scenes.uniqueBy { it.seconds }, key = { it.seconds }) { scene ->
                             Column(Modifier.width(240.dp)) {
                                 Box(
                                     Modifier
@@ -964,8 +965,9 @@ private fun TvVersionOverlay(
                             chosen = null
                         }
                     }
-                    items(v.size, key = { v[it].choiceKey }) { i ->
-                        val ver = v[i]
+                    val copies = v.uniqueBy { it.choiceKey }
+                    items(copies.size, key = { copies[it].choiceKey }) { i ->
+                        val ver = copies[i]
                         TvVersionRow(
                             label = ver.label,
                             selected = chosen == ver.choiceKey,

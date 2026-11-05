@@ -97,6 +97,10 @@ class AppContainer(private val application: Application) {
 
     val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
+    private val catalogTtl: Long
+        get() = if (application.packageManager.hasSystemFeature(android.content.pm.PackageManager.FEATURE_LEANBACK))
+            CatalogRepository.TV_STALE_AFTER_MS else CatalogRepository.DEFAULT_STALE_AFTER_MS
+
     /** Launch order: seed open (fast) → settings filters → full-DB refresh. */
     fun start() {
         scope.launch {
@@ -105,7 +109,7 @@ class AppContainer(private val application: Application) {
             // Throttled like the foreground path: a process start minutes after
             // the last check (a low-memory kill, a widget waking the app) does
             // not need another conditional request.
-            catalog.refreshIfStale()
+            catalog.refreshIfStale(catalogTtl)
         }
         observeForeground()
         // Google Drive App Data sync (google flavor; a no-op stub on amazon).
@@ -123,7 +127,13 @@ class AppContainer(private val application: Application) {
     private fun observeForeground() {
         ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onStart(owner: LifecycleOwner) {
-                scope.launch { catalog.refreshIfStale() }
+                catalog.onScreen = true
+                scope.launch { catalog.refreshIfStale(catalogTtl) }
+            }
+
+            override fun onStop(owner: LifecycleOwner) {
+                catalog.onScreen = false
+                scope.launch { catalog.applyPending() }
             }
         })
     }

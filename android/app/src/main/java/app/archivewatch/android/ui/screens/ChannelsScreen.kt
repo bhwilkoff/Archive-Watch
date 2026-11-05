@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.screens
 
+import app.archivewatch.android.ui.uniqueBy
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.contentDescription
@@ -613,8 +614,9 @@ private fun PickRow(label: String, options: List<String>, selected: String?,
         androidx.compose.foundation.lazy.LazyRow(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            items(options.size, key = { options[it] }) { i ->
-                val opt = options[i]
+            val choices = options.distinct()
+            items(choices.size, key = { choices[it] }) { i ->
+                val opt = choices[i]
                 androidx.compose.material3.FilterChip(
                     selected = selected == opt,
                     onClick = { onPick(if (selected == opt) null else opt) },

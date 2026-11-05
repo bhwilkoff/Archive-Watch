@@ -161,7 +161,7 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
                         item(span = { GridItemSpan(maxLineSpan) }) {
                             Text("Episodes", style = MaterialTheme.typography.titleLarge)
                         }
-                        items(episodeItems, span = { GridItemSpan(maxLineSpan) },
+                        items(episodeItems.uniqueBy { it.archiveID }, span = { GridItemSpan(maxLineSpan) },
                               key = { "ep-" + it.archiveID }) { ep ->
                             // Tapping opens the episode's OWN Detail (play/favorite/share/clip).
                             EpisodeItemRow(ep) { nav.openItem(ep.archiveID, ep.seriesID, ep.contentType) }

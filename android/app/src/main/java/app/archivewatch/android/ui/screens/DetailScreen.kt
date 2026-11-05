@@ -544,7 +544,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                items(scenes, key = { it.seconds }) { scene ->
+                items(scenes.uniqueBy { it.seconds }, key = { it.seconds }) { scene ->
                     Column(
                         Modifier
                             .width(160.dp)

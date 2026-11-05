@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.screens
 
+import app.archivewatch.android.ui.uniqueBy
 import android.app.Activity
 import androidx.core.content.edit
 import androidx.compose.ui.layout.boundsInWindow
@@ -1550,8 +1551,9 @@ private fun TvPlayerOptionsPanel(
                         Text("Copies", style = MaterialTheme.typography.labelLarge,
                             color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 10.dp))
                     }
-                    items(v.size, key = { v[it].choiceKey }) { i ->
-                        val ver = v[i]
+                    val copies = v.uniqueBy { it.choiceKey }
+                    items(copies.size, key = { copies[it].choiceKey }) { i ->
+                        val ver = copies[i]
                         TvMenuRow(ver.label, if (chosenVersion == ver.choiceKey) "✓" else null, null) {
                             app.archivewatch.android.data.ArchiveVersions.choose(context, spec.id, ver)
                             chosenVersion = ver.choiceKey

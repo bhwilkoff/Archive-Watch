@@ -274,6 +274,7 @@ into every session and the index alone carries every title.)
 - 177 — A checker that can no longer find a known claim refuses to clear anyone, and a hidden series takes its episodes and its uploads with it
 - 178 — A series' year comes from evidence about the series, is searched for continually, and is never borrowed from a same-named film
 - 179 — A printed renewal is read to its chapter and its damaged date, a compilation is judged file by file, and a stored year yields to a later date of the item's own
+- 180 — On a TV box the catalog refresh waits, runs at background priority, and is applied off screen
 
 ---
 
@@ -561,3 +562,27 @@ on printed renewals. Flip the Frog's renewed files return from 2027 to 2029 by `
 and the next rebuild. A compilation's file with no film record and no printed date keeps
 the item's year and is judged by its renewal's date. Sermons in folksoundomy (no sermon
 collection, feature length) wear film identities still; the rule leaves them.
+
+## 180 — On a TV box the catalog refresh waits, runs at background priority, and is applied off screen
+*Date: 2026-11-05*
+
+A television re-checks the catalog every 24 hours, not 6. With a downloaded catalog in
+place a refresh waits 45 seconds after launch, runs at `THREAD_PRIORITY_BACKGROUND`, and
+parks its result as `catalog.sqlite.next`; it swaps in when the app leaves the screen or
+at the next launch. Only the seed is replaced at once. Coil decodes two images at a time,
+television posters do not crossfade, and `baseline-prof.txt` compiles the app's screens
+ahead of time. Catalog-fed lazy lists pass through `uniqueBy` (`test_android_list_keys.py`).
+
+**Why**: the owner, 2026-11-05: Play's user-perceived crash and ANR rates are too high.
+Measured over 28 days: ANR 1.5% (limit 0.47%), crash 0.69% (limit 1.09%). 21 of 22 ANRs
+were on Android 14 TV boxes, and their other threads were downloading, inflating 246 MB,
+querying and decoding at once; stacks with an idle main thread were the CPU taken from
+it. Reproduced on the Google TV: 353 frames skipped in a row (5.9 s, over the 5 s limit)
+during a refresh, 166 (2.8 s) after, one debug run each. The Cast crashes were already
+fixed in versionCode 70.
+
+**How to apply**: never swap the catalog under a viewer once one is working. A new heavy
+background job runs at background priority and waits out launch. To measure, delete
+`catalog.lastcheck` with a real `run-as rm`: an `sh -c` through adb silently did nothing
+and produced a false improvement. The price is a catalog up to a day old on a TV, plus
+the session it is staged in, so a takedown can take that long to reach one.

@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.tv
 
+import app.archivewatch.android.ui.uniqueBy
 import androidx.compose.foundation.background
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
@@ -290,7 +291,7 @@ fun TvSeriesScreen(container: AppContainer, nav: Nav, slug: String) {
             }
         }
 
-        items(season?.episodes.orEmpty(), key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { ep ->
+        items(season?.episodes.orEmpty().uniqueBy { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }, key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { ep ->
             TvEpisodeRow(container, ep, current.title, TvSeriesAccent) {
                 val aid = ep.archiveID
                 if (aid != null) {

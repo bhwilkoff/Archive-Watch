@@ -1,0 +1,4 @@
+# Compile the app's own screens ahead of time. Compose code that starts cold runs
+# interpreted, and on a TV box that is where the main thread loses its seconds.
+HSPLapp/archivewatch/android/ui/**->**(**)**
+HSPLapp/archivewatch/android/data/**->**(**)**

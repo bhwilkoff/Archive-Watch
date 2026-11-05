@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.tv
 
+import app.archivewatch.android.ui.uniqueBy
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -189,7 +190,7 @@ fun TvPosterGrid(
         verticalArrangement = Arrangement.spacedBy(26.dp),
         modifier = modifier.fillMaxSize(),
     ) {
-        itemsIndexed(rows, key = { _, it -> it.archiveID }) { index, item ->
+        itemsIndexed(rows.uniqueBy { it.archiveID }, key = { _, it -> it.archiveID }) { index, item ->
             if (onNearEnd != null && index >= rows.size - 12) {
                 androidx.compose.runtime.LaunchedEffect(rows.size) { onNearEnd() }
             }

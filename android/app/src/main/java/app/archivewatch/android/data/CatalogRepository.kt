@@ -33,6 +33,12 @@ class CatalogRepository(
         private const val SEED_ASSET = "seed.sqlite"
         /** How long a check stays fresh before a foreground resume re-checks. */
         const val DEFAULT_STALE_AFTER_MS = 6L * 60 * 60 * 1000
+        /** A television box is the slowest thing we run on, and publishing several
+         *  times a day meant a full download on nearly every evening's launch. */
+        const val TV_STALE_AFTER_MS = 24L * 60 * 60 * 1000
+        /** Launch is the busiest moment: Home's queries, its posters and first
+         *  composition. A catalog that already works can wait until they are done. */
+        const val SETTLE_AFTER_LAUNCH_MS = 45_000L
         const val METERED_MAX_AGE_MS = 7L * 24 * 60 * 60 * 1000
     }
 
@@ -76,6 +82,9 @@ class CatalogRepository(
                 etagFile.delete()   // or the next request 304s and keeps it away
             }
         }
+        if (pendingFile.exists() && pendingFile.renameTo(dbFile)) {
+            pendingEtagFile.takeIf { it.exists() }?.let { it.copyTo(etagFile, overwrite = true); it.delete() }
+        }
         if (!dbFile.exists()) copySeed()
         var opened = CatalogDatabase.open(dbFile.path, json)
         if (opened == null) {
@@ -115,8 +124,38 @@ class CatalogRepository(
      * Throttled by [ttlMillis]; a no-op when the release is unchanged.
      */
     suspend fun refreshIfStale(ttlMillis: Long = DEFAULT_STALE_AFTER_MS) {
-        if (!isStale(ttlMillis)) return
+        if (!isStale(ttlMillis) || pendingFile.exists()) return
+        // A device with no downloaded catalog has only the seed, and needs it now.
+        if (etagFile.exists()) {
+            kotlinx.coroutines.delay(SETTLE_AFTER_LAUNCH_MS)
+            if (!isStale(ttlMillis)) return
+        }
         refresh()
+    }
+
+    /** Set by the app's lifecycle. A new catalog is not swapped in under a viewer. */
+    @Volatile var onScreen = true
+
+    /**
+     * Swapping rebuilds Home: every shelf re-queried and recomposed. On a TV box
+     * that ran over a viewer's key presses and made them ANRs (Play vitals,
+     * 2026-11: 21 of 22 on Android 14 boxes, most with a refresh in flight). So a
+     * finished download waits here until the app is off screen, or the next launch.
+     */
+    private val pendingFile: File get() = File(context.filesDir, "catalog.sqlite.next")
+    private val pendingEtagFile: File get() = File(context.filesDir, "catalog.next.etag")
+
+    suspend fun applyPending() = withContext(Dispatchers.IO) {
+        refreshMutex.withLock { swapInPending() }
+    }
+
+    private suspend fun swapInPending() {
+        if (!pendingFile.exists()) return
+        val old = db
+        if (!pendingFile.renameTo(dbFile)) return
+        swap(CatalogDatabase.open(dbFile.path, json))
+        old?.closeWhenIdle()
+        pendingEtagFile.takeIf { it.exists() }?.let { it.copyTo(etagFile, overwrite = true); it.delete() }
     }
 
     /**
@@ -153,6 +192,19 @@ class CatalogRepository(
     }
 
     private suspend fun refreshInner() = withContext(Dispatchers.IO) {
+        // At normal priority the inflate and its writes took the CPU from a weak
+        // box's main thread. All of that work is blocking, on this one thread.
+        val tid = android.os.Process.myTid()
+        val priorPriority = android.os.Process.getThreadPriority(tid)
+        android.os.Process.setThreadPriority(tid, android.os.Process.THREAD_PRIORITY_BACKGROUND)
+        try {
+            refreshBlocking()
+        } finally {
+            android.os.Process.setThreadPriority(tid, priorPriority)
+        }
+    }
+
+    private suspend fun refreshBlocking() {
         // Load-path timing, debug builds only. It is what found the duplicate
         // refresh: `refresh:enter` appeared TWICE in one cold launch.
         val t0 = android.os.SystemClock.elapsedRealtime()
@@ -171,7 +223,7 @@ class CatalogRepository(
             System.currentTimeMillis() - dbFile.lastModified() < METERED_MAX_AGE_MS
         ) {
             mark("refresh:skip-metered")
-            return@withContext
+            return
         }
         try {
             val builder = Request.Builder().url(ZZ_URL)
@@ -184,8 +236,8 @@ class CatalogRepository(
                 // A completed round trip counts as a check even when unchanged,
                 // so the TTL throttles re-checks rather than re-downloads.
                 lastCheckFile.writeText(System.currentTimeMillis().toString())
-                if (response.code == 304) return@withContext
-                if (!response.isSuccessful) return@withContext
+                if (response.code == 304) return
+                if (!response.isSuccessful) return
                 val body = response.body
 
                 // STREAMED: inflate straight off the socket into staging, so the
@@ -202,15 +254,23 @@ class CatalogRepository(
                 try {
                     inflateRawDeflate(body.byteStream(), staging)
                     mark("inflate:done")
-                    if (staging.length() < MIN_VALID_BYTES) return@withContext
+                    if (staging.length() < MIN_VALID_BYTES) return
 
                     // Open probe — meta.itemCount must exist (§9.5).
-                    val probe = CatalogDatabase.open(staging.path, json) ?: return@withContext
+                    val probe = CatalogDatabase.open(staging.path, json) ?: return
                     probe.close()
                     mark("probe:done")
 
+                    // Under a viewer, it waits (see pendingFile). The seed is
+                    // replaced at once: that is the wait the viewer is in.
+                    if (onScreen && etagFile.exists()) {
+                        if (!staging.renameTo(pendingFile)) return
+                        response.header("ETag")?.let { pendingEtagFile.writeText(it) }
+                        mark("swap:deferred")
+                        return
+                    }
                     val old = db
-                    if (!staging.renameTo(dbFile)) return@withContext
+                    if (!staging.renameTo(dbFile)) return
                     swap(CatalogDatabase.open(dbFile.path, json))
                     mark("swap:done")
                     old?.closeWhenIdle()

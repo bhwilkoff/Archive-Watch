@@ -46,7 +46,10 @@ class ArchiveWatchApplication : Application(), SingletonImageLoader.Factory {
                     .maxSizeBytes(500L * 1024 * 1024)
                     .build()
             }
-            .crossfade(true)
+            // Decoding posters four at a time on a four-core TV box took the CPU
+            // from the main thread; so does a crossfade per tile across a shelf.
+            .decoderCoroutineContext(kotlinx.coroutines.Dispatchers.IO.limitedParallelism(2))
+            .crossfade(!packageManager.hasSystemFeature(android.content.pm.PackageManager.FEATURE_LEANBACK))
             .apply { if (BuildConfig.DEBUG) eventListener(ImageTiming) }
             .build()
 

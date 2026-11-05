@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.screens
 
+import app.archivewatch.android.ui.uniqueBy
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -216,7 +217,7 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                 }
             }
         }
-        items(season?.episodes.orEmpty(), key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { episode ->
+        items(season?.episodes.orEmpty().uniqueBy { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }, key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { episode ->
             EpisodeRow(episode, current.title) {
                 // Open the episode's OWN Detail page (favorite / playlist / share / play,
                 // Decision 045) — like any film. Falls back to inline play only if the episode
