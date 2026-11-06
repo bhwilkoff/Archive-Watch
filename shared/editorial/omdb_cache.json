@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-05T09:33:05Z",
+  "updated_at": "2026-11-06T09:27:51Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-05T09:33:05Z"
+      "last_tried": "2026-11-06T09:27:51Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-05T09:33:05Z"
+      "last_tried": "2026-11-06T09:27:51Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395576,6 +395576,209 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-05T09:33:05Z",
+      "schema": 4
+    },
+    "tt0029529": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzAyYjRiM2UtNDFmNS00NDNkLWFmNTYtYmVlZTQ3M2JhOWU2XkEyXkFqcGdeQXVyNjc0MzMzNjA@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 494,
+      "content_rating": "Approved",
+      "plot": "Raoul McLish stops over in Miami Beach where he runs into his ex-wife, Vicky Benton, and her new husband Bob, a belt manufacturer. At first Bob enjoys Raoul's presence - in part because Vicky is his not Raoul's and in part because Raoul is a lot of fun. The fun wears thin for Bob as his seriousness and possessiveness take over. When Bob leaves for a few days to settle a labor dispute at his factory, Vicky and Raoul spend time together, Winchell's column implies untoward behavior, Bob barks at Vicky, and that gets her back up. Can things be sorted out? Help comes from Raoul's upright valet, McTavish, and a principled cigarette girl, Joy, whom Raoul picks up.",
+      "runtime_min": 79,
+      "director": "Walter Lang",
+      "actors": [
+        "Tyrone Power",
+        "Loretta Young",
+        "Stuart Erwin"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt0052301": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTI3MjIzYmMtMDNlMC00ZDI3LWJiYjMtMzU0YmI0NmZiMGZhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 1279,
+      "content_rating": "Not Rated",
+      "plot": "Accident-prone Fingers runs a pretty unsuccessful gang. They try and rob wealthy but tricky Billy Gordon - who distrusts banks and fears the Inland Revenue - but he sees Fingers and the boys off. So they decide to kidnap his daughter, only to end up with his wife Lucy. Gordon makes out he couldn't be more pleased, spurring Lucy to take charge of the hopeless bunch of villains.",
+      "runtime_min": 85,
+      "director": "Mario Zampi",
+      "actors": [
+        "Terry-Thomas",
+        "George Cole",
+        "Brenda de Banzie"
+      ],
+      "genres": [
+        "Comedy",
+        "Crime"
+      ],
+      "critics": {
+        "mc": 76
+      },
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt0267891": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDY2YjVlNGMtZmE0Yy00ZjhkLWFhMWUtMTI1NjgzMzQ0OTJiXkEyXkFqcGc@._V1_QL75_UY562_CR0,0,380,562_.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 41213,
+      "content_rating": "PG-13",
+      "plot": "This comedy is about two guys who decide to rig the Special Olympics to pay off a debt by having one of them, Steve (Knoxville), pose as a contestant in the games, hoping to dethrone reigning champion, Jimmy. Mentally-challenged high jinks and hilarity surely follow.",
+      "runtime_min": 94,
+      "director": "Barry W. Blaustein",
+      "actors": [
+        "Johnny Knoxville",
+        "Katherine Heigl",
+        "Brian Cox"
+      ],
+      "genres": [
+        "Comedy",
+        "Sport"
+      ],
+      "critics": {
+        "rt": 40,
+        "mc": 46
+      },
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt0292088": {
+      "poster_url": null,
+      "imdb_rating": 5.8,
+      "imdb_votes": 11,
+      "content_rating": null,
+      "plot": "Tobacco giants leverage their power, strength, and marketing expertise to propagate tobacco addiction globally, even at the cost of human lives. The documentary specifically highlights the Philip Morris brand and its tactics in en...",
+      "runtime_min": 30,
+      "director": "Kelly Anderson, Tami Gold",
+      "actors": [
+        "Mary Assunta",
+        "Matús Bakyta",
+        "Melinh Jenkins"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt0433383": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTJhMmY5OGMtNDZhNS00ZjAyLWFmODQtOTA0NWM5NjMyOTk5XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 105874,
+      "content_rating": "PG",
+      "plot": "In the early 1950's, the threat of Communism created an air of paranoia in the United States and exploiting those fears was Senator Joseph McCarthy of Wisconsin. However, CBS reporter Edward R. Murrow and his producer Fred W. Friendly decided to take a stand and challenge McCarthy and expose him for the fear monger he was. However, their actions took a great personal toll on both men, but they stood by their convictions and helped to bring down one of the most controversial senators in American history.",
+      "runtime_min": 93,
+      "director": "George Clooney",
+      "actors": [
+        "David Strathairn",
+        "George Clooney",
+        "Patricia Clarkson"
+      ],
+      "genres": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "critics": {
+        "rt": 93,
+        "mc": 80
+      },
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt2027255": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzI2MjY0NDE1NF5BMl5BanBnXkFtZTgwMjcyMDEwNzE@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 1654,
+      "content_rating": "TV-G",
+      "plot": "Tom the Cat and Jerry the Mouse get whisked away into The land of Oz.",
+      "runtime_min": 56,
+      "director": "Spike Brandt, Tony Cervone",
+      "actors": [
+        "Grey Griffin",
+        "Nikki Yanofsky",
+        "Joe Alaskey",
+        "Michael Gough"
+      ],
+      "genres": [
+        "Animation",
+        "Adventure",
+        "Comedy",
+        "Family",
+        "Fantasy",
+        "Musical"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt3141866": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTUxOTI1MzMzMl5BMl5BanBnXkFtZTgwOTMzNjg2MDE@._V1_QL75_UY562_CR18,0,380,562_.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 4072,
+      "content_rating": "TV-PG",
+      "plot": "A live telecast of the famous Rodgers and Hammerstein musical.",
+      "runtime_min": 180,
+      "director": "Rob Ashford, Beth McCarthy-Miller",
+      "actors": [
+        "Carrie Underwood",
+        "Stephen Moyer",
+        "Laura Benanti"
+      ],
+      "genres": [
+        "Biography",
+        "Drama",
+        "Family"
+      ],
+      "critics": {
+        "rt": 44
+      },
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt7165836": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzA3MzVjOWEtMzA3ZS00YWRmLTg5ZTYtYmJjZmU4MDk2Nzk3XkEyXkFqcGdeQXVyNTE0NTYyMDk@._V1_SX300.jpg",
+      "imdb_rating": 8.4,
+      "imdb_votes": 14,
+      "content_rating": null,
+      "plot": "On the closing day of his beloved roller-rink, a retro robot does his best to survive his final shift despite his scummy boss, kinky coworker, and a whole host of eccentric new-age customers.",
+      "runtime_min": 10,
+      "director": "Dakota Arseneault",
+      "actors": [
+        "Eli Gottfried",
+        "Edvin Meseljevic",
+        "Melissa Wright"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-06T09:27:51Z",
+      "schema": 4
+    },
+    "tt7471750": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzg3Njc2MDQtNWM2Yy00NWVkLWJmNzMtYTk1ZDBjYjk5N2M2XkEyXkFqcGdeQXVyODU4MjAxOQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": "Carmen Castillo, a Dominican hotel housekeeper in downtown Providence, RI, has won an election to the City Council. Now she must manage her day job cleaning hotel rooms, while advocating for low-income workers as a rookie politician.",
+      "runtime_min": 57,
+      "director": "Margo Guernsey",
+      "actors": [
+        "Carmen Castillo"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-06T09:27:51Z",
       "schema": 4
     }
   },
