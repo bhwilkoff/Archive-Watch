@@ -3925,6 +3925,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "ubang"
+  },
+  {
+   "at": "2026-11-06T03:28:49.345025+00:00",
+   "id": "silent-mary-queen-of-tots",
+   "title": "Mary, Queen of Tots",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzmgvfhonx25",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

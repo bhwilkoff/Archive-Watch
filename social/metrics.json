@@ -5231,6 +5231,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz57mk34dj24",
+   "platform": "bluesky",
+   "id": "fragment-of-an-empire-1929",
+   "slot": "now-showing",
+   "format": "card",
+   "window": "7d",
+   "posted": "2026-10-31T02:08:52.262961+00:00",
+   "sampled": "2026-11-06T03:29:05.262712+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzjwmfthav24",
+   "platform": "bluesky",
+   "id": "dra-cula.-eng.-mp-4.",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-05T03:32:10.992991+00:00",
+   "sampled": "2026-11-06T03:29:05.262712+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
