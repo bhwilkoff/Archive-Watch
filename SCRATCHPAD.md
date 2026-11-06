@@ -794,6 +794,6 @@ cannot click is not a blocker: ROKU-SUBMISSION). Fire TV adb needs its prompt ac
 account. Mac device pass not run.
 
 **11-06**: third Google notice, Thunderbirds (ITV), case TD-A9ASQAV1: series and its four
-uploads removed. Open, the owner's: the other Gerry Anderson titles (same 1964-77 keep band).
+uploads removed. The other Gerry Anderson titles stay until someone asks (owner, 11-06).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
