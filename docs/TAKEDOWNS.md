@@ -60,6 +60,9 @@ The check runs for one request at a time. It is never a catalog scan.
 | `<item>@<token>` | one file of a whole-series item |
 | `series:<slug>` | a show: card, spine and every episode |
 
+The check writes only the `series:` line. Add each of the show's source uploads as an
+`<item>` line under the same case, so a rebuild cannot serve them under another slug.
+
 A line carrying `"rule": "file"` is written by `tools/audit_tv_rights.py`: a file of a
 compilation renewed in its own right (Decision 179). Its `"until"` is the year the work
 leaves copyright, after which the line stops holding and the next rebuild brings the

@@ -793,4 +793,7 @@ dialog is open with notes filled, for the owner to certify and Submit (a Chrome 
 cannot click is not a blocker: ROKU-SUBMISSION). Fire TV adb needs its prompt accepted at the TV. LG needs a Seller Lounge
 account. Mac device pass not run.
 
+**11-06**: third Google notice, Thunderbirds (ITV), case TD-A9ASQAV1: series and its four
+uploads removed. Open, the owner's: the other Gerry Anderson titles (same 1964-77 keep band).
+
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

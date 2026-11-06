@@ -381,5 +381,21 @@
   "series:thunderbirds-1965": {
     "date": "2026-11-06",
     "case": "TD-A9ASQAV1"
+  },
+  "01ThunderbirdsTrappedInTheSky": {
+    "date": "2026-11-06",
+    "case": "TD-A9ASQAV1"
+  },
+  "thunderbirds-tv-series": {
+    "date": "2026-11-06",
+    "case": "TD-A9ASQAV1"
+  },
+  "ThunderbirdsSeries": {
+    "date": "2026-11-06",
+    "case": "TD-A9ASQAV1"
+  },
+  "thunderbirds-pilot-episode-trapped-in-the-sky": {
+    "date": "2026-11-06",
+    "case": "TD-A9ASQAV1"
   }
 }
