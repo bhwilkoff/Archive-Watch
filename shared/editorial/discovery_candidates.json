@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-05T11:52:30Z",
+  "updated_at": "2026-11-06T11:58:07Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72236,
+    "total": 72238,
     "new_this_run": 0,
     "awaiting_ingest": 1008,
-    "with_archive_id": 63914
+    "with_archive_id": 63918
   },
   "candidates": [
     {
@@ -49824,6 +49824,21 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "carnival-cruise-line-tv-spot-commercial-never-want-to-stop-featuring-shaquille-o",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Carnival Cruise Line TV Spot Commercial 'Never Want To Stop' Featuring Shaquille O' Neal (2018) (Remake Version)",
+      "year": 2018,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-05T11:51:39Z",
+      "ingested_at": "2026-11-05T11:52:30Z"
+    },
+    {
       "iaid": "dead-girl-walking-reprise-heathers-musical-animatic",
       "title": "Dead Girl Walking (Reprise) - Heathers Musical Animatic",
       "year": 2017,
@@ -98437,6 +98452,51 @@
       "archiveCollection": "newsandpublicaffairs",
       "status": "held_modern_license",
       "discovered_at": "2026-11-04T11:53:20Z"
+    },
+    {
+      "iaid": "pillow-pets-dream-lites-tv-commercial-2012-hq-vhs-rip-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pillow Pets - Dream Lites TV Commercial (2012) (HQ VHS Rip Version)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-05T11:51:39Z",
+      "ingested_at": "2026-11-05T11:52:30Z"
+    },
+    {
+      "iaid": "pillow-pets-dream-lites-lights-commercial-2012",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pillow Pets - Dream Lites Lights Commercial (2012)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-05T11:51:39Z",
+      "ingested_at": "2026-11-05T11:52:30Z"
+    },
+    {
+      "iaid": "sprout-chica-plush-toy-commercial-2012",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Sprout - Chica Plush Toy Commercial (2012)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-05T11:51:39Z",
+      "ingested_at": "2026-11-05T11:52:30Z"
     },
     {
       "iaid": "CompilationOfClassicTvFootage",
@@ -989072,64 +989132,34 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "pillow-pets-dream-lites-tv-commercial-2012-hq-vhs-rip-version",
+      "iaid": "brisk-eminem-super-bowl-commercial-2011-eminemfi-360p-h-264",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Pillow Pets - Dream Lites TV Commercial (2012) (HQ VHS Rip Version)",
-      "year": 2012,
+      "title": "Brisk Eminem Super Bowl Commercial 2011",
+      "year": null,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-05T11:51:39Z",
-      "ingested_at": "2026-11-05T11:52:30Z"
+      "discovered_at": "2026-11-06T11:57:10Z",
+      "ingested_at": "2026-11-06T11:58:07Z"
     },
     {
-      "iaid": "carnival-cruise-line-tv-spot-commercial-never-want-to-stop-featuring-shaquille-o",
+      "iaid": "cbs-wpri-commercial-break-october-23-2024_202611",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Carnival Cruise Line TV Spot Commercial 'Never Want To Stop' Featuring Shaquille O' Neal (2018) (Remake Version)",
-      "year": 2018,
+      "title": "CBS (WPRI Commercial Break October 23 2024)",
+      "year": 2024,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-05T11:51:39Z",
-      "ingested_at": "2026-11-05T11:52:30Z"
-    },
-    {
-      "iaid": "pillow-pets-dream-lites-lights-commercial-2012",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Pillow Pets - Dream Lites Lights Commercial (2012)",
-      "year": 2012,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-05T11:51:39Z",
-      "ingested_at": "2026-11-05T11:52:30Z"
-    },
-    {
-      "iaid": "sprout-chica-plush-toy-commercial-2012",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Sprout - Chica Plush Toy Commercial (2012)",
-      "year": 2012,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-05T11:51:39Z",
-      "ingested_at": "2026-11-05T11:52:30Z"
+      "discovered_at": "2026-11-06T11:57:10Z",
+      "ingested_at": "2026-11-06T11:58:07Z"
     }
   ]
 }
