@@ -3985,6 +3985,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-07T02:47:32.589205+00:00",
+   "id": "silent-the-ghost-of-slumber-mountain",
+   "title": "The Ghost of Slumber Mountain",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzov2ezzvk24",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

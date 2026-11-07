@@ -5325,6 +5325,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mz7q5qzo4j26",
+   "platform": "bluesky",
+   "id": "xd-38414-the-magic-key-vwr",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-01T02:10:01.372917+00:00",
+   "sampled": "2026-11-07T02:47:43.346807+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzmgvfhonx25",
+   "platform": "bluesky",
+   "id": "silent-mary-queen-of-tots",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-06T03:28:49.345025+00:00",
+   "sampled": "2026-11-07T02:47:43.346807+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
