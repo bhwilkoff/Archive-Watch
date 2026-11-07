@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-06T11:58:07Z",
+  "updated_at": "2026-11-07T11:10:33Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72238,
+    "total": 72241,
     "new_this_run": 0,
     "awaiting_ingest": 1008,
-    "with_archive_id": 63918
+    "with_archive_id": 63920
   },
   "candidates": [
     {
@@ -12945,6 +12945,21 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "cbs-wpri-commercial-break-october-23-2024_202611",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "CBS (WPRI Commercial Break October 23 2024)",
+      "year": 2024,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-06T11:57:10Z",
+      "ingested_at": "2026-11-06T11:58:07Z"
     },
     {
       "iaid": "purowave-complete-archive",
@@ -884376,6 +884391,21 @@
       "discovered_at": "2026-11-04T11:53:20Z"
     },
     {
+      "iaid": "brisk-eminem-super-bowl-commercial-2011-eminemfi-360p-h-264",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Brisk Eminem Super Bowl Commercial 2011",
+      "year": null,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-06T11:57:10Z",
+      "ingested_at": "2026-11-06T11:58:07Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -989132,34 +989162,49 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "brisk-eminem-super-bowl-commercial-2011-eminemfi-360p-h-264",
+      "iaid": "bernie-phyls-new-england-commercial-march-2003-480p",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Brisk Eminem Super Bowl Commercial 2011",
-      "year": null,
+      "title": "Bernie & Phyl's (New England) Commercial, March 2003 480p",
+      "year": 2003,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-06T11:57:10Z",
-      "ingested_at": "2026-11-06T11:58:07Z"
+      "discovered_at": "2026-11-07T11:09:18Z",
+      "ingested_at": "2026-11-07T11:10:33Z"
     },
     {
-      "iaid": "cbs-wpri-commercial-break-october-23-2024_202611",
+      "iaid": "bryce-gets-scared-by-a-car-commercial_202611",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "CBS (WPRI Commercial Break October 23 2024)",
-      "year": 2024,
+      "title": "Bryce Gets Scared By A Car Commercial",
+      "year": 2008,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-06T11:57:10Z",
-      "ingested_at": "2026-11-06T11:58:07Z"
+      "discovered_at": "2026-11-07T11:09:18Z",
+      "ingested_at": "2026-11-07T11:10:33Z"
+    },
+    {
+      "iaid": "mobizen_20261106_190119",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "KFC Jamaica Snacker Commercial 2006",
+      "year": 2006,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-07T11:09:18Z",
+      "ingested_at": "2026-11-07T11:10:33Z"
     }
   ]
 }
