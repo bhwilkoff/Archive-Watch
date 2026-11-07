@@ -3997,6 +3997,66 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-07T19:27:06.506426+00:00",
+   "id": "ParlorBedroomandBath",
+   "title": "Parlor, Bedroom and Bath",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzqmvqpraw2h",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Classic_TV_and_Radio_Fan"
+  },
+  {
+   "at": "2026-11-07T19:27:06.506426+00:00",
+   "id": "ParlorBedroomandBath",
+   "title": "Parlor, Bedroom and Bath",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117576803525611590",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Classic_TV_and_Radio_Fan"
+  },
+  {
+   "at": "2026-11-07T19:27:06.506426+00:00",
+   "id": "ParlorBedroomandBath",
+   "title": "Parlor, Bedroom and Bath",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Dfc7mJulPFQ",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Classic_TV_and_Radio_Fan"
+  },
+  {
+   "at": "2026-11-07T19:27:06.506426+00:00",
+   "id": "ParlorBedroomandBath",
+   "title": "Parlor, Bedroom and Bath",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dfc7qtilBPS/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117576803180102128",
+   "reviewer": "Classic_TV_and_Radio_Fan"
+  },
+  {
+   "at": "2026-11-07T19:27:06.506426+00:00",
+   "id": "ParlorBedroomandBath",
+   "title": "Parlor, Bedroom and Bath",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=7y6Dlcc-zMI",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Classic_TV_and_Radio_Fan"
   }
  ]
 }
