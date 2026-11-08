@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-07T11:10:33Z",
+  "updated_at": "2026-11-08T11:12:37Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72241,
+    "total": 72249,
     "new_this_run": 0,
     "awaiting_ingest": 1008,
-    "with_archive_id": 63920
+    "with_archive_id": 63923
   },
   "candidates": [
     {
@@ -145377,6 +145377,21 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "bryce-gets-scared-by-a-car-commercial_202611",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Bryce Gets Scared By A Car Commercial",
+      "year": 2008,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-07T11:09:18Z",
+      "ingested_at": "2026-11-07T11:10:33Z"
+    },
+    {
       "iaid": "The_Vandhaal_Clash_with_the_Gibichungen_directors_cut_04",
       "title": "Clash with the Gibichungen The Directors cut DvD video",
       "year": 2007,
@@ -165868,6 +165883,21 @@
       "archiveCollection": "newsandpublicaffairs",
       "status": "no_video",
       "discovered_at": "2026-11-04T11:53:20Z"
+    },
+    {
+      "iaid": "mobizen_20261106_190119",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "KFC Jamaica Snacker Commercial 2006",
+      "year": 2006,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-07T11:09:18Z",
+      "ingested_at": "2026-11-07T11:10:33Z"
     },
     {
       "iaid": "PierreMichelArcandVilledeBanlieueVilleDangereuse_0",
@@ -187128,6 +187158,21 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "bernie-phyls-new-england-commercial-march-2003-480p",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Bernie & Phyl's (New England) Commercial, March 2003 480p",
+      "year": 2003,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-07T11:09:18Z",
+      "ingested_at": "2026-11-07T11:10:33Z"
     },
     {
       "iaid": "tapporalli",
@@ -989162,40 +989207,85 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "bernie-phyls-new-england-commercial-march-2003-480p",
+      "iaid": "km_20261107-1_1080p_30f_20261107_130123",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Bernie & Phyl's (New England) Commercial, March 2003 480p",
-      "year": 2003,
+      "title": "WATA Tania Baron Commercial 2010",
+      "year": 2010,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-07T11:09:18Z",
-      "ingested_at": "2026-11-07T11:10:33Z"
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
     },
     {
-      "iaid": "bryce-gets-scared-by-a-car-commercial_202611",
+      "iaid": "videoplayback_20261107_1816",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Bryce Gets Scared By A Car Commercial",
-      "year": 2008,
+      "title": "WATA News Commercial 2010",
+      "year": 2010,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-07T11:09:18Z",
-      "ingested_at": "2026-11-07T11:10:33Z"
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
     },
     {
-      "iaid": "mobizen_20261106_190119",
+      "iaid": "km_20261107-2_1080p_30f_20261107_143858",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "KFC Jamaica Snacker Commercial 2006",
+      "title": "WATA Commercial September 2010",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "videoplayback-1_20261107_1836",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "WATA Yohan Blake Commercial 2013",
+      "year": 2013,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "httpsvt.tiktok.comzspbubfdn",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Alice in Wonderland Dr Pepper AD (1984)",
+      "year": 1984,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "y-2meta.com-bernie-phyls-commercial-2006-360p",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Bernie & Phyl's Commercial (2006) (360p)",
       "year": 2006,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
@@ -989203,8 +989293,38 @@
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-07T11:09:18Z",
-      "ingested_at": "2026-11-07T11:10:33Z"
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "km_20261107_1080p_30f_20261107_121014",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "WATA Jennifer Lopez Commercial 2011",
+      "year": 2011,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "fdownloader.vn-f-9de-133e-720p-hd",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "WATA Kamila McDonald Commercial 2017",
+      "year": 2017,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-08T11:11:35Z",
+      "ingested_at": "2026-11-08T11:12:37Z"
     }
   ]
 }

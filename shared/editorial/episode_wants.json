@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-07T11:10:47Z",
+  "updated_at": "2026-11-08T11:12:49Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19480,
-    "wanted": 19210,
+    "total": 19483,
+    "wanted": 19213,
     "fulfilled": 270,
-    "series_with_gaps": 395
+    "series_with_gaps": 396
   },
   "wants": [
     {
@@ -102963,6 +102963,36 @@
       "episodeImdbID": "tt6346144",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "ripping-yarns-1976",
+      "seriesTitle": "Ripping Yarns",
+      "season": 2,
+      "episode": 1,
+      "title": "Whinfrey's Last Case",
+      "episodeImdbID": "tt0686868",
+      "status": "wanted",
+      "added_at": "2026-11-08T11:12:49Z"
+    },
+    {
+      "seriesID": "ripping-yarns-1976",
+      "seriesTitle": "Ripping Yarns",
+      "season": 2,
+      "episode": 2,
+      "title": "Golden Gordon",
+      "episodeImdbID": "tt0686862",
+      "status": "wanted",
+      "added_at": "2026-11-08T11:12:49Z"
+    },
+    {
+      "seriesID": "ripping-yarns-1976",
+      "seriesTitle": "Ripping Yarns",
+      "season": 2,
+      "episode": 3,
+      "title": "Roger of the Raj",
+      "episodeImdbID": "tt0686864",
+      "status": "wanted",
+      "added_at": "2026-11-08T11:12:49Z"
     },
     {
       "seriesID": "rocky-jones-space-ranger-1954",
