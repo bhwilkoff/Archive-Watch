@@ -4069,6 +4069,54 @@
    "kind": "ephemeral",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-08T19:32:02.772998+00:00",
+   "id": "they_do_come_back_1940",
+   "title": "They Do Come Back",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzt5nmrpyf23",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-08T19:32:02.772998+00:00",
+   "id": "they_do_come_back_1940",
+   "title": "They Do Come Back",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117582485577097387",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-08T19:32:02.772998+00:00",
+   "id": "they_do_come_back_1940",
+   "title": "They Do Come Back",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dffg93IGTAb/",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": "117582485203727068",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-08T19:32:02.772998+00:00",
+   "id": "they_do_come_back_1940",
+   "title": "They Do Come Back",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=MuXJ9_GN2c8",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
