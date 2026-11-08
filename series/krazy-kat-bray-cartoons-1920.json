@@ -35,7 +35,8 @@
             "sizeBytes": 53363852,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/01%20-%20The%20Great%20Cheese%20Robbery%20%281920%29.mp4"
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/01%20-%20The%20Great%20Cheese%20Robbery%20%281920%29.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e02",
@@ -92,7 +93,8 @@
             "sizeBytes": 71238704,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/05%20-%20Chinese%20Honeymoon%20%281920%29%20-%2016mm%20USA%20Keystone%20Black%20and%20White%20Silent%20Film%20Reel%20Print.mp4"
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/05%20-%20Chinese%20Honeymoon%20%281920%29%20-%2016mm%20USA%20Keystone%20Black%20and%20White%20Silent%20Film%20Reel%20Print.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921@e07",
@@ -154,7 +156,8 @@
             "sizeBytes": 13187966,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/Krazy%20Kat%20and%20the%20Wireless%20Wire%20Walkers%20%281920%29.mp4"
+          "downloadURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/Krazy%20Kat%20and%20the%20Wireless%20Wire%20Walkers%20%281920%29.mp4",
+          "yearSource": "title"
         }
       ]
     }
@@ -163,7 +166,5 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "archive",
-  "cast": [],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": []
 }

@@ -10,11 +10,39 @@
   "source": "https://americanarchive.org/catalog/cpb-aacip_55-78tb3njk",
   "year": 1959
  },
+ "all-star-revue-1952": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "bctv-news-hour-access-1974": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "bp-super-show-1960": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "brian-henderson-1960": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "cavalcade-of-stars-1950": {
+  "checked": "2026-11-08",
+  "year": null
+ },
  "classic-car-commercial-1960": {
   "how": "reviewed",
   "source": "https://archive.org/details/DeSoto7",
   "year": 1954,
   "yearEnd": 1955
+ },
+ "classic-commercial-1954": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "classic-commercial-1965": {
+  "checked": "2026-11-08",
+  "year": null
  },
  "court-of-last-resort-1960": {
   "how": "reviewed",
@@ -28,11 +56,39 @@
   "year": 1951,
   "yearEnd": 1952
  },
+ "do-you-trust-your-wife-1956": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "failed-tv-pilot-1961": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "fifties-television-1951": {
+  "how": "overview",
+  "year": 1955
+ },
  "fifties-television-1960": {
   "how": "reviewed",
   "source": "https://en.wikipedia.org/wiki/The_Stu_Erwin_Show",
   "year": 1950,
   "yearEnd": 1955
+ },
+ "follow-that-man-man-against-crime-1953": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "fragment-from-1956": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "frankie-laine-time-1955": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "front-page-detective-1951": {
+  "how": "air date",
+  "year": 1951
  },
  "front-page-detective-1960": {
   "how": "reviewed",
@@ -40,11 +96,19 @@
   "year": 1951,
   "yearEnd": 1953
  },
+ "ge-theater-1953": {
+  "checked": "2026-11-08",
+  "year": null
+ },
  "grand-ole-opry-1960": {
   "how": "reviewed",
   "source": "https://ctva.biz/US/MusicVariety/GrandOleOpry.htm",
   "year": 1955,
   "yearEnd": 1956
+ },
+ "hawkins-falls-1953": {
+  "checked": "2026-11-08",
+  "year": null
  },
  "hollywood-palace-ads-1960": {
   "how": "reviewed",
@@ -58,17 +122,53 @@
   "year": 1953,
   "yearEnd": 1956
  },
+ "i-remember-mama-1950": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "jackpot-bowling-1960": {
+  "how": "overview",
+  "year": 1959
+ },
+ "judge-roy-bean-1956": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "kraft-music-hall-1958": {
+  "checked": "2026-11-08",
+  "year": null
+ },
  "krazy-kat-bray-cartoons-1920": {
   "how": "reviewed",
   "source": "https://en.wikipedia.org/wiki/Krazy_Kat",
   "year": 1920,
   "yearEnd": 1921
  },
+ "les-paul-mary-ford-at-home-1960": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "life-with-buster-keaton-1951": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "life-with-elizabeth-1953": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "mack-and-myer-for-hire-1963": {
+  "how": "overview",
+  "year": 1963
+ },
  "make-that-spare-1960": {
   "how": "reviewed",
   "source": "https://en.wikipedia.org/wiki/Make_That_Spare",
   "year": 1960,
   "yearEnd": 1964
+ },
+ "meet-corliss-archer-1954": {
+  "how": "air date",
+  "year": 1954
  },
  "meet-corliss-archer-1960": {
   "how": "reviewed",
@@ -80,11 +180,55 @@
   "source": "https://www.tvmaze.com/shows/3511/men-into-space",
   "year": 1959
  },
+ "moonstrike-1963": {
+  "how": "air date",
+  "year": 1963
+ },
+ "people-are-funny-1957": {
+  "how": "overview",
+  "year": 1942
+ },
+ "pete-seeger-1965": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "ptl-club-1975": {
+  "how": "overview",
+  "year": 1974
+ },
+ "queen-for-a-day-1955": {
+  "how": "overview",
+  "year": 1956
+ },
+ "queen-for-a-day-1960": {
+  "how": "overview",
+  "year": 1956
+ },
+ "rocky-king-detective-1952": {
+  "how": "air date",
+  "year": 1954
+ },
+ "sheriff-of-cochise-1956": {
+  "how": "overview",
+  "year": 1960
+ },
+ "shower-of-stars-1955": {
+  "how": "overview",
+  "year": 1954
+ },
  "sick-cylinders-1929": {
   "how": "reviewed",
   "source": "https://en.wikipedia.org/wiki/Oswald_the_Lucky_Rabbit",
   "year": 1927,
   "yearEnd": 1930
+ },
+ "stage-7-1955": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "stump-the-stars-1963": {
+  "checked": "2026-11-08",
+  "year": null
  },
  "superman-animated-1940": {
   "how": "reviewed",
@@ -92,11 +236,39 @@
   "year": 1941,
   "yearEnd": 1943
  },
+ "the-arthur-godfrey-show-1958": {
+  "checked": "2026-11-08",
+  "year": null
+ },
  "the-barn-dance-1929": {
   "how": "reviewed",
   "source": "https://archive.org/details/MickeyMouse20s",
   "year": 1928,
   "yearEnd": 1930
+ },
+ "the-big-record-1957": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "the-bob-crosby-show-1953": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "the-frank-sinatra-timex-show-1951": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "the-graham-kennedy-show-1960": {
+  "how": "overview",
+  "year": 1972
+ },
+ "the-morey-amsterdam-show-1949": {
+  "how": "overview",
+  "year": 1948
+ },
+ "the-patti-page-oldsmobile-show-1958": {
+  "checked": "2026-11-08",
+  "year": null
  },
  "the-patti-page-show-1960": {
   "how": "reviewed",
@@ -109,6 +281,26 @@
   "source": "https://en.wikipedia.org/wiki/Pinky_Lee",
   "year": 1954,
   "yearEnd": 1956
+ },
+ "the-rosemary-clooney-show-1956": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "the-secret-storm-1960": {
+  "how": "overview",
+  "year": 1954
+ },
+ "the-spike-jones-show-1952": {
+  "checked": "2026-11-08",
+  "year": null
+ },
+ "the-star-and-the-story-1955": {
+  "how": "air date",
+  "year": 1956
+ },
+ "this-week-in-britain-1970": {
+  "checked": "2026-11-08",
+  "year": null
  },
  "tin-minh-1918": {
   "how": "reviewed",
@@ -127,6 +319,14 @@
   "how": "reviewed",
   "source": "https://en.wikipedia.org/wiki/Winners_of_the_West_(1940_serial)",
   "year": 1940
+ },
+ "you-asked-for-it-1950": {
+  "how": "overview",
+  "year": 1950
+ },
+ "your-hit-parade-1951": {
+  "how": "overview",
+  "year": 1935
  },
  "your-hit-parade-1960": {
   "how": "reviewed",

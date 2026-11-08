@@ -33,7 +33,8 @@
             "sizeBytes": 34144982,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/01%20-%20Plane%20Crazy.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/01%20-%20Plane%20Crazy.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e02",
@@ -52,7 +53,8 @@
             "sizeBytes": 42295446,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/02%20-%20The%20Gallopin%27%20Gaucho.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/02%20-%20The%20Gallopin%27%20Gaucho.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e03",
@@ -71,7 +73,8 @@
             "sizeBytes": 43880421,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/03%20-%20Steamboat%20Willie.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/03%20-%20Steamboat%20Willie.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e04",
@@ -82,7 +85,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/04%20-%20The%20Barn%20Dance_000148.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 419,
           "videoFile": {
             "name": "04 - The Barn Dance.mp4",
@@ -90,7 +93,8 @@
             "sizeBytes": 40285687,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/04%20-%20The%20Barn%20Dance.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/04%20-%20The%20Barn%20Dance.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e05",
@@ -101,7 +105,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/05%20-%20The%20Opry%20House_000177.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 447,
           "videoFile": {
             "name": "05 - The Opry House.mp4",
@@ -109,7 +113,8 @@
             "sizeBytes": 42670042,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/05%20-%20The%20Opry%20House.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/05%20-%20The%20Opry%20House.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e06",
@@ -120,7 +125,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/06%20-%20When%20the%20Cat%27s%20Away_000148.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 394,
           "videoFile": {
             "name": "06 - When the Cat's Away.mp4",
@@ -128,7 +133,8 @@
             "sizeBytes": 38259196,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/06%20-%20When%20the%20Cat%27s%20Away.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/06%20-%20When%20the%20Cat%27s%20Away.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e07",
@@ -139,7 +145,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/07%20-%20The%20Barnyard%20Battle_000177.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 443,
           "videoFile": {
             "name": "07 - The Barnyard Battle.mp4",
@@ -147,7 +153,8 @@
             "sizeBytes": 42245521,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/07%20-%20The%20Barnyard%20Battle.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/07%20-%20The%20Barnyard%20Battle.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e08",
@@ -158,7 +165,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/08%20-%20The%20Plowboy_000147.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 374,
           "videoFile": {
             "name": "08 - The Plowboy.mp4",
@@ -166,7 +173,8 @@
             "sizeBytes": 35935019,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/08%20-%20The%20Plowboy.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/08%20-%20The%20Plowboy.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e09",
@@ -177,7 +185,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/09%20-%20The%20Karnival%20Kid_000177.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 460,
           "videoFile": {
             "name": "09 - The Karnival Kid.mp4",
@@ -185,7 +193,8 @@
             "sizeBytes": 45161558,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/09%20-%20The%20Karnival%20Kid.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/09%20-%20The%20Karnival%20Kid.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e10",
@@ -196,7 +205,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/10%20-%20Mickey%27s%20Follies_000147.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 394,
           "videoFile": {
             "name": "10 - Mickey's Follies.mp4",
@@ -204,7 +213,8 @@
             "sizeBytes": 37630312,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/10%20-%20Mickey%27s%20Follies.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/10%20-%20Mickey%27s%20Follies.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e11",
@@ -215,7 +225,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/11%20-%20Mickey%27s%20Choo-Choo_000147.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 416,
           "videoFile": {
             "name": "11 - Mickey's Choo-Choo.mp4",
@@ -223,7 +233,8 @@
             "sizeBytes": 39582611,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/11%20-%20Mickey%27s%20Choo-Choo.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/11%20-%20Mickey%27s%20Choo-Choo.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e12",
@@ -234,7 +245,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/12%20-%20The%20Jazz%20Fool_000147.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 350,
           "videoFile": {
             "name": "12 - The Jazz Fool.mp4",
@@ -242,7 +253,8 @@
             "sizeBytes": 33231461,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/12%20-%20The%20Jazz%20Fool.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/12%20-%20The%20Jazz%20Fool.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e13",
@@ -253,7 +265,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/13%20-%20Jungle%20Rhythm_000147.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 408,
           "videoFile": {
             "name": "13 - Jungle Rhythm.mp4",
@@ -261,7 +273,8 @@
             "sizeBytes": 38690884,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/13%20-%20Jungle%20Rhythm.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/13%20-%20Jungle%20Rhythm.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e14",
@@ -272,7 +285,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/14%20-%20The%20Haunted%20House_000147.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 408,
           "videoFile": {
             "name": "14 - The Haunted House.mp4",
@@ -280,7 +293,8 @@
             "sizeBytes": 38261856,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/14%20-%20The%20Haunted%20House.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/14%20-%20The%20Haunted%20House.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "pat-powers-mickey-mouse@e15",
@@ -291,7 +305,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/pat-powers-mickey-mouse/pat-powers-mickey-mouse.thumbs/15%20-%20Wild%20Waves_000177.jpg",
           "airDate": null,
-          "year": 1928,
+          "year": 1929,
           "runtimeSeconds": 422,
           "videoFile": {
             "name": "15 - Wild Waves.mp4",
@@ -299,7 +313,8 @@
             "sizeBytes": 39821189,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/15%20-%20Wild%20Waves.mp4"
+          "downloadURL": "https://archive.org/download/pat-powers-mickey-mouse/15%20-%20Wild%20Waves.mp4",
+          "yearSource": "film"
         }
       ]
     }

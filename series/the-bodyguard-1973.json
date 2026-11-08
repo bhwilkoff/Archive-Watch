@@ -33,7 +33,8 @@
             "sizeBytes": 619957233,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/1.%20The%20Bodyguard%20%281973%29%28Widescreen%29.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/1.%20The%20Bodyguard%20%281973%29%28Widescreen%29.ia.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e02",
@@ -52,7 +53,8 @@
             "sizeBytes": 822886089,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/2.%20The%20Bodyguard%20%281973%29%20%28WideScreen%29.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/2.%20The%20Bodyguard%20%281973%29%20%28WideScreen%29.ia.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e03",
@@ -71,7 +73,8 @@
             "sizeBytes": 627220305,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/3.%20The%20Bodyguard%20%281973%29%20%28fullscreen%29.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/3.%20The%20Bodyguard%20%281973%29%20%28fullscreen%29.ia.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "the-bodyguard1973-widescreen-VIVA-CHIBA@e04",
@@ -90,7 +93,8 @@
             "sizeBytes": 1024813177,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/4.%20The%20Bodyguard%20%281973%29%20%28Subtitled%29.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-bodyguard1973-widescreen-VIVA-CHIBA/4.%20The%20Bodyguard%20%281973%29%20%28Subtitled%29.ia.mp4",
+          "yearSource": "title"
         }
       ]
     }
@@ -99,8 +103,5 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "archive",
-  "cast": [],
-  "seriesImdbID": "tt33312057",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  "cast": []
 }

@@ -541,7 +541,7 @@
           "overview": null,
           "stillURL": null,
           "airDate": null,
-          "year": 1973,
+          "year": 1933,
           "runtimeSeconds": 4492,
           "videoFile": {
             "name": "28 Hitler's Germany - The People's Community (1933 - 1939).mp4",
@@ -549,7 +549,8 @@
             "sizeBytes": 1047996132,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/28%20Hitler%27s%20Germany%20-%20The%20People%27s%20Community%20%281933%20-%201939%29.mp4"
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/28%20Hitler%27s%20Germany%20-%20The%20People%27s%20Community%20%281933%20-%201939%29.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e29",
@@ -560,7 +561,7 @@
           "overview": null,
           "stillURL": null,
           "airDate": null,
-          "year": 1973,
+          "year": 1939,
           "runtimeSeconds": 4581,
           "videoFile": {
             "name": "29 Hitler's Germany - Total War (1939 -1945).mp4",
@@ -568,7 +569,8 @@
             "sizeBytes": 1066687699,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/29%20Hitler%27s%20Germany%20-%20Total%20War%20%281939%20-1945%29.mp4"
+          "downloadURL": "https://archive.org/download/the-world-at-war-1973-thames-television-world-war-two/29%20Hitler%27s%20Germany%20-%20Total%20War%20%281939%20-1945%29.mp4",
+          "yearSource": "title"
         },
         {
           "archiveID": "the-world-at-war-1973-thames-television-world-war-two@e30",

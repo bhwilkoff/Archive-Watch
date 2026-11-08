@@ -44,7 +44,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%202%20The%20Mechanical%20Monsters_000198.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1941,
           "runtimeSeconds": 613,
           "videoFile": {
             "name": "Superman Episode 2 The Mechanical Monsters.mp4",
@@ -52,7 +52,8 @@
             "sizeBytes": 204047989,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%202%20The%20Mechanical%20Monsters.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%202%20The%20Mechanical%20Monsters.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e03",
@@ -63,7 +64,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%203%20Billion%20Dollar%20Limited_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 512,
           "videoFile": {
             "name": "Superman Episode 3 Billion Dollar Limited.mp4",
@@ -71,7 +72,8 @@
             "sizeBytes": 170489749,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%203%20Billion%20Dollar%20Limited.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%203%20Billion%20Dollar%20Limited.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e04",
@@ -101,7 +103,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%205%20The%20Bulleteers_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 480,
           "videoFile": {
             "name": "Superman Episode 5 The Bulleteers.mp4",
@@ -109,7 +111,8 @@
             "sizeBytes": 99578852,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%205%20The%20Bulleteers.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%205%20The%20Bulleteers.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e06",
@@ -120,7 +123,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%206%20The%20Magnetic%20Telescope_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 454,
           "videoFile": {
             "name": "Superman Episode 6 The Magnetic Telescope.mp4",
@@ -128,7 +131,8 @@
             "sizeBytes": 94247344,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%206%20The%20Magnetic%20Telescope.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%206%20The%20Magnetic%20Telescope.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e07",
@@ -139,7 +143,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%207%20Electric%20Earthquake_000168.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 520,
           "videoFile": {
             "name": "Superman Episode 7 Electric Earthquake.mp4",
@@ -147,7 +151,8 @@
             "sizeBytes": 140721490,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%207%20Electric%20Earthquake.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%207%20Electric%20Earthquake.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e08",
@@ -158,7 +163,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%208%20Volcano_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 472,
           "videoFile": {
             "name": "Superman Episode 8 Volcano.mp4",
@@ -166,7 +171,8 @@
             "sizeBytes": 98471397,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%208%20Volcano.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%208%20Volcano.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e09",
@@ -177,7 +183,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%209%20Terror%20On%20The%20Midway_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 492,
           "videoFile": {
             "name": "Superman Episode 9 Terror On The Midway.mp4",
@@ -185,7 +191,8 @@
             "sizeBytes": 132966108,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%209%20Terror%20On%20The%20Midway.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%209%20Terror%20On%20The%20Midway.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e10",
@@ -196,7 +203,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2010%20Japoteurs_000172.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 532,
           "videoFile": {
             "name": "Superman Episode 10 Japoteurs.mp4",
@@ -204,7 +211,8 @@
             "sizeBytes": 142090423,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2010%20Japoteurs.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2010%20Japoteurs.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e11",
@@ -234,7 +242,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2012%20%20Eleventh%20Hour_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 478,
           "videoFile": {
             "name": "Superman Episode 12  Eleventh Hour.mp4",
@@ -242,7 +250,8 @@
             "sizeBytes": 49845928,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2012%20%20Eleventh%20Hour.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2012%20%20Eleventh%20Hour.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e13",
@@ -253,7 +262,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2013%20Destruction%20Inc._000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1942,
           "runtimeSeconds": 499,
           "videoFile": {
             "name": "Superman Episode 13 Destruction Inc..mp4",
@@ -261,7 +270,8 @@
             "sizeBytes": 53357568,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2013%20Destruction%20Inc..mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2013%20Destruction%20Inc..mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e14",
@@ -272,7 +282,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2014%20The%20Mummy%20Strikes_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1943,
           "runtimeSeconds": 454,
           "videoFile": {
             "name": "Superman Episode 14 The Mummy Strikes.mp4",
@@ -280,7 +290,8 @@
             "sizeBytes": 47238766,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2014%20The%20Mummy%20Strikes.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2014%20The%20Mummy%20Strikes.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e15",
@@ -291,7 +302,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2015%20Jungle%20Drums_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1943,
           "runtimeSeconds": 467,
           "videoFile": {
             "name": "Superman Episode 15 Jungle Drums.mp4",
@@ -299,7 +310,8 @@
             "sizeBytes": 48751256,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2015%20Jungle%20Drums.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2015%20Jungle%20Drums.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e16",
@@ -310,7 +322,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2016%20The%20Underground%20World_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1943,
           "runtimeSeconds": 476,
           "videoFile": {
             "name": "Superman Episode 16 The Underground World.mp4",
@@ -318,7 +330,8 @@
             "sizeBytes": 45154072,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2016%20The%20Underground%20World.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2016%20The%20Underground%20World.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "SupermanEpisode15JungleDrums@e17",
@@ -329,7 +342,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/SupermanEpisode15JungleDrums/SupermanEpisode15JungleDrums.thumbs/Superman%20Episode%2017%20Secret%20Agent_000165.jpg",
           "airDate": null,
-          "year": 1940,
+          "year": 1943,
           "runtimeSeconds": 448,
           "videoFile": {
             "name": "Superman Episode 17 Secret Agent.mp4",
@@ -337,7 +350,8 @@
             "sizeBytes": 46685885,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2017%20Secret%20Agent.mp4"
+          "downloadURL": "https://archive.org/download/SupermanEpisode15JungleDrums/Superman%20Episode%2017%20Secret%20Agent.mp4",
+          "yearSource": "film"
         }
       ]
     }

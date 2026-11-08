@@ -47,7 +47,7 @@
           "overview": null,
           "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW02_000390.jpg",
           "airDate": null,
-          "year": 1931,
+          "year": 1941,
           "runtimeSeconds": 1085,
           "videoFile": {
             "name": "RTTLW02.mp4",
@@ -55,7 +55,8 @@
             "sizeBytes": 153713697,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW02.mp4"
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW02.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "RTTLW01@e03",

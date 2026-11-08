@@ -39,6 +39,31 @@
    ]
   },
   {
+   "slug": "the-george-burns-and-gracie-allen-show-1950",
+   "tvmazeID": 21693,
+   "title": "The George Burns and Gracie Allen Show",
+   "matched": true,
+   "canonEps": 291,
+   "ourItems": 283,
+   "mappedEps": 268,
+   "extras": 7,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 1,
+   "availableEps": 275,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-george-burns-and-gracie-allen-show-1950"
+    }
+   ]
+  },
+  {
    "slug": "alfred-hitchcock-presents-1955",
    "tvmazeID": 3738,
    "title": "Alfred Hitchcock Presents",
@@ -2399,36 +2424,6 @@
    ]
   },
   {
-   "slug": "the-george-burns-and-gracie-allen-show-1950",
-   "tvmazeID": 21693,
-   "title": "The George Burns and Gracie Allen Show",
-   "matched": true,
-   "canonEps": 291,
-   "ourItems": 283,
-   "mappedEps": 268,
-   "extras": 7,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 1,
-   "availableEps": 275,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-george-burns-and-gracie-allen-show-1950"
-    },
-    {
-     "kind": "single",
-     "ref": "georgeburnsandgracieallen_202307"
-    }
-   ]
-  },
-  {
    "slug": "crossroads-1955",
    "tvmazeID": 21885,
    "title": "Crossroads",
@@ -2912,6 +2907,31 @@
    ]
   },
   {
+   "slug": "commando-cody-sky-marshal-of-the-universe-1955",
+   "tvmazeID": 21868,
+   "title": "Commando Cody: Sky Marshal of the Universe",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 12,
+   "mappedEps": 12,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 1,
+   "availableEps": 12,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "commando-cody-sky-marshal-of-the-universe-1955"
+    }
+   ]
+  },
+  {
    "slug": "far-out-space-nuts-1975",
    "tvmazeID": 7279,
    "title": "Far Out Space Nuts",
@@ -3248,6 +3268,34 @@
     {
      "kind": "series",
      "ref": "the-lawless-years-1959"
+    }
+   ]
+  },
+  {
+   "slug": "victory-at-sea-1952",
+   "tvmazeID": 16606,
+   "title": "Victory at Sea",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 16,
+   "mappedEps": 9,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 1,
+   "wrongShowBundles": [
+    "01designforwar"
+   ],
+   "availableEps": 10,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "victory-at-sea-1952"
     }
    ]
   },
@@ -4720,59 +4768,6 @@
    ]
   },
   {
-   "slug": "thunderbirds-1965",
-   "tvmazeID": 3474,
-   "title": "Thunderbirds",
-   "matched": true,
-   "canonEps": 32,
-   "ourItems": 4,
-   "mappedEps": 3,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "availableEps": 4,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "thunderbirds-1965"
-    }
-   ]
-  },
-  {
-   "slug": "victory-at-sea-1952",
-   "tvmazeID": 16606,
-   "title": "Victory at Sea",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 16,
-   "mappedEps": 9,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 1,
-   "wrongShowBundles": [
-    "01designforwar"
-   ],
-   "availableEps": 10,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "victory-at-sea-1952"
-    }
-   ]
-  },
-  {
    "slug": "window-on-main-street-1961",
    "tvmazeID": 44752,
    "title": "Window on Main Street",
@@ -5485,14 +5480,13 @@
    "title": "The Cosby Show",
    "matched": true,
    "canonEps": 201,
-   "ourItems": 1,
-   "mappedEps": 1,
+   "ourItems": 0,
+   "mappedEps": 0,
    "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 1,
-   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -5683,31 +5677,6 @@
     {
      "kind": "series",
      "ref": "captain-gallant-of-the-foreign-legion-1955"
-    }
-   ]
-  },
-  {
-   "slug": "commando-cody-sky-marshal-of-the-universe-1955",
-   "tvmazeID": 21868,
-   "title": "Commando Cody: Sky Marshal of the Universe",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 12,
-   "mappedEps": 12,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 1,
-   "availableEps": 12,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "commando-cody-sky-marshal-of-the-universe-1955"
     }
    ]
   },
@@ -6090,31 +6059,6 @@
    ]
   },
   {
-   "slug": "the-bob-newhart-show-1972",
-   "tvmazeID": 5734,
-   "title": "The Bob Newhart Show",
-   "matched": true,
-   "canonEps": 142,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "availableEps": 1,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-bob-newhart-show-1972"
-    }
-   ]
-  },
-  {
    "slug": "the-cheaters-1960",
    "tvmazeID": 40336,
    "title": "The Cheaters",
@@ -6310,30 +6254,6 @@
     {
      "kind": "orphan-episode",
      "ref": "TheDeathKiss"
-    }
-   ]
-  },
-  {
-   "slug": "the-lady-killers-2020",
-   "tvmazeID": 54288,
-   "title": "The Lady Killers",
-   "matched": true,
-   "canonEps": 10,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-killers-1946-1080p-1456x-1080-blu-ray-x-264"
     }
    ]
   },
@@ -6650,11 +6570,11 @@
    ]
   },
   {
-   "slug": "inside-the-big-east-2005",
-   "tvmazeID": 11255,
-   "title": "Inside the Big East",
+   "slug": "big-cats-about-the-house-2018",
+   "tvmazeID": 35443,
+   "title": "Big Cats About the House",
    "matched": true,
-   "canonEps": 7,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6670,6 +6590,33 @@
     {
      "kind": "single",
      "ref": "Dragnet_TheBigCast"
+    }
+   ]
+  },
+  {
+   "slug": "batman-the-animated-series-1992",
+   "tvmazeID": 757,
+   "title": "Batman: The Animated Series",
+   "matched": true,
+   "canonEps": 85,
+   "ourItems": 15,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "wrongShowBundles": [
+    "Batman1943Chapter01TheElectricalBrain"
+   ],
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "Batman1943Chapter01TheElectricalBrain"
     }
    ]
   },
@@ -6726,7 +6673,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4877,
+   "canonEps": 4882,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7082,11 +7029,11 @@
    ]
   },
   {
-   "slug": "still-standing-2015",
-   "tvmazeID": 17180,
+   "slug": "still-standing-2002",
+   "tvmazeID": 1502,
    "title": "Still Standing",
    "matched": true,
-   "canonEps": 121,
+   "canonEps": 88,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8210,11 +8157,11 @@
    ]
   },
   {
-   "slug": "teen-angel-1989",
-   "tvmazeID": 50653,
+   "slug": "teen-angel-1997",
+   "tvmazeID": 7987,
    "title": "Teen Angel",
    "matched": true,
-   "canonEps": 12,
+   "canonEps": 17,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8522,11 +8469,11 @@
    ]
   },
   {
-   "slug": "bear-in-the-big-blue-house-1997",
-   "tvmazeID": 8913,
-   "title": "Bear in the Big Blue House",
+   "slug": "the-hungry-games-alaska-s-big-bear-challenge-2024",
+   "tvmazeID": 78046,
+   "title": "The Hungry Games: Alaska's Big Bear Challenge",
    "matched": true,
-   "canonEps": 116,
+   "canonEps": 3,
    "ourItems": 0,
    "mappedEps": 0,
    "extras": 0,
@@ -9338,11 +9285,11 @@
    ]
   },
   {
-   "slug": "franklin-2025",
-   "tvmazeID": 84366,
+   "slug": "franklin-2024",
+   "tvmazeID": 74480,
    "title": "Franklin",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9410,8 +9357,8 @@
    ]
   },
   {
-   "slug": "life-on-mars-2006",
-   "tvmazeID": 850,
+   "slug": "life-on-mars-2018",
+   "tvmazeID": 36188,
    "title": "Life on Mars",
    "matched": true,
    "canonEps": 16,
@@ -9578,11 +9525,11 @@
    ]
   },
   {
-   "slug": "flat-tv-2016",
-   "tvmazeID": 17800,
-   "title": "Flat TV",
+   "slug": "tvf-pitchers-2015",
+   "tvmazeID": 7329,
+   "title": "TVF Pitchers",
    "matched": true,
-   "canonEps": 4,
+   "canonEps": 10,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9746,11 +9693,11 @@
    ]
   },
   {
-   "slug": "greatest-holiday-commercials-countdown-2014",
-   "tvmazeID": 8933,
-   "title": "Greatest Holiday Commercials Countdown",
+   "slug": "super-bowl-s-greatest-commercials-2001",
+   "tvmazeID": 10070,
+   "title": "Super Bowl's Greatest Commercials",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 26,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10154,11 +10101,11 @@
    ]
   },
   {
-   "slug": "harry-2013",
-   "tvmazeID": 7272,
+   "slug": "harry-2016",
+   "tvmazeID": 6373,
    "title": "Harry",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 176,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10182,7 +10129,7 @@
    "tvmazeID": 3164,
    "title": "Heartland",
    "matched": true,
-   "canonEps": 287,
+   "canonEps": 288,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10898,11 +10845,11 @@
    ]
   },
   {
-   "slug": "dennis-the-menace-1986",
-   "tvmazeID": 26779,
+   "slug": "dennis-the-menace-1959",
+   "tvmazeID": 2121,
    "title": "Dennis the Menace",
    "matched": true,
-   "canonEps": 36,
+   "canonEps": 146,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11834,11 +11781,11 @@
    ]
   },
   {
-   "slug": "sydney-s-new-year-s-eve-1996",
-   "tvmazeID": 91153,
-   "title": "Sydney's New Year's Eve",
+   "slug": "new-year-s-eve-live-2020",
+   "tvmazeID": 81256,
+   "title": "New Year's Eve Live",
    "matched": true,
-   "canonEps": 83,
+   "canonEps": 5,
    "ourItems": 0,
    "mappedEps": 0,
    "extras": 0,
@@ -12048,6 +11995,30 @@
      "ref": "hippies_202602"
     }
    ]
+  },
+  {
+   "slug": "the-bob-newhart-show-1972",
+   "tvmazeID": 5734,
+   "title": "The Bob Newhart Show",
+   "matched": true,
+   "canonEps": 142,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "TheBobNewhartShow"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
@@ -12059,10 +12030,11 @@
   "treehouse-tv-2008-part-2",
   "ALF-The-Complete-Series",
   "alf-1987-uk-vhs",
+  "the-cosby-show-complete-series_202512",
+  "the-cosby-show-complete-series_202602",
   "SingleGuyS02E04KeptMan",
   "TheSingleGuyS02E02BestMan",
   "TheDeathKiss",
-  "the-killers-1946-1080p-1456x-1080-blu-ray-x-264",
   "captain-scarlet-tv-series",
   "Dragnet_The_Big_Lift",
   "PeteAndGladys1960CbsSneakPreview",
@@ -12077,6 +12049,7 @@
   "Andy_Griffith_The_Rescue",
   "Dragnet_The_Big_Casing",
   "Dragnet_TheBigCast",
+  "Batman1943Chapter01TheElectricalBrain",
   "Robin_Hood_05_Maid_Marian",
   "Tales_Of_Tomorrow_-_Time_To_Go",
   "NbcNews17march1949",
@@ -12300,7 +12273,8 @@
   "rob-_Lando18",
   "ep-02-under-one-roof",
   "rude-awakening-complete-series",
-  "hippies_202602"
+  "hippies_202602",
+  "TheBobNewhartShow"
  ],
  "orphanSeriesSlugs": [],
  "unmatched": [
@@ -12450,13 +12424,6 @@
    "items": 4,
    "kind": "series",
    "ref": "ge-theater-1953"
-  },
-  {
-   "title": "Gilad Janklowicz",
-   "year": null,
-   "items": 3,
-   "kind": "series",
-   "ref": "gilad-janklowicz-1960"
   },
   {
    "title": "Grand Ole Opry",
@@ -12669,13 +12636,6 @@
    "ref": "the-bob-crosby-show-1953"
   },
   {
-   "title": "The Flockton Flyer 1977",
-   "year": null,
-   "items": 6,
-   "kind": "series",
-   "ref": "the-flockton-flyer-1977-1960"
-  },
-  {
    "title": "The Frank Sinatra Timex Show",
    "year": 1951,
    "items": 3,
@@ -12688,13 +12648,6 @@
    "items": 4,
    "kind": "series",
    "ref": "the-graham-kennedy-show-1960"
-  },
-  {
-   "title": "The Man from U.N.C.L.E",
-   "year": null,
-   "items": 4,
-   "kind": "series",
-   "ref": "the-man-from-uncle-1960"
   },
   {
    "title": "The Mind of Mr. J.G. Reeder",
@@ -13654,13 +13607,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "Love_That_Bob_Ep4x32_Grandpas_Old_Buddy"
-  },
-  {
-   "title": "drifters 202605",
-   "year": 1929,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "drifters-202605"
   },
   {
    "title": "Cheyenne S 01 E 14 Johnny Bravo",

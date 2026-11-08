@@ -1,269 +1,269 @@
 {
   "version": 2,
   "seriesID": "winners-of-the-west-1940",
-  "sourceID": "winners-of-the-west-1940",
+  "sourceID": "chapter-01-redskins-ride-again",
   "tvmazeID": null,
   "title": "Winners of the West",
   "yearStart": 1940,
   "yearEnd": null,
-  "overview": "Beyond Hell's Gate Pass is territory controlled by a man who calls himself King Carter; he uses a variety of schemes to prevent the railroad from being built, for fear it will finish his control of (what he considers) his land.",
-  "posterURL": "https://m.media-amazon.com/images/M/MV5BMTMwMDgwNDg0MV5BMl5BanBnXkFtZTcwMTE5MjE5Mw@@._V1_SX300.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/fIftUZhWiYfJmNYMVZwToOgr81O.jpg",
+  "overview": "Picturization of the trail breaking expedition of Capt. John C. Fremont in 1849 to the California gold fields.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Winners_of_the_West_FilmPoster.jpeg?width=600",
+  "backdropURL": null,
   "genres": [
     "Western"
   ],
   "networks": [],
-  "creator": "Ford Beebe",
+  "creator": "Edward Laemmle",
   "seasons": [
     {
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "winners-of-the-west-1940@e01",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e01",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Redskins Ride Again",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/01%20Redskins%20Ride%20Again_000475.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2001%20-%20Redskins%20Ride%20Again_000565.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1256,
+          "runtimeSeconds": 1447,
           "videoFile": {
-            "name": "01 Redskins Ride Again.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 238221104,
+            "name": "Chapter 01 - Redskins Ride Again.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318346959,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/01%20Redskins%20Ride%20Again.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2001%20-%20Redskins%20Ride%20Again.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e02",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e02",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 2,
           "title": "The Wreck at Red River Gorge",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/02%20The%20Wreck%20at%20Red%20River%20Gorge_000415.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2002%20-%20The%20Wreck%20at%20Red%20River%20Gorge_000477.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1179,
+          "runtimeSeconds": 1252,
           "videoFile": {
-            "name": "02 The Wreck at Red River Gorge.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 184735870,
+            "name": "Chapter 02 - The Wreck at Red River Gorge.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 181218541,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/02%20The%20Wreck%20at%20Red%20River%20Gorge.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2002%20-%20The%20Wreck%20at%20Red%20River%20Gorge.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e03",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e03",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 3,
           "title": "The Bridge of Disaster",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/03%20The%20Bridge%20of%20Disaster_000474.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2003%20-%20The%20Bridge%20of%20Disaster_000534.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1214,
+          "runtimeSeconds": 1286,
           "videoFile": {
-            "name": "03 The Bridge of Disaster.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 229049239,
+            "name": "Chapter 03 - The Bridge of Disaster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 227252118,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/03%20The%20Bridge%20of%20Disaster.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2003%20-%20The%20Bridge%20of%20Disaster.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e04",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e04",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 4,
           "title": "Trapped by Redskins",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/04%20Trapped%20by%20Redskins_000414.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2004%20-%20Trapped%20by%20Redskins_000414.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1074,
+          "runtimeSeconds": 1077,
           "videoFile": {
-            "name": "04 Trapped by Redskins.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 205761682,
+            "name": "Chapter 04 - Trapped by Redskins.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 203315864,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/04%20Trapped%20by%20Redskins.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2004%20-%20Trapped%20by%20Redskins.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e05",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e05",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 5,
           "title": "Death Strikes the Trail",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/05%20Death%20Strikes%20the%20Trail_000415.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2005%20-%20Death%20Strikes%20the%20Trail_000359.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 960,
+          "runtimeSeconds": 1016,
           "videoFile": {
-            "name": "05 Death Strikes the Trail.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 186314113,
+            "name": "Chapter 05 - Death Strikes the Trail.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207634748,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/05%20Death%20Strikes%20the%20Trail.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2005%20-%20Death%20Strikes%20the%20Trail.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e06",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e06",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 6,
           "title": "A Leap for Life",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/06%20A%20Leap%20for%20Life_000417.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2006%20-%20A%20Leap%20for%20Life_000475.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1161,
+          "runtimeSeconds": 1222,
           "videoFile": {
-            "name": "06 A Leap for Life.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 202060122,
+            "name": "Chapter 06 - A Leap for Life.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206767839,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/06%20A%20Leap%20for%20Life.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2006%20-%20A%20Leap%20for%20Life.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e07",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e07",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 7,
           "title": "Thundering Terror",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/07%20Thundering%20Terror_000420.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2007%20-%20Thundering%20Terror_000479.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1069,
+          "runtimeSeconds": 1125,
           "videoFile": {
-            "name": "07 Thundering Terror.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 197824726,
+            "name": "Chapter 07 - Thundering Terror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220922542,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/07%20Thundering%20Terror.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2007%20-%20Thundering%20Terror.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e08",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e08",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 8,
           "title": "The Flaming Arsenal",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/08%20The%20Flaming%20Arsenal_000355.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2008%20-%20The%20Flaming%20Arsenal_000415.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 991,
+          "runtimeSeconds": 1047,
           "videoFile": {
-            "name": "08 The Flaming Arsenal.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 174716023,
+            "name": "Chapter 08 - The Flaming Arsenal.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198173946,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/08%20The%20Flaming%20Arsenal.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2008%20-%20The%20Flaming%20Arsenal.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e09",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e09",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 9,
           "title": "Sacrificed by Savages",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/09%20Sacrificed%20by%20Savages_000417.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2009%20-%20Sacrificed%20by%20Savages_000479.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1146,
+          "runtimeSeconds": 1204,
           "videoFile": {
-            "name": "09 Sacrificed by Savages.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 253143291,
+            "name": "Chapter 09 - Sacrificed by Savages.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 280450649,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/09%20Sacrificed%20by%20Savages.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2009%20-%20Sacrificed%20by%20Savages.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e10",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e10",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 10,
           "title": "Under Crashing Timbers",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/10%20Under%20Crashing%20Timbers_000355.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2010%20-%20Under%20Crashing%20Timbers_000416.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 996,
+          "runtimeSeconds": 1053,
           "videoFile": {
-            "name": "10 Under Crashing Timbers.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 188054973,
+            "name": "Chapter 10 - Under Crashing Timbers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195998584,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/10%20Under%20Crashing%20Timbers.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2010%20-%20Under%20Crashing%20Timbers.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e11",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e11",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 11,
           "title": "Bullets in the Dark",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/11%20Bullets%20in%20the%20Dark_000415.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2011%20-%20Bullets%20in%20the%20Dark_000482.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1144,
+          "runtimeSeconds": 1199,
           "videoFile": {
-            "name": "11 Bullets in the Dark.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 208953520,
+            "name": "Chapter 11 - Bullets in the Dark.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220809605,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/11%20Bullets%20in%20the%20Dark.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2011%20-%20Bullets%20in%20the%20Dark.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e12",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e12",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 12,
           "title": "The Battle of Blackhawk",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/12%20The%20Battle%20of%20Blackhawk_000358.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2012%20-%20The%20Battle%20of%20Blackhawk_000415.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 994,
+          "runtimeSeconds": 1051,
           "videoFile": {
-            "name": "12 The Battle of Blackhawk.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 156403830,
+            "name": "Chapter 12 - The Battle of Blackhawk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159365242,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/12%20The%20Battle%20of%20Blackhawk.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2012%20-%20The%20Battle%20of%20Blackhawk.ia.mp4"
         },
         {
-          "archiveID": "winners-of-the-west-1940@e13",
-          "sourceID": "winners-of-the-west-1940",
+          "archiveID": "chapter-01-redskins-ride-again@e13",
+          "sourceID": "chapter-01-redskins-ride-again",
           "seasonNumber": 1,
           "episodeNumber": 13,
-          "title": "Barricades Blasted",
+          "title": "Barricade Blasted",
           "overview": null,
-          "stillURL": "https://archive.org/download/winners-of-the-west-1940/winners-of-the-west-1940.thumbs/13%20Barricades%20Blasted_000418.jpg",
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2013%20-%20Barricade%20Blasted_000420.jpg",
           "airDate": null,
           "year": 1940,
-          "runtimeSeconds": 1005,
+          "runtimeSeconds": 1074,
           "videoFile": {
-            "name": "13 Barricades Blasted.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 168768543,
+            "name": "Chapter 13 - Barricade Blasted.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177471446,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/winners-of-the-west-1940/13%20Barricades%20Blasted.mp4"
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2013%20-%20Barricade%20Blasted.ia.mp4"
         }
       ]
     }
@@ -271,127 +271,25 @@
   "episodesCount": 13,
   "canonicalEpisodesCount": null,
   "tvdbID": null,
-  "artworkSource": "omdb",
+  "artworkSource": "commons",
   "cast": [
     {
-      "name": "Edward Keane",
-      "character": "John Hartford",
+      "name": "Art Acord",
+      "character": null,
       "order": 0,
-      "profilePath": "/4PLA77BDa27cI9gMzOuadJmbt2t.jpg"
+      "profilePath": "/oQkLrz7mdwkawVQE9KtMTM7ydDL.jpg"
     },
     {
-      "name": "Bob Reeves",
-      "character": "Townsman",
+      "name": "Myrtle Lind",
+      "character": null,
       "order": 1,
-      "profilePath": "/ml4oPHwKq2CWCWpIQs5KYULPCFI.jpg"
+      "profilePath": "/cFW9BXmTAuXjkoLOE4Jo0cncLSA.jpg"
     },
     {
-      "name": "Tom Fadden",
-      "character": "Tex Houston",
+      "name": "Burton Law",
+      "character": null,
       "order": 2,
-      "profilePath": "/5fZfgiaVkVfYrt4dG44CngwFGM.jpg"
-    },
-    {
-      "name": "Fred Graham",
-      "character": "Townsman",
-      "order": 3,
-      "profilePath": "/ygNqVn4LI0c08wF54e0ueOzwe4G.jpg"
-    },
-    {
-      "name": "Harry Woods",
-      "character": "King Carter",
-      "order": 4,
-      "profilePath": "/usSay3yVB6wxsLs3UA94b8CqdzC.jpg"
-    },
-    {
-      "name": "Anne Nagel",
-      "character": "Claire Hartford",
-      "order": 5,
-      "profilePath": "/mz658ALV7kb3TQJWLOW0QrHhLL5.jpg"
-    },
-    {
-      "name": "Kermit Maynard",
-      "character": "Townsman",
-      "order": 6,
-      "profilePath": "/zwP78rIGvc3JKGuqhzZdodU9FfT.jpg"
-    },
-    {
-      "name": "Harry Tenbrook",
-      "character": "Rooney",
-      "order": 7,
-      "profilePath": "/6fvZdgmRw8aOSdDHW6QKGLyTo00.jpg"
-    },
-    {
-      "name": "Philip Van Zandt",
-      "character": "Henchman",
-      "order": 8,
-      "profilePath": "/gcgbz8r0icOvd25HO7uK65QpYpX.jpg"
-    },
-    {
-      "name": "Trevor Bardette",
-      "character": "Raven",
-      "order": 9,
-      "profilePath": "/2UMCLFs7YmM5031cKZvA3C4q7zw.jpg"
-    },
-    {
-      "name": "George Magrill",
-      "character": "Henchman",
-      "order": 10,
-      "profilePath": "/t3vYcOrJ6EAzjjMdiXfNWXUn1wt.jpg"
-    },
-    {
-      "name": "Frank Ellis",
-      "character": "Joe - Henchman",
-      "order": 11,
-      "profilePath": "/q77hl9id06wVFF827PWHYalEajX.jpg"
-    },
-    {
-      "name": "Edmund Cobb",
-      "character": "Maddox",
-      "order": 12,
-      "profilePath": "/icnYHc5GwjZzl9wF2nLP8rPvL8a.jpg"
-    },
-    {
-      "name": "James Craig",
-      "character": "Jim Jackson",
-      "order": 13,
-      "profilePath": "/cTVk52SG5w8VKLWmfcAdSl4I5NE.jpg"
-    },
-    {
-      "name": "Hank Worden",
-      "character": "Drunk",
-      "order": 14,
-      "profilePath": "/8GL5cWYfYuMFLpAH7oQxqDD6kcp.jpg"
-    },
-    {
-      "name": "Roy Barcroft",
-      "character": "Logan",
-      "order": 15,
-      "profilePath": "/57EKCVAOfcNKNNcHBtkmp0cU9od.jpg"
-    },
-    {
-      "name": "Iron Eyes Cody",
-      "character": "indian",
-      "order": 16,
-      "profilePath": "/23h9CuvnyzjJGYsodDTXbiaBuA.jpg"
-    },
-    {
-      "name": "William Desmond",
-      "character": "Bill Brine",
-      "order": 17,
-      "profilePath": "/4ZrHPcaKiybXcApPdG7bF29xvwO.jpg"
-    },
-    {
-      "name": "Dick Foran",
-      "character": "Jeff Ramsay",
-      "order": 18,
-      "profilePath": "/aPw9QMtlx1SwRBTQdKuaziNrZyb.jpg"
-    },
-    {
-      "name": "Charles Stevens",
-      "character": "Snakeye",
-      "order": 19,
-      "profilePath": "/5mCi2fkG5pn68RXaNSDa6eVouPm.jpg"
+      "profilePath": "/1Bn1if7PS8BhVp7UNckOqtMZFoQ.jpg"
     }
   ]
 }

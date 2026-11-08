@@ -36,7 +36,8 @@
             "sizeBytes": 426957088,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/kolchak-the-night-stalker-complete-series-1972/Kolchak%20The%20Night%20Stalker%20S00E01%20-%20The%20Night%20Stalker.mp4"
+          "downloadURL": "https://archive.org/download/kolchak-the-night-stalker-complete-series-1972/Kolchak%20The%20Night%20Stalker%20S00E01%20-%20The%20Night%20Stalker.mp4",
+          "yearSource": "film"
         },
         {
           "archiveID": "kolchak-the-night-stalker-complete-series-1972@s0e02",

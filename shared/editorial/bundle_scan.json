@@ -1946,9 +1946,10 @@
   "verdict": "single"
  },
  "0316AgriculturalAviation": {
-  "checkedAt": "2026-10-18",
-  "isize": 476046782,
+  "checkedAt": "2026-11-08",
+  "isize": 476047434,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "0316AirportAmerica": {
@@ -3094,9 +3095,10 @@
   "verdict": "single"
  },
  "0731_Wonderful_World_19_01_23_00": {
-  "checkedAt": "2026-10-18",
-  "isize": 1515265897,
+  "checkedAt": "2026-11-08",
+  "isize": 1515266732,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "0732_Something_to_Be_Proud_Of_18_22_49_00": {
@@ -15928,9 +15930,10 @@
   "verdict": "single"
  },
  "AmericaG1918": {
-  "checkedAt": "2026-10-18",
-  "isize": 1033147093,
+  "checkedAt": "2026-11-08",
+  "isize": 1033147715,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "American1953": {
@@ -25709,9 +25712,10 @@
   "verdict": "single"
  },
  "FilmRese1956": {
-  "checkedAt": "2026-10-18",
-  "isize": 977425390,
+  "checkedAt": "2026-11-08",
+  "isize": 977426835,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "FilmingOtheloByOrsonWelles": {
@@ -30173,9 +30177,10 @@
   "verdict": "single"
  },
  "Horrors_of_Spider_Island": {
-  "checkedAt": "2026-10-18",
-  "isize": 2649859230,
+  "checkedAt": "2026-11-08",
+  "isize": 2649859688,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "HotRodGirl": {
@@ -33469,9 +33474,10 @@
   "verdict": "single"
  },
  "IvanMarxsTheLegendOfBigfoot-SpecialEdition": {
-  "checkedAt": "2026-10-18",
-  "isize": 2045463017,
+  "checkedAt": "2026-11-08",
+  "isize": 2045463340,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "JAXA_HTV-7_Launch_2018_0922_705615.1.mxf": {
@@ -48383,9 +48389,10 @@
   "verdict": "single"
  },
  "Rawhide_": {
-  "checkedAt": "2026-10-18",
-  "isize": 1350243180,
+  "checkedAt": "2026-11-08",
+  "isize": 1350243845,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "ReachingForTheMoondecember291930": {
@@ -48494,9 +48501,10 @@
   "verdict": "single"
  },
  "ReeferMadness_479": {
-  "checkedAt": "2026-10-18",
-  "isize": 1803285929,
+  "checkedAt": "2026-11-08",
+  "isize": 1803286340,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Reel340_201405": {
@@ -63863,9 +63871,10 @@
   "verdict": "single"
  },
  "TheYesterdayMachine1963": {
-  "checkedAt": "2026-10-18",
-  "isize": 1923834278,
+  "checkedAt": "2026-11-08",
+  "isize": 1923835868,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "TheYesterdayMachine1963_201510": {
@@ -80793,7 +80802,7 @@
   "verdict": "single"
  },
  "bella-genio": {
-  "checkedAt": "2026-10-18",
+  "checkedAt": "2026-11-08",
   "files": [
    {
     "format": "h.264 IA",
@@ -81336,8 +81345,9 @@
     "name": "bella-genio.thumbs/MBG-T1-E30-Nunca olvidaré cómo se llama_000459.jpg"
    }
   ],
-  "isize": 16341995437,
+  "isize": 16341996014,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "belle-et-sebastien": {
@@ -81883,9 +81893,10 @@
   "verdict": "single"
  },
  "birth_of_a_city": {
-  "checkedAt": "2026-10-18",
-  "isize": 1036415955,
+  "checkedAt": "2026-11-08",
+  "isize": 1036416751,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "birthalaboroflove": {
@@ -89836,9 +89847,9 @@
   "verdict": "bundle"
  },
  "classic-warner-bros-movie-collection": {
-  "checkedAt": "2026-11-01",
-  "isize": 17647010498,
-  "reason": "0 numbered of 46",
+  "checkedAt": "2026-11-08",
+  "isize": 18022526327,
+  "reason": "0 numbered of 47",
   "rule": 2,
   "verdict": "single"
  },
@@ -110100,9 +110111,10 @@
   "verdict": "single"
  },
  "gov.faa.sun.07042101": {
-  "checkedAt": "2026-10-18",
-  "isize": 2414528350,
+  "checkedAt": "2026-11-08",
+  "isize": 2414531667,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "gov.faa.sun.07042204": {
@@ -139078,7 +139090,7 @@
   "verdict": "single"
  },
  "naked-city-s-01-e-01-meridian": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-11-08",
   "files": [
    {
     "format": "MPEG4",
@@ -140461,8 +140473,9 @@
     "name": "naked-city-s-01-e-01-meridian.thumbs/Naked City S04E34 Barefoot on a Bed of Coals_000001.jpg"
    }
   ],
-  "isize": 38775562861,
+  "isize": 38775563277,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "nakedmanthe": {
@@ -140502,9 +140515,10 @@
   "verdict": "single"
  },
  "napoleon-1927-bluray-1080p-dts-5.1-x264-usury": {
-  "checkedAt": "2026-10-18",
-  "isize": 40770923034,
+  "checkedAt": "2026-11-08",
+  "isize": 40770923349,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "napoleon-1941": {
@@ -210518,7 +210532,7 @@
   "verdict": "bundle"
  },
  "the-twilight-zone-s-2-e-1-colorized-720p-hd": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-11-08",
   "files": [
    {
     "format": "Matroska",
@@ -211043,8 +211057,9 @@
     "name": "the-twilight-zone-s-2-e-1-colorized-720p-hd.thumbs/the twilight zone-s2e29-colorized-720p-hd_000756.jpg"
    }
   ],
-  "isize": 10066377672,
+  "isize": 10066378215,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "the-twilight-zone-s-3e-1-colorized-720p-hd": {
@@ -216751,8 +216766,8 @@
   "verdict": "single"
  },
  "themonkees.series": {
-  "checkedAt": "2026-11-04",
-  "isize": 10410427530,
+  "checkedAt": "2026-11-08",
+  "isize": 10410427862,
   "reason": "numbers do not form a run (101..226 over 58)",
   "rule": 2,
   "verdict": "single"
