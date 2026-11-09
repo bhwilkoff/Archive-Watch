@@ -4117,6 +4117,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-09T02:39:54.845143+00:00",
+   "id": "silent-roman-s-kontrabasom-aka-romance-with-a-double-bass",
+   "title": "Romance with a Double Bass",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mztvko6qcf2y",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
