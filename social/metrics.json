@@ -5529,6 +5529,100 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzexgxtei42i",
+   "platform": "bluesky",
+   "id": "Jackie_Robinson_Story_The",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-03T04:03:45.390845+00:00",
+   "sampled": "2026-11-09T23:54:26.894661+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzgq64yr4424",
+   "platform": "bluesky",
+   "id": "rawdeal1948",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-03T20:58:35.173163+00:00",
+   "sampled": "2026-11-09T23:54:26.894661+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117554515421839372",
+   "platform": "mastodon",
+   "id": "rawdeal1948",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-03T20:58:35.173163+00:00",
+   "sampled": "2026-11-09T23:54:26.894661+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzt5nmrpyf23",
+   "platform": "bluesky",
+   "id": "they_do_come_back_1940",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-08T19:32:02.772998+00:00",
+   "sampled": "2026-11-09T23:54:26.894661+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117582485577097387",
+   "platform": "mastodon",
+   "id": "they_do_come_back_1940",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-08T19:32:02.772998+00:00",
+   "sampled": "2026-11-09T23:54:26.894661+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mztvko6qcf2y",
+   "platform": "bluesky",
+   "id": "silent-roman-s-kontrabasom-aka-romance-with-a-double-bass",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-09T02:39:54.845143+00:00",
+   "sampled": "2026-11-09T23:54:26.894661+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }

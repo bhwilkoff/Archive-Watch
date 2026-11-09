@@ -4129,6 +4129,54 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-09T23:53:26.555512+00:00",
+   "id": "silent-twilight-of-a-womans-soul",
+   "title": "Twilight of a Woman's Soul",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzw4qoiarj2p",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-09T23:53:26.555512+00:00",
+   "id": "silent-twilight-of-a-womans-soul",
+   "title": "Twilight of a Woman's Soul",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117589177305976693",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-09T23:53:26.555512+00:00",
+   "id": "silent-twilight-of-a-womans-soul",
+   "title": "Twilight of a Woman's Soul",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfijuEynKbJ/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117589176945184661",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-09T23:53:26.555512+00:00",
+   "id": "silent-twilight-of-a-womans-soul",
+   "title": "Twilight of a Woman's Soul",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=2xMMqoKpJyc",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
