@@ -95,7 +95,7 @@ jobs:
           rsync -a --exclude='.git' --exclude='_site' --exclude='catalog.json' --exclude='catalog.json.gz' \
             --include='/ArchiveWatch/' --include='/ArchiveWatch/ArchiveWatch/' \
             --include='/ArchiveWatch/ArchiveWatch/collection_metadata.json' \
-            --exclude='/ArchiveWatch/**' --exclude='/tools/' --exclude='/docs/' --exclude='/android/' \
+            --exclude='/ArchiveWatch/**' --exclude='/tools/' --exclude='/docs/' --exclude='/android/' --exclude='/page-extras/' \
             ./ _site/
           test -s _site/ArchiveWatch/ArchiveWatch/collection_metadata.json
 
@@ -128,7 +128,12 @@ jobs:
           # falls through to 404.html and previews as nothing (measured
           # 2026-09-06). Generated into the artifact, never committed —
           # ~27,000 files is exactly the git bloat Decision 018 avoided.
+          # The sitemap's <lastmod> is each page's last change, carried from the
+          # live page-state.json (build_share_pages.page_dates). If the live site
+          # cannot be read the step fails rather than redate 41,000 pages; a
+          # deploy that must go out anyway: --state-url ''.
           python3 tools/build_share_pages.py --out _site
+          test -s _site/page-state.json
 
           # A build that produced nothing is the failure this guard exists
           # for: the pages would silently revert to 404 while the deploy

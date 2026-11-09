@@ -140,6 +140,25 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
     Dark Shadows' nine discs are nine pages rather than one page and eight
     duplicates. Year-only uploader titles are mapped to real film names in
     `title_corrections.json`.
+  - **A page says what archive.org says about the item** (owner, 2026-11-09:
+    *"fix the site map and database to the extent that we can without making
+    it worse for our users"*, after Search Console listed ~13,000 film pages
+    with no synopsis, cast or reviews). The page carries the uploader's full
+    description (to 1,500 characters; the viewer's shard keeps 500), its
+    archive.org subjects, the named collections it belongs to and its
+    language. Subjects that are search keywords ("old movies online", "free
+    classic movie") are dropped, never shown. These live in `page-extras/`,
+    which only this generator reads: the viewer's `details/` shard, fetched on
+    every Detail, does not grow.
+  - **`<lastmod>` is the day a page last changed**, never the deploy date.
+    Each deploy publishes `page-state.json` (a hash and a date per sitemap
+    URL) and the next deploy reads it back from the live site; an unchanged
+    page keeps its date. If the live file cannot be read, the deploy fails
+    rather than redate every page.
+  - **What Search Console will always list, by design**: hidden titles 404
+    (Decision 027, 175); merged ids forward (Decision 085); `/index.html`
+    points to `/`. Those rows are the site working. Validation is started only
+    on a row a change has actually fixed.
 
 - **§3.3 One router.** `route()` reads the hash, `showView(name)` toggles
   `<section hidden>`. Per-view `IntersectionObserver`s are disconnected on

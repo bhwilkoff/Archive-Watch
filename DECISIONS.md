@@ -275,6 +275,7 @@ into every session and the index alone carries every title.)
 - 178 — A series' year comes from evidence about the series, is searched for continually, and is never borrowed from a same-named film
 - 179 — A printed renewal is read to its chapter and its damaged date, a compilation is judged file by file, and a stored year yields to a later date of the item's own
 - 180 — On a TV box the catalog refresh waits, runs at background priority, and is applied off screen
+- 181 — A film page carries archive.org's own words about the item from a file the viewer never loads, and its lastmod is the day it changed
 
 ---
 
@@ -586,3 +587,31 @@ background job runs at background priority and waits out launch. To measure, del
 `catalog.lastcheck` with a real `run-as rm`: an `sh -c` through adb silently did nothing
 and produced a false improvement. The price is a catalog up to a day old on a TV, plus
 the session it is staged in, so a takedown can take that long to reach one.
+
+## 181 — A film page carries archive.org's own words about the item from a file the viewer never loads, and its lastmod is the day it changed
+*Date: 2026-11-09*
+
+`build_web_details.py` writes `page-extras/{shard}.json` beside `details/`: the
+uploader's full description (to 1,500 characters), archive.org subjects with
+search keywords removed (`page_subjects`), named collections and language.
+Only `build_share_pages.py` reads it; deploy-pages leaves it out of the site.
+Each deploy publishes `page-state.json` (hash and date per sitemap URL) and the
+next reads it from the live site, so `<lastmod>` is the day a page's bytes last
+changed. A 404 seeds every page with today; an unparseable file starts over; a
+site that cannot be reached fails the deploy.
+
+**Why**: the owner, 2026-11-09, on Search Console: *"fix the site map and
+database to the extent that we can without making it worse for our users."*
+22,493 pages sat "Discovered, currently not indexed" and 454 "Crawled", and
+13,116 of 40,601 film pages had no synopsis over 200 characters, no cast and no
+reviews, while 33,667 items carry archive.org subjects no page showed. The
+sitemap had no dates at all. Putting the fields in `details/` would have added
+about 15 MB across shards the viewer fetches on every Detail. The subjects
+include uploaders' keyword lists (2,384 "stock footage" is real; 416 "silent
+film streaming" is not), which on a page read as keyword stuffing.
+
+**How to apply**: a field only the film pages need goes in `page-extras/`,
+never `details/`. A new subject filter rule gets a case in
+`test_share_pages.py`. Never date the sitemap from the deploy or catalog
+time. Search Console's 404 and redirect rows are hidden titles and merged ids
+by design (WEB-DESIGN §3.2a); start a validation only on a row a change fixed.

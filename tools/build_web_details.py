@@ -42,6 +42,7 @@ Reads ./catalog.json (fetch via catalog_release.py first). Writes ./details/.
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -51,8 +52,94 @@ from build_sqlite import _is_adult, bundle_sources, series_cards  # noqa: E402  
 CATALOG = REPO / "catalog.json"
 FEATURED = REPO / "featured.json"
 OUT_DIR = REPO / "details"
+# Fields only the generated film pages read (build_share_pages.py), kept out of
+# details/ so the viewer, which fetches a details shard on every Detail, pays
+# nothing for them. Same shard function and keys as details/.
+PAGE_DIR = REPO / "page-extras"
+COLLECTIONS = REPO / "ArchiveWatch" / "ArchiveWatch" / "collection_metadata.json"
 
 SYNOPSIS_MAX = 500
+PAGE_SYNOPSIS_MAX = 1500
+SUBJECTS_MAX = 10
+
+# archive.org's language field is free text: ISO 639-1, 639-2 and English names
+# all occur. Codes for "no speech" (zxx) and "unknown" (xx) are not a language.
+LANGUAGES = {
+    "en": "English", "eng": "English", "english": "English",
+    "de": "German", "ger": "German", "deu": "German", "german": "German",
+    "es": "Spanish", "spa": "Spanish", "spanish": "Spanish",
+    "fr": "French", "fre": "French", "fra": "French", "french": "French",
+    "it": "Italian", "ita": "Italian", "italian": "Italian",
+    "ru": "Russian", "rus": "Russian", "russian": "Russian",
+    "ja": "Japanese", "jpn": "Japanese", "japanese": "Japanese",
+    "pt": "Portuguese", "por": "Portuguese", "portuguese": "Portuguese",
+    "nl": "Dutch", "dut": "Dutch", "nld": "Dutch", "dutch": "Dutch",
+    "sv": "Swedish", "swe": "Swedish", "swedish": "Swedish",
+    "pl": "Polish", "pol": "Polish", "polish": "Polish",
+    "cs": "Czech", "cze": "Czech", "ces": "Czech", "czech": "Czech",
+    "zh": "Chinese", "chi": "Chinese", "zho": "Chinese", "chinese": "Chinese",
+    "hi": "Hindi", "hin": "Hindi", "hindi": "Hindi",
+    "hu": "Hungarian", "hun": "Hungarian", "hungarian": "Hungarian",
+    "da": "Danish", "dan": "Danish", "danish": "Danish",
+    "fi": "Finnish", "fin": "Finnish", "finnish": "Finnish",
+    "no": "Norwegian", "nor": "Norwegian", "norwegian": "Norwegian",
+    "el": "Greek", "gre": "Greek", "ell": "Greek", "greek": "Greek",
+    "tr": "Turkish", "tur": "Turkish", "turkish": "Turkish",
+    "ko": "Korean", "kor": "Korean", "korean": "Korean",
+    "ar": "Arabic", "ara": "Arabic", "arabic": "Arabic",
+}
+
+# Uploaders tag items with search keywords ("old movies online", "free classic
+# movie", "silent film streaming"): shown on a page, those read as keyword
+# stuffing and say nothing about the film. A subject is kept only when it
+# names something about THIS item — a place, a subject, a decade, a genre.
+_SUBJECT_PROMO = re.compile(
+    r"\b(online|on line|streaming|stream|free|download|watch|youtube|hd|"
+    r"high definition|720p|1080p|dvd|blu-?ray|mp4|avi|full movie|full length|"
+    r"public domain|classic|classics|need keyword|pdmovies|images)\b", re.I)
+_SUBJECT_NOISE = re.compile(
+    r"\b(archive|archives|rare|fine|good|best|old|vintage|movie|movies|film|films|"
+    r"feature|short|motion pictures?|cinema|video|videos)\b", re.I)
+
+
+def page_subjects(raw, skip) -> list:
+    """archive.org subjects worth printing on a film page, in the uploader's
+    order, at most SUBJECTS_MAX. `skip` holds lower-cased words already on the
+    page (genres, collection slugs) so nothing is said twice."""
+    out, seen = [], set(skip)
+    if isinstance(raw, str):
+        raw = re.split(r"[;,]", raw)
+    for s in raw or []:
+        if not isinstance(s, str):
+            continue
+        for part in s.split(";"):
+            t = " ".join(part.split()).strip(" .-")
+            k = t.lower()
+            if not t or len(t) > 60 or k in seen or "--" in t or "." in k and " " not in k:
+                continue
+            words = re.findall(r"[a-z0-9']+", k)
+            if _SUBJECT_PROMO.search(k):
+                continue
+            # Noise words alone ("classic movies", "old film") say nothing; a
+            # phrase that names something besides them ("silent film" is a
+            # kind, "Idaho" a place) keeps its place only if a word remains.
+            if not words or not _SUBJECT_NOISE.sub("", k).strip(" -'&/"):
+                continue
+            if _SUBJECT_NOISE.search(k) and len(words) > 2:
+                continue
+            seen.add(k)
+            out.append(t)
+            if len(out) >= SUBJECTS_MAX:
+                return out
+    return out
+
+
+def page_language(raw):
+    if isinstance(raw, list):
+        raw = next((x for x in raw if isinstance(x, str)), None)
+    if not isinstance(raw, str):
+        return None
+    return LANGUAGES.get(raw.strip().lower())
 
 
 def fnv1a32(s: str) -> int:
@@ -84,6 +171,16 @@ def main():
     print(f"[details] {len(related):,} films carry a pipeline related list", flush=True)
 
     shards: dict[str, dict] = {f"{i:02x}": {} for i in range(256)}
+    page_shards: dict[str, dict] = {f"{i:02x}": {} for i in range(256)}
+    # Only collections with a display title are named: a raw archive.org slug
+    # ("fav-islanddisco") is never shown to a person (collection_metadata.json).
+    coll_titles = {}
+    try:
+        coll_titles = {c["id"]: c["title"] for c in
+                       json.loads(COLLECTIONS.read_text(encoding="utf-8"))["collections"]
+                       if c.get("id") and c.get("title") and not c["id"].startswith("series-")}
+    except (OSError, ValueError, KeyError) as e:
+        print(f"[details] no collection titles ({e}) — pages name no collection", flush=True)
     kept = 0
     bundled = bundle_sources(series_cards(items))
     for it in items:
@@ -195,8 +292,34 @@ def main():
             record.pop()
         if not record:
             continue
-        shards[f"{fnv1a32(aid) & 0xFF:02x}"][aid] = record
+        shard = f"{fnv1a32(aid) & 0xFF:02x}"
+        shards[shard][aid] = record
         kept += 1
+
+        page = {}
+        full = (raw_syn or "").strip()
+        if len(full) > SYNOPSIS_MAX:
+            page["sy"] = (full if len(full) <= PAGE_SYNOPSIS_MAX
+                          else full[:PAGE_SYNOPSIS_MAX].rsplit(" ", 1)[0] + "…")
+        colls = it.get("collections") or []
+        titles = []
+        for cid in colls if isinstance(colls, list) else []:
+            t = coll_titles.get(cid)
+            if t and t not in titles:
+                titles.append(t)
+        if titles:
+            page["cl"] = titles[:3]
+        skip = {str(g).lower() for g in (it.get("genres") or [])}
+        skip |= {str(c).lower() for c in (colls if isinstance(colls, list) else [])}
+        skip |= {t.lower() for t in titles}
+        subjects = page_subjects(it.get("subjects"), skip)
+        if subjects:
+            page["su"] = subjects
+        lang = page_language(it.get("language"))
+        if lang:
+            page["lg"] = lang
+        if page:
+            page_shards[shard][aid] = page
 
     OUT_DIR.mkdir(exist_ok=True)
     total = 0
@@ -208,6 +331,17 @@ def main():
     print(f"[details] wrote {kept:,} items into 256 shards, "
           f"{total/1_000_000:.1f} MB total "
           f"(avg {total/256/1000:.0f} KB/shard)", flush=True)
+
+    PAGE_DIR.mkdir(exist_ok=True)
+    ptotal = pitems = 0
+    for name, data in page_shards.items():
+        p = PAGE_DIR / f"{name}.json"
+        p.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":"), sort_keys=True),
+                     encoding="utf-8")
+        ptotal += p.stat().st_size
+        pitems += len(data)
+    print(f"[details] page extras for {pitems:,} items, {ptotal/1_000_000:.1f} MB "
+          f"(film pages only; the viewer never fetches them)", flush=True)
     return 0
 
 

@@ -79,7 +79,7 @@ def main() -> int:
         ]}), encoding="utf-8")
         r = subprocess.run(
             [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
-             "--out", str(td / "site"), "--index", str(idx),
+             "--out", str(td / "site"), "--state-url", "", "--page-extras", str(td / "noextras"), "--index", str(idx),
              "--details", str(td / "nodetails")],
             capture_output=True, text=True)
         check("build succeeds with a thin record", r.returncode, 0)
@@ -135,7 +135,7 @@ def main() -> int:
             ["thin_item", "nope_not_in_index"]]}), encoding="utf-8")
         r2 = subprocess.run(
             [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
-             "--out", str(td / "site2"), "--index", str(idx), "--details", str(det)],
+             "--out", str(td / "site2"), "--state-url", "", "--page-extras", str(td / "noextras"), "--index", str(idx), "--details", str(det)],
             capture_output=True, text=True)
         check("build with details succeeds", r2.returncode, 0)
         hf = (td / "site2" / "item" / "suddenly" / "index.html").read_text(encoding="utf-8")
@@ -166,7 +166,7 @@ def main() -> int:
                          ["show_s1e1", "the-show", "The Show", 1, 1, "The Pilot", None, 1955]]}), encoding="utf-8")
         r3 = subprocess.run(
             [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
-             "--out", str(td / "site3"), "--index", str(idx), "--details", str(td / "nodetails"),
+             "--out", str(td / "site3"), "--state-url", "", "--page-extras", str(td / "noextras"), "--index", str(idx), "--details", str(td / "nodetails"),
              "--episodes", str(epi)], capture_output=True, text=True)
         hs3 = (td / "site3" / "series" / "the-show" / "index.html").read_text(encoding="utf-8")
         check("series page lists its episodes in order",
@@ -193,7 +193,7 @@ def main() -> int:
                                   "gone_old": "gone_new", "disc-1": "suddenly"}), encoding="utf-8")
         r5 = subprocess.run(
             [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
-             "--out", str(td / "site5"), "--index", str(idx5), "--details", str(td / "nodetails"),
+             "--out", str(td / "site5"), "--state-url", "", "--page-extras", str(td / "noextras"), "--index", str(idx5), "--details", str(td / "nodetails"),
              "--aliases", str(al)], capture_output=True, text=True)
         check("build with aliases succeeds", r5.returncode, 0)
         s5 = td / "site5"
@@ -239,7 +239,7 @@ def main() -> int:
         }), encoding="utf-8")
         r6 = subprocess.run(
             [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
-             "--out", str(td / "site6"), "--index", str(idx6), "--details", str(td / "nodetails"),
+             "--out", str(td / "site6"), "--state-url", "", "--page-extras", str(td / "noextras"), "--index", str(idx6), "--details", str(td / "nodetails"),
              "--aliases", str(al6), "--episodes", str(ep6)], capture_output=True, text=True)
         check("build with series aliases and episodes succeeds", r6.returncode, 0)
         s6 = td / "site6"
@@ -263,6 +263,59 @@ def main() -> int:
         # 7. 404 page carries noindex so crawlers never treat 404s as duplicates of /
         p404 = (REPO / "404.html").read_text(encoding="utf-8")
         check("404.html carries noindex", '<meta name="robots" content="noindex, nofollow">' in p404, True)
+
+        # 8. Search Console, 2026-11-09: ~13,000 film pages had no synopsis,
+        #    cast or reviews, and the sitemap carried no dates. Page-only
+        #    extras (build_web_details.page_subjects) and per-page lastmod.
+        import build_web_details as W
+        check("search-keyword subjects are dropped, descriptive ones kept",
+              W.page_subjects(["old movies online", "free classic movie", "Idaho",
+                               "silent film streaming", "classic images", "1930s",
+                               "short film", "silent film", "need keyword",
+                               "archives.gov;public.resource.org", "What -- Earth",
+                               "Drama", "idaho"], {"drama"}),
+              ["Idaho", "1930s", "silent film"])
+        check("language codes become names; no-speech codes are not a language",
+              [W.page_language(x) for x in ("eng", "de", "French", "zxx", None)],
+              ["English", "German", "French", None, None])
+
+        idx8 = td / "index8.json"
+        idx8.write_text(json.dumps({"items": [["homemovie", "Home Movie", 1931, "ephemeral", None]]}),
+                        encoding="utf-8")
+        ex8 = td / "extras8"
+        ex8.mkdir()
+        (ex8 / "00.json").write_text(json.dumps({"homemovie": {
+            "su": ["Idaho", "winter"], "cl": ["Prelinger Archives"], "lg": "English",
+            "sy": "A long uploader description."}}), encoding="utf-8")
+        r8 = subprocess.run(
+            [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
+             "--out", str(td / "site8"), "--state-url", "", "--page-extras", str(ex8),
+             "--index", str(idx8), "--details", str(td / "nodetails")], capture_output=True, text=True)
+        check("build with page extras succeeds", r8.returncode, 0)
+        h8 = (td / "site8" / "item" / "homemovie" / "index.html").read_text(encoding="utf-8")
+        check("page extras: subjects, collection, language, synopsis on the page",
+              all(s in h8 for s in ("<li>Idaho</li>", "<dd>Prelinger Archives</dd>",
+                                    "<dd>English</dd>", "A long uploader description.")), True)
+        check("page extras reach the JSON-LD", '"keywords":"Idaho, winter"' in h8
+              and '"inLanguage":"English"' in h8, True)
+
+        site = td / "site8"
+        u = "https://archivewatch.org/item/homemovie/"
+        d1 = B.page_dates(site, [u], {}, "2026-11-09")
+        check("a page with no previous state is dated today", d1[u], "2026-11-09")
+        state = json.loads((site / B.STATE_NAME).read_text(encoding="utf-8"))["pages"]
+        state["/item/homemovie/"][1] = "2026-10-01"
+        check("an unchanged page keeps the day it last changed",
+              B.page_dates(site, [u], state, "2026-11-09")[u], "2026-10-01")
+        state["/item/homemovie/"][0] = "0" * 16
+        check("a changed page is dated today",
+              B.page_dates(site, [u], state, "2026-11-09")[u], "2026-11-09")
+        B.write_sitemaps(site, [u], {u: "2026-10-01"})
+        sm = (site / "sitemap-1.xml").read_text(encoding="utf-8")
+        check("the sitemap carries each page's own lastmod",
+              f"<loc>{u}</loc><lastmod>2026-10-01</lastmod>" in sm, True)
+        check("the sitemap index carries the newest date of each file",
+              "<lastmod>2026-10-01</lastmod>" in (site / "sitemap.xml").read_text(encoding="utf-8"), True)
 
     bad = [c for c in CASES if not c[1]]
     for name, ok, got, want in CASES:

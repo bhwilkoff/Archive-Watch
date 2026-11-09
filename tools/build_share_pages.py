@@ -67,6 +67,11 @@ D_SYNOPSIS, D_DIRECTOR, D_RUNTIME, D_BACKDROP = 1, 2, 5, 6
 D_CAST, D_GENRES, D_COMMUNITY, D_EXTRAS, D_RELATED = 3, 4, 8, 9, 10
 I_GENRES = 13
 SITEMAP_CHUNK = 10000
+# Each deploy publishes the hash of every sitemap page and the day it last
+# changed, and the next deploy reads it back, so a page's <lastmod> is the day
+# its content changed — not the deploy date, which Google learns to ignore.
+STATE_URL = f"{SITE}/page-state.json"
+STATE_NAME = "page-state.json"
 
 # The viewer's own provenance labels (watch.js, Detail), so a page and the
 # app name a synopsis's source in the same words.
@@ -276,7 +281,8 @@ def build_page(*, url, app_arg, title_tag, og_title, desc, image, wide, og_type,
 
 
 def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
-              synopsis, synopsis_src, facts, cast, reviews, related, episodes=()) -> str:
+              synopsis, synopsis_src, facts, cast, reviews, related, episodes=(),
+              subjects=()) -> str:
     out = ['<section class="hero">']
     if poster:
         out.append(f'<img src="{e(poster)}" alt="Poster for {e(h1)}" width="220" '
@@ -303,6 +309,11 @@ def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
         for k, v in facts:
             out.append(f"<dt>{html.escape(k)}</dt><dd>{html.escape(v)}</dd>")
         out.append("</dl>")
+    if subjects:
+        # The uploader's and cataloguers' own subject tags on archive.org
+        # (page_subjects in build_web_details.py drops search-keyword spam).
+        out.append('<h2>Subjects on the Internet Archive</h2><ul class="gen">'
+                   + "".join(f"<li>{html.escape(t)}</li>" for t in subjects) + "</ul>")
     if cast:
         # The viewer's cast row: director first, TMDb w185 photos, an initial
         # where there is none. Lazy, sized, so a long cast costs nothing above
@@ -503,23 +514,82 @@ def write_episode_redirects(out: Path, path: Path, pages: set) -> int:
     return n
 
 
-def write_sitemaps(out: Path, urls, lastmod: str) -> None:
+def fetch_state(url: str, tries: int = 4):
+    """The previous deploy's page state: {path: [hash, date]}. A 404 means no
+    deploy has published one yet ({}); anything else that cannot be read
+    raises, because guessing would stamp every page with today's date."""
+    import time
+    import urllib.error
+    import urllib.request
+    for n in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "archivewatch-deploy",
+                                                       "Cache-Control": "no-cache"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = json.loads(r.read().decode("utf-8"))
+            pages = data.get("pages") if isinstance(data, dict) else None
+            if not isinstance(pages, dict):
+                raise ValueError("page-state.json has no pages map")
+            return pages
+        except urllib.error.HTTPError as err:
+            if err.code == 404:
+                return {}
+            last = err
+        except ValueError as err:
+            # A state file that parses to nothing usable must not block every
+            # deploy after it: start over, dating every page today, once.
+            print(f"::warning::{url} is unreadable ({err}); every page is dated today", flush=True)
+            return {}
+        except (urllib.error.URLError, TimeoutError, OSError) as err:
+            last = err
+        time.sleep(5 * (n + 1))
+    raise RuntimeError(f"could not read {url}: {last}")
+
+
+def page_dates(out: Path, urls, prev: dict, today: str) -> dict:
+    """{url: date} for every sitemap URL, and page-state.json written for the
+    next deploy. A page keeps its date while its bytes are unchanged; a new or
+    changed page is dated today."""
+    import hashlib
+    state, dates = {}, {}
+    for u in urls:
+        key = u[len(SITE):] or "/"
+        f = out / key.strip("/") / "index.html" if key != "/" else out / "index.html"
+        try:
+            h = hashlib.sha1(f.read_bytes()).hexdigest()[:16]
+        except OSError:
+            continue
+        old = prev.get(key)
+        date = old[1] if (isinstance(old, list) and len(old) == 2 and old[0] == h and old[1]) else today
+        state[key] = [h, date]
+        dates[u] = date
+    (out / STATE_NAME).write_text(json.dumps({"v": 1, "pages": state}, separators=(",", ":"),
+                                             sort_keys=True), encoding="utf-8")
+    return dates
+
+
+def write_sitemaps(out: Path, urls, dates: dict) -> None:
     """sitemap.xml is an INDEX of files of at most SITEMAP_CHUNK URLs (Google
-    takes 50,000; smaller files keep each fetch light). robots.txt names it."""
+    takes 50,000; smaller files keep each fetch light). robots.txt names it.
+    Each URL carries the day its page last changed (page_dates); each file of
+    the index, the newest of its pages."""
     pages = [f"{SITE}/"] + urls
-    lm = f"<lastmod>{lastmod}</lastmod>" if re.match(r"\d{4}-\d{2}-\d{2}$", lastmod) else ""
+
+    def lm(d):
+        return f"<lastmod>{d}</lastmod>" if d and re.match(r"\d{4}-\d{2}-\d{2}$", d) else ""
     names = []
     for n, k in enumerate(range(0, len(pages), SITEMAP_CHUNK), 1):
         name = f"sitemap-{n}.xml"
-        body = "".join(f"<url><loc>{html.escape(u)}</loc>{lm}</url>\n" for u in pages[k:k + SITEMAP_CHUNK])
+        chunk = pages[k:k + SITEMAP_CHUNK]
+        body = "".join(f"<url><loc>{html.escape(u)}</loc>{lm(dates.get(u))}</url>\n" for u in chunk)
         (out / name).write_text('<?xml version="1.0" encoding="UTF-8"?>\n'
                                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                                 + body + "</urlset>\n", encoding="utf-8")
-        names.append(name)
+        names.append((name, max((dates.get(u) or "" for u in chunk), default="")))
     (out / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "".join(f"<sitemap><loc>{SITE}/{n}</loc>{lm}</sitemap>\n" for n in names)
+        + "".join(f"<sitemap><loc>{SITE}/{n}</loc>{lm(d)}</sitemap>\n" for n, d in names)
         + "</sitemapindex>\n", encoding="utf-8")
 
 
@@ -531,6 +601,10 @@ def main() -> int:
     ap.add_argument("--details", default=str(REPO / "details"))
     ap.add_argument("--episodes", default=str(REPO / "episodes-index.json"))
     ap.add_argument("--aliases", default=str(REPO / "aliases.json"))
+    ap.add_argument("--page-extras", default=str(REPO / "page-extras"))
+    ap.add_argument("--state-url", default=STATE_URL,
+                    help="the live page-state.json the sitemap's lastmod dates carry from; "
+                         "'' to build without dates")
     ap.add_argument("--limit", type=int, default=0, help="0 = every item")
     args = ap.parse_args()
 
@@ -549,6 +623,15 @@ def main() -> int:
         for sh in dpath.glob("*.json"):
             try:
                 details.update(json.loads(sh.read_text(encoding="utf-8")))
+            except Exception:  # noqa: BLE001
+                continue
+
+    extras_by_id: dict = {}
+    xpath = Path(args.page_extras)
+    if xpath.exists():
+        for sh in xpath.glob("*.json"):
+            try:
+                extras_by_id.update(json.loads(sh.read_text(encoding="utf-8")))
             except Exception:  # noqa: BLE001
                 continue
 
@@ -604,7 +687,8 @@ def main() -> int:
         kind = KIND.get(ctype, "Film")
         d = details.get(aid)
         x = at(d, D_EXTRAS) or {}
-        synopsis = strip_html(at(d, D_SYNOPSIS) or "")
+        px = extras_by_id.get(aid) or {}
+        synopsis = strip_html(px.get("sy") or at(d, D_SYNOPSIS) or "")
         director = at(d, D_DIRECTOR) or at(r, I_DIRECTOR)
         runtime = at(d, D_RUNTIME)
         backdrop = at(d, D_BACKDROP) or at(r, I_BACKDROP)
@@ -659,6 +743,8 @@ def main() -> int:
                            ("Released", x.get("rd")), ("Original title", x.get("ot")),
                            ("Series", x.get("fr")), ("Awards", x.get("aw")),
                            ("Running time", f"{mins} minutes" if mins else None),
+                           ("Language", px.get("lg")),
+                           ("Collection", ", ".join(as_list(px.get("cl")))),
                            ("Internet Archive item", aid if twin else None)):
             if val:
                 facts.append((label, strip_html(str(val))))
@@ -691,6 +777,10 @@ def main() -> int:
             ld["productionCompany"] = [{"@type": "Organization", "name": n} for n in as_list(x["st"])]
         if source_url:
             ld["sameAs"] = source_url
+        if px.get("lg"):
+            ld["inLanguage"] = px["lg"]
+        if px.get("su"):
+            ld["keywords"] = ", ".join(as_list(px["su"]))
 
         body = page_body(
             h1=headline, aka=also_known_as(title, x.get("ct")), meta=meta,
@@ -698,6 +788,7 @@ def main() -> int:
             source_url=source_url, poster=tmdb_at(poster or backdrop, 342), synopsis=synopsis,
             synopsis_src=SOURCE.get(str(x.get("ss") or "").lower(), UPLOADER),
             facts=facts, cast=people, reviews=reviews, related=related,
+            subjects=as_list(px.get("su")),
             episodes=episodes_by_slug.get(aid[len("series:"):], ()) if aid.startswith("series:") else ())
         path.mkdir(parents=True, exist_ok=True)
         (path / "index.html").write_text(build_page(
@@ -713,7 +804,12 @@ def main() -> int:
     forwarded = write_alias_redirects(out, Path(args.aliases), pages)
     ep_forwarded = write_episode_redirects(out, Path(args.episodes), pages)
     urls += write_directory(out, directory)
-    write_sitemaps(out, urls, str(index.get("updatedAt") or "")[:10])
+    dates = {}
+    if args.state_url:
+        import datetime
+        today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+        dates = page_dates(out, [f"{SITE}/"] + urls, fetch_state(args.state_url), today)
+    write_sitemaps(out, urls, dates)
 
     # ---- the shared-playlist landing page -----------------------------
     #
