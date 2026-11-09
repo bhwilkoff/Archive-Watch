@@ -760,21 +760,20 @@ keep serving it.
 
 ## Session Log
 
-### 2026-11-04 — the first copyright notices; a removal process (Decision 175)
+### 2026-11-09 — Search Console: richer film pages, a dated sitemap (Decision 181)
 
-Owner: *"There are two takedown emails from the Google Search Console and I'd
-like to figure out how to approach them,"* then the five requirements now in
-`docs/TAKEDOWNS.md`. v1.47.8-1.47.9.
-
-- **Two notices from one agency**: `BillSpragueCollectionMadameDubarry` was an
-  ARTE broadcast (logo, soundtrack) and is removed; `HMUnidentified97390` is a
-  Prelinger home movie claimed as "UNIDENTIFIED" and stays.
-- **Live on main**: removal of items, single files and whole series; public list
-  holds a date and case number; share pages no longer say "public domain" on
-  every title.
-- **Also live**: the form, the private D1 record, `takedown-check.yml`. Measured
-  on 14 films.
-**Open**: the withdrawal email to the agency is a Gmail draft, the owner's to send.
+Owner: *"The search console should have no errors and no issues"*, then *"fix the
+site map and database to the extent that we can without making it worse for our
+users."* v1.47.38.
+- **Not fixable, by design**: 404s are hidden titles, redirects are merged ids,
+  `/index.html` points to `/` (Google: "nothing you need to do"). Told the owner.
+- **Live**: film pages carry archive.org's subjects (keyword spam dropped), named
+  collections, language and the full description, from `page-extras/` (the
+  viewer never loads it). Sitemap `<lastmod>` is each page's last change, carried
+  in `/page-state.json`; seeded 2026-11-09 for all 41,091 URLs.
+- humanshaped.org's noindex/redirect rows are intentional too.
+**Open**: watch Indexed vs "Discovered, not indexed" over the next weeks; validate
+only the Duplicate row once Google recrawls it.
 
 ### 2026-11-04 (later) — John Howard's second round, failed builds, the data behind them (Decisions 176-179)
 

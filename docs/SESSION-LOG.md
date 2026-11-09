@@ -1,5 +1,21 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-11-04 — the first copyright notices; a removal process (Decision 175)
+
+Owner: *"There are two takedown emails from the Google Search Console and I'd
+like to figure out how to approach them,"* then the five requirements now in
+`docs/TAKEDOWNS.md`. v1.47.8-1.47.9.
+
+- **Two notices from one agency**: `BillSpragueCollectionMadameDubarry` was an
+  ARTE broadcast (logo, soundtrack) and is removed; `HMUnidentified97390` is a
+  Prelinger home movie claimed as "UNIDENTIFIED" and stays.
+- **Live on main**: removal of items, single files and whole series; public list
+  holds a date and case number; share pages no longer say "public domain" on
+  every title.
+- **Also live**: the form, the private D1 record, `takedown-check.yml`. Measured
+  on 14 films.
+**Open**: the withdrawal email to the agency is a Gmail draft, the owner's to send.
+
 ### 2026-10-28 — best ratings everywhere; a full audit of every platform; Play Console errors (Decisions 171-173)
 
 Owner: *"Please make use of the best ratings available per content. Can you please
