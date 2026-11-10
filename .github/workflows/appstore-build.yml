@@ -78,6 +78,14 @@ jobs:
           sudo xcode-select -s "$XC"
           echo "DEVELOPER_DIR=$XC/Contents/Developer" >> "$GITHUB_ENV"
           "$XC/Contents/Developer/usr/bin/xcodebuild" -version
+          # Bsky Dreams' check: an older SDK runs the app boxed on the Duo, and
+          # nothing else in the run would say so.
+          SDK="$("$XC/Contents/Developer/usr/bin/xcodebuild" -showsdks | grep -o 'iphoneos[0-9.]*' | sort -V | tail -1)"
+          echo "iOS SDK: $SDK"
+          case "$SDK" in
+            iphoneos27.[1-9]*|iphoneos2[89]*|iphoneos[3-9][0-9]*) echo "::notice::$SDK — iPhone Duo runs edge to edge." ;;
+            *) echo "::warning::$SDK predates iOS 27.1 — on iPhone Duo the app runs boxed, without the vertical strip." ;;
+          esac
 
       # Secrets.xcconfig is gitignored, so a fresh checkout has NONE of the
       # app-side API keys. That was silent: the keys resolve to the literal

@@ -219,26 +219,31 @@ struct RootView: View {
         @Bindable var router = router
         Tab(Router.Tab.home.title, systemImage: Router.Tab.home.systemImage, value: Router.Tab.home) {
             NavigationStack(path: $router.homePath) { HomeView().withItemDestination() }
+                .tracksStack(.home, router)
         }
         .customizationID("home")
         .customizationBehavior(.disabled, for: .sidebar, .tabBar)
         Tab(Router.Tab.browse.title, systemImage: Router.Tab.browse.systemImage, value: Router.Tab.browse) {
             NavigationStack(path: $router.browsePath) { BrowseView().withItemDestination() }
+                .tracksStack(.browse, router)
         }
         .customizationID("browse")
         .defaultVisibility(.hidden, for: .sidebar)
         Tab(Router.Tab.channels.title, systemImage: Router.Tab.channels.systemImage,
             value: Router.Tab.channels) {
             NavigationStack(path: $router.channelsPath) { ChannelsView().withItemDestination() }
+                .tracksStack(.channels, router)
         }
         .customizationID("channels")
         Tab(Router.Tab.search.title, systemImage: Router.Tab.search.systemImage,
             value: Router.Tab.search, role: .search) {
             NavigationStack(path: $router.searchPath) { SearchView().withItemDestination() }
+                .tracksStack(.search, router)
         }
         .customizationID("search")
         Tab(Router.Tab.library.title, systemImage: Router.Tab.library.systemImage, value: Router.Tab.library) {
             NavigationStack(path: $router.libraryPath) { LibraryView().withItemDestination() }
+                .tracksStack(.library, router)
         }
         .customizationID("library")
         .defaultVisibility(.hidden, for: .sidebar)
@@ -274,8 +279,14 @@ struct RootView: View {
         -> some TabContent<Router.Tab> {
         Tab(tab.title, systemImage: tab.systemImage, value: tab) {
             NavigationStack(path: router.path(for: tab)) { content().withItemDestination() }
+                .tracksStack(tab, router)
         }
         .customizationID(tab.rawValue)
+        // Each place, not only its section: the open Duo's landscape strip is
+        // a tab bar, and a section-level rule left Films and TV in it beside
+        // Browse (two film icons). Browse's scopes and Library's rows reach
+        // them there, as on the phone.
+        .defaultVisibility(.hidden, for: .tabBar)
     }
 
     private func addFavorites(_ urls: [URL]) {
@@ -296,6 +307,8 @@ struct RootView: View {
             set: { sidebarCustomizationData = (try? JSONEncoder().encode($0)) ?? Data() })
     }
 
+    private var showsPlaces: Bool { hSize == .regular && router.sidebarAvailable != false }
+
     @ViewBuilder
     private var shell: some View {
         @Bindable var router = router
@@ -310,17 +323,38 @@ struct RootView: View {
                 // Sidebar places only at regular width: hidden "for: .tabBar"
                 // they still counted toward the phone's bar, which grew a More
                 // tab and pushed Library into it (seen on the iPhone 12).
-                if hSize == .regular { sidebarPlaces }
+                // And only while there IS a sidebar: the open iPhone Duo in
+                // landscape puts the tabs in its vertical strip, which shows
+                // every tab whatever its visibility, so Films and TV sat beside
+                // Browse and Collections fell into the overflow (§2.8).
+                if showsPlaces { sidebarPlaces }
             }
-            // A window narrowed to compact width loses the sidebar places, so
-            // a selected place hands over to the tab that holds it.
-            .onChange(of: hSize, initial: true) { _, size in
-                router.showsSidebarPlaces = size == .regular
-                guard size != .regular else { return }
-                switch router.tab {
-                case .films, .tv, .collections: router.tab = .browse
-                case .downloads, .favorites, .history, .playlists, .clips: router.tab = .library
-                case .surprise, .together: router.tab = .home
+            // A window that loses the sidebar places (narrowed to compact
+            // width, the Duo closed or turned to its strip) hands a selected
+            // place over to the tab that holds it.
+            .onChange(of: showsPlaces, initial: true) { _, shows in
+                router.showsSidebarPlaces = shows
+                guard !shows else { return }
+                // Closing the Duo keeps the person where they were: the
+                // place's stack moves onto the tab that holds it.
+                let place = router.tab
+                let path = router.sidePaths[place] ?? NavigationPath()
+                switch place {
+                case .films, .tv, .collections:
+                    router.browsePath = path
+                    router.tab = .browse
+                case .downloads, .favorites, .history, .playlists, .clips:
+                    var lib = NavigationPath()
+                    if let section = LibraryView.Section(rawValue: place.rawValue) {
+                        lib.append(LibraryPlaceRoute(place: section))
+                    }
+                    router.libraryPath = lib
+                    router.tab = .library
+                case .surprise:
+                    router.homePath = NavigationPath()
+                    router.homePath.append(SurpriseRoute())
+                    router.tab = .home
+                case .together: router.tab = .home
                 default: break
                 }
             }
@@ -372,6 +406,11 @@ struct RootView: View {
                 let env = ProcessInfo.processInfo.environment
                 #if DEBUG
                 PlaylistTestDoor.sweep(modelContext)
+                // AW_RESET_TABS=1: forget the sidebar's saved customization.
+                if env["AW_RESET_TABS"] == "1", !sidebarCustomizationData.isEmpty {
+                    awdiag("AWTABS customization was %d bytes; reset", sidebarCustomizationData.count)
+                    sidebarCustomizationData = Data()
+                }
                 #endif
                 if let raw = env["AW_START_TAB"], let t = Router.Tab(rawValue: raw) {
                     router.tab = t
@@ -383,9 +422,10 @@ struct RootView: View {
                     router.openDetail(item)
                 }
                 // AW_OPEN_COLLECTION=<id> opens a Collection; AW_OPEN_CATEGORY=<contentType> a category grid.
-                if let cid = env["AW_OPEN_COLLECTION"], router.browsePath.isEmpty,
+                // With AW_START_TAB=collections it opens inside that sidebar place.
+                if let cid = env["AW_OPEN_COLLECTION"], router.activeTabAtRoot || router.tab == .home,
                    let meta = CollectionMetadata.all.first(where: { $0.id == cid }) {
-                    router.tab = .browse
+                    if router.tab != .collections { router.tab = .browse }
                     router.push(CollectionRef(id: meta.id, title: meta.title, blurb: meta.blurb))
                 }
                 if let ct = env["AW_OPEN_CATEGORY"], router.homePath.isEmpty {
@@ -511,6 +551,38 @@ extension View {
             .navigationDestination(for: ChannelScheduleRoute.self) {
                 ChannelScheduleView(channelID: $0.channelID)
             }
+    }
+}
+
+extension View {
+    /// Tells the router this stack is on screen, so pushes land in it
+    /// (Router.stackTab).
+    func tracksStack(_ tab: Router.Tab, _ router: Router) -> some View {
+        onAppear { router.stackAppeared(tab) }
+            .onDisappear { router.stackDisappeared(tab) }
+            .background { SidebarAvailabilityProbe(router: router) }
+    }
+}
+
+/// Reports whether the tab view can show a sidebar (iOS 27). Below 27 it
+/// reports nothing and the size class alone decides, as before.
+private struct SidebarAvailabilityProbe: View {
+    let router: Router
+    var body: some View {
+        if #available(iOS 27, *) { Probe27(router: router) } else { Color.clear }
+    }
+    @available(iOS 27, *)
+    private struct Probe27: View {
+        let router: Router
+        @Environment(\.isTabViewSidebarAvailable) private var available
+        var body: some View {
+            Color.clear.onChange(of: available, initial: true) { _, a in
+                if router.sidebarAvailable != a {
+                    router.sidebarAvailable = a
+                    awdiag("AWTABS sidebar available=%@", a ? "yes" : "no")
+                }
+            }
+        }
     }
 }
 

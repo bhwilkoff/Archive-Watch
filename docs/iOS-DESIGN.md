@@ -200,6 +200,38 @@ pose (open, partly folded, set down, standing) is one of those two.
   give an iPad (sidebar places, two-column Detail and Series, the Channels grid
   alone per 2.5c, Clip Studio side by side) is what the OPEN Duo shows. Code
   and comments say "regular width", never "iPad", for these.
+- **Sidebar places exist only while there IS a sidebar** (2026-11-10, on the
+  owner's Duo). The open Duo in landscape is regular width but puts the tabs
+  in its vertical strip, and the strip shows every tab whatever its
+  `defaultVisibility`: Films and TV sat beside Browse (two film icons) and
+  Collections fell into the "…" overflow. So places are added only when
+  `hSize == .regular` AND iOS 27's `isTabViewSidebarAvailable` is true; in the
+  strip the five phone tabs stand alone and Browse's scopes, Library's rows and
+  Home's Surprise button reach the places, exactly as on the phone. Anything
+  hidden "because the sidebar lists it" keys on `router.showsSidebarPlaces`,
+  never on the size class.
+- **A push lands in the stack on screen, not the selected tab's.** The strip's
+  overflow shows a tab WITHOUT selecting it, so `Router.push` keyed on
+  `router.tab` sent a tapped collection to Home's hidden stack and nothing
+  opened (the owner's report). Each tab's `NavigationStack` reports itself with
+  `tracksStack`, and pushes go to `Router.stackTab`. A new tab or place must
+  carry `tracksStack`.
+- **Folding keeps the person's place.** A place lost when the window loses its
+  sidebar (the Duo closed, turned to its strip, a window narrowed) hands its
+  stack to the tab that holds it: a collection stays open under Browse, a
+  Library place under Library. Never drop a stack on a size change (Bsky
+  Dreams: closing the Duo pushes the open conversation onto the main stack).
+- **Measure the container, never assume its height.** Regular width says
+  nothing about height: the open Duo in landscape is 951×669pt. Detail's hero
+  takes at most 55% of the height it is shown in (it was a fixed 460pt and
+  pushed Play off screen); Clip Studio's timeline rescales its zoom and keeps
+  its moment when its width changes.
+- **Testing.** `ArchiveWatchUITests/DuoAuditUITests` taps through the Duo in
+  whatever pose it is in (it needs Settings ▸ Developer ▸ Enable UI Automation
+  on the device); `tools/ios_scenario.py` captures the ACTIVE display, because
+  `devicectl` captures the outer one by default even while it is dark. The
+  inner display follows the hinge, not `XCUIDevice.orientation`: an upright
+  pose needs the device turned by hand.
 - **Art under the strip.** A hero or backdrop that reaches the trailing edge
   extends under the vertical strip with `backgroundExtensionEffect()` instead
   of stopping short of it. Its subject stays where §1.6 puts it.

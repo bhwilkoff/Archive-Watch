@@ -12,7 +12,8 @@ Usage:
     python3 tools/ios_scenario.py sweep                # every reachable surface
 
 Requires /tmp/awocr (swiftc -O tools/ScreenOCR/main.swift -o /tmp/awocr).
-Device selection: AW_IOS_DEVICE (default = the iPhone 12 test rig).
+Device selection: AW_IOS_DEVICE (default = the iPhone 12 test rig; the
+owner's iPhone Duo is 00008160-001814623AA00036, lease key "duo").
 """
 import json
 import os
@@ -53,11 +54,49 @@ def launch(env=None, url=None, wait=9.0):
     return ok
 
 
+def active_display():
+    """uniqueId of the display that is ON, when the device has two (iPhone Duo).
+
+    devicectl captures the PRIMARY display by default — the Duo's outer one —
+    even while it is dark and the person is using the inner display, which
+    yields a black capture that reads as a broken screen (learned in Bsky
+    Dreams, 2026-11-10). None on a one-display device.
+    """
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix=".json") as f:
+        r = run(XCRUN + ["device", "info", "displays", "--device", DEVICE,
+                         "--json-output", f.name, "--quiet"], timeout=60)
+        if r.returncode:
+            return None
+        try:
+            data = json.load(open(f.name))
+        except Exception:
+            return None
+    found = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            if "uniqueId" in o and "active" in o:
+                found.append(o)
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(data)
+    if len(found) < 2:
+        return None
+    act = next((d for d in found if d.get("active")), None)
+    return str(act["uniqueId"]) if act else None
+
+
 def shot(name):
     OUT.mkdir(parents=True, exist_ok=True)
     p = OUT / f"{name}.png"
+    disp = active_display()
     r = run(XCRUN + ["device", "capture", "screenshot", "--device", DEVICE,
-                     "--destination", str(p)], timeout=120)
+                     "--destination", str(p)]
+            + (["--display-unique-id", disp] if disp else []), timeout=120)
     if not p.exists():
         print(f"  !! screenshot failed: {r.stderr.strip()[:160]}")
         return None

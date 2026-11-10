@@ -91,6 +91,7 @@ final class ClipTimelineUIView: UIView, UIScrollViewDelegate {
     private var inSeconds: Double = 0
     private var outSeconds: Double = 0
     private var pps: CGFloat = 0                 // points per second (zoom)
+    private var laidOutWidth: CGFloat = 0
     private let stripHeight: CGFloat = 64
     private let handleW: CGFloat = 22
 
@@ -191,6 +192,16 @@ final class ClipTimelineUIView: UIView, UIScrollViewDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         guard bounds.width > 0 else { return }
+        // A new width (the iPhone Duo opened or closed, a rotation) keeps the
+        // same span of film across the strip and the same moment under the
+        // playhead; the zoom was set from the first width only (iOS-DESIGN §2.8).
+        var recenterAt: Double?
+        if pps > 0, laidOutWidth > 0, abs(bounds.width - laidOutWidth) > 1 {
+            // centerTime() reads the NEW bounds; the offset is still the old layout's.
+            recenterAt = Double((scrollView.contentOffset.x + laidOutWidth / 2) / pps)
+            pps *= bounds.width / laidOutWidth
+        }
+        laidOutWidth = bounds.width
         scrollView.frame = bounds
         if pps == 0 {
             // Default zoom: show ~24s (or the whole film if shorter) across the width.
@@ -208,6 +219,7 @@ final class ClipTimelineUIView: UIView, UIScrollViewDelegate {
             didInitialScroll = true
             setCenterTime(inSeconds)
         }
+        if let recenterAt { setCenterTime(recenterAt) }
     }
 
     private func layoutTiles() {

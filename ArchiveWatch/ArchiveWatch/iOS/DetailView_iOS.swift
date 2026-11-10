@@ -20,6 +20,8 @@ struct DetailView: View {
     /// What the player cover plays, bound as an ITEM (§4.4): its start and
     /// caption type travel with it, so the cover can never open before them.
     @State private var playRequest: PlayRequest?
+    /// The height Detail is shown in, for the hero (DetailHero.height).
+    @State private var viewport: CGFloat?
     /// This card's id and the merged-away ids it replaced (Decision 040): a
     /// favorite saved under an old id is THIS film's favorite.
     @State private var aliasIDs: Set<String> = []
@@ -340,7 +342,7 @@ struct DetailView: View {
     @ViewBuilder private var stackedHero: some View {
         VStack(alignment: .leading, spacing: 16) {
             DetailHero(poster: Self.upsized(item.posterURLParsed),
-                       backdrop: Self.upsized(item.backdropURLParsed))
+                       backdrop: Self.upsized(item.backdropURLParsed), viewport: viewport)
             VStack(alignment: .leading, spacing: 12) { identityBlock }
                 .padding(.horizontal)
             VStack(alignment: .leading, spacing: 12) { proseBlock }
@@ -365,9 +367,10 @@ struct DetailView: View {
                     // 11-inch in portrait squeezed Play to ~150-350pt (§5.2).
                     ViewThatFits(in: .horizontal) {
                         HStack(alignment: .top, spacing: 28) {
-                            DetailHero(poster: Self.upsized(item.posterURLParsed),
-                                       backdrop: Self.upsized(item.backdropURLParsed))
-                                .frame(width: 460)
+                            let hero = DetailHero(poster: Self.upsized(item.posterURLParsed),
+                                                  backdrop: Self.upsized(item.backdropURLParsed),
+                                                  viewport: viewport)
+                            hero.frame(width: hero.height)
                             // §3.1a: the synopsis shares the column's edge
                             // under Play rather than running on below at its
                             // own width.
@@ -393,6 +396,7 @@ struct DetailView: View {
                     .padding(.horizontal)
             }
         }
+        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { viewport = $0 }
         .titleInContent(item.title)
         // Handoff: the film on this screen continues on the owner's other
         // devices; one without the app opens the link in a browser.
@@ -754,7 +758,18 @@ private struct DetailHero: View {
     let backdrop: URL?
     @Environment(\.horizontalSizeClass) private var hSize
 
-    private var height: CGFloat { hSize == .regular ? 460 : 340 }
+    /// The visible height Detail measured; nil before it has.
+    var viewport: CGFloat? = nil
+
+    /// 460pt at regular width suits an iPad; the open iPhone Duo in landscape
+    /// is regular width only 669pt tall, where 460 pushed Play off the screen
+    /// and, as the two-column hero's width, dropped Detail to one column. So
+    /// the hero takes at most 55% of the height it is shown in (iOS-DESIGN §2.8).
+    var height: CGFloat {
+        let base: CGFloat = hSize == .regular ? 460 : 340
+        guard hSize == .regular, let viewport, viewport > 0 else { return base }
+        return min(base, max(300, (viewport * 0.55).rounded()))
+    }
 
     var body: some View {
         PosterImage(url: poster ?? backdrop, contentMode: .fit)

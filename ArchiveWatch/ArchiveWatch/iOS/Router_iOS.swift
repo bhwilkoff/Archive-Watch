@@ -61,6 +61,9 @@ final class Router {
     /// False in a compact window: its tab bar has no sidebar places, so a
     /// place chosen from the menu bar goes to the tab that holds it.
     var showsSidebarPlaces = true
+    /// Whether the tab view can show a sidebar now (iOS 27's
+    /// `isTabViewSidebarAvailable`); nil before it has said.
+    var sidebarAvailable: Bool?
     /// A film's own window (IPAD-DESIGN §9.1) has no places to go to.
     var isFilmWindow = false
 
@@ -104,6 +107,17 @@ final class Router {
 
     func pageAppeared() { awaitingPage = false }
 
+    /// The stacks on screen, newest last. A push goes to the stack the person
+    /// is looking at, which is not always the selected tab: on the open iPhone
+    /// Duo in landscape the vertical strip's overflow shows a place WITHOUT
+    /// selecting it, and pushes keyed on `tab` went to Home's hidden stack, so
+    /// a tapped collection never opened (iOS-DESIGN §2.8, 2026-11-10).
+    @ObservationIgnored private var shownStacks: [Tab] = []
+    func stackAppeared(_ t: Tab) { shownStacks.removeAll { $0 == t }; shownStacks.append(t) }
+    func stackDisappeared(_ t: Tab) { shownStacks.removeAll { $0 == t } }
+    /// The stack a push lands on.
+    var stackTab: Tab { shownStacks.last ?? tab }
+
     /// Push any registered destination onto the active tab's stack. False
     /// when the tap was dropped as a repeat of one still landing.
     @discardableResult
@@ -113,6 +127,7 @@ final class Router {
         guard held > (awaitingPage ? 5 : 0.5) else { return false }
         lastPushAt = now
         awaitingPage = value is Catalog.Item
+        let tab = stackTab
         switch tab {
         case .home: homePath.append(value)
         case .browse: browsePath.append(value)
@@ -136,7 +151,8 @@ final class Router {
 
     /// True when the active tab shows its root (nothing to go Back to).
     var activeTabAtRoot: Bool {
-        switch tab {
+        let tab = stackTab
+        return switch tab {
         case .home: homePath.isEmpty
         case .browse: browsePath.isEmpty
         case .channels: channelsPath.isEmpty
@@ -149,6 +165,7 @@ final class Router {
     /// Back, for the menu bar's ⌘[ (IPAD-DESIGN §8.1).
     func popActiveTab() {
         guard !activeTabAtRoot else { return }
+        let tab = stackTab
         switch tab {
         case .home: homePath.removeLast()
         case .browse: browsePath.removeLast()

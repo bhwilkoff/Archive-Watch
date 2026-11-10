@@ -127,9 +127,9 @@ struct HomeView: View {
         }
         .navigationTitle("Archive Watch")
         .toolbar {
-            // The iPad sidebar lists Surprise (IPAD-DESIGN §10); the phone has
-            // no sidebar, so the button stays there.
-            if hSize != .regular {
+            // The sidebar lists Surprise (IPAD-DESIGN §10); without one (the
+            // phone, the open Duo's landscape strip) the button stays here.
+            if !router.showsSidebarPlaces {
                 ToolbarItem(placement: .topBarLeading) {
                     Button { router.push(SurpriseRoute()) } label: {
                         Label("Surprise me", systemImage: "shuffle")

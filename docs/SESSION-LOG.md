@@ -1,5 +1,25 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-11-04 (later) — John Howard's second round, failed builds, the data behind them (Decisions 176-179)
+
+Owner: *"The goal is the best possible data and the best possible database."*
+v1.47.10-1.47.30. Apple 1.47.28 in review on all three (withdrew 1.47.13).
+- **Failures**: three were one race (`release upload --clobber`); fixed (D176).
+- **Renewal check was blind from ~10-28** (the Office changed its response); fixed
+  with a canary (D177). Printed-renewal table 11,910 -> 21,056 rows (D179). The
+  audit found 835 more renewals; catalog 41,737 -> 41,035.
+- **Series years** are evidence-based and searched every TV rebuild (D178).
+- **Play and Shuffle** on every playlist and shared list, all platforms (iOS-DESIGN
+  §4.3b). Roku: crash on OS 9.1, dead-title skip, search 10 s -> 1-2 s.
+**Done 11-05**: Play production and Amazon both at versionCode 73 (Decision 180).
+**Roku 1.0.81** uploaded 11-05, no static errors, App Behavior Analysis 4/4; the Schedule
+dialog is open with notes filled, for the owner to certify and Submit (a Chrome that
+cannot click is not a blocker: ROKU-SUBMISSION). Fire TV adb needs its prompt accepted at the TV. LG needs a Seller Lounge
+account. Mac device pass not run.
+
+**11-06**: third Google notice, Thunderbirds (ITV), case TD-A9ASQAV1: series and its four
+uploads removed. The other Gerry Anderson titles stay until someone asks (owner, 11-06).
+
 ### 2026-11-04 — the first copyright notices; a removal process (Decision 175)
 
 Owner: *"There are two takedown emails from the Google Search Console and I'd

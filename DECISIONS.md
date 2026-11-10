@@ -276,6 +276,7 @@ into every session and the index alone carries every title.)
 - 179 — A printed renewal is read to its chapter and its damaged date, a compilation is judged file by file, and a stored year yields to a later date of the item's own
 - 180 — On a TV box the catalog refresh waits, runs at background priority, and is applied off screen
 - 181 — A film page carries archive.org's own words about the item from a file the viewer never loads, and its lastmod is the day it changed
+- 182 — On the iPhone Duo a push lands in the stack on screen, and sidebar places exist only while there is a sidebar
 
 ---
 
@@ -615,3 +616,33 @@ never `details/`. A new subject filter rule gets a case in
 `test_share_pages.py`. Never date the sitemap from the deploy or catalog
 time. Search Console's 404 and redirect rows are hidden titles and merged ids
 by design (WEB-DESIGN §3.2a); start a validation only on a row a change fixed.
+
+## 182 — On the iPhone Duo a push lands in the stack on screen, and sidebar places exist only while there is a sidebar
+*Date: 2026-11-10*
+
+`Router.push` appends to `Router.stackTab`, the newest `NavigationStack` that
+reported itself on screen (`tracksStack`), and only falls back to the selected
+tab. `RootView` adds the sidebar places only when the width is regular AND
+iOS 27's `isTabViewSidebarAvailable` is true; when the places go away, a selected
+place hands its stack to the tab that holds it. Detail's hero takes at most 55%
+of the measured height, and Clip Studio's timeline keeps its span and moment
+when its width changes. Rules: iOS-DESIGN §2.8.
+
+**Why**: the owner, 2026-11-10: *"I saw that the collections do not open
+correctly."* On the open Duo in landscape the tabs move into a vertical strip
+that shows every tab regardless of `defaultVisibility`, so Collections sat in
+the "…" overflow. The overflow shows a tab without selecting it, so a tapped
+collection was pushed onto Home's hidden stack. Found by tapping it on the
+device (`DuoAuditUITests`), after a launch door had opened the same collection
+fine: a door selects the tab, and a person does not. The same strip put Films
+and TV beside Browse, and Surprise vanished because Home hid it on "regular
+width" rather than on "there is a sidebar". Bsky Dreams' Duo work supplied the
+other rules: measure the container, keep a person's place across the fold,
+capture the display that is on.
+
+**How to apply**: a new tab or place carries `tracksStack`. UI that is hidden
+"because the sidebar has it" keys on `router.showsSidebarPlaces`. A size class
+is not a height: anything sized for an iPad's height reads the measured height.
+Test the Duo by tapping, not only by doors; a door can reach a state a person
+cannot, and miss one a person can.
+

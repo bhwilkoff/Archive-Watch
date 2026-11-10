@@ -760,6 +760,23 @@ keep serving it.
 
 ## Session Log
 
+### 2026-11-10 — iPhone Duo: Collections opens, the strip, Bsky Dreams' lessons (Decision 182)
+
+Owner: *"take all of the things that we have learned from that implementation ...
+audit all of the surfaces on the iPhone Duo ... the collections do not open
+correctly."* v1.47.40. Tested by tapping on the owner's Duo, open, landscape.
+- **Collections**: the landscape strip shows every tab, so Collections sat in "…",
+  which shows a tab without selecting it, and the push went to Home's hidden stack.
+  Pushes now go to the stack on screen; places exist only with a sidebar (iOS 27
+  `isTabViewSidebarAvailable`); Surprise is back in the strip; closing the Duo keeps
+  a place's stack. Detail's hero fits the 669pt height; Clip timeline survives a
+  width change. iOS-DESIGN §2.8.
+- **Tools**: `DuoAuditUITests` (needs UI Automation on the Duo, now on);
+  ios_scenario.py captures the active display; CI logs the iOS SDK.
+**Open**: an upright inner display and the outer (closed) display were not
+reached: both need the Duo moved by hand. The History row's progress bar runs past
+the 700pt row measure at regular width (iPad too).
+
 ### 2026-11-09 — Search Console: richer film pages, a dated sitemap (Decision 181)
 
 Owner: *"The search console should have no errors and no issues"*, then *"fix the
@@ -774,25 +791,5 @@ users."* v1.47.38.
 - humanshaped.org's noindex/redirect rows are intentional too.
 **Open**: watch Indexed vs "Discovered, not indexed" over the next weeks; validate
 only the Duplicate row once Google recrawls it.
-
-### 2026-11-04 (later) — John Howard's second round, failed builds, the data behind them (Decisions 176-179)
-
-Owner: *"The goal is the best possible data and the best possible database."*
-v1.47.10-1.47.30. Apple 1.47.28 in review on all three (withdrew 1.47.13).
-- **Failures**: three were one race (`release upload --clobber`); fixed (D176).
-- **Renewal check was blind from ~10-28** (the Office changed its response); fixed
-  with a canary (D177). Printed-renewal table 11,910 -> 21,056 rows (D179). The
-  audit found 835 more renewals; catalog 41,737 -> 41,035.
-- **Series years** are evidence-based and searched every TV rebuild (D178).
-- **Play and Shuffle** on every playlist and shared list, all platforms (iOS-DESIGN
-  §4.3b). Roku: crash on OS 9.1, dead-title skip, search 10 s -> 1-2 s.
-**Done 11-05**: Play production and Amazon both at versionCode 73 (Decision 180).
-**Roku 1.0.81** uploaded 11-05, no static errors, App Behavior Analysis 4/4; the Schedule
-dialog is open with notes filled, for the owner to certify and Submit (a Chrome that
-cannot click is not a blocker: ROKU-SUBMISSION). Fire TV adb needs its prompt accepted at the TV. LG needs a Seller Lounge
-account. Mac device pass not run.
-
-**11-06**: third Google notice, Thunderbirds (ITV), case TD-A9ASQAV1: series and its four
-uploads removed. The other Gerry Anderson titles stay until someone asks (owner, 11-06).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
