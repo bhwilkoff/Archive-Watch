@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-09T12:29:58Z",
+  "updated_at": "2026-11-10T12:17:09Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72249,
-    "new_this_run": 0,
-    "awaiting_ingest": 1008,
-    "with_archive_id": 63931
+    "total": 72253,
+    "new_this_run": 1,
+    "awaiting_ingest": 1009,
+    "with_archive_id": 63932
   },
   "candidates": [
     {
@@ -884571,6 +884571,20 @@
       "ingested_at": "2026-11-06T11:58:07Z"
     },
     {
+      "iaid": "filmography-Alain-Delon",
+      "title": "Filmography: Alain Delon",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:05:50Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -989325,6 +989339,51 @@
       "rightsConfidence": "low",
       "status": "new",
       "discovered_at": "2026-06-01T03:38:14Z"
+    },
+    {
+      "iaid": "puffs-plus-lotion-tv-commercial-holiday-2010-hq-vhs-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Puffs Plus Lotion TV Commercial - Holiday (2010) (HQ VHS Version)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:16:19Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
+    },
+    {
+      "iaid": "puffs-plus-lotion-tv-commercial-camping-2010-hq-vhs-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Puffs Plus Lotion TV Commercial - Camping (2010) (HQ VHS Version)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:16:19Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
+    },
+    {
+      "iaid": "puffs-plus-lotion-tv-commercial-holiday-2010-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Puffs Plus Lotion TV Commercial - Holiday (2010) (HQ)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:16:19Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
     }
   ]
 }
