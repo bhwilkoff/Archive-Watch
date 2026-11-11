@@ -5701,6 +5701,22 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzwmuxs2uh26",
+   "platform": "bluesky",
+   "id": "LifeWithFather",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-10T04:42:38.640999+00:00",
+   "sampled": "2026-11-11T02:47:54.360096+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
