@@ -5717,6 +5717,84 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzjwmfthav24",
+   "platform": "bluesky",
+   "id": "dra-cula.-eng.-mp-4.",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-05T03:32:10.992991+00:00",
+   "sampled": "2026-11-11T21:57:41.568861+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzlszzx7k427",
+   "platform": "bluesky",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-05T21:33:34.051345+00:00",
+   "sampled": "2026-11-11T21:57:41.568861+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117565977010342675",
+   "platform": "mastodon",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-05T21:33:34.051345+00:00",
+   "sampled": "2026-11-11T21:57:41.568861+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzyesvrdch2c",
+   "platform": "bluesky",
+   "id": "silent-little-red-riding-hood",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-10T21:23:39.755680+00:00",
+   "sampled": "2026-11-11T21:57:41.568861+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117594248754000026",
+   "platform": "mastodon",
+   "id": "silent-little-red-riding-hood",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-10T21:23:39.755680+00:00",
+   "sampled": "2026-11-11T21:57:41.568861+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

@@ -4261,6 +4261,66 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-11T21:56:18.124495+00:00",
+   "id": "Girl_In_Lovers_Lane",
+   "title": "The Girl in Lover's Lane",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n22x4d5wld2k",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Vic Demise"
+  },
+  {
+   "at": "2026-11-11T21:56:18.124495+00:00",
+   "id": "Girl_In_Lovers_Lane",
+   "title": "The Girl in Lover's Lane",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117600040000204575",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Vic Demise"
+  },
+  {
+   "at": "2026-11-11T21:56:18.124495+00:00",
+   "id": "Girl_In_Lovers_Lane",
+   "title": "The Girl in Lover's Lane",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Dfnf3joAR8o",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Vic Demise"
+  },
+  {
+   "at": "2026-11-11T21:56:18.124495+00:00",
+   "id": "Girl_In_Lovers_Lane",
+   "title": "The Girl in Lover's Lane",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dfnf8dhARBW/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117600039370481500",
+   "reviewer": "Vic Demise"
+  },
+  {
+   "at": "2026-11-11T21:56:18.124495+00:00",
+   "id": "Girl_In_Lovers_Lane",
+   "title": "The Girl in Lover's Lane",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=DFFsbF1a99c",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Vic Demise"
   }
  ]
 }
