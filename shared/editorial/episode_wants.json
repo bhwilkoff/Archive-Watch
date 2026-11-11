@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-10T12:17:18Z",
+  "updated_at": "2026-11-11T11:57:58Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19483,
-    "wanted": 19213,
+    "total": 19484,
+    "wanted": 19214,
     "fulfilled": 270,
     "series_with_gaps": 396
   },
@@ -98493,6 +98493,16 @@
       "episodeImdbID": "tt0673970",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "petticoat-junction-1963",
+      "seriesTitle": "Petticoat Junction",
+      "season": 7,
+      "episode": 2,
+      "title": "The Game Warden",
+      "episodeImdbID": "tt0674013",
+      "status": "wanted",
+      "added_at": "2026-11-11T11:57:58Z"
     },
     {
       "seriesID": "petticoat-junction-1963",

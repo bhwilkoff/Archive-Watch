@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-10T12:17:09Z",
+  "updated_at": "2026-11-11T11:57:46Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72253,
-    "new_this_run": 1,
-    "awaiting_ingest": 1009,
-    "with_archive_id": 63932
+    "total": 72263,
+    "new_this_run": 4,
+    "awaiting_ingest": 1012,
+    "with_archive_id": 63939
   },
   "candidates": [
     {
@@ -6989,6 +6989,47 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:58:27Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "the-man-from-hong-kong-1975-george-lazenby",
+      "title": "The Man From Hong Kong 直搗黃龍 (1975)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-11T11:48:09Z"
+    },
+    {
+      "iaid": "ninja-in-the-dragons-den-1982-dubbed-subtitled",
+      "title": "Ninja In The Dragons Den 龍之忍者 [1982] (Dubbed & Subtitled)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:48:09Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "jackie-chans-police-force-aka-police-story-export-cut",
+      "title": "Jackie Chan's Police Force (aka Police Story export cut) [DVDrip & VHSrip]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:48:09Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
@@ -119674,6 +119715,51 @@
       "status": "ingested",
       "discovered_at": "2026-11-08T11:11:35Z",
       "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "puffs-plus-lotion-tv-commercial-holiday-2010-hq-vhs-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Puffs Plus Lotion TV Commercial - Holiday (2010) (HQ VHS Version)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:16:19Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
+    },
+    {
+      "iaid": "puffs-plus-lotion-tv-commercial-camping-2010-hq-vhs-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Puffs Plus Lotion TV Commercial - Camping (2010) (HQ VHS Version)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:16:19Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
+    },
+    {
+      "iaid": "puffs-plus-lotion-tv-commercial-holiday-2010-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Puffs Plus Lotion TV Commercial - Holiday (2010) (HQ)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-10T12:16:19Z",
+      "ingested_at": "2026-11-10T12:17:09Z"
     },
     {
       "iaid": "Closing_Credits",
@@ -884585,6 +884671,20 @@
       "ingested_at": "2026-11-10T12:17:09Z"
     },
     {
+      "iaid": "205240_Lusinchi_Collection_071142",
+      "title": "Home Movie: Vic Lusinchi Collection: 071142",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:48:09Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -989341,40 +989441,85 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "puffs-plus-lotion-tv-commercial-holiday-2010-hq-vhs-version",
+      "iaid": "ytdown.com-you-tube-media-pwz-mjpg-ap-g-og-chapter-2-tv-show-ad-official-teaser-fortnite",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Puffs Plus Lotion TV Commercial - Holiday (2010) (HQ VHS Version)",
-      "year": 2010,
+      "title": "YTDown.com You Tube Media Pwz MJPg AP G OG Chapter 2 Tv Show Ad Official Teaser Fortnite",
+      "year": 2026,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-10T12:16:19Z",
-      "ingested_at": "2026-11-10T12:17:09Z"
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
-      "iaid": "puffs-plus-lotion-tv-commercial-camping-2010-hq-vhs-version",
+      "iaid": "pbs-kids-sprout-kindness-counts-promo-with-kelly-and-chica-tv-commercial-promo-2012-2013-hq",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Puffs Plus Lotion TV Commercial - Camping (2010) (HQ VHS Version)",
-      "year": 2010,
+      "title": "PBS Kids Sprout - Kindness Counts Promo With Kelly And Chica TV Commercial Promo (2012-2013) (HQ)",
+      "year": 2012,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-10T12:16:19Z",
-      "ingested_at": "2026-11-10T12:17:09Z"
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
-      "iaid": "puffs-plus-lotion-tv-commercial-holiday-2010-hq",
+      "iaid": "pbs-kids-sprout-chica-plush-toy-tv-commercial-promo-2012-2013-hq",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Puffs Plus Lotion TV Commercial - Holiday (2010) (HQ)",
+      "title": "PBS Kids Sprout - Chica Plush Toy TV Commercial Promo (2012-2013) (HQ)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-he-awake-tv-commercial-promo-15-sec-2011-2012-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - He Awake TV Commercial Promo (15 Sec) (2011-2012) (HQ)",
+      "year": 2011,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-kindness-counts-promo-with-nina-and-star-tv-commercial-promo-2012-2013-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Kindness Counts Promo With Nina And Star TV Commercial Promo (2012-2013) (HQ)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "cadbury-creme-eggs-bunny-tryouts-tv-commercial-2010-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Cadbury Creme Eggs - Bunny Tryouts TV Commercial (2010) (HQ)",
       "year": 2010,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
@@ -989382,8 +989527,8 @@
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-10T12:16:19Z",
-      "ingested_at": "2026-11-10T12:17:09Z"
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
     }
   ]
 }

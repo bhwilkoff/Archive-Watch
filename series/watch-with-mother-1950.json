@@ -1,138 +1,141 @@
 {
- "version": 2,
- "seriesID": "watch-with-mother-1950",
- "tvmazeID": 35889,
- "title": "Watch with Mother",
- "yearStart": 1950,
- "yearEnd": 1955,
- "overview": "Watch with Mother was a cycle of children's programs broadcast by BBC Television from 1950 until 1974, it was the first BBC television series aimed specifically at pre-school children. In accordance with its target it was initially broadcast between 3:45 pm and 4:00 pm, before the older children came home from school. Although Andy Pandy had been regularly broadcast since mid-1952, joined by the Flower Pot Men later that year, the name Watch with Mother was not adopted until 1952, when the programming was expanded to three afternoons a week with the addition of Rag, Tag and Bobtail. The \"classic\" cycle of shows was in place by September 1955, with the first showing of The Woodentops, and included:- Picture Book (Mondays from 1955), Andy Pandy (Tuesdays from 1950), Flower Pot Men (Wednesdays from 1952), Rag, Tag and Bobtail (Thursdays from 1953), and The Woodentops (Fridays from 1955).",
- "posterURL": null,
- "backdropURL": null,
- "genres": [
-  "Children"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "watch-with-mother-1950",
+  "tvmazeID": 35889,
+  "title": "Watch with Mother",
+  "yearStart": 1950,
+  "yearEnd": 1955,
+  "overview": "Watch with Mother was a cycle of children's programs broadcast by BBC Television from 1950 until 1974, it was the first BBC television series aimed specifically at pre-school children. In accordance with its target it was initially broadcast between 3:45 pm and 4:00 pm, before the older children came home from school. Although Andy Pandy had been regularly broadcast since mid-1952, joined by the Flower Pot Men later that year, the name Watch with Mother was not adopted until 1952, when the programming was expanded to three afternoons a week with the addition of Rag, Tag and Bobtail. The \"classic\" cycle of shows was in place by September 1955, with the first showing of The Woodentops, and included:- Picture Book (Mondays from 1955), Andy Pandy (Tuesdays from 1950), Flower Pot Men (Wednesdays from 1952), Rag, Tag and Bobtail (Thursdays from 1953), and The Woodentops (Fridays from 1955).",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [
+    "Children"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "watch_with_mother_andy_pandy",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Andy Pandy",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1950-07-01",
-     "year": 1950,
-     "runtimeSeconds": 60,
-     "videoFile": {
-      "name": "watch_with_mother_andy_pandy.mp4",
-      "format": "h.264",
-      "sizeBytes": 99736437,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/watch_with_mother_andy_pandy/watch_with_mother_andy_pandy.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "watch_with_mother_andy_pandy",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Andy Pandy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1950-07-01",
+          "year": 1950,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "watch_with_mother_andy_pandy.mp4",
+            "format": "h.264",
+            "sizeBytes": 99736437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_andy_pandy/watch_with_mother_andy_pandy.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "watch_with_mother_the_flowerpot_men",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Flower Pot Men",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1952-04-04",
-     "year": 1952,
-     "runtimeSeconds": 60,
-     "videoFile": {
-      "name": "watch_with_mother_the_flowerpot_men.mp4",
-      "format": "h.264",
-      "sizeBytes": 89872880,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/watch_with_mother_the_flowerpot_men/watch_with_mother_the_flowerpot_men.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "watch_with_mother_the_flowerpot_men",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Flower Pot Men",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1952-04-04",
+          "year": 1952,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "watch_with_mother_the_flowerpot_men.mp4",
+            "format": "h.264",
+            "sizeBytes": 89872880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_the_flowerpot_men/watch_with_mother_the_flowerpot_men.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "watch_with_mother_rag_tag_and_bobtail_snowballs",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "Rag, Tag and Bobtail",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1953-10-13",
-     "year": 1953,
-     "runtimeSeconds": 60,
-     "videoFile": {
-      "name": "watch_with_mother_rag_tag_and_bobtail_snowballs.mp4",
-      "format": "h.264",
-      "sizeBytes": 86888745,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail_snowballs/watch_with_mother_rag_tag_and_bobtail_snowballs.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "watch_with_mother_rag_tag_and_bobtail_snowballs",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Rag, Tag and Bobtail",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1953-10-13",
+          "year": 1953,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "watch_with_mother_rag_tag_and_bobtail_snowballs.mp4",
+            "format": "h.264",
+            "sizeBytes": 86888745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail_snowballs/watch_with_mother_rag_tag_and_bobtail_snowballs.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "watch_with_mother_woodentops_horseshoe",
-     "seasonNumber": 4,
-     "episodeNumber": 1,
-     "title": "The Woodentops",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1955-04-15",
-     "year": 1955,
-     "runtimeSeconds": 60,
-     "videoFile": {
-      "name": "watch_with_mother_woodentops_horseshoe.mp4",
-      "format": "h.264",
-      "sizeBytes": 88530942,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/watch_with_mother_woodentops_horseshoe/watch_with_mother_woodentops_horseshoe.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "watch_with_mother_woodentops_horseshoe",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "The Woodentops",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-04-15",
+          "year": 1955,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "watch_with_mother_woodentops_horseshoe.mp4",
+            "format": "h.264",
+            "sizeBytes": 88530942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_woodentops_horseshoe/watch_with_mother_woodentops_horseshoe.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "watch_with_mother_rag_tag_and_bobtail",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Rag, Tag and Bobtail",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 792,
-     "videoFile": {
-      "name": "Bobtail.mp4",
-      "format": "h.264",
-      "sizeBytes": 79326549,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail/Bobtail.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "watch_with_mother_rag_tag_and_bobtail",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rag, Tag and Bobtail",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 792,
+          "videoFile": {
+            "name": "Bobtail.mp4",
+            "format": "h.264",
+            "sizeBytes": 79326549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail/Bobtail.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 8,
- "tvmazeRating": null
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 8,
+  "tvmazeRating": null,
+  "seriesImdbID": "tt2200700",
+  "canonicalEpisodeCount": 3,
+  "canonicalSeasons": 1
 }
