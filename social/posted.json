@@ -4321,6 +4321,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "Vic Demise"
+  },
+  {
+   "at": "2026-11-12T03:51:15.180643+00:00",
+   "id": "TheKidStakes",
+   "title": "The Kid Stakes",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n23kx24vnw2k",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
