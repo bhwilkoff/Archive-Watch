@@ -397,6 +397,26 @@ struct RootView: View {
             // held only in the full catalog, not the bundled seed.
             .task(id: store.dbVersion) { routeSharePlayJoin() }
             .onChange(of: WatchTogether.shared.pendingJoin) { routeSharePlayJoin() }
+            #if DEBUG
+            // AW_SYNC_CHURN=<seconds>: what a no-change sync does to the local
+            // store — reassign a watch record's fields to themselves and save —
+            // on a short clock, so its effect on open menus can be measured
+            // without an iCloud account on the test phone.
+            .task {
+                guard let s = Double(ProcessInfo.processInfo.environment["AW_SYNC_CHURN"] ?? "") else { return }
+                while !Task.isCancelled {
+                    try? await Task.sleep(for: .seconds(s))
+                    for w in (try? modelContext.fetch(FetchDescriptor<WatchProgress>())) ?? [] {
+                        w.firstWatchedAt = w.firstWatchedAt
+                    }
+                    for f in (try? modelContext.fetch(FetchDescriptor<Favorite>())) ?? [] {
+                        f.addedAt = f.addedAt
+                    }
+                    try? modelContext.save()
+                    awdiag("AWCHURN saved")
+                }
+            }
+            #endif
             // Screenshot/dev affordance (the tvOS RootView hooks, iOS twin):
             // AW_START_TAB=channels lands on a tab, AW_START_ITEM=<archiveID>
             // deep-opens that Detail. No-ops unless the env vars are set.
@@ -532,11 +552,20 @@ extension View {
     /// Shared push destinations so every tab can open Detail, a series, a
     /// collection, or a filtered grid identically (Home's category/decade tiles
     /// and Surprise's decade action push these from outside the Browse tab).
-    func withItemDestination() -> some View {
+    func withItemDestination() -> ModifiedContent<Self, ItemDestinations> {
+        modifier(ItemDestinations())
+    }
+}
+
+/// A concrete type rather than `some View`: resolving the opaque type of eleven
+/// nested destinations on the main thread, under RootView's Debug frames, ran
+/// past the stack guard at launch once the Duo showed its sidebar places.
+struct ItemDestinations: ViewModifier {
+    func body(content: Content) -> some View {
         // A series card is a series page wherever it was tapped (More Like
         // This, Library, a deep link), not only where a caller remembered to
         // wrap it in SeriesRef — the tvOS destination's rule.
-        navigationDestination(for: Catalog.Item.self) { item in
+        content.navigationDestination(for: Catalog.Item.self) { item in
             if item.contentType == "tv-series" { SeriesDetailView(card: item) } else { DetailView(item: item) }
         }
             .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }

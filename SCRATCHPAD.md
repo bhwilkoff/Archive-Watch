@@ -760,6 +760,23 @@ keep serving it.
 
 ## Session Log
 
+### 2026-11-12 — Detail's More menu stays open on the Duo (Decision 183)
+
+Owner: *"very often when I press the more button within the individual item
+detail page, the interface element closes before I can select anything."*
+v1.47.41.
+- **Cause**: on the open Duo the vertical strip collapses and expands as the
+  page scrolls (867 vs 951pt). Detail's header was a `ViewThatFits` needing
+  948pt for two columns, so it flipped with the strip and rebuilt the More
+  button, which closes its menu. Now one `AnyLayout`; iOS-DESIGN §2.8.
+- **Debug launch crash**: with the Duo upright the Debug app overflowed the
+  main thread's stack resolving `withItemDestination`'s opaque type for the
+  sidebar places; it is a concrete `ViewModifier` now. Release never crashed.
+- `DuoAuditUITests` test_07/08/09 hold the menu open 4 s; `AW_SYNC_CHURN`
+  (DEBUG) writes the store like a no-change sync.
+**Open**: the strip only exists in landscape; test_07/09 passed upright, so
+re-run them with the Duo open in landscape.
+
 ### 2026-11-10 — iPhone Duo: Collections opens, the strip, Bsky Dreams' lessons (Decision 182)
 
 Owner: *"take all of the things that we have learned from that implementation ...
@@ -776,20 +793,5 @@ correctly."* v1.47.40. Tested by tapping on the owner's Duo, open, landscape.
 **Open**: an upright inner display and the outer (closed) display were not
 reached: both need the Duo moved by hand. The History row's progress bar runs past
 the 700pt row measure at regular width (iPad too).
-
-### 2026-11-09 — Search Console: richer film pages, a dated sitemap (Decision 181)
-
-Owner: *"The search console should have no errors and no issues"*, then *"fix the
-site map and database to the extent that we can without making it worse for our
-users."* v1.47.38.
-- **Not fixable, by design**: 404s are hidden titles, redirects are merged ids,
-  `/index.html` points to `/` (Google: "nothing you need to do"). Told the owner.
-- **Live**: film pages carry archive.org's subjects (keyword spam dropped), named
-  collections, language and the full description, from `page-extras/` (the
-  viewer never loads it). Sitemap `<lastmod>` is each page's last change, carried
-  in `/page-state.json`; seeded 2026-11-09 for all 41,091 URLs.
-- humanshaped.org's noindex/redirect rows are intentional too.
-**Open**: watch Indexed vs "Discovered, not indexed" over the next weeks; validate
-only the Duplicate row once Google recrawls it.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

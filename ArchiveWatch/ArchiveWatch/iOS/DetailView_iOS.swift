@@ -22,6 +22,8 @@ struct DetailView: View {
     @State private var playRequest: PlayRequest?
     /// The height Detail is shown in, for the hero (DetailHero.height).
     @State private var viewport: CGFloat?
+    /// The width Detail is shown in, for the two-column choice.
+    @State private var pageWidth: CGFloat = 0
     /// This card's id and the merged-away ids it replaced (Decision 040): a
     /// favorite saved under an old id is THIS film's favorite.
     @State private var aliasIDs: Set<String> = []
@@ -339,6 +341,43 @@ struct DetailView: View {
                 relatedSection
     }
 
+    /// IPAD-DESIGN §3.1 at regular width: artwork leading with identity and
+    /// actions beside it, or one stacked column when the identity column would
+    /// get less than 360pt (Stage Manager, an 11-inch upright, §5.2).
+    ///
+    /// ONE view tree under an `AnyLayout`, never two alternatives: this was a
+    /// `ViewThatFits` holding two copies of the action row, and on the iPhone
+    /// Duo the page width moves by 84pt as the vertical strip collapses and
+    /// expands, which flipped between the copies and destroyed the More button
+    /// under its open menu (owner, 2026-11-11: "the interface element closes
+    /// before I can select anything"). And the choice is made against the
+    /// column's MINIMUM, not the 520pt it would like, so the Duo's landscape
+    /// (867-951pt) stays two columns in both strip states.
+    @ViewBuilder private var regularHeader: some View {
+        let hero = DetailHero(poster: Self.upsized(item.posterURLParsed),
+                              backdrop: Self.upsized(item.backdropURLParsed),
+                              viewport: viewport)
+        let two = pageWidth >= hero.height + 28 + 360 + 32
+        let layout = two ? AnyLayout(HStackLayout(alignment: .top, spacing: 28))
+                         : AnyLayout(VStackLayout(alignment: .leading, spacing: 16))
+        layout {
+            hero.frame(width: two ? hero.height : nil)
+            // §3.1a: the synopsis shares the column's edge under Play rather
+            // than running on below at its own width.
+            VStack(alignment: .leading, spacing: 12) {
+                identityBlock
+                // §2.1: prose is capped at 700pt when the column is the page.
+                proseBlock.frame(maxWidth: 700, alignment: .leading)
+                DetailFacts(item: item)
+                    .padding(.top, 4)
+            }
+            .frame(minWidth: two ? 360 : nil, maxWidth: two ? 520 : .infinity,
+                   alignment: .leading)
+            .padding(.horizontal, two ? 0 : 16)
+        }
+        .padding(.horizontal, two ? 16 : 0)
+    }
+
     @ViewBuilder private var stackedHero: some View {
         VStack(alignment: .leading, spacing: 16) {
             DetailHero(poster: Self.upsized(item.posterURLParsed),
@@ -362,30 +401,7 @@ struct DetailView: View {
                 // column when compact. One view, a size-class branch inside
                 // it (§6.2 forbids a second Detail).
                 if hSize == .regular {
-                    // Two columns only when the identity column keeps 360pt:
-                    // regular width alone is not enough — Stage Manager or an
-                    // 11-inch in portrait squeezed Play to ~150-350pt (§5.2).
-                    ViewThatFits(in: .horizontal) {
-                        HStack(alignment: .top, spacing: 28) {
-                            let hero = DetailHero(poster: Self.upsized(item.posterURLParsed),
-                                                  backdrop: Self.upsized(item.backdropURLParsed),
-                                                  viewport: viewport)
-                            hero.frame(width: hero.height)
-                            // §3.1a: the synopsis shares the column's edge
-                            // under Play rather than running on below at its
-                            // own width.
-                            VStack(alignment: .leading, spacing: 12) {
-                                identityBlock
-                                proseBlock
-                                DetailFacts(item: item)
-                                    .padding(.top, 4)
-                            }
-                            .frame(minWidth: 360, maxWidth: 520, alignment: .leading)
-                            Spacer(minLength: 0)
-                        }
-                        .padding(.horizontal)
-                        stackedHero
-                    }
+                    regularHeader
                 } else {
                     stackedHero
                 }
@@ -396,7 +412,10 @@ struct DetailView: View {
                     .padding(.horizontal)
             }
         }
-        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { viewport = $0 }
+        .onGeometryChange(for: CGSize.self) { $0.size } action: {
+            viewport = $0.height
+            pageWidth = $0.width
+        }
         .titleInContent(item.title)
         // Handoff: the film on this screen continues on the owner's other
         // devices; one without the app opens the link in a browser.

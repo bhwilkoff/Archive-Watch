@@ -188,4 +188,45 @@ final class DuoAuditUITests: XCTestCase {
         snap("player-controls")
         log("player tree:\n\(app.debugDescription.prefix(5000))")
     }
+
+    /// Detail's More menu must stay open until the viewer picks something
+    /// (owner, 2026-11-11: "the interface element closes before I can select
+    /// anything"). Opened at several moments after the page appears, since
+    /// the page is still loading things in its first seconds.
+    func test_07_moreMenuStaysOpen() {
+        moreMenuCheck([:])
+    }
+
+    /// The same, while the store is written the way a no-change sync writes it.
+    func test_08_moreMenuSurvivesSync() {
+        moreMenuCheck(["AW_SYNC_CHURN": "1.5"])
+    }
+
+    /// Films this phone has never opened, More tapped at once: the page is
+    /// still fetching archive.org's copies for Choose Version.
+    func test_09_moreMenuOnAFreshPage() {
+        moreMenuCheck([:], films: [("follow_your_heart", 0.0), ("SpeckledBand", 0.3),
+                                   ("windjammer", 0.0), ("humanbondage", 0.6),
+                                   ("TheWildWomenOfWongoVideoQualityUpgrade", 0.0),
+                                   ("TheLittlePrincess1939", 1.0)])
+    }
+
+    private func moreMenuCheck(_ extra: [String: String], films: [(String, Double)]? = nil) {
+        for (id, delay) in films ?? [("his_girl_friday", 0.5), ("Night.Of.The.Living.Dead_1080p", 1.5),
+                            ("TheGeneral720p1926", 3.0), ("his_girl_friday", 6.0)] {
+            launch(["AW_START_ITEM": id].merging(extra) { a, _ in a })
+            let more = app.buttons["detail.more"]
+            guard more.waitForExistence(timeout: 15) else { XCTFail("no More on \(id)"); continue }
+            Thread.sleep(forTimeInterval: delay)
+            more.tap()
+            let item = app.buttons["Add to Playlist"]
+            let opened = item.waitForExistence(timeout: 3)
+            var stillOpen: [Bool] = []
+            for _ in 0..<8 { Thread.sleep(forTimeInterval: 0.5); stillOpen.append(item.exists) }
+            log("more \(id) delay=\(delay) opened=\(opened) open-over-4s=\(stillOpen)")
+            snap("more-\(id)-\(delay)")
+            XCTAssertTrue(opened && stillOpen.allSatisfy { $0 },
+                          "More closed by itself on \(id) (tapped \(delay)s after the page appeared)")
+        }
+    }
 }

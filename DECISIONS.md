@@ -277,6 +277,7 @@ into every session and the index alone carries every title.)
 - 180 — On a TV box the catalog refresh waits, runs at background priority, and is applied off screen
 - 181 — A film page carries archive.org's own words about the item from a file the viewer never loads, and its lastmod is the day it changed
 - 182 — On the iPhone Duo a push lands in the stack on screen, and sidebar places exist only while there is a sidebar
+- 183 — A layout that changes with width keeps its controls: one AnyLayout, never ViewThatFits around a menu
 
 ---
 
@@ -645,4 +646,31 @@ capture the display that is on.
 is not a height: anything sized for an iPad's height reads the measured height.
 Test the Duo by tapping, not only by doors; a door can reach a state a person
 cannot, and miss one a person can.
+
+## 183 — A layout that changes with width keeps its controls: one AnyLayout, never ViewThatFits around a menu
+*Date: 2026-11-12*
+
+Detail's regular-width header (`DetailView_iOS.regularHeader`) is one
+`AnyLayout` that switches between an `HStackLayout` and a `VStackLayout` over
+the same hero and text column, chosen from the ScrollView's measured width:
+two columns when the hero plus a 360pt text column fit. It replaced a
+`ViewThatFits` whose two alternatives each built their own action buttons.
+
+**Why**: the owner, 2026-11-11: *"very often when I press the more button
+within the individual item detail page, the interface element closes before I
+can select anything."* On the open Duo the vertical strip collapses and expands
+as the page scrolls, so the content width moves between 867 and 951pt. Since
+1.47.40 capped the hero at 55% of the height, two columns needed 948pt, right
+between the two, and the header flipped as the strip moved. `ViewThatFits`'s
+alternatives are separate views, so each flip destroyed the More button and
+SwiftUI dismissed the menu it anchored. It could not reproduce on the iPhone 12
+(compact width takes the other branch), and it did not exist before 1.47.40
+(the fixed 460pt hero never fit two columns on the Duo).
+
+**How to apply**: never put a `Menu`, `Picker`, text field or anything with
+open state inside `ViewThatFits`; a width-dependent arrangement is one
+`AnyLayout` over shared children. A threshold that sits between two widths a
+screen really moves through is a defect: pick it so the common widths land
+firmly on one side. `DuoAuditUITests.test_07`/`test_09` hold the menu open for
+4 seconds at several moments after Detail appears.
 

@@ -1,5 +1,20 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-11-09 — Search Console: richer film pages, a dated sitemap (Decision 181)
+
+Owner: *"The search console should have no errors and no issues"*, then *"fix the
+site map and database to the extent that we can without making it worse for our
+users."* v1.47.38.
+- **Not fixable, by design**: 404s are hidden titles, redirects are merged ids,
+  `/index.html` points to `/` (Google: "nothing you need to do"). Told the owner.
+- **Live**: film pages carry archive.org's subjects (keyword spam dropped), named
+  collections, language and the full description, from `page-extras/` (the
+  viewer never loads it). Sitemap `<lastmod>` is each page's last change, carried
+  in `/page-state.json`; seeded 2026-11-09 for all 41,091 URLs.
+- humanshaped.org's noindex/redirect rows are intentional too.
+**Open**: watch Indexed vs "Discovered, not indexed" over the next weeks; validate
+only the Duplicate row once Google recrawls it.
+
 ### 2026-11-04 (later) — John Howard's second round, failed builds, the data behind them (Decisions 176-179)
 
 Owner: *"The goal is the best possible data and the best possible database."*

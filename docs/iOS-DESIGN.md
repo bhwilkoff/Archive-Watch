@@ -226,6 +226,15 @@ pose (open, partly folded, set down, standing) is one of those two.
   takes at most 55% of the height it is shown in (it was a fixed 460pt and
   pushed Play off screen); Clip Studio's timeline rescales its zoom and keeps
   its moment when its width changes.
+- **A width change never rebuilds a control.** The strip collapses and expands
+  as the page scrolls, moving the content width between 867 and 951pt. Detail's
+  header was a `ViewThatFits` (two columns, else stacked), and two columns
+  needed 948pt, so it flipped as the strip moved; each flip built a NEW More
+  button and SwiftUI closed the menu it had opened (owner, 2026-11-11: *"the
+  interface element closes before I can select anything"*). A header that
+  changes arrangement uses one `AnyLayout` over the same children, which keeps
+  their identity, and decides from the measured width. Never wrap a `Menu`,
+  `Picker` or text field in `ViewThatFits`.
 - **Testing.** `ArchiveWatchUITests/DuoAuditUITests` taps through the Duo in
   whatever pose it is in (it needs Settings ▸ Developer ▸ Enable UI Automation
   on the device); `tools/ios_scenario.py` captures the ACTIVE display, because
