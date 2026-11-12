@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-11T11:57:46Z",
+  "updated_at": "2026-11-12T12:13:24Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72263,
-    "new_this_run": 4,
-    "awaiting_ingest": 1012,
-    "with_archive_id": 63939
+    "total": 72265,
+    "new_this_run": 1,
+    "awaiting_ingest": 1010,
+    "with_archive_id": 63946
   },
   "candidates": [
     {
@@ -7029,6 +7029,21 @@
       "archiveCollection": "feature_films",
       "status": "ingested",
       "discovered_at": "2026-11-11T11:48:09Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "ytdown.com-you-tube-media-pwz-mjpg-ap-g-og-chapter-2-tv-show-ad-official-teaser-fortnite",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "YTDown.com You Tube Media Pwz MJPg AP G OG Chapter 2 Tv Show Ad Official Teaser Fortnite",
+      "year": 2026,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
       "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
@@ -98585,6 +98600,51 @@
       "ingested_at": "2026-11-05T11:52:30Z"
     },
     {
+      "iaid": "pbs-kids-sprout-kindness-counts-promo-with-kelly-and-chica-tv-commercial-promo-2012-2013-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Kindness Counts Promo With Kelly And Chica TV Commercial Promo (2012-2013) (HQ)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-chica-plush-toy-tv-commercial-promo-2012-2013-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Chica Plush Toy TV Commercial Promo (2012-2013) (HQ)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-kindness-counts-promo-with-nina-and-star-tv-commercial-promo-2012-2013-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Kindness Counts Promo With Nina And Star TV Commercial Promo (2012-2013) (HQ)",
+      "year": 2012,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
       "iaid": "CompilationOfClassicTvFootage",
       "title": "Compilation of Classic TV Footage - Episode 1",
       "year": 2011,
@@ -108382,6 +108442,21 @@
       "status": "ingested",
       "discovered_at": "2026-11-08T11:11:35Z",
       "ingested_at": "2026-11-08T11:12:37Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-he-awake-tv-commercial-promo-15-sec-2011-2012-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - He Awake TV Commercial Promo (15 Sec) (2011-2012) (HQ)",
+      "year": 2011,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
       "iaid": "Verdura",
@@ -119760,6 +119835,21 @@
       "status": "ingested",
       "discovered_at": "2026-11-10T12:16:19Z",
       "ingested_at": "2026-11-10T12:17:09Z"
+    },
+    {
+      "iaid": "cadbury-creme-eggs-bunny-tryouts-tv-commercial-2010-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Cadbury Creme Eggs - Bunny Tryouts TV Commercial (2010) (HQ)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-11T11:56:42Z",
+      "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
       "iaid": "Closing_Credits",
@@ -884685,6 +884775,20 @@
       "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
+      "iaid": "205084_Exploring_the_Spectrum_P2",
+      "title": "Exploring the Spectrum (Part 2)",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-12T12:05:07Z",
+      "ingested_at": "2026-11-12T12:13:24Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -910526,6 +910630,22 @@
       "rightsConfidence": "high",
       "status": "unresolved",
       "discovered_at": "2026-10-17T08:01:33Z"
+    },
+    {
+      "iaid": "colin-mc-rae-rally-championship-novice-round-2-monte-carlo-1080p",
+      "title": "Monte Carlo",
+      "year": 1926,
+      "imdbID": "tt0017166",
+      "wikidataQID": "Q3861315",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "wants_wikidata_age",
+      "pdEvidence": "published before 1931 (US PD by age; no P6216 flag)",
+      "status": "ingested",
+      "discovered_at": "2026-11-12T12:04:16Z",
+      "resolvedVia": "title",
+      "resolveScore": 105.0,
+      "ingested_at": "2026-11-12T12:13:24Z"
     },
     {
       "wikidataQID": "Q2836640",
@@ -989439,96 +989559,6 @@
       "rightsConfidence": "low",
       "status": "new",
       "discovered_at": "2026-06-01T03:38:14Z"
-    },
-    {
-      "iaid": "ytdown.com-you-tube-media-pwz-mjpg-ap-g-og-chapter-2-tv-show-ad-official-teaser-fortnite",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "YTDown.com You Tube Media Pwz MJPg AP G OG Chapter 2 Tv Show Ad Official Teaser Fortnite",
-      "year": 2026,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-11T11:56:42Z",
-      "ingested_at": "2026-11-11T11:57:46Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-kindness-counts-promo-with-kelly-and-chica-tv-commercial-promo-2012-2013-hq",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - Kindness Counts Promo With Kelly And Chica TV Commercial Promo (2012-2013) (HQ)",
-      "year": 2012,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-11T11:56:42Z",
-      "ingested_at": "2026-11-11T11:57:46Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-chica-plush-toy-tv-commercial-promo-2012-2013-hq",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - Chica Plush Toy TV Commercial Promo (2012-2013) (HQ)",
-      "year": 2012,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-11T11:56:42Z",
-      "ingested_at": "2026-11-11T11:57:46Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-he-awake-tv-commercial-promo-15-sec-2011-2012-hq",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - He Awake TV Commercial Promo (15 Sec) (2011-2012) (HQ)",
-      "year": 2011,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-11T11:56:42Z",
-      "ingested_at": "2026-11-11T11:57:46Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-kindness-counts-promo-with-nina-and-star-tv-commercial-promo-2012-2013-hq",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - Kindness Counts Promo With Nina And Star TV Commercial Promo (2012-2013) (HQ)",
-      "year": 2012,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-11T11:56:42Z",
-      "ingested_at": "2026-11-11T11:57:46Z"
-    },
-    {
-      "iaid": "cadbury-creme-eggs-bunny-tryouts-tv-commercial-2010-hq",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Cadbury Creme Eggs - Bunny Tryouts TV Commercial (2010) (HQ)",
-      "year": 2010,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-11T11:56:42Z",
-      "ingested_at": "2026-11-11T11:57:46Z"
     }
   ]
 }
