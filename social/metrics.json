@@ -5827,6 +5827,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzoc64bcqj2b",
+   "platform": "bluesky",
+   "id": "silent-convict-13",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-06T21:09:35.039549+00:00",
+   "sampled": "2026-11-12T21:57:14.422945+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117571546019561174",
+   "platform": "mastodon",
+   "id": "silent-convict-13",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-06T21:09:35.039549+00:00",
+   "sampled": "2026-11-12T21:57:14.422945+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n22x4d5wld2k",
+   "platform": "bluesky",
+   "id": "Girl_In_Lovers_Lane",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-11T21:56:18.124495+00:00",
+   "sampled": "2026-11-12T21:57:14.422945+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117600040000204575",
+   "platform": "mastodon",
+   "id": "Girl_In_Lovers_Lane",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-11T21:56:18.124495+00:00",
+   "sampled": "2026-11-12T21:57:14.422945+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
