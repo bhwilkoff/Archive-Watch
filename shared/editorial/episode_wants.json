@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-12T12:13:35Z",
+  "updated_at": "2026-11-13T11:57:58Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19484,
-    "wanted": 19214,
+    "total": 19487,
+    "wanted": 19217,
     "fulfilled": 270,
-    "series_with_gaps": 396
+    "series_with_gaps": 397
   },
   "wants": [
     {
@@ -134414,6 +134414,36 @@
       "episodeImdbID": "tt0717036",
       "status": "wanted",
       "added_at": "2026-06-07T07:52:55Z"
+    },
+    {
+      "seriesID": "tallahassee-7000-1961",
+      "seriesTitle": "Tallahassee 7000",
+      "season": 1,
+      "episode": 14,
+      "title": "Document of Death",
+      "episodeImdbID": "tt1024598",
+      "status": "wanted",
+      "added_at": "2026-11-13T11:57:58Z"
+    },
+    {
+      "seriesID": "tallahassee-7000-1961",
+      "seriesTitle": "Tallahassee 7000",
+      "season": 1,
+      "episode": 18,
+      "title": "Meeting of the Mob",
+      "episodeImdbID": "tt0717647",
+      "status": "wanted",
+      "added_at": "2026-11-13T11:57:58Z"
+    },
+    {
+      "seriesID": "tallahassee-7000-1961",
+      "seriesTitle": "Tallahassee 7000",
+      "season": 1,
+      "episode": 19,
+      "title": "Bootleg Whiskey in the Everglades",
+      "episodeImdbID": "tt0717646",
+      "status": "wanted",
+      "added_at": "2026-11-13T11:57:58Z"
     },
     {
       "seriesID": "tate-1960",
