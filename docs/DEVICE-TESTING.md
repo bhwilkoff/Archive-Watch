@@ -18,9 +18,10 @@ not a recollection.
 | Lease name | Device | UDID prefix | OS | Notes |
 |---|---|---|---|---|
 | `atv` | Ben Bedroom — Apple TV 4K (3rd gen) | `C3FBA9DE` | tvOS 27.2 (24K5093g) | The long-standing harness unit |
-| `atv-fireplace` | **Fireplace TV — Apple TV 4K (2nd gen)** | `F994DF01` | tvOS 27.0 (24J5360a) | **The unit the owner actually WATCHES on**, paired 2026-09-11. `AppleTV11,1` — the older silicon behind Decision 096's "Fireplace-class hardware constraint" |
-| `atv-fireplace4` | **Fireplace — Apple TV 4K (4th gen)** | `00008150` | tvOS 27.2.1 (24K157) | Paired 2026-11-13 through Device Hub's Pair Nearby Device. `AppleTV18,1`, the newest silicon in the house. Named "Fireplace", one word away from "Fireplace TV", so address it by UDID (`00008150-001A11061E01401C`), never by name |
+| `atv-kitchen4k` | **Kitchen 4K — Apple TV 4K (2nd gen)** | `e6ca4f86` | tvOS 27.3 (24K5286g) | Paired 2026-09-11 as "Fireplace TV"; renamed by the owner 2026-11-13 when the 4th gen took its place. `AppleTV11,1`: the oldest 4K silicon on the bench, the floor behind Decision 096's "Fireplace-class hardware constraint" (that name is historical). devicectl may show the old name until the box reconnects; use the UDID |
+| `atv-fireplace` | **Fireplace — Apple TV 4K (4th gen)** | `00008150` | tvOS 27.2.1 (24K157) | Paired 2026-11-13. `AppleTV18,1`, the newest silicon in the house, and now the living-room TV the owner watches on: stop at once if they say they are watching. Address by UDID (`00008150-001A11061E01401C`) |
 | `atv-movieroom` | **Movie Room — Apple TV 4K (3rd gen)** | `FE70998C` | **tvOS 26.6 (23L773)** | Paired 2026-09-11. The only unit NOT on tvOS 27 — it is the CONTROL for Decision 106's audio fault, which is 27-only |
+| — | Kitchen — Apple TV HD (`AppleTV5,3`) | `855ab413` | tvOS 26.6 | **Not in use** (owner, 2026-11-13). Still paired; reads `unavailable` |
 | `ipad` | iPad Pro 12.9 (5th gen) | `AC5377E9` | iPadOS 27.0 | Signed in as benwilkoff@gmail.com |
 | `iphone` | iPhone 12 | `B4E756E2` | iOS 26.6.1 | Signed in as arlowilkoff@icloud.com — a **different Apple ID**, which is what makes it a real SharePlay peer |
 | — | iPhone 15 Pro | `988DE0A7` | iOS 27.0 | Paired |
