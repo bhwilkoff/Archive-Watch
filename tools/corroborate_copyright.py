@@ -59,8 +59,15 @@ RECHECK_DAYS = 90
 # Blondes' RE0000094825 was missed under 1), and 100 records a page, not 25:
 # a popular title's renewal sits deep in its results (The Pink Panther's
 # RE0000523059 is record 54 of 5,525), and popular is who renewed.
-RULE = 2
+# 3: a renewal filed any time in a 1964-77 work's second term counts, and a
+# season's record ("Monty Python's flying circus. Ser. 1, ep. 1-13") is its series'.
+RULE = 3
 RENEWAL_YEARS = (27, 29)
+# From 1964 renewal is automatic (Copyright Renewal Act of 1992) and its
+# registration may be filed at any point in the second term: Python (Monty)
+# Pictures registered Flying Circus (1969) in 2006, 37 years on. Before 1964 a
+# renewal had to be filed in the 28th year, so a later record is another work.
+AUTOMATIC_RENEWAL_FROM = 1964
 # Stamps made while the Office's new response was being misread say nothing: every
 # title in this window read "no claim found". They are asked again.
 BLIND_FROM, BLIND_TO = "2026-10-28", "2026-11-04"
@@ -72,12 +79,25 @@ COPYRIGHTED, PUBLIC_DOMAIN = "Q50423863", "Q19652"
 US, WORLDWIDE = "Q30", "Q13780930"
 
 
+# A season or volume of a series, registered as one work.
+_SEASON_TAIL = re.compile(r"[.,]\s+(?:ser|series|season|vol|volume)\.?\s*\d+\b.*$")
+
+
+def renewal_fits(renewed, year):
+    """Whether a renewal registered in `renewed` can be the renewal of a work of `year`."""
+    gap = renewed - year
+    if year >= AUTOMATIC_RENEWAL_FROM:
+        return gap >= RENEWAL_YEARS[0]
+    return RENEWAL_YEARS[0] <= gap <= RENEWAL_YEARS[1]
+
+
 def norm_title(t):
     """Title key for comparing a record to a film: the part before an
     author/claimant tail ("Kiss me deadly.  By Parklane Pictures, Inc."),
     no leading article, letters and digits only."""
     t = (t or "").lower()
     t = re.split(r"\s+by\s+|\s*/\s*|\s+:\s*|\s*;\s*| a motion picture", t)[0]
+    t = _SEASON_TAIL.sub("", t)
     t = re.sub(r"^(the|a|an)\s+", "", t)
     return re.sub(r"[^a-z0-9]", "", t)
 
@@ -261,8 +281,9 @@ def renewal_in(records, title, year):
 
     Since about 2026-10-28 the Office's search no longer returns the ORIGINAL
     registration's date, only the renewal's own. A work's renewal term came due
-    in its 28th year, so the renewal must be dated 27 to 29 years after the film.
-    A later one proves nothing here, and is left for a person."""
+    in its 28th year, so the renewal must be dated 27 to 29 years after the film;
+    from 1964 it may be registered at any point after that (`renewal_fits`).
+    Every renewal is a pre-1978 work: later works have no renewal term."""
     want = norm_title(title)
     if not want or not isinstance(year, int):
         return None
@@ -277,7 +298,7 @@ def renewal_in(records, title, year):
         if want not in {norm_title(t) for t in [r.get("title_concatenated"), *variants]}:
             continue
         m = re.match(r"(\d{4})", str(r.get("registration_date") or "").strip())
-        if m and RENEWAL_YEARS[0] <= int(m.group(1)) - year <= RENEWAL_YEARS[1]:
+        if m and renewal_fits(int(m.group(1)), year):
             claimant = ((r.get("claimants_list") or [{}])[0].get("claimant_full_name") or "").strip()
             return {"source": USCO_RECORD + r.get("public_records_id", ""),
                     "via": f"US Copyright Office renewal {number} ({m.group(1)}) of a {year} film",

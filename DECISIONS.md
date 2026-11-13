@@ -278,6 +278,7 @@ into every session and the index alone carries every title.)
 - 181 — A film page carries archive.org's own words about the item from a file the viewer never loads, and its lastmod is the day it changed
 - 182 — On the iPhone Duo a push lands in the stack on screen, and sidebar places exist only while there is a sidebar
 - 183 — A layout that changes with width keeps its controls: one AnyLayout, never ViewThatFits around a menu
+- 184 — Every renewal the law allows is read: a 1964-77 work's renewal counts whenever it was registered
 
 ---
 
@@ -674,3 +675,30 @@ screen really moves through is a defect: pick it so the common widths land
 firmly on one side. `DuoAuditUITests.test_07`/`test_09` hold the menu open for
 4 seconds at several moments after Detail appears.
 
+## 184 — Every renewal the law allows is read: a 1964-77 work's renewal counts whenever it was registered
+*Date: 2026-11-13*
+
+`corroborate_copyright.renewal_in` accepts a Copyright Office renewal of a work
+from 1964 to 1977 registered at any time from its 27th year on
+(`renewal_fits`); a work from before 1964 keeps the 27-to-29-year window. A
+record titled for a season or volume ("Monty Python's flying circus.  Ser. 1,
+ep. 1-13") is matched as its series (`_SEASON_TAIL`, after punctuation only).
+`RULE` is 3, so every title checked under the old rule is asked again.
+
+**Why**: the owner, 2026-11-13: *"You should look at more recent renewals. I
+can't think of a reason for not looking at all of the renewals."* A viewer had
+found Monty Python's Flying Circus (1969) on screen; Python (Monty) Pictures
+registered its four renewals in 2006, 37 years on, and Decision 177's window
+threw them away. From 1964 renewal is automatic (the Copyright Renewal Act of
+1992) and registering it is optional at any point in the second term, so a
+late record is the work's own. Before 1964 the renewal had to be filed in the
+28th year: a later record under that title can only be another work, so that
+window stays. Every renewal is of a pre-1978 work (later works have no renewal
+term), which is what keeps an open window from catching a remake. Measured
+before shipping: 0 of 10 public-domain canon titles matched (Night of the
+Living Dead, The Last Man on Earth, Manos, Spider Baby...).
+
+**How to apply**: never narrow a renewal window to what is common; bound it by
+what the law makes possible. A wrong late match goes in
+`copyright_evidence_overrides.json`. Test: `test_copyright_evidence.py`, seen
+failing on the old rule.

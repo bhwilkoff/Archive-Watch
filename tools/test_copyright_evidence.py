@@ -73,6 +73,24 @@ check("a '; motion picture photoplay' tail does not hide a renewal",
 gpbv = record("RE", "motion_picture", "Photoplay no. 12.", 1953, reg="RE0000094825")
 gpbv["hit"]["title_variant_title_list"] = {"title_variant_title": ["Gentlemen prefer blondes"]}
 check("the Office's own variant title is a match", bool(C.renewal_in([gpbv], "Gentlemen Prefer Blondes", 1953)))
+
+# Monty Python's Flying Circus (1969): renewal is automatic from 1964, and its
+# registration was filed in 2006, one per season, under the season's title.
+def late(title, year, reg):
+    r = record("RE", "motion_picture", title, reg=reg)
+    r["hit"]["registration_date"] = f"{year}-12-22"
+    return r
+python = [late("Monty Python's flying circus.  Ser. 1, ep. 1-13 /by British Broadcasting Corporation.",
+               2006, "RE0000929073")]
+check("a 1964-77 work's renewal registered decades later is a claim",
+      bool(C.renewal_in(python, "Monty Python's Flying Circus", 1969)))
+check("CONTROL: before 1964 a renewal filed 37 years on is another work",
+      not C.renewal_in([late("Kiss me deadly.", 1992, "RE0000999999")], "Kiss Me Deadly", 1955))
+check("CONTROL: a renewal earlier than the 27th year is another work, even after 1964",
+      not C.renewal_in([late("Monty Python's flying circus. Ser. 1", 1990, "RE0000999998")],
+                       "Monty Python's Flying Circus", 1969))
+check("CONTROL: a season tail is not stripped from inside a title",
+      C.norm_title("The Series 7 Murders") == "series7murders")
 check("  ...but a different film behind a semicolon is not",
       not C.renewal_in([record("RE", "motion_picture", "Gentlemen marry brunettes; motion picture photoplay.", 1953)],
                        "Gentlemen Prefer Blondes", 1953))
