@@ -4405,6 +4405,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-13T21:22:35.311026+00:00",
+   "id": "gunsmoke_ranch",
+   "title": "Gunsmoke Ranch",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n27w5uwqvp2n",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-13T21:22:35.311026+00:00",
+   "id": "gunsmoke_ranch",
+   "title": "Gunsmoke Ranch",
+   "slot": "one-line",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117611231771725931",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-13T21:22:35.311026+00:00",
+   "id": "gunsmoke_ranch",
+   "title": "Gunsmoke Ranch",
+   "slot": "one-line",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dfsllz8EgMq/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117611231416036502",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-13T21:22:35.311026+00:00",
+   "id": "gunsmoke_ranch",
+   "title": "Gunsmoke Ranch",
+   "slot": "one-line",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=CBXjhtaxMuw",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

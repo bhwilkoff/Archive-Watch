@@ -5921,6 +5921,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzqmvqpraw2h",
+   "platform": "bluesky",
+   "id": "ParlorBedroomandBath",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-07T19:27:06.506426+00:00",
+   "sampled": "2026-11-13T21:23:13.751460+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117576803525611590",
+   "platform": "mastodon",
+   "id": "ParlorBedroomandBath",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-07T19:27:06.506426+00:00",
+   "sampled": "2026-11-13T21:23:13.751460+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n25hjveu2c2p",
+   "platform": "bluesky",
+   "id": "ptp_felix-wins-out_otto-messmer_avi_xvid_768x576_179242",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-12T21:55:34.878972+00:00",
+   "sampled": "2026-11-13T21:23:13.751460+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117605700669438406",
+   "platform": "mastodon",
+   "id": "ptp_felix-wins-out_otto-messmer_avi_xvid_768x576_179242",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-12T21:55:34.878972+00:00",
+   "sampled": "2026-11-13T21:23:13.751460+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
