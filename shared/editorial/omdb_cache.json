@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-12T09:59:56Z",
+  "updated_at": "2026-11-13T09:36:32Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-12T09:59:56Z"
+      "last_tried": "2026-11-13T09:36:32Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-12T09:59:56Z"
+      "last_tried": "2026-11-13T09:36:32Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395801,6 +395801,27 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-10T09:55:58Z",
+      "schema": 4
+    },
+    "tt0084267": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzRlZjJiMzUtNWM2My00YWMyLTljOTItNjM3ZTRkNTQ1NWNiXkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 2268,
+      "content_rating": null,
+      "plot": "Two rival warriors, a Japanese and a Chinese, are forced to work together after their master has been killed by a mighty enemy.",
+      "runtime_min": 95,
+      "director": "Corey Yuen",
+      "actors": [
+        "Hiroyuki Sanada",
+        "Conan Lee",
+        "Jeong-lee Hwang"
+      ],
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-13T09:36:32Z",
       "schema": 4
     }
   },
