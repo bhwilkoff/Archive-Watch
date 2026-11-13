@@ -1,6 +1,48 @@
 {
  "stores": [
   {
+   "store": "App Store",
+   "platform": "Apple TV",
+   "state": "WAITING_FOR_REVIEW",
+   "version": "1.47.42",
+   "live": "1.47.28",
+   "inFlight": {
+    "version": "1.47.42",
+    "state": "WAITING_FOR_REVIEW"
+   },
+   "repoVersion": "1.47.42",
+   "repoBuild": "2193",
+   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
+  },
+  {
+   "store": "App Store",
+   "platform": "iPhone & iPad",
+   "state": "WAITING_FOR_REVIEW",
+   "version": "1.47.42",
+   "live": "1.47.41",
+   "inFlight": {
+    "version": "1.47.42",
+    "state": "WAITING_FOR_REVIEW"
+   },
+   "repoVersion": "1.47.42",
+   "repoBuild": "2193",
+   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
+  },
+  {
+   "store": "App Store",
+   "platform": "Mac",
+   "state": "WAITING_FOR_REVIEW",
+   "version": "1.47.42",
+   "live": "1.47.28",
+   "inFlight": {
+    "version": "1.47.42",
+    "state": "WAITING_FOR_REVIEW"
+   },
+   "repoVersion": "1.47.42",
+   "repoBuild": "2193",
+   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
+  },
+  {
    "store": "Google Play",
    "platform": "Production",
    "state": "COMPLETED",
@@ -46,15 +88,13 @@
    "store": "Roku Channel Store",
    "platform": "Roku",
    "state": "LIVE",
-   "version": "1.0.81",
-   "since": "2026-11-07",
+   "version": "1.0.65",
+   "since": "2026-09-15",
    "note": "Channel 881015. 1.0.65 published 2026-09-15 (Dashboard: Last publish Sep 15, 2026) — the first build the legacy tier can run. Roku has no API to read this from; the app's own analytics arrive daily by scheduled delivery. NOTE: sunset players on Roku OS 9.1 (Roku 2 XD etc.) are NOT offered new channels by the Streaming Store regardless of the package's v8.0.0 floor — see ROKU-SUBMISSION.md §Legacy players.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null,
    "route": "no API — its Looker dashboards deliver to us daily",
-   "manual": true,
-   "live": "1.0.81",
-   "read": "seen in Roku's own delivery"
+   "manual": true
   },
   {
    "store": "LG Content Store",
@@ -84,48 +124,14 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "f9f60bd",
-   "since": "2026-11-13T16:11:18Z",
+   "version": "54cccb4",
+   "since": "2026-11-13T18:19:10Z",
    "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
    "route": "state declared by hand; usage measured by our own counter",
    "manual": true,
    "read": "the newest successful Pages deploy"
-  },
-  {
-   "store": "App Store",
-   "platform": "Apple TV",
-   "state": "READY_FOR_SALE",
-   "version": "1.47.28",
-   "live": "1.47.28",
-   "repoVersion": "1.47.41",
-   "repoBuild": "2192",
-   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
-  },
-  {
-   "store": "App Store",
-   "platform": "iPhone & iPad",
-   "state": "READY_FOR_SALE",
-   "version": "1.47.41",
-   "live": "1.47.41",
-   "repoVersion": "1.47.41",
-   "repoBuild": "2192",
-   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
-  },
-  {
-   "store": "App Store",
-   "platform": "Mac",
-   "state": "IN_REVIEW",
-   "version": "1.47.28",
-   "live": "1.47.3",
-   "inFlight": {
-    "version": "1.47.28",
-    "state": "IN_REVIEW"
-   },
-   "repoVersion": "1.47.41",
-   "repoBuild": "2192",
-   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   }
  ],
  "ratings": [
@@ -2242,7 +2248,7 @@
     "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/a6de15e9a91794d45b55e1a9282d0460/details",
     "fixedIn": null,
-    "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1399)"
+    "ours": "at app.archivewatch.android.data.CatalogDatabase.queryRawOrThrow (CatalogDatabase.kt:977)"
    },
    {
     "type": "CRASH",
@@ -4240,1371 +4246,14 @@
    "console": "https://developer.amazon.com/apps-and-games/console/apps/list.html"
   },
   "rokuEngagement": {
-   "daily": [
-    {
-     "date": "2026-11-04",
-     "Total Hours Streamed": 527.0,
-     "Ratio of Streams to Visits": 0.34,
-     "Average Stream Duration (Minutes)": 51.3,
-     "Visits": 1833.0,
-     "Streams": 616.0,
-     "Rebuffers per Streaming Hour": 0.02,
-     "Total Minutes Streamed": 8181.0,
-     "Average Minutes per Streaming Account": 39.143540669856456,
-     "Streaming Accounts / Cumulative Installs": 1.551,
-     "Channel Installs": 118.0,
-     "Channel Uninstalls": 20.0,
-     "Net Installs": 98.0,
-     "Visitors": 323.0,
-     "Viewers": 209.0,
-     "Bounce Rate": 35.294
-    },
-    {
-     "date": "2026-11-05",
-     "Total Hours Streamed": 309.0,
-     "Ratio of Streams to Visits": 0.35,
-     "Average Stream Duration (Minutes)": 51.0,
-     "Visits": 1040.0,
-     "Streams": 364.0,
-     "Rebuffers per Streaming Hour": 0.56,
-     "Total Minutes Streamed": 8930.0,
-     "Average Minutes per Streaming Account": 42.72727272727273,
-     "Streaming Accounts / Cumulative Installs": 1.537,
-     "Channel Installs": 122.0,
-     "Channel Uninstalls": 10.0,
-     "Net Installs": 112.0,
-     "Visitors": 315.0,
-     "Viewers": 209.0,
-     "Bounce Rate": 33.651
-    },
-    {
-     "date": "2026-11-06",
-     "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0,
-     "Error Count": 1.0,
-     "Total Hours Streamed": 571.0,
-     "Ratio of Streams to Visits": 0.34,
-     "Average Stream Duration (Minutes)": 51.4,
-     "Visits": 1968.0,
-     "Streams": 667.0,
-     "Rebuffers per Streaming Hour": 1.07,
-     "Total Minutes Streamed": 9578.0,
-     "Average Minutes per Streaming Account": 39.415637860082306,
-     "Streaming Accounts / Cumulative Installs": 1.768,
-     "Channel Installs": 149.0,
-     "Channel Uninstalls": 20.0,
-     "Net Installs": 129.0,
-     "Visitors": 383.0,
-     "Viewers": 243.0,
-     "Bounce Rate": 36.554
-    },
-    {
-     "date": "2026-11-07",
-     "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0,
-     "Error Count": 5.0,
-     "Total Hours Streamed": 726.0,
-     "Ratio of Streams to Visits": 0.34,
-     "Average Stream Duration (Minutes)": 51.8,
-     "Visits": 2476.0,
-     "Streams": 840.0,
-     "Rebuffers per Streaming Hour": 0.91,
-     "Total Minutes Streamed": 11029.0,
-     "Average Minutes per Streaming Account": 42.58301158301158,
-     "Streaming Accounts / Cumulative Installs": 1.861,
-     "Channel Installs": 169.0,
-     "Channel Uninstalls": 23.0,
-     "Net Installs": 146.0,
-     "Visitors": 395.0,
-     "Viewers": 259.0,
-     "Bounce Rate": 34.43
-    },
-    {
-     "date": "2026-11-08",
-     "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0,
-     "Error Count": 1.0,
-     "Total Hours Streamed": 754.0,
-     "Ratio of Streams to Visits": 0.4,
-     "Average Stream Duration (Minutes)": 52.9,
-     "Visits": 2148.0,
-     "Streams": 856.0,
-     "Rebuffers per Streaming Hour": 0.51,
-     "Total Minutes Streamed": 12622.0,
-     "Average Minutes per Streaming Account": 48.54615384615385,
-     "Streaming Accounts / Cumulative Installs": 1.847,
-     "Channel Installs": 158.0,
-     "Channel Uninstalls": 25.0,
-     "Net Installs": 133.0,
-     "Visitors": 378.0,
-     "Viewers": 260.0,
-     "Bounce Rate": 31.217
-    },
-    {
-     "date": "2026-11-09",
-     "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0,
-     "Error Count": 3.0,
-     "Total Hours Streamed": 671.0,
-     "Ratio of Streams to Visits": 0.37,
-     "Average Stream Duration (Minutes)": 50.4,
-     "Visits": 2147.0,
-     "Streams": 799.0,
-     "Rebuffers per Streaming Hour": 0.26,
-     "Total Minutes Streamed": 8244.0,
-     "Average Minutes per Streaming Account": 37.64383561643836,
-     "Streaming Accounts / Cumulative Installs": 1.542,
-     "Channel Installs": 128.0,
-     "Channel Uninstalls": 17.0,
-     "Net Installs": 111.0,
-     "Visitors": 343.0,
-     "Viewers": 219.0,
-     "Bounce Rate": 36.152
-    },
-    {
-     "date": "2026-11-10",
-     "Total Hours Streamed": 492.0,
-     "Ratio of Streams to Visits": 0.3,
-     "Average Stream Duration (Minutes)": 54.8,
-     "Visits": 1791.0,
-     "Streams": 538.0,
-     "Rebuffers per Streaming Hour": 0.04,
-     "Total Minutes Streamed": 9145.0,
-     "Average Minutes per Streaming Account": 40.644444444444446,
-     "Streaming Accounts / Cumulative Installs": 1.566,
-     "Channel Installs": 165.0,
-     "Channel Uninstalls": 15.0,
-     "Net Installs": 150.0,
-     "Visitors": 337.0,
-     "Viewers": 225.0,
-     "Bounce Rate": 33.234
-    },
-    {
-     "date": "2026-11-11",
-     "Total Count of Crashes": 2.0,
-     "Total Count of Devices with Crashes": 2.0,
-     "Error Count": 5.0,
-     "Total Hours Streamed": 741.0,
-     "Rebuffers per Streaming Hour": 0.14,
-     "Ratio of Streams to Visits": 0.39,
-     "Average Stream Duration (Minutes)": 53.5,
-     "Visits": 2148.0,
-     "Streams": 831.0,
-     "Channel Installs": 152.0,
-     "Channel Uninstalls": 13.0,
-     "Net Installs": 139.0,
-     "Total Minutes Streamed": 12136.0,
-     "Average Minutes per Streaming Account": 46.14448669201521,
-     "Streaming Accounts / Cumulative Installs": 1.811,
-     "Visitors": 398.0,
-     "Viewers": 263.0,
-     "Bounce Rate": 33.92
-    },
-    {
-     "date": "2026-11-12",
-     "Error Count": 1.0,
-     "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0
-    },
-    {
-     "date": "2026-11-13",
-     "Error Count": 1.0,
-     "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0
-    }
-   ],
-   "headline": {
-    "Channel Crashes as % of Total Devices Streaming": 1.0,
-    "Channel Crashes per Streaming Hour": 0.0158,
-    "Average Video Start Time (Seconds)": 9.017,
-    "Average Bitrate (Megabits)": 0.128,
-    "Buffering as % of Total Streaming Time": 0.76,
-    "Rebuffers per Hours Streamed": 0.4,
-    "Rebuffers Sum": 1371.0,
-    "Account Channel Installs": 1043.0,
-    "Account Channel Uninstalls": 123.0,
-    "Avg Daily Viewers": 240.0,
-    "Hours Streamed": 1195.0,
-    "Average Minutes Streamed per Viewer": 42.72
-   },
-   "tiles": [
-    "amarillo_1080",
-    "amarillo_4k",
-    "athens",
-    "austin_mustang",
-    "ave_minutes___visitor",
-    "average_daily_visitors",
-    "bailey",
-    "bayside",
-    "benjamin",
-    "benjamin-w",
-    "brewster",
-    "brightscript_crash_logs",
-    "brightscript_crash_logs_with_stacktraces",
-    "briscoe",
-    "bryan",
-    "bryan_2",
-    "camden",
-    "channel_crashes_by_product",
-    "channel_visitors_and_streaming_viewers",
-    "chico",
-    "cooper",
-    "cumulative_net_installs",
-    "damon",
-    "data_transfer_speeds",
-    "devices_with_channel_crashes",
-    "devices_with_channel_crashes_by_product",
-    "el_paso",
-    "fruitland",
-    "ftworth",
-    "gilbert",
-    "gilbert_4k",
-    "install_base_growth",
-    "lakeport",
-    "liberty",
-    "littlefield",
-    "lockhart",
-    "logan",
-    "longview",
-    "madison",
-    "malone",
-    "marlin",
-    "miami",
-    "midland",
-    "minutes_streamed",
-    "nemo",
-    "new_installs",
-    "rebuffers-tile",
-    "rebuffers_per_streaming_hour",
-    "reno",
-    "rockett",
-    "roma",
-    "roxton",
-    "sandia",
-    "shiner",
-    "streaming_ratios",
-    "total_hours_streamed",
-    "trinidad",
-    "uninstalls",
-    "viewership_details",
-    "visits_and_streams"
-   ],
-   "dropsRead": 4,
+   "daily": [],
+   "headline": {},
+   "tiles": [],
+   "dropsRead": 0,
    "unreadable": [],
-   "byReport": {
-    "App Health": {
-     "daily": [
-      {
-       "date": "2026-11-06",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-11-07",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 5.0
-      },
-      {
-       "date": "2026-11-08",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-11-09",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 3.0
-      },
-      {
-       "date": "2026-11-11",
-       "Total Count of Crashes": 2.0,
-       "Total Count of Devices with Crashes": 2.0,
-       "Error Count": 5.0
-      },
-      {
-       "date": "2026-11-12",
-       "Error Count": 1.0,
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0
-      },
-      {
-       "date": "2026-11-13",
-       "Error Count": 1.0,
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0
-      }
-     ],
-     "headline": {
-      "Channel Crashes as % of Total Devices Streaming": 1.0,
-      "Channel Crashes per Streaming Hour": 0.0158,
-      "Rebuffers per Hours Streamed": 0.4,
-      "Rebuffers Sum": 1371.0,
-      "Average Video Start Time (Seconds)": 9.017,
-      "Average Bitrate (Megabits)": 0.128,
-      "Buffering as % of Total Streaming Time": 0.76
-     },
-     "tiles": [
-      "brightscript_crash_logs",
-      "brightscript_crash_logs_with_stacktraces",
-      "channel_crashes_by_product",
-      "data_transfer_speeds",
-      "devices_with_channel_crashes",
-      "devices_with_channel_crashes_by_product",
-      "rebuffers-tile"
-     ],
-     "tables": {
-      "brightscript_crash_logs_with_stacktraces": [
-       {
-        "Error Key Date": "2026-11-13",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
-       },
-       {
-        "Error Key Date": "2026-11-12",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
-       },
-       {
-        "Error Key Date": "2026-11-11",
-        "Error Count": "5",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
-       },
-       {
-        "Error Key Date": "2026-11-09",
-        "Error Count": "3",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
-       },
-       {
-        "Error Key Date": "2026-11-08",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
-       },
-       {
-        "Error Key Date": "2026-11-07",
-        "Error Count": "5",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)"
-       }
-      ],
-      "brightscript_crash_logs": [
-       {
-        "Date": "2026-11-11",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "3",
-        "Total Count of Devices with Crashes": "3"
-       },
-       {
-        "Date": "2026-11-09",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-11-11",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-11-07",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "3",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-11-07",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.80",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-11-08",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-11-12",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-11-09",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-11-07",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-11-13",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.81",
-        "Error Text": "Function awtogglefavorite(id As String) As Dynamic; pkg:/components/UserStore.brs(65)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       }
-      ]
-     },
-     "emptyTiles": [
-      "channel_crashes_by_product",
-      "devices_with_channel_crashes_by_product"
-     ]
-    },
-    "Viewership Summary": {
-     "daily": [
-      {
-       "date": "2026-11-04",
-       "Total Hours Streamed": 527.0,
-       "Ratio of Streams to Visits": 0.34,
-       "Average Stream Duration (Minutes)": 51.3,
-       "Visits": 1833.0,
-       "Streams": 616.0,
-       "Rebuffers per Streaming Hour": 0.02
-      },
-      {
-       "date": "2026-11-05",
-       "Total Hours Streamed": 309.0,
-       "Ratio of Streams to Visits": 0.35,
-       "Average Stream Duration (Minutes)": 51.0,
-       "Visits": 1040.0,
-       "Streams": 364.0,
-       "Rebuffers per Streaming Hour": 0.56
-      },
-      {
-       "date": "2026-11-06",
-       "Total Hours Streamed": 571.0,
-       "Ratio of Streams to Visits": 0.34,
-       "Average Stream Duration (Minutes)": 51.4,
-       "Visits": 1968.0,
-       "Streams": 667.0,
-       "Rebuffers per Streaming Hour": 1.07
-      },
-      {
-       "date": "2026-11-07",
-       "Total Hours Streamed": 726.0,
-       "Ratio of Streams to Visits": 0.34,
-       "Average Stream Duration (Minutes)": 51.8,
-       "Visits": 2476.0,
-       "Streams": 840.0,
-       "Rebuffers per Streaming Hour": 0.91
-      },
-      {
-       "date": "2026-11-08",
-       "Total Hours Streamed": 754.0,
-       "Ratio of Streams to Visits": 0.4,
-       "Average Stream Duration (Minutes)": 52.9,
-       "Visits": 2148.0,
-       "Streams": 856.0,
-       "Rebuffers per Streaming Hour": 0.51
-      },
-      {
-       "date": "2026-11-09",
-       "Total Hours Streamed": 671.0,
-       "Ratio of Streams to Visits": 0.37,
-       "Average Stream Duration (Minutes)": 50.4,
-       "Visits": 2147.0,
-       "Streams": 799.0,
-       "Rebuffers per Streaming Hour": 0.26
-      },
-      {
-       "date": "2026-11-10",
-       "Total Hours Streamed": 492.0,
-       "Ratio of Streams to Visits": 0.3,
-       "Average Stream Duration (Minutes)": 54.8,
-       "Visits": 1791.0,
-       "Streams": 538.0,
-       "Rebuffers per Streaming Hour": 0.04
-      },
-      {
-       "date": "2026-11-11",
-       "Total Hours Streamed": 741.0,
-       "Rebuffers per Streaming Hour": 0.14,
-       "Ratio of Streams to Visits": 0.39,
-       "Average Stream Duration (Minutes)": 53.5,
-       "Visits": 2148.0,
-       "Streams": 831.0
-      }
-     ],
-     "headline": {},
-     "tiles": [
-      "rebuffers_per_streaming_hour",
-      "streaming_ratios",
-      "viewership_details",
-      "visits_and_streams"
-     ],
-     "tables": {
-      "rebuffers_per_streaming_hour": [
-       {
-        "date": "2026-11-11",
-        "Total Hours Streamed": "741",
-        "Rebuffers per Streaming Hour": "0.14"
-       },
-       {
-        "date": "2026-11-10",
-        "Total Hours Streamed": "492",
-        "Rebuffers per Streaming Hour": "0.04"
-       },
-       {
-        "date": "2026-11-09",
-        "Total Hours Streamed": "671",
-        "Rebuffers per Streaming Hour": "0.26"
-       },
-       {
-        "date": "2026-11-08",
-        "Total Hours Streamed": "754",
-        "Rebuffers per Streaming Hour": "0.51"
-       },
-       {
-        "date": "2026-11-07",
-        "Total Hours Streamed": "726",
-        "Rebuffers per Streaming Hour": "0.91"
-       },
-       {
-        "date": "2026-11-06",
-        "Total Hours Streamed": "571",
-        "Rebuffers per Streaming Hour": "1.07"
-       },
-       {
-        "date": "2026-11-05",
-        "Total Hours Streamed": "309",
-        "Rebuffers per Streaming Hour": "0.56"
-       }
-      ],
-      "streaming_ratios": [
-       {
-        "date": "2026-11-11",
-        "Total Hours Streamed": "741",
-        "Ratio of Streams to Visits": "0.39",
-        "Average Stream Duration (Minutes)": "53.5"
-       },
-       {
-        "date": "2026-11-10",
-        "Total Hours Streamed": "492",
-        "Ratio of Streams to Visits": "0.30",
-        "Average Stream Duration (Minutes)": "54.8"
-       },
-       {
-        "date": "2026-11-09",
-        "Total Hours Streamed": "671",
-        "Ratio of Streams to Visits": "0.37",
-        "Average Stream Duration (Minutes)": "50.4"
-       },
-       {
-        "date": "2026-11-08",
-        "Total Hours Streamed": "754",
-        "Ratio of Streams to Visits": "0.40",
-        "Average Stream Duration (Minutes)": "52.9"
-       },
-       {
-        "date": "2026-11-07",
-        "Total Hours Streamed": "726",
-        "Ratio of Streams to Visits": "0.34",
-        "Average Stream Duration (Minutes)": "51.8"
-       },
-       {
-        "date": "2026-11-06",
-        "Total Hours Streamed": "571",
-        "Ratio of Streams to Visits": "0.34",
-        "Average Stream Duration (Minutes)": "51.4"
-       },
-       {
-        "date": "2026-11-05",
-        "Total Hours Streamed": "309",
-        "Ratio of Streams to Visits": "0.35",
-        "Average Stream Duration (Minutes)": "51.0"
-       }
-      ],
-      "visits_and_streams": [
-       {
-        "date": "2026-11-11",
-        "Visits": "2,148",
-        "Streams": "831"
-       },
-       {
-        "date": "2026-11-10",
-        "Visits": "1,791",
-        "Streams": "538"
-       },
-       {
-        "date": "2026-11-09",
-        "Visits": "2,147",
-        "Streams": "799"
-       },
-       {
-        "date": "2026-11-08",
-        "Visits": "2,148",
-        "Streams": "856"
-       },
-       {
-        "date": "2026-11-07",
-        "Visits": "2,476",
-        "Streams": "840"
-       },
-       {
-        "date": "2026-11-06",
-        "Visits": "1,968",
-        "Streams": "667"
-       },
-       {
-        "date": "2026-11-05",
-        "Visits": "1,040",
-        "Streams": "364"
-       }
-      ],
-      "viewership_details": [
-       {
-        "Hardware": "Alpine",
-        "Roku Model": "T100201X",
-        "Visits": "38",
-        "Streams": "38",
-        "Total Hours Streamed": "19",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_1080",
-        "Roku Model": "3800X",
-        "Visits": "78",
-        "Streams": "57",
-        "Total Hours Streamed": "35",
-        "Rebuffers per Streaming Hour": "1.96"
-       },
-       {
-        "Hardware": "Amarillo_1080",
-        "Roku Model": "3800RW",
-        "Visits": "8",
-        "Streams": "5",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810RW2",
-        "Visits": "146",
-        "Streams": "107",
-        "Total Hours Streamed": "93",
-        "Rebuffers per Streaming Hour": "0.54"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3811X",
-        "Visits": "14",
-        "Streams": "27",
-        "Total Hours Streamed": "18",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810RW",
-        "Visits": "6",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810R",
-        "Visits": "163",
-        "Streams": "46",
-        "Total Hours Streamed": "47",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810X",
-        "Visits": "73",
-        "Streams": "17",
-        "Total Hours Streamed": "16",
-        "Rebuffers per Streaming Hour": "1.85"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G851X",
-        "Visits": "9",
-        "Streams": "0",
-        "Total Hours Streamed": "1",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G830X",
-        "Visits": "6",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G107X",
-        "Visits": "3",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G409X",
-        "Visits": "3",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GE27X",
-        "Visits": "2",
-        "Streams": "2",
-        "Total Hours Streamed": "2",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GD24X",
-        "Visits": "12",
-        "Streams": "5",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GD01X",
-        "Visits": "4",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G512X",
-        "Visits": "9",
-        "Streams": "9",
-        "Total Hours Streamed": "4",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G812X",
-        "Visits": "17",
-        "Streams": "10",
-        "Total Hours Streamed": "17",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G139X",
-        "Visits": "6",
-        "Streams": "3",
-        "Total Hours Streamed": "5",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G138X",
-        "Visits": "81",
-        "Streams": "15",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "7.11"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G846X",
-        "Visits": "73",
-        "Streams": "31",
-        "Total Hours Streamed": "18",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G825X",
-        "Visits": "2",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G547X",
-        "Visits": "3",
-        "Streams": "5",
-        "Total Hours Streamed": "2",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G108X",
-        "Visits": "31",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G816X",
-        "Visits": "3",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G137X",
-        "Visits": "54",
-        "Streams": "7",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G439X",
-        "Visits": "5",
-        "Streams": "5",
-        "Total Hours Streamed": "3",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G447X",
-        "Visits": "2",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G430X",
-        "Visits": "15",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G820X",
-        "Visits": "10",
-        "Streams": "5",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G814X",
-        "Visits": "3",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G135X",
-        "Visits": "15",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G211X",
-        "Visits": "17",
-        "Streams": "4",
-        "Total Hours Streamed": "7",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G501X",
-        "Visits": "5",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G141X",
-        "Visits": "2",
-        "Streams": "1",
-        "Total Hours Streamed": "2",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G855X",
-        "Visits": "50",
-        "Streams": "13",
-        "Total Hours Streamed": "16",
-        "Rebuffers per Streaming Hour": "1.26"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G507X",
-        "Visits": "27",
-        "Streams": "5",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G132X",
-        "Visits": "35",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "74.69"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G103X",
-        "Visits": "4",
-        "Streams": "2",
-        "Total Hours Streamed": "3",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GD34X",
-        "Visits": "5",
-        "Streams": "5",
-        "Total Hours Streamed": "5",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G406X",
-        "Visits": "25",
-        "Streams": "5",
-        "Total Hours Streamed": "2",
-        "Rebuffers per Streaming Hour": "2.24"
-       }
-      ]
-     },
-     "emptyTiles": []
-    },
-    "App Engagement": {
-     "daily": [
-      {
-       "date": "2026-11-04",
-       "Total Minutes Streamed": 8181.0,
-       "Average Minutes per Streaming Account": 39.143540669856456,
-       "Streaming Accounts / Cumulative Installs": 1.551,
-       "Channel Installs": 118.0,
-       "Channel Uninstalls": 20.0,
-       "Net Installs": 98.0,
-       "Visitors": 323.0,
-       "Viewers": 209.0,
-       "Bounce Rate": 35.294
-      },
-      {
-       "date": "2026-11-05",
-       "Total Minutes Streamed": 8930.0,
-       "Average Minutes per Streaming Account": 42.72727272727273,
-       "Streaming Accounts / Cumulative Installs": 1.537,
-       "Channel Installs": 122.0,
-       "Channel Uninstalls": 10.0,
-       "Net Installs": 112.0,
-       "Visitors": 315.0,
-       "Viewers": 209.0,
-       "Bounce Rate": 33.651
-      },
-      {
-       "date": "2026-11-06",
-       "Total Minutes Streamed": 9578.0,
-       "Average Minutes per Streaming Account": 39.415637860082306,
-       "Streaming Accounts / Cumulative Installs": 1.768,
-       "Channel Installs": 149.0,
-       "Channel Uninstalls": 20.0,
-       "Net Installs": 129.0,
-       "Visitors": 383.0,
-       "Viewers": 243.0,
-       "Bounce Rate": 36.554
-      },
-      {
-       "date": "2026-11-07",
-       "Total Minutes Streamed": 11029.0,
-       "Average Minutes per Streaming Account": 42.58301158301158,
-       "Streaming Accounts / Cumulative Installs": 1.861,
-       "Channel Installs": 169.0,
-       "Channel Uninstalls": 23.0,
-       "Net Installs": 146.0,
-       "Visitors": 395.0,
-       "Viewers": 259.0,
-       "Bounce Rate": 34.43
-      },
-      {
-       "date": "2026-11-08",
-       "Total Minutes Streamed": 12622.0,
-       "Average Minutes per Streaming Account": 48.54615384615385,
-       "Streaming Accounts / Cumulative Installs": 1.847,
-       "Channel Installs": 158.0,
-       "Channel Uninstalls": 25.0,
-       "Net Installs": 133.0,
-       "Visitors": 378.0,
-       "Viewers": 260.0,
-       "Bounce Rate": 31.217
-      },
-      {
-       "date": "2026-11-09",
-       "Total Minutes Streamed": 8244.0,
-       "Average Minutes per Streaming Account": 37.64383561643836,
-       "Streaming Accounts / Cumulative Installs": 1.542,
-       "Channel Installs": 128.0,
-       "Channel Uninstalls": 17.0,
-       "Net Installs": 111.0,
-       "Visitors": 343.0,
-       "Viewers": 219.0,
-       "Bounce Rate": 36.152
-      },
-      {
-       "date": "2026-11-10",
-       "Total Minutes Streamed": 9145.0,
-       "Average Minutes per Streaming Account": 40.644444444444446,
-       "Streaming Accounts / Cumulative Installs": 1.566,
-       "Channel Installs": 165.0,
-       "Channel Uninstalls": 15.0,
-       "Net Installs": 150.0,
-       "Visitors": 337.0,
-       "Viewers": 225.0,
-       "Bounce Rate": 33.234
-      },
-      {
-       "date": "2026-11-11",
-       "Channel Installs": 152.0,
-       "Channel Uninstalls": 13.0,
-       "Net Installs": 139.0,
-       "Total Minutes Streamed": 12136.0,
-       "Average Minutes per Streaming Account": 46.14448669201521,
-       "Streaming Accounts / Cumulative Installs": 1.811,
-       "Visitors": 398.0,
-       "Viewers": 263.0,
-       "Bounce Rate": 33.92
-      }
-     ],
-     "headline": {
-      "Average Minutes Streamed per Viewer": 42.72,
-      "Account Channel Installs": 1043.0,
-      "Account Channel Uninstalls": 123.0,
-      "Hours Streamed": 1195.0,
-      "Avg Daily Viewers": 240.0
-     },
-     "tiles": [
-      "ave_minutes___visitor",
-      "average_daily_visitors",
-      "channel_visitors_and_streaming_viewers",
-      "cumulative_net_installs",
-      "install_base_growth",
-      "minutes_streamed",
-      "new_installs",
-      "total_hours_streamed",
-      "uninstalls"
-     ],
-     "tables": {
-      "install_base_growth": [
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-05",
-        "Channel Installs": "122",
-        "Channel Uninstalls": "10",
-        "Net Installs": "112"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-06",
-        "Channel Installs": "149",
-        "Channel Uninstalls": "20",
-        "Net Installs": "129"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-07",
-        "Channel Installs": "169",
-        "Channel Uninstalls": "23",
-        "Net Installs": "146"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-08",
-        "Channel Installs": "158",
-        "Channel Uninstalls": "25",
-        "Net Installs": "133"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-09",
-        "Channel Installs": "128",
-        "Channel Uninstalls": "17",
-        "Net Installs": "111"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-10",
-        "Channel Installs": "165",
-        "Channel Uninstalls": "15",
-        "Net Installs": "150"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-11",
-        "Channel Installs": "152",
-        "Channel Uninstalls": "13",
-        "Net Installs": "139"
-       }
-      ],
-      "minutes_streamed": [
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-11",
-        "Total Minutes Streamed": "12,136",
-        "Average Minutes per Streaming Account": "46.14448669201521",
-        "Streaming Accounts / Cumulative Installs": "1.811%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-10",
-        "Total Minutes Streamed": "9,145",
-        "Average Minutes per Streaming Account": "40.644444444444446",
-        "Streaming Accounts / Cumulative Installs": "1.566%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-09",
-        "Total Minutes Streamed": "8,244",
-        "Average Minutes per Streaming Account": "37.64383561643836",
-        "Streaming Accounts / Cumulative Installs": "1.542%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-08",
-        "Total Minutes Streamed": "12,622",
-        "Average Minutes per Streaming Account": "48.54615384615385",
-        "Streaming Accounts / Cumulative Installs": "1.847%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-07",
-        "Total Minutes Streamed": "11,029",
-        "Average Minutes per Streaming Account": "42.58301158301158",
-        "Streaming Accounts / Cumulative Installs": "1.861%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-06",
-        "Total Minutes Streamed": "9,578",
-        "Average Minutes per Streaming Account": "39.415637860082306",
-        "Streaming Accounts / Cumulative Installs": "1.768%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-05",
-        "Total Minutes Streamed": "8,930",
-        "Average Minutes per Streaming Account": "42.72727272727273",
-        "Streaming Accounts / Cumulative Installs": "1.537%"
-       }
-      ],
-      "channel_visitors_and_streaming_viewers": [
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-11",
-        "Visitors": "398",
-        "Viewers": "263",
-        "Bounce Rate": "33.920%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-10",
-        "Visitors": "337",
-        "Viewers": "225",
-        "Bounce Rate": "33.234%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-09",
-        "Visitors": "343",
-        "Viewers": "219",
-        "Bounce Rate": "36.152%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-08",
-        "Visitors": "378",
-        "Viewers": "260",
-        "Bounce Rate": "31.217%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-07",
-        "Visitors": "395",
-        "Viewers": "259",
-        "Bounce Rate": "34.430%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-06",
-        "Visitors": "383",
-        "Viewers": "243",
-        "Bounce Rate": "36.554%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-05",
-        "Visitors": "315",
-        "Viewers": "209",
-        "Bounce Rate": "33.651%"
-       }
-      ],
-      "cumulative_net_installs": [
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-11",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "14,521"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-10",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "14,369"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-09",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "14,202"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-08",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "14,074"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-07",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "13,916"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-06",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "13,747"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-11-05",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "13,598"
-       }
-      ]
-     },
-     "emptyTiles": []
-    },
-    "App Stability": {
-     "daily": [],
-     "headline": {},
-     "tiles": [
-      "amarillo_1080",
-      "amarillo_4k",
-      "athens",
-      "austin_mustang",
-      "bailey",
-      "bayside",
-      "benjamin",
-      "benjamin-w",
-      "brewster",
-      "briscoe",
-      "bryan",
-      "bryan_2",
-      "camden",
-      "chico",
-      "cooper",
-      "damon",
-      "el_paso",
-      "fruitland",
-      "ftworth",
-      "gilbert",
-      "gilbert_4k",
-      "lakeport",
-      "liberty",
-      "littlefield",
-      "lockhart",
-      "logan",
-      "longview",
-      "madison",
-      "malone",
-      "marlin",
-      "miami",
-      "midland",
-      "nemo",
-      "reno",
-      "rockett",
-      "roma",
-      "roxton",
-      "sandia",
-      "shiner",
-      "trinidad"
-     ],
-     "tables": {},
-     "emptyTiles": [
-      "amarillo_1080",
-      "amarillo_4k",
-      "athens",
-      "austin_mustang",
-      "bailey",
-      "bayside",
-      "benjamin",
-      "benjamin-w",
-      "brewster",
-      "briscoe",
-      "bryan",
-      "bryan_2",
-      "camden",
-      "chico",
-      "cooper",
-      "damon",
-      "el_paso",
-      "fruitland",
-      "ftworth",
-      "gilbert",
-      "gilbert_4k",
-      "lakeport",
-      "liberty",
-      "littlefield",
-      "lockhart",
-      "logan",
-      "longview",
-      "madison",
-      "malone",
-      "marlin",
-      "miami",
-      "midland",
-      "nemo",
-      "reno",
-      "rockett",
-      "roma",
-      "roxton",
-      "sandia",
-      "shiner",
-      "trinidad"
-     ]
-    }
-   },
-   "versionsSeen": [
-    {
-     "version": "1.0.80",
-     "firstSeen": "2026-11-06",
-     "lastSeen": "2026-11-07"
-    },
-    {
-     "version": "1.0.81",
-     "firstSeen": "2026-11-07",
-     "lastSeen": "2026-11-13"
-    }
-   ],
-   "reportsSeen": [
-    "App Engagement",
-    "App Health",
-    "App Stability",
-    "Viewership Summary"
-   ],
+   "byReport": {},
+   "versionsSeen": [],
+   "reportsSeen": [],
    "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
    "console": "https://developer.roku.com/apps/analytics/engagement/881015"
   },
@@ -11137,9 +9786,9 @@
  "loves": [],
  "sources": {
   "apple_stores": {
-   "ok": false,
-   "note": "403: FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED: A required agreement is missing or has expired. This request requires an in-effect agreement that has not been signed or has expired.",
-   "at": "2026-11-13T16:29:56+00:00"
+   "ok": true,
+   "note": "3 Apple platform(s)",
+   "at": "2026-11-13T18:56:30+00:00"
   },
   "apple_reviews": {
    "ok": false,
@@ -11164,7 +9813,7 @@
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-11-13T16:29:58+00:00"
+   "at": "2026-11-13T18:56:31+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -11179,7 +9828,7 @@
   "play_crashes": {
    "ok": true,
    "note": "20 cluster(s), 0 still on build 73",
-   "at": "2026-11-13T16:30:26+00:00"
+   "at": "2026-11-13T18:57:00+00:00"
   },
   "play_users": {
    "ok": true,
@@ -11224,17 +9873,17 @@
   "amazon_live": {
    "ok": true,
    "note": "versionCode 73 is live on Fire TV",
-   "at": "2026-11-13T16:31:01+00:00"
+   "at": "2026-11-13T18:57:11+00:00"
   },
   "roku_engagement": {
    "ok": true,
-   "note": "4 drop(s), 9 day(s), 60 tile(s) from 4 report(s) [App Engagement, App Health, App Stability, Viewership Summary]",
-   "at": "2026-11-13T16:31:02+00:00"
+   "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
+   "at": "2026-11-13T18:57:11+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-11-13T16:31:02+00:00"
+   "at": "2026-11-13T18:57:11+00:00"
   },
   "social_program": {
    "ok": true,
@@ -11359,12 +10008,7 @@
  },
  "_apply": true,
  "_force": false,
- "stale": {
-  "stores": "2026-11-13T01:09:16+00:00",
-  "reviews": "2026-11-13T01:09:16+00:00",
-  "appleDownloads": "2026-11-13T01:09:16+00:00",
-  "applePerf": "2026-11-13T01:09:16+00:00"
- },
+ "stale": {},
  "history": [
   {
    "date": "2026-09-09",
@@ -12523,8 +11167,8 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-11-13T16:35:25+00:00",
- "repoVersion": "1.47.41",
- "repoBuild": "2192",
+ "generatedAt": "2026-11-13T18:57:11+00:00",
+ "repoVersion": "1.47.42",
+ "repoBuild": "2193",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
