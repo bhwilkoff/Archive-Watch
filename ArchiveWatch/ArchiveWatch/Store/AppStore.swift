@@ -298,6 +298,8 @@ final class AppStore {
     func dbStoredItems(_ ids: [String]) -> [(storedID: String, item: Catalog.Item)] {
         db?.storedItems(ids) ?? []
     }
+    func dbStoredCount(_ ids: [String]) -> Int { db?.storedCount(ids) ?? 0 }
+    func dbUnservedCount(_ ids: [String]) -> Int { db?.unservedCount(ids) ?? 0 }
     func dbShelfKeys(_ shelfID: String, allowStandaloneTV: Bool = false) -> [CatalogDB.ShelfKey] {
         db?.shelfKeys(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
     }

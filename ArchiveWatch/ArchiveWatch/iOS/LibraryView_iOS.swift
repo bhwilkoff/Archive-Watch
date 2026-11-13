@@ -439,7 +439,7 @@ struct LibraryView: View {
                     } label: {
                         VStack(alignment: .leading) {
                             Text(pl.name).font(.headline)
-                            Text("\(pl.archiveIDs.count) titles").font(.caption).foregroundStyle(.secondary)
+                            Text(PlaylistCount.label(store.storedCount(pl.archiveIDs))).font(.caption).foregroundStyle(.secondary)
                         }
                     }
                     // IPAD-DESIGN §12.2: a film dropped on a playlist joins it.

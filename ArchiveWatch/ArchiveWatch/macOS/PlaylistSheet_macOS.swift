@@ -10,6 +10,7 @@ import SwiftData
 struct AddToPlaylistSheet: View {
     let archiveID: String
     @Environment(\.modelContext) private var ctx
+    @Environment(AppStore.self) private var store
     @Environment(\.dismiss) private var dismiss
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
     @State private var newName = ""
@@ -43,7 +44,7 @@ struct AddToPlaylistSheet: View {
                                         .foregroundStyle(pl.contains(archiveID) ? .orange : .secondary)
                                     Text(pl.name)
                                     Spacer()
-                                    Text("\(pl.archiveIDs.count)")
+                                    Text("\(store.storedCount(pl.archiveIDs))")
                                         .foregroundStyle(.secondary).font(.subheadline)
                                 }
                                 .contentShape(Rectangle())

@@ -25,6 +25,7 @@ struct PlaylistDetailView: View {
     /// not on every render — each with the id it is STORED under.
     @State private var entries: [Entry] = []
     @State private var resolved = false
+    @State private var unserved = 0
     @State private var run: PlaylistRun?
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
@@ -66,11 +67,17 @@ struct PlaylistDetailView: View {
             if !resolved {
                 Color.clear
             } else if films.isEmpty {
-                ContentUnavailableView("Empty playlist", systemImage: "rectangle.stack")
+                ContentUnavailableView("Empty playlist", systemImage: "rectangle.stack",
+                                       description: PlaylistCount.missingLine(unserved).map { Text($0) })
             } else if editMode.isEditing {
                 arrangeList
             } else {
                 ScrollView {
+                    if let line = PlaylistCount.missingLine(unserved) {
+                        Text(line).font(.footnote).foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal).padding(.top, 8)
+                    }
                     playControls
                     LazyVGrid(columns: cols, spacing: 18) {
                         ForEach(shown) { item in
@@ -129,6 +136,7 @@ struct PlaylistDetailView: View {
         .onChange(of: playlist.name) { rename() }
         .task(id: resolveKey) {
             entries = store.storedItems(playlist.archiveIDs).map { Entry(storedID: $0.storedID, item: $0.item) }
+            unserved = store.unservedCount(playlist.archiveIDs)
             resolved = true
         }
     }

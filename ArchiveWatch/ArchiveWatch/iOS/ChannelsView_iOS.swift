@@ -316,9 +316,10 @@ private struct SurfPlayer: View {
     /// the old array then names a different channel in the new one.
     @State private var channelID: String
     @State private var lineup: ChannelLineup
-    @State private var stripVisible = true
+    /// The episode and playlist players' clock: a tap that hides AVKit's
+    /// controls hides the strip with them, instead of re-showing it.
+    @State private var chrome = PlayerChromeTimer()
     @Environment(\.horizontalSizeClass) private var hSize
-    @State private var hideTask: Task<Void, Never>?
     let weave: ([Catalog.Item]) -> [Catalog.Item]
 
     init(channels: [GuideChannel], channelID: String, first: ChannelLineup,
@@ -332,15 +333,19 @@ private struct SurfPlayer: View {
     var body: some View {
         ZStack(alignment: .top) {
             if let player = PlayerView(lineup: lineup.items, startOffset: lineup.startOffset) {
-                player.onTapVideo { showStrip() }
+                player.onTapVideo { chrome.toggle() }
                     .id(lineup.id)
                     .ignoresSafeArea()
             } else {
                 ContentUnavailableView("Channel unavailable", systemImage: "tv.slash")
             }
-            if stripVisible { strip.transition(.opacity) }
+            strip
+                .opacity(chrome.visible ? 1 : 0)
+                .allowsHitTesting(chrome.visible)
+                .accessibilityHidden(!chrome.visible)
+                .animation(.easeInOut(duration: 0.25), value: chrome.visible)
         }
-        .onAppear { showStrip() }
+        .onAppear { chrome.show() }
         #if DEBUG
         // Harness door: AW_SURF=N changes channel N times, 6 s apart.
         .task {
@@ -390,23 +395,13 @@ private struct SurfPlayer: View {
         .padding(.top, 64)
     }
 
-    private func showStrip() {
-        withAnimation(.easeInOut(duration: 0.2)) { stripVisible = true }
-        hideTask?.cancel()
-        hideTask = Task {
-            try? await Task.sleep(for: .seconds(4))
-            guard !Task.isCancelled else { return }
-            withAnimation(.easeInOut(duration: 0.3)) { stripVisible = false }
-        }
-    }
-
     /// The shared rule (GuideChannel.surf).
     private func surf(_ step: Int) {
         guard let hop = GuideChannel.surf(channels, from: index, step: step) else { return }
         channelID = channels[hop.index].id
         lineup = ChannelLineup(items: weave(hop.programs), startOffset: hop.offset,
                                channelID: channels[hop.index].id)
-        showStrip()
+        chrome.show()
     }
 }
 

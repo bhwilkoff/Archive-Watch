@@ -172,6 +172,17 @@ check("one off-pattern file does not unnumber the rest",
       why == "ok" and [B.token_of(r) for r in rows if r["episode"] is not None] == [f"e{i:02d}" for i in range(1, 7)]
       and rows[0]["title"] == "The Mystery of the Red Circle"
       and any(B.token_of(r).startswith("x-") for r in rows))
+# andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd: picture tags that differ
+# by file left "576p-s" as every episode's title; a tag is never a title, and
+# the control keeps a real title beside one.
+rows, why = B.parse_bundle(files([f"andromeda breakthrough-BBC sci-fi-episode {i}-{'720p-hd' if i == 1 else '576p-sd'}.mp4"
+                                  for i in range(1, 7)]))
+check("picture tags are not episode titles",
+      why == "ok" and all(r["title"] is None for r in rows))
+rows, why = B.parse_bundle(files([f"UFO.{i:02d}.{t}.720p.mp4" for i, t in
+                                  enumerate(["Identified", "Computer Affair", "Flight Path"], 1)]))
+check("control: a title beside a picture tag is kept",
+      why == "ok" and [r["title"] for r in rows] == ["Identified", "Computer Affair", "Flight Path"])
 rows, _ = B.parse_bundle(files([f"EVA {i:02d} Spacewalk 2019 1011 12588{i}.mp4" for i in range(1, 6)]))
 check("control: titles that differ only by numbers are not episode titles",
       rows is not None and B.series_evidence({"contentType": "feature-film"}, rows) is None)

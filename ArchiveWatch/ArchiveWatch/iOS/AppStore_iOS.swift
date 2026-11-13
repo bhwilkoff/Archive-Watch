@@ -210,6 +210,11 @@ final class AppStore {
         db?.storedItems(ids) ?? []
     }
 
+    /// A playlist's size as the viewer sees it: the titles the catalog still
+    /// serves, not the ids stored (a removed title stays stored).
+    func storedCount(_ ids: [String]) -> Int { db?.storedCount(ids) ?? 0 }
+    func unservedCount(_ ids: [String]) -> Int { db?.unservedCount(ids) ?? 0 }
+
     /// Every id a card may be saved under: its own and the uploads merged into it.
     func storedIDs(for archiveID: String) -> Set<String> {
         Set(db?.mergedIDs(into: archiveID) ?? []).union([archiveID])

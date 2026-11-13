@@ -365,3 +365,14 @@ extension UserChannel {
     }
 }
 
+
+enum PlaylistCount {
+    static func label(_ n: Int) -> String { "\(n) \(n == 1 ? "title" : "titles")" }
+
+    /// A playlist page's warning when titles it names have left the catalog,
+    /// the one fact the viewer cannot discover by looking (SharedListView's).
+    static func missingLine(_ missing: Int) -> String? {
+        guard missing > 0 else { return nil }
+        return "\(missing) \(missing == 1 ? "title in this playlist is" : "titles in this playlist are") no longer in the catalog."
+    }
+}

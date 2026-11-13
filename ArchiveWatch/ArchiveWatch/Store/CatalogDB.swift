@@ -536,6 +536,35 @@ final class CatalogDB {
         return out
     }
 
+    /// How many titles `storedItems` would return, without decoding any.
+    func storedCount(_ ids: [String]) -> Int { Set(servedTargets(ids).values).count }
+
+    /// How many stored ids no longer reach any card: removed, not merged.
+    func unservedCount(_ ids: [String]) -> Int {
+        let target = servedTargets(ids)
+        return ids.filter { target[$0] == nil }.count
+    }
+
+    /// stored id -> the archiveID that serves it, following merges.
+    private func servedTargets(_ ids: [String]) -> [String: String] {
+        guard !ids.isEmpty else { return [:] }
+        func present(_ list: [String]) -> Set<String> {
+            let ph = list.map { _ in "?" }.joined(separator: ",")
+            return Set(pairRows("SELECT archiveID, archiveID FROM item_json WHERE archiveID IN (\(ph))", list).map(\.0))
+        }
+        var target = Dictionary(present(ids).map { ($0, $0) }, uniquingKeysWith: { a, _ in a })
+        let missing = ids.filter { target[$0] == nil }
+        if !missing.isEmpty {
+            let ph = missing.map { _ in "?" }.joined(separator: ",")
+            let pairs = pairRows("SELECT oldID, newID FROM item_aliases WHERE oldID IN (\(ph))", missing)
+            if !pairs.isEmpty {
+                let alive = present(pairs.map(\.1))
+                for (old, new) in pairs where alive.contains(new) { target[old] = new }
+            }
+        }
+        return target
+    }
+
     /// The uploads merged INTO a title (Decision 040), for its versions picker.
     func mergedIDs(into archiveID: String) -> [String] {
         pairRows("SELECT oldID, newID FROM item_aliases WHERE newID = ?", [archiveID]).map(\.0)

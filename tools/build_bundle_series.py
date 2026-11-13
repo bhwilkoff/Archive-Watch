@@ -87,6 +87,15 @@ def item_of(aid: str) -> str:
 _SXE = re.compile(r"(?<![a-z0-9])s(\d{1,2})[ ._-]*e(\d{1,3})(?![0-9])", re.I)
 _NXN = re.compile(r"(?<![0-9])(\d{1,2})x(\d{2,3})(?![0-9])", re.I)
 _WORD = re.compile(r"(episode|ep|chapter|chap|ch|(?<![a-z0-9])e)[ ._#-]*(\d{1,3})(?![0-9])", re.I)
+# An upload's picture tags are never an episode's title. They differ from file
+# to file ("720p-hd", "576p-sd"), so the shared tail cut "-hd"/"-sd" down to "d"
+# and Andromeda Breakthrough's episodes were titled "576p-s".
+_QUALITY = re.compile(r"(?<![a-z0-9])(?:\d{3,4}[pi]|[248]k|u?hd|sd|hdtv|x26[45]|h\.?26[45]|hevc|xvid|divx"
+                      r"|blu-?ray|br-?rip|bd-?rip|dvd-?rip|web-?rip|web-?dl|remux|aac|ac3)(?![a-z0-9])", re.I)
+
+
+def _strip_quality(s: str) -> str:
+    return re.sub(r"[ ._-]{2,}", " ", _QUALITY.sub(" ", s))
 _SEASON_DIR = re.compile(r"(?:season|series|s)[ ._-]*(\d{1,2})$", re.I)
 _LEAD_NUM = re.compile(r"^[ ._#-]*(\d{1,3})(?![0-9])")
 # what a shared name ends in when its numbers count pieces of ONE film or tape
@@ -211,7 +220,7 @@ def parse_bundle(files: list[dict]) -> tuple[list[dict] | None, str]:
         return None, f"{len(picked)} playable works"
     stems = {root: _stem(root) for root in picked}
     prefix = _series_prefix(list(stems.values()))
-    suffix = _common_suffix(list(stems.values()))
+    suffix = _common_suffix([_strip_quality(v) for v in stems.values()])
     eps, extras = [], []
     for root, f in picked.items():
         st = stems[root]
@@ -224,7 +233,7 @@ def parse_bundle(files: list[dict]) -> tuple[list[dict] | None, str]:
         # are gone ("UFO.07.Kill Straker" -> "Kill Straker").
         t = _own_title(by_title(files, root) or "")
         if not t or _stem(t) == st:
-            core = st[len(prefix):] if prefix and st.startswith(prefix) else st
+            core = _strip_quality(st[len(prefix):] if prefix and st.startswith(prefix) else st)
             if suffix and core.endswith(suffix) and len(core) > len(suffix):
                 core = core[: -len(suffix)]
             core = _SXE.sub(" ", core)

@@ -11,6 +11,7 @@ struct PlaylistRoute: Hashable { let id: String }
 
 struct AddToPlaylistSheet: View {
     let archiveID: String
+    @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
@@ -53,7 +54,7 @@ struct AddToPlaylistSheet: View {
                     LazyVStack(spacing: 14) {
                         ForEach(Playlist.inMyOrder(playlists)) { pl in
                             PlaylistPickRow(name: pl.name,
-                                            count: pl.archiveIDs.count,
+                                            count: store.dbStoredCount(pl.archiveIDs),
                                             isOn: pl.contains(archiveID)) { toggle(pl) }
                         }
                     }
@@ -200,6 +201,9 @@ struct PlaylistDetailView: View {
                         }
                     }
                     Spacer()
+                }
+                if let line = PlaylistCount.missingLine(store.dbUnservedCount(playlist?.archiveIDs ?? [])) {
+                    Text(line).scaledFont(20).foregroundStyle(.white.opacity(0.55))
                 }
                 if items.isEmpty {
                     Text("This playlist is empty. Add titles from their detail page.")
@@ -426,7 +430,7 @@ private struct PlaylistTile: View {
                     .minimumScaleFactor(0.78)
                     .truncationMode(.tail)
                     .fixedSize(horizontal: false, vertical: true)
-                Text("\(playlist.archiveIDs.count) \(playlist.archiveIDs.count == 1 ? "title" : "titles")")
+                Text(PlaylistCount.label(store.dbStoredCount(playlist.archiveIDs)))
                     .font(.system(size: 17, weight: .regular))
                     .foregroundStyle(.white.opacity(0.55))
             }

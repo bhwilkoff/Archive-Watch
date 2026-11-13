@@ -1,5 +1,22 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-11-10 — iPhone Duo: Collections opens, the strip, Bsky Dreams' lessons (Decision 182)
+
+Owner: *"take all of the things that we have learned from that implementation ...
+audit all of the surfaces on the iPhone Duo ... the collections do not open
+correctly."* v1.47.40. Tested by tapping on the owner's Duo, open, landscape.
+- **Collections**: the landscape strip shows every tab, so Collections sat in "…",
+  which shows a tab without selecting it, and the push went to Home's hidden stack.
+  Pushes now go to the stack on screen; places exist only with a sidebar (iOS 27
+  `isTabViewSidebarAvailable`); Surprise is back in the strip; closing the Duo keeps
+  a place's stack. Detail's hero fits the 669pt height; Clip timeline survives a
+  width change. iOS-DESIGN §2.8.
+- **Tools**: `DuoAuditUITests` (needs UI Automation on the Duo, now on);
+  ios_scenario.py captures the active display; CI logs the iOS SDK.
+**Open**: an upright inner display and the outer (closed) display were not
+reached: both need the Duo moved by hand. The History row's progress bar runs past
+the 700pt row measure at regular width (iPad too).
+
 ### 2026-11-09 — Search Console: richer film pages, a dated sitemap (Decision 181)
 
 Owner: *"The search console should have no errors and no issues"*, then *"fix the

@@ -144,9 +144,11 @@ research's warning case: Pluto's 2026 redesign removed channel surfing and its
 rating fell from 3.15 to 2.32. AVPlayerViewController takes no custom transport
 buttons on iOS, so a channel tuned from On Now or the Guide plays inside
 `SurfPlayer`: a capsule over the video — ▲ previous channel, the channel and
-what is on, ▼ next channel — that shows on tune-in and on any tap (a tap
-recognizer that never cancels the player's own), and fades after four
-seconds. A channel change joins that channel's program at its current
+what is on, ▼ next channel — that shows on tune-in and comes and goes with
+AVKit's controls: a tap toggles it (a tap recognizer that never cancels the
+player's own) and it fades after four seconds, on the episode capsule's
+`PlayerChromeTimer`. A viewer, 2026-11-13: the strip "did not auto-hide in sync
+with the other controls", because a tap that hid AVKit's controls re-showed it. A channel change joins that channel's program at its current
 second, or the next program if it is between two, with the same commercial
 weave. The day schedule's own taps play without it (they are not live).
 Seen on the iPhone 12, muted (DEBUG doors `AW_TUNE_CHANNEL`, `AW_SURF`,

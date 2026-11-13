@@ -760,6 +760,27 @@ keep serving it.
 
 ## Session Log
 
+### 2026-11-13 — John Howard's third round: playlists, the channel strip, three removals
+
+Owner: *"There are a couple more emails from John Howard ... We also owe him a
+response."* v1.47.42.
+- **Playlist counts** read the stored ids, so a removed title still counted
+  ("Pink Panther Show: 2 titles", one visible). Every Apple count is now the
+  titles the catalog serves (`CatalogDB.storedCount`), and a playlist page
+  says "N titles in this playlist are no longer in the catalog", as shared
+  lists and the web already did. Seen on Ben Bedroom.
+- **Channel strip** (iOS) had its own clock and re-showed on the tap that hid
+  AVKit's controls; it is on `PlayerChromeTimer` now (iOS-DESIGN §2.5d).
+- **Removed on renewals**: the Spanish *El Show de la Pantera Rosa* (the same
+  cartoons as RE0000643837) and *Monty Python's Flying Circus* (RE0000929073-76,
+  filed 2006 by Python (Monty) Pictures: outside Decision 177's 28-year window,
+  which is why the checker missed it). Leave It to Beaver: 700 Office records,
+  no renewal; it stays. His missing Hubley title is Robin Hoodlum (R620075).
+- **Bundle titles**: picture tags ("576p-sd") were episode titles (Andromeda
+  Breakthrough); `_strip_quality` + test.
+**Open**: the reply to him is a Gmail draft. The sweep door removed one real
+watch-history entry (Moonbird or The Hole) on Ben Bedroom.
+
 ### 2026-11-12 — Detail's More menu stays open on the Duo (Decision 183)
 
 Owner: *"very often when I press the more button within the individual item
@@ -776,22 +797,5 @@ v1.47.41.
   (DEBUG) writes the store like a no-change sync.
 **Open**: the strip only exists in landscape; test_07/09 passed upright, so
 re-run them with the Duo open in landscape.
-
-### 2026-11-10 — iPhone Duo: Collections opens, the strip, Bsky Dreams' lessons (Decision 182)
-
-Owner: *"take all of the things that we have learned from that implementation ...
-audit all of the surfaces on the iPhone Duo ... the collections do not open
-correctly."* v1.47.40. Tested by tapping on the owner's Duo, open, landscape.
-- **Collections**: the landscape strip shows every tab, so Collections sat in "…",
-  which shows a tab without selecting it, and the push went to Home's hidden stack.
-  Pushes now go to the stack on screen; places exist only with a sidebar (iOS 27
-  `isTabViewSidebarAvailable`); Surprise is back in the strip; closing the Duo keeps
-  a place's stack. Detail's hero fits the 669pt height; Clip timeline survives a
-  width change. iOS-DESIGN §2.8.
-- **Tools**: `DuoAuditUITests` (needs UI Automation on the Duo, now on);
-  ios_scenario.py captures the active display; CI logs the iOS SDK.
-**Open**: an upright inner display and the outer (closed) display were not
-reached: both need the Duo moved by hand. The History row's progress bar runs past
-the 700pt row measure at regular width (iPad too).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
