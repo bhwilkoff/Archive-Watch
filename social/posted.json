@@ -4453,6 +4453,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-14T03:10:38.313630+00:00",
+   "id": "the.-lodger.-a.-story.-of.-the.-london.-fog.-1927",
+   "title": "The Lodger: A Story of the London Fog",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2ajm52ewi2a",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

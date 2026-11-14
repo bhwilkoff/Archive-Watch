@@ -5983,6 +5983,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzrdwe5dji2f",
+   "platform": "bluesky",
+   "id": "rpquestoftheperfectwoman",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-08T02:19:02.784287+00:00",
+   "sampled": "2026-11-14T03:10:49.560263+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n25zydo7v42b",
+   "platform": "bluesky",
+   "id": "Phantom_From_Space",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-13T03:25:48.546840+00:00",
+   "sampled": "2026-11-14T03:10:49.560263+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
