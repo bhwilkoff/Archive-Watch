@@ -63,6 +63,13 @@ check("CONTROL: 'adult education' subject is not", rc.is_adult_signal({"title": 
 check("CONTROL: a burlesque parody is not", rc.is_adult_signal({"title": "A Burlesque on Carmen", "synopsis": "Chaplin's burlesque of the opera."}), False)
 check("CONTROL: Haxan's 'erotic film' mention is not", rc.is_adult_signal({"title": "Haxan", "synopsis": "A documentary-style erotic film about witchcraft."}), False)
 
+# Nudity no keyword can see is marked from shared/editorial/mature.json, by IMDb
+# id (every upload) or archiveID, on evidence each entry names.
+check("a listed film is mature by its IMDb id", rc.is_adult_signal({"title": "The Naked Witch", "archiveID": "any-upload", "imdbID": "tt0054111"}), True)
+check("a listed upload is mature by its archiveID", rc.is_adult_signal({"title": "Gow", "archiveID": "gow-the-head-hunter-1928"}), True)
+check("CONTROL: The Naked City is not", rc.is_adult_signal({"title": "The Naked City", "archiveID": "TheNakedCity", "imdbID": "tt0040636",
+      "synopsis": "The Naked City is a 1948 American crime procedural."}), False)
+
 # A provider subtitle fetched for an IMDb id the item no longer carries is
 # another film's dialogue (the Sherlock Holmes pilot kept Abbott and Costello's).
 sub = lambda m: {"lang": "en", "source": "subsource", "url": "x.vtt", "matchedIMDb": m}

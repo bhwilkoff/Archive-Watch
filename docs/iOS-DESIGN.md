@@ -158,6 +158,12 @@ users have no keyboard (owner, 2026-09-28): at regular width it is
 finger-sized — 60 pt chevrons, headline text — and a TAP on ▼ is asserted on
 the iPad Pro (`IPadInputUITests.test_25`: Drama Theater to Comedy Hour, read
 off the capsule's own Previous-channel button).
+**The capsule's middle opens what is on**: a viewer, 2026-11-14, asked for
+"a short info description of what is currently playing". A tap shows the
+program's synopsis and its source (Decision 124) under the capsule, holds the
+chrome 15 seconds so it can be read, and closes with the chrome; a program
+with no synopsis leaves the middle inert. Tapped on the iPhone 12
+(`IPadInputUITests.test_27`).
 
 2.6 **Modes are pushes on iOS, not takeovers.** Cartoon Mode, Surprise, and
 Public Domain Day are ordinary pushed screens reached from Home's shuffle

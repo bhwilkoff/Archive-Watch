@@ -904,8 +904,28 @@ _ADULT_SYNOPSIS = re.compile(
     r"\b(sex comed(y|ies)|soft-?core|sexploitation|erotic (drama|comedy|thriller|short)s?|nudie)\b", re.I)
 
 
+_MATURE_PATH = REPO / "shared" / "editorial" / "mature.json"
+_MATURE = None
+
+
+def mature_listed(item, table=None):
+    """A title marked mature on evidence a reader can open (shared/editorial/
+    mature.json), keyed by its archiveID or its IMDb id (every upload)."""
+    global _MATURE
+    if table is None:
+        if _MATURE is None:
+            try:
+                _MATURE = json.loads(_MATURE_PATH.read_text(encoding="utf-8")).get("titles") or {}
+            except (OSError, ValueError):
+                _MATURE = {}
+        table = _MATURE
+    return item.get("archiveID") in table or (item.get("imdbID") or "") in table
+
+
 def is_adult_signal(item):
     title = item.get("title") or ""
+    if mature_listed(item):
+        return True
     # archive.org's own subject tag "Adult", whole (inside a tag it is noisy:
     # "adult education"). Messe noire (1928) carried it and was not marked.
     if any((s or "").strip().lower() in ("adult", "adults only") for s in item.get("subjects") or []):

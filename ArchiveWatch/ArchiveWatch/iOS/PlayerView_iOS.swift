@@ -1513,12 +1513,12 @@ final class PlayerChromeTimer {
     private(set) var visible = true
     @ObservationIgnored private var hideTask: Task<Void, Never>?
 
-    func show() {
+    func show(for seconds: Double = 4) {
         visible = true
         hideTask?.cancel()
         guard !UIAccessibility.isVoiceOverRunning else { return }
         hideTask = Task { [weak self] in
-            try? await Task.sleep(for: .seconds(4))
+            try? await Task.sleep(for: .seconds(seconds))
             guard !Task.isCancelled else { return }
             self?.visible = false
         }

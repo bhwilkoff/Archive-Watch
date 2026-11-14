@@ -1,0 +1,17 @@
+{
+  "_": "Titles marked mature (isAdult, so the default-off 'Show mature collections' setting hides them everywhere and no channel airs them) on evidence that the film shows nudity or sexual content, where no keyword rule can see it. Owner, 2026-09-29: 'If you have knowledge that a movie is mature then it should be hidden from recommendations.' Keys are an archiveID or an IMDb id (every upload of that film); each value names its evidence: the film's own synopsis, its rating, or a page a reader can open. Never a hunch. A synopsis word alone is not evidence: 'naked eye', newsreels of camps and medical films use the same words. Applied by tools/remediate_catalog.py is_adult_signal.",
+  "titles": {
+    "tt0454994": "Akt-Skulpturen (1903): its synopsis, 'A nude couple pose in an art studio'",
+    "tt0193620": "Wege zu Kraft und Schönheit (1925): its synopsis, 'pose naked'; censors cut scenes of 'naked female body beauty', https://en.wikipedia.org/wiki/Ways_to_Strength_and_Beauty",
+    "tt0054111": "The Naked Witch (1961): rated R (OMDb); its synopsis, 'both beautiful and naked'",
+    "tt3251702": "Hollywood Sand Witches (1928): its synopsis, 'Contains nudity'",
+    "tt0054381": "The Black Rebels / This Rebel Breed (1960): its synopsis, 'partial female nudity'",
+    "tt0462481": "Le pompier des Folies Bergère: its synopsis, 'images of nude dancers'; a second upload was already marked",
+    "tt0005551": "Inspiration (1915): its synopsis, 'full nudity'",
+    "tt0004134": "Hypocrites (1915): 'several full nude scenes', https://en.wikipedia.org/wiki/Hypocrites_(1915_film)",
+    "tt0080084": "I See Naked (1969): its synopsis, sketches in which 'a fashion editor begins to see naked women'",
+    "tt0196592": "Gow the Head Hunter (1928): its synopsis, 'salacious shots of bare-breasted native women'",
+    "gow-the-head-hunter-1928": "Gow the Head Hunter, an upload with no IMDb id (see tt0196592)",
+    "gow.-the.-head.-hunter.-1928": "Gow the Head Hunter, an upload with no IMDb id (see tt0196592)"
+  }
+}

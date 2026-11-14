@@ -319,6 +319,8 @@ private struct SurfPlayer: View {
     /// The episode and playlist players' clock: a tap that hides AVKit's
     /// controls hides the strip with them, instead of re-showing it.
     @State private var chrome = PlayerChromeTimer()
+    /// What is on, opened from the capsule's middle; it closes with the chrome.
+    @State private var showInfo = false
     @Environment(\.horizontalSizeClass) private var hSize
     let weave: ([Catalog.Item]) -> [Catalog.Item]
 
@@ -346,6 +348,7 @@ private struct SurfPlayer: View {
                 .animation(.easeInOut(duration: 0.25), value: chrome.visible)
         }
         .onAppear { chrome.show() }
+        .onChange(of: chrome.visible) { _, visible in if !visible { showInfo = false } }
         #if DEBUG
         // Harness door: AW_SURF=N changes channel N times, 6 s apart.
         .task {
@@ -374,14 +377,26 @@ private struct SurfPlayer: View {
                     .frame(width: button, height: button)
             }
             .accessibilityLabel("Previous channel, \(channels[(index - 1 + channels.count) % channels.count].title)")
-            VStack(spacing: 2) {
-                Text(channel.title).font(wide ? .headline : .subheadline.weight(.semibold))
-                if let onNow {
-                    Text(onNow.item.title).font(wide ? .subheadline : .caption)
-                        .foregroundStyle(.secondary).lineLimit(1)
+            // The middle opens what is on (a viewer, 2026-11-14: "a short info
+            // description of what is currently playing"), held long enough to read.
+            Button {
+                showInfo.toggle()
+                chrome.show(for: showInfo ? 15 : 4)
+            } label: {
+                VStack(spacing: 2) {
+                    Text(channel.title).font(wide ? .headline : .subheadline.weight(.semibold))
+                    if let onNow {
+                        Text(onNow.item.title).font(wide ? .subheadline : .caption)
+                            .foregroundStyle(.secondary).lineLimit(1)
+                    }
                 }
+                .frame(minWidth: wide ? 220 : 140)
+                .contentShape(.rect)
             }
-            .frame(minWidth: wide ? 220 : 140)
+            .buttonStyle(.plain)
+            .disabled(onNow?.item.displaySynopsis == nil)
+            .accessibilityHint(onNow?.item.displaySynopsis == nil ? "" : "Shows what is on")
+            .accessibilityIdentifier("surf.whatsOn")
             Button { surf(1) } label: {
                 Image(systemName: "chevron.down").font(wide ? .title2.weight(.semibold) : .headline)
                     .frame(width: button, height: button)
@@ -392,7 +407,32 @@ private struct SurfPlayer: View {
         .foregroundStyle(.white)
         .background(.ultraThinMaterial, in: .capsule)
         .environment(\.colorScheme, .dark)
+        .frame(maxWidth: .infinity)
+        .overlay(alignment: .top) {
+            // Beneath the capsule, without moving it.
+            if showInfo, let item = onNow?.item, let text = item.displaySynopsis {
+                info(item: item, text: text, wide: wide)
+                    .offset(y: button + 12)
+            }
+        }
         .padding(.top, 64)
+    }
+
+    private func info(item: Catalog.Item, text: String, wide: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(text).font(wide ? .body : .footnote).lineLimit(wide ? 6 : 5)
+            if let source = item.synopsisProvenance {
+                Text(source).font(.caption2).foregroundStyle(.secondary)
+            }
+        }
+        .padding(12)
+        .frame(width: wide ? 460 : 300, alignment: .leading)
+        // An overlay is offered its parent's height (the capsule's): size to the text.
+        .fixedSize(horizontal: false, vertical: true)
+        .foregroundStyle(.white)
+        .background(.ultraThinMaterial, in: .rect(cornerRadius: 16))
+        .environment(\.colorScheme, .dark)
+        .onTapGesture { showInfo = false; chrome.show() }
     }
 
     /// The shared rule (GuideChannel.surf).

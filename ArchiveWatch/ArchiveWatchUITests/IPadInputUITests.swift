@@ -376,4 +376,22 @@ final class IPadInputUITests: XCTestCase {
         print("AWVER checked=\(checked) items=\(items)")
         app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
     }
+
+    /// The capsule's middle opens what is on, and it closes with the chrome
+    /// (a viewer, 2026-11-14). Looks only.
+    func test_27_capsuleShowsWhatIsOn() {
+        launch(["AW_START_TAB": "channels", "AW_TUNE_CHANNEL": "drama", "AW_MUTE": "quiet"])
+        let middle = app.buttons["surf.whatsOn"]
+        guard middle.waitForExistence(timeout: 20) else { return XCTFail("the channel did not open") }
+        let source = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Synopsis' OR label BEGINSWITH 'Uploader'")).firstMatch
+        XCTAssertFalse(source.exists, "control: no synopsis before the tap")
+        middle.tap()
+        XCTAssertTrue(source.waitForExistence(timeout: 2), "no synopsis after tapping the capsule")
+        snap("what is on")
+        sleep(8)
+        XCTAssertTrue(source.exists, "the synopsis closed before it could be read")
+        sleep(10)
+        XCTAssertFalse(source.isHittable, "the synopsis stayed after the chrome faded")
+        app.terminate()
+    }
 }

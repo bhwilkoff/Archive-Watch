@@ -165,8 +165,10 @@ struct LibraryView: View {
     private func count(_ place: Section) -> Int {
         switch place {
         case .downloads: downloads.count
-        case .favorites: favorites.count
-        case .history: progress.count
+        // The rows the place will show: a record whose title left the
+        // catalog has no card, so it is not counted.
+        case .favorites: favoritesResolved ? favoriteItems.count : favorites.count
+        case .history: resolved ? historyRows.count : progress.count
         case .playlists: playlists.count
         case .clips: clips.count
         }
