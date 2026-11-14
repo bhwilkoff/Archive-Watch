@@ -6015,6 +6015,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzt5nmrpyf23",
+   "platform": "bluesky",
+   "id": "they_do_come_back_1940",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-08T19:32:02.772998+00:00",
+   "sampled": "2026-11-14T19:55:01.875049+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 1
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117582485577097387",
+   "platform": "mastodon",
+   "id": "they_do_come_back_1940",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-08T19:32:02.772998+00:00",
+   "sampled": "2026-11-14T19:55:01.875049+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n27w5uwqvp2n",
+   "platform": "bluesky",
+   "id": "gunsmoke_ranch",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-13T21:22:35.311026+00:00",
+   "sampled": "2026-11-14T19:55:01.875049+00:00",
+   "metrics": {
+    "likes": 2,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117611231771725931",
+   "platform": "mastodon",
+   "id": "gunsmoke_ranch",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-13T21:22:35.311026+00:00",
+   "sampled": "2026-11-14T19:55:01.875049+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
