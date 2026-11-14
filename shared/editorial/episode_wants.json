@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T11:57:58Z",
+  "updated_at": "2026-11-14T11:17:11Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19487,
-    "wanted": 19217,
+    "total": 19520,
+    "wanted": 19250,
     "fulfilled": 270,
-    "series_with_gaps": 397
+    "series_with_gaps": 399
   },
   "wants": [
     {
@@ -16904,6 +16904,116 @@
       "episodeImdbID": "tt1356561",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 17,
+      "title": "Portrait of Cynthia",
+      "episodeImdbID": "tt0641033",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 21,
+      "title": "Execution Day",
+      "episodeImdbID": "tt0641028",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 26,
+      "title": "Remember Me Not",
+      "episodeImdbID": "tt0641034",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 28,
+      "title": "The Sons of Don Antonio",
+      "episodeImdbID": "tt0641052",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 29,
+      "title": "Incident at Tupelo",
+      "episodeImdbID": "tt0641031",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 30,
+      "title": "The Harpoon Story",
+      "episodeImdbID": "tt0641040",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 31,
+      "title": "The Montreal Story",
+      "episodeImdbID": "tt0641048",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 32,
+      "title": "In His Steps",
+      "episodeImdbID": "tt0641030",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 34,
+      "title": "The Man Who Wanted Everything",
+      "episodeImdbID": "tt0641046",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 36,
+      "title": "The Lady in Yellow",
+      "episodeImdbID": "tt0641042",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "blackhawk-1952",
+      "seriesTitle": "Blackhawk",
+      "season": 1,
+      "episode": 37,
+      "title": "Gold Is Where You Find It",
+      "episodeImdbID": "tt0641029",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
     },
     {
       "seriesID": "blansky-s-beauties-1977",
@@ -127244,6 +127354,226 @@
       "episodeImdbID": "tt1806559",
       "status": "wanted",
       "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 6,
+      "title": "The Defector, Part 2",
+      "episodeImdbID": "tt3709388",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 7,
+      "title": "The Defector, Part 3",
+      "episodeImdbID": "tt3709390",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 8,
+      "title": "The Defector, Part 4",
+      "episodeImdbID": "tt3709392",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 10,
+      "title": "Package Deal, Part 2",
+      "episodeImdbID": "tt3709394",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 11,
+      "title": "Package Deal, Part 3",
+      "episodeImdbID": "tt3709398",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 12,
+      "title": "Package Deal, Part 4",
+      "episodeImdbID": "tt3709396",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 14,
+      "title": "The Contract, Part 2",
+      "episodeImdbID": "tt3709404",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 16,
+      "title": "A Visit from Hamburg, Part 2",
+      "episodeImdbID": "tt3709408",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 18,
+      "title": "Double Agent: Part 2",
+      "episodeImdbID": "tt1769065",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 20,
+      "title": "Time to Kill: Part 2",
+      "episodeImdbID": "tt1656861",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 22,
+      "title": "Girl in Waiting: Part 2",
+      "episodeImdbID": "tt1509689",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 24,
+      "title": "Redmayne: Part 2",
+      "episodeImdbID": "tt1420883",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 30,
+      "title": "Lorna: Part 2",
+      "episodeImdbID": "tt1231172",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 1,
+      "episode": 35,
+      "title": "Who Among Us?: Part 5",
+      "episodeImdbID": "tt1203873",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 1,
+      "title": "Sullivan",
+      "episodeImdbID": "tt0707639",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 2,
+      "title": "Anything Legal Considered",
+      "episodeImdbID": "tt0707624",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 3,
+      "title": "The National Interest",
+      "episodeImdbID": "tt0707649",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 5,
+      "title": "A Perfect Victim",
+      "episodeImdbID": "tt0707622",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 6,
+      "title": "A Hero's Return",
+      "episodeImdbID": "tt0707620",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 9,
+      "title": "Areas of Guilt",
+      "episodeImdbID": "tt0707626",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 11,
+      "title": "The Italian Link",
+      "episodeImdbID": "tt0707645",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
+    },
+    {
+      "seriesID": "spy-trap-1972",
+      "seriesTitle": "Spy Trap",
+      "season": 2,
+      "episode": 14,
+      "title": "A Dirty Sort of War",
+      "episodeImdbID": "tt0707619",
+      "status": "wanted",
+      "added_at": "2026-11-14T11:17:11Z"
     },
     {
       "seriesID": "stage-7-1955",

@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T11:57:40Z",
+  "updated_at": "2026-11-14T11:16:59Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72309,
-    "new_this_run": 43,
-    "awaiting_ingest": 1051,
-    "with_archive_id": 63990
+    "total": 72343,
+    "new_this_run": 34,
+    "awaiting_ingest": 1042,
+    "with_archive_id": 64025
   },
   "candidates": [
     {
@@ -7058,6 +7058,46 @@
       "archiveCollection": "feature_films",
       "status": "held_modern_license",
       "discovered_at": "2026-11-13T11:51:54Z"
+    },
+    {
+      "iaid": "bullet-in-the-head-the-konplete-final-john-woo-cut-1990",
+      "title": "Bullet In The Head (The 'Konplete' Final John Woo Cut) (1989) [2 different English subtitle transitions]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-14T11:10:13Z"
+    },
+    {
+      "iaid": "a-queens-ransom-1976",
+      "title": "A Queen's Ransom 鱷潭群英會 [1976]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-14T11:10:13Z"
+    },
+    {
+      "iaid": "aces-go-places-aka-mad-mission-1982",
+      "title": "Aces Go Places (Mad Mission) (1982)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
@@ -39373,6 +39413,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "Expedition_59_Inflight_with_Military_Officers_Magazine_2019_0419",
+      "title": "Expedition_59_Inflight_with_Military_Officers_Magazine_2019_0419",
+      "year": 2019,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "objectshowepisodes2018",
@@ -74301,6 +74355,20 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "Minkowski",
+      "title": "Minkowski Space-Time: Spacetime in Special Relativity",
+      "year": 2015,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "LongJohnSilverAppleTV2ndGen.",
       "title": "Long John Silver's Return to Treasure Island",
       "year": 2014,
@@ -108472,6 +108540,20 @@
       "ingested_at": "2026-11-11T11:57:46Z"
     },
     {
+      "iaid": "NASAMarshallTV-H59Te3tccoM",
+      "title": "Robotic Lander Prototype Test",
+      "year": 2011,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "Verdura",
       "title": "Verdura",
       "year": 2010,
@@ -119863,6 +119945,34 @@
       "status": "ingested",
       "discovered_at": "2026-11-11T11:56:42Z",
       "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "NASAKennedy-Bsm8iImlStU",
+      "title": "STS-131 Landing",
+      "year": 2010,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "NASAMarshallTV-j4tVGXuKjpM",
+      "title": "DM-2 Chilling",
+      "year": 2010,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "Closing_Credits",
@@ -132851,6 +132961,20 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "GMM-10441",
+      "title": "SDO's Instruments",
+      "year": 2009,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "Microfisica_Remix",
       "title": "Microfisica Remix",
       "year": 2008,
@@ -145671,6 +145795,20 @@
       "ingested_at": "2026-11-07T11:10:33Z"
     },
     {
+      "iaid": "SVS-3472",
+      "title": "Chesapeake Bay Flyover and Watershed Region",
+      "year": 2008,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "The_Vandhaal_Clash_with_the_Gibichungen_directors_cut_04",
       "title": "Clash with the Gibichungen The Directors cut DvD video",
       "year": 2007,
@@ -158024,6 +158162,20 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "SVS-3425",
+      "title": "First 3-D Stereo from STEREO: EUVI 284 Ångstroms (Full Disk View)",
+      "year": 2007,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "Text200306",
       "title": "text 2003 06, Lutz Mommartz",
       "year": 2006,
@@ -166194,6 +166346,21 @@
       "ingested_at": "2026-11-08T11:12:37Z"
     },
     {
+      "iaid": "compilado_comerciais-de-tv_activia_da_danone_em_2006",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Compilado de comerciais do Activia, da Danone, na TV em 2006",
+      "year": 2006,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-13T11:56:44Z",
+      "ingested_at": "2026-11-13T11:57:40Z"
+    },
+    {
       "iaid": "PierreMichelArcandVilledeBanlieueVilleDangereuse_0",
       "title": "Ville de banlieue",
       "year": 2005,
@@ -173603,6 +173770,20 @@
       "archiveCollection": "newsandpublicaffairs",
       "status": "no_video",
       "discovered_at": "2026-11-04T11:53:20Z"
+    },
+    {
+      "iaid": "SVS-3229",
+      "title": "Global SST Model (ECCO)",
+      "year": 2005,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "rvb_e37",
@@ -187469,6 +187650,20 @@
       "ingested_at": "2026-11-07T11:10:33Z"
     },
     {
+      "iaid": "HSF-mov-sts107fd01a",
+      "title": "sts107fd01a",
+      "year": 2003,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "tapporalli",
       "title": "Tapporalli 2020",
       "year": 2002,
@@ -192244,6 +192439,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "NasaSciFiles-WorkAndEnergy",
+      "title": "NASA SCI Files - Work and Energy",
+      "year": 2002,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "WILDJUNG2001",
@@ -202323,6 +202532,20 @@
       "ingested_at": "2026-11-13T11:57:40Z"
     },
     {
+      "iaid": "NasaConnect-Eom-SurveyingMarsAndAerobraking",
+      "title": "NASA Connect - EOM - Surveying Mars and Aerobraking",
+      "year": 2000,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "FastVoyeur",
       "title": "Fast Voyeur",
       "year": 1999,
@@ -207240,6 +207463,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "SVS-1003",
+      "title": "East Antarctic Ice Streams #1",
+      "year": 1999,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "cartoonplanet1",
@@ -217190,6 +217427,20 @@
       "ingested_at": "2026-11-02T12:06:11Z"
     },
     {
+      "iaid": "adios-abuelo-1996",
+      "title": "Adios Abuelo (1996)",
+      "year": 1996,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "whisper.of.the.-heart.-1995.1080p.-bdrip.-dual.-audio.-aac-5.1.10bits.x-265-rapta",
       "title": "Whisper of the Heart",
       "year": 1995,
@@ -226214,6 +226465,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-02T11:59:19Z",
       "ingested_at": "2026-11-02T12:06:11Z"
+    },
+    {
+      "iaid": "ScienceTechWorkingForYou",
+      "title": "Science and Technology Working For You",
+      "year": 1993,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "sims_liquid_selves_1992",
@@ -236050,6 +236315,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-01T11:06:05Z",
       "ingested_at": "2026-11-01T11:11:21Z"
+    },
+    {
+      "iaid": "shades-of-la-16",
+      "title": "Shades of L.A. - 16: Till Death Do Us Part",
+      "year": 1990,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "slipstream-1989",
@@ -393429,6 +393708,20 @@
       "ingested_at": "2026-10-27T10:32:14Z"
     },
     {
+      "iaid": "I_Married_Joan--Diet",
+      "title": "I Married Joan: Diet (1953)",
+      "year": 1953,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "PublicDomainJackandtheBeanstalk",
       "title": "Jack and the Beanstalk",
       "year": 1952,
@@ -416554,6 +416847,20 @@
       "ingested_at": "2026-10-29T16:47:16Z"
     },
     {
+      "iaid": "la-hosteria-del-caballito-blanco-1948",
+      "title": "La Hosteria Del Caballito Blanco (1948) by C.R.F.A",
+      "year": 1948,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "dick_tracy_meets_gruesome",
       "title": "Dick Tracy Meets Gruesome",
       "year": 1947,
@@ -418817,6 +419124,20 @@
       "status": "ingested",
       "discovered_at": "2026-10-30T10:46:16Z",
       "ingested_at": "2026-10-30T10:51:08Z"
+    },
+    {
+      "iaid": "los-hijos-del-otro-1947",
+      "title": "Los Hijos Del Otro (1947) by C.R.F.A",
+      "year": 1947,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "wikidataQID": "Q111351657",
@@ -421500,6 +421821,20 @@
       "ingested_at": "2026-10-28T13:39:01Z"
     },
     {
+      "iaid": "inspiracion-1946",
+      "title": "Inspiracion (1946) by C.R.F.A",
+      "year": 1946,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": "northwest_trail_ipod",
       "title": "Northwest Trail",
       "year": 1945,
@@ -423905,6 +424240,20 @@
       "status": "ingested",
       "discovered_at": "2026-10-30T10:46:16Z",
       "ingested_at": "2026-10-30T10:51:08Z"
+    },
+    {
+      "iaid": "villa-rica-del-espiritu-santo-1945",
+      "title": "Villa Rica Del Espiritu Santo (1945) by C.R.F.A",
+      "year": 1945,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
       "iaid": "bees_in_paradise",
@@ -885406,6 +885755,146 @@
       "ingested_at": "2026-11-13T11:57:40Z"
     },
     {
+      "iaid": "Beizai_karnamehsafar",
+      "title": "Beizai_Karnameh (Safar)",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "PadasheSokoot2007",
+      "title": "Padashe sokoot (2007)",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "Calvin_0303",
+      "title": "Calvin 0303",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "Mode-Art_Can_2746",
+      "title": "Mode-Art Can 2746",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "TheGpoAnnualReportVideo",
+      "title": "The GPO Annual Report Video",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "NasaBehindTheScenesEp21Sts-134Eva4",
+      "title": "NASA Behind the Scenes: Ep21, STS-134 EVA4",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "VSDPC2M4KqnHZEU9bQGvGafdX6qBKF",
+      "title": "“BRAZIL PART II EASTERN HIGHLANDS” 1933 SÃO PAULO RIO DE JANEIRO TOBACCO & CASSAVA XD6016",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "44614-new-england-a-land-of-infinite-variety-mos-vwr-1",
+      "title": "“ NEW ENGLAND ” 1950’S AMATEUR HOME MOVIE TRAVELOGUE VERMONT MAINE NEW HAMPSHIRE 44614",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "FrJVLaRRZKDE7s6Q7muYaIodykgl27",
+      "title": "U.S. MILITARY WWII WAR DOGS SILENT FOOTAGE HaDo 9500",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
+      "iaid": "NmEbIjj8JnSDhECXt5tnfjSYRcZWVn",
+      "title": "\" NATURAL RESOURCES OF NEVADA \" 1960s RICHFIELD OIL CORP. DOCUMENTARY (FRENCH LANGUAGE) XD5103",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-14T11:10:13Z",
+      "ingested_at": "2026-11-14T11:16:59Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -990160,21 +990649,6 @@
       "rightsConfidence": "low",
       "status": "new",
       "discovered_at": "2026-06-01T03:38:14Z"
-    },
-    {
-      "iaid": "compilado_comerciais-de-tv_activia_da_danone_em_2006",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Compilado de comerciais do Activia, da Danone, na TV em 2006",
-      "year": 2006,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-13T11:56:44Z",
-      "ingested_at": "2026-11-13T11:57:40Z"
     }
   ]
 }
