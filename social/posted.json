@@ -4525,6 +4525,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-15T02:31:16.825507+00:00",
+   "id": "gov.fdr.2",
+   "title": "My Japan",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2cxurecoo2t",
+   "format": "video",
+   "kind": "newsreel",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
