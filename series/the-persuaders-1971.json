@@ -195,7 +195,7 @@
           "sourceID": "the-persuaders-1971-72",
           "seasonNumber": 1,
           "episodeNumber": 10,
-          "title": "Angie . Angie",
+          "title": "Angie Angie",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -501,8 +501,5 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283127/photo/64944605459b2.jpg"
     }
-  ],
-  "seriesImdbID": "tt0066701",
-  "canonicalEpisodeCount": 24,
-  "canonicalSeasons": 1
+  ]
 }

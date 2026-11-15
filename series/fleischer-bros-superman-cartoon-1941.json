@@ -261,7 +261,7 @@
           "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
           "seasonNumber": 1,
           "episodeNumber": 13,
-          "title": "Destruction Inc. (1943",
+          "title": "Destruction Inc (1943",
           "overview": null,
           "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E13%20-%20Destruction%20Inc.%20%281943%29_000179.jpg",
           "airDate": null,
@@ -363,7 +363,5 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "archive",
-  "cast": [],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": []
 }

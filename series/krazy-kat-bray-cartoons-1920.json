@@ -81,7 +81,7 @@
           "sourceID": "krazy-kat-and-the-wireless-wire-walkers-february-26-1921",
           "seasonNumber": 1,
           "episodeNumber": 5,
-          "title": "Chinese Honeymoon (1920) - 16mm USA Keystone Black and White Silent Film Reel Print",
+          "title": "Chinese Honeymoon (1920) 16mm USA Keystone Black and White Silent Film Reel Print",
           "overview": null,
           "stillURL": "https://archive.org/download/krazy-kat-and-the-wireless-wire-walkers-february-26-1921/krazy-kat-and-the-wireless-wire-walkers-february-26-1921.thumbs/05%20-%20Chinese%20Honeymoon%20%281920%29%20-%2016mm%20USA%20Keystone%20Black%20and%20White%20Silent%20Film%20Reel%20Print_000090.jpg",
           "airDate": null,
@@ -166,7 +166,5 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "archive",
-  "cast": [],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": []
 }

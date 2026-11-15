@@ -325,7 +325,7 @@
           "sourceID": "of-science-and-scientists",
           "seasonNumber": 1,
           "episodeNumber": 17,
-          "title": "Light - Waves Or Bullets",
+          "title": "Light Waves Or Bullets",
           "overview": null,
           "stillURL": "https://archive.org/download/of-science-and-scientists/of-science-and-scientists.thumbs/Of%20Science%20And%20Scientists%2017%20Light%20-%20Waves%20Or%20Bullets_000788.jpg",
           "airDate": null,
@@ -460,7 +460,5 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "archive",
-  "cast": [],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": []
 }

@@ -2523,9 +2523,10 @@
   "verdict": "single"
  },
  "0547_New_Girl_in_the_Office_The_21_03_13_04": {
-  "checkedAt": "2026-10-20",
-  "isize": 1071413535,
+  "checkedAt": "2026-11-15",
+  "isize": 1071413010,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "0550_Highlights_1965_A_Progress_Report_02_01_13_00": {
@@ -3530,9 +3531,10 @@
   "verdict": "single"
  },
  "0869_Drugs_in_Our_Culture_07_28_34_00": {
-  "checkedAt": "2026-10-20",
-  "isize": 1023636841,
+  "checkedAt": "2026-11-15",
+  "isize": 1023636316,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "0869_Signal_30_07_00_59_00": {
@@ -5154,9 +5156,10 @@
   "verdict": "single"
  },
  "1940-Der-Feldzug-in-Polen": {
-  "checkedAt": "2026-10-18",
-  "isize": 1228554653,
+  "checkedAt": "2026-11-15",
+  "isize": 1228555252,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "1940-Der-Marsch-zum-Fuehrer": {
@@ -7617,6 +7620,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "201062_Home_Movie_003795": {
+  "checkedAt": "2026-11-15",
+  "isize": 8350333757,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "201063_Home_Movie_003796": {
   "checkedAt": "2026-10-18",
   "isize": 10503009378,
@@ -7867,10 +7877,24 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "201971_Home_Movie_004715": {
+  "checkedAt": "2026-11-15",
+  "isize": 7370234221,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "201986_Home_Movie_004730": {
   "checkedAt": "2026-10-18",
   "isize": 268054977816,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "2019_0928_HTV_Capture_1254250": {
+  "checkedAt": "2026-11-15",
+  "isize": 51281465618,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "2019_0928_HTV_Installation_1254378": {
@@ -9310,8 +9334,8 @@
   "verdict": "single"
  },
  "202729_Portions_of_Twenty_Three_States_in_Two_Parts_P1": {
-  "checkedAt": "2026-11-04",
-  "isize": 8457041351,
+  "checkedAt": "2026-11-15",
+  "isize": 8457042111,
   "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
@@ -12107,9 +12131,10 @@
   "verdict": "single"
  },
  "6161_Dingbat_Story_The_00_00_56_00": {
-  "checkedAt": "2026-10-20",
-  "isize": 475223848,
+  "checkedAt": "2026-11-15",
+  "isize": 475223323,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "6161_Untitled_Stop_Fisk_Tire_Safety_Stripes_00_25_26_00": {
@@ -14807,9 +14832,10 @@
   "verdict": "single"
  },
  "AboutBan1935": {
-  "checkedAt": "2026-10-18",
-  "isize": 888246012,
+  "checkedAt": "2026-11-15",
+  "isize": 888245581,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "AboutFal1963": {
@@ -22792,9 +22818,10 @@
   "verdict": "single"
  },
  "DistantD1972": {
-  "checkedAt": "2026-10-20",
-  "isize": 1621686869,
+  "checkedAt": "2026-11-15",
+  "isize": 1621686344,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Dividean1943": {
@@ -22967,9 +22994,10 @@
   "verdict": "single"
  },
  "DrugAbus1969": {
-  "checkedAt": "2026-10-20",
-  "isize": 1484227202,
+  "checkedAt": "2026-11-15",
+  "isize": 1484226676,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "DrugAddi1951": {
@@ -23015,9 +23043,10 @@
   "verdict": "single"
  },
  "DuckandC1951": {
-  "checkedAt": "2026-10-20",
-  "isize": 792066548,
+  "checkedAt": "2026-11-15",
+  "isize": 792066032,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Dundee-and-the-Culhane-1967": {
@@ -34667,9 +34696,10 @@
   "verdict": "single"
  },
  "KingArthurWasaGentleman": {
-  "checkedAt": "2026-10-18",
-  "isize": 2195513889,
+  "checkedAt": "2026-11-15",
+  "isize": 2195533876,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "KingKellyoftheUSA": {
@@ -43034,9 +43064,10 @@
   "verdict": "single"
  },
  "MessiahofEvil_avi": {
-  "checkedAt": "2026-10-18",
-  "isize": 2136303039,
+  "checkedAt": "2026-11-15",
+  "isize": 2136302652,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "MichaelShayneMurderAndTheWantonBride": {
@@ -45894,9 +45925,10 @@
   "verdict": "single"
  },
  "Oh_Mr.Porter_1937": {
-  "checkedAt": "2026-10-18",
-  "isize": 1541960681,
+  "checkedAt": "2026-11-15",
+  "isize": 1541960282,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Oil_Raider_1934": {
@@ -47220,9 +47252,10 @@
   "verdict": "single"
  },
  "ProjectKill": {
-  "checkedAt": "2026-10-18",
-  "isize": 2111885553,
+  "checkedAt": "2026-11-15",
+  "isize": 2111885854,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Protecti1952": {
@@ -48527,9 +48560,10 @@
   "verdict": "single"
  },
  "RelaxedW1957": {
-  "checkedAt": "2026-10-20",
-  "isize": 952308348,
+  "checkedAt": "2026-11-15",
+  "isize": 952307827,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Release-of-SpaceX-Dragon-CRS-12-from-ISS_2017_260_0825_563251.mxf": {
@@ -56685,9 +56719,10 @@
   "verdict": "single"
  },
  "StopDriv1959": {
-  "checkedAt": "2026-10-20",
-  "isize": 721263667,
+  "checkedAt": "2026-11-15",
+  "isize": 721263146,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "StormInATeacup1937": {
@@ -56703,9 +56738,10 @@
   "verdict": "single"
  },
  "StoryofT1956": {
-  "checkedAt": "2026-10-18",
-  "isize": 1069793539,
+  "checkedAt": "2026-11-15",
+  "isize": 1069793024,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "Storyofa1954": {
@@ -56955,9 +56991,10 @@
   "verdict": "single"
  },
  "SubjectN1951": {
-  "checkedAt": "2026-10-20",
-  "isize": 1595649596,
+  "checkedAt": "2026-11-15",
+  "isize": 1595647842,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "SubmarineBase": {
@@ -68419,9 +68456,10 @@
   "verdict": "single"
  },
  "Zontar_Thing_From_Venus": {
-  "checkedAt": "2026-10-18",
-  "isize": 3214937653,
+  "checkedAt": "2026-11-15",
+  "isize": 3214938819,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "ZouzouAkaZouZoudecember211934": {
@@ -73324,7 +73362,7 @@
   "verdict": "bundle"
  },
  "alfred-hitchcock-presents-s-4e-1-colorized-sd": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "Matroska",
@@ -73957,8 +73995,9 @@
     "name": "alfred-hitchcock-presents-s-4e-1-colorized-sd.thumbs/alfred hitchcock presents-s4e36-colorized-sd_000790.jpg"
    }
   ],
-  "isize": 12536939046,
+  "isize": 12536939600,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "alfred-hitchcock-presents-s-6e-1-colorized-sd": {
@@ -96334,6 +96373,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "eerie_tales": {
+  "checkedAt": "2026-11-15",
+  "isize": 4696244462,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "egyptandthenile": {
   "checkedAt": "2026-10-18",
   "isize": 9133483080,
@@ -103013,6 +103059,20 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "filmography-Alain-Delon": {
+  "checkedAt": "2026-11-15",
+  "isize": 295479126360,
+  "reason": "0 numbered of 60",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "filmography-Jean-Gabin": {
+  "checkedAt": "2026-11-15",
+  "isize": 300623755349,
+  "reason": "0 numbered of 101",
+  "rule": 2,
+  "verdict": "single"
+ },
  "filomena-maturano-1950": {
   "checkedAt": "2026-10-18",
   "isize": 2598723983,
@@ -109690,9 +109750,10 @@
   "verdict": "single"
  },
  "gov.archives.arc.36073": {
-  "checkedAt": "2026-10-20",
-  "isize": 3852545411,
+  "checkedAt": "2026-11-15",
+  "isize": 3852544892,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "gov.archives.arc.36106": {
@@ -133711,7 +133772,7 @@
   "verdict": "single"
  },
  "mind-beyond-1976": {
-  "checkedAt": "2026-10-18",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "Matroska",
@@ -133804,8 +133865,9 @@
     "source": "derivative"
    }
   ],
-  "isize": 14499872853,
+  "isize": 14499872508,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "mindoverbody": {
@@ -137366,7 +137428,7 @@
   "verdict": "single"
  },
  "monster-squad-complete-series-1976": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "Matroska",
@@ -137603,8 +137665,9 @@
     "name": "monster-squad-complete-series-1976.thumbs/Monster Squad S01E13 - Albert-Alberta_000511.jpg"
    }
   ],
-  "isize": 3401954316,
+  "isize": 3401953734,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "monster_maker_ipod": {
@@ -137693,9 +137756,10 @@
   "verdict": "single"
  },
  "morocco_202108": {
-  "checkedAt": "2026-10-20",
-  "isize": 7586835777,
+  "checkedAt": "2026-11-15",
+  "isize": 7586834689,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "mot-okant-mal-film": {
@@ -149483,7 +149547,7 @@
   "verdict": "bundle"
  },
  "planet-of-the-apes-complete-series-1974": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "Matroska",
@@ -149738,8 +149802,9 @@
     "name": "planet-of-the-apes-complete-series-1974.thumbs/Planet of the ApesS01E14 Up Above the World So High_001215.jpg"
    }
   ],
-  "isize": 7249931500,
+  "isize": 7249932453,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "planet_outlaws": {
@@ -206358,7 +206423,7 @@
   "verdict": "single"
  },
  "the-phoenix-and-the-magic-carpet-complete-series-1976": {
-  "checkedAt": "2026-10-18",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "Matroska",
@@ -206505,8 +206570,9 @@
     "name": "the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix and the Magic Carpet S01E08 - A Night at the Theatre_000654.jpg"
    }
   ],
-  "isize": 2578490142,
+  "isize": 2578489759,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "the-pornographers": {
@@ -210153,7 +210219,7 @@
   "verdict": "single"
  },
  "the-twilight-zone-1959-s-01-e-00-original-pilot": {
-  "checkedAt": "2026-11-01",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "MPEG4",
@@ -210526,13 +210592,13 @@
     "name": "the-twilight-zone-1959-s-01-e-00-original-pilot.thumbs/The Twilight Zone 1959 S01E36 A World of His Own_000745.jpg"
    }
   ],
-  "isize": 2105409231,
+  "isize": 2105410178,
   "reason": "ok",
   "rule": 2,
   "verdict": "bundle"
  },
  "the-twilight-zone-s-2-e-1-colorized-720p-hd": {
-  "checkedAt": "2026-11-08",
+  "checkedAt": "2026-11-15",
   "files": [
    {
     "format": "Matroska",
@@ -211057,7 +211123,7 @@
     "name": "the-twilight-zone-s-2-e-1-colorized-720p-hd.thumbs/the twilight zone-s2e29-colorized-720p-hd_000756.jpg"
    }
   ],
-  "isize": 10066378215,
+  "isize": 10066378968,
   "reason": "ok",
   "rule": 2,
   "verdict": "bundle"

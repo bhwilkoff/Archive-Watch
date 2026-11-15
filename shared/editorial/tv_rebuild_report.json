@@ -596,8 +596,8 @@
    "matched": true,
    "canonEps": 161,
    "ourItems": 60,
-   "mappedEps": 51,
-   "extras": 1,
+   "mappedEps": 52,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -901,13 +901,13 @@
    "matched": true,
    "canonEps": 39,
    "ourItems": 41,
-   "mappedEps": 6,
-   "extras": 29,
+   "mappedEps": 17,
+   "extras": 10,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 1,
-   "availableEps": 35,
+   "availableEps": 27,
    "kinds": [
     "series"
    ],
@@ -1461,8 +1461,8 @@
    "matched": true,
    "canonEps": 26,
    "ourItems": 26,
-   "mappedEps": 25,
-   "extras": 1,
+   "mappedEps": 26,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2306,12 +2306,12 @@
    "canonEps": 49,
    "ourItems": 27,
    "mappedEps": 15,
-   "extras": 3,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 2,
-   "availableEps": 18,
+   "availableEps": 17,
    "kinds": [
     "series"
    ],
@@ -2578,7 +2578,7 @@
    "tvmazeID": 361,
    "title": "Saturday Night Live",
    "matched": true,
-   "canonEps": 1017,
+   "canonEps": 1028,
    "ourItems": 14,
    "mappedEps": 14,
    "extras": 0,
@@ -5110,11 +5110,11 @@
    ]
   },
   {
-   "slug": "treehouse-masters-2013",
-   "tvmazeID": 1446,
-   "title": "Treehouse Masters",
+   "slug": "treehouse-detectives-2018",
+   "tvmazeID": 21822,
+   "title": "Treehouse Detectives",
    "matched": true,
-   "canonEps": 98,
+   "canonEps": 20,
    "ourItems": 0,
    "mappedEps": 0,
    "extras": 0,
@@ -5306,8 +5306,8 @@
    "bundles": 0,
    "availableEps": 1,
    "kinds": [
-    "series",
-    "single"
+    "orphan-episode",
+    "series"
    ],
    "mergedFrom": 2,
    "consumedRefs": [
@@ -5316,7 +5316,7 @@
      "ref": "tate-1960"
     },
     {
-     "kind": "single",
+     "kind": "orphan-episode",
      "ref": "tateseason1"
     }
    ]
@@ -6474,11 +6474,11 @@
    ]
   },
   {
-   "slug": "the-great-train-robbery-2013",
-   "tvmazeID": 6884,
-   "title": "The Great Train Robbery",
+   "slug": "the-great-rhino-robbery-2024",
+   "tvmazeID": 72842,
+   "title": "The Great Rhino Robbery",
    "matched": true,
-   "canonEps": 2,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6522,11 +6522,11 @@
    ]
   },
   {
-   "slug": "malibu-rescue-the-series-2019",
-   "tvmazeID": 40171,
-   "title": "Malibu Rescue: The Series",
+   "slug": "rico-to-the-rescue-2023",
+   "tvmazeID": 65820,
+   "title": "Rico to the Rescue",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 17,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6570,11 +6570,11 @@
    ]
   },
   {
-   "slug": "big-cats-about-the-house-2018",
-   "tvmazeID": 35443,
-   "title": "Big Cats About the House",
+   "slug": "inside-the-big-east-2005",
+   "tvmazeID": 11255,
+   "title": "Inside the Big East",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 7,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6673,7 +6673,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4882,
+   "canonEps": 4889,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6861,11 +6861,11 @@
    ]
   },
   {
-   "slug": "mr-bean-1990",
-   "tvmazeID": 1719,
+   "slug": "mr-bean-2002",
+   "tvmazeID": 5251,
    "title": "Mr. Bean",
    "matched": true,
-   "canonEps": 14,
+   "canonEps": 180,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7269,11 +7269,11 @@
    ]
   },
   {
-   "slug": "doctor-in-the-house-1969",
-   "tvmazeID": 8096,
+   "slug": "doctor-in-the-house-2015",
+   "tvmazeID": 27875,
    "title": "Doctor in the House",
    "matched": true,
-   "canonEps": 26,
+   "canonEps": 7,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7821,11 +7821,11 @@
    ]
   },
   {
-   "slug": "alice-2020",
-   "tvmazeID": 49255,
+   "slug": "alice-1976",
+   "tvmazeID": 7553,
    "title": "Alice",
    "matched": true,
-   "canonEps": 16,
+   "canonEps": 202,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8469,11 +8469,11 @@
    ]
   },
   {
-   "slug": "the-hungry-games-alaska-s-big-bear-challenge-2024",
-   "tvmazeID": 78046,
-   "title": "The Hungry Games: Alaska's Big Bear Challenge",
+   "slug": "bear-in-the-big-blue-house-1997",
+   "tvmazeID": 8913,
+   "title": "Bear in the Big Blue House",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 116,
    "ourItems": 0,
    "mappedEps": 0,
    "extras": 0,
@@ -9357,11 +9357,11 @@
    ]
   },
   {
-   "slug": "life-on-mars-2018",
-   "tvmazeID": 36188,
+   "slug": "life-on-mars-2008",
+   "tvmazeID": 945,
    "title": "Life on Mars",
    "matched": true,
-   "canonEps": 16,
+   "canonEps": 17,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9453,11 +9453,11 @@
    ]
   },
   {
-   "slug": "dr-slump-1997",
-   "tvmazeID": 55245,
+   "slug": "dr-slump-1981",
+   "tvmazeID": 55244,
    "title": "Dr. Slump",
    "matched": true,
-   "canonEps": 74,
+   "canonEps": 243,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9669,11 +9669,11 @@
    ]
   },
   {
-   "slug": "the-worst-witch-2017",
-   "tvmazeID": 12990,
+   "slug": "the-worst-witch-1998",
+   "tvmazeID": 11931,
    "title": "The Worst Witch",
    "matched": true,
-   "canonEps": 52,
+   "canonEps": 53,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10101,11 +10101,11 @@
    ]
   },
   {
-   "slug": "harry-2016",
-   "tvmazeID": 6373,
+   "slug": "harry-2013",
+   "tvmazeID": 7272,
    "title": "Harry",
    "matched": true,
-   "canonEps": 176,
+   "canonEps": 6,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10221,9 +10221,9 @@
    ]
   },
   {
-   "slug": "alice-zouroku-2017",
-   "tvmazeID": 25928,
-   "title": "Alice & Zouroku",
+   "slug": "alice-or-alice-2018",
+   "tvmazeID": 35313,
+   "title": "Alice or Alice",
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
@@ -10269,11 +10269,11 @@
    ]
   },
   {
-   "slug": "double-trouble-1984",
-   "tvmazeID": 25641,
+   "slug": "double-trouble-2008",
+   "tvmazeID": 12981,
    "title": "Double Trouble",
    "matched": true,
-   "canonEps": 23,
+   "canonEps": 13,
    "ourItems": 0,
    "mappedEps": 0,
    "extras": 0,
@@ -10461,11 +10461,11 @@
    ]
   },
   {
-   "slug": "misery-loves-company-1995",
-   "tvmazeID": 37170,
-   "title": "Misery Loves Company",
+   "slug": "the-misery-index-2019",
+   "tvmazeID": 43103,
+   "title": "The Misery Index",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 49,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10845,11 +10845,11 @@
    ]
   },
   {
-   "slug": "dennis-the-menace-1959",
-   "tvmazeID": 2121,
+   "slug": "dennis-the-menace-1986",
+   "tvmazeID": 26779,
    "title": "Dennis the Menace",
    "matched": true,
-   "canonEps": 146,
+   "canonEps": 36,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11781,11 +11781,11 @@
    ]
   },
   {
-   "slug": "new-year-s-eve-live-2020",
-   "tvmazeID": 81256,
-   "title": "New Year's Eve Live",
+   "slug": "sydney-s-new-year-s-eve-1996",
+   "tvmazeID": 91153,
+   "title": "Sydney's New Year's Eve",
    "matched": true,
-   "canonEps": 5,
+   "canonEps": 83,
    "ourItems": 0,
    "mappedEps": 0,
    "extras": 0,
@@ -14146,6 +14146,13 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "394794main_whatsup20091001-320x180"
+  },
+  {
+   "title": "Der Feldzug In Polen",
+   "year": 1940,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "1940-der-feldzug-in-polen-1h-07m-640x-480_202302"
   },
   {
    "title": "Lucy meets John Wayne",

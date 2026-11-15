@@ -289,7 +289,7 @@
           "sourceID": "captain-video-serial-trailer-colorized",
           "seasonNumber": 1,
           "episodeNumber": 15,
-          "title": "Video vs. Vultura",
+          "title": "Video vs Vultura",
           "overview": null,
           "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2015%20Video%20vs.%20Vultura_000354.jpg",
           "airDate": null,
@@ -371,8 +371,5 @@
       "order": 5,
       "profilePath": "/mx7J3DIue4s5ShNaxmdq8TNFxPY.jpg"
     }
-  ],
-  "seriesImdbID": "tt0041014",
-  "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+  ]
 }

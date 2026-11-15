@@ -154,7 +154,7 @@
           "sourceID": "james-at-15-s-01-e-01-pilot",
           "seasonNumber": 1,
           "episodeNumber": 8,
-          "title": "Mrs. Carson",
+          "title": "Mrs Carson",
           "overview": null,
           "stillURL": "https://archive.org/download/james-at-15-s-01-e-01-pilot/james-at-15-s-01-e-01-pilot.thumbs/James%20at%2015%20S01E08%20-%20Mrs.%20Carson_001207.jpg",
           "airDate": null,
@@ -422,7 +422,5 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "generated",
-  "cast": [],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": []
 }

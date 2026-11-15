@@ -21,7 +21,7 @@
           "sourceID": "lord-tramp-1977",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Lord Tramp . Inheritance",
+          "title": "Lord Tramp Inheritance",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -40,7 +40,7 @@
           "sourceID": "lord-tramp-1977",
           "seasonNumber": 1,
           "episodeNumber": 2,
-          "title": "Lord Tramp . Resignations",
+          "title": "Lord Tramp Resignations",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -59,7 +59,7 @@
           "sourceID": "lord-tramp-1977",
           "seasonNumber": 1,
           "episodeNumber": 3,
-          "title": "Lord Tramp . Cocktail Party",
+          "title": "Lord Tramp Cocktail Party",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -78,7 +78,7 @@
           "sourceID": "lord-tramp-1977",
           "seasonNumber": 1,
           "episodeNumber": 4,
-          "title": "Lord Tramp . Good Manners",
+          "title": "Lord Tramp Good Manners",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -97,7 +97,7 @@
           "sourceID": "lord-tramp-1977",
           "seasonNumber": 1,
           "episodeNumber": 5,
-          "title": "Lord Tramp . Crime Wave",
+          "title": "Lord Tramp Crime Wave",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -116,7 +116,7 @@
           "sourceID": "lord-tramp-1977",
           "seasonNumber": 1,
           "episodeNumber": 6,
-          "title": "Lord Tramp . Boiler Break Down",
+          "title": "Lord Tramp Boiler Break Down",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -180,8 +180,5 @@
       "order": 6,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0197169",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  ]
 }
