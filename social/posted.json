@@ -4537,6 +4537,54 @@
    "kind": "newsreel",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-15T20:20:56.984508+00:00",
+   "id": "rpbluemonday",
+   "title": "Blue Monday",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2etnigvt426",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-15T20:20:56.984508+00:00",
+   "id": "rpbluemonday",
+   "title": "Blue Monday",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117622314105143781",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-15T20:20:56.984508+00:00",
+   "id": "rpbluemonday",
+   "title": "Blue Monday",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfxoIQ_GM6M/",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": "117622313603550526",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-15T20:20:56.984508+00:00",
+   "id": "rpbluemonday",
+   "title": "Blue Monday",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=RcgNlp6LOxc",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
