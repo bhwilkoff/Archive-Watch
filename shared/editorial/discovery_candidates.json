@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-14T11:16:59Z",
+  "updated_at": "2026-11-15T11:56:59Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72343,
-    "new_this_run": 34,
-    "awaiting_ingest": 1042,
-    "with_archive_id": 64025
+    "total": 72372,
+    "new_this_run": 26,
+    "awaiting_ingest": 1034,
+    "with_archive_id": 64051
   },
   "candidates": [
     {
@@ -7100,6 +7100,47 @@
       "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
+      "iaid": "framed-english-subtitles-yukari-oshima",
+      "title": "Framed (English Subtitles) Yukari Oshima",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-15T11:46:29Z"
+    },
+    {
+      "iaid": "full-contact-1992-english-subtitles-chow-yun-fat",
+      "title": "Full Contact 俠盜高飛 'Gou Fei the Rogue' ( 1992) ( Engish Subtitles)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "fantasy-mission-force-1983-with-original-trailers",
+      "title": "Fantasy Mission Force 迷你特攻隊 [1983 with ORIGINAL TRAILERS] DVD & VHS versions",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
       "title": "Drunken Master 醉拳 & Drunken Master II 醉拳 2 (GeekJuiceMedia) [Both ENG DUB & SUB]",
       "year": 2025,
@@ -9599,6 +9640,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "entertainment-tonight-may-22-1985",
+      "title": "Entertainment Tonight (May 22, 1985)",
+      "year": 2025,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "iaid": "20240229-r-7",
@@ -13069,6 +13124,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-06T11:57:10Z",
       "ingested_at": "2026-11-06T11:58:07Z"
+    },
+    {
+      "iaid": "dick-clarks-live-wednesday-october-19-1978",
+      "title": "Dick Clark's Live Wednesday (October 19, 1978)",
+      "year": 2024,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "iaid": "purowave-complete-archive",
@@ -32708,6 +32777,20 @@
       "archiveCollection": "newsandpublicaffairs",
       "status": "held_modern_license",
       "discovered_at": "2026-11-04T11:53:20Z"
+    },
+    {
+      "iaid": "asdf-movie-warriors-edition-complete-1-hour-map",
+      "title": "ASDF MOVIE- WARRIORS EDITION ⧸⧸ COMPLETE 1 HOUR MAP⧸⧸",
+      "year": 2020,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "animationandcartoons",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "iaid": "objectshowepisodes2019",
@@ -158176,6 +158259,20 @@
       "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
+      "iaid": "globallivesproject_Edith_Kaphuka_2007_nya_Ngwale_Village_MW-ZO_221726-223227",
+      "title": "Edith Kaphuka - Ngwale Village, Zomba, Malawi - Nyanja (Global Lives Project, 2007) ~22:17:26 - 22:32:27",
+      "year": 2007,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "iaid": "Text200306",
       "title": "text 2003 06, Lutz Mommartz",
       "year": 2006,
@@ -210860,6 +210957,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-03T11:39:48Z",
       "ingested_at": "2026-11-03T11:45:32Z"
+    },
+    {
+      "iaid": "cronicas-marcianas-1998-11-17",
+      "title": "Crónicas marcianas - 17 noviembre, 1998",
+      "year": 1998,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "iaid": "cbs-storybreak-17",
@@ -339702,6 +339813,20 @@
       "ingested_at": "2026-11-02T12:06:11Z"
     },
     {
+      "iaid": "brian-hendersons-bandstand-10-april-1963",
+      "title": "Brian Henderson's Bandstand - 10 April 1963",
+      "year": 1963,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "iaid": "PublicDomainMetheusFilmandMedalllionPicturesCaesartheConqueror",
       "title": "Caesar the Conqueror",
       "year": 1962,
@@ -437297,6 +437422,20 @@
       "ingested_at": "2026-10-28T13:39:01Z"
     },
     {
+      "iaid": "fc-fc-4355_HD_2Mbps",
+      "title": "SYMPHONY IN F",
+      "year": 1940,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "iaid": "rough_riders_roundup",
       "title": "Rough Riders' Round-up",
       "year": 1939,
@@ -458122,6 +458261,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-13T11:51:54Z",
       "ingested_at": "2026-11-13T11:57:40Z"
+    },
+    {
+      "iaid": "csp_000115",
+      "title": "Saga of the Hadden Clan, Reel 6",
+      "year": 1929,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "wikidataQID": "Q1157116",
@@ -503123,6 +503276,20 @@
       "ingested_at": "2026-10-13T11:27:16Z"
     },
     {
+      "iaid": "fc-fc-942",
+      "title": "New York City, Regional Geography, Volume V",
+      "year": 1921,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "wikidataQID": "Q329564",
       "title": "Sumurun",
       "year": 1920,
@@ -508161,6 +508328,20 @@
       "ingested_at": "2026-10-20T09:06:01Z"
     },
     {
+      "iaid": "goldwynpictures-braystudioscartoonwithFelixtheCat1920-1",
+      "title": "Goldwyn Pictures and Bray Studios's Felix the Cat - The Circus (1920) (Fanmade)",
+      "year": 1920,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "wikidataQID": "Q7087893",
       "title": "Oliver Twist",
       "year": 1919,
@@ -512226,6 +512407,34 @@
       "status": "ingested",
       "discovered_at": "2026-10-19T09:32:12Z",
       "ingested_at": "2026-10-19T09:35:04Z"
+    },
+    {
+      "iaid": "eerie_tales",
+      "title": "Eerie Tales (1919)",
+      "year": 1919,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "fc-fc-60",
+      "title": "Water Power / Safety First / Making Wicker Furniture / Tropical Gems of Florida / Kenneth Hughes, Boy Wonder: Dramatic Monologues / Tire Testing",
+      "year": 1919,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "wikidataQID": "Q2611747",
@@ -544922,6 +545131,20 @@
       "status": "ingested",
       "discovered_at": "2026-10-19T09:32:12Z",
       "ingested_at": "2026-10-19T09:35:04Z"
+    },
+    {
+      "iaid": "danse-des-saisons--1900--documentary-short-dance-1900",
+      "title": "Danse des saisons | 1900 | Documentary, Short, Dance",
+      "year": 1900,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "wikidataQID": "Q2870319",
@@ -885895,6 +886118,146 @@
       "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
+      "iaid": "the-corpse-came-cod-1947-full-movie-george-brent-joan-blondell-adele-jergens",
+      "title": "The Corpse Came COD (1947)",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "double-feature-drive-in-the-ghost-train-revenge-of-the-zombies",
+      "title": "Double Feature Drive In The Ghost Train & Revenge Of The Zombies",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "double-feature-drivein-witchcraft-ghost-of-sierra-de-cobre",
+      "title": "Double Feature Drivein Witchcraft Ghost Of Sierra De Cobre",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "saturday-night-at-the-double-feature-drive-in-daughter-of-horror-house-of-the-damned",
+      "title": "Saturday Night At The Double Feature Drive In Daughter Of Horror & House Of The Damned",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "bewafaa-2005-dv-drip-x-264-ac-3...-hon-3y",
+      "title": "Bewafaa 2005 Dv DRip X 264 AC 3... Hon 3y",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "el-beso-de-la-muerte-1947",
+      "title": "El Beso De La Muerte 1947",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "episodio-07-panico-no-ringue",
+      "title": "Episódio 07 - Pânico No Ringue",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "sUZ8StHHMlNtkkLzUMZIKkFOX1AkIa",
+      "title": "\"BATTLING BULLS BELOW THE BORDER\" 1937 BULLFIGHTING IN MEXICO CITY DOCUMENTARY XD5220",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "edOhBbtrx36rveXqWa1DtfscL4nzRt",
+      "title": "1960s IRELAND TRAVELOGUE FILM “SCHLEY RIDE TO IRELAND” (PART 4/4) GALWAY, LOUGHREA, SLIGO XD4693",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "bird-brain-iso",
+      "title": "BIRD BRAIN ISO",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -990649,6 +991012,51 @@
       "rightsConfidence": "low",
       "status": "new",
       "discovered_at": "2026-06-01T03:38:14Z"
+    },
+    {
+      "iaid": "nbn-television-newcastle-commercials-11-04-2001-connor-g-ma-cleod-1080p-h-264",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "NBN Television Newcastle Commercials 11 04 2001 Connor G Ma Cleod ( 1080p, H 264)",
+      "year": 2001,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:56:03Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-tv-promo-2010-hd-rare-vhs-replace-version_202611",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - The Great Sprout Tuck In All Commercial Bumpers Network TV Promo (2008-2011) (Updated) Compilation",
+      "year": 2008,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:56:03Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-togetherness-off-network-commercial-2007",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Togetherness Off Network Commercial (2007)",
+      "year": 2007,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:56:03Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-14T11:17:11Z",
+  "updated_at": "2026-11-15T11:57:13Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19520,
-    "wanted": 19250,
+    "total": 19527,
+    "wanted": 19257,
     "fulfilled": 270,
-    "series_with_gaps": 399
+    "series_with_gaps": 400
   },
   "wants": [
     {
@@ -25065,6 +25065,26 @@
       "episodeImdbID": "tt4853104",
       "status": "wanted",
       "added_at": "2026-06-03T23:58:16Z"
+    },
+    {
+      "seriesID": "captain-z-ro-1955",
+      "seriesTitle": "Captain Z-ro",
+      "season": 1,
+      "episode": 14,
+      "title": "Curse of Ra",
+      "episodeImdbID": "tt1164687",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
+    },
+    {
+      "seriesID": "captain-z-ro-1955",
+      "seriesTitle": "Captain Z-ro",
+      "season": 1,
+      "episode": 19,
+      "title": "Captain Cook and the Hawaiian Islands",
+      "episodeImdbID": "tt1164685",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
     },
     {
       "seriesID": "cavalcade-of-stars-1950",
@@ -116438,11 +116458,31 @@
       "seriesID": "soul-train-1971",
       "seriesTitle": "Soul Train",
       "season": 1,
+      "episode": 3,
+      "title": "Chairmen of the Board/Rufus Thomas/Laura Lee",
+      "episodeImdbID": "tt0824614",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
+    },
+    {
+      "seriesID": "soul-train-1971",
+      "seriesTitle": "Soul Train",
+      "season": 1,
       "episode": 4,
       "title": "Staple Singers/Freda Payne",
       "episodeImdbID": "tt0824618",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "soul-train-1971",
+      "seriesTitle": "Soul Train",
+      "season": 1,
+      "episode": 5,
+      "title": "Bill Withers/Al Green/Viola Wills",
+      "episodeImdbID": "tt0824613",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
     },
     {
       "seriesID": "soul-train-1971",
@@ -116498,6 +116538,16 @@
       "seriesID": "soul-train-1971",
       "seriesTitle": "Soul Train",
       "season": 1,
+      "episode": 21,
+      "title": "Al Green/The Whispers/Denise LaSalle",
+      "episodeImdbID": "tt0845887",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
+    },
+    {
+      "seriesID": "soul-train-1971",
+      "seriesTitle": "Soul Train",
+      "season": 1,
       "episode": 23,
       "title": "Gladys Knight & the Pips/The Ohio Players/Garland Green",
       "episodeImdbID": "tt0845892",
@@ -116513,6 +116563,16 @@
       "episodeImdbID": "tt0845898",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "soul-train-1971",
+      "seriesTitle": "Soul Train",
+      "season": 1,
+      "episode": 25,
+      "title": "The Chi-Lites/Edwin Starr/James Gadsen",
+      "episodeImdbID": "tt0845899",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
     },
     {
       "seriesID": "soul-train-1971",
@@ -132274,6 +132334,16 @@
       "episodeImdbID": "tt0714115",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "suspense-1949",
+      "seriesTitle": "Suspense",
+      "season": 5,
+      "episode": 7,
+      "title": "A Time of Innocence",
+      "episodeImdbID": "tt0713882",
+      "status": "wanted",
+      "added_at": "2026-11-15T11:57:13Z"
     },
     {
       "seriesID": "suspense-1949",
