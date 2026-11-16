@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-15T09:30:28Z",
+  "updated_at": "2026-11-16T09:49:42Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-15T09:30:28Z"
+      "last_tried": "2026-11-16T09:49:42Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-15T09:30:28Z"
+      "last_tried": "2026-11-16T09:49:42Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395839,6 +395839,49 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-15T09:30:28Z",
+      "schema": 4
+    },
+    "tt0084955": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTlkMTNkZmYtNzZlNC00ZTI0LThiYTYtMzE3Yzg5MjVhODc3XkEyXkFqcGc@._V1_QL75_UX380_CR0,3,380,562_.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 2125,
+      "content_rating": null,
+      "plot": "A \"James Bond\" type burglar named King Kong (Sam Hui) tries to redeem himself and joins forces with Albert \"Baldy\" Au (Karl Maka), a bumbling police detective from the states, to try to track down a rare set of stolen luscious diamonds before it ends up in the hands of a notorious European gangster named \"White Gloves.\" The two unlikely duo are supervised by Supt. Nancy Ho, a masculine, fiery-tempered policewoman.",
+      "runtime_min": 93,
+      "director": "Eric Tsang",
+      "actors": [
+        "Sam Hui",
+        "Karl Maka",
+        "Sylvia Chang"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-16T09:49:42Z",
+      "schema": 4
+    },
+    "tt0310578": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQ1NDkwZDYtNTYwMi00MTNlLTg5ZDgtZjNjYWRjZGZhZmYzXkEyXkFqcGdeQXVyOTc2Mzg5OQ@@._V1_SX300.jpg",
+      "imdb_rating": 3.4,
+      "imdb_votes": 14,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 95,
+      "director": "Emilio Vieyra",
+      "actors": [
+        "Jairo",
+        "Stella Maris Lanzani",
+        "Ricardo Bauleo"
+      ],
+      "genres": [
+        "Musical",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-16T09:49:42Z",
       "schema": 4
     }
   },
