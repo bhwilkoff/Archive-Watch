@@ -4597,6 +4597,54 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-16T23:54:31.218502+00:00",
+   "id": "manwithcamera4k",
+   "title": "Man with a Movie Camera",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2hq26vnif2d",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-16T23:54:31.218502+00:00",
+   "id": "manwithcamera4k",
+   "title": "Man with a Movie Camera",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117628816324093673",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-16T23:54:31.218502+00:00",
+   "id": "manwithcamera4k",
+   "title": "Man with a Movie Camera",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Df0lXkboCJB/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117628815438639184",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-16T23:54:31.218502+00:00",
+   "id": "manwithcamera4k",
+   "title": "Man with a Movie Camera",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=prVoSm8AXB8",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

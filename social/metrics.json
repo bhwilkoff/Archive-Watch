@@ -6187,6 +6187,100 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzwmuxs2uh26",
+   "platform": "bluesky",
+   "id": "LifeWithFather",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-10T04:42:38.640999+00:00",
+   "sampled": "2026-11-16T23:55:12.645899+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzyesvrdch2c",
+   "platform": "bluesky",
+   "id": "silent-little-red-riding-hood",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-10T21:23:39.755680+00:00",
+   "sampled": "2026-11-16T23:55:12.645899+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117594248754000026",
+   "platform": "mastodon",
+   "id": "silent-little-red-riding-hood",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-10T21:23:39.755680+00:00",
+   "sampled": "2026-11-16T23:55:12.645899+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2etnigvt426",
+   "platform": "bluesky",
+   "id": "rpbluemonday",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-15T20:20:56.984508+00:00",
+   "sampled": "2026-11-16T23:55:12.645899+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117622314105143781",
+   "platform": "mastodon",
+   "id": "rpbluemonday",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-15T20:20:56.984508+00:00",
+   "sampled": "2026-11-16T23:55:12.645899+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2fizmxib225",
+   "platform": "bluesky",
+   "id": "silent-koko-trains-em",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-16T02:43:36.373945+00:00",
+   "sampled": "2026-11-16T23:55:12.645899+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
