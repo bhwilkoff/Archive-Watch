@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-15T11:56:59Z",
+  "updated_at": "2026-11-16T12:30:45Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 72372,
-    "new_this_run": 26,
-    "awaiting_ingest": 1034,
-    "with_archive_id": 64051
+    "total": 72404,
+    "new_this_run": 28,
+    "awaiting_ingest": 1037,
+    "with_archive_id": 64082
   },
   "candidates": [
     {
@@ -7139,6 +7139,128 @@
       "status": "ingested",
       "discovered_at": "2026-11-15T11:46:29Z",
       "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "the-executioner-starring-sonny-chiba-and-yasuaki-kurata-aka-bruce-lo-lol-dub",
+      "title": "The Executioner, Starring Sonny Chiba, And Yasuaki Kurata (aka Bruce Lo... Lol) Dubbed With Trailer (GeekJuiceMedia) Sonny Chiba [Basically \"Charlie's Assholes\" instead of Angels",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-16T12:22:39Z"
+    },
+    {
+      "iaid": "yuen-woo-pings-tiger-cage-trilogy-1988-trailers",
+      "title": "Yuen Woo-Ping's Tiger Cage Trilogy [with Trailers]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "ninja-operation-6-champion-on-firefury-in-storm",
+      "title": "Ninja Operation 6 Champion On Fire/Fury In Storm",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "ninja-operation-6-champion-on-fire-fury-in-storm",
+      "title": "Ninja Operation 6 Champion On Fire/Fury In Storm",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "tsui-harks-dangerous-encounters-of-the-first-kind-aka-dont-play-with-fire-1980",
+      "title": "Tsui Hark's Dangerous Encounters Of The First Kind aka Don't Play With Fire (1980)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "heart-of-dragon-aka-heart-of-the-dragon-aka-first-mission-aka-raging-force-1985",
+      "title": "Heart Of Dragon aka Heart Of The Dragon aka First Mission aka Raging Force 龍的心 (1985)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-16T12:22:39Z"
+    },
+    {
+      "iaid": "ninja-the-final-duel-1986-13-hour-version-no-subtites",
+      "title": "NINJA THE FINAL DUEL 1986 ( 13 Hour Version) (No Subtites)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-16T12:22:39Z"
+    },
+    {
+      "iaid": "knockabout-directed-by-sammo-hung-starring-yuen-biao",
+      "title": "Knockabout 雜家小子; Za jia xiao zi [ Directed By Sammo Hung, Starring Yuen Biao] [1979 Dubbed]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-16T12:22:39Z"
+    },
+    {
+      "iaid": "legend-of-a-fighter-and-fearless-Huo-Yuanjia",
+      "title": "Legend Of A Fighter & Fearless: Two Stories About Sifu Huo Yuanjia 霍元甲",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
@@ -26700,6 +26822,20 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "jsc2021m000284_nasa_astronaut_candidate_marcos_berrios-spanish-language",
+      "title": "jsc2021m000284_NASA_Astronaut_Candidate_Marcos_Berrios - Spanish Language",
+      "year": 2021,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
       "iaid": "beatles-saturday-morning-cartoons-ep.-1",
       "title": "BEATLES SATURDAY MORNING CARTOONS EP. 1",
       "year": 2020,
@@ -32791,6 +32927,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-15T11:46:29Z",
       "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "guineapigASL",
+      "title": "guinea pig",
+      "year": 2020,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "iaid": "objectshowepisodes2019",
@@ -65050,6 +65200,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "quantum-tunneling",
+      "title": "Quantum Tunneling",
+      "year": 2016,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "iaid": "AdventuresOfRobinHoodep22KingRichard",
@@ -98807,6 +98971,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-11T11:56:42Z",
       "ingested_at": "2026-11-11T11:57:46Z"
+    },
+    {
+      "iaid": "mcdla_RobNixon10302012",
+      "title": "Slow Violence and the Environmentalism of the Poor",
+      "year": 2012,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "iaid": "CompilationOfClassicTvFootage",
@@ -145892,6 +146070,21 @@
       "ingested_at": "2026-11-14T11:16:59Z"
     },
     {
+      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-tv-promo-2010-hd-rare-vhs-replace-version_202611",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - The Great Sprout Tuck In All Commercial Bumpers Network TV Promo (2008-2011) (Updated) Compilation",
+      "year": 2008,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:56:03Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
       "iaid": "The_Vandhaal_Clash_with_the_Gibichungen_directors_cut_04",
       "title": "Clash with the Gibichungen The Directors cut DvD video",
       "year": 2007,
@@ -158270,6 +158463,21 @@
       "archiveCollection": "culturalandacademicfilms",
       "status": "ingested",
       "discovered_at": "2026-11-15T11:46:29Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-togetherness-off-network-commercial-2007",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Togetherness Off Network Commercial (2007)",
+      "year": 2007,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:56:03Z",
       "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
@@ -198806,6 +199014,21 @@
       "status": "ingested",
       "discovered_at": "2026-11-04T11:53:20Z",
       "ingested_at": "2026-11-04T11:59:19Z"
+    },
+    {
+      "iaid": "nbn-television-newcastle-commercials-11-04-2001-connor-g-ma-cleod-1080p-h-264",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "NBN Television Newcastle Commercials 11 04 2001 Connor G Ma Cleod ( 1080p, H 264)",
+      "year": 2001,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-15T11:56:03Z",
+      "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
       "iaid": "OneNewMessage",
@@ -253527,6 +253750,20 @@
       "ingested_at": "2026-11-04T11:59:19Z"
     },
     {
+      "iaid": "ptl-club-with-jim-and-tammy-1985",
+      "title": "PTL Club With Jim And Tammy (1985)",
+      "year": 1985,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
       "iaid": "mighty-orbots-2",
       "title": "MIGHTY ORBOTS \"The Wish World\" (1984)",
       "year": 1984,
@@ -296602,6 +296839,20 @@
       "ingested_at": "2026-10-30T10:51:08Z"
     },
     {
+      "iaid": "la-miel-amarga-aka-los-perturbados-1974",
+      "title": "La Miel Amarga (aka Los Perturbados)(1974)",
+      "year": 1974,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
       "iaid": "la-piel-del-amor-1973",
       "title": "La Piel Del Amor (1973)",
       "year": 1973,
@@ -303501,6 +303752,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-03T11:39:48Z",
       "ingested_at": "2026-11-03T11:45:32Z"
+    },
+    {
+      "iaid": "nbc-19720405",
+      "title": "NBC Nightly News April 5, 1972",
+      "year": 1972,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "iaid": "EvelKnievel",
@@ -315473,6 +315738,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-02T11:59:19Z",
       "ingested_at": "2026-11-02T12:06:11Z"
+    },
+    {
+      "iaid": "hsj2023-17_kntv_ryden_jimmy_dean",
+      "title": "Lu Ryden interviews Jimmy Dean, Bob Hope, and Flip Wilson on KNTV, circa 1969",
+      "year": 1969,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "iaid": "night-of-the-living-dead_1968",
@@ -461933,6 +462212,48 @@
       "ingested_at": "2026-10-13T11:27:16Z"
     },
     {
+      "iaid": "international-eucharistic-congress-in-sydney-1928",
+      "title": "International Eucharistic Congress In Sydney (1928)",
+      "year": 1928,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "krypto-the-superdog-the-complete-second-season",
+      "title": "Scooby Doo Triple Feature Out of this World",
+      "year": 1928,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "looping-the-loop-arthur-robison-1928",
+      "title": "Looping The Loop (Arthur Robison, 1928) [w/ English Subtitles]",
+      "year": 1928,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
       "iaid": "yasmina-khan-experiences-her-first-golden-shower-freaky-t-degraded-me-1920x-1080",
       "title": "Yasmina",
       "year": 1927,
@@ -498688,6 +499009,20 @@
       "ingested_at": "2026-10-19T09:35:04Z"
     },
     {
+      "iaid": "nosferatu-f.-w.-murnau-ale-1922",
+      "title": "Nosferatu (F. W. Murnau, ALE, 1922)",
+      "year": 1922,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
       "wikidataQID": "Q10467385",
       "title": "The Exiles",
       "year": 1921,
@@ -503288,6 +503623,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-15T11:46:29Z",
       "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "korkarlen_1921",
+      "title": "Silentfilm: Körkarlen (The Phantom Carriage) 1921",
+      "year": 1921,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
       "wikidataQID": "Q329564",
@@ -886258,6 +886607,90 @@
       "ingested_at": "2026-11-15T11:56:59Z"
     },
     {
+      "iaid": "karimi-aldatamam_movie",
+      "title": "Karımı Aldatamam, Turkish Movie",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "krishna-1996-dv-drip-xvid-aac-3-esubs-ddr",
+      "title": "Krishna 1996 Dv DRip Xvid AAC 3 Esubs DDR",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "heartland-of-darkness",
+      "title": "Heartland Of Darkness",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "iblisin-oglu-13.-vahset_movie",
+      "title": "İblisin Oğlu 13. Vahşet, Turkish Movie",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "meet-john-doe-1941_202406",
+      "title": "Meet John Doe",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
+      "iaid": "k0AsBHPXsosCDoFfr9FU3rfpSTLO0d",
+      "title": "\"FIELDS OF GLORY\" AMERICA! TV SHOW REVOLUTIONARY, CIVIL WAR & INDIAN WAR BATTLEFIELDS ALAMO AMERICA! TV SHOW XD5534",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-16T12:22:39Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -990134,6 +990567,17 @@
       "discovered_at": "2026-11-05T11:28:40Z"
     },
     {
+      "wikidataQID": "Q16826528",
+      "title": "Akibat",
+      "year": 1951,
+      "iaid": null,
+      "imdbID": "tt1102163",
+      "pdFlagged": false,
+      "rightsConfidence": "low",
+      "status": "new",
+      "discovered_at": "2026-11-16T12:00:50Z"
+    },
+    {
       "wikidataQID": "Q12490695",
       "title": "Kembang Katjang",
       "year": 1951,
@@ -991014,49 +991458,49 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "nbn-television-newcastle-commercials-11-04-2001-connor-g-ma-cleod-1080p-h-264",
+      "iaid": "phineas-and-ferb-11-15-09",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "NBN Television Newcastle Commercials 11 04 2001 Connor G Ma Cleod ( 1080p, H 264)",
-      "year": 2001,
+      "title": "2009 NA Disney Channel Commercials",
+      "year": 2009,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-15T11:56:03Z",
-      "ingested_at": "2026-11-15T11:56:59Z"
+      "discovered_at": "2026-11-16T12:30:06Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
-      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-tv-promo-2010-hd-rare-vhs-replace-version_202611",
+      "iaid": "ice_20261111",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "PBS Kids Sprout - The Great Sprout Tuck In All Commercial Bumpers Network TV Promo (2008-2011) (Updated) Compilation",
-      "year": 2008,
+      "title": "[480p) Comercial oficial do Icegurt",
+      "year": null,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-15T11:56:03Z",
-      "ingested_at": "2026-11-15T11:56:59Z"
+      "discovered_at": "2026-11-16T12:30:06Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     },
     {
-      "iaid": "pbs-kids-sprout-togetherness-off-network-commercial-2007",
+      "iaid": "tmyk-sprout-kindness-counts-environment-with-nina-commercial-promo-2014-2015-hq",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "PBS Kids Sprout - Togetherness Off Network Commercial (2007)",
-      "year": 2007,
+      "title": "TMYK & Sprout Kindness Counts - Environment With Nina Commercial Promo (2014-2015) (HQ)",
+      "year": 2014,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-15T11:56:03Z",
-      "ingested_at": "2026-11-15T11:56:59Z"
+      "discovered_at": "2026-11-16T12:30:06Z",
+      "ingested_at": "2026-11-16T12:30:45Z"
     }
   ]
 }
