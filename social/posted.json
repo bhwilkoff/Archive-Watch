@@ -4645,6 +4645,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-17T05:10:39.794593+00:00",
+   "id": "noveltoon_casper_tfg_theres_good_boos_tonight",
+   "title": "Noveltoon: Caspar The Friendly Ghost in There's Good Boos Tonight",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2ibpiiebc2h",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "dzondzon"
   }
  ]
 }
