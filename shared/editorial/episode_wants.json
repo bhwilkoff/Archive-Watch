@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-17T12:51:33Z",
+  "updated_at": "2026-11-18T12:36:18Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19527,
-    "wanted": 19257,
+    "total": 19529,
+    "wanted": 19259,
     "fulfilled": 270,
     "series_with_gaps": 400
   },
@@ -98653,6 +98653,26 @@
       "episodeImdbID": "tt0673978",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "petticoat-junction-1963",
+      "seriesTitle": "Petticoat Junction",
+      "season": 7,
+      "episode": 6,
+      "title": "The Glen Tinker Caper",
+      "episodeImdbID": "tt0674015",
+      "status": "wanted",
+      "added_at": "2026-11-18T12:36:18Z"
+    },
+    {
+      "seriesID": "petticoat-junction-1963",
+      "seriesTitle": "Petticoat Junction",
+      "season": 7,
+      "episode": 7,
+      "title": "The Tenant",
+      "episodeImdbID": "tt0674037",
+      "status": "wanted",
+      "added_at": "2026-11-18T12:36:18Z"
     },
     {
       "seriesID": "petticoat-junction-1963",
