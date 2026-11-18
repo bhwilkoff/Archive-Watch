@@ -335,6 +335,17 @@ class CatalogDatabase private constructor(
      * `tv-episode` stays excluded either way: a loose episode belongs to its
      * series and should be reached through it (Decision 045).
      */
+    /** Every title Cartoon Mode or Party Play may play (`lineup-cartoon`,
+     *  `lineup-party`, computed over the whole catalog by tools/lineup_pools.py),
+     *  as lite rows. Not [shelf]: Home's rights bar is not these lineups' rule.
+     *  Empty on a DB built before lineups existed. */
+    suspend fun lineup(shelfID: String): List<CatalogItem> = itemsLite(
+        """SELECT $liteCols FROM item_shelves s
+           JOIN items i ON i.archiveID = s.archiveID
+           WHERE s.shelfID = ?$adultAnd$noRecAnd$typeAnd""",
+        listOf(shelfID),
+    )
+
     suspend fun shelf(
         shelfID: String,
         limit: Int = 80,

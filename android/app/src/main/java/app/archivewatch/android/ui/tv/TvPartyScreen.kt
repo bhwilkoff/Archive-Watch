@@ -51,6 +51,12 @@ private val PARTY_VISUAL_KEYWORDS = listOf(
 
 private suspend fun partyLineup(container: AppContainer): List<CatalogItem> {
     val db = container.catalog.awaitDb()
+    // Every qualifying title (tools/lineup_pools.py, the rules below); an older
+    // DB has no lineup and builds it from 620 popular candidates.
+    val lineup = db.lineup("lineup-party")
+    if (lineup.isNotEmpty()) {
+        return db.withPoolFields(lineup).filter { it.downloadURL != null }.shuffled()
+    }
     // full = true: this lineup filters on downloadURL and colorMode, which a
     // list row does not carry. Without it the party would be silently empty.
     val raw = db.browse(contentType = "animation", limit = 250, full = true, recommendOnly = true) +

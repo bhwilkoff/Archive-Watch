@@ -68,10 +68,16 @@ rank_share = sum(P.secs(i) for i in by_rank if P.bw_or_silent(i)) / sum(P.secs(i
 check(f"control: by rank alone, B&W would be {rank_share:.0%} of it", rank_share > 0.5)
 
 # The served file keeps each channel's best 90, and the cartoon share with it.
-served = P.served_slice(preset("cartoon"), cpool)
-check("the served cartoon list holds 90", len(served) == P.SERVED_LIMIT)
-check("and keeps B&W in it", 0 < sum(P.bw_or_silent(i) for i in served) < len(served) / 2)
-check("a genre channel serves its first 90", ids(P.served_slice(preset("drama"), pool)) == ids(pool[:90]))
+# The served file keeps each channel's best 90, except Cartoon Classics, whose
+# whole pool the Cartoon Marathon (Roku, web) shuffles.
+check("the served cartoon list is the whole pool",
+      ids(P.served_slice(preset("cartoon"), cpool)) == ids(cpool))
+check("control: a genre channel serves only its first 90",
+      ids(P.served_slice(preset("drama"), pool)) == ids(pool[:90]))
+silent = sorted([item(f"s{i:04}", ctype="silent-film", genres=(), minutes=60,
+                      isSilentFilm=True, downloads=9_000 - i) for i in range(300)], key=P.rank_key)
+spool = P.pool_for(preset("silent"), silent)
+check("a type channel serves its first 90 too", len(P.served_slice(preset("silent"), spool)) == 90)
 
 print(f"\n{fails} failure(s)")
 sys.exit(1 if fails else 0)

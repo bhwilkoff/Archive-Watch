@@ -198,6 +198,10 @@ enum Modes {
                       "garden", "ocean", "underwater", "aquarium", "space", "nasa", "aurora",
                       "fractal", "mandala", "op art", "oil", "liquid", "paint", "art", "visual",
                       "fantasia", "rhythm", "geometric", "neon", "carnival", "parade"]
+        // Every qualifying title (tools/lineup_pools.py, the rules below); an
+        // older DB has no lineup and builds it from 620 popular candidates.
+        let lineup = store.lineup("lineup-party")
+        if !lineup.isEmpty { return lineup.filter { $0.videoURLParsed != nil }.shuffled() }
         var seen = Set<String>()
         var scored: [(Catalog.Item, Int)] = []
         let raw = store.dbBrowse(contentType: "animation", sort: .popular, limit: 250)

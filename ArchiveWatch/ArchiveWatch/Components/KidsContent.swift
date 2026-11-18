@@ -9,14 +9,20 @@ import SwiftUI
 enum KidsContent {
     static func cartoonPool(_ store: AppStore, limit: Int = 250) -> [Catalog.Item] {
         let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
-        let pool = store.browse(contentType: "animation", sort: .popular, limit: 600).filter { it in
+        // Every qualifying cartoon (tools/lineup_pools.py); an older DB has no
+        // lineup and falls back to the 600 most popular.
+        let lineup = store.lineup("lineup-cartoon")
+        let candidates = lineup.isEmpty ? store.browse(contentType: "animation", sort: .popular, limit: 600) : lineup
+        let pool = candidates.filter { it in
             guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { return false }
             if it.isSilentFilm == true { return false }
             let blob = (it.genres + it.subjects).map { $0.lowercased() }
             if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
             return true
         }
-        return Array(colorEmphasized(pool).prefix(max(limit, 120)))
+        // Shuffled before the cut: color comes first, so with more color cartoons
+        // than the limit the B&W share never reached a lineup.
+        return Array(colorEmphasized(pool).shuffled().prefix(max(limit, 120)))
     }
 
     static func isBlackAndWhiteOrSilent(_ it: Catalog.Item) -> Bool {

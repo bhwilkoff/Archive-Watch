@@ -260,6 +260,9 @@ final class AppStore {
         db?.shelf(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
     }
 
+    /// Every title Cartoon Mode or Party Play may play (CatalogDB.lineup).
+    func lineup(_ shelfID: String) -> [Catalog.Item] { db?.lineup(shelfID) ?? [] }
+
     /// Drop already-completed titles from a Home list (#17). No-op until a view
     /// populates `completedArchiveIDs` from SwiftData WatchProgress, or when the
     /// user turns the Settings toggle off.

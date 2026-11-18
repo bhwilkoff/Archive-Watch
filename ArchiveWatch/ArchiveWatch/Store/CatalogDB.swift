@@ -463,6 +463,19 @@ final class CatalogDB {
         """, [shelfID])
     }
 
+    /// Every title a lineup may play: `lineup-cartoon` (Cartoon Mode) or
+    /// `lineup-party` (Party Play), computed over the whole catalog by
+    /// tools/lineup_pools.py. Not `shelf(_:)`: Home's rights bar is not these
+    /// lineups' rule. Empty on a DB built before lineups existed.
+    func lineup(_ shelfID: String) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM item_shelves s
+            JOIN item_json j USING(archiveID)
+            JOIN items i USING(archiveID)
+            WHERE s.shelfID = ?1 \(adultAnd) \(noRecAnd) \(typeAnd)
+        """, [shelfID])
+    }
+
     /// A shelf's members as light rows (id + the columns `dedupKey` needs),
     /// professional art only (`Catalog.Item.hasProfessionalArtwork` in SQL). Home
     /// shuffles and de-duplicates these and decodes only what it shows.

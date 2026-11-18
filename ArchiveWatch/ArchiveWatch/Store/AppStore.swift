@@ -345,7 +345,11 @@ final class AppStore {
     /// Shared kid-friendly color-cartoon pool (used by cartoonLineup + Kids Mode).
     func kidsCartoonPool(limit: Int) -> [Catalog.Item] {
         let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
-        let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 600).filter { it in
+        // Every qualifying cartoon (tools/lineup_pools.py); an older DB has no
+        // lineup and falls back to the 600 most popular.
+        let lineup = db?.lineup("lineup-cartoon") ?? []
+        let candidates = lineup.isEmpty ? dbBrowse(contentType: "animation", sort: .popular, limit: 600) : lineup
+        let pool = candidates.filter { it in
             guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { return false }
             if it.isSilentFilm == true { return false }   // Cartoon MODE excludes silent
             let blob = (it.genres + it.subjects).map { $0.lowercased() }
@@ -353,7 +357,9 @@ final class AppStore {
             return true
         }
         // Color leads; B&W (non-silent, e.g. Betty Boop) stays available but de-emphasized.
-        return Array(colorEmphasizedAnimation(pool).prefix(max(limit, 120)))
+        // Shuffled before the cut: color comes first, so with more color cartoons
+        // than the limit the B&W share never reached a lineup.
+        return Array(colorEmphasizedAnimation(pool).shuffled().prefix(max(limit, 120)))
     }
 
     /// True for animation that is black-and-white or silent. Prefers the
@@ -383,6 +389,10 @@ final class AppStore {
     /// (abstract / animation / nature / dance / light, etc.). Ranked so the most
     /// visual content leads.
     func partyLineup() -> [Catalog.Item] {
+        // Every qualifying title (tools/lineup_pools.py, the rules below); an
+        // older DB has no lineup and builds it from 620 popular candidates.
+        let lineup = db?.lineup("lineup-party") ?? []
+        if !lineup.isEmpty { return lineup.filter { $0.videoURLParsed != nil }.shuffled() }
         let visual = Self.partyVisualKeywords
         var seen = Set<String>()
         var scored: [(Catalog.Item, Int)] = []

@@ -284,6 +284,7 @@ into every session and the index alone carries every title.)
 - 183 — A layout that changes with width keeps its controls: one AnyLayout, never ViewThatFits around a menu
 - 184 — Every renewal the law allows is read: a 1964-77 work's renewal counts whenever it was registered
 - 185 — A channel's pool is a week of its best titles by the score the apps sort on, played in one rotation
+- 186 — Cartoon Mode and Party Play draw on every title that qualifies, listed once by the pipeline
 
 ---
 
@@ -575,3 +576,33 @@ list in memory. TV Comedy, TV Drama and TV Westerns hold under a week (105, 75,
 21 h) because the TV channels read `tv-special` items only, not the episodes in
 `series/`. Tests: `test_channel_pools.py`, `test_channel_schedule.py`, each seen
 failing against the old code or a deliberate break.
+
+## 186 — Cartoon Mode and Party Play draw on every title that qualifies, listed once by the pipeline
+*Date: 2026-11-18*
+
+`tools/lineup_pools.py` holds both rules, the clients' own unchanged, and
+`build_sqlite` writes their members to `item_shelves` as `lineup-cartoon` and
+`lineup-party`. `CatalogDB.lineup` (Apple) and `CatalogDatabase.lineup`
+(Android) read them with the adult, noRecommend and hidden-type filters and
+none of Home's rights bar; Cartoon Mode shuffles before taking its 250, and
+Party Play plays the whole list shuffled. A DB with no lineup falls back to the
+old query. `channel-pools.json` serves Cartoon Classics whole (1,047), which is
+what the Roku and web marathons shuffle and web Party Play draws on.
+
+**Why**: the owner, 2026-11-18: *"The pool for cartoon mode and party play
+should also be expanded."* Measured: 1,243 cartoons qualify for Cartoon Mode and
+the apps drew 250 from the 410 inside the 600 most popular; 1,065 titles qualify
+for Party Play and the apps kept the top 220 of 620 popular candidates, a score
+in which `popularityScore / 25` (up to ~180) outweighs every visual word (3
+each), so the 220 were the most popular. 738 qualifying shorts sit outside the
+popular few hundred, so no on-device query of that size could reach them; Decision
+050 already puts score-dependent membership in the pipeline. Both lineups also
+lost their B&W share: color came first and the cut fell inside it. The Roku and
+web marathons drew 40 a session from 90.
+
+**How to apply**: change who qualifies in `lineup_pools.py` only, never in a
+client; the clients' old filters are a fallback for an older DB. Not shelf():
+Home's rights bar would narrow these lineups. Moving the Roku marathon to the
+id lineups Party Play uses was rejected for now: it changes its playback path,
+and it could not be tried on a Roku from here. Apple and Android code is
+uncompiled in this change: build both before shipping. Test: `test_lineup_pools.py`.

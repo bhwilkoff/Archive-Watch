@@ -44,7 +44,9 @@ object CartoonMode {
         val pool = candidates.filter { item -> item.blob().none { g -> scary.any { g.contains(it) } } }
         val color = pool.filter { !it.isBlackAndWhiteOrSilent() }.shuffled()
         val bw = pool.filter { it.isBlackAndWhiteOrSilent() }.shuffled()
-        return (color + bw.take(maxOf(3, (color.size * 0.15).toInt()))).take(maxOf(limit, 120))
+        // Shuffled before the cut: color comes first, so with more color cartoons
+        // than the limit the B&W share never reached a lineup.
+        return (color + bw.take(maxOf(3, (color.size * 0.15).toInt()))).shuffled().take(maxOf(limit, 120))
     }
 
     /** Character shelves, matched on title OR archive.org subjects (Apple's rule). */
@@ -59,9 +61,15 @@ object CartoonMode {
         }
     }
 
-    /** (marathon pool, character shelves) from one read. */
+    /** (marathon pool, character shelves). The marathon draws on every
+     *  qualifying cartoon (tools/lineup_pools.py); an older DB has no lineup and
+     *  draws on the 800 most popular, as the character shelves still do. */
     suspend fun load(db: CatalogDatabase): Pair<List<CatalogItem>, List<Pair<String, List<CatalogItem>>>> {
         val c = candidates(db)
-        return pool(c) to characters(c)
+        val lineup = db.lineup("lineup-cartoon")
+        val marathon = if (lineup.isEmpty()) c else db.withPoolFields(
+            lineup.filter { it.hasDesignedArtwork && it.isSilentFilm != true },
+        ).filter { it.downloadURL != null }
+        return pool(marathon) to characters(c)
     }
 }

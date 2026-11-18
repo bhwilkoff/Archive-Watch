@@ -46,6 +46,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import best_rating  # noqa: E402  (Decision 171: one rating rule for the DB and the index)
+import lineup_pools  # noqa: E402  (Cartoon Mode and Party Play membership)
 
 REPO = Path(__file__).resolve().parent.parent
 FULL_CATALOG = REPO / "catalog.json"
@@ -1317,6 +1318,8 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset(), rating_sta
                 studio_rows.append((aid, str(st)))
         for s in _shelf_ids_for(it):
             shelf_rows.append((s, aid, shelf_pos.get((s, aid), 0)))
+        for s in lineup_pools.lineups_for(it):
+            shelf_rows.append((s, aid, 0))
             # A shelf declared `category: tv-series` in featured.json is a row
             # of SHOWS, but its archive.org query returns individual uploads —
             # so the row filled with loose episodes that open as movies with no

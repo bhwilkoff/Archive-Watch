@@ -31,10 +31,12 @@ INDEX = REPO / "catalog-index.json"
 OUT = REPO / "channel-pools.json"
 # The whole pool, read only by build_channel_schedule in the same publish-db
 # step: never committed or served. channel-pools.json keeps each channel's best
-# SERVED_LIMIT, because the Roku holds every channel's list in memory for the
-# Cartoon Marathon and web Party Play reads them all.
+# SERVED_LIMIT for web Party Play, except Cartoon Classics, which it serves
+# whole: the Cartoon Marathon on Roku and the web shuffles that list, and
+# drew 40 cartoons a session from 90.
 FULL_OUT = REPO / "channel-pools-full.json"
 SERVED_LIMIT = 90
+SERVED_WHOLE = {"cartoon"}
 
 PRESETS = [
     {"id": "drama",   "title": "Drama Theater",   "tagline": "The big stories",        "accent": "#FF5C35", "genre": "Drama"},
@@ -166,7 +168,9 @@ def pool_for(preset, ranked):
 
 def served_slice(preset, pool):
     """The channel-pools.json share of a pool: its best SERVED_LIMIT, keeping
-    the animation pool's B&W share."""
+    the animation pool's B&W share, or all of it for SERVED_WHOLE."""
+    if preset["id"] in SERVED_WHOLE:
+        return pool
     bw = [i for i in pool if bw_or_silent(i)]
     if preset.get("type") != "animation" or not bw or len(pool) <= SERVED_LIMIT:
         return pool[:SERVED_LIMIT]

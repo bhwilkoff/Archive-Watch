@@ -773,9 +773,14 @@ Decision 144 retired, so only its rotation idea was taken). v1.47.46.
   Documentary. `channel-pools.json` stays at 90 a channel (Roku memory).
 - **Rotation**: a fresh daily shuffle re-aired 74-100% within six days; now 0% on
   every channel with a week of content (30-day simulation).
+- **Cartoon Mode + Party Play** (Decision 186, v1.47.47; owner: *"The pool for
+  cartoon mode and party play should also be expanded."*): the pipeline lists
+  every qualifying title (`lineup_pools.py`: 1,252 / 1,071 in a real DB build);
+  Apple and Android read it, Roku/web marathons get Cartoon Classics whole.
 **Open**: `_pop_score` ranks a classic by its copy's downloads (Potemkin 254th,
 Sunrise 338th of silents, outside the week); TV channels read `tv-special` only,
-not the 9,389 episodes, so TV Comedy/Drama/Westerns hold 105/75/21 h.
+not the 9,389 episodes, so TV Comedy/Drama/Westerns hold 105/75/21 h. The Swift
+and Kotlin for Decision 186 are UNCOMPILED (no toolchain here): build before ship.
 
 ### 2026-11-13 — John Howard's third round: playlists, the channel strip, three removals
 
