@@ -4729,6 +4729,66 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-18T22:40:20.020440+00:00",
+   "id": "LeVoleurInvisible",
+   "title": "Le Voleur invisible",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2mmtl4dse2f",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "filmscholar"
+  },
+  {
+   "at": "2026-11-18T22:40:20.020440+00:00",
+   "id": "LeVoleurInvisible",
+   "title": "Le Voleur invisible",
+   "slot": "double-bill",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117639849185810238",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "filmscholar"
+  },
+  {
+   "at": "2026-11-18T22:40:20.020440+00:00",
+   "id": "LeVoleurInvisible",
+   "title": "Le Voleur invisible",
+   "slot": "double-bill",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Df5md4lEbCS",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "filmscholar"
+  },
+  {
+   "at": "2026-11-18T22:40:20.020440+00:00",
+   "id": "LeVoleurInvisible",
+   "title": "Le Voleur invisible",
+   "slot": "double-bill",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Df5mitHEYnP/",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": "117639848812754849",
+   "reviewer": "filmscholar"
+  },
+  {
+   "at": "2026-11-18T22:40:20.020440+00:00",
+   "id": "LeVoleurInvisible",
+   "title": "Le Voleur invisible",
+   "slot": "double-bill",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=_Wl8AU_96hE",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "filmscholar"
   }
  ]
 }
