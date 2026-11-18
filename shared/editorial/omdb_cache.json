@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-17T10:46:53Z",
+  "updated_at": "2026-11-18T10:14:07Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-17T10:46:53Z"
+      "last_tried": "2026-11-18T10:14:07Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-17T10:46:53Z"
+      "last_tried": "2026-11-18T10:14:07Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -395943,6 +395943,46 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-17T10:46:53Z",
+      "schema": 4
+    },
+    "tt0191010": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzYzNzI2YTctYWNhZC00Y2EzLWFmMTUtNDFiZmY5NTQ1ZGZlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 140,
+      "content_rating": null,
+      "plot": "Single father Paul Henson purchases a newspaper in the small town of Copperton, Ohio and moves there with his teenage daughter Christina. The two soon come to realize the townsfolk, led by the evil Reverend Donovan, are actually Satanists.",
+      "runtime_min": 102,
+      "director": "Eric Swelstad",
+      "actors": [
+        "Dino Tripodis",
+        "Nick Baldasare",
+        "Shanna Thomas"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-18T10:14:07Z",
+      "schema": 4
+    },
+    "tt11957508": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTA2YTI1NjQtZGM3MC00MzEyLTg3MWQtOGMxZGNhYzk4ZTc4XkEyXkFqcGdeQXVyOTI1NDI5Njc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 16,
+      "content_rating": null,
+      "plot": "In a world where the government has abolished all types of contact between human beings - from eye contact to sexual intercourse - citizens are subjected to a control test annually to check the progress of empathy and sexual attraction.",
+      "runtime_min": 19,
+      "director": "Giulia Grandinetti, Andrea Benjamin Manenti",
+      "actors": [
+        "Lucia Batassa",
+        "Simone Bobini",
+        "Marta Anna Boruncinska"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-18T10:14:07Z",
       "schema": 4
     }
   },
