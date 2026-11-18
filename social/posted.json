@@ -4717,6 +4717,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": "ChiefMacon"
+  },
+  {
+   "at": "2026-11-18T04:15:33.820604+00:00",
+   "id": "silent-rozhdestvo-obitateley-lesa-aka-the-insects-christmas",
+   "title": "Rozhdestvo obitateley lesa AKA The Insect's Christmas",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2kp3wvaqj2t",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
