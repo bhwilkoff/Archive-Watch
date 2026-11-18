@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 """
-build_channel_pools.py — emit channel-pools.json for the web viewer's Channels
-guide (PARITY §5).
+build_channel_pools.py — each preset channel's program pool, the input of
+build_channel_schedule.py (Decision 144), plus the commercials the clients
+weave between programs and the Cartoon Marathon's queue (Roku, web).
 
-The apps build each preset channel's program pool with on-device CatalogDB
-queries (genre/type, popularity top-90, playable). The web index carries no
-runtime/genre columns, so the pools are precomputed here from the full
-catalog.json and served from Pages; the BROWSER then runs the same
-date-seeded ChannelScheduler (JS port) so the schedule anchors to the
-viewer's LOCAL 6 AM broadcast day exactly like the apps.
-
-Pool rules mirror the Swift ChannelsView.rebuild():
-  - playable (downloadURL present), not rights-excluded, not adult
-  - matching contentType and/or genre, popularity top-90
-  - animation pool: color-emphasized, B&W/silent capped at ~10% (Decision 025)
+Pool rules:
+  - playable, not rights-excluded, not adult, not noRecommend, in the served index
+  - matching contentType and/or genre; classroom and industrial films
+    ("ephemeral") only on Documentary
+  - ranked by the pipeline's own popularity score (build_sqlite._pop_score)
+  - sized by HOURS (POOL_HOURS), not by a count of titles
+  - animation: color leads, B&W/silent ~10% of the pool (Decision 025)
 Plus a 60-item commercials pool for the between-program ad weave (#89).
 
 Run in publish-db after the catalog fetch; commits alongside catalog-index.
@@ -24,10 +21,20 @@ import random
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_sqlite import _pop_score  # noqa: E402
+from build_channel_schedule import slot_seconds  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 INDEX = REPO / "catalog-index.json"
 OUT = REPO / "channel-pools.json"
+# The whole pool, read only by build_channel_schedule in the same publish-db
+# step: never committed or served. channel-pools.json keeps each channel's best
+# SERVED_LIMIT, because the Roku holds every channel's list in memory for the
+# Cartoon Marathon and web Party Play reads them all.
+FULL_OUT = REPO / "channel-pools-full.json"
+SERVED_LIMIT = 90
 
 PRESETS = [
     {"id": "drama",   "title": "Drama Theater",   "tagline": "The big stories",        "accent": "#FF5C35", "genre": "Drama"},
@@ -47,7 +54,10 @@ PRESETS = [
     {"id": "tv-western","title": "TV Westerns", "tagline": "Saddle up, every hour","accent": "#C9A66B", "type": "tv-special", "genre": "Western"},
 ]
 
-POOL_LIMIT = 90
+# A week of programming per channel. The pool was the top 90 titles, so Cartoon
+# Classics cycled 15.5 hours and every cartoon aired about once a day.
+POOL_HOURS = 168
+BW_SHARE = 0.10
 AD_LIMIT = 60
 
 
@@ -66,6 +76,11 @@ NOT_ON_GENRE_CHANNELS = {"tv-series", "tv-special", "tv-episode", "commercial"}
 
 def matches(it, preset):
     if not preset.get("type") and it.get("contentType") in NOT_ON_GENRE_CHANNELS:
+        return False
+    # TMDb files social-guidance films under Drama and Crime, so "Health: Your
+    # Posture" and "Boys Beware" led Drama Theater and Crime & Mystery.
+    if (it.get("contentType") == "ephemeral" and not preset.get("type")
+            and preset.get("genre") != "Documentary"):
         return False
     if preset.get("genre") == "Documentary" and it.get("contentType") == "animation":
         return False
@@ -114,6 +129,52 @@ def index_ids() -> set:
     return {str(r[0]) for r in rows}
 
 
+def rank_key(it):
+    # catalog.json's own popularityScore is the legacy 0-89 band, absent on
+    # most items: Metropolis, The Kid and Sherlock Jr. sorted last and never
+    # aired. _pop_score is the number the apps sort by (build_sqlite writes it
+    # into the DB); the tiebreak is the DB queries' own.
+    return (-_pop_score(it), -(it.get("imdbVotes") or 0), it.get("archiveID") or "")
+
+
+def secs(it):
+    return slot_seconds(it.get("runtimeSeconds"), it.get("contentType"))
+
+
+def take_hours(ranked, hours):
+    out, t = [], 0
+    for it in ranked:
+        if t >= hours * 3600:
+            break
+        out.append(it)
+        t += secs(it)
+    return out
+
+
+def pool_for(preset, ranked):
+    """`ranked` is the eligible catalog, best first."""
+    matched = [i for i in ranked if matches(i, preset)]
+    if preset.get("type") != "animation":
+        return take_hours(matched, POOL_HOURS)
+    # Color leads; B&W/silent ~10% (Decision 025). The old cut kept the first
+    # 90 of color + B&W, so the B&W titles appended after 90 color ones never
+    # survived it.
+    color = take_hours([i for i in matched if not bw_or_silent(i)], POOL_HOURS * (1 - BW_SHARE))
+    bw = take_hours([i for i in matched if bw_or_silent(i)], POOL_HOURS * BW_SHARE)
+    return sorted(color + bw, key=rank_key)
+
+
+def served_slice(preset, pool):
+    """The channel-pools.json share of a pool: its best SERVED_LIMIT, keeping
+    the animation pool's B&W share."""
+    bw = [i for i in pool if bw_or_silent(i)]
+    if preset.get("type") != "animation" or not bw or len(pool) <= SERVED_LIMIT:
+        return pool[:SERVED_LIMIT]
+    n_bw = max(1, round(SERVED_LIMIT * BW_SHARE))
+    color = [i for i in pool if not bw_or_silent(i)]
+    return sorted(color[:SERVED_LIMIT - n_bw] + bw[:n_bw], key=rank_key)
+
+
 def main():
     items = json.loads(CATALOG.read_text())
     items = items["items"] if isinstance(items, dict) else items
@@ -121,39 +182,39 @@ def main():
     before = sum(1 for i in items if visible(i))
     pool_src = [i for i in items if visible(i) and i.get("archiveID") in served]
     print(f"  eligible {before} -> {len(pool_src)} after gating on the served index")
-    pool_src.sort(key=lambda i: -(i.get("popularityScore") or 0))
+    pool_src.sort(key=rank_key)
 
-    channels = []
+    channels, full = [], []
     for preset in PRESETS:
-        matched = [i for i in pool_src if matches(i, preset)]
-        if preset.get("type") == "animation":
-            # Color leads; B&W/silent capped at ~10% (Decision 025).
-            color = [i for i in matched if not bw_or_silent(i)]
-            bw = [i for i in matched if bw_or_silent(i)]
-            cap = max(3, int(len(color[:POOL_LIMIT]) * 0.10))
-            matched = color[:POOL_LIMIT] + bw[:cap]
-        pool = matched[:POOL_LIMIT]
+        pool = pool_for(preset, pool_src)
         if len(pool) < 5:
             print(f"  skip {preset['id']}: only {len(pool)} programs")
             continue
-        channels.append({
-            "id": preset["id"], "title": preset["title"],
-            "tagline": preset["tagline"], "accent": preset["accent"],
-            "programs": [entry(i) for i in pool],
-        })
-        print(f"  {preset['id']}: {len(pool)} programs")
+        head = {"id": preset["id"], "title": preset["title"],
+                "tagline": preset["tagline"], "accent": preset["accent"]}
+        channels.append({**head, "programs": [entry(i) for i in served_slice(preset, pool)]})
+        full.append({**head, "programs": [entry(i) for i in pool]})
+        print(f"  {preset['id']}: {len(pool)} programs, "
+              f"{sum(secs(i) for i in pool) / 3600:.0f} h")
 
     rng = random.Random(20260612)   # stable file across runs with same catalog
     ads = [i for i in pool_src if i.get("contentType") == "commercial"]
     rng.shuffle(ads)
 
-    OUT.write_text(json.dumps({
-        "schema": 1,
-        "channels": channels,
-        "commercials": [entry(i) for i in ads[:AD_LIMIT]],
-    }, ensure_ascii=False, separators=(",", ":")))
-    print(f"wrote {OUT.name}: {len(channels)} channels, "
-          f"{OUT.stat().st_size / 1e3:.0f} KB")
+    def write(path, chans, **extra):
+        path.write_text(json.dumps({
+            "schema": 1,
+            "channels": chans,
+            "commercials": [entry(i) for i in ads[:AD_LIMIT]],
+            **extra,
+        }, ensure_ascii=False, separators=(",", ":")))
+        print(f"wrote {path.name}: {len(chans)} channels, "
+              f"{path.stat().st_size / 1e3:.0f} KB")
+
+    write(OUT, channels)
+    # What the scheduler's in-place repair may keep: a held program outside
+    # this set has left the catalog (a rights hide, a takedown).
+    write(FULL_OUT, full, eligible=sorted(i["archiveID"] for i in pool_src))
     return 0
 
 

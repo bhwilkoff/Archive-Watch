@@ -134,3 +134,4 @@ auto.key
 # by `wrangler dev --local`. Machine-specific, regenerated on demand, and one
 # of them is a SQLite database: none of it is source.
 worker/.wrangler/
+channel-pools-full.json

@@ -53,9 +53,11 @@ for cid in ("drama", "cartoon"):
     covered_to = S.block_end(ch["days"][max(ch["days"])])
     check(f"{cid}: covers through the last UTC day", covered_to >= S.day_start(TODAY + dt.timedelta(days=S.DAYS_AHEAD + 1)))
 
-# Held days survive a rebuild with a DIFFERENT pool order and a new day.
+# Held days survive a rebuild with a DIFFERENT pool and a new day.
 pools2 = copy.deepcopy(POOLS)
 pools2["channels"][0]["programs"].reverse()
+pools2["channels"][0]["programs"] += [[f"n{i}", f"New {i}", 3000, f"https://x/n{i}.mp4", "feature-film"]
+                                      for i in range(6)]
 c = S.build(pools2, a, TODAY + dt.timedelta(days=1))
 held = [d for d in next(x for x in a["channels"] if x["id"] == "drama")["days"]
         if d >= (TODAY).isoformat()]
@@ -65,7 +67,7 @@ check("published days keep their programs across a rebuild", same)
 ctrl = S.build(pools2, {}, TODAY + dt.timedelta(days=1))
 changed = any(next(x for x in ctrl["channels"] if x["id"] == "drama")["days"].get(d) !=
               next(x for x in a["channels"] if x["id"] == "drama")["days"][d] for d in held)
-check("control: without the previous file, the reordered pool changes them", changed)
+check("control: without the previous file, the changed pool changes them", changed)
 
 # A program that leaves the catalog is replaced in place; start times hold.
 pools3 = copy.deepcopy(POOLS)
@@ -88,6 +90,50 @@ check("the schedule is the same in any time zone", e["channels"] == a["channels"
 check("a 104-second silent film gets a 104-second slot", S.slot_seconds(104, "silent-film") == 104)
 check("control: an unknown length still takes the type default", S.slot_seconds(None, "silent-film") == 90 * 60)
 check("a runtime under 30 s is treated as unknown", S.slot_seconds(5, "feature-film") == 90 * 60)
+
+# The rotation: a channel plays every title in its pool once before any twice,
+# across days. A pool of ~2.5 days of films, built a day at a time for a week.
+ROT = {"channels": [{"id": "rot", "title": "R", "tagline": "", "accent": "#000",
+                     "programs": [[f"r{i}", f"R {i}", 3600, f"https://x/r{i}.mp4", "feature-film"]
+                                  for i in range(60)]}]}
+
+
+def aired_in_order(sched_by_day):
+    return [pid for key in sorted(sched_by_day) for pid in sched_by_day[key]]
+
+
+def week(chained):
+    prev, days = {}, {}
+    for k in range(7):
+        prev = S.build(ROT, prev if chained else {}, TODAY + dt.timedelta(days=k))
+        for key, blk in prev["channels"][0]["days"].items():
+            days.setdefault(key, [s[0] for s in blk["slots"]])
+    return aired_in_order(days)
+
+
+def first_repeat_after_all(seq, n):
+    """Every window of n consecutive programs holds n different titles."""
+    return all(len(set(seq[i:i + n])) == n for i in range(len(seq) - n + 1))
+
+
+check("the rotation airs all 60 titles before any repeats, across a week",
+      first_repeat_after_all(week(True), 60))
+check("control: building each day afresh repeats titles inside 60 programs",
+      not first_repeat_after_all(week(False), 60))
+
+# Repair removes only what left the CATALOG: a held film that merely fell out
+# of its pool stays where it was published.
+gone = timeline(a, "drama")[-3][2]
+pools4 = copy.deepcopy(POOLS)
+pools4["channels"][0]["programs"] = [p for p in pools4["channels"][0]["programs"] if p[0] != gone]
+pools4["eligible"] = [p[0] for c in POOLS["channels"] for p in c["programs"]]
+kept = S.build(pools4, a, TODAY)
+check("a film out of its pool but still in the catalog keeps its slot",
+      any(x[2] == gone for x in timeline(kept, "drama") if x[0] >= S.day_start(TODAY)))
+pools4["eligible"].remove(gone)
+dropped = S.build(pools4, a, TODAY)
+check("control: out of the catalog too, it is replaced",
+      all(x[2] != gone for x in timeline(dropped, "drama") if x[0] >= S.day_start(TODAY)))
 
 print(f"\n{fails} failure(s)")
 sys.exit(1 if fails else 0)

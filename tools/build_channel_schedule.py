@@ -28,18 +28,23 @@ tonight.json rule), so a publish at noon never changes what is on. A held
 program that is no longer eligible (a rights hide, a takedown) is replaced in
 place by the channel's film of the nearest length, keeping every start time.
 
-Input: channel-pools.json (built just before, from the same catalog).
+Input: channel-pools-full.json, written just before by build_channel_pools.py
+from the same catalog (the served channel-pools.json holds only each channel's
+best 90).
+
+Repeats: each channel plays its pool in one fixed rotation and a new day
+continues it, so a pool of a week's programming repeats nothing for a week. A
+fresh shuffle each day repeated ~75% of a channel's films within six days.
 """
 
 import datetime as dt
 import hashlib
 import json
-import random
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-POOLS = REPO / "channel-pools.json"
+POOLS = REPO / "channel-pools-full.json"
 OUT = REPO / "channel-schedule.json"
 
 GAP = 120
@@ -77,15 +82,25 @@ def block_end(block: dict) -> int:
     return t
 
 
-def fill_day(channel_id: str, day: dt.date, start: int, pool: list, avoid: str | None) -> dict:
-    """Programs from `start` until the next UTC midnight, in an order seeded by
-    the channel and the date, cycling the pool so nothing repeats within a day
-    while the pool lasts."""
-    seed = int(hashlib.sha1(f"{channel_id}:{day.isoformat()}".encode()).hexdigest(), 16)
-    order = list(pool)
-    random.Random(seed).shuffle(order)
-    if avoid and len(order) > 1 and order[0][0] == avoid:
-        order.append(order.pop(0))
+def rotation_key(channel_id: str, pid: str) -> str:
+    return hashlib.sha1(f"{channel_id}|{pid}".encode()).hexdigest()
+
+
+def fill_day(channel_id: str, day: dt.date, start: int, pool: list, after: str | None) -> dict:
+    """Programs from `start` until the next UTC midnight, continuing the
+    channel's rotation from the program after `after` (the previous day's last
+    program). The rotation orders the pool by a hash of channel and id, so every
+    title airs once before any airs twice, and a title joining or leaving the
+    pool moves no other. With no previous day, the day starts at a point seeded
+    by the date."""
+    order = sorted(pool, key=lambda p: rotation_key(channel_id, p[0]))
+    if after is not None:
+        k = rotation_key(channel_id, after)
+        i = next((n for n, p in enumerate(order) if rotation_key(channel_id, p[0]) > k), 0)
+    else:
+        seed = int(hashlib.sha1(f"{channel_id}:{day.isoformat()}".encode()).hexdigest(), 16)
+        i = seed % len(order)
+    order = order[i:] + order[:i]
     end = day_start(day + dt.timedelta(days=1))
     slots, t, i = [], start, 0
     while t < end and len(slots) < 2000:
@@ -97,12 +112,12 @@ def fill_day(channel_id: str, day: dt.date, start: int, pool: list, avoid: str |
     return {"start": start, "slots": slots}
 
 
-def repair(block: dict, eligible: dict, pool: list) -> int:
+def repair(block: dict, allowed, pool: list) -> int:
     """Swap programs that left the catalog for the pool film of nearest length,
     in place, so every start time stays where it was published."""
     swapped = 0
     for s in block["slots"]:
-        if s[0] in eligible:
+        if s[0] in allowed:
             continue
         best = min(pool, key=lambda p: abs(slot_seconds(p[2], p[4]) - s[1]))
         s[0] = best[0]
@@ -113,6 +128,10 @@ def repair(block: dict, eligible: dict, pool: list) -> int:
 def build(pools: dict, previous: dict, today: dt.date) -> dict:
     prev_channels = {c["id"]: c.get("days") or {} for c in previous.get("channels") or []}
     prev_programs = previous.get("programs") or {}
+    # Everything that may still air. A pool is only the best of it, so a held
+    # film that fell out of its pool is not a removal; without the list (an
+    # older pools file) the pool stands in.
+    catalog_ok = set(pools["eligible"]) if pools.get("eligible") else None
     days = [today + dt.timedelta(days=k) for k in range(-DAYS_BACK, DAYS_AHEAD + 1)]
     programs, channels = {}, []
     for ch in pools["channels"]:
@@ -137,7 +156,7 @@ def build(pools: dict, previous: dict, today: dt.date) -> dict:
             if block and block.get("slots"):
                 block = {"start": block["start"], "slots": [list(s) for s in block["slots"]]}
                 if day >= today:
-                    n = repair(block, eligible, pool)
+                    n = repair(block, catalog_ok if catalog_ok is not None else eligible, pool)
                     if n:
                         print(f"  {ch['id']} {key}: {n} program(s) no longer eligible, replaced in place")
             else:

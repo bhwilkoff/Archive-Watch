@@ -760,6 +760,23 @@ keep serving it.
 
 ## Session Log
 
+### 2026-11-18 — Channel pools: the real score, a week deep, one rotation (Decision 185)
+
+Owner: *"I think developing a stronger pool for our channels to pull from makes
+sense."* (after reading dontaco2000/archive-tv; its on-device scheduler is what
+Decision 144 retired, so only its rotation idea was taken). v1.47.46.
+- **Ranking**: pools sorted on catalog.json's legacy `popularityScore`, missing
+  on 78% of eligible items; they rank on `build_sqlite._pop_score` now. The Kid,
+  Sherlock Jr., Night of the Living Dead, Metropolis (Sci-Fi) air.
+- **Depth**: 168 h per channel instead of 90 titles (Cartoon Classics 15.5 h ->
+  161 h, 1,047 cartoons); B&W share fixed (was 0 of 90); ephemeral films only on
+  Documentary. `channel-pools.json` stays at 90 a channel (Roku memory).
+- **Rotation**: a fresh daily shuffle re-aired 74-100% within six days; now 0% on
+  every channel with a week of content (30-day simulation).
+**Open**: `_pop_score` ranks a classic by its copy's downloads (Potemkin 254th,
+Sunrise 338th of silents, outside the week); TV channels read `tv-special` only,
+not the 9,389 episodes, so TV Comedy/Drama/Westerns hold 105/75/21 h.
+
 ### 2026-11-13 — John Howard's third round: playlists, the channel strip, three removals
 
 Owner: *"There are a couple more emails from John Howard ... We also owe him a
@@ -780,22 +797,5 @@ response."* v1.47.42.
   Breakthrough); `_strip_quality` + test.
 **Open**: the reply to him is a Gmail draft. The sweep door removed one real
 watch-history entry (Moonbird or The Hole) on Ben Bedroom.
-
-### 2026-11-12 — Detail's More menu stays open on the Duo (Decision 183)
-
-Owner: *"very often when I press the more button within the individual item
-detail page, the interface element closes before I can select anything."*
-v1.47.41.
-- **Cause**: on the open Duo the vertical strip collapses and expands as the
-  page scrolls (867 vs 951pt). Detail's header was a `ViewThatFits` needing
-  948pt for two columns, so it flipped with the strip and rebuilt the More
-  button, which closes its menu. Now one `AnyLayout`; iOS-DESIGN §2.8.
-- **Debug launch crash**: with the Duo upright the Debug app overflowed the
-  main thread's stack resolving `withItemDestination`'s opaque type for the
-  sidebar places; it is a concrete `ViewModifier` now. Release never crashed.
-- `DuoAuditUITests` test_07/08/09 hold the menu open 4 s; `AW_SYNC_CHURN`
-  (DEBUG) writes the store like a no-change sync.
-**Open**: the strip only exists in landscape; test_07/09 passed upright, so
-re-run them with the Duo open in landscape.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
