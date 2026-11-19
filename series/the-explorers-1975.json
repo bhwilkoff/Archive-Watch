@@ -177,5 +177,8 @@
   "canonicalEpisodesCount": null,
   "tvdbID": null,
   "artworkSource": "tmdb",
-  "cast": []
+  "cast": [],
+  "seriesImdbID": "tt0315003",
+  "canonicalEpisodeCount": 0,
+  "canonicalSeasons": null
 }

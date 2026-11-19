@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-18T12:36:18Z",
+  "updated_at": "2026-11-19T12:31:15Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19529,
-    "wanted": 19259,
+    "total": 19530,
+    "wanted": 19260,
     "fulfilled": 270,
     "series_with_gaps": 400
   },
@@ -31091,6 +31091,16 @@
       "episodeImdbID": "tt0850846",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "dark-shadows-1966",
+      "seriesTitle": "Dark Shadows",
+      "season": 1,
+      "episode": 5,
+      "title": "Episode #1.5",
+      "episodeImdbID": "tt0850848",
+      "status": "wanted",
+      "added_at": "2026-11-19T12:31:15Z"
     },
     {
       "seriesID": "dark-shadows-1966",

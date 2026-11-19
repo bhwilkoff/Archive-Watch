@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-18T12:35:42Z",
+  "updated_at": "2026-11-19T12:30:56Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 73328,
-    "new_this_run": 192,
-    "awaiting_ingest": 1203,
-    "with_archive_id": 65005
+    "total": 73339,
+    "new_this_run": 8,
+    "awaiting_ingest": 1017,
+    "with_archive_id": 65016
   },
   "candidates": [
     {
@@ -7730,6 +7730,20 @@
       "archiveCollection": "feature_films",
       "status": "held_modern_license",
       "discovered_at": "2026-11-18T12:28:09Z"
+    },
+    {
+      "iaid": "tsuiharks-dangerous-encounters-of-the-first-kind-aka-dont-play-with-fire-1980",
+      "title": "Tsui Hark's Dangerous Encounters Of The First Kind aka Don't Play With Fire (1980)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
     },
     {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
@@ -91213,6 +91227,20 @@
       "ingested_at": "2026-11-17T12:50:12Z"
     },
     {
+      "iaid": "ida-2013-pol",
+      "title": "Ida (2013)",
+      "year": 2013,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
       "iaid": "LostLandscapesOfDetroitYear32012",
       "title": "Lost Landscapes of Detroit (Year 3, 2012)",
       "year": 2012,
@@ -147830,6 +147858,21 @@
       "ingested_at": "2026-11-17T12:50:12Z"
     },
     {
+      "iaid": "walmart-guitar-hero-world-tour-christmas-tv-commercial-2008-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Walmart - Guitar Hero World Tour Christmas TV Commercial (2008) (HQ)",
+      "year": 2008,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-18T12:34:23Z",
+      "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
       "iaid": "The_Vandhaal_Clash_with_the_Gibichungen_directors_cut_04",
       "title": "Clash with the Gibichungen The Directors cut DvD video",
       "year": 2007,
@@ -168648,6 +168691,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "election-2-hkg",
+      "title": "Election 2 (2006)",
+      "year": 2006,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
       "iaid": "PierreMichelArcandVilledeBanlieueVilleDangereuse_0",
       "title": "Ville de banlieue",
       "year": 2005,
@@ -176168,6 +176225,21 @@
       "archiveCollection": "nasa",
       "status": "ingested",
       "discovered_at": "2026-11-18T12:28:09Z",
+      "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
+      "iaid": "bernie-phyls-new-england-commercial-2005-suede-so-soft",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Bernie & Phyl's (New England) Commercial, 2005 Suede So Soft",
+      "year": 2005,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-18T12:34:23Z",
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
@@ -262849,6 +262921,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "autumn-almanac-bela-tarr",
+      "title": "Autumn Almanac (1984)",
+      "year": 1984,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
       "iaid": "Mommartz_TISCH_STUHL_1983",
       "title": "Please Delete This file",
       "year": 1983,
@@ -307830,6 +307916,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "the-water-was-so-clear-jpn",
+      "title": "The Water Was So Clear (1973)",
+      "year": 1973,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
       "wikidataQID": "Q7419986",
       "title": "Santa and the Ice Cream Bunny",
       "year": 1972,
@@ -315502,6 +315602,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-17T12:44:35Z",
       "ingested_at": "2026-11-17T12:50:12Z"
+    },
+    {
+      "iaid": "szindbad-1971-hungarian",
+      "title": "Sinbad (1971)",
+      "year": 1971,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
     },
     {
       "iaid": "0512_That_Junior_Miss_Spirit_03_01_00_05",
@@ -414430,6 +414544,20 @@
       "ingested_at": "2026-11-17T12:50:12Z"
     },
     {
+      "iaid": "the-idiot-kurosawa",
+      "title": "The Idiot (1951)",
+      "year": 1951,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
       "iaid": "march-of-the-wooden-soldiers_202102",
       "title": "March of the Wooden Soldiers",
       "year": 1950,
@@ -466105,6 +466233,22 @@
       "resolvedVia": "title",
       "resolveScore": 120.0,
       "ingested_at": "2026-08-05T06:18:41Z"
+    },
+    {
+      "iaid": "TooManyCrooks1959_201808",
+      "title": "Too Many Crooks",
+      "year": 1930,
+      "imdbID": "tt0021485",
+      "wikidataQID": "Q7823880",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "wants_wikidata_age",
+      "pdEvidence": "published before 1931 (US PD by age; no P6216 flag)",
+      "status": "ingested",
+      "discovered_at": "2026-11-18T12:27:33Z",
+      "resolvedVia": "title",
+      "resolveScore": 100.4,
+      "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
       "iaid": "swing-high-1930-all-talking-musical-pathe-helen-twelvetrees-fred-scott-and-dorothy-burgess",
@@ -899595,6 +899739,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "EIThaxaXNCUoL2etIWMFgc7jsE36DG",
+      "title": "\"VACATION VARIETIES\" 1950s TRIP TO RESORTS IN CALIFORNIA, ARIZONA, TEXAS XD5107",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:25:13Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -906067,22 +906225,6 @@
       "pdEvidence": "published before 1931 (US PD by age; no P6216 flag)",
       "status": "unresolved",
       "discovered_at": "2026-10-01T10:39:45Z"
-    },
-    {
-      "iaid": "TooManyCrooks1959_201808",
-      "title": "Too Many Crooks",
-      "year": 1930,
-      "imdbID": "tt0021485",
-      "wikidataQID": "Q7823880",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "source": "wants_wikidata_age",
-      "pdEvidence": "published before 1931 (US PD by age; no P6216 flag)",
-      "status": "ingested",
-      "discovered_at": "2026-11-18T12:27:33Z",
-      "resolvedVia": "title",
-      "resolveScore": 100.4,
-      "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
       "iaid": null,
@@ -1004391,25 +1004533,40 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "walmart-guitar-hero-world-tour-christmas-tv-commercial-2008-hq",
+      "iaid": "screen-recording-20261118-091644-you-tube",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Walmart - Guitar Hero World Tour Christmas TV Commercial (2008) (HQ)",
-      "year": 2008,
+      "title": "Adidas Nicole Scherzinger Commercial 2006",
+      "year": 2006,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-18T12:34:23Z",
-      "ingested_at": "2026-11-18T12:35:42Z"
+      "discovered_at": "2026-11-19T12:30:02Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
     },
     {
-      "iaid": "bernie-phyls-new-england-commercial-2005-suede-so-soft",
+      "iaid": "laila-ali-commercial",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Bernie & Phyl's (New England) Commercial, 2005 Suede So Soft",
+      "title": "Laila Ali Commercial",
+      "year": 2007,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-19T12:30:02Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
+      "iaid": "km_20261118-1_1080p_30f_20261118_182109",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Adidas Eva Wahlstrom Commercial 2005",
       "year": 2005,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
@@ -1004417,8 +1004574,8 @@
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-18T12:34:23Z",
-      "ingested_at": "2026-11-18T12:35:42Z"
+      "discovered_at": "2026-11-19T12:30:02Z",
+      "ingested_at": "2026-11-19T12:30:56Z"
     }
   ]
 }
