@@ -4801,6 +4801,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-19T22:46:21.970282+00:00",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "title": "The Boat",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2p5n7dn6d2o",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-19T22:46:21.970282+00:00",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "title": "The Boat",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117645535090352922",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-19T22:46:21.970282+00:00",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "title": "The Boat",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Df8L8rplgxH",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-19T22:46:21.970282+00:00",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "title": "The Boat",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Df8MBPfFukU/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117645534699883728",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-19T22:46:21.970282+00:00",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "title": "The Boat",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=czHkILA5W1U",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

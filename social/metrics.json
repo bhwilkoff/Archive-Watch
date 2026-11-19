@@ -6485,6 +6485,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n27w5uwqvp2n",
+   "platform": "bluesky",
+   "id": "gunsmoke_ranch",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-13T21:22:35.311026+00:00",
+   "sampled": "2026-11-19T22:47:37.645875+00:00",
+   "metrics": {
+    "likes": 2,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117611231771725931",
+   "platform": "mastodon",
+   "id": "gunsmoke_ranch",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-13T21:22:35.311026+00:00",
+   "sampled": "2026-11-19T22:47:37.645875+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2mmtl4dse2f",
+   "platform": "bluesky",
+   "id": "LeVoleurInvisible",
+   "slot": "double-bill",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-18T22:40:20.020440+00:00",
+   "sampled": "2026-11-19T22:47:37.645875+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117639849185810238",
+   "platform": "mastodon",
+   "id": "LeVoleurInvisible",
+   "slot": "double-bill",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-18T22:40:20.020440+00:00",
+   "sampled": "2026-11-19T22:47:37.645875+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
