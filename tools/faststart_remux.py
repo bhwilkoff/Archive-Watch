@@ -570,16 +570,16 @@ def main() -> int:
                 out_path.unlink(missing_ok=True)
                 record("upload_fail")
                 continue
-            hosted = f"{BASE_URL}/{args.item}/{name}"
+            hosted_url = f"{BASE_URL}/{args.item}/{name}"
             repoint(it, args.item, name)
             it.pop("faststartFailedAt", None)
             it.pop("faststartFailReason", None)
             flush_catalog(cat)
             with open(uploaded_log, "a") as ulog:
-                ulog.write(json.dumps({"archiveID": aid, "url": hosted, "at": time.time()}) + "\n")
-            record("uploaded", reason, hosted)
+                ulog.write(json.dumps({"archiveID": aid, "url": hosted_url, "at": time.time()}) + "\n")
+            record("uploaded", reason, hosted_url)
             stats["ok"] += 1
-            print(f"       hosted + re-pointed -> {hosted}")
+            print(f"       hosted + re-pointed -> {hosted_url}")
             if not args.keep_local:
                 out_path.unlink(missing_ok=True)
 

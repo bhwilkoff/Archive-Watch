@@ -1065,7 +1065,7 @@ def own_later_year(it):
         return None
     t = it.get("title") or ""
     found = []
-    syn = it.get("synopsis") or ""
+    syn = _synopsis_text(it)
     if not it.get("imdbID"):     # a match to a film record outranks an uploader's aside
         for m in _MADE_IN.finditer(syn):
             if not _REDATES.search(syn[max(0, m.start() - 60):m.end()]):

@@ -35,6 +35,8 @@ MOVE = [
     (it("30294", "The Ramparts We Watch", 1914, synopsis="This is a 1940’s era, black and white movie about"), 1940),
     (it("ew1", "The Heroic Days", 1902, synopsis="Shell Films produced this black-and-white film, “The Heroic Days,” in 1951."), 1951),
     (it("koko", "Mt. Vesuvius", 1926, synopsis="It likely dates to the 1930s."), 1930),
+    # archive.org repeats a field as a LIST; a raw list crashed publish-db for two days (2026-11-18)
+    (it("listed", "A Film", 1920, synopsis=["Storytime at the library", "This 1955 film was shot for the library"]), 1955),
 ]
 STAY = [
     it("koko-in-1999_1927", "Koko in 1999", 1927),                         # the year is the title
