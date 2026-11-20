@@ -1,279 +1,281 @@
 {
- "version": 2,
- "seriesID": "the-roy-rogers-show-1951",
- "tvmazeID": 2149,
- "title": "The Roy Rogers Show",
- "yearStart": 1951,
- "yearEnd": 1957,
- "overview": "After dozens of cowboy films stretching back to the 1930s, Roy Rogers finally came to the small screen for this long-running hit TV series. He of course was joined by his longtime love and costar, the sparklingly beautiful Dale Evans.",
- "posterURL": "https://artworks.thetvdb.com/banners/posters/77296-1.jpg",
- "backdropURL": null,
- "genres": [
-  "Adventure",
-  "Western"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-roy-rogers-show-1951",
+  "tvmazeID": 2149,
+  "title": "The Roy Rogers Show",
+  "yearStart": 1951,
+  "yearEnd": 1957,
+  "overview": "After dozens of cowboy films stretching back to the 1930s, Roy Rogers finally came to the small screen for this long-running hit TV series. He of course was joined by his longtime love and costar, the sparklingly beautiful Dale Evans.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77296-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "roy-rogers-show-tv-1951-s01e01-jailbreak",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Jailbreak",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1951-s01e01-jailbreak",
-     "airDate": "1951-12-30",
-     "year": 1951,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1951 colorized s01e01 Jailbreak.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 275803280,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1951-s01e01-jailbreak/Roy%20Rogers%20Show%20TV%201951%20colorized%20s01e01%20Jailbreak.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "roy-rogers-show-tv-1951-s01e01-jailbreak",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Jailbreak",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1951-s01e01-jailbreak",
+          "airDate": "1951-12-30",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1951 colorized s01e01 Jailbreak.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 275803280,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1951-s01e01-jailbreak/Roy%20Rogers%20Show%20TV%201951%20colorized%20s01e01%20Jailbreak.mp4"
+        },
+        {
+          "archiveID": "roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Doc Stevens' Traveling Store",
+          "overview": "The overly social salesman \"Doc\" Stevens travels around his territory with a very troubling secret: he has a transmitter in the back of his wagon that he uses to relay warnings to a band of outlaws working in the area. After Roy discovers Doc's secret, he soon finds himself in trouble.",
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store",
+          "airDate": "1952-01-06",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1952 colorized s01e02 Doc Stevens Traveling Store.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189375662,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e02%20Doc%20Stevens%20Traveling%20Store.mp4"
+        },
+        {
+          "archiveID": "roy-rogers-show-tv-1952-s01e05-train-robbery",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Train Robbery",
+          "overview": "When a less than honest postmaster learns that a valuable bank shipment will be passing through Mineral City on the train, he hires a pair of gunmen to blast the train track in order to get his hands on the money. As a result, Roy gets deputized to help the sheriff out.",
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e05-train-robbery",
+          "airDate": "1952-02-03",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1952 colorized s01e05 Train Robbery.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 215975697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e05-train-robbery/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e05%20Train%20Robbery.mp4"
+        },
+        {
+          "archiveID": "TheRoyRogersShow-OutlawsGirl",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Outlaw's Girl",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheRoyRogersShow-OutlawsGirl",
+          "airDate": "1952-02-17",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 117994692,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheRoyRogersShow-OutlawsGirl/The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4"
+        },
+        {
+          "archiveID": "roy-rogers-show-tv-1952-s01e08-the-desert-fugitive",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Desert Fugitive",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e08-the-desert-fugitive",
+          "airDate": "1952-02-24",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1952 colorized s01e08 The Desert Fugitive.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 204836552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e08-the-desert-fugitive/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e08%20The%20Desert%20Fugitive.mp4"
+        },
+        {
+          "archiveID": "roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Haunted Mine of Paradise Valley",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley",
+          "airDate": "1952-05-18",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1952 colorized s01e19 Haunted Mine of Paradise Valley.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 216423009,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e19%20Haunted%20Mine%20of%20Paradise%20Valley.mp4"
+        },
+        {
+          "archiveID": "roy-rogers-show-tv-1952-s01e21-the-doublecrosser",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Doublecrosser",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e21-the-doublecrosser",
+          "airDate": "1952-06-01",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1952 colorized s01e21 The Doublecrosser.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179182764,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e21-the-doublecrosser/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e21%20The%20Doublecrosser.mp4"
+        },
+        {
+          "archiveID": "roy-rogers-show-tv-1952-s01e22-carnival-killer",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Carnival Killer",
+          "overview": "When the owner of a travelling carnival is found murdered, Dale, Pat, and Roy help Sheriff Blodgett investigate what happened. It doesn't take long for them to discover the prime suspect: a young cowboy who had a bullwhip act in the carnival who was wooing the carnival owner's daughter. However, after talking to the young man, Roy suspects that he might be framed and that there were several people employed by the carnival that had grudges with the owner, and has to figure out who is the actual murderer.",
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e22-carnival-killer",
+          "airDate": "1952-06-08",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1952 colorized s01e22 Carnival Killer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224902871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e22-carnival-killer/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e22%20Carnival%20Killer.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Doc Stevens' Traveling Store",
-     "overview": "The overly social salesman \"Doc\" Stevens travels around his territory with a very troubling secret: he has a transmitter in the back of his wagon that he uses to relay warnings to a band of outlaws working in the area. After Roy discovers Doc's secret, he soon finds himself in trouble.",
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store",
-     "airDate": "1952-01-06",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1952 colorized s01e02 Doc Stevens Traveling Store.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 189375662,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e02%20Doc%20Stevens%20Traveling%20Store.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Bullets and a Burro",
+          "overview": "After hearing an old prospector brag that he struck it rich in Dale's café, an outlaw gang, headed by the sheriff's brother, decides to rob him of his claim. Roy sets out to stop them and keep the old man safe.",
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro",
+          "airDate": "1953-11-15",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1953 colorized s03e04 Bullets and a Burro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237395209,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro/Roy%20Rogers%20Show%20TV%201953%20colorized%20s03e04%20Bullets%20and%20a%20Burro.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "roy-rogers-show-tv-1952-s01e05-train-robbery",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "The Train Robbery",
-     "overview": "When a less than honest postmaster learns that a valuable bank shipment will be passing through Mineral City on the train, he hires a pair of gunmen to blast the train track in order to get his hands on the money. As a result, Roy gets deputized to help the sheriff out.",
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e05-train-robbery",
-     "airDate": "1952-02-03",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1952 colorized s01e05 Train Robbery.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 215975697,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e05-train-robbery/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e05%20Train%20Robbery.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "The Horse Mixup",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
+          "airDate": "1956-03-24",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1956 colorized s05e15 The Horse Mixup.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 208595771,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1956-s05e15-the-horse-mixup/Roy%20Rogers%20Show%20TV%201956%20colorized%20s05e15%20The%20Horse%20Mixup.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "TheRoyRogersShow-OutlawsGirl",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Outlaw's Girl",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/TheRoyRogersShow-OutlawsGirl",
-     "airDate": "1952-02-17",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4",
-      "format": "512Kb MPEG4",
-      "sizeBytes": 117994692,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheRoyRogersShow-OutlawsGirl/The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4"
-    },
-    {
-     "archiveID": "roy-rogers-show-tv-1952-s01e08-the-desert-fugitive",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Desert Fugitive",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e08-the-desert-fugitive",
-     "airDate": "1952-02-24",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1952 colorized s01e08 The Desert Fugitive.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 204836552,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e08-the-desert-fugitive/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e08%20The%20Desert%20Fugitive.mp4"
-    },
-    {
-     "archiveID": "roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Haunted Mine of Paradise Valley",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley",
-     "airDate": "1952-05-18",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1952 colorized s01e19 Haunted Mine of Paradise Valley.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 216423009,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e19%20Haunted%20Mine%20of%20Paradise%20Valley.mp4"
-    },
-    {
-     "archiveID": "roy-rogers-show-tv-1952-s01e21-the-doublecrosser",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "The Doublecrosser",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e21-the-doublecrosser",
-     "airDate": "1952-06-01",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1952 colorized s01e21 The Doublecrosser.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 179182764,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e21-the-doublecrosser/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e21%20The%20Doublecrosser.mp4"
-    },
-    {
-     "archiveID": "roy-rogers-show-tv-1952-s01e22-carnival-killer",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Carnival Killer",
-     "overview": "When the owner of a travelling carnival is found murdered, Dale, Pat, and Roy help Sheriff Blodgett investigate what happened. It doesn't take long for them to discover the prime suspect: a young cowboy who had a bullwhip act in the carnival who was wooing the carnival owner's daughter. However, after talking to the young man, Roy suspects that he might be framed and that there were several people employed by the carnival that had grudges with the owner, and has to figure out who is the actual murderer.",
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1952-s01e22-carnival-killer",
-     "airDate": "1952-06-08",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1952 colorized s01e22 Carnival Killer.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 224902871,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e22-carnival-killer/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e22%20Carnival%20Killer.mp4"
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw",
+          "seasonNumber": 6,
+          "episodeNumber": 10,
+          "title": "Junior Outlaw",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw",
+          "airDate": "1957-02-10",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1957 colorized s06e10 \"Junior Outlaw\".mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133841352,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw/Roy%20Rogers%20Show%20TV%201957%20colorized%20s06e10%20%22Junior%20Outlaw%22.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+  ],
+  "episodesCount": 11,
+  "canonicalEpisodesCount": 100,
+  "tvmazeRating": 7.9,
+  "tvdbID": "77296",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "Bullets and a Burro",
-     "overview": "After hearing an old prospector brag that he struck it rich in Dale's café, an outlaw gang, headed by the sheriff's brother, decides to rob him of his claim. Roy sets out to stop them and keep the old man safe.",
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro",
-     "airDate": "1953-11-15",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1953 colorized s03e04 Bullets and a Burro.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 237395209,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro/Roy%20Rogers%20Show%20TV%201953%20colorized%20s03e04%20Bullets%20and%20a%20Burro.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
+      "name": "Dale Evans",
+      "character": "Herself",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/338802/photo/64c527d72bcac.jpg"
+    },
     {
-     "archiveID": "roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
-     "seasonNumber": 5,
-     "episodeNumber": 15,
-     "title": "The Horse Mixup",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
-     "airDate": "1956-03-24",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1956 colorized s05e15 The Horse Mixup.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 208595771,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1956-s05e15-the-horse-mixup/Roy%20Rogers%20Show%20TV%201956%20colorized%20s05e15%20The%20Horse%20Mixup.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 6,
-   "episodes": [
+      "name": "Reed Howes",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
     {
-     "archiveID": "roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw",
-     "seasonNumber": 6,
-     "episodeNumber": 10,
-     "title": "Junior Outlaw",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw",
-     "airDate": "1957-02-10",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Roy Rogers Show TV 1957 colorized s06e10 \"Junior Outlaw\".mp4",
-      "format": "MPEG4",
-      "sizeBytes": 133841352,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw/Roy%20Rogers%20Show%20TV%201957%20colorized%20s06e10%20%22Junior%20Outlaw%22.mp4"
+      "name": "Pat Brady",
+      "character": "Himself",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Roy Rogers",
+      "character": "Himself",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Harry Harvey",
+      "character": "Sheriff",
+      "order": 4,
+      "profilePath": null
     }
-   ]
-  }
- ],
- "episodesCount": 11,
- "canonicalEpisodesCount": 100,
- "tvmazeRating": 7.9,
- "tvdbID": "77296",
- "artworkSource": "tvdb",
- "cast": [
-  {
-   "name": "Dale Evans",
-   "character": "Herself",
-   "order": 0,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/338802/photo/64c527d72bcac.jpg"
-  },
-  {
-   "name": "Reed Howes",
-   "character": "",
-   "order": 1,
-   "profilePath": null
-  },
-  {
-   "name": "Pat Brady",
-   "character": "Himself",
-   "order": 2,
-   "profilePath": null
-  },
-  {
-   "name": "Roy Rogers",
-   "character": "Himself",
-   "order": 3,
-   "profilePath": null
-  },
-  {
-   "name": "Harry Harvey",
-   "character": "Sheriff",
-   "order": 4,
-   "profilePath": null
-  }
- ],
- "seriesImdbID": "tt0043225",
- "imdbRating": 7.1,
- "imdbVotes": 750
+  ],
+  "seriesImdbID": "tt0043225",
+  "imdbRating": 7.1,
+  "imdbVotes": 750,
+  "canonicalEpisodeCount": 50,
+  "canonicalSeasons": 6
 }
