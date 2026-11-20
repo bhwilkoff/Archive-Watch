@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-19T10:25:35Z",
+  "updated_at": "2026-11-20T10:05:29Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-19T10:25:35Z"
+      "last_tried": "2026-11-20T10:05:29Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-19T10:25:35Z"
+      "last_tried": "2026-11-20T10:05:29Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -407164,6 +407164,1425 @@
         "mc": 97
       },
       "fetched_at": "2026-11-19T10:25:35Z",
+      "schema": 4
+    },
+    "tt0040577": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2Y1Njg0NTMtYTU1MS00YmE0LWEyZTUtYzdjODYyNDVkMGI3XkEyXkFqcGdeQXVyMjA0MzYwMDY@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 601,
+      "content_rating": "Not Rated",
+      "plot": "No-nonsense businesswoman Millie McGonigle desperately wants to adopt her orphaned neighbor Tommy. When the question of a husband comes up, Millie invents a fiancé who is working in Alaska. Ralph Galloway, who runs the foundling home, gives her 60 days to present her fiancé for his adoption interview. Millie sets her eyes on Doug Andrews, but he quickly informs her he is a confirmed bachelor. However, Doug is willing to help Millie find a husband. Doug's lessons in the art of allurement soon catch the eye of playboy neighbor Phil Gowan.",
+      "runtime_min": 87,
+      "director": "Henry Levin",
+      "actors": [
+        "Glenn Ford",
+        "Evelyn Keyes",
+        "Ron Randell"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0040866": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZmY0ZTEyMjUtMDdjZC00YmE2LWIwZDUtOGUzMjBiZDdhYjFkXkEyXkFqcGc@._V1_QL75_UY562_CR11,0,380,562_.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 6324,
+      "content_rating": "Not Rated",
+      "plot": "Poor Sicilian fishermen are exploited by fish wholesalers. One of the families is trying to escape them by being their own bosses and buying their own boat. But nobody helps them, and even the weather and fate are against them. How can they win in a wild world?",
+      "runtime_min": 160,
+      "director": "Luchino Visconti",
+      "actors": [
+        "Luchino Visconti",
+        "Antonio Pietrangeli",
+        "Antonio Arcidiacono"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 82
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0050870": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmE5ZGM4M2MtMzE0Zi00MTQ0LTkyNTgtNDc0ZmZhNmJkZGY2XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 8.3,
+      "imdb_votes": 8437,
+      "content_rating": "Not Rated",
+      "plot": "Vijay a poet whose work is not taken seriously by the publishers even his elder brothers dislike him for the same and want him to find a suitable job.Due to all this Vijay leaves his house and starts living alone where once he encounters a prostitute Gulabo murmuring his poem and follows her but she feels he is an impostor.But Gulabo soon realizes her mistake and meets him and both develop feeling for each other he comes across Ghosh a publisher who wants to publish his poems but in turn hires him as a servant.Vijay finds that his former lover Meena is married to Ghosh for financial security and when Ghosh finds about it he fires him from work.Vijay is again left jobless and no where a beggar whom Vijay gave his coat meets with a train accident and everyone believes he is dead.But Vijay is very much alive and tries to prove his identity but his sent to an asylum where his brothers and Ghosh refuse to identify him.",
+      "runtime_min": 146,
+      "director": "Guru Dutt",
+      "actors": [
+        "Guru Dutt",
+        "Waheeda Rehman",
+        "Mala Sinha"
+      ],
+      "genres": [
+        "Drama",
+        "Musical",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0054073": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODg4MzdhMzUtMDc0Zi00NzlhLWFhZTctZWFmZjY1M2IzZmEzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 3751,
+      "content_rating": "Not Rated",
+      "plot": "\"Meghe Dhaka Tara\" tells the tragic story of the beautiful daughter of a middle-class refugee family from East Pakistan, living in the outskirts of Calcutta under modest circumstances. Neeta sacrifices everything for her family, including her personal happiness, her money, and her health, while her achievements are hardly ever recognized by the people around her.",
+      "runtime_min": 126,
+      "director": "Ritwik Ghatak",
+      "actors": [
+        "Supriya Choudhury",
+        "Anil Chatterjee",
+        "Gyanesh Mukherjee"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0056619": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzA5NjU5MDk2Ml5BMl5BanBnXkFtZTgwODYyMzAxNDE@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 127,
+      "content_rating": null,
+      "plot": "Set in a mining town in the Donets Basin, it centers on a clash between the political establishment and a religious cult which infiltrates the community.",
+      "runtime_min": 71,
+      "director": "Sergei Parajanov",
+      "actors": [
+        "Inna Burduchenko",
+        "Lyudmila Cherepanova",
+        "Boris Dmokhovsky"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0057058": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjQyMTEzYzYtOTdlMy00NjNiLTk3NzMtNWJlZWIzNzJhNTI1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 10815,
+      "content_rating": "Not Rated",
+      "plot": "Alain Leroy is having a course of treatment in a private hospital because of his problem with alcohol. Although he is constantly distressed, he leaves the hospital and tries to meet good old days' friends. None of them will be helpful, increasing Alain's distress.",
+      "runtime_min": 108,
+      "director": "Louis Malle",
+      "actors": [
+        "Maurice Ronet",
+        "Léna Skerla",
+        "Yvonne Clech"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 82
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0058349": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTRjZmYyMjctZGM4Yy00Njc1LTllMTAtZmU0NTgyYjlhNmZmXkEyXkFqcGc@._V1_QL75_UY562_CR11,0,380,562_.jpg",
+      "imdb_rating": 8.0,
+      "imdb_votes": 2506,
+      "content_rating": null,
+      "plot": "After a bombing raid destroys the family store and her husband, Reiko rebuilds and runs the shop out of love stopped short by destruction.",
+      "runtime_min": 98,
+      "director": "Mikio Naruse",
+      "actors": [
+        "Hideko Takamine",
+        "Yûzô Kayama",
+        "Mitsuko Kusabue"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0064785": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWYyYzc5YjgtNTVmMC00ZjYxLTkyZWQtMjFiNGUwYWUyMjhlXkEyXkFqcGc@._V1_QL75_UY562_CR6,0,380,562_.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 1981,
+      "content_rating": null,
+      "plot": "In 1668 the Ottoman Empire decides to attack and invade the Polish-Lithuanian Commonwealth which is one of the few major European powers to still stand in the destructive path of the Ottomans.Having recently retired to a monastery,Polish Colonel Michael Wolodyjowski is no longer in active duty.However,the Polish king,Jan Sobieski knows that Colonel Wolodyjowski is an able commander and sends for him,recalling him to active duty.Joining his old comrades in arms,including the English noble Ketling Hassling of Elgin, Colonel Wolodyjowski takes command of the Polish defenses on the Eastern Frontier.He prepares for the arrival of the invading Ottoman armies and Tatar Hordes and waits.The fate of Christian Europe lies in his hands.",
+      "runtime_min": 160,
+      "director": "Jerzy Hoffman",
+      "actors": [
+        "Tadeusz Lomnicki",
+        "Magdalena Zawadzka",
+        "Mieczyslaw Pawlikowski"
+      ],
+      "genres": [
+        "Adventure",
+        "Drama",
+        "History"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0069035": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmVhYzQ5ZjAtZjU1ZS00MjFlLWE0NTQtNTI5YTdiNWQ4YzYzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 8.0,
+      "imdb_votes": 5451,
+      "content_rating": "PG",
+      "plot": "The continuing saga of the Nilssons - husband and wife Karl-Oskar and Kristina, their several young children with another on the way, Karl-Oskar's younger brother Robert, and some of their extended family members such as Kristina's Uncle Danjel - and several of their Swedish compatriots is presented. This phase of their story begins where their saga in Utvandrarna (1971) left off, in the fall of 1850, having just arrived in Minnesota from their native Sweden to begin what they hope will be a better life. They left Sweden because of the harsh and worsening conditions of their farm life, and chose Minnesota based on the stories of many of their Swedish friends who emigrated there before them. While Karl-Oskar goes through the process of setting up their homestead, eighteen year old Robert already has bigger dreams of striking it big in the California gold rush, something he is reluctant to tell Karl-Oskar until he is ready to leave if only having been under Karl-Oskar's guardianship and Karl-Oskar perhaps thinking him too young, impulsive and thus foolish. His plan is to go with his best friend Arvid, the two of them who would take the steamship down the river to St. Louis, from where they would walk the rest of the way. Also reluctant to say anything is Kristina, who can't help believe they made a mistake in leaving Sweden and their known life. Karl-Oskar and Kristina go through a series of highs and lows in their new life, some related specifically to being in Minnesota at this point in time, such as dealing with Indians and the imminent Civil War, and not knowing the language, and some related to their general life regardless of location, including Kristina's feeling of her role in the family. Robert's California tale is also told, he who returns back to Minnesota with a bagful of money four years after leaving, but who looks a little worse for wear.",
+      "runtime_min": 102,
+      "director": "Jan Troell",
+      "actors": [
+        "Max von Sydow",
+        "Liv Ullmann",
+        "Eddie Axberg"
+      ],
+      "genres": [
+        "Drama",
+        "Western"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0070260": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjM5ZjgzN2EtZjdkNC00ZDA1LThlOWItYjc4ZGJkMGUyZTEzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 547,
+      "content_rating": "Not Rated",
+      "plot": "Ikka Kita is a revolutionary, who suffers when he is brought his younger brother's clothes, still smeared with his blood. Ikka's brother followed the revoltionary's precept and acted, attempting on the life of a finantial group manager and then, unable to escape, killing himself. Now, Ikka is more determined than ever to take his own teachings to the ultimate end, the «coup d'etat».",
+      "runtime_min": 110,
+      "director": "Yoshishige Yoshida",
+      "actors": [
+        "Rentarô Mikuni",
+        "Yasuo Miyake",
+        "Akiko Kurano"
+      ],
+      "genres": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0070809": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzlmMDg1MjUtMWEyMS00OTc5LWJlMmEtZjgyNWIxMThjNmJiXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 1398,
+      "content_rating": "Not Rated",
+      "plot": "A fisherman, Kishore, marries Basanti when he visits a nearby village. After their wedding night (during which the couple is almost too shy to speak), she is kidnapped on the river. When she is found, she has amnesia; although Basanti does not remember her new husband's name or what he looks like, she remembers the name of his village. Ten years pass before she attempts to find him with their son, who sees his mother as a goddess. Some residents of Kishore's village refuse to share food with Basanti and her son because of the ever-present threat of starvation.",
+      "runtime_min": 159,
+      "director": "Ritwik Ghatak",
+      "actors": [
+        "Rosy Samad",
+        "Kabori Sarwar",
+        "Rawshan Zamil"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0075411": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzAwNzExMDQ4Ml5BMl5BanBnXkFtZTcwMDAxNzI3NQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 311,
+      "content_rating": null,
+      "plot": "Roy is a handsome Surinam man, who studies in Amsterdam. He hurriedly left his Dutch girlfriend Karina to visit his dying mom in Paramaribo. Back in his homeland, Roy soon becomes obsessed with his own country and it's culture. When he falls for the Hindu nurse Rubia, the conservative Hindu and Black communities are in revolt. One day Karina arrives in Surinam too.",
+      "runtime_min": 111,
+      "director": "Pim de la Parra",
+      "actors": [
+        "Borger Breeveld",
+        "Diana Gangaram Panday",
+        "Willeke van Ammelrooy"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0076452": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmE2MzM4OTYtZDVkZS00NmRjLWExY2UtMjcxYjg4ZmI2MDc5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 3030,
+      "content_rating": null,
+      "plot": "Chantal Akerman, the Belgian filmmaker, lives in New York. Filmed images of the City are accompanied by the texts of Chantal Akerman's loving but manipulative mother back home in Brussels. The City comes more and more to the front while the words of the mother, read by Akerman herself, gradually fade away.",
+      "runtime_min": 85,
+      "director": "Chantal Akerman",
+      "actors": [
+        "Chantal Akerman"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0077138": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTkxZGQ1MGMtOTNkNy00MGM5LWEzMDYtYmFhZWY0NTBiN2EwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 7136,
+      "content_rating": "Not Rated",
+      "plot": "The life inside a farm in Italy at the end of the 19th century. Many poor country families live there, and the owner pays them by their productivity. One of the families has a very clever child. They decide to send him to school instead of make him help them, although this represents a great sacrifice. The boy has to wake up very early and walk several miles to get to the school. One day the boy's shoes break when returning home, but they do not have money to buy another pair. What can they do?",
+      "runtime_min": 186,
+      "director": "Ermanno Olmi",
+      "actors": [
+        "Luigi Ornaghi",
+        "Francesca Moriggi",
+        "Omar Brignoli"
+      ],
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "critics": {
+        "rt": 95
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0078152": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDhkMjkxM2QtMjNmOS00YWIzLWI3OWItZjdlZGFlYWJkMDY0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 2226,
+      "content_rating": null,
+      "plot": "Anna, a detached and diffident director, arrives in Germany to show her latest film; she checks into a hotel, invites a stranger to her bed, and abruptly tells him to leave. He asks her to a birthday lunch with his mother and daughter; she goes. Afterward, in Cologne, she meets an old friend, a Polish Jew and war refugee. In Brussels, she spends the night at a hotel with her mother, whom she rarely sees. On the train, a stranger tells his story. Last, it's home to Paris, where her lover Daniel picks her up and they go to a hotel. Throughout, people make personal revelations to her, and Anna listens with little affect. Although it was 30 years ago, the war seems ever present.",
+      "runtime_min": 128,
+      "director": "Chantal Akerman",
+      "actors": [
+        "Aurore Clément",
+        "Helmut Griem",
+        "Magali Noël"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 71
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0080341": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGFlMWE5OGYtNzQ4NS00NmYwLWJjNWMtOTg0NDMyZDkyODEwXkEyXkFqcGdeQXVyMjM2NjUwNTI@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 353,
+      "content_rating": null,
+      "plot": "7 September, 1980. A film crew comes to a village to make a film about a famine, which killed five million Bengalees in 1943. It was a man made famine, a side- product of the war, and the film crew will create the tragedy of those millions who died of starvation. The film documents the convivial life among the film crew and the hazards, problems and tension of film making on location. The actors live a double life, and the villagers, both simple and not-so-simple folk watch their work with wonder and suspicion. But as the film progresses, the recreated past begins to confront the present. The uneasy coexistence of 1943 and 1980 reveals bizarre connection, involving a village woman whose visions add a further dimension of time-that of future. A disturbing situation, indeed, for the \"famine-seekers\"!",
+      "runtime_min": 115,
+      "director": "Mrinal Sen",
+      "actors": [
+        "Satya Banerjee",
+        "Radhamohan Bhattacharya",
+        "Dhritiman Chatterjee"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0081030": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDFmYTIxZmItZTdkNi00ZjAzLTlmYzAtOGExYTk2ZDI0YTRjXkEyXkFqcGdeQXVyNDMzNDQ4ODA@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 453,
+      "content_rating": null,
+      "plot": "A loving film tribute to Russian filmmaker Larisa Shepitko, who died tragically in a car accident in 1979 at the age of 40. This documentary by her husband, Elem Klimov, includes excerpts from all of Shepitko's films, and her own voice is heard talking about her life and art.",
+      "runtime_min": 25,
+      "director": "Elem Klimov",
+      "actors": [
+        "Elem Klimov",
+        "Valentin Rasputin",
+        "Stefaniya Stanyuta"
+      ],
+      "genres": [
+        "Short",
+        "Biography"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0084807": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTcyMDI2MjAtODAwNS00OTRkLWFjOTgtYjIzZjVlODJjMGU4XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 2027,
+      "content_rating": "R",
+      "plot": "A Japanese reporter arrives in Vietnam hoping to capture the essence the society under the rule of the Communist Party. With the help of a vietnamese girl, he eventually opens his eyes to the painful truth of postwar Vietnam.",
+      "runtime_min": 109,
+      "director": "Ann Hui",
+      "actors": [
+        "George Lam",
+        "Cora Miao",
+        "Season Ma"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0088097": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzAxZTBlNDYtMWQwMi00ZjA5LTlkZTktOTNjNWVkYmZhMjgwXkEyXkFqcGc@._V1_QL75_UY562_CR3,0,380,562_.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 1289,
+      "content_rating": null,
+      "plot": "In 1937 Shanghai, a soon-to-depart soldier meets a young woman under a bridge during a Japanese air raid. They vow to meet after the war ends, but they don't each other's name or face. Ten years later, the young woman, a nightclub singer, takes in a naive girl fresh from the country. The country girl falls in love with the would-be song-writer upstairs who, unbeknownst to the singer, is none other than the soldier from the bridge.",
+      "runtime_min": 103,
+      "director": "Hark Tsui",
+      "actors": [
+        "Kenny Bee",
+        "Sylvia Chang",
+        "Sally Yeh"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "critics": {
+        "mc": 70
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0090340": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWIxNzBmOTgtMzdhOS00YmZhLTg5MDAtOGQwZjU3MWQyMTZjXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 8.0,
+      "imdb_votes": 663,
+      "content_rating": null,
+      "plot": "Follows a Red Army company from training, through combat in the Sino-Vietnamese War of 1979, and the aftermath of war, focusing on the anger created by nepotism among the Party elite.",
+      "runtime_min": 139,
+      "director": "Jin Xie",
+      "actors": [
+        "Xiaohe Lü",
+        "Guoqiang Tang",
+        "Wei He"
+      ],
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0091190": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGMxZTRmMTAtYjI5OC00YmRiLThkOTktODM0OWY4OGNlMTYyXkEyXkFqcGc@._V1_QL75_UY562_CR31,0,380,562_.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 654,
+      "content_rating": "Not Rated",
+      "plot": "Engineer Zhao Shuxin likes playing chess a lot. Once during his business trip, he loses a black cannon chessman which leads to unexpected consequences for him.",
+      "runtime_min": 96,
+      "director": "Jianxin Huang",
+      "actors": [
+        "Zifeng Liu",
+        "Ming Gao",
+        "Gerhard Olschewski"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0093791": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmE5NDMxZTUtMWNlNi00MTBhLTk2MWQtNzU0MjQ4ZmZiYWU4XkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 1042,
+      "content_rating": null,
+      "plot": "A woman is walking alone through an abandoned city. She approaches the forbidden zone and tries to pass through. Everywhere the Morning Patrol and deceptive traps are watching. The city itself is alive but uncontrolled. Computer voices warn non-existing inhabitants to leave the city. The communication system works... cinemas show films... classic faces of a past era flash across TV screens. She is confronted by one of the few survivors guarding the city. They will come close to each other ; they will try to recall the past. Together they unravel their tangled memory - threads of this catastrophe and decide to penetrate the zone together ; They are linked by the bonds of violence and death since no other behaviour is possible in this kind of world. Is there an end? Is there hope and any future since no person that was allowed through ever returned to tell us whether the freedom of the sea exists. The fugitives encounter increasing dangers... A story of love in this unbearable world... what point can it have?",
+      "runtime_min": 108,
+      "director": "Nikos Nikolaidis",
+      "actors": [
+        "Michele Valley",
+        "Takis Spyridakis",
+        "Panos Thanassoulis"
+      ],
+      "genres": [
+        "Drama",
+        "Sci-Fi"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0093944": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmJlNWJkOTEtOWVhNS00ZjhlLTkxMGUtNTExOWVkZmI1NzA3XkEyXkFqcGc@._V1_QL75_UY562_CR16,0,380,562_.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 1076,
+      "content_rating": null,
+      "plot": "Two Young couples Lap (Joey Wang) and Rick (Kenny Bee) separates when Lap's Father (Kwan Hoi San) fails a mission, and Lap asks his father's partner Godfather Shen (Chan Wai Man) for help help and becoming his unwillingly moll, but 6 years later, Rick travels abroad to work as an assassin for hire. But Lap and Rick's love stays strong, and when the two are reunited, their rekindled emotions lead them into extreme danger.",
+      "runtime_min": 90,
+      "director": "Patrick Tam",
+      "actors": [
+        "Kenny Bee",
+        "Tony Leung Chiu-wai",
+        "Joey Wang"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0094357": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc3YzExNTYtZDg1NC00YWJlLTk4NzYtNzMxYTlmMTg0NDQ4XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 13059,
+      "content_rating": "Not Rated",
+      "plot": "In this sequel, Ho initially refuses to go undercover to bust the gang he used to work for in exchange for his release from prison. He only accepts after his little brother, the policeman Kit accepts the assignment. Meanwhile in New York Ken Gor, the twin brother of Mark Gor from the 1st movie, shelters the boss of the gang, who has had to flee after it is taken over by a more aggressive leadership.",
+      "runtime_min": 105,
+      "director": "John Woo",
+      "actors": [
+        "Leslie Cheung",
+        "Chow Yun-Fat",
+        "Lung Ti"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 63
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0095040": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDJkZGYzMGEtY2JiNS00M2U2LThjOTctZDc0MTZmMDE5NjNmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 1118,
+      "content_rating": null,
+      "plot": "Days of Eclipse is filmed in a psychedelic manner close to stream of consciousness using unusual cinematographic techniques. The action is set in Middle Asia.",
+      "runtime_min": 139,
+      "director": "Aleksandr Sokurov",
+      "actors": [
+        "Aleksei Ananishnov",
+        "Eskender Umarov",
+        "Irina Sokolova"
+      ],
+      "genres": [
+        "Drama",
+        "Sci-Fi"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0095607": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTgxMTUyNjIwOF5BMl5BanBnXkFtZTcwMDU1MzQyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 3709,
+      "content_rating": null,
+      "plot": "Medea is in Corinth with Jason and their two young sons. King Kreon wants to reward Jason for his exploits: he gives the hand of his daughter, Glauce, to Jason as well as the promise of the throne. In exchange, Medea and the boys are to be banished. Jason explains that his actions ensure a rich future for Medea and her sons. She asks that she be allowed to stay; Kreon refuses. She asks for one more day, and begs Jason to seek the king's permission to allow their sons to stay in Corinth. Jason agrees and Medea prepares a gift for her sons to give to Glauce. Will Medea leave peacefully?",
+      "runtime_min": 76,
+      "director": "Lars von Trier",
+      "actors": [
+        "Udo Kier",
+        "Kirsten Olesen",
+        "Henning Jensen"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 86,
+        "mc": 84
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0099927": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzdkOTk3YzYtMDQ2OS00ZWYwLTk1OTAtNjJmOTEzMTllN2YzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 587,
+      "content_rating": null,
+      "plot": "After the Sino-Japanese War, Kwei Dz, one of the family members of Japanese soldiers accepted a Chinese officer's proposal and remained in China. Later they had a daughter named Ann. The officer went to Hong Kong to work, leaving Kwei Dz and Ann in Macao. Kwei Dz, unable to communicate with her in-laws, much less accept their ways, became remorseful. Yet the worst problem she had was that Ann did not accept her as a mother. After Ann got a Master Degree in UK she went back to Hong Kong. Kwei Dz had been feeling very homesick for her mother country and decided to take Ann and return to Japan. In Japan, Ann began to understand her mother's pain because she did not understand Japan or the Japanese. Later a telegram from Canton arrived saying that Ann's grandfather had had a stroke. Upon seeing her to grandfather, Ann realized that, in spite of his now frail body, a body once tortured by Red Guards, he was so hopeful for China's future. Ann saw that China was now trying to find its own way in the midst of its self-inflicted turmoil.",
+      "runtime_min": 100,
+      "director": "Ann Hui",
+      "actors": [
+        "Maggie Cheung",
+        "Siu-Kwong Chung",
+        "Tan Lang Jachi Tian"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0104800": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2M1MjdlNDItNmEwYy00MzJiLWE5OGUtM2Y0NjhkMmRmNTc2XkEyXkFqcGdeQXVyMjY2OTU0MTg@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 52,
+      "content_rating": null,
+      "plot": "Often cited as China's first independent feature film, this low-budget drama, filmed largely in the director's Beijing apartment, depicts the life of a single mother (a topic considered taboo at the time) caring for her mentally challenged son. Shot with a documentary aesthetic that includes interviews with families of mentally challenged persons, the film helped kick-start the Sixth Generation of filmmakers (including Wang Xiaoshuai and Jia Zhangke) and their ethos of employing documentary realism to depict the true conditions of contemporary China.",
+      "runtime_min": 90,
+      "director": "Yuan Zhang",
+      "actors": [
+        "Qingyu Yan",
+        "Xiaodan Yang"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0106342": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTJiNDMxOTAtZjIxMC00MmU3LWJjOGMtNGEzOTNlNDFlMTA2XkEyXkFqcGc@._V1_QL75_UY562_CR5,0,380,562_.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 4145,
+      "content_rating": null,
+      "plot": "The sensitive swordsman Cho Yi-Hang is tired of his life. He is the unwilling successor to the Wu-Tang clan throne and the unsure commander of the clan's forces in a war against foreign tribes and an evil cult. One day, he meets the beautiful Lien, a killer for the evil cult who is equally unsatisfied with her situation, but their love angers both the Wu-Tang clan and the evil cult.",
+      "runtime_min": 92,
+      "director": "Ronny Yu",
+      "actors": [
+        "Brigitte Lin",
+        "Leslie Cheung",
+        "Francis Ng"
+      ],
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0106343": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzMxYmY4ZTAtODEyZC00YjJkLThiODUtMmVkYTA4MjMxZmVlXkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 1255,
+      "content_rating": null,
+      "plot": "For ten years, Cho has been in the snow of Mount Shin Fung waiting for a rare flower to blossom that will cure his wife who, back in Chung Yuan, is slowly killing all of the members of the Eight Big Clans. Something Cho did to her early in their marriage has turned her hair white and driven her mad. Cho's nephew, Kit, marries Lyre; they are deeply in love. On their wedding night, Ni-Chang, the bride with white hair, kidnaps Lyre and takes her to her harem of fighting women to indoctrinate her against Kit. Kit tries to lead a rescue party, but they are up against formidable opponents. Can Cho come in time with the blossom to soften Ni-Chang's heart?",
+      "runtime_min": 80,
+      "director": "David Wu",
+      "actors": [
+        "Brigitte Lin",
+        "Leslie Cheung",
+        "Christy Chung"
+      ],
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0113351": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzdhODFlZjUtMDBlZi00MDQ3LTk5MmQtMzhlOWEzYjEzZmNhXkEyXkFqcGc@._V1_QL75_UY562_CR8,0,380,562_.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 361,
+      "content_rating": null,
+      "plot": "Like many young people of the 1920s, Kong and Yan are infected with the \"happily ever after\" syndrome waiting for their perfect match. Unlike other love stories, this couple journeys through murder, ghostly spirits and true sacrifice all in the name of love.",
+      "runtime_min": 103,
+      "director": "Hark Tsui",
+      "actors": [
+        "Nicky Wu",
+        "Charlie Yeung",
+        "Eric Kot"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "History"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0117151": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTMxODA1MjUxOV5BMl5BanBnXkFtZTcwMjU4MTEyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 1988,
+      "content_rating": null,
+      "plot": "A glimpse at the lives of two petty criminals in Taipei.",
+      "runtime_min": 116,
+      "director": "Hsiao-Hsien Hou",
+      "actors": [
+        "Jieh-Wen King",
+        "Kuei-Ying Hsu",
+        "Annie Shizuka Inoh"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0119926": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGEzNTY4MDItZDM1OS00OTJmLTg3YmUtODY5MWE3OWUwNjA4XkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 2235,
+      "content_rating": null,
+      "plot": "Sawaki is a postman who's not quite thrilled about his boring way of life. But his life is about to change when he delivers mail to his old schoolmate Noguchi, who's now a member of the Yakuza, the Japanese Mafia, and just finished cutting his little finger off. Sawaki stays only for a short time and Noguchi manages to smuggle a package full of drugs into Sawakis bag. And, like that's not enough, accidentally his separated finger falls into Sawakis bag too. Because Noguchi has been spied out for quite a while by the police, they think that Sawaki has something to do with his criminal schemings and decide to stick onto his feet. When Sawaki bonds with the fatally ill hit man Joe, it's clear for the police what he must be: A schizophrenic-paranoid, perverse drug dealer, murderer and even terrorist sent from the Yakuza!",
+      "runtime_min": 110,
+      "director": "Sabu",
+      "actors": [
+        "Shin&apos;ichi Tsutsumi",
+        "Keisuke Horibe",
+        "Ren Osugi"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0122467": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWJhNDc0NGItOWNhYy00OTljLTliMGYtOTcwN2IwYjAwN2RkXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 313,
+      "content_rating": null,
+      "plot": "A short film by Aleksandr Sokurov which provides a surreal visual experience.",
+      "runtime_min": 43,
+      "director": "Aleksandr Sokurov",
+      "actors": [
+        "Aleksandr Sokurov"
+      ],
+      "genres": [
+        "Drama",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0125490": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTFhNzdkNWYtY2E2ZC00ZDAzLTliZTItZDVhZjVhNzE4MTIxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 218,
+      "content_rating": null,
+      "plot": "It is 1965. High-school student Takeyoshi Fujiwara Yasufumi Hayashi) hears \"Pipeline\" by the Ventures, and is mesmerized by their unique sound. With three friends, he forms a band called \"The Rocking Horsemen.\" A warm and comic glimpse into high-school and small-town life in Japan in the 60's.",
+      "runtime_min": 135,
+      "director": "Nobuhiko Ôbayashi",
+      "actors": [
+        "Ryô Amamiya",
+        "Aiko Asano",
+        "Tadanobu Asano"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0150683": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWJmOTUzMDAtNzBmNy00ZTQyLWFhMjQtOTQ0ZDY0ZTk3ZTExXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 242,
+      "content_rating": "Not Rated",
+      "plot": "In order to improve their lifestyle, Lucknow based Ghulam Hussain decides to re-locate to Bombay, leaving his ailing mother and wife, Khairun, behind. He arrives in Bombay, and looks up his close friend, Lalulal Tiwari, who gets him a job cleaning taxis. Ghulam subsequently learns how to drive, and is hired to drive a taxi. Despite of his best efforts he is unable to save enough money to visit Lucknow. Lalulal has problems of his own, despite of being settled in Bombay for several years; having a sweetheart, Yashodra, he is unable to even rent a decent apartment, and lives in a shanty tenement, which is slated to be demolished by the Bombay Municipal Corporation. Will Lalulal and Ghulam be able to improve their lives or will they be caught up in just surviving on a day to day basis?",
+      "runtime_min": 119,
+      "director": "Muzaffar Ali",
+      "actors": [
+        "Farooq Shaikh",
+        "Smita Patil",
+        "Geeta Kak"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0156701": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmExZjI0YzItYWVhOC00MzQwLTg1MWItZTM0ZmRjYzYwZjg0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 2340,
+      "content_rating": "Not Rated",
+      "plot": "Military doctor General Klenski is arrested in Stalin's Russia in 1953 during an anti-Semitic political campaign accused of being a participant in so-called \"doctors' plot\".",
+      "runtime_min": 147,
+      "director": "Aleksey German",
+      "actors": [
+        "Yuriy Tsurilo",
+        "Nina Ruslanova",
+        "Jüri Järvet Jr."
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0171469": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTg0NzRhMDktMzZkOC00NmZkLThhYmEtZjU1N2U1ZDc0NWE1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 167,
+      "content_rating": null,
+      "plot": "The film is a poetic adaptation of a series of stories (oral and written) about Princess Olga of Kievan Rus at the start of the 11th century.",
+      "runtime_min": 170,
+      "director": "Yuri Ilyenko",
+      "actors": [
+        "Lyudmila Efimenko",
+        "Les Serdyuk",
+        "Ivan Ivanov"
+      ],
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0171819": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDAzZjlhMjMtM2E0Ny00MDYxLWJiODQtMjQ2ZjY0YTVhMmFiXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 80,
+      "content_rating": null,
+      "plot": "The setting is Central Asia during the Russian civil war. In the post-revolutionary twenties, when the power in European Russia was (officially) \"fully in the hands of the workers and peasants\", but the fight against the Basmachi rebels was in full swing. When a Red Army detachment captures Sultan Mazar, the brains behind the Bazmachi contingent, a decision is made to escort urgently the prisoner to the Bukhara province. The difficult mission is entrusted to a grizzled mountain trapper and conscientious revolutionary called Mirzo. His expertise is essential to traverse the precarious paths and steep mountain ridges along the way, impossible terrain for the inexperienced. A group consisting of Mirzo, his brother Kova, the Sultan, his daughter Zaranghis and slave Saifulla set off on this journey. They are forced to fight on the mountain ridges as well as negotiate the natural dangers and harsh elements.",
+      "runtime_min": 90,
+      "director": "Ali Khamraev",
+      "actors": [
+        "Aleksandr Kaydanovskiy",
+        "Anatoliy Solonitsyn",
+        "Shavkat Abdusalamov"
+      ],
+      "genres": [
+        "Action"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0175345": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDhmNTY0MjEtZDM5YS00NzNjLWIxNmUtZjY0ZWIxZWVhNTBmXkEyXkFqcGdeQXVyNjg3MTIwODI@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 217,
+      "content_rating": null,
+      "plot": "An abstract depiction of the childhood of Aleksandr Dovzhenko.",
+      "runtime_min": 81,
+      "director": "Yuliya Solntseva",
+      "actors": [
+        "Evgeniy Samoylov",
+        "Vladimir Goncharov",
+        "Evgeniy Bondarenko"
+      ],
+      "genres": [
+        "Biography",
+        "Drama",
+        "Fantasy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0190155": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGU4OGY5ZGUtOWNhOS00OTJmLTk5MTYtMTdhYTJjNThlNjM4XkEyXkFqcGdeQXVyMjQ0NzgwNzY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 93,
+      "director": "Carlos Borcosque Jr.",
+      "actors": [
+        "Antonio Grimau",
+        "Miguel Ángel Solá",
+        "Hugo Arana"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0199777": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTU5ODUzNTE1MV5BMl5BanBnXkFtZTcwNjQzNjgyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 2634,
+      "content_rating": "Not Rated",
+      "plot": "In 1942, in Bavaria, Eva Braun is alone when Adolf Hitler arrives with Dr. Josef Göbbels and his wife Magda Göbbels and Martin Bormann to spend a couple of days without talking politics.",
+      "runtime_min": 108,
+      "director": "Aleksandr Sokurov",
+      "actors": [
+        "Elena Rufanova",
+        "Eva Mattes",
+        "Leonid Mozgovoy"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 60
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0224578": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTE1MjBjYjAtN2Y5Yy00YWUyLThmNjctYzQxY2E4YTJiMDVlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 4058,
+      "content_rating": "PG-13",
+      "plot": "With the brilliant Vietnamese summer as a setting Vertical Ray of the Sun is beautiful from beginning to end. The plot centres around three sisters, two of whom are happily married (or so it appears). The youngest sister is single and living with her cute older brother, whom she is desperately in love with. A second sister is married to a man who has another woman and child elsewhere whom he loves just as much as his wife -with a few conditions, she agrees to carry on with the marriage. The third sister and her husband are overjoyed to discover she is pregnant, and though he is tempted, her husband remains loyal to her. Charming, slow-paced, face value, family saga film.",
+      "runtime_min": 112,
+      "director": "Anh Hung Tran",
+      "actors": [
+        "Nu Yên-Khê Tran",
+        "Quynh Nhu",
+        "Khanh Le"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 81,
+        "mc": 72
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0286704": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE3NTQwMTU3OV5BMl5BanBnXkFtZTYwNzk2ODk5._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 1667,
+      "content_rating": null,
+      "plot": "Archival footage from classic Hong Kong films set to music.",
+      "runtime_min": 3,
+      "director": "Kar-Wai Wong",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Romance",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0321179": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTE4YzAyYTYtZWVjNy00OTFlLThmMzgtODdhYzY5NWUyMjI3XkEyXkFqcGdeQXVyNDAxOTExNTM@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 52,
+      "content_rating": null,
+      "plot": "Abdelwahad dreams of a life of wealth and wants breaks with tradition. His mother Hlima, a woman with extraordinary energy, is afraid that he will leave the village. After the death of his father he is the head of the family. Neither the family council nor the countless obstacles that stand in his way can prevent the young farmer from pursuing his plans for the future. Alyam, Alyam is a film about shattered dreams and the circumstances leading up to that point; about the shaking of the traditional social structure; about the strength born of desperation and the unrelenting dissipation of lost generations.",
+      "runtime_min": 80,
+      "director": "Ahmed El Maanouni",
+      "actors": [
+        "Ben Brahim"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0323279": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjE4NjAxNTYtNzc4YS00N2NhLThkZTItYmNkMjBlYmUyM2VhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 235,
+      "content_rating": null,
+      "plot": "A Prayer for Hetman Mazepa unfolds during an interesting era in the history of Eastern Europe when Russia, under Peter the Great, and Sweden, under King Charles XII, struggled for power; Ukraine was the pawn in the middle.",
+      "runtime_min": 152,
+      "director": "Yuri Ilyenko",
+      "actors": [
+        "Bogdan Stupka",
+        "Lyudmila Efimenko",
+        "Nikita Dzhigurda"
+      ],
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0345549": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTdkMzA5ODQtYTFjNS00NGMzLWE1YzAtMThkNDQwNzRhZDgwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 11637,
+      "content_rating": "R",
+      "plot": "A mysterious, obsessive-compulsive, suicidal Japanese man living in Bangkok, Thailand, is thrown together with a Thai woman through a tragic chain of events. The woman is everything he is not. He is a neat freak who keeps his dishes washed and his books neatly stacked and categorized. She dresses like a slob, smokes pot and never picks anything up. It's a match that somehow works, though. Slowly and entertainingly, more is revealed about the Japanese man and why he's suicidal and living in Bangkok.",
+      "runtime_min": 112,
+      "director": "Pen-Ek Ratanaruang",
+      "actors": [
+        "Tadanobu Asano",
+        "Sinitta Boonyasak",
+        "Takashi Miike"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 90,
+        "mc": 73
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0348233": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmQ2YjM3NTgtNmMxMS00MjBmLThmMGYtNDE2NWQ5YWI3YTI2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 24,
+      "content_rating": null,
+      "plot": "The children who grow up together in a Beijing courtyard pursue various careers.",
+      "runtime_min": 124,
+      "director": "Guan Hu",
+      "actors": [
+        "Lin Kong",
+        "Xie Kun",
+        "Jiali Ding"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0354770": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWQzZjkzYjQtMjQxNy00MTUxLTk2NWMtYTlmMDFhYjA3NThkXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 7.7,
+      "imdb_votes": 1644,
+      "content_rating": null,
+      "plot": "Tells the fable from Chinese mythology about the young warrior Nezha who takes on a group of evil dragons.",
+      "runtime_min": 61,
+      "director": "Shuchen Wang, Jingda Xu, Ding Xian Yan",
+      "actors": [
+        "Ke Bi",
+        "Banjo Ginga",
+        "Daisuke Gori"
+      ],
+      "genres": [
+        "Animation",
+        "Action",
+        "Adventure"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0379370": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTlmOGU5MTgtYjJjNy00ZWJhLTlhMGQtMTZmMGI5YjQ3ZDNiXkEyXkFqcGc@._V1_QL75_UY562_CR13,0,380,562_.jpg",
+      "imdb_rating": 8.0,
+      "imdb_votes": 16366,
+      "content_rating": "Not Rated",
+      "plot": "Aabaji (Jahangir Khan) is a powerful Don in Mumbai underworld.Maqbool is his right hand and most loyal person and both share a great bond.Two corrupt cops Pandit and Purohit on payroll of Aabaji on seeing Maqbool's ambition predict that soon he is going to take over reins of underworld from Aabaji.Nimmi whose keep of Aabaji but she and Maqbool are secretly in love she asks Maqbool to kill Aabaji and take the throne as in future he will be just like a pet in front of Aabaji's son in law Guddu.Maqbool is torn between his love for Nimmi and loyalty towards Aabaji he finally kills Aabaji and the the guilt of his murder starts to haunt him and Nimmi.Maqbool's greed to take over the throne for Nimmi's love leaves everything shattered.",
+      "runtime_min": 132,
+      "director": "Vishal Bhardwaj",
+      "actors": [
+        "Irrfan Khan",
+        "Tabu",
+        "Pankaj Kapur"
+      ],
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0416991": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmUwNjYzM2MtYjFiMy00ZjVhLTgzOGMtOTM2YjZkMGJiZWVhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 4215,
+      "content_rating": "Unrated",
+      "plot": "In an African village this is the day when six 4-9-year-old girls are to be 'cut' (the act of female genital mutilation) All children know that the operation is horrible torture and sometimes lethal, and all adults know that some cut women can only give birth by Caesarean section. Two of the girls have drowned themselves in the well to escape the operation. The four other girls seek \"magical protection\" (moolaadé) by a woman (Colle) who seven years before refused to have her daughter circumcised. Moolaadé is indicated by a coloured rope. But no one would dare step over and fetch the children. Moolaadé can only be revoked by Colle herself. Her husband's relatives persuade him to whip her in public into revoking. Opposite groups of women shout to her to revoke or to be steadfast, but no woman interferes. When Colle is at the wedge of fainting, the merchant takes action and stops the maltreatment. Therefore he is hunted out of the village and, when out of sight, murdered.",
+      "runtime_min": 124,
+      "director": "Ousmane Sembene",
+      "actors": [
+        "Fatoumata Coulibaly",
+        "Maimouna Hélène Diarra",
+        "Salimata Traoré"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 99,
+        "mc": 91
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0794374": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQwMGFkMWEtZDExNS00ODljLTk4YzgtOWY3NjRmZDg2NjZhXkEyXkFqcGc@._V1_QL75_UY562_CR8,0,380,562_.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 5120,
+      "content_rating": "Unrated",
+      "plot": "Country girl Yu Hong leaves her village, her family and her lover to study in Beijing. At university, she discovers an intense world of sexual freedom and forbidden pleasure. Enraptured, compulsive, she falls madly in love with fellow student Zhou Wei. Driven by obsessive passions they can neither understand nor control, their relationship becomes one of dangerous games - betrayals, recriminations, provocations - as all around them, their fellow students begin to demonstrate, demanding democracy and freedom. Protests collapse, and Yu and Zhou lose each other amidst the social chaos and panicked crowds. Zhou Wei is sent to a summer military camp, and on his release moves to Berlin, fleeing both his country and memories of Yu. She finds a job, a lover, but can not forget Zhou. In Germany, social unrest is mounting: calls for freedom, demonstrations for democracy. A familiar story for Zhou. Weary, still haunted by Yu, he returns to China as the Berlin Wall crashes down. He finds her at last, in a small town. From evening to dawn, their future stretches before them, two changed souls in a changed world.",
+      "runtime_min": 158,
+      "director": "Ye Lou",
+      "actors": [
+        "Lei Hao",
+        "Xiaodong Guo",
+        "Xueyun Bai"
+      ],
+      "genres": [
+        "Drama",
+        "History",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 72,
+        "mc": 79
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0796212": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjJjNTgzNmQtODM3NS00YTAxLTkyMWUtMDhlOGY2YjBiM2FkXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 10433,
+      "content_rating": "R",
+      "plot": "The time is 1998. The setting is Macau. Every living soul jumps at every chance to make quick money before the Portuguese colony ushers in a new era under the Chinese rule. For the jaded hit men, they wonder where this journey will end. Against this backdrop come two hit men from Hong Kong sent to take out a renegade member trying to turn over a new leaf with his wife and newborn baby. They soon find themselves in the throes of a dilemma when two of their former associates also show up, intent on thwarting them at every cost.",
+      "runtime_min": 110,
+      "director": "Johnnie To",
+      "actors": [
+        "Nick Cheung",
+        "Anthony Chau-Sang Wong",
+        "Francis Ng"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 80,
+        "mc": 73
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt10849514": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjdjNmY1OGYtMWNhOS00MTQxLWFjOWEtNWI0ZWRlYzAxMTA2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 1539,
+      "content_rating": "Not Rated",
+      "plot": "When her village is threatened with forced resettlement due to reservoir construction, an 80-year-old widow finds a new will to live and ignites the spirit of resilience within her community.",
+      "runtime_min": 120,
+      "director": "Lemohang Jeremiah Mosese",
+      "actors": [
+        "Mary Twala",
+        "Jerry Mofokeng",
+        "Makhaola Ndebele"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 100,
+        "mc": 91
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt11012866": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTc2M2JjZmEtNTk0OS00NTUxLWI5ZjAtMWVlMjNlNmEzYTIyXkEyXkFqcGdeQXVyOTIxNDQ1MTQ@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 98,
+      "content_rating": null,
+      "plot": "Ryoko visits brother-in-law Koji to recover from her time at a mental hospital. But she becomes increasingly convinced that Koji's eight year old niece Alice was responsible for her sister Fuyuko's death. Several horrific deaths f...",
+      "runtime_min": 94,
+      "director": "Nobuhiko Ôbayashi",
+      "actors": [
+        "Kumiko Akiyoshi",
+        "Ranbô Minami",
+        "Miyoko Akaza"
+      ],
+      "genres": [
+        "Drama",
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt1754367": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjQwNjlhODAtYzY4OS00OTU3LTlhMmUtYTQxZGZmNjJjZjYzXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 6276,
+      "content_rating": "Not Rated",
+      "plot": "In rural Mexico, Juan and Natalia, an upper-middle-class couple move with their young children to the countryside seeking a simpler, more \"authentic\" life. Their pastoral dream gradually fractures as tensions emerge - between husband and wife, adults and children, landowners and workers. Blending realism with dreamlike, surreal imagery (including a mysterious red devil figure), the film moves fluidly across time and space, exploring guilt, violence, class division, sexuality, and spiritual unease. Rather than a linear narrative, it presents fragments of memory and inner turmoil, portraying a world where domestic life, desire, and moral darkness coexist beneath moments of natural beauty.",
+      "runtime_min": 115,
+      "director": "Carlos Reygadas",
+      "actors": [
+        "Nathalia Acevedo",
+        "Adolfo Jiménez Castro",
+        "Rut Reygadas"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 53,
+        "mc": 70
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt1772424": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTM4MDgxNjU4Nl5BMl5BanBnXkFtZTcwMzc2MTM2Nw@@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 13708,
+      "content_rating": "PG-13",
+      "plot": "Christians and Muslims lived peacefully together for years in this small Lebanese village, but animosities begin to build among the men as a result of slights and misunderstandings. The women of the village conspire to avert sectarian strife though a series of harebrained plans, none of which succeeds in slowing down the escalating spiral of violence. When tragedy strikes, the women find themselves driven to make a deeply personal sacrifice for the sake of peace.",
+      "runtime_min": 110,
+      "director": "Nadine Labaki",
+      "actors": [
+        "Claude Baz Moussawbaa",
+        "Nadine Labaki",
+        "Yvonne Maalouf"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 52,
+        "mc": 60
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt1863168": {
+      "poster_url": null,
+      "imdb_rating": 6.2,
+      "imdb_votes": 10,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 16,
+      "director": "John Banting, Charles De la Tour, Desmond Dickinson, Alan Osbiston, Dylan Thomas",
+      "actors": [
+        "R.A. Butler",
+        "Esme Church",
+        "Ernest Hare",
+        "Myra Hess"
+      ],
+      "genres": [
+        "Short",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt1954470": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWQyMmJkYTItNDUyYS00MjgwLWFmYjUtOWQ1NmRjOGZlOTZhXkEyXkFqcGc@._V1_QL75_UX380_CR0,13,380,562_.jpg",
+      "imdb_rating": 8.2,
+      "imdb_votes": 115832,
+      "content_rating": "Not Rated",
+      "plot": "Shahid Khan is exiled after impersonating the legendary Sultana Daku in order to rob British trains. Now outcast, Shahid becomes a worker at Ramadhir Singh's colliery, only to spur a revenge battle that passes on to generations. At the turn of the decade, Shahid's son, the philandering Sardar Khan vows to get his father's honor back, becoming the most feared man of Wasseypur.",
+      "runtime_min": 321,
+      "director": "Anurag Kashyap",
+      "actors": [
+        "Manoj Bajpayee",
+        "Nawazuddin Siddiqui",
+        "Tigmanshu Dhulia"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "critics": {
+        "rt": 91,
+        "mc": 89
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt21227108": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2Q3MGE5NDUtODYxMy00YTZjLTljZWYtNTRlNjU2MTY3N2IwXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 800,
+      "content_rating": null,
+      "plot": "Once upon a time there were two vagabonds... No... They were three... But no, four... And there were others, many and different... I had known them. For a long time. For years. And then something happened and they disappeared. And for many years, I heard nothing about it. Once upon a time... and there were four... I was immersed in life and new misfortunes. But for the past few years, I had a confused feeling that people were hovering around me, walking, walking, walking beside me... Voices were heard in the night, fragments of complex questions, words in foreign languages, moans, howls of millions of voices... An inexplicable excitement gripped me... This night, the abyss of the sky opened... And here we go.",
+      "runtime_min": 78,
+      "director": "Aleksandr Sokurov",
+      "actors": [
+        "Igor Gromov",
+        "Vakhtang Kuchava",
+        "Lothar Deeg"
+      ],
+      "genres": [
+        "Animation",
+        "Fantasy",
+        "Horror"
+      ],
+      "critics": {
+        "rt": 88
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt6035092": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWM2MjNmN2ItYjQ4OC00N2FlLWI3OWUtMmM5MmU5MmU2YjRjXkEyXkFqcGc@._V1_QL75_UY562_CR2,0,380,562_.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 747,
+      "content_rating": null,
+      "plot": "Yuangong, the deacon, opened the shrine and exposed the holy book to the human world. He also carved the contents of the book on the stone wall of white cloud cave in the mountains. He is now punished to guard the book for life by the jade emperor for breaking heaven's law and betraying the holy secret to human. In order to pass this holy book to human beings, he would have to get by the antagonist fox.",
+      "runtime_min": 89,
+      "director": "Yunda Qian, Shuchen Wang",
+      "actors": [
+        "Jianhua Ding",
+        "Ke Bi",
+        "Xiu Su"
+      ],
+      "genres": [
+        "Animation"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt6283888": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWY2MGViNDUtOGM0ZS00YjhlLWI5YTktZDU0N2EzMWU4NmM1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNDM2MTE5MzE@._V1_SX300.jpg",
+      "imdb_rating": 7.9,
+      "imdb_votes": 35,
+      "content_rating": null,
+      "plot": "An experimental film shot on VHS. The personification of death traverses through separate stories discussing love, life, religion and beauty as she tries to help an assortment of characters through their final stop.",
+      "runtime_min": 129,
+      "director": "Johnny Clyde",
+      "actors": [
+        "Nina Viola",
+        "Magloire Bilal Button",
+        "Viveka Frost"
+      ],
+      "genres": [
+        "Drama",
+        "Fantasy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt6386748": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjUxODM5ODUyM15BMl5BanBnXkFtZTgwNzA3Nzg3NjM@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 13373,
+      "content_rating": "Not Rated",
+      "plot": "In the 70s, as the American youth embraces hippie culture, marijuana bonanza hits Colombia, quickly turning farmers into seasoned businessmen. In the Guajira desert, a Wayuu indigenous family takes a leading role in this new venture, and discovers the perks of wealth and power. But when greed, passion, and honor blend together, a fratricidal war breaks out and will soon put their family, their lives and their ancestral traditions at stake.",
+      "runtime_min": 125,
+      "director": "Cristina Gallego, Ciro Guerra",
+      "actors": [
+        "Carmiña Martínez",
+        "José Acosta",
+        "Natalia Reyes"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 96,
+        "mc": 85
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt8020896": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDU1NGM3ZjAtYTM1My00ZmU5LTljNGQtYTljNmUyMGEwZjgxXkEyXkFqcGc@._V1_QL75_UY562_CR11,0,380,562_.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 9521,
+      "content_rating": null,
+      "plot": "In the northern Chinese city of Manzhouli, they say there is an elephant that simply sits and ignores the world. Manzhouli becomes an obsession for the protagonists of this film, a longed-for escape from the downward spiral in which they find themselves. Among them is schoolboy Bu, on the run after pushing Shuai down the stairs, who was bullying him previously. Bu's classmate Ling has run away from her mother and fallen for the charms of her teacher. Shuai's older brother Cheng feels responsible for the suicide of a friend. And finally, along with many other characters whose fates are inextricably bound together, there's Mr. Wang, a sprightly pensioner whose son wants to offload him onto a home. In virtuoso visual compositions, the film tells the story of one single suspenseful day from dawn to dusk, when the train to Manzhouli is set to depart.",
+      "runtime_min": 230,
+      "director": "Bo Hu",
+      "actors": [
+        "Yu Zhang",
+        "Yuchang Peng",
+        "Uvin Wang"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 94,
+        "mc": 86
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt9801736": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2ZiODU4ZjUtNGIwYy00OWViLWEzZGUtNWVmZmJiNDU0ODg1XkEyXkFqcGc@._V1_QL75_UY562_CR5,0,380,562_.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 6436,
+      "content_rating": "Unrated",
+      "plot": "In a remote Icelandic town, an off duty police chief begins to suspect a local man for having had an affair with his wife, who recently died in a car accident. Gradually his obsession for finding out the truth accumulates and inevitably begins to endanger himself and his loved ones. A story of grief, revenge and unconditional love.",
+      "runtime_min": 109,
+      "director": "Hlynur Pálmason",
+      "actors": [
+        "Ingvar Sigurdsson",
+        "Ída Mekkín Hlynsdóttir",
+        "Hilmir Snær Guðnason"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 94,
+        "mc": 81
+      },
+      "fetched_at": "2026-11-20T10:05:29Z",
       "schema": 4
     }
   },
