@@ -4873,6 +4873,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-20T22:18:49.183466+00:00",
+   "id": "hearts_in_bondage",
+   "title": "Hearts in Bondage",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2rmkysmw62o",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-20T22:18:49.183466+00:00",
+   "id": "hearts_in_bondage",
+   "title": "Hearts in Bondage",
+   "slot": "one-line",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117651090409413484",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-20T22:18:49.183466+00:00",
+   "id": "hearts_in_bondage",
+   "title": "Hearts in Bondage",
+   "slot": "one-line",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Df-toSGoKRh/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117651088924461219",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-20T22:18:49.183466+00:00",
+   "id": "hearts_in_bondage",
+   "title": "Hearts in Bondage",
+   "slot": "one-line",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=H4c3X6xOQl4",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

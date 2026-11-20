@@ -6579,6 +6579,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2cbnraiiz2x",
+   "platform": "bluesky",
+   "id": "GreekMirthology1954",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-14T19:53:39.300056+00:00",
+   "sampled": "2026-11-20T22:19:47.032045+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117616545132163570",
+   "platform": "mastodon",
+   "id": "GreekMirthology1954",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-14T19:53:39.300056+00:00",
+   "sampled": "2026-11-20T22:19:47.032045+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2p5n7dn6d2o",
+   "platform": "bluesky",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-19T22:46:21.970282+00:00",
+   "sampled": "2026-11-20T22:19:47.032045+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117645535090352922",
+   "platform": "mastodon",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-19T22:46:21.970282+00:00",
+   "sampled": "2026-11-20T22:19:47.032045+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
