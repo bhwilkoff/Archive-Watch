@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-20T12:35:55Z",
+  "updated_at": "2026-11-21T12:04:49Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 73447,
-    "new_this_run": 100,
-    "awaiting_ingest": 1109,
-    "with_archive_id": 65119
+    "total": 73451,
+    "new_this_run": 4,
+    "awaiting_ingest": 1013,
+    "with_archive_id": 65131
   },
   "candidates": [
     {
@@ -7930,6 +7930,36 @@
       "archiveCollection": "feature_films",
       "status": "ingested",
       "discovered_at": "2026-11-20T12:26:45Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "videoplayback-5_20261119_2216",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pepsi Jamaica Commercial 2026",
+      "year": 2026,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "alltv-2-eurovision-song-contest-asia-2026-adbreak-2-5-11-14-2026",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "ALLTV 2 Eurovision Song Contest Asia 2026 Adbreak ( 11 14 2026) and Many More Other Special Events Telecasts Commercial Gaps Adbreaks of 2025-2026",
+      "year": 2026,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
@@ -122152,6 +122182,21 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "pbs-kids-adventures-with-hooper-commercial-strings-key-2010",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids - Adventures With Hooper - Commercial - Strings Key (2010)",
+      "year": 2010,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
       "iaid": "Closing_Credits",
       "title": "Compilation of Classic TV Closing Credits: 50s, 60s, and 70s",
       "year": 2009,
@@ -135335,6 +135380,66 @@
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
+      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-in-michele-lepe-commercial-2009-replace-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA In Michele Lepe Commercial (2009) (Replace Version)",
+      "year": 2009,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-promo-commercial-2009-replace-version",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA Promo Commercial (2009) (Replace Version)",
+      "year": 2009,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-promo-commercial-2009",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA Promo Commercial (2009)",
+      "year": 2009,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-in-michele-lepe-commercial-2009",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA In Michele Lepe Commercial (2009)",
+      "year": 2009,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
       "iaid": "Microfisica_Remix",
       "title": "Microfisica Remix",
       "year": 2008,
@@ -148322,6 +148427,21 @@
       "archiveCollection": "feature_films",
       "status": "ingested",
       "discovered_at": "2026-11-20T12:26:45Z",
+      "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "screen-recording-2026-10-12-102350_202611",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pepsi Jamaica Commercial 2008",
+      "year": 2008,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-20T12:34:52Z",
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
@@ -184760,6 +184880,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-18T12:28:09Z",
       "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
+      "iaid": "tony-takitani-jpn",
+      "title": "Tony Takitani (2004)",
+      "year": 2004,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-21T11:59:30Z",
+      "ingested_at": "2026-11-21T12:04:49Z"
     },
     {
       "iaid": "winnie-the-pooh-hunny-bs-cereal-canada-commercial",
@@ -231390,6 +231524,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-18T12:28:09Z",
       "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
+      "iaid": "the-piano-nz",
+      "title": "The Piano (1993)",
+      "year": 1993,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-21T11:59:30Z",
+      "ingested_at": "2026-11-21T12:04:49Z"
     },
     {
       "iaid": "sims_liquid_selves_1992",
@@ -316379,6 +316527,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-20T12:26:45Z",
       "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "mafalda-cortos-animados",
+      "title": "Mafalda (Cortos animados)",
+      "year": 1971,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-21T11:59:30Z",
+      "ingested_at": "2026-11-21T12:04:49Z"
     },
     {
       "iaid": "0512_That_Junior_Miss_Spirit_03_01_00_05",
@@ -901188,6 +901350,20 @@
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
+      "iaid": "206967_Koura_Collection_006113",
+      "title": "Home Movie: Koura Collection: 006113",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-21T11:59:30Z",
+      "ingested_at": "2026-11-21T12:04:49Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -1005966,126 +1006142,6 @@
       "rightsConfidence": "low",
       "status": "new",
       "discovered_at": "2026-06-01T03:38:14Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-in-michele-lepe-commercial-2009-replace-version",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA In Michele Lepe Commercial (2009) (Replace Version)",
-      "year": 2009,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-promo-commercial-2009-replace-version",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA Promo Commercial (2009) (Replace Version)",
-      "year": 2009,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "pbs-kids-adventures-with-hooper-commercial-strings-key-2010",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids - Adventures With Hooper - Commercial - Strings Key (2010)",
-      "year": 2010,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-promo-commercial-2009",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA Promo Commercial (2009)",
-      "year": 2009,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "pbs-kids-sprout-the-great-sprout-tuck-in-psa-in-michele-lepe-commercial-2009",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "PBS Kids Sprout - The Great Sprout Tuck In PSA In Michele Lepe Commercial (2009)",
-      "year": 2009,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "videoplayback-5_20261119_2216",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Pepsi Jamaica Commercial 2026",
-      "year": 2026,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "screen-recording-2026-10-12-102350_202611",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Pepsi Jamaica Commercial 2008",
-      "year": 2008,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
-    },
-    {
-      "iaid": "alltv-2-eurovision-song-contest-asia-2026-adbreak-2-5-11-14-2026",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "ALLTV 2 Eurovision Song Contest Asia 2026 Adbreak ( 11 14 2026) and Many More Other Special Events Telecasts Commercial Gaps Adbreaks of 2025-2026",
-      "year": 2026,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-20T12:34:52Z",
-      "ingested_at": "2026-11-20T12:35:55Z"
     }
   ]
 }
