@@ -73,6 +73,37 @@ enum ChannelScheduler {
         return slots
     }
 
+    /// A playlist channel: the programs IN ORDER, looping on one clock that
+    /// started 2026-01-01 UTC, so every device airs the same title at the same
+    /// moment with nothing extra synced, and a day picks up where the last
+    /// left off instead of starting the list over (a viewer, 2026-11-17: "my
+    /// own playlists as series programs for my custom channels").
+    static func loop(programs: [Catalog.Item],
+                     now: Date,
+                     coverHours: Double = 26,
+                     interProgramBuffer: TimeInterval = 120) -> [ScheduledProgram] {
+        guard !programs.isEmpty else { return [] }
+        let anchor = dayAnchor(for: now)
+        let lengths = programs.map { runtime($0) + interProgramBuffer }
+        let cycle = lengths.reduce(0, +)
+        var into = anchor.timeIntervalSince(loopEpoch).truncatingRemainder(dividingBy: cycle)
+        if into < 0 { into += cycle }
+        var i = 0
+        while into >= lengths[i] { into -= lengths[i]; i = (i + 1) % programs.count }
+        var cursor = anchor.addingTimeInterval(-into)
+        let coverUntil = now.addingTimeInterval(coverHours * 3600)
+        var slots: [ScheduledProgram] = []
+        while cursor < coverUntil && slots.count < 2000 {
+            let item = programs[i]
+            let end = cursor.addingTimeInterval(runtime(item))
+            slots.append(ScheduledProgram(item: item, start: cursor, end: end))
+            cursor = end.addingTimeInterval(interProgramBuffer)
+            i = (i + 1) % programs.count
+        }
+        return slots
+    }
+    static let loopEpoch = Date(timeIntervalSince1970: 1_767_225_600)
+
     /// The program airing at `t` (or the next upcoming one if `t` is in a buffer gap).
     static func program(in slots: [ScheduledProgram], at t: Date) -> ScheduledProgram? {
         slots.first { $0.contains(t) } ?? slots.first { $0.start >= t }

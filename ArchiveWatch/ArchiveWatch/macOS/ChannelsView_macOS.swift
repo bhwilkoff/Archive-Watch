@@ -20,8 +20,11 @@ struct ChannelsView: View {
     @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
     @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
+    @Query private var playlists: [Playlist]
+    @Query private var arrangements: [ChannelArrangement]
 
     @State private var guide: [GuideChannel] = []
+    @State private var showArrange = false
     @State private var playing: ChannelLineup?
     @State private var showCreate = false
     @State private var nowTick = Date()
@@ -66,6 +69,11 @@ struct ChannelsView: View {
                 .help("Commercial breaks between programs")
             }
             ToolbarItem {
+                Button { showArrange = true } label: { Label("Arrange Channels", systemImage: "arrow.up.arrow.down") }
+                    .help("Arrange Channels")
+                    .disabled(guide.isEmpty)
+            }
+            ToolbarItem {
                 Button { showCreate = true } label: { Label("New Channel", systemImage: "plus") }
                     .help("New Channel")
             }
@@ -82,6 +90,8 @@ struct ChannelsView: View {
             }
         }
         .onChange(of: userChannels.count) { rebuild() }
+        .onChange(of: arrangements.first?.modifiedAt) { rebuild() }
+        .sheet(isPresented: $showArrange) { ArrangeChannelsSheet(channels: guide) }
         .sheet(item: $playing) { box in
             ChannelPlayer(lineup: box.items, startOffset: box.startOffset)
                 .frame(minWidth: 760, minHeight: 480)
@@ -316,9 +326,7 @@ struct ChannelsView: View {
         var out: [GuideChannel] = []
         var number = 2
         for uc in userChannels {
-            let pool = playable(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                               genre: uc.genre, sort: .popular, limit: 150).filter(\.isRecommendable))
-            let slots = ChannelScheduler.schedule(channelID: "user-\(uc.id)", programs: pool, now: now)
+            let slots = UserChannelLineup.slots(uc, store: store, playlists: playlists, now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: "user-\(uc.id)", number: number, title: uc.name,
                                     accent: Color(hex: "#0047FF") ?? .blue,
@@ -328,7 +336,7 @@ struct ChannelsView: View {
         if let file = ChannelSchedule.current {
             out += ChannelSchedule.guide(file, store: store, firstNumber: number, now: now)
         }
-        guide = out
+        guide = GuideChannel.arranged(out, by: arrangements.first?.ids ?? [])
     }
 
     private func playable(_ items: [Catalog.Item]) -> [Catalog.Item] {
@@ -521,6 +529,8 @@ private struct CreateChannelSheet: View {
     @State private var genre: String?
     @State private var type: String?
     @State private var decade: Int?
+    @State private var playlistID: String?
+    @Query(sort: \Playlist.name) private var playlists: [Playlist]
 
     private let genres = ["Drama", "Comedy", "Crime", "Thriller", "Romance",
                           "Action", "Horror", "Mystery", "Western", "Documentary",
@@ -533,10 +543,13 @@ private struct CreateChannelSheet: View {
         ContentType.label(t)
     }
     private var autoName: String {
+        if let pid = playlistID, let list = playlists.first(where: { $0.id == pid }) { return list.name }
         let parts = [decade.map { "\(String($0))s" }, genre, type.map(typeLabel)].compactMap { $0 }
         return parts.isEmpty ? "My Channel" : parts.joined(separator: " ")
     }
-    private var canSave: Bool { UserChannel.canCreate(genre: genre, contentType: type, decade: decade) }
+    private var canSave: Bool {
+        UserChannel.canCreate(genre: genre, contentType: type, decade: decade, playlistID: playlistID)
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -545,6 +558,15 @@ private struct CreateChannelSheet: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding([.horizontal, .top], 20)
             Form {
+                if !playlists.isEmpty {
+                    Section {
+                        Picker("Plays", selection: $playlistID) {
+                            Text("Titles That Match").tag(String?.none)
+                            ForEach(playlists) { Text($0.name).tag(String?.some($0.id)) }
+                        }
+                    }
+                }
+                if playlistID == nil {
                 Section("Filters") {
                     Picker("Genre", selection: $genre) {
                         Text("Any").tag(String?.none)
@@ -558,6 +580,7 @@ private struct CreateChannelSheet: View {
                         Text("Any").tag(Int?.none)
                         ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
                     }
+                }
                 }
                 Section("Name") {
                     TextField(autoName, text: $name)
@@ -583,10 +606,58 @@ private struct CreateChannelSheet: View {
 
     private func create() {
         let n = name.trimmingCharacters(in: .whitespaces)
+        let fromList = playlistID != nil
         ctx.insert(UserChannel(name: n.isEmpty ? autoName : n,
-                               genre: genre, contentType: type, decade: decade))
+                               genre: fromList ? nil : genre,
+                               contentType: fromList ? nil : type,
+                               decade: fromList ? nil : decade,
+                               playlistID: playlistID))
         try? ctx.save()
+        SyncNudge.nudge(ctx)
         dismiss()
+    }
+}
+
+// MARK: - Arrange channels (macOS-DESIGN B8, a list you drag)
+
+private struct ArrangeChannelsSheet: View {
+    @Environment(\.modelContext) private var ctx
+    @Environment(\.dismiss) private var dismiss
+    @State private var rows: [GuideChannel]
+
+    init(channels: [GuideChannel]) { _rows = State(initialValue: channels) }
+
+    var body: some View {
+        VStack(spacing: 0) {
+            Text("Arrange Channels").font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding([.horizontal, .top], 20)
+            List {
+                ForEach(rows) { ch in
+                    Label {
+                        Text(ch.title)
+                    } icon: {
+                        Image(systemName: ch.icon)
+                            .foregroundStyle(.white)
+                            .frame(width: 24, height: 24)
+                            .background(ch.accent.gradient, in: .rect(cornerRadius: 5))
+                    }
+                }
+                .onMove { rows.move(fromOffsets: $0, toOffset: $1) }
+            }
+            Divider()
+            HStack {
+                Spacer()
+                Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
+                Button("Done") {
+                    ChannelArrangement.save(rows.map(\.id), in: ctx)
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+            }
+            .padding(12)
+        }
+        .frame(width: 360, height: 520)
     }
 }
 #endif

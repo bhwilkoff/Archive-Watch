@@ -337,16 +337,39 @@ final class UserChannel {
     var genre: String?
     var contentType: String?
     var decade: Int?
+    /// A channel that plays one of the viewer's playlists, in its order
+    /// (2026-11-21). Set at creation; when present the filters are unused.
+    /// Optional for lightweight migration, and every sync writer carries it.
+    var playlistID: String?
     var createdAt: Date
 
     init(id: String = UUID().uuidString, name: String,
-         genre: String? = nil, contentType: String? = nil, decade: Int? = nil) {
+         genre: String? = nil, contentType: String? = nil, decade: Int? = nil,
+         playlistID: String? = nil) {
         self.id = id
         self.name = name
         self.genre = genre
         self.contentType = contentType
         self.decade = decade
+        self.playlistID = playlistID
         self.createdAt = Date()
+    }
+}
+
+/// The viewer's own order of every channel, preset and their own, as guide ids
+/// ("drama", "user-<id>"). One row. Synced as its own record, newest wins
+/// (`at`), so a device that knows nothing of it cannot erase it. A channel the
+/// order does not name follows in the default order (a viewer, 2026-11-17:
+/// "People will want their favorite channels grouped nearby").
+@Model
+final class ChannelArrangement {
+    @Attribute(.unique) var key: String = "order"
+    var ids: [String] = []
+    var modifiedAt: Date = Date.distantPast
+
+    init(ids: [String], modifiedAt: Date = Date()) {
+        self.ids = ids
+        self.modifiedAt = modifiedAt
     }
 }
 
@@ -356,12 +379,30 @@ enum ArchiveHandoff {
     static let viewing = "com.bhwilkoff.archivewatch.viewing"
 }
 
+extension ChannelArrangement {
+    /// The stored order, or empty when the viewer has never arranged.
+    static func ids(in ctx: ModelContext) -> [String] {
+        ((try? ctx.fetch(FetchDescriptor<ChannelArrangement>())) ?? []).first?.ids ?? []
+    }
+
+    /// Stores the guide's full order as the viewer left it, and pushes it.
+    @MainActor
+    static func save(_ ids: [String], in ctx: ModelContext) {
+        let rows = (try? ctx.fetch(FetchDescriptor<ChannelArrangement>())) ?? []
+        if let row = rows.first { row.ids = ids; row.modifiedAt = Date() }
+        else { ctx.insert(ChannelArrangement(ids: ids)) }
+        try? ctx.save()
+        SyncNudge.nudge(ctx)
+    }
+}
+
 extension UserChannel {
     /// A channel needs at least one filter to be a channel ("Choose at least
     /// one filter." where Create is greyed out). One rule for tvOS, iOS and
     /// macOS, where it was written three times.
-    static func canCreate(genre: String?, contentType: String?, decade: Int?) -> Bool {
-        genre != nil || contentType != nil || decade != nil
+    static func canCreate(genre: String?, contentType: String?, decade: Int?,
+                          playlistID: String? = nil) -> Bool {
+        playlistID != nil || genre != nil || contentType != nil || decade != nil
     }
 }
 

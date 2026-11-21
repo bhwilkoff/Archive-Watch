@@ -22,10 +22,13 @@ struct ChannelsView: View {
     @Environment(\.modelContext) private var ctx
     @Environment(\.horizontalSizeClass) private var hSize
     @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
+    @Query private var playlists: [Playlist]
+    @Query private var arrangements: [ChannelArrangement]
     @State private var guide: [GuideChannel] = []
     @State private var builtAt = Date()
     @State private var playing: ChannelLineup?
     @State private var showCreate = false
+    @State private var showArrange = false
     /// The guide window's left edge. nil = "live": the window starts at NOW.
     @State private var windowStart: Date?
     @State private var scheduleMissing = false
@@ -83,6 +86,8 @@ struct ChannelsView: View {
                 // (a viewer, 2026-11-17: "TV enable or disable applies to what?").
                 @Bindable var store = store
                 Menu {
+                    Button("Arrange Channels…", systemImage: "arrow.up.arrow.down") { showArrange = true }
+                        .disabled(guide.isEmpty)
                     Toggle(isOn: $store.channelCommercialBreaks) {
                         Label("Commercial Breaks Between Programs", systemImage: "tv")
                     }
@@ -106,6 +111,7 @@ struct ChannelsView: View {
         }
         #endif
         .onChange(of: userChannels.count) { rebuild() }
+        .onChange(of: arrangements.first?.modifiedAt) { rebuild() }
         .fullScreenCover(item: $playing) { box in
             if let cid = box.channelID, guide.contains(where: { $0.id == cid }) {
                 SurfPlayer(channels: guide, channelID: cid, first: box,
@@ -117,6 +123,9 @@ struct ChannelsView: View {
             }
         }
         .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
+        .sheet(isPresented: $showArrange) {
+            ArrangeChannelsSheet(channels: guide, onDelete: deleteUserChannel(_:))
+        }
     }
 
     /// Shift the visible window, clamped to the broadcast day (anchor → +20h),
@@ -169,9 +178,7 @@ struct ChannelsView: View {
         var out: [GuideChannel] = []
         var number = 2
         for uc in userChannels {
-            let pool = playable(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                               genre: uc.genre, sort: .popular, limit: 150).filter(\.isRecommendable))
-            let slots = ChannelScheduler.schedule(channelID: "user-\(uc.id)", programs: pool, now: now)
+            let slots = UserChannelLineup.slots(uc, store: store, playlists: playlists, now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: "user-\(uc.id)", number: number, title: uc.name,
                                     accent: Color(hex: "#0047FF") ?? .blue,
@@ -182,7 +189,7 @@ struct ChannelsView: View {
             out += ChannelSchedule.guide(file, store: store, firstNumber: number, now: now)
         }
         builtAt = now
-        guide = out
+        guide = GuideChannel.arranged(out, by: arrangements.first?.ids ?? [])
     }
 
     private func playable(_ items: [Catalog.Item]) -> [Catalog.Item] {
@@ -868,12 +875,10 @@ struct ChannelScheduleView: View {
             let gid = channelID.replacingOccurrences(of: "user-", with: "")
             let ucs = (try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? []
             guard let uc = ucs.first(where: { $0.id == gid }) else { return }
-            // The guide's own pool (ChannelsView.rebuild), or the list and the
-            // grid name different programs for the same hour.
-            let pool = store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                      genre: uc.genre, sort: .popular, limit: 150)
-                .filter { $0.videoURLParsed != nil && $0.isRecommendable }
-            let slots = ChannelScheduler.schedule(channelID: channelID, programs: pool, now: now)
+            // The guide's own lineup, or the list and the grid name
+            // different programs for the same hour.
+            let lists = (try? ctx.fetch(FetchDescriptor<Playlist>())) ?? []
+            let slots = UserChannelLineup.slots(uc, store: store, playlists: lists, now: now)
             channel = GuideChannel(id: channelID, number: 0, title: uc.name,
                                    accent: Color(hex: "#0047FF") ?? .blue,
                                    icon: "dot.radiowaves.left.and.right", slots: slots)
@@ -902,6 +907,8 @@ private struct CreateChannelSheet: View {
     @State private var genre: String?
     @State private var type: String?
     @State private var decade: Int?
+    @State private var playlistID: String?
+    @Query(sort: \Playlist.name) private var playlists: [Playlist]
 
     private let genres = ["Drama", "Comedy", "Crime", "Thriller", "Romance",
                           "Action", "Horror", "Mystery", "Western", "Documentary",
@@ -914,14 +921,26 @@ private struct CreateChannelSheet: View {
         ContentType.label(t)
     }
     private var autoName: String {
+        if let pid = playlistID, let list = playlists.first(where: { $0.id == pid }) { return list.name }
         let parts = [decade.map { "\(String($0))s" }, genre, type.map(typeLabel)].compactMap { $0 }
         return parts.isEmpty ? "My Channel" : parts.joined(separator: " ")
     }
-    private var canSave: Bool { UserChannel.canCreate(genre: genre, contentType: type, decade: decade) }
+    private var canSave: Bool {
+        UserChannel.canCreate(genre: genre, contentType: type, decade: decade, playlistID: playlistID)
+    }
 
     var body: some View {
         NavigationStack {
             Form {
+                if !playlists.isEmpty {
+                    Section {
+                        Picker("Plays", selection: $playlistID) {
+                            Text("Titles That Match").tag(String?.none)
+                            ForEach(playlists) { Text($0.name).tag(String?.some($0.id)) }
+                        }
+                    }
+                }
+                if playlistID == nil {
                 Section {
                     Picker("Genre", selection: $genre) {
                         Text("Any").tag(String?.none)
@@ -944,6 +963,7 @@ private struct CreateChannelSheet: View {
                     // is off until a filter is chosen (the Mac says the same).
                     if !canSave { Text("Choose at least one filter.") }
                 }
+                }
                 Section("Name") {
                     TextField(autoName, text: $name)
                 }
@@ -957,14 +977,69 @@ private struct CreateChannelSheet: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Create") {
                         let n = name.trimmingCharacters(in: .whitespaces)
+                        let fromList = playlistID != nil
                         ctx.insert(UserChannel(name: n.isEmpty ? autoName : n,
-                                               genre: genre, contentType: type, decade: decade))
+                                               genre: fromList ? nil : genre,
+                                               contentType: fromList ? nil : type,
+                                               decade: fromList ? nil : decade,
+                                               playlistID: playlistID))
                         try? ctx.save()
                         SyncNudge.nudge(ctx)
                         dismiss()
                     }
                     .keyboardShortcut(.defaultAction)
                     .disabled(!canSave)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Arrange channels (iOS-DESIGN 2.5d-a)
+
+/// Every channel in the guide's order, always in edit mode: drag to move,
+/// delete a channel of your own. The order is saved whole when the sheet
+/// closes, so a channel that arrives later (a new preset) joins at the end.
+private struct ArrangeChannelsSheet: View {
+    @Environment(\.modelContext) private var ctx
+    @Environment(\.dismiss) private var dismiss
+    @State private var rows: [GuideChannel]
+    let onDelete: (GuideChannel) -> Void
+
+    init(channels: [GuideChannel], onDelete: @escaping (GuideChannel) -> Void) {
+        _rows = State(initialValue: channels)
+        self.onDelete = onDelete
+    }
+
+    var body: some View {
+        NavigationStack {
+            List {
+                ForEach(rows) { ch in
+                    Label {
+                        Text(ch.title)
+                    } icon: {
+                        Image(systemName: ch.icon)
+                            .foregroundStyle(.white)
+                            .frame(width: 30, height: 30)
+                            .background(ch.accent.gradient, in: .rect(cornerRadius: 7))
+                    }
+                    .deleteDisabled(!ch.id.hasPrefix("user-"))
+                }
+                .onMove { rows.move(fromOffsets: $0, toOffset: $1) }
+                .onDelete { offsets in
+                    for i in offsets { onDelete(rows[i]) }
+                    rows.remove(atOffsets: offsets)
+                }
+            }
+            .environment(\.editMode, .constant(.active))
+            .navigationTitle("Arrange Channels")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        ChannelArrangement.save(rows.map(\.id), in: ctx)
+                        dismiss()
+                    }
                 }
             }
         }

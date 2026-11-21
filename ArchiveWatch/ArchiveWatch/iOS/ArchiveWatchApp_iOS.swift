@@ -91,7 +91,7 @@ struct ArchiveWatchApp: App {
         // DownloadedFilm is registered here but NOT synced — it names a file on
         // this device (iOS-DESIGN §9.7, Decision 099).
         let schema = Schema([WatchProgress.self, Favorite.self, Playlist.self,
-                             UserChannel.self, Tombstone.self, VideoClip.self,
+                             UserChannel.self, ChannelArrangement.self, Tombstone.self, VideoClip.self,
                              DownloadedFilm.self])
         let config = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
         if let c = try? ModelContainer(for: schema, configurations: config) { return c }

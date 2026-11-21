@@ -44,6 +44,16 @@ struct GuideChannel: Identifiable {
 }
 
 extension GuideChannel {
+    /// The guide in the viewer's order: the ids `order` names first, in its
+    /// order, then every other channel where it already stood. Numbers stay
+    /// with their channels, as on a television.
+    static func arranged(_ channels: [GuideChannel], by order: [String]) -> [GuideChannel] {
+        guard !order.isEmpty else { return channels }
+        let rank = Dictionary(order.enumerated().map { ($1, $0) }, uniquingKeysWith: { a, _ in a })
+        let named = channels.filter { rank[$0.id] != nil }.sorted { rank[$0.id]! < rank[$1.id]! }
+        return named + channels.filter { rank[$0.id] == nil }
+    }
+
     /// Channel surfing, one rule for iPad, Apple TV and Mac (iOS-DESIGN §2.5d,
     /// tvOS-DESIGN §9.1c, macOS-DESIGN §B8b): `step` channels away (-1 up, +1
     /// down, wrapping), the program airing now from its current second — or
@@ -62,5 +72,26 @@ extension GuideChannel {
             return (i, Array(programs), offset)
         }
         return nil
+    }
+}
+
+/// One user channel's slots, for every Apple guide and schedule page (four
+/// copies of this pool had drifted apart before). A playlist channel plays the
+/// playlist's playable titles in its order on `ChannelScheduler.loop`; a
+/// filter channel shuffles its pool daily, as the presets do.
+@MainActor
+enum UserChannelLineup {
+    static func slots(_ uc: UserChannel, store: AppStore, playlists: [Playlist], now: Date) -> [ScheduledProgram] {
+        let id = "user-\(uc.id)"
+        if let pid = uc.playlistID {
+            guard let list = playlists.first(where: { $0.id == pid }) else { return [] }
+            let items = store.dbItemsByIDs(list.archiveIDs)
+                .filter { $0.videoURLParsed != nil }   // the viewer's own choices: no recommendation gate
+            return ChannelScheduler.loop(programs: items, now: now)
+        }
+        let pool = store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
+                                  genre: uc.genre, sort: .popular, limit: 150)
+            .filter { $0.videoURLParsed != nil && $0.isRecommendable }
+        return ChannelScheduler.schedule(channelID: id, programs: pool, now: now)
     }
 }

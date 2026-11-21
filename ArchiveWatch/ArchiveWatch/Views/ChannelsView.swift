@@ -49,7 +49,8 @@ struct ChannelsView: View {
             } else {
                 ChannelGuide(channels: guide, now: clock,
                              onTune: { ch, slot in tune(ch, from: slot) },
-                             onDeleteChannel: { ch in deletingChannel = ch; showDeleteChannel = true })
+                             onDeleteChannel: { ch in deletingChannel = ch; showDeleteChannel = true },
+                             onMove: move(_:by:))
             }
         }
         .background(Color.black.ignoresSafeArea())
@@ -159,10 +160,11 @@ struct ChannelsView: View {
         let now = Date()
         var out: [GuideChannel] = []
         var number = 2
+        // Fetched, not @Query'd: a second @Query here risks the macro's
+        // cascade of resolution errors on tvOS (CLAUDE.md, commit e62601c).
+        let playlists = (try? modelContext.fetch(FetchDescriptor<Playlist>())) ?? []
         for uc in userChannels {
-            let pool = playable(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                               genre: uc.genre, sort: .popular, limit: 150).filter(\.isRecommendable))
-            let slots = ChannelScheduler.schedule(channelID: "user-\(uc.id)", programs: pool, now: now)
+            let slots = UserChannelLineup.slots(uc, store: store, playlists: playlists, now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: "user-\(uc.id)", number: number, title: uc.name,
                                     accent: Color(hex: "#0047FF") ?? .blue,
@@ -174,7 +176,19 @@ struct ChannelsView: View {
         }
         builtAt = now
         clock = now
-        guide = out
+        guide = GuideChannel.arranged(out, by: ChannelArrangement.ids(in: modelContext))
+    }
+
+    /// Long-press → Move Up / Move Down / Move to Top: the remote has no drag.
+    /// The whole order is saved, so every device lands on the same guide.
+    private func move(_ channel: GuideChannel, by step: Int) {
+        var ids = guide.map(\.id)
+        guard let from = ids.firstIndex(of: channel.id) else { return }
+        let to = step == Int.min ? 0 : min(max(from + step, 0), ids.count - 1)
+        guard to != from else { return }
+        ids.insert(ids.remove(at: from), at: to)
+        ChannelArrangement.save(ids, in: modelContext)
+        rebuild()
     }
 
     // The EPG shows program TITLES, not posters, so a channel needs PLAYABLE
@@ -393,6 +407,7 @@ private struct ChannelGuide: View {
     /// them — the rail label isn't focusable, so the context menu rides the
     /// blocks, which are.
     var onDeleteChannel: ((GuideChannel) -> Void)? = nil
+    var onMove: ((GuideChannel, Int) -> Void)? = nil
 
     private let railW: CGFloat = 220
     private let rowH: CGFloat = 92
@@ -412,7 +427,10 @@ private struct ChannelGuide: View {
                                    onTune: onTune,
                                    onDeleteChannel: ch.id.hasPrefix("user-")
                                        ? onDeleteChannel.map { del in { del(ch) } }
-                                       : nil)
+                                       : nil,
+                                   isFirst: ch.id == channels.first?.id,
+                                   isLast: ch.id == channels.last?.id,
+                                   onMove: onMove.map { mv in { step in mv(ch, step) } })
                     }
                 }
                 .padding(.horizontal, 60)
@@ -473,6 +491,9 @@ private struct ChannelRow: View {
     let timelineW: CGFloat
     let onTune: (GuideChannel, ScheduledProgram) -> Void
     var onDeleteChannel: (() -> Void)? = nil
+    var isFirst = false
+    var isLast = false
+    var onMove: ((Int) -> Void)? = nil
 
     private var visible: [ScheduledProgram] {
         channel.slots.filter { $0.end > now && $0.start < windowEnd }
@@ -494,6 +515,15 @@ private struct ChannelRow: View {
                     // User channels only: long-press → delete. The mirror of
                     // iOS's swipe-delete; same SwiftData delete + tombstone.
                     .contextMenu {
+                        if let onMove {
+                            if !isFirst {
+                                Button { onMove(Int.min) } label: { Label("Move Channel to Top", systemImage: "arrow.up.to.line") }
+                                Button { onMove(-1) } label: { Label("Move Channel Up", systemImage: "arrow.up") }
+                            }
+                            if !isLast {
+                                Button { onMove(1) } label: { Label("Move Channel Down", systemImage: "arrow.down") }
+                            }
+                        }
                         if let onDeleteChannel {
                             Button(role: .destructive) {
                                 onDeleteChannel()
@@ -625,6 +655,8 @@ private struct CreateChannelSheet: View {
     @State private var genre: String?
     @State private var type: String?
     @State private var decade: Int?
+    @State private var playlistID: String?
+    @State private var playlists: [Playlist] = []
 
     private let genres = ["Drama", "Comedy", "Crime", "Thriller", "Romance",
                           "Action", "Horror", "Mystery", "Western", "Documentary",
@@ -637,13 +669,20 @@ private struct CreateChannelSheet: View {
         ContentType.label(t)
     }
 
+    private func playlistName(_ id: String) -> String {
+        playlists.first { $0.id == id }?.name ?? ""
+    }
+
     /// Name the channel from its filters when the curator doesn't type one.
     private var autoName: String {
+        if let playlistID { return playlistName(playlistID) }
         let parts = [decade.map { "\(String($0))s" }, genre, type.map(typeLabel)].compactMap { $0 }
         return parts.isEmpty ? "My Channel" : parts.joined(separator: " ")
     }
 
-    private var canSave: Bool { UserChannel.canCreate(genre: genre, contentType: type, decade: decade) }
+    private var canSave: Bool {
+        UserChannel.canCreate(genre: genre, contentType: type, decade: decade, playlistID: playlistID)
+    }
 
     var body: some View {
         ScrollView {
@@ -656,12 +695,18 @@ private struct CreateChannelSheet: View {
                         .foregroundStyle(.white)
                 }
 
-                PillSelectRow(title: "Genre", options: genres, label: { $0 },
-                              selection: $genre, accent: Color(hex: "#FF5C35") ?? .orange)
-                PillSelectRow(title: "Type", options: types, label: typeLabel,
-                              selection: $type, accent: Color(hex: "#2D5BFF") ?? .blue)
-                PillSelectRow(title: "Era", options: decades, label: { "\(String($0))s" },
-                              selection: $decade, accent: Color(hex: "#C9A66B") ?? .brown)
+                if !playlists.isEmpty {
+                    PillSelectRow(title: "Playlist", options: playlists.map(\.id), label: playlistName,
+                                  selection: $playlistID, accent: Color(hex: "#0047FF") ?? .blue)
+                }
+                if playlistID == nil {
+                    PillSelectRow(title: "Genre", options: genres, label: { $0 },
+                                  selection: $genre, accent: Color(hex: "#FF5C35") ?? .orange)
+                    PillSelectRow(title: "Type", options: types, label: typeLabel,
+                                  selection: $type, accent: Color(hex: "#2D5BFF") ?? .blue)
+                    PillSelectRow(title: "Era", options: decades, label: { "\(String($0))s" },
+                                  selection: $decade, accent: Color(hex: "#C9A66B") ?? .brown)
+                }
 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Name").font(.system(size: 24, weight: .bold))
@@ -679,9 +724,13 @@ private struct CreateChannelSheet: View {
                 VStack(spacing: 16) {
                     Button {
                         let n = name.trimmingCharacters(in: .whitespaces)
+                        let fromList = playlistID != nil
                         ctx.insert(UserChannel(name: n.isEmpty ? autoName : n,
-                                               genre: genre, contentType: type, decade: decade))
-                        try? ctx.save(); dismiss()
+                                               genre: fromList ? nil : genre,
+                                               contentType: fromList ? nil : type,
+                                               decade: fromList ? nil : decade,
+                                               playlistID: playlistID))
+                        try? ctx.save(); SyncNudge.nudge(ctx); dismiss()
                     } label: {
                         Label("Create Channel", systemImage: "plus.circle.fill")
                             .font(.title3.weight(.semibold))
@@ -708,6 +757,10 @@ private struct CreateChannelSheet: View {
             .padding(.vertical, 80)
         }
         .background(Color.black.ignoresSafeArea())
+        .onAppear {
+            playlists = ((try? ctx.fetch(FetchDescriptor<Playlist>())) ?? [])
+                .sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+        }
     }
 }
 

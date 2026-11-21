@@ -200,6 +200,7 @@ final class AppStore {
     /// The hero's candidates as one query (ids + playability), as on tvOS.
     func dbHeroCandidates() -> [(id: String, playable: Bool)] { db?.heroCandidates() ?? [] }
     func itemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
+    func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { itemsByIDs(ids) }
 
     /// Saved ids resolved to the cards that serve them, each paired with the
     /// id it was STORED under. A merged-away id (Decision 040) resolves to

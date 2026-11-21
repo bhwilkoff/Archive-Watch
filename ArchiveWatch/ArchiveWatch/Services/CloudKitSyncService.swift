@@ -58,7 +58,7 @@ final class CloudKitSyncService {
 
     private static let recordType = "AWSync"
     private enum Blob: String, CaseIterable {
-        case tombstones, favorites, playlists, progress, channels
+        case tombstones, favorites, playlists, progress, channels, channelOrder
         var recordID: CKRecord.ID { CKRecord.ID(recordName: rawValue) }
     }
 
@@ -90,7 +90,11 @@ final class CloudKitSyncService {
         var id: String; var name: String
         var genre: String?; var contentType: String?; var decade: Int?
         var createdAt: Date
+        // A playlist channel (2026-11-21). Optional so older payloads decode.
+        var playlistID: String? = nil
     }
+    /// The viewer's channel order: one entry, newest `at` wins.
+    private struct ChannelOrderEntry: Codable { var ids: [String]; var at: Date }
 
     // MARK: - Public API
 
@@ -172,6 +176,7 @@ final class CloudKitSyncService {
             let lists = mergePlaylists(context, decode(records[.playlists]!), tombs)
             let progress = mergeProgress(context, decode(records[.progress]!), tombs)
             let channels = mergeChannels(context, decode(records[.channels]!), tombs)
+            let order = mergeChannelOrder(context, decode(records[.channelOrder]!))
             try context.save()
             // A purge or a sign-out that landed while this sync was fetching
             // must not be undone by pushing the merged copy back.
@@ -182,6 +187,7 @@ final class CloudKitSyncService {
             try await save(database, records[.playlists]!, encode(lists))
             try await save(database, records[.progress]!, encode(progress))
             try await save(database, records[.channels]!, encode(channels))
+            try await save(database, records[.channelOrder]!, encode(order))
         } catch {
             throw error          // the retry loop in sync() decides what's transient
         }
@@ -445,19 +451,33 @@ final class CloudKitSyncService {
         for c in local.values {
             merged[c.id] = ChannelEntry(id: c.id, name: c.name, genre: c.genre,
                                         contentType: c.contentType, decade: c.decade,
-                                        createdAt: c.createdAt)
+                                        createdAt: c.createdAt, playlistID: c.playlistID)
         }
         for e in cloud {
             if let dead = tombByKey["ch:\(e.id)"], dead >= e.createdAt { continue }
             if merged[e.id] == nil {
                 let uc = UserChannel(id: e.id, name: e.name, genre: e.genre,
-                                     contentType: e.contentType, decade: e.decade)
+                                     contentType: e.contentType, decade: e.decade,
+                                     playlistID: e.playlistID)
                 uc.createdAt = e.createdAt
                 ctx.insert(uc)
                 merged[e.id] = e
             }
         }
         return Array(merged.values)
+    }
+
+    /// Newest arrangement wins, whichever side it is on.
+    private func mergeChannelOrder(_ ctx: ModelContext, _ cloud: [ChannelOrderEntry]) -> [ChannelOrderEntry] {
+        let local = ((try? ctx.fetch(FetchDescriptor<ChannelArrangement>())) ?? []).first
+        let remote = cloud.max { $0.at < $1.at }
+        if let remote, remote.at > (local?.modifiedAt ?? .distantPast) {
+            if let local { local.ids = remote.ids; local.modifiedAt = remote.at }
+            else { ctx.insert(ChannelArrangement(ids: remote.ids, modifiedAt: remote.at)) }
+            return [remote]
+        }
+        if let local, local.modifiedAt > .distantPast { return [ChannelOrderEntry(ids: local.ids, at: local.modifiedAt)] }
+        return []
     }
 
     // MARK: - Helpers
