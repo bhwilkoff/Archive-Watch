@@ -3256,7 +3256,7 @@
       await Data.episodesReady;
       const progs = await Promise.all((archiveIDs || []).slice(0, 300).map(async id => {
         const row = Data.byID.get(id);
-        if (!row) return null;
+        if (!row || row[3] === 'tv-series') return null;
         const det = await Details.get(id).catch(() => null);
         if (!det?.downloadURL) return null;
         return [id, row[1], det.runtimeSeconds || null,

@@ -85,8 +85,11 @@ enum UserChannelLineup {
         let id = "user-\(uc.id)"
         if let pid = uc.playlistID {
             guard let list = playlists.first(where: { $0.id == pid }) else { return [] }
-            let items = store.dbItemsByIDs(list.archiveIDs)
-                .filter { $0.videoURLParsed != nil }   // the viewer's own choices: no recommendation gate
+            // One rule on every platform, or their clocks part: the first 300
+            // stored titles, minus series cards and anything with no file. No
+            // recommendation gate: these are the viewer's own choices.
+            let items = store.dbItemsByIDs(Array(list.archiveIDs.prefix(300)))
+                .filter { $0.videoURLParsed != nil && $0.contentType != "tv-series" }
             return ChannelScheduler.loop(programs: items, now: now)
         }
         let pool = store.dbBrowse(contentType: uc.contentType, decade: uc.decade,

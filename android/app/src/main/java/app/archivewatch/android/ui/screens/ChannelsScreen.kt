@@ -134,7 +134,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         val user = container.userState.userChannels().mapNotNull { uc ->
             uc.playlistID?.let { pid ->
                 val list = playlists[pid] ?: return@mapNotNull null
-                val programs = ChannelScheduler.playlistPrograms(db.itemsByIDs(list.archiveIDs))
+                val programs = ChannelScheduler.playlistPrograms(db.itemsByIDs(list.archiveIDs.take(300)))
                 val slots = ChannelScheduler.loop(programs, nowMs)
                 return@mapNotNull if (slots.isEmpty()) null
                     else GuideChannel("user-${uc.id}", uc.name, "#0047FF", slots)
