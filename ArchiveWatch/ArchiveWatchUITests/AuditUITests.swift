@@ -397,6 +397,72 @@ final class AuditUITests: XCTestCase {
         app.terminate()
     }
 
+    /// iOS-DESIGN 2.5d-a: the channel controls say what they do, Arrange
+    /// opens every channel in edit mode, and Create offers a playlist. Saves
+    /// nothing: Arrange is dismissed by a swipe (only Done saves) and Create
+    /// by Cancel, so the owner's guide is untouched.
+    func test_40_channelOptionsArrangeAndPlaylistSource() {
+        launch(["AW_START_TAB": "channels", "AW_CHANNELS_MODE": "onNow"])
+        let options = app.navigationBars.buttons["Channel Options"]
+        tapAndExpect(options, "channel options menu", appears: app.buttons["Arrange Channels…"])
+        XCTAssertTrue(app.switches["Commercial Breaks Between Programs"].exists
+                      || app.buttons["Commercial Breaks Between Programs"].exists,
+                      "the commercial-break toggle is in words")
+        tapAndExpect(app.buttons["Arrange Channels…"], "arrange sheet",
+                     appears: app.navigationBars["Arrange Channels"])
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Reorder'")).count > 3,
+                      "every channel carries a reorder handle")
+        app.navigationBars["Arrange Channels"].swipeDown(velocity: .fast)
+        app.swipeDown(velocity: .fast)
+        XCTAssertTrue(app.navigationBars["Arrange Channels"].waitForNonExistence(timeout: 6))
+        tapAndExpect(app.navigationBars.buttons["Create channel"], "create sheet",
+                     appears: app.navigationBars["Create a Channel"])
+        let plays = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Plays'")).firstMatch
+        if plays.waitForExistence(timeout: 4) {
+            tapAndExpect(plays, "plays picker", appears: app.buttons["Titles That Match"])
+            app.buttons["Titles That Match"].tap()
+        } else {
+            snap("create sheet without playlists")
+        }
+        app.navigationBars["Create a Channel"].buttons["Cancel"].tap()
+    }
+
+    /// A channel made from a playlist airs that playlist, and a swipe deletes
+    /// it. Off the owner's cloud (AW_NO_SYNC); the sweep launch at the end
+    /// takes the list and the channel away again, and the Create sheet
+    /// proves it: with no playlist left there is no "Plays" choice.
+    func test_41_playlistChannelAirsAndSwipeDeletes() {
+        let ids = "bb_minnie_the_moocher,steamboat-willie_1928"
+        baseEnv = ["AW_NO_SYNC": "1"]
+        launch(["AW_START_TAB": "channels", "AW_CHANNELS_MODE": "onNow",
+                "AW_TEST_LIST": "Play audit channel|\(ids)"])
+        tapAndExpect(app.navigationBars.buttons["Create channel"], "create sheet with a playlist",
+                     appears: app.navigationBars["Create a Channel"])
+        let plays = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Plays'")).firstMatch
+        tapAndExpect(plays, "plays picker", appears: app.buttons["Play audit channel"])
+        app.buttons["Play audit channel"].tap()
+        XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Genre'")).firstMatch.exists,
+                       "a playlist channel hides the filters")
+        snap("playlist chosen")
+        app.navigationBars["Create a Channel"].buttons["Create"].tap()
+        let row = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Play audit channel'")).firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 12), "the playlist channel is in On Now")
+        XCTAssertTrue(row.label.contains("Minnie") || row.label.contains("Steamboat"),
+                      "it airs a title from the playlist: \(row.label)")
+        snap("playlist channel on now")
+        row.swipeLeft()
+        tapAndExpect(app.buttons["Delete"], "swipe delete", appears: app.navigationBars.firstMatch)
+        XCTAssertTrue(row.waitForNonExistence(timeout: 8), "the swipe deleted the channel")
+
+        app.terminate()
+        launch(["AW_START_TAB": "channels", "AW_TEST_SWEEP": ids])
+        app.navigationBars.buttons["Create channel"].tap()
+        XCTAssertTrue(app.navigationBars["Create a Channel"].waitForExistence(timeout: 8))
+        XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Plays'")).firstMatch
+                        .waitForExistence(timeout: 3), "the sweep removed the test playlist")
+        app.navigationBars["Create a Channel"].buttons["Cancel"].tap()
+    }
+
     func test_01_everyTabOpens() {
         launch()
         // Search LAST: on iOS 26 the search tab REPLACES the tab bar with a

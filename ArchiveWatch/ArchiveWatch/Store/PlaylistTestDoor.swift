@@ -9,7 +9,7 @@ import SwiftData
 ///
 ///   AW_NO_SYNC=1                 nothing leaves the device for this launch
 ///   AW_TEST_LIST=<name>|id,id    makes that list
-///   AW_TEST_SWEEP=id,id          removes every "Play audit" list and those
+///   AW_TEST_SWEEP=id,id          removes every "Play audit" list and channel and those
 ///                                titles' watch history, and logs what is left
 @MainActor
 enum PlaylistTestDoor {
@@ -22,6 +22,9 @@ enum PlaylistTestDoor {
         let lists = ((try? ctx.fetch(FetchDescriptor<Playlist>())) ?? [])
             .filter { $0.name.hasPrefix("Play audit") }
         lists.forEach(ctx.delete)
+        let channels = ((try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? [])
+            .filter { $0.name.hasPrefix("Play audit") }
+        channels.forEach(ctx.delete)
         let ids = Set(raw.split(separator: ",").map(String.init))
         let history = ((try? ctx.fetch(FetchDescriptor<WatchProgress>())) ?? [])
             .filter { ids.contains($0.archiveID) }

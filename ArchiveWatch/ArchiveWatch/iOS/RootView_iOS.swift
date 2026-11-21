@@ -426,6 +426,7 @@ struct RootView: View {
                 let env = ProcessInfo.processInfo.environment
                 #if DEBUG
                 PlaylistTestDoor.sweep(modelContext)
+                _ = PlaylistTestDoor.makeList(modelContext)
                 // AW_RESET_TABS=1: forget the sidebar's saved customization.
                 if env["AW_RESET_TABS"] == "1", !sidebarCustomizationData.isEmpty {
                     awdiag("AWTABS customization was %d bytes; reset", sidebarCustomizationData.count)
