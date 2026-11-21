@@ -89,6 +89,19 @@ class StudioFilmAudioTap : TeeAudioProcessor.AudioBufferSink {
         }
     }
 
+    /** The sink that plays the film normally AND copies its PCM here. Also
+     *  handed to the player's AudioSyncRenderersFactory, which composes with it. */
+    fun audioSink(
+        context: android.content.Context,
+        enableFloatOutput: Boolean,
+        enableAudioTrackPlaybackParams: Boolean,
+    ): AudioSink = DefaultAudioSink.Builder(context)
+        .setEnableFloatOutput(enableFloatOutput)
+        .setEnableAudioOutputPlaybackParameters(enableAudioTrackPlaybackParams)
+        .setAudioProcessorChain(
+            DefaultAudioSink.DefaultAudioProcessorChain(TeeAudioProcessor(this)))
+        .build()
+
     /**
      * A renderers factory that plays the film normally AND copies its PCM
      * here. Everything else about playback is Media3's default.
@@ -99,13 +112,7 @@ class StudioFilmAudioTap : TeeAudioProcessor.AudioBufferSink {
                 context: android.content.Context,
                 enableFloatOutput: Boolean,
                 enableAudioTrackPlaybackParams: Boolean,
-            ): AudioSink = DefaultAudioSink.Builder(context)
-                .setEnableFloatOutput(enableFloatOutput)
-                .setEnableAudioOutputPlaybackParameters(enableAudioTrackPlaybackParams)
-                .setAudioProcessorChain(
-                    DefaultAudioSink.DefaultAudioProcessorChain(
-                        TeeAudioProcessor(this@StudioFilmAudioTap)))
-                .build()
+            ): AudioSink = audioSink(context, enableFloatOutput, enableAudioTrackPlaybackParams)
         }
 
     companion object {

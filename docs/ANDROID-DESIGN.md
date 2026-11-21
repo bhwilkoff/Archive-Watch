@@ -316,6 +316,15 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   WATCHED (Decision 078), never by the playhead — a channel joins minutes in.
   A channel changes with up/down (TV-DESIGN §5.2a); a film chosen by the
   viewer ends, with Autoplay next on, in an Up Next card.
+- **§5.4 Audio Sync is one item in Player Options, last** (2026-11-21). For a
+  copy whose sound drifts from its picture: **Earlier / value / Later**, 100 ms
+  steps, -2.0 s to +2.0 s, where **+ means the sound comes later**. It lasts
+  for the title it was set on (reset on every media-item transition, never
+  saved). The shift moves only the VIDEO renderer's view of the audio clock
+  (`player/AudioSync.kt`), so the scrubber, saved progress, the MediaSession
+  and a Watch Together room keep the true position. Hidden while casting: the
+  receiver plays its own sound against its own picture. The app enables
+  neither tunneling nor audio offload; either would bypass the shift.
 
 ## §6 Theme
 

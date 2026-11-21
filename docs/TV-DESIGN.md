@@ -295,6 +295,12 @@ Why: the owner watched a Party Play film they could not identify, and the
 only thing the player offered was to keep watching. tvOS twin: tvOS-DESIGN
 §9.3a. Roku twin: ROKU-DESIGN §6.9.
 
+5.7 **Audio Sync is the last item in Player Options** (Android TV, 2026-11-21;
+ANDROID-DESIGN §5.4). An "Audio Sync" heading over **Earlier / value / Later**
+pills, 100 ms a press, -2.0 s to +2.0 s, + meaning the sound comes later. It
+lasts for the title it was set on and is never saved. It is a power-user
+control, so it never moves up the panel and never appears outside it.
+
 ## §6 — Android TV mechanics (binding where marked)
 
 **6.1 Dependency (binding).** `androidx.tv:tv-material` **only**. `tv-foundation`

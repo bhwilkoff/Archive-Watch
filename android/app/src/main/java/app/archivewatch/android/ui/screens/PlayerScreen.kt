@@ -170,6 +170,9 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         onDispose { studioTap?.let { StudioController.detachTap(it) } }
     }
 
+    // Audio Sync (ANDROID-DESIGN §5.4): per playback session, never saved.
+    val audioSync = remember(spec.url) { app.archivewatch.android.player.AudioSyncOffset() }
+
     val player = remember(spec.url) {
         val httpFactory = OkHttpDataSource.Factory(container.okHttp)
             .setUserAgent("ArchiveWatch-Android/1.0")
@@ -209,7 +212,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             .setBackBuffer(30_000, true)                // cheap re-seek without refetch
             .build()
         ExoPlayer.Builder(context)
-            .apply { studioTap?.let { setRenderersFactory(it.renderersFactory(context)) } }
+            .setRenderersFactory(
+                app.archivewatch.android.player.AudioSyncRenderersFactory(
+                    context, audioSync,
+                    audioSink = studioTap?.let { t -> t::audioSink },
+                ),
+            )
             .setMediaSourceFactory(
                 // `DefaultDataSource.Factory` resolves file:// itself and hands
                 // http(s) to the same OkHttp upstream. The subtitles a viewer
@@ -277,6 +285,15 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 playWhenReady = true
                 prepare()
             }
+    }
+
+    // A nudge belongs to the title it was set on: the next one starts in sync.
+    DisposableEffect(player) {
+        val l = object : Player.Listener {
+            override fun onMediaItemTransition(item: MediaItem?, reason: Int) = audioSync.reset()
+        }
+        player.addListener(l)
+        onDispose { player.removeListener(l) }
     }
 
     // Lock-screen / notification media controls (the MediaSession parity row).
@@ -1200,6 +1217,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         if (!isTv && showPhoneMenu) {
             PhonePlayerOptionsSheet(
                 player = player,
+                audioSync = audioSync,
                 spec = spec,
                 captions = nowCaptions,
                 container = container,
@@ -1210,6 +1228,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         if (isTv && showTvMenu) {
             TvPlayerOptionsPanel(
                 player = player,
+                audioSync = audioSync,
                 spec = spec,
                 captions = nowCaptions,
                 container = container,
@@ -1236,6 +1255,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
 @Composable
 private fun PhonePlayerOptionsSheet(
     player: ExoPlayer,
+    audioSync: app.archivewatch.android.player.AudioSyncOffset,
     spec: PlaySpec,
     captions: List<app.archivewatch.android.data.Caption>,
     container: AppContainer,
@@ -1406,6 +1426,34 @@ private fun PhonePlayerOptionsSheet(
                 },
             )
             }
+
+            // A Cast receiver plays its own sound against its own picture; the
+            // nudge acts only on this device's player.
+            if (!CastSupport.isCasting()) {
+                var syncMs by remember { androidx.compose.runtime.mutableIntStateOf(audioSync.offsetMs) }
+                HorizontalDivider(Modifier.padding(top = 12.dp))
+                ListItem(
+                    headlineContent = { Text("Audio Sync") },
+                    trailingContent = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            androidx.compose.material3.TextButton(
+                                onClick = { audioSync.nudge(-1); syncMs = audioSync.offsetMs },
+                                enabled = syncMs > -app.archivewatch.android.player.AudioSyncOffset.LIMIT_MS,
+                            ) { Text("Earlier") }
+                            Text(
+                                app.archivewatch.android.player.AudioSyncOffset.label(syncMs),
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.widthIn(min = 52.dp),
+                                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                            )
+                            androidx.compose.material3.TextButton(
+                                onClick = { audioSync.nudge(1); syncMs = audioSync.offsetMs },
+                                enabled = syncMs < app.archivewatch.android.player.AudioSyncOffset.LIMIT_MS,
+                            ) { Text("Later") }
+                        }
+                    },
+                )
+            }
         }
     }
 }
@@ -1418,6 +1466,7 @@ private fun PhonePlayerOptionsSheet(
 @Composable
 private fun TvPlayerOptionsPanel(
     player: androidx.media3.exoplayer.ExoPlayer,
+    audioSync: app.archivewatch.android.player.AudioSyncOffset,
     spec: PlaySpec,
     captions: List<app.archivewatch.android.data.Caption>,
     container: AppContainer,
@@ -1567,6 +1616,32 @@ private fun TvPlayerOptionsPanel(
                             }
                             onDismiss()
                         }
+                    }
+                }
+                item(key = "sync-head") {
+                    Text("Audio Sync", style = MaterialTheme.typography.labelLarge,
+                        color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 10.dp))
+                }
+                item(key = "sync") {
+                    var syncMs by remember { androidx.compose.runtime.mutableIntStateOf(audioSync.offsetMs) }
+                    // Bottom room for the focused pill's ring, which the list clipped.
+                    Row(
+                        Modifier.padding(bottom = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    ) {
+                        app.archivewatch.android.ui.tv.TvActionPill("Earlier", {
+                            audioSync.nudge(-1); syncMs = audioSync.offsetMs
+                        })
+                        Text(
+                            app.archivewatch.android.player.AudioSyncOffset.label(syncMs),
+                            style = MaterialTheme.typography.bodyMedium, color = Color.White,
+                            modifier = Modifier.widthIn(min = 56.dp),
+                            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                        )
+                        app.archivewatch.android.ui.tv.TvActionPill("Later", {
+                            audioSync.nudge(1); syncMs = audioSync.offsetMs
+                        })
                     }
                 }
             }
