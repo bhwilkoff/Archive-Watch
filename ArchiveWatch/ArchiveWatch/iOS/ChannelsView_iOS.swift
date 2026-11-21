@@ -58,7 +58,8 @@ struct ChannelsView: View {
                     if showsList {
                         OnNowList(channels: guide,
                                   onTune: tune(_:from:),
-                                  onSchedule: { router.push(ChannelScheduleRoute(channelID: $0.id)) })
+                                  onSchedule: { router.push(ChannelScheduleRoute(channelID: $0.id)) },
+                                  onDelete: deleteUserChannel(_:))
                     } else {
                         EPGGuide(channels: guide,
                                  windowStart: windowStart ?? Date(),
@@ -67,7 +68,8 @@ struct ChannelsView: View {
                                  onShift: shift(by:),
                                  onJumpToNow: { windowStart = nil },
                                  onTune: tune(_:from:),
-                                 onRail: { router.push(ChannelScheduleRoute(channelID: $0.id)) })
+                                 onRail: { router.push(ChannelScheduleRoute(channelID: $0.id)) },
+                                 onDelete: deleteUserChannel(_:))
                     }
                 }
             }
@@ -76,15 +78,17 @@ struct ChannelsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                // A real toggle (the Mac loop, v1.42.816): an icon that swaps
-                // pictures does not read as on/off; a toggle button shows its
-                // state, and VoiceOver says "Commercial Breaks, on".
+                // A toggle in a menu, in words: the icon-only toggle button
+                // (v1.42.816) turned blue and said nothing of what it did
+                // (a viewer, 2026-11-17: "TV enable or disable applies to what?").
                 @Bindable var store = store
-                Toggle(isOn: $store.channelCommercialBreaks) {
-                    Label("Commercial Breaks", systemImage: "tv")
+                Menu {
+                    Toggle(isOn: $store.channelCommercialBreaks) {
+                        Label("Commercial Breaks Between Programs", systemImage: "tv")
+                    }
+                } label: {
+                    Label("Channel Options", systemImage: "ellipsis.circle")
                 }
-                .toggleStyle(.button)
-                .help("Commercial Breaks")
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showCreate = true } label: {
@@ -147,6 +151,17 @@ struct ChannelsView: View {
             }
         }
         #endif
+    }
+
+    /// A user channel, by its own id, with a tombstone so another device's
+    /// copy does not bring it back (the schedule page's deleteChannel).
+    private func deleteUserChannel(_ ch: GuideChannel) {
+        guard ch.id.hasPrefix("user-") else { return }
+        let gid = String(ch.id.dropFirst("user-".count))
+        for uc in userChannels where uc.id == gid {
+            ctx.delete(uc)
+            SyncNudge.recordDeletion("ch:\(uc.id)", in: ctx)
+        }
     }
 
     private func rebuild() {
@@ -222,6 +237,7 @@ private struct OnNowList: View {
     let channels: [GuideChannel]
     let onTune: (GuideChannel, ScheduledProgram) -> Void
     let onSchedule: (GuideChannel) -> Void
+    let onDelete: (GuideChannel) -> Void
 
     var body: some View {
         // Redrawn every minute so progress and "ends" stay true while the
@@ -229,6 +245,11 @@ private struct OnNowList: View {
         TimelineView(.everyMinute) { context in
             List(channels) { ch in
                 row(ch, now: context.date)
+                    .swipeActions {
+                        if ch.id.hasPrefix("user-") {
+                            Button("Delete", systemImage: "trash", role: .destructive) { onDelete(ch) }
+                        }
+                    }
             }
             .listStyle(.plain)
         }
@@ -463,6 +484,7 @@ private struct EPGGuide: View {
     let onJumpToNow: () -> Void
     let onTune: (GuideChannel, ScheduledProgram) -> Void
     let onRail: (GuideChannel) -> Void
+    let onDelete: (GuideChannel) -> Void
 
     private let railW: CGFloat = 76
     private let rowH: CGFloat = 64
@@ -572,6 +594,11 @@ private struct EPGGuide: View {
         ForEach(channels) { ch in
             HStack(spacing: 4) {
                 railCell(ch)
+                    .contextMenu {
+                        if ch.id.hasPrefix("user-") {
+                            Button("Delete Channel", systemImage: "trash", role: .destructive) { onDelete(ch) }
+                        }
+                    }
                 timeline(ch, ppm: ppm, timelineW: timelineW, now: now)
             }
             .frame(height: rowH)

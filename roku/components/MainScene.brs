@@ -1796,7 +1796,7 @@ end sub
 function filmProblemURL(id as String) as String
     ' encodeName, not roUrlTransfer: this runs on the render thread.
     where = "Roku " + CreateObject("roAppInfo").GetVersion()
-    return "https://github.com/bhwilkoff/Archive-Watch/issues/new?template=film-problem.yml&film=" + encodeName(id) + "&where=" + encodeName(where)
+    return "https://archivewatch.org/report.html?film=" + encodeName(id) + "&where=" + encodeName(where)
 end function
 
 sub openShareCard(id as String, title as String)

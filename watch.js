@@ -959,13 +959,13 @@
    * and links back: this site shows what its rights audit keeps.      *
    * ---------------------------------------------------------------- */
   /** "Something wrong with this film?" (2026-09-26, the Orphaned Films
-   *  research): a pre-filled GitHub issue form. Only what identifies the
-   *  report — the film's id and where it was seen; nothing is sent until the
-   *  viewer submits it themselves. Short, because the TVs show it as a QR code.
-   *  Every platform builds the same URL (FilmProblem on Apple/Android/Roku). */
+   *  research): report.html, which offers an email and the GitHub issue form,
+   *  with only what identifies the report — the film's id and where it was
+   *  seen. Short, because the TVs show it as a QR code. Every platform builds
+   *  the same URL (FilmProblem on Apple/Android/Roku). */
   function filmProblemURL(id, where) {
-    return 'https://github.com/bhwilkoff/Archive-Watch/issues/new?template=film-problem.yml' +
-      `&film=${encodeURIComponent(id)}&where=${encodeURIComponent(where)}`;
+    return 'https://archivewatch.org/report.html' +
+      `?film=${encodeURIComponent(id)}&where=${encodeURIComponent(where)}`;
   }
 
   const ArchiveAddress = {

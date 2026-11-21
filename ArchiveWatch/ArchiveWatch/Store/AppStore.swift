@@ -344,13 +344,10 @@ final class AppStore {
 
     /// Shared kid-friendly color-cartoon pool (used by cartoonLineup + Kids Mode).
     func kidsCartoonPool(limit: Int) -> [Catalog.Item] {
-        let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
         let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 600).filter { it in
             guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { return false }
             if it.isSilentFilm == true { return false }   // Cartoon MODE excludes silent
-            let blob = (it.genres + it.subjects).map { $0.lowercased() }
-            if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
-            return true
+            return !KidsRules.excluded(it)
         }
         // Color leads; B&W (non-silent, e.g. Betty Boop) stays available but de-emphasized.
         return Array(colorEmphasizedAnimation(pool).prefix(max(limit, 120)))
@@ -447,12 +444,10 @@ final class AppStore {
     /// Substring match over the kid-safe cartoon pool (the FTS search was too strict
     /// and only ever surfaced Popeye + Betty Boop).
     func kidsCharacters() -> [(name: String, items: [Catalog.Item])] {
-        let scary = ["horror", "nightmare", "macabre"]
         let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 1500).filter { it in
             guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil,
                   it.isRecommendable else { return false }
-            let g = (it.genres + it.subjects).map { $0.lowercased() }
-            return !g.contains { x in scary.contains(where: x.contains) }
+            return !KidsRules.excluded(it, scary: ["horror", "nightmare", "macabre"])
         }
         return Self.kidsCharacterDefs.compactMap { name, terms in
             let lc = terms.map { $0.lowercased() }
@@ -470,10 +465,7 @@ final class AppStore {
         let pool = kidsCartoonPool(limit: 600)
         func byDecade(_ d: Int) -> [Catalog.Item] { pool.filter { $0.decade == d } }
         func byWords(_ words: [String]) -> [Catalog.Item] {
-            pool.filter { it in
-                let blob = (it.genres + it.subjects + [it.title]).map { $0.lowercased() }.joined(separator: " ")
-                return words.contains { blob.contains($0) }
-            }
+            pool.filter { KidsRules.mentions(words, in: $0.genres + $0.subjects + [$0.title]) }
         }
         let groups: [(String, [Catalog.Item])] = [
             ("Color Classics",   byWords(["color", "colour", "technicolor"])),

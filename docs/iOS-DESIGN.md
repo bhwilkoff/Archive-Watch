@@ -138,6 +138,15 @@ consecutive programs under fifteen minutes into one "N short films · Until
 began at the broadcast anchor, hours earlier). Regular width (iPad) keeps the
 grid alone.
 
+2.5d-a **Channel controls say what they do, and a user channel is deleted where
+it is seen** (2026-11-21). A viewer: *"there is a TV button ... that turns blue
+when enabled, but seemingly does nothing else. TV enable or disable applies to
+what?"* and *"can I delete a channel that I create?"* The commercial-break
+toggle lives in a Channel Options menu (`ellipsis.circle`) in words,
+"Commercial Breaks Between Programs", never as a bare icon toggle. A user
+channel deletes by swiping its On Now row or long-pressing its rail cell in the
+Guide, as well as from its schedule page, always with the `ch:` tombstone.
+
 2.5d **You can change channel without leaving the picture.** Owner,
 2026-09-27: *"allowing users to navigate easily around the channels."* The
 research's warning case: Pluto's 2026 redesign removed channel surfing and its

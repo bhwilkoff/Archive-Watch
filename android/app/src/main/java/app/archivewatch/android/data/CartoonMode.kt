@@ -9,6 +9,9 @@ package app.archivewatch.android.data
 object CartoonMode {
     private val scary = listOf("horror", "war", "nightmare", "death", "ghost story", "macabre")
     private val shelfScary = listOf("horror", "nightmare", "macabre")
+    /** archive.org's subjects for health and sex-education films (Apple's KidsRules). */
+    private val notForChildren = listOf("sex educ", "sex hygiene", "contracept", "birth control",
+                                        "reproduction", "venereal", "puberty", "menstruat")
 
     val characterDefs: List<Pair<String, List<String>>> = listOf(
         "Popeye" to listOf("popeye"), "Betty Boop" to listOf("betty boop"),
@@ -41,7 +44,7 @@ object CartoonMode {
 
     /** The marathon: color-leaning, never silent, nothing scary, designed art. */
     fun pool(candidates: List<CatalogItem>, limit: Int = 250): List<CatalogItem> {
-        val pool = candidates.filter { item -> item.blob().none { g -> scary.any { g.contains(it) } } }
+        val pool = candidates.filter { item -> item.blob().none { g -> scary.any { g.contains(it) } || notForChildren.any { g.contains(it) } } }
         val color = pool.filter { !it.isBlackAndWhiteOrSilent() }.shuffled()
         val bw = pool.filter { it.isBlackAndWhiteOrSilent() }.shuffled()
         return (color + bw.take(maxOf(3, (color.size * 0.15).toInt()))).take(maxOf(limit, 120))
@@ -49,7 +52,7 @@ object CartoonMode {
 
     /** Character shelves, matched on title OR archive.org subjects (Apple's rule). */
     fun characters(candidates: List<CatalogItem>): List<Pair<String, List<CatalogItem>>> {
-        val pool = candidates.filter { item -> item.blob().none { g -> shelfScary.any { g.contains(it) } } }
+        val pool = candidates.filter { item -> item.blob().none { g -> shelfScary.any { g.contains(it) } || notForChildren.any { g.contains(it) } } }
         return characterDefs.mapNotNull { (name, terms) ->
             val rows = pool.filter { item ->
                 val hay = item.title.lowercase() + " " + item.subjects.joinToString(" ") { it.lowercase() }

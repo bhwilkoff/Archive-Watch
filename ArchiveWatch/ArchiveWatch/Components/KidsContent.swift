@@ -1,3 +1,30 @@
+import Foundation
+
+/// The rules every Cartoon Mode pool shares, tvOS (`AppStore.kidsCartoonPool`)
+/// and iOS/macOS (`KidsContent`); Android's `CartoonMode` holds the same lists.
+enum KidsRules {
+    static let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
+    /// archive.org's own subjects for health and sex-education films. Typed
+    /// animation, they reached a children's surface: About Conception and
+    /// Contraception (1973) sat on "Things That Go" (a viewer, 2026-11-17).
+    static let notForChildren = ["sex educ", "sex hygiene", "contracept", "birth control",
+                                 "reproduction", "venereal", "puberty", "menstruat"]
+
+    static func excluded(_ it: Catalog.Item, scary: [String] = scary) -> Bool {
+        let blob = (it.genres + it.subjects).map { $0.lowercased() }
+        return blob.contains { g in scary.contains(where: g.contains) || notForChildren.contains(where: g.contains) }
+    }
+
+    /// A shelf word matches a whole word (or its plural), never the inside of
+    /// one: "race" was matching "contRACEption", "cat" "eduCATion".
+    static func mentions(_ words: [String], in parts: [String]) -> Bool {
+        let tokens = parts.joined(separator: " ").lowercased()
+            .components(separatedBy: CharacterSet.letters.inverted).filter { !$0.isEmpty }
+        let padded = " " + tokens.joined(separator: " ") + " "
+        return words.contains { padded.contains(" \($0) ") || padded.contains(" \($0)s ") }
+    }
+}
+
 #if os(iOS) || os(macOS)
 import SwiftUI
 
@@ -8,13 +35,10 @@ import SwiftUI
 @MainActor
 enum KidsContent {
     static func cartoonPool(_ store: AppStore, limit: Int = 250) -> [Catalog.Item] {
-        let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
         let pool = store.browse(contentType: "animation", sort: .popular, limit: 600).filter { it in
             guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { return false }
             if it.isSilentFilm == true { return false }
-            let blob = (it.genres + it.subjects).map { $0.lowercased() }
-            if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
-            return true
+            return !KidsRules.excluded(it)
         }
         return Array(colorEmphasized(pool).prefix(max(limit, 120)))
     }
@@ -54,12 +78,10 @@ enum KidsContent {
     ]
 
     static func characters(_ store: AppStore) -> [(name: String, items: [Catalog.Item])] {
-        let scary = ["horror", "nightmare", "macabre"]
         let pool = store.browse(contentType: "animation", sort: .popular, limit: 1500).filter { it in
             guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil,
                   it.isRecommendable else { return false }
-            let g = (it.genres + it.subjects).map { $0.lowercased() }
-            return !g.contains { x in scary.contains(where: x.contains) }
+            return !KidsRules.excluded(it, scary: ["horror", "nightmare", "macabre"])
         }
         return characterDefs.compactMap { name, terms in
             let lc = terms.map { $0.lowercased() }
@@ -76,10 +98,7 @@ enum KidsContent {
         let pool = cartoonPool(store, limit: 600)
         func byDecade(_ d: Int) -> [Catalog.Item] { pool.filter { $0.decade == d } }
         func byWords(_ words: [String]) -> [Catalog.Item] {
-            pool.filter { it in
-                let blob = (it.genres + it.subjects + [it.title]).map { $0.lowercased() }.joined(separator: " ")
-                return words.contains { blob.contains($0) }
-            }
+            pool.filter { KidsRules.mentions(words, in: $0.genres + $0.subjects + [$0.title]) }
         }
         let groups: [(String, [Catalog.Item])] = [
             ("Funny Animals",  byWords(["mouse", "cat", "dog", "rabbit", "bear", "duck", "pig", "fox", "squirrel"])),

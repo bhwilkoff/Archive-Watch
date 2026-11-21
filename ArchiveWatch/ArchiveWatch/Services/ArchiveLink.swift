@@ -19,9 +19,10 @@ enum ArchiveLink {
 }
 
 /// "Something wrong with this film?" (2026-09-26, the Orphaned Films
-/// research): a pre-filled GitHub issue form carrying only what identifies the
-/// report — the film and where it was seen. Nothing is sent until the viewer
-/// submits it. Short, because the Apple TV shows it as a QR code. The web's
+/// research): archivewatch.org/report.html with only what identifies the
+/// report — the film and where it was seen. The page offers an email and the
+/// GitHub issue form; a GitHub-only link asked a viewer to make an account
+/// (2026-11-17). Short, because the Apple TV shows it as a QR code. The web's
 /// `filmProblemURL`, Android's and Roku's `FilmProblem` build the same URL.
 enum FilmProblem {
     static func url(archiveID: String) -> URL? {
@@ -33,9 +34,8 @@ enum FilmProblem {
         #else
         let platform = "iOS"
         #endif
-        var c = URLComponents(string: "https://github.com/bhwilkoff/Archive-Watch/issues/new")
-        c?.queryItems = [URLQueryItem(name: "template", value: "film-problem.yml"),
-                         URLQueryItem(name: "film", value: archiveID),
+        var c = URLComponents(string: "https://archivewatch.org/report.html")
+        c?.queryItems = [URLQueryItem(name: "film", value: archiveID),
                          URLQueryItem(name: "where", value: "\(platform) \(version)")]
         return c?.url
     }
