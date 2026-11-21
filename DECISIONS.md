@@ -279,6 +279,7 @@ into every session and the index alone carries every title.)
 - 182 — On the iPhone Duo a push lands in the stack on screen, and sidebar places exist only while there is a sidebar
 - 183 — A layout that changes with width keeps its controls: one AnyLayout, never ViewThatFits around a menu
 - 184 — Every renewal the law allows is read: a 1964-77 work's renewal counts whenever it was registered
+- 185 — The viewer arranges channels and makes one from a playlist; every sync writer carries both, and an audio nudge never moves the player's clock
 
 ---
 
@@ -702,3 +703,42 @@ Living Dead, The Last Man on Earth, Manos, Spider Baby...).
 what the law makes possible. A wrong late match goes in
 `copyright_evidence_overrides.json`. Test: `test_copyright_evidence.py`, seen
 failing on the old rule.
+
+## 185 — The viewer arranges channels and makes one from a playlist; every sync writer carries both, and an audio nudge never moves the player's clock
+*Date: 2026-11-21*
+
+A viewer's channel order is one synced record of guide ids (`drama`,
+`user-<id>`): `ChannelArrangement` on Apple and its own CloudKit record
+`channelOrder` (`[{ids, at}]`, seconds), `channelOrder {ids, at}` (ms) at the
+top of the Drive blob, newest `at` wins. Channels it names come first in its
+order; the rest follow where they stood; numbers stay with their channels. A
+user channel may carry `playlistID`: it plays that playlist's first 300 stored
+titles, minus series cards and titles with no file, IN ORDER, on
+`ChannelScheduler.loop`, one clock from 2026-01-01 UTC. Audio Sync (±2 s, 0.1 s
+steps, this title only) shifts only what is drawn or heard, never the player's
+position: on tvOS the sound track's `tfdt` in the on-device remux, on Android a
+`ForwardingRenderer` that hands the video renderer position + offset.
+
+**Why**: a viewer, John Howard, 2026-11-17: *"People will want their favorite
+channels grouped nearby"*, his own playlists *"as series programs for my custom
+channels"*, and a 1971 Hee Haw tape whose sound drifts from the picture. The
+owner, 2026-11-21, approved all three, the last *"with native tools ... a power
+user feature"*. No player here has an audio-offset API. Offsetting Media3's
+audio-sink clock (the obvious route) would have moved the scrubber, saved
+progress and the Watch Together room clock and frozen on every step back;
+shifting tvOS's video `tfdt` instead would have moved the scrubber and
+captions. The playlist rule had three versions (Apple uncapped with series
+cards, Android uncapped, the web with series cards), and any difference puts
+one platform's clock off the others'.
+
+**How to apply**: any code that writes channels or the order to a sync store
+carries `playlistID` and `channelOrder` (Decision 170's lesson: a writer that
+rebuilds an entry from the fields it knows erases the rest on every other
+device). A change to which titles a playlist channel plays is made on every
+platform at once. An audio offset never touches the position the player
+reports. iOS and macOS have no Audio Sync: they play through the paced proxy
+to keep the system's generated captions (Decision 147), and the remux would
+lose them; that trade is the owner's. Roku has no user channels and no audio
+delay. Tests: `test_web_channel_order.mjs`, `ChannelArrangementTest`,
+`PlaylistChannelLoopTest`, `AudioSyncTest`, `test_fragmenter_audio_offset.swift`,
+`test_audio_sync_offset.swift`; iPhone `AuditUITests.test_40`/`test_41`.

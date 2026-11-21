@@ -760,6 +760,25 @@ keep serving it.
 
 ## Session Log
 
+### 2026-11-21 — John Howard's seventh email: Cartoon Mode, reports, channels, Audio Sync
+
+Owner: *"Please go through and improve the things that are reasonable (or that
+need fixing)"*, then approved arranging channels, playlist channels and (native
+only) an audio nudge. Apple 1.48.2 is IN REVIEW (iOS, tvOS, macOS); 1.48.3
+(tvOS Audio Sync) is committed and waits for 1.48.2's approval before submit.
+- Cartoon Mode: whole-word shelf matching ("race" in "contraception") and no
+  sex-education subjects; that film is in mature.json. "Something wrong" opens
+  report.html (email or GitHub) on every platform.
+- Channels: Arrange (all platforms but Roku), Create > Plays a playlist, iOS
+  Commercial Breaks in words (Decision 185). Device-tested on the iPhone 12,
+  Pixel 8a, Google TV.
+- Audio Sync on tvOS and Android, measured both ways with a control at 0.
+- Also: publish-db was red 2026-11-18/19 on a listed synopsis (fixed 11-19);
+  test_web.sh had reported crashed tests as ok.
+**Open**: the reply to John is a Gmail draft. iOS/macOS Audio Sync is an owner
+call (it would cost that film the system's generated captions). The Pixel's
+phone Audio Sync row is not yet seen on screen.
+
 ### 2026-11-13 — John Howard's third round: playlists, the channel strip, three removals
 
 Owner: *"There are a couple more emails from John Howard ... We also owe him a
@@ -780,22 +799,5 @@ response."* v1.47.42.
   Breakthrough); `_strip_quality` + test.
 **Open**: the reply to him is a Gmail draft. The sweep door removed one real
 watch-history entry (Moonbird or The Hole) on Ben Bedroom.
-
-### 2026-11-12 — Detail's More menu stays open on the Duo (Decision 183)
-
-Owner: *"very often when I press the more button within the individual item
-detail page, the interface element closes before I can select anything."*
-v1.47.41.
-- **Cause**: on the open Duo the vertical strip collapses and expands as the
-  page scrolls (867 vs 951pt). Detail's header was a `ViewThatFits` needing
-  948pt for two columns, so it flipped with the strip and rebuilt the More
-  button, which closes its menu. Now one `AnyLayout`; iOS-DESIGN §2.8.
-- **Debug launch crash**: with the Duo upright the Debug app overflowed the
-  main thread's stack resolving `withItemDestination`'s opaque type for the
-  sidebar places; it is a concrete `ViewModifier` now. Release never crashed.
-- `DuoAuditUITests` test_07/08/09 hold the menu open 4 s; `AW_SYNC_CHURN`
-  (DEBUG) writes the store like a no-change sync.
-**Open**: the strip only exists in landscape; test_07/09 passed upright, so
-re-run them with the Duo open in landscape.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
