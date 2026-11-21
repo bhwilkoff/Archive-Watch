@@ -148,6 +148,7 @@
     <section id="view-channels" hidden>
       <div class="surprise-head">
         <h1>Channels</h1>
+        <button id="channels-arrange" class="btn-ghost">Arrange</button>
         <button id="channels-create" class="btn-ghost">＋ New channel</button>
       </div>
       <p id="channels-hint" class="muted" hidden>Select a channel you created to delete it.</p>
@@ -538,6 +539,53 @@
     <div id="playlistmenu-list"></div>
     <button id="playlistmenu-new" class="btn-ghost">New playlist…</button>
     <button id="playlistmenu-cancel" class="btn-ghost">Done</button>
+  </dialog>
+
+  <dialog id="channelorder" class="sharemenu channel-dlg">
+    <h2 class="dlg-title">Arrange channels</h2>
+    <div id="channelorder-list" class="channel-order-list"></div>
+    <button id="channelorder-done" class="btn-ghost">Done</button>
+  </dialog>
+
+  <dialog id="channelnew" class="sharemenu channel-dlg">
+    <h2 class="dlg-title">New channel</h2>
+    <label class="channel-field">Plays
+      <select id="channelnew-source"></select>
+    </label>
+    <div id="channelnew-filters">
+      <label class="channel-field">Kind
+        <select id="channelnew-type">
+          <option value="">Any kind</option>
+          <option value="feature-film">Feature films</option>
+          <option value="silent-film">Silent films</option>
+          <option value="animation">Animation</option>
+          <option value="short-film">Short films</option>
+          <option value="newsreel">Newsreels</option>
+          <option value="tv-special">TV specials</option>
+        </select>
+      </label>
+      <label class="channel-field">Era
+        <select id="channelnew-decade">
+          <option value="">Any era</option>
+          <option value="1900">1900s</option>
+          <option value="1910">1910s</option>
+          <option value="1920">1920s</option>
+          <option value="1930">1930s</option>
+          <option value="1940">1940s</option>
+          <option value="1950">1950s</option>
+          <option value="1960">1960s</option>
+          <option value="1970">1970s</option>
+          <option value="1980">1980s</option>
+          <option value="1990">1990s</option>
+        </select>
+      </label>
+    </div>
+    <label class="channel-field">Name
+      <input id="channelnew-name" type="text" maxlength="60" autocomplete="off">
+    </label>
+    <p id="channelnew-refusal" class="muted" hidden>Choose a playlist or at least one filter.</p>
+    <button id="channelnew-create" class="btn-primary">Create</button>
+    <button id="channelnew-cancel" class="btn-ghost">Cancel</button>
   </dialog>
 
   <dialog id="versionmenu" class="sharemenu">

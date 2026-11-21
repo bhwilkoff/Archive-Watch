@@ -612,6 +612,8 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
 /* A stepped-to program scrolls to the guide's left edge, which is under the
  * sticky rail; scroll-padding keeps it beside the rail instead. */
 .tv .epg { scroll-padding-left: var(--epg-rail-w); }
+/* A remote arranges from each channel's own options (TV-DESIGN §4.6e). */
+.tv #channels-arrange { display: none; }
 
 /* Search is typed on a remote keyboard; the field it fills must be legible. */
 .tv #search-input,

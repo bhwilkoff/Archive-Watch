@@ -391,6 +391,26 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   binge queue from the tapped slot with commercials woven between programs,
   joins live slots in progress (`startAt`), and never persists resume
   progress (`persist:false` — the apps' channel rule).
+- **§4.13a Arranging channels and a channel from a playlist** (2026-11-21,
+  a viewer's requests, owner-approved; Apple 1.48.0). **Arrange** beside
+  New channel opens a dialog of every channel with Move up / Move down (a
+  keyboard, a touch screen) and drag where a pointer offers it; each move
+  stores the whole guide as the viewer left it (`ChannelOrder.toStore`).
+  The guide puts the channels the order names first, in its order, and
+  every other channel after in the default order (`ChannelOrder.arrange`,
+  Apple's `GuideChannel.arranged`). Ids are the apps' (`drama`,
+  `user-<id>`), stored in IndexedDB `channelOrder` (schema v5) and synced:
+  Drive `channelOrder: {ids, at}` (epoch ms), CloudKit record
+  `channelOrder` `[{ids, at}]` (seconds), newest `at` wins. **New channel**
+  is a dialog: *Plays* (Titles that match / one of the viewer's playlists),
+  Kind and Era (hidden when a playlist is chosen), Name (defaults to the
+  playlist's or the filters'); Create is disabled with "Choose a playlist
+  or at least one filter." A playlist channel (`playlistID`) plays the
+  playlist's playable titles in its order with no recommendation filter,
+  on `Scheduler.loop` — Apple's `ChannelScheduler.loop`, one clock from
+  2026-01-01 UTC packed from the broadcast-day anchor, each title at its
+  detail-shard runtime. Every sync writer carries `playlistID`.
+  `tools/test_web_channel_order.mjs`.
 
 ## §5 Playback
 

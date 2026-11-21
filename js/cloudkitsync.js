@@ -1,7 +1,8 @@
 /* Sign in with Apple on the web → the SAME CloudKit private database the
  * tvOS / iOS / macOS apps sync through (Decision 022's container,
- * `iCloud.app.archivewatch.tvos`, record type `AWSync`, five fixed-ID
- * records: tombstones / favorites / playlists / progress / channels, each a
+ * `iCloud.app.archivewatch.tvos`, record type `AWSync`, six fixed-ID
+ * records: tombstones / favorites / playlists / progress / channels /
+ * channelOrder, each a
  * JSON `payload` blob). Apple's own CloudKit JS does the sign-in (the
  * Apple ID sheet, 2FA and all) and hands this page an authenticated
  * private-database client — no server of ours, no Apple secret.
@@ -20,7 +21,7 @@
 window.AWCloudKitSync = (() => {
   const TOKEN = window.AW_CLOUDKIT_API_TOKEN || '';
   const CONTAINER = 'iCloud.app.archivewatch.tvos';
-  const RECORDS = ['tombstones', 'favorites', 'playlists', 'progress', 'channels'];
+  const RECORDS = ['tombstones', 'favorites', 'playlists', 'progress', 'channels', 'channelOrder'];
   let DB = null;
   let ui = null;
   let container = null;
@@ -103,7 +104,16 @@ window.AWCloudKitSync = (() => {
       channels: dec(by.channels).map(c => ({
         id: c.id, name: c.name, genre: c.genre ?? null, type: c.contentType ?? null,
         decade: c.decade ?? null, createdAt: ms(c.createdAt),
+        ...(c.playlistID ? { playlistID: c.playlistID } : {}),
       })),
+      // Apple's ChannelOrderEntry: [{ids, at}] with `at` in seconds; a
+      // missing record is no order.
+      ...(() => {
+        const o = dec(by.channelOrder)
+          .filter(e => e && Array.isArray(e.ids) && e.at > 0)
+          .sort((a, b) => b.at - a.at)[0];
+        return o ? { channelOrder: { ids: o.ids, at: ms(o.at) } } : {};
+      })(),
       progress: dec(by.progress).map(p => ({
         id: p.archiveID, position: p.positionSeconds, duration: p.durationSeconds,
         at: ms(p.lastWatchedAt), firstAt: ms(p.firstWatchedAt), plays: p.playCount || 1,
@@ -141,7 +151,10 @@ window.AWCloudKitSync = (() => {
       rec('channels', blob.channels.map(c => ({
         id: c.id, name: c.name, genre: c.genre ?? undefined, contentType: c.type ?? undefined,
         decade: c.decade ?? undefined, createdAt: sec(c.createdAt),
+        playlistID: c.playlistID || undefined,
       }))),
+      rec('channelOrder', blob.channelOrder
+        ? [{ ids: blob.channelOrder.ids, at: sec(blob.channelOrder.at) }] : []),
       rec('progress', blob.progress.map(p => ({
         archiveID: p.id, positionSeconds: p.position, durationSeconds: p.duration,
         lastWatchedAt: sec(p.at), firstWatchedAt: sec(p.firstAt), playCount: p.plays || 1,

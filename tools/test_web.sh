@@ -19,6 +19,7 @@ for t in tools/test_web_search.mjs \
          tools/test_web_sort_rules.mjs \
          tools/test_web_playlist_play.mjs \
          tools/test_sync_sortindex.mjs \
+         tools/test_web_channel_order.mjs \
          tools/test_share_list.mjs \
          tools/test_drivesync_no_popup.mjs \
          tools/test_tv_focus.mjs \

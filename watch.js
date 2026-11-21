@@ -43,7 +43,7 @@
     let dbp = null;
     function open() {
       dbp ??= new Promise((res, rej) => {
-        const req = indexedDB.open('archivewatch', 4);
+        const req = indexedDB.open('archivewatch', 5);
         req.onupgradeneeded = () => {
           const db = req.result;
           if (!db.objectStoreNames.contains('favorites')) {
@@ -63,6 +63,10 @@
           // still has it (the Apple #84 lesson, Decision 028).
           if (!db.objectStoreNames.contains('tombstones')) {
             db.createObjectStore('tombstones', { keyPath: 'key' });
+          }
+          // v5: the viewer's channel order, one row {key:'order', ids, at}.
+          if (!db.objectStoreNames.contains('channelOrder')) {
+            db.createObjectStore('channelOrder', { keyPath: 'key' });
           }
         };
         req.onsuccess = () => res(req.result);
@@ -140,6 +144,9 @@
       playlists: () => getAll('playlists'),
       userChannels: () => getAll('channels'),
       saveUserChannel: ch => tx('channels', 'readwrite', s => s.put(ch)),
+      channelOrder: async () => (await getAll('channelOrder')).find(r => r.key === 'order') || null,
+      saveChannelOrder: (ids, at = Date.now()) =>
+        tx('channelOrder', 'readwrite', s => s.put({ key: 'order', ids: [...ids], at })),
       deleteUserChannel: async id => {
         await tx('channels', 'readwrite', s => s.delete(id));
         await DB.putTombstone('ch', id);
@@ -2859,6 +2866,7 @@
    * scheduler below. Sticky rail + ruler = the web-native way to pin  *
    * both axes of a TV listing.                                        *
    * ---------------------------------------------------------------- */
+  // --- channel rules ---
   const Scheduler = (() => {
     const MASK = (1n << 64n) - 1n;
     function fnv1a(str) {
@@ -2917,6 +2925,32 @@
       }
       return slots;
     }
+    /** A playlist channel (Apple's ChannelScheduler.loop): the programs in
+        their order, looping on one clock that started 2026-01-01 UTC and
+        packed from the broadcast-day anchor, so a day picks up where the
+        last left off. */
+    const LOOP_EPOCH = 1767225600e3;
+    function loop(programs, now) {
+      if (!programs.length) return [];
+      const anchor = dayAnchor(now).getTime();
+      const lengths = programs.map(p => (runtimeSec(p) + 120) * 1000);
+      const cycle = lengths.reduce((a, b) => a + b, 0);
+      let into = (anchor - LOOP_EPOCH) % cycle;
+      if (into < 0) into += cycle;
+      let i = 0;
+      while (into >= lengths[i]) { into -= lengths[i]; i = (i + 1) % programs.length; }
+      const slots = [];
+      let cursor = anchor - into;
+      const until = now.getTime() + 26 * 3600e3;
+      while (cursor < until && slots.length < 2000) {
+        const prog = programs[i];
+        const end = cursor + runtimeSec(prog) * 1000;
+        slots.push({ prog, start: cursor, end });
+        cursor = end + 120e3;
+        i = (i + 1) % programs.length;
+      }
+      return slots;
+    }
     /** The published timeline for one channel, as the same slot shape:
         a slot starts where the previous ended plus the file's gap, and
         days run back to back. Only slots that touch [from, until). */
@@ -2936,8 +2970,30 @@
       }
       return slots;
     }
-    return { schedule, dayAnchor, published };
+    return { schedule, loop, dayAnchor, published };
   })();
+
+  /** The viewer's channel order (Apple's GuideChannel.arranged): the ids the
+      order names first, in its order, then every other channel where it
+      already stood. Ids are the apps' guide ids ("drama", "user-<id>"). */
+  const ChannelOrder = {
+    arrange(channels, order) {
+      if (!order || !order.length) return channels;
+      const rank = new Map();
+      order.forEach((id, i) => { if (!rank.has(id)) rank.set(id, i); });
+      const named = channels.filter(c => rank.has(c.id))
+        .sort((a, b) => rank.get(a.id) - rank.get(b.id));
+      return [...named, ...channels.filter(c => !rank.has(c.id))];
+    },
+    /** The order to store after a move: the guide as the viewer left it, then
+        any stored id this device does not show, so a channel only another
+        device can draw keeps its place ahead of the unarranged. */
+    toStore(shownIDs, prior) {
+      const shown = new Set(shownIDs);
+      return [...shownIDs, ...(prior || []).filter(id => !shown.has(id))];
+    },
+  };
+  // --- end channel rules ---
 
   // Web stand-ins for the apps' SF Symbol channel icons.
   const CHANNEL_ICONS = {
@@ -2981,6 +3037,7 @@
       }
       $('channels-error').hidden = true;     // a retry that worked
       $('channels-create').onclick = () => this.createDialog();
+      $('channels-arrange').onclick = () => this.arrangeDialog();
       this.built = true;
       const now = new Date();
       const anchor = Scheduler.dayAnchor(now);
@@ -3012,26 +3069,43 @@
 
       // User channels first (type/era filters over the index — the web can't
       // filter by genre; the create form says so). Program entries resolve
-      // their playback URLs lazily at tune time via the detail shards.
+      // their playback URLs lazily at tune time via the detail shards. A
+      // playlist channel plays the viewer's own choices in their order, with
+      // no recommendation filter.
       const userChannels = await DB.userChannels().catch(() => []);
-      const guideChannels = [
-        ...userChannels.map(uc => ({
-          id: `user-${uc.id}`, title: uc.name, accent: '#0047FF', user: true,
-          programs: Data.rows
-            .filter(r => (!uc.type || r[3] === uc.type) &&
-                         (!uc.decade || (r[2] && Math.floor(r[2] / 10) * 10 === uc.decade)))
-            .slice(0, 150)
-            .map(r => [r[0], r[1], null, null, r[3]]),
-        })).filter(c => c.programs.length >= 5),
+      const playlists = await DB.playlists().catch(() => []);
+      const userGuide = await Promise.all(userChannels.map(async uc => {
+        const base = { id: `user-${uc.id}`, title: uc.name, accent: '#0047FF', user: true };
+        if (uc.playlistID) {
+          const pl = playlists.find(p => p.id === uc.playlistID);
+          return { ...base, playlist: true,
+                   programs: pl ? await this.playlistPrograms(pl.archiveIDs) : [] };
+        }
+        return { ...base, programs: Data.rows
+          .filter(r => (!uc.type || r[3] === uc.type) &&
+                       (!uc.decade || (r[2] && Math.floor(r[2] / 10) * 10 === uc.decade)))
+          .slice(0, 150)
+          .map(r => [r[0], r[1], null, null, r[3]]) };
+      }));
+      const order = (await DB.channelOrder().catch(() => null))?.ids || [];
+      const guideChannels = ChannelOrder.arrange([
+        ...userGuide.filter(c => c.programs.length >= (c.playlist ? 1 : 5)),
         ...this.schedule.channels,
-      ];
+      ], order);
+      const tv = document.documentElement.classList.contains('tv');
       const hint = document.getElementById('channels-hint');
-      if (hint) hint.hidden = !guideChannels.some(c => c.user);
+      if (hint) {
+        const mine = guideChannels.some(c => c.user);
+        hint.textContent = tv
+          ? (mine ? "Select a channel's name to move or delete it." : "Select a channel's name to move it.")
+          : 'Select a channel you created to delete it.';
+        hint.hidden = !tv && !mine;
+      }
       const until = now.getTime() + 26 * 3600e3;
       this.guide = [];
       for (const ch of guideChannels) {
-        const slots = ch.user
-          ? Scheduler.schedule(ch.id, ch.programs, now)
+        const slots = ch.playlist ? Scheduler.loop(ch.programs, now)
+          : ch.user ? Scheduler.schedule(ch.id, ch.programs, now)
           : Scheduler.published(this.schedule, ch, anchor.getTime(), until);
         if (!slots.length) continue;
         this.guide.push({ ch, slots });
@@ -3046,7 +3120,12 @@
         const name = document.createElement('span');
         name.textContent = ch.title;
         rail.append(dot, name);
-        if (ch.user) {
+        rail.dataset.ch = ch.id;
+        if (tv && window.AWTV?.choose) {
+          // A remote has no drag: a channel's options move it (TV-DESIGN §4.6e).
+          rail.tabIndex = 0;
+          rail.onclick = () => this.channelOptions(ch);
+        } else if (ch.user) {
           rail.style.cursor = 'pointer';
           rail.title = 'Select to delete this channel';
           rail.tabIndex = 0;               // a remote reaches it on a TV
@@ -3171,34 +3250,146 @@
       return true;
     },
 
-    /** Create-channel dialog: type + era only (the web index has no genre —
-        the form says so; the apps' genre channels stay preset-only here). */
+    /** A playlist's playable titles in its order, each with its runtime so
+        the loop keeps the apps' clock. */
+    async playlistPrograms(archiveIDs) {
+      await Data.episodesReady;
+      const progs = await Promise.all((archiveIDs || []).slice(0, 300).map(async id => {
+        const row = Data.byID.get(id);
+        if (!row) return null;
+        const det = await Details.get(id).catch(() => null);
+        if (!det?.downloadURL) return null;
+        return [id, row[1], det.runtimeSeconds || null,
+                Versions.preferred(id, det.downloadURL), row[3]];
+      }));
+      return progs.filter(Boolean);
+    },
+
+    /** Stores the guide with one channel moved; `to` is its new index. */
+    async moveChannel(id, to) {
+      const ids = (this.guide || []).map(g => g.ch.id);
+      const from = ids.indexOf(id);
+      if (from < 0 || to < 0 || to >= ids.length || from === to) return false;
+      ids.splice(to, 0, ids.splice(from, 1)[0]);
+      const prior = (await DB.channelOrder().catch(() => null))?.ids;
+      await DB.saveChannelOrder(ChannelOrder.toStore(ids, prior)).catch(() => {});
+      syncNudge();
+      this.built = false;
+      await this.render();
+      return true;
+    },
+
+    /** A channel's options on a television: Move to top / up / down, and
+        Delete for a channel the viewer made. */
+    channelOptions(ch) {
+      const at = (this.guide || []).findIndex(g => g.ch.id === ch.id);
+      const n = (this.guide || []).length;
+      const choices = [];
+      if (at > 0) choices.push(['top', 'Move to top'], ['up', 'Move up']);
+      if (at >= 0 && at < n - 1) choices.push(['down', 'Move down']);
+      if (ch.user) choices.push(['delete', 'Delete channel']);
+      if (!choices.length) return;
+      window.AWTV.choose(ch.title, choices, async pick => {
+        if (pick === 'delete') {
+          window.AWTV.confirm(`Delete the channel “${ch.title}”?`, 'Delete', async () => {
+            await DB.deleteUserChannel(ch.id.slice(5)).catch(() => {});
+            syncNudge();
+            this.built = false;
+            this.render();
+          });
+          return;
+        }
+        const to = pick === 'top' ? 0 : pick === 'up' ? at - 1 : at + 1;
+        await this.moveChannel(ch.id, to);
+        // Focus follows the channel to its new row, so a second press moves it again.
+        const rail = [...document.querySelectorAll('#epg .epg-rail')]
+          .find(r => r.dataset.ch === ch.id);
+        if (rail) window.AWTV.focus ? window.AWTV.focus(rail) : rail.focus();
+      });
+    },
+
+    /** Arrange channels: Move up / Move down per channel (a keyboard, a
+        touch screen), and drag where a pointer offers it. */
+    arrangeDialog() {
+      const dlg = $('channelorder');
+      const host = $('channelorder-list');
+      const draw = () => {
+        const chans = (this.guide || []).map(g => g.ch);
+        const move = async (from, to) => {
+          if (!(await this.moveChannel(chans[from].id, to))) return;
+          draw();
+          focusMover(host, to, from < to ? 'down' : 'up');
+        };
+        host.replaceChildren(...chans.map((ch, i) => {
+          const row = document.createElement('div');
+          row.className = 'arrange-row';
+          const name = document.createElement('span');
+          name.className = 'channel-order-name';
+          name.textContent = ch.title;
+          row.append(name, ...moveButtons(ch.title, i, chans.length, move));
+          dragToMove(row, i, move);
+          return row;
+        }));
+      };
+      $('channelorder-done').onclick = () => dlg.close();
+      draw();
+      dlg.showModal();
+    },
+
+    /** Create a channel: it plays a playlist, or the titles that match a
+        type and an era (the web index has no genre; the apps' genre
+        channels stay preset-only here). */
     async createDialog() {
-      const save = async (type, decade, name) => {
+      const playlists = SortRules.inMyOrder(await DB.playlists().catch(() => []));
+      const save = async ({ type = null, decade = null, playlistID = null, name }) => {
         await DB.saveUserChannel({
-          id: Date.now().toString(36), name: name.trim(),
-          type: type.trim() || null, decade, createdAt: Date.now(),
+          id: Date.now().toString(36), name: (name || '').trim() || 'My Channel',
+          type: type || null, decade: decade || null,
+          ...(playlistID ? { playlistID } : {}), createdAt: Date.now(),
         }).catch(() => {});
+        syncNudge();
         this.built = false;
         this.render();
       };
       const autoName = (type, decade) =>
-        [decade ? `${decade}s` : '', type.replace(/-/g, ' ')].filter(Boolean).join(' ')
+        [decade ? `${decade}s` : '', (type || '').replace(/-/g, ' ')].filter(Boolean).join(' ')
         || 'My Channel';
-      // A TV chooses from lists (tv.js); a keyboard box is the web's.
+      // A TV chooses from lists (tv.js); a form is the web's.
       if (window.AWTV?.newChannel && document.documentElement.classList.contains('tv')) {
-        window.AWTV.newChannel((type, decade) => save(type, decade, autoName(type, decade)));
+        window.AWTV.newChannel((type, decade, playlistID) => {
+          const pl = playlistID && playlists.find(p => p.id === playlistID);
+          save(pl ? { playlistID, name: pl.name } : { type, decade, name: autoName(type, decade) });
+        }, playlists.map(p => [p.id, p.name]));
         return;
       }
-      const type = prompt(
-        'Channel type — one of: feature-film, silent-film, animation, '
-        + 'short-film, newsreel, tv-special (blank = any)') || '';
-      const decadeRaw = prompt('Era decade, e.g. 1950 (blank = any)') || '';
-      const decade = Number(decadeRaw) || null;
-      if (!type && !decade) return;
-      const name = prompt('Channel name', autoName(type, decade));
-      if (!name) return;
-      await save(type, decade, name);
+      const dlg = $('channelnew');
+      const source = $('channelnew-source'), type = $('channelnew-type');
+      const decade = $('channelnew-decade'), name = $('channelnew-name');
+      const create = $('channelnew-create');
+      source.replaceChildren(new Option('Titles that match', ''),
+        ...playlists.map(p => new Option(p.name, p.id)));
+      source.value = ''; type.value = ''; decade.value = ''; name.value = '';
+      let named = false;
+      const update = () => {
+        const pl = playlists.find(p => p.id === source.value);
+        $('channelnew-filters').hidden = !!pl;
+        if (!named) name.value = pl ? pl.name : autoName(type.value, Number(decade.value));
+        const ok = !!pl || !!type.value || !!decade.value;
+        create.disabled = !ok;
+        $('channelnew-refusal').hidden = ok;
+      };
+      source.onchange = type.onchange = decade.onchange = update;
+      name.oninput = () => { named = !!name.value.trim(); };
+      update();
+      create.onclick = async () => {
+        const pl = playlists.find(p => p.id === source.value);
+        dlg.close();
+        await save(pl ? { playlistID: pl.id, name: name.value || pl.name }
+          : { type: type.value, decade: Number(decade.value) || null,
+              name: name.value || autoName(type.value, Number(decade.value)) });
+      };
+      $('channelnew-cancel').onclick = () => dlg.close();
+      dlg.showModal();
     },
   };
 

@@ -636,6 +636,7 @@ input[type="search"] {
   padding-right: var(--pad);
 }
 .surprise-head h1 { flex: 1; }
+#view-channels .surprise-head { gap: 8px; }
 #surprise-reroll { border: 0; }
 
 /* ---- playlists ---- */
@@ -802,6 +803,20 @@ dialog.sharemenu::backdrop { background: rgba(0, 0, 0, 0.6); }
 dialog.sharemenu button {
   display: block; width: 100%; margin: 8px 0; text-align: center;
 }
+/* Channels: arrange (Move up / down per row) and create. */
+dialog.channel-dlg { width: min(92vw, 420px); }
+.channel-order-list { max-height: 60vh; max-height: 60dvh; overflow-y: auto; }
+.channel-order-list .arrange-row { align-items: center; margin: 6px 0; }
+.channel-order-name { flex: 1; min-width: 0; font-weight: 600; overflow-wrap: anywhere; }
+dialog.sharemenu .channel-order-list .move-btn { display: inline-block; width: auto; margin: 0; }
+.channel-field { display: flex; flex-direction: column; gap: 4px; margin: 10px 0; font-weight: 600; }
+.channel-field input {
+  background: var(--bg-raise); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 10px; font-size: 1rem;
+}
+#channelnew [hidden] { display: none; }
+dialog.sharemenu button:disabled { opacity: 0.45; cursor: default; }
 
 /* ---- player ---- */
 dialog#player {

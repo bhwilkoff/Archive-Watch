@@ -498,17 +498,32 @@
     document.body.appendChild(sheet);
     focusEl(sheet.querySelector('.tv-picker-opt'));
   }
-  function newChannel(onCreate) {
+  /* With playlists, the first list asks what the channel plays: the titles
+   * that match (kind, then decade) or one of the viewer's playlists, named
+   * after it. `playlists` is [[id, name]]. */
+  function newChannel(onCreate, playlists) {
     const owner = document.activeElement;
-    chooseFrom('New channel', CHANNEL_KINDS, owner, function (type) {
-      const eras = [];
-      if (type) eras.push([0, 'Any era']);
-      for (let d = 1900; d <= 1990; d += 10) eras.push([d, d + 's']);
-      chooseFrom('From which decade?', eras, owner, function (decade) {
-        if (owner && document.contains(owner)) focusEl(owner);
-        onCreate(type, decade || null);
+    const done = function (type, decade, playlistID) {
+      if (owner && document.contains(owner)) focusEl(owner);
+      onCreate(type, decade, playlistID || null);
+    };
+    const filters = function () {
+      chooseFrom('New channel', CHANNEL_KINDS, owner, function (type) {
+        const eras = [];
+        if (type) eras.push([0, 'Any era']);
+        for (let d = 1900; d <= 1990; d += 10) eras.push([d, d + 's']);
+        chooseFrom('From which decade?', eras, owner, function (decade) {
+          done(type, decade || null, null);
+        });
       });
+    };
+    if (!playlists || !playlists.length) { filters(); return; }
+    chooseFrom('Plays', [['', 'Titles that match']].concat(playlists), owner, function (pid) {
+      if (pid) done(null, null, pid); else filters();
     });
+  }
+  function choose(title, choices, onPick) {
+    chooseFrom(title, choices, document.activeElement, onPick);
   }
 
   /** Convert every <select> on screen. Idempotent: re-run on each route. */
@@ -2165,6 +2180,8 @@
     window.AWTV.shareQR = shareQR;
     window.AWTV.confirm = tvConfirm;
     window.AWTV.newChannel = newChannel;
+    window.AWTV.choose = choose;
+    window.AWTV.focus = focusEl;
     // watch.js applies a saved speed on every start(); a platform whose player
     // cannot change rate must never have one applied.
     window.AWTV.fixedRate = FIXED_RATE;

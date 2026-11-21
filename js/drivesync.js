@@ -141,7 +141,8 @@ window.AWDriveSync = (() => {
   // back. v2 blob, field-for-field the Android DriveSync's (google flavor):
   //   favorites   union minus tombstones
   //   playlists   last writer wins by modifiedAt (sortIndex with it), minus tombstones
-  //   channels    union minus tombstones (Android says contentType, we say type)
+  //   channels    union minus tombstones (Android says contentType, we say type), playlistID kept
+  //   channelOrder  { ids, at } — the guide order, newest `at` (epoch ms) wins
   //   progress    position LWW by `at`; HISTORY is a UNION (Decision 078)
   //   tombstones  union, 90-day TTL; a re-add newer than its stone clears it
   const TOMB_TTL = 90 * 24 * 3600_000;
@@ -198,13 +199,25 @@ window.AWDriveSync = (() => {
     const chs = new Map(localChs.map(ch => [ch.id, ch]));
     for (const ch of c.channels || []) {
       if (!ch?.id || chs.has(ch.id)) continue;
+      // playlistID is a playlist channel's source; a writer that drops it
+      // turns the channel into an empty filter channel on every device.
       chs.set(ch.id, { id: ch.id, name: ch.name || '', type: ch.type ?? ch.contentType ?? null,
-                       genre: ch.genre ?? null, decade: ch.decade ?? null, createdAt: ch.createdAt || now });
+                       genre: ch.genre ?? null, decade: ch.decade ?? null, createdAt: ch.createdAt || now,
+                       ...(ch.playlistID ? { playlistID: ch.playlistID } : {}) });
     }
     for (const [id, ch] of [...chs]) if (dead('ch', id, ch.createdAt)) chs.delete(id);
     const localChIDs = new Set(localChs.map(ch => ch.id));
     for (const [id, ch] of chs) if (!localChIDs.has(id)) await DB.saveUserChannel(ch);
     for (const id of localChIDs) if (!chs.has(id)) await DB.removeUserChannelRaw(id);
+
+    // The viewer's channel order: one record, newest `at` wins.
+    const okOrder = o => o && Array.isArray(o.ids) && Number(o.at) > 0;
+    const localOrder = DB.channelOrder ? await DB.channelOrder().catch(() => null) : null;
+    let order = okOrder(localOrder) ? { ids: localOrder.ids, at: localOrder.at } : null;
+    if (okOrder(c.channelOrder) && c.channelOrder.at > (order?.at || 0)) {
+      order = { ids: c.channelOrder.ids.filter(id => typeof id === 'string'), at: c.channelOrder.at };
+      await DB.saveChannelOrder?.(order.ids, order.at);
+    }
 
     const prog = new Map((await DB.progress()).map(p => [p.id, p]));
     for (const p of c.progress || []) {
@@ -239,6 +252,7 @@ window.AWDriveSync = (() => {
       favorites: [...favs.values()],
       playlists: [...pls.values()],
       channels: [...chs.values()].map(ch => ({ ...ch, contentType: ch.type ?? null })),
+      ...(order ? { channelOrder: { ids: order.ids, at: order.at } } : {}),
       progress: [...prog.values()],
       tombstones: [...tombs].map(([k, at]) => {
         const i = k.indexOf(':');
