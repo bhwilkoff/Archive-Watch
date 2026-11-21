@@ -4921,6 +4921,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-21T04:01:09.057442+00:00",
+   "id": "merry-go-round-1923-by-erich-von-stroheim",
+   "title": "Merry-Go-Round",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2s7ow3n2s2f",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
