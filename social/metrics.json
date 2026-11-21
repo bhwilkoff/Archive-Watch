@@ -6673,6 +6673,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2etnigvt426",
+   "platform": "bluesky",
+   "id": "rpbluemonday",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-15T20:20:56.984508+00:00",
+   "sampled": "2026-11-21T20:59:11.818420+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117622314105143781",
+   "platform": "mastodon",
+   "id": "rpbluemonday",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-15T20:20:56.984508+00:00",
+   "sampled": "2026-11-21T20:59:11.818420+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2rmkysmw62o",
+   "platform": "bluesky",
+   "id": "hearts_in_bondage",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-20T22:18:49.183466+00:00",
+   "sampled": "2026-11-21T20:59:11.818420+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117651090409413484",
+   "platform": "mastodon",
+   "id": "hearts_in_bondage",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-20T22:18:49.183466+00:00",
+   "sampled": "2026-11-21T20:59:11.818420+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

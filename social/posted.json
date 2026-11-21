@@ -4933,6 +4933,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-21T20:57:50.978741+00:00",
+   "id": "TheAvengingConscience_201502",
+   "title": "The Avenging Conscience",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2tyiz5vlj2d",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-21T20:57:50.978741+00:00",
+   "id": "TheAvengingConscience_201502",
+   "title": "The Avenging Conscience",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117656432964494279",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-21T20:57:50.978741+00:00",
+   "id": "TheAvengingConscience_201502",
+   "title": "The Avenging Conscience",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DgBJHmpmYxf",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-21T20:57:50.978741+00:00",
+   "id": "TheAvengingConscience_201502",
+   "title": "The Avenging Conscience",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DgBJMwlGeTN/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117656432591498594",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-21T20:57:50.978741+00:00",
+   "id": "TheAvengingConscience_201502",
+   "title": "The Avenging Conscience",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=Dr-_5HJdrn0",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
