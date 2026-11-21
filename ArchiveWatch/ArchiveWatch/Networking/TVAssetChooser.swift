@@ -1,5 +1,6 @@
 #if os(tvOS)
 import AVFoundation
+import UIKit
 import Foundation
 
 /// The ONE place tvOS decides how a film's bytes reach AVPlayer.
@@ -40,7 +41,11 @@ enum TVAssetChooser {
 
     /// Returns the item to play, plus the resilient loader to RETAIN when one
     /// is used (`AVURLAsset` holds its resource-loader delegate weakly).
-    static func makeItem(for url: URL) -> (AVPlayerItem, ResilientStreamLoader?) {
+    ///
+    /// A non-zero `audioOffset` (Audio Sync, tvOS-DESIGN §8.2a) always takes
+    /// the remux, on any tvOS: the remux is the only place the sound can be
+    /// moved against the picture without re-encoding.
+    static func makeItem(for url: URL, audioOffset: Double = 0) -> (AVPlayerItem, ResilientStreamLoader?) {
         // A loopback URL is already ours; never wrap it again.
         if url.host == "127.0.0.1" {
             return (AVPlayerItem(asset: AVURLAsset(url: url)), nil)
@@ -57,13 +62,43 @@ enum TVAssetChooser {
         if ProcessInfo.processInfo.environment["AW_PLAIN_ASSET"] == "1" {
             return (AVPlayerItem(asset: AVURLAsset(url: url)), nil)
         }
-        if needsHLS,
-           let hls = LocalMediaServer.shared.hlsURL(for: url) {
-            awdiag("AWHLS serving %@ as HLS", url.lastPathComponent)
+        if needsHLS || audioOffset != 0,
+           let hls = LocalMediaServer.shared.hlsURL(for: url, audioOffset: audioOffset) {
+            awdiag("AWHLS serving %@ as HLS audioOffset=%.1f", url.lastPathComponent, audioOffset)
             return (AVPlayerItem(url: hls), nil)
         }
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
         return (AVPlayerItem(asset: asset), loader)
+    }
+}
+
+/// Audio Sync (tvOS-DESIGN §8.2a): the transport-bar menu that moves a film's
+/// sound against its picture, for an upload whose sound has drifted. One
+/// builder for the movie and the episode players, for the reason
+/// `TVAssetChooser` gives. The choice lasts for the film on screen; the
+/// player rebuilds at the same moment through the remux.
+@MainActor
+enum AudioSync {
+    /// -2.0 ... +2.0 s in 0.1 s steps; positive plays the sound later.
+    static let steps: [Double] = (-20...20).map { Double($0) / 10 }
+
+    static func label(_ v: Double) -> String {
+        if abs(v) < 0.05 { return "Original" }
+        return String(format: "%.1f s %@", abs(v), v < 0 ? "earlier" : "later")
+    }
+
+    static func menu(current: Double, choose: @escaping @MainActor (Double) -> Void) -> UIMenu {
+        let actions = steps.map { v in
+            UIAction(title: label(v), state: abs(v - current) < 0.05 ? .on : .off) { _ in
+                choose(v)
+            }
+        }
+        // Single selection, like the system's Playback Speed menu: the menu
+        // opens with focus on the current value, not at the top of 41 steps.
+        let m = UIMenu(title: "Audio Sync", image: UIImage(systemName: "waveform.badge.plus"),
+                       options: .singleSelection, children: actions)
+        if abs(current) >= 0.05 { m.subtitle = label(current) }
+        return m
     }
 }
 #endif

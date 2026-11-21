@@ -644,6 +644,8 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     // the start and near the end — not persist the whole episode. The transport-
     // bar menu items (below) stay available the entire time.
     var showNextPrompt: Bool = true
+    var audioOffset: Double = 0
+    var onAudioOffset: (@MainActor (Double) -> Void)? = nil
     var onPrev: () -> Void
     var onNext: () -> Void
 
@@ -736,6 +738,10 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
                         if let vc = self?.lastVC { self?.apply(to: vc) }
                     },
                 ]))
+            }
+            if let choose = parent.onAudioOffset,
+               LocalMediaServer.shared.hasSound(for: parent.liveCaptionURL) != false {
+                menu.append(AudioSync.menu(current: parent.audioOffset, choose: choose))
             }
             lastVC = vc
             vc.transportBarCustomMenuItems = menu

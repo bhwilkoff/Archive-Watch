@@ -32,6 +32,10 @@ struct EpisodePlayerScreen: View {
     /// A resume position applied once the item is ready (a seek before then
     /// can be dropped by a resource-loader-backed item).
     @State private var pendingSeek: Double?
+    /// Audio Sync (tvOS-DESIGN §8.2a) for the episode on screen, and the
+    /// moment to come back to when it rebuilds the player.
+    @State private var audioOffset: Double = 0
+    @State private var audioSyncResume: Double?
     @State private var showNextPrompt = false
     @State private var freezeGuard = PlaybackFreezeGuard()
     @State private var nowPlaying = NowPlayingController()
@@ -75,6 +79,8 @@ struct EpisodePlayerScreen: View {
                     hasNext: series.episode(after: currentEpisode) != nil,
                     liveCaptionURL: currentEpisode.videoURLParsed,
                     showNextPrompt: showNextPrompt,
+                    audioOffset: audioOffset,
+                    onAudioOffset: { setAudioOffset($0) },
                     onPrev: { if let p = series.episode(before: currentEpisode) { currentEpisode = p } },
                     onNext: { if let n = series.episode(after: currentEpisode) { currentEpisode = n } }
                 )
@@ -88,6 +94,7 @@ struct EpisodePlayerScreen: View {
         .onAppear { store.isPlayingVideo = true; setupPlayer(for: currentEpisode) }
         .onDisappear { store.isPlayingVideo = false; teardownPlayer(finalPersist: true) }
         .onChange(of: currentEpisode) { _, new in
+            audioOffset = 0
             teardownPlayer(finalPersist: true)
             setupPlayer(for: new)
         }
@@ -153,7 +160,7 @@ struct EpisodePlayerScreen: View {
         // ONE chooser for every tvOS surface -- see TVAssetChooser for why
         // tvOS 27 needs HLS and why the movie and episode players must not
         // decide this separately.
-        let (item, loader) = TVAssetChooser.makeItem(for: url)
+        let (item, loader) = TVAssetChooser.makeItem(for: url, audioOffset: audioOffset)
         streamLoader = loader
         // Show the episode title in the transport, and suppress the MP4's bogus
         // embedded creation year (epoch-0 -> "1969") the same way the movie
@@ -182,6 +189,10 @@ struct EpisodePlayerScreen: View {
            existing.positionSeconds > 10,
            !existing.isComplete {
             pendingSeek = existing.positionSeconds
+        }
+        if let carried = audioSyncResume {
+            audioSyncResume = nil
+            pendingSeek = carried
         }
 
         // Watch the item reach readyToPlay or fail, so a broken stream becomes
@@ -262,6 +273,17 @@ struct EpisodePlayerScreen: View {
                 }
             }
         }
+    }
+
+    /// Rebuild through the remux with the sound moved, at the same moment.
+    private func setAudioOffset(_ seconds: Double) {
+        guard abs(seconds - audioOffset) >= 0.05,
+              let at = player?.currentTime().seconds else { return }
+        audioSyncResume = at.isFinite && at > 0.5 ? at : nil
+        audioOffset = seconds
+        awdiag("AWLIFE episode AUDIO SYNC %+.1f resumeAt=%.1f", seconds, audioSyncResume ?? -1)
+        teardownPlayer(finalPersist: true)
+        setupPlayer(for: currentEpisode)
     }
 
     private func teardownPlayer(finalPersist: Bool) {

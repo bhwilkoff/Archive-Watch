@@ -248,6 +248,33 @@ playback speed, and the per-video autoplay override live in a single transport
 sheet. Surface a control only when it has ≥2 real options (hide a single audio
 track / single quality) — honest affordances (§1.2).
 
+8.2a **Audio Sync is a power-user item in that menu, never a button.** Some
+uploads carry sound that drifts from the picture (a viewer's 1971 *Hee Haw*;
+the owner approved an unobtrusive power-user setting, 2026-11-21). The movie
+and episode transport menus carry **Audio Sync**: a submenu from "2.0 s
+earlier" through "Original" to "2.0 s later" in 0.1 s steps (`AudioSync` in
+`TVAssetChooser.swift`, shared by both players), showing the chosen value as
+its subtitle only when it is not Original. Rules:
+
+- **It moves the sound, never the picture.** The remux (Decision 106) rewrites
+  only the sound track's `tfdt`, so the playlist, the scrubber, the duration,
+  seeking and file subtitles stay on the picture's timeline exactly as at
+  Original. A later sound stops at the picture's end; an earlier one loses its
+  first moments. Original is byte-for-byte the remux that existed before
+  (`tools/test_fragmenter_audio_offset.swift`).
+- **A choice rebuilds the player at the same moment** (the Version switch's
+  shape), and any value but Original plays through the remux on every tvOS,
+  27 or not, because the remux is the only place the sound can move without
+  re-encoding.
+- **It lasts for the film on screen.** The next film in a lineup or the next
+  episode starts at Original; nothing is stored. Drift is a property of one
+  upload, so a remembered value would be wrong for the next one.
+- **Hidden while a broadcast is live** (the rebuild would pull the film from
+  under the Studio's engine) and **hidden for a film known to have no sound
+  track**.
+- Automatic captions are transcribed from the source's own sound, so they keep
+  the source's timing, not the moved sound's.
+
 8.3 **Info overlay** shows title/synopsis/cast + next/prev episode; dismissible;
 does not pause unless the user does (#9).
 

@@ -481,7 +481,18 @@ extension MP4Fragmenter {
     /// Group samples into ~`seconds`-long fragments, and compute every output
     /// byte offset BEFORE any media is fetched -- the resource loader has to
     /// answer arbitrary ranges and state an exact content length.
-    static func plan(_ m: Movie, seconds: Double = 2.0) -> Plan {
+    ///
+    /// `audioOffset` (seconds, signed) moves every SOUND track against the
+    /// picture without re-encoding: positive plays the sound later, negative
+    /// earlier. Only the sound tracks' tfdt changes, so the video timeline --
+    /// and with it the playlist, the scrubber, seeking and captions -- is
+    /// exactly what it is at 0. tfdt is unsigned, so an earlier sound drops
+    /// the sound samples that would land before zero (at most `-audioOffset`
+    /// seconds of the opening). Each sound run still ends where its video
+    /// ends, in the SHIFTED time, so a seek lands on sound under the picture.
+    /// At 0 every value, and so every byte, is what it was before this
+    /// parameter existed (tools/test_fragmenter_audio_offset.swift).
+    static func plan(_ m: Movie, seconds: Double = 2.0, audioOffset: Double = 0) -> Plan {
         var frags: [Fragment] = []
         var cursor = [Int](repeating: 0, count: m.tracks.count)
         var decode = [UInt64](repeating: 0, count: m.tracks.count)
@@ -493,6 +504,36 @@ extension MP4Fragmenter {
         // dragged five seconds of picture, and the imbalance grew with every
         // fragment. Measured as ~9x the native bitrate and a stall at ~100s.
         let masterIdx = m.tracks.firstIndex { $0.handler == "vide" } ?? 0
+        // Where each track stops. A LATER sound would otherwise run past the
+        // picture's end and AVPlayer lengthens the item by exactly the shift
+        // (measured: 60.009 s became 61.009 s at +1.0), which moves the
+        // scrubber's end; the sound under no picture is dropped instead.
+        var limit = m.tracks.map { $0.samples.count }
+        if audioOffset != 0, m.tracks[masterIdx].handler == "vide" {
+            let vt = m.tracks[masterIdx]
+            let videoEnd = Double(vt.samples.reduce(UInt64(0)) { $0 + UInt64($1.duration) })
+                / Double(vt.timescale)
+            for (ti, t) in m.tracks.enumerated() where t.handler == "soun" {
+                let shift = (audioOffset * Double(t.timescale)).rounded()
+                if shift >= 0 {
+                    decode[ti] = UInt64(shift)
+                    let end = UInt64(videoEnd * Double(t.timescale))
+                    var at = UInt64(shift), n = 0
+                    while n < t.samples.count, at + UInt64(t.samples[n].duration) <= end {
+                        at += UInt64(t.samples[n].duration); n += 1
+                    }
+                    limit[ti] = n
+                } else {
+                    let drop = UInt64(-shift)
+                    var skipped: UInt64 = 0
+                    while cursor[ti] < t.samples.count, skipped < drop {
+                        skipped += UInt64(t.samples[cursor[ti]].duration)
+                        cursor[ti] += 1
+                    }
+                    decode[ti] = skipped >= drop ? skipped - drop : 0
+                }
+            }
+        }
         while true {
             var fts: [FragTrack] = []
 
@@ -528,7 +569,7 @@ extension MP4Fragmenter {
             //    (tools/test_fragmenter_alignment.swift).
             let masterEnd = Double(decode[masterIdx]) / Double(mt.timescale)
             for (ti, t) in m.tracks.enumerated() where ti != masterIdx {
-                guard cursor[ti] < t.samples.count else { continue }
+                guard cursor[ti] < limit[ti] else { continue }
                 let end = cursor[masterIdx] >= mt.samples.count
                     ? UInt64.max
                     : UInt64(Double(t.timescale) * masterEnd)
@@ -536,7 +577,7 @@ extension MP4Fragmenter {
                 let want = end == .max ? UInt64.max : end - min(end, decode[ti])
                 var taken = 0, dur: UInt64 = 0, bytes = 0
                 var i = cursor[ti]
-                while i < t.samples.count {
+                while i < limit[ti] {
                     if taken > 0, dur >= want { break }
                     dur += UInt64(t.samples[i].duration)
                     bytes += t.samples[i].size

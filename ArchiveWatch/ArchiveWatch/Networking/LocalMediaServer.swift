@@ -91,9 +91,38 @@ final class LocalMediaServer: @unchecked Sendable {
     /// 127.0.0.1), same as it always has.
     /// The HLS view of the same origin. Used on tvOS 27+, where a
     /// non-fragmented mp4 loses its audio a few minutes in.
-    func hlsURL(for origin: URL) -> URL? {
+    ///
+    /// `audioOffset` (Audio Sync, tvOS-DESIGN §8.2a) names a variant whose
+    /// segments carry the sound moved by that many seconds. It is part of the
+    /// URL so a changed offset is a new asset to AVFoundation, never a cached
+    /// segment of the old one; at 0 the URL is exactly today's.
+    func hlsURL(for origin: URL, audioOffset: Double = 0) -> URL? {
         guard let plain = proxyURL(for: origin) else { return nil }
-        return URL(string: plain.absoluteString.replacingOccurrences(of: ".mp4", with: ".m3u8"))
+        let ms = Self.offsetMs(audioOffset)
+        let ext = ms == 0 ? ".m3u8" : "_a\(ms).m3u8"
+        return URL(string: plain.absoluteString.replacingOccurrences(of: ".mp4", with: ext))
+    }
+
+    /// Whole milliseconds, clamped to the menu's range so a URL cannot ask the
+    /// planner for an arbitrary shift.
+    static func offsetMs(_ seconds: Double) -> Int {
+        Int((min(max(seconds, -5), 5) * 1000).rounded())
+    }
+
+    /// Whether the remux of `origin` has a sound track; nil until it has been
+    /// planned (or when it is not being remuxed at all).
+    func hasSound(for origin: URL?) -> Bool? {
+        guard let origin else { return nil }
+        let key = Self.key(for: origin)
+        guard let m = queue.sync(execute: { resources[key] })?.movie else { return nil }
+        return m.tracks.contains { $0.handler == "soun" }
+    }
+
+    /// `<key>` or `<key>_a<ms>` -> (key, ms).
+    fileprivate static func splitVariant(_ name: String) -> (key: String, ms: Int) {
+        guard let r = name.range(of: "_a", options: .backwards),
+              let ms = Int(name[r.upperBound...]) else { return (name, 0) }
+        return (String(name[..<r.lowerBound]), offsetMs(Double(ms) / 1000))
     }
 
     func isProxyURL(_ url: URL) -> Bool {
@@ -421,6 +450,23 @@ final class MediaResource: @unchecked Sendable {
     var plan: MP4Fragmenter.Plan? { lock.lock(); defer { lock.unlock() }; return _plan }
     var movie: MP4Fragmenter.Movie? { lock.lock(); defer { lock.unlock() }; return _movie }
 
+    /// Audio Sync variants, planned on first request. Only the latest few are
+    /// kept: a viewer stepping through the menu leaves a trail of them.
+    private var offsetPlans: [(ms: Int, plan: MP4Fragmenter.Plan)] = []
+
+    func plan(offsetMs: Int) -> MP4Fragmenter.Plan? {
+        lock.lock()
+        guard offsetMs != 0, let m = _movie else { defer { lock.unlock() }; return _plan }
+        if let hit = offsetPlans.first(where: { $0.ms == offsetMs }) { lock.unlock(); return hit.plan }
+        lock.unlock()
+        let p = MP4Fragmenter.plan(m, seconds: 2.0, audioOffset: Double(offsetMs) / 1000)
+        lock.lock(); defer { lock.unlock() }
+        if let hit = offsetPlans.first(where: { $0.ms == offsetMs }) { return hit.plan }
+        offsetPlans.append((offsetMs, p))
+        if offsetPlans.count > 3 { offsetPlans.removeFirst() }
+        return p
+    }
+
     /// Fetch ftyp + moov and compute the whole fragment layout once.
     /// NSLock may not be held across an `await`, so every critical section
     /// here is a small synchronous helper.
@@ -571,19 +617,25 @@ private final class ConnectionHandler: @unchecked Sendable {
 
         // --- HLS routes. Relative URIs in the playlist resolve beside it, so
         // every name shares the resource key and the existing lookup works.
-        if comp.hasSuffix(".m3u8"), let r = server.resource(forKey: String(comp.dropLast(5))) {
-            Task { await self.serveHLS(r, key: String(comp.dropLast(5)), what: .playlist, method: method) }
-            return
+        if comp.hasSuffix(".m3u8") {
+            let name = String(comp.dropLast(5))
+            let v = LocalMediaServer.splitVariant(name)
+            if let r = server.resource(forKey: v.key) {
+                Task { await self.serveHLS(r, key: v.key, what: .playlist(name), offsetMs: v.ms, method: method) }
+                return
+            }
         }
         if comp.hasSuffix(".init.mp4"), let r = server.resource(forKey: String(comp.dropLast(9))) {
-            Task { await self.serveHLS(r, key: String(comp.dropLast(9)), what: .initSegment, method: method) }
+            Task { await self.serveHLS(r, key: String(comp.dropLast(9)), what: .initSegment, offsetMs: 0, method: method) }
             return
         }
         if comp.hasSuffix(".m4s"), let dot = comp.range(of: ".seg", options: .backwards),
-           let idx = Int(comp[dot.upperBound...].dropLast(4)),
-           let r = server.resource(forKey: String(comp[comp.startIndex..<dot.lowerBound])) {
-            Task { await self.serveHLS(r, key: "", what: .segment(idx), method: method) }
-            return
+           let idx = Int(comp[dot.upperBound...].dropLast(4)) {
+            let v = LocalMediaServer.splitVariant(String(comp[comp.startIndex..<dot.lowerBound]))
+            if let r = server.resource(forKey: v.key) {
+                Task { await self.serveHLS(r, key: "", what: .segment(idx), offsetMs: v.ms, method: method) }
+                return
+            }
         }
 
         guard let key = path.split(separator: "/").last.map({ String($0).replacingOccurrences(of: ".mp4", with: "") }),
@@ -594,11 +646,13 @@ private final class ConnectionHandler: @unchecked Sendable {
         Task { await self.respond(resource, method: method, range: range) }
     }
 
-    fileprivate enum HLSWhat { case playlist, initSegment, segment(Int) }
+    /// `.playlist` carries the name its segments are served under: the key,
+    /// or the key plus an Audio Sync variant.
+    fileprivate enum HLSWhat { case playlist(String), initSegment, segment(Int) }
 
     private func serveHLS(_ resource: MediaResource, key: String,
-                          what: HLSWhat, method: String) async {
-        guard await resource.prepareHLS(), let plan = resource.plan,
+                          what: HLSWhat, offsetMs: Int, method: String) async {
+        guard await resource.prepareHLS(), let plan = resource.plan(offsetMs: offsetMs),
               let movie = resource.movie else {
             send(status: "503 Service Unavailable", headers: ["Content-Length": "0"], thenClose: true)
             return
@@ -606,8 +660,8 @@ private final class ConnectionHandler: @unchecked Sendable {
         var body = Data()
         var type = "video/mp4"
         switch what {
-        case .playlist:
-            body = Data(Self.playlist(movie, plan, key: key).utf8)
+        case .playlist(let name):
+            body = Data(Self.playlist(movie, plan, key: key, segments: name).utf8)
             type = "application/vnd.apple.mpegurl"
         case .initSegment:
             body = plan.initSegment
@@ -665,6 +719,17 @@ private final class ConnectionHandler: @unchecked Sendable {
                 return
             }
             body = built
+            #if DEBUG
+            if ProcessInfo.processInfo.environment["AW_SYNC_DIAG"] == "1" {
+                let starts = f.tracks.compactMap { ft -> String? in
+                    guard let t = movie.tracks.first(where: { $0.id == ft.trackID }) else { return nil }
+                    return String(format: "%@=%.3f", t.handler,
+                                  Double(ft.baseDecodeTime) / Double(t.timescale))
+                }
+                awdiag("AWSYNC served seg=%d offsetMs=%d %@", i, offsetMs,
+                       starts.joined(separator: " "))
+            }
+            #endif
         }
         send(status: "200 OK", headers: [
             "Content-Type": type,
@@ -678,7 +743,8 @@ private final class ConnectionHandler: @unchecked Sendable {
     /// A VOD playlist naming every fragment, so the player never has to scan
     /// the film to discover its structure.
     fileprivate static func playlist(_ m: MP4Fragmenter.Movie,
-                                     _ p: MP4Fragmenter.Plan, key: String) -> String {
+                                     _ p: MP4Fragmenter.Plan, key: String,
+                                     segments name: String) -> String {
         let ref = m.tracks.first { $0.handler == "vide" } ?? m.tracks[0]
         var durs: [Double] = []
         for f in p.fragments {
@@ -695,7 +761,7 @@ private final class ConnectionHandler: @unchecked Sendable {
         out += "#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-INDEPENDENT-SEGMENTS\n"
         out += "#EXT-X-MAP:URI=\"\(key).init.mp4\"\n"
         for (i, d) in durs.enumerated() {
-            out += String(format: "#EXTINF:%.5f,\n\(key).seg%d.m4s\n", d, i)
+            out += String(format: "#EXTINF:%.5f,\n\(name).seg%d.m4s\n", d, i)
         }
         return out + "#EXT-X-ENDLIST\n"
     }

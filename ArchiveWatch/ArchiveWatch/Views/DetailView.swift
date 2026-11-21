@@ -843,6 +843,13 @@ struct PlayerScreen: View {
     @State private var playerVersions: [ArchiveVersions.Version] = []
     /// Where to resume when a version switch rebuilds the player in place.
     @State private var switchResumeSeconds: Double?
+    /// Audio Sync (tvOS-DESIGN §8.2a): the sound's shift and the film it was
+    /// chosen for, so the next film in a lineup starts at its original sync.
+    @State private var audioSyncOffset: Double = 0
+    @State private var audioSyncFor: String?
+    #if DEBUG
+    @State private var audioSyncDoorStarted = false
+    #endif
     // tvOS cannot present GroupActivitySharingController (unavailable in the
     // 27.0 SDK), so when there is no call it must SAY so rather than do nothing.
     @State private var sharePlayNotice = false
@@ -2450,9 +2457,34 @@ struct PlayerScreen: View {
                                 image: UIImage(systemName: "rectangle.stack"),
                                 children: versionActions))
         }
+        // Not during a live show: the rebuild would pull the film out from
+        // under the broadcast's engine. Not for a film known to have no sound.
+        if studioFilm == nil,
+           LocalMediaServer.shared.hasSound(for: (current ?? catalogItem)?.videoURLParsed) != false {
+            items.append(AudioSync.menu(current: activeAudioSync) { chooseAudioSync($0) })
+        }
         if !isPlaylist { items.append(UIMenu(title: "Autoplay Next",
                             image: UIImage(systemName: "play.circle"), children: actions)) }
         return items
+    }
+
+    private var activeAudioSync: Double {
+        audioSyncFor == activeArchiveID ? audioSyncOffset : 0
+    }
+
+    /// Rebuild through the remux with the sound moved, at the same moment —
+    /// the version switch's shape, carrying the position explicitly.
+    private func chooseAudioSync(_ seconds: Double) {
+        guard abs(seconds - activeAudioSync) >= 0.05, studioFilm == nil,
+              let at = player?.currentTime().seconds else { return }
+        switchResumeSeconds = at.isFinite && at > 0.5 ? at : nil
+        audioSyncOffset = seconds
+        audioSyncFor = activeArchiveID
+        awdiag("AWLIFE screen=%@ AUDIO SYNC %+.1f resumeAt=%.1f", screenID, seconds,
+               switchResumeSeconds ?? -1)
+        teardownPlayer(persist: true)
+        playback = .loading
+        setupPlayer()
     }
 
     /// Rebuild playback on a different copy of the same film, at the same spot.
@@ -2709,7 +2741,41 @@ struct PlayerScreen: View {
         // ONE chooser for every tvOS surface (TVAssetChooser): plain asset
         // for loopback, HLS-over-LocalMediaServer on tvOS 27+, and Decision
         // 072's resilient loader everywhere else.
-        let (chosenItem, chosenLoader) = TVAssetChooser.makeItem(for: playURL)
+        #if DEBUG
+        // Audio Sync bench door (tvOS-DESIGN §8.2a): AW_AUDIO_SYNC_PLAN="25:1,50:-1,75:0"
+        // chooses each offset through the menu's own function at that many
+        // seconds after the first build, and AWSYNC logs the clock every 2 s.
+        if !audioSyncDoorStarted,
+           let plan = ProcessInfo.processInfo.environment["AW_AUDIO_SYNC_PLAN"] {
+            audioSyncDoorStarted = true
+            let steps = plan.split(separator: ",").compactMap { pair -> (Double, Double)? in
+                let kv = pair.split(separator: ":")
+                guard kv.count == 2, let t = Double(kv[0]), let v = Double(kv[1]) else { return nil }
+                return (t, v)
+            }
+            Task { @MainActor in
+                let t0 = Date()
+                var pending = steps
+                while Date().timeIntervalSince(t0) < (steps.last?.0 ?? 0) + 30 {
+                    try? await Task.sleep(for: .seconds(2))
+                    if let p = player, let item = p.currentItem {
+                        awdiag("AWSYNC wall=%.1f t=%.3f dur=%.3f rate=%.2f status=%d offset=%+.1f",
+                               Date().timeIntervalSince(t0), p.currentTime().seconds,
+                               item.duration.seconds, p.rate, item.status.rawValue, activeAudioSync)
+                    }
+                    if let next = pending.first, Date().timeIntervalSince(t0) >= next.0 {
+                        pending.removeFirst()
+                        awdiag("AWSYNC choose %+.1f at t=%.3f", next.1,
+                               player?.currentTime().seconds ?? -1)
+                        chooseAudioSync(next.1)
+                    }
+                }
+                awdiag("AWSYNC door done")
+            }
+        }
+        #endif
+        let (chosenItem, chosenLoader) = TVAssetChooser.makeItem(for: playURL,
+                                                                 audioOffset: activeAudioSync)
         playerItem = chosenItem
         streamLoader = chosenLoader
 
@@ -2844,6 +2910,10 @@ struct PlayerScreen: View {
                         pendingSeekSeconds = nil
                         await observed.seek(to: CMTime(seconds: s, preferredTimescale: 600),
                                             toleranceBefore: .zero, toleranceAfter: .positiveInfinity)
+                        #if DEBUG
+                        awdiag("AWSYNC resume asked=%.3f landed=%.3f dur=%.3f offset=%+.1f", s,
+                               observed.currentTime().seconds, observed.duration.seconds, activeAudioSync)
+                        #endif
                     }
                     // Start playback on ready — covers BOTH the first item and
                     // every lineup/autoplay advance. The AVPlayerContainer's
