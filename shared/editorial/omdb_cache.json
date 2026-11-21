@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-20T10:05:29Z",
+  "updated_at": "2026-11-21T09:53:37Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-20T10:05:29Z"
+      "last_tried": "2026-11-21T09:53:37Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-20T10:05:29Z"
+      "last_tried": "2026-11-21T09:53:37Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -408583,6 +408583,116 @@
         "mc": 81
       },
       "fetched_at": "2026-11-20T10:05:29Z",
+      "schema": 4
+    },
+    "tt0067815": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjMzNDU4ODA0MF5BMl5BanBnXkFtZTgwNTU1NTE2MTE@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 1777,
+      "content_rating": null,
+      "plot": "An old man is recollecting all the women he met in his youth. An old woman wants them to commit suicide together but changes her mind. The little town has a doctor whose wife can not forget the old man, and the waiter who serves him his dinner doesn't know that Sinbad will soon court her.",
+      "runtime_min": 90,
+      "director": "Zoltán Huszárik",
+      "actors": [
+        "Zoltán Latinovits",
+        "Éva Ruttkai",
+        "Éva Leelössy"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-21T09:53:37Z",
+      "schema": 4
+    },
+    "tt0087855": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTU1ODE5NDc5MF5BMl5BanBnXkFtZTcwOTMzOTIzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 1667,
+      "content_rating": null,
+      "plot": "A large, claustrophobic apartment is the setting for this intense chamber drama. In this dense setting, the inhabitants of the apartment reveal their darkest secrets, fears, obsessions and hostilities.",
+      "runtime_min": 119,
+      "director": "Béla Tarr",
+      "actors": [
+        "Hédi Temessy",
+        "Erika Bodnár",
+        "Miklós Székely B."
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-21T09:53:37Z",
+      "schema": 4
+    },
+    "tt0260039": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjJhZjY4M2ItYzUxMS00NThiLTk4NjItNGUzNjE4YjE0YjQ2XkEyXkFqcGdeQXVyNzI4MDMyMTU@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": "An arduous rain drenched trek leads a frail teenage girl to collapse on the steps of a hill top Buddhist Temple.. The youthful resident monk takes her in and along with his motherly helper they nurse the mysterious girl back to health. The homeless girl comfortably settles into the austere lifestyle, secure within the sanctity of the temple refuge. Her presence inevitably draws obsessive attentions. Desecrating the purity of the sacred shrine a violation initiates an affair, one which fractures the rigid harmony of the spiritual realm, clouding the clarity of the devout priest. .\"Not standing upon words\"... A dialogue free film , sparse as it is, conversation is muted, clearly audible are grounding everyday sounds providing an evocative &amp; tangible natural reality.With striking composition and varying rhythms, multi themes are vividly presented often with dissolving seemingly random imagery...very Zen. Experimental, independent filmmaker Yoichi Takabayashi intricately creates a unique, profoundly expressive work of cinematic art.A story with no words, however it is a story that has so much to say.... Gaki in the films title references Hungry Ghosts... In Japanese Buddhism these spirits, punished for their mortal vices, have been cursed with an insatiable hunger... emerging from an unhappy death or where there is neglect or desertion of venerable ancestors.Highly Recommended for Classic Japanese film enthusiasts...",
+      "runtime_min": 92,
+      "director": "Yôichi Takabayashi",
+      "actors": [
+        "Yûtarô Ban",
+        "Akira Nitta"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-21T09:53:37Z",
+      "schema": 4
+    },
+    "tt0491244": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODQwZTM2YjItZmMxOS00M2M0LThhNGMtYmU1OWEwZGRlMTE5XkEyXkFqcGc@._V1_QL75_UY562_CR11,0,380,562_.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 7611,
+      "content_rating": "Unrated",
+      "plot": "As election time nears, current Triad chairman Lok (Yam) faces competition from his godsons. At the same time, Jimmy (Koo) looks to increase his business relations with mainland China.",
+      "runtime_min": 93,
+      "director": "Johnnie To",
+      "actors": [
+        "Louis Koo",
+        "Simon Yam",
+        "Nick Cheung"
+      ],
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 96,
+        "mc": 83
+      },
+      "fetched_at": "2026-11-21T09:53:37Z",
+      "schema": 4
+    },
+    "tt2718492": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI1ODAyN2EtYzg3Mi00OWY5LWI2MzgtMmVlNGRjZmNjMDgxXkEyXkFqcGc@._V1_QL75_UY562_CR0,0,380,562_.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 63564,
+      "content_rating": "PG-13",
+      "plot": "Poland, 1962. Anna, an orphan brought up by nuns in the convent, is a novice. She has to see Wanda, the only living relative, before she takes her vows. Wanda tells Anna about her Jewish roots. Both women start a journey not only to find their family's tragic story, but to see who they really are and where they belong. They question what they used to believe in.",
+      "runtime_min": 82,
+      "director": "Pawel Pawlikowski",
+      "actors": [
+        "Agata Kulesza",
+        "Agata Trzebuchowska",
+        "Dawid Ogrodnik"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 95,
+        "mc": 91
+      },
+      "fetched_at": "2026-11-21T09:53:37Z",
       "schema": 4
     }
   },
