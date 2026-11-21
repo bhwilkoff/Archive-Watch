@@ -26,8 +26,9 @@ for t in tools/test_web_search.mjs \
          tools/test_web_audit_fixes.mjs \
          tools/test_web_sync_failures.mjs; do
   out=$(node "$t" 2>&1)
+  status=$?
   last=$(printf '%s\n' "$out" | tail -1)
-  if [ $? -ne 0 ] || printf '%s' "$out" | grep -q FAIL; then
+  if [ $status -ne 0 ] || printf '%s' "$out" | grep -q FAIL; then
     printf '  FAIL  %-32s %s\n' "$(basename "$t")" "$last"
     printf '%s\n' "$out" | grep FAIL | sed 's/^/          /'
     fail=1

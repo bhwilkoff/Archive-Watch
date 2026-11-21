@@ -73,7 +73,7 @@ const doc = {
   activeElement: null,
   hidden: false,
   readyState: 'complete',
-  documentElement: { classList: { add: (...c) => { doc._cls = (doc._cls||[]).concat(c); } } },
+  documentElement: { dataset: {}, classList: { add: (...c) => { doc._cls = (doc._cls||[]).concat(c); } } },
   body: { },
   querySelectorAll: (sel) => nodes.filter(n => matches(n, sel)),
   // The shim carried no getElementById, so the first code in tv.js to reach
