@@ -184,6 +184,20 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   broadcast day or the schedule's first program, whichever is later. The
   viewer's OWN channels keep `data/ChannelScheduler.kt` (6 AM local anchor,
   FNV-1a + SplitMix64) — they are theirs alone.
+  **§4.6e Arrange channels, and a channel from a playlist (2026-11-21,
+  iOS-DESIGN §2.5d-a).** The phone's Channels bar has a More menu with
+  **Arrange channels**: every channel in the guide's order, each row moved
+  up or down a place, a channel of your own deleted (after asking); Done
+  saves the whole order, Cancel keeps the old one. The order is one list of
+  guide ids (`drama`, `user-<id>`): named channels first in its order, every
+  other channel after in the default order (`ChannelArrangement`), synced in
+  the Drive blob as `channelOrder: {ids, at}`, newest wins; Fire TV keeps it
+  on the device. Create a Channel offers **Plays**: *Titles that match* or
+  one of the viewer's playlists; a playlist hides the filters and names the
+  channel. A playlist channel plays the playlist's playable titles in its
+  order (no recommendation gate: the viewer chose them) on
+  `ChannelScheduler.loop`, one clock from 2026-01-01 UTC, so every device
+  airs the same title at the same moment.
 
 - **§4.8 Clip Studio is the Create surface** (CREATE-STUDIO-PLAN §5,
   Decision 033) — the Android twin of iOS `ClipStudioView`. A scissors

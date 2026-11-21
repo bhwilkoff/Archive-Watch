@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -23,6 +25,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowDownward
+import androidx.compose.material.icons.filled.ArrowUpward
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Brush
 import androidx.compose.material.icons.filled.Landscape
@@ -66,6 +72,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.guide
+import app.archivewatch.android.data.ChannelArrangement
 import app.archivewatch.android.data.ChannelScheduler
 import app.archivewatch.android.data.GuideChannel
 import app.archivewatch.android.data.CatalogItem
@@ -123,7 +130,15 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.awaitDb()
         val nowMs = System.currentTimeMillis()
         // User channels lead the guide (same as the Apple apps).
+        val playlists = container.userState.playlists().associateBy { it.id }
         val user = container.userState.userChannels().mapNotNull { uc ->
+            uc.playlistID?.let { pid ->
+                val list = playlists[pid] ?: return@mapNotNull null
+                val programs = ChannelScheduler.playlistPrograms(db.itemsByIDs(list.archiveIDs))
+                val slots = ChannelScheduler.loop(programs, nowMs)
+                return@mapNotNull if (slots.isEmpty()) null
+                    else GuideChannel("user-${uc.id}", uc.name, "#0047FF", slots)
+            }
             // full = true: the lite list row carries no downloadURL, so this
             // filter emptied every pool and the guide rendered ZERO rows
             // (measured on the Google TV 2026-09-03 — the fourth surface the
@@ -151,8 +166,16 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         }
         scheduleMissing = schedule == null
         scheduleFloorMs = schedule?.firstStartMs
-        value = user + presets
+        value = ChannelArrangement.arranged(user + presets,
+                                            container.userState.channelOrder()?.ids.orEmpty())
     }
+    val scope = androidx.compose.runtime.rememberCoroutineScope()
+    var showArrange by remember { mutableStateOf(false) }
+    var showMenu by remember { mutableStateOf(false) }
+    var channelMenuFor by remember { mutableStateOf<GuideChannel?>(null) }
+    // The channel a remote just moved, and how many moves so far: focus
+    // follows it to its new row instead of landing on the first.
+    var movedFocus by remember { mutableStateOf<Pair<String, Int>?>(null) }
 
     // The GUIDE below has been TV-aware for a long time (row heights, the
     // initial focus claim, the proportional blocks). Its CHROME was not: a
@@ -169,6 +192,20 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                     actions = {
                         IconButton(onClick = { showCreate = true }) {
                             Icon(Icons.Default.Add, contentDescription = "Create channel")
+                        }
+                        Box {
+                            IconButton(onClick = { showMenu = true }) {
+                                Icon(Icons.Default.MoreVert, contentDescription = "More")
+                            }
+                            androidx.compose.material3.DropdownMenu(
+                                expanded = showMenu, onDismissRequest = { showMenu = false },
+                            ) {
+                                androidx.compose.material3.DropdownMenuItem(
+                                    text = { Text("Arrange channels") },
+                                    enabled = !guide.isNullOrEmpty(),
+                                    onClick = { showMenu = false; showArrange = true },
+                                )
+                            }
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
@@ -201,6 +238,37 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
 
         if (showCreate) {
             CreateChannelDialog(container) { showCreate = false }
+        }
+        if (showArrange) {
+            ArrangeChannelsDialog(
+                channels = channels,
+                onDone = { ids ->
+                    showArrange = false
+                    if (ids != null) scope.launch { container.userState.saveChannelOrder(ids) }
+                },
+                onDelete = { ch ->
+                    scope.launch { container.userState.deleteUserChannel(ch.id.removePrefix("user-")) }
+                },
+            )
+        }
+        channelMenuFor?.let { ch ->
+            ChannelMenuDialog(
+                channel = ch,
+                index = channels.indexOfFirst { it.id == ch.id },
+                count = channels.size,
+                onMove = { step ->
+                    channelMenuFor = null
+                    ChannelArrangement.moved(channels.map { it.id }, ch.id, step)?.let { ids ->
+                        movedFocus = ch.id to ((movedFocus?.second ?: 0) + 1)
+                        scope.launch { container.userState.saveChannelOrder(ids) }
+                    }
+                },
+                onDelete = if (ch.id.startsWith("user-")) ({
+                    channelMenuFor = null
+                    scope.launch { container.userState.deleteUserChannel(ch.id.removePrefix("user-")) }
+                }) else null,
+                onDismiss = { channelMenuFor = null },
+            )
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
             if (tvChrome) {
@@ -254,11 +322,14 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                         // and only what is airing NOW: focusing the guide is the
                         // point, and "what's on right now" is what a viewer
                         // opening a TV guide is looking at.
-                        claimInitialFocus = LocalIsTelevision.current && idx == 0,
+                        claimInitialFocus = LocalIsTelevision.current &&
+                            (movedFocus?.let { it.first == ch.id } ?: (idx == 0)),
+                        claimKey = movedFocus?.takeIf { it.first == ch.id }?.second,
                         onTune = { slot -> tune(container, nav, channels, idx, slot) },
                         onDelete = if (ch.id.startsWith("user-")) ({
                             container.userState.deleteUserChannel(ch.id.removePrefix("user-"))
                         }) else null,
+                        onMenu = if (tvChrome) ({ channelMenuFor = ch }) else null,
                     )
                 }
                 if (scheduleMissing) {
@@ -351,7 +422,9 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             windowMinutes: Int, railW: androidx.compose.ui.unit.Dp,
                             nowMs: Long, onTune: suspend (ScheduledProgram) -> Unit,
                             onDelete: (suspend () -> Unit)? = null,
-                            claimInitialFocus: Boolean = false) {
+                            onMenu: (() -> Unit)? = null,
+                            claimInitialFocus: Boolean = false,
+                            claimKey: Int? = null) {
     val accent = colorFromHex(channel.accentHex) ?: MaterialTheme.colorScheme.primary
     val fmt = rememberTimeFormat()
     val scope = androidx.compose.runtime.rememberCoroutineScope()
@@ -416,7 +489,7 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
-        if (claimInitialFocus) ClaimInitialFocus(nowFocus, key = channel.id)
+        if (claimInitialFocus) ClaimInitialFocus(nowFocus, key = channel.id to claimKey)
         // Timeline strip: proportional blocks placed by minute offset.
         androidx.compose.ui.layout.Layout(
             content = {
@@ -462,6 +535,7 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                                         ringColor = Color.White,
                                         scaleWhenFocused = 1f,
                                         focusTag = "program:" + slot.item.title.take(24),
+                                        onLongClick = onMenu,
                                     )
                                 } else {
                                     Modifier.clickable { scope.launch { onTune(slot) } }
@@ -548,6 +622,10 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
     var genre by remember { mutableStateOf<String?>(null) }
     var type by remember { mutableStateOf<String?>(null) }
     var decade by remember { mutableStateOf<Int?>(null) }
+    var playlistID by remember { mutableStateOf<String?>(null) }
+    val playlists by produceState(emptyList<app.archivewatch.android.data.UserPlaylist>()) {
+        value = container.userState.playlists().sortedBy { it.name.lowercase() }
+    }
     // Apple's lists and words (ChannelsView_iOS): the chips read "feature film"
     // and "silent fi…", raw type ids, where every other surface says "Feature
     // Film". Documentary, not TV Special: a channel is built from films.
@@ -559,8 +637,9 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
         "short-film" to "Short Film", "newsreel" to "Newsreel", "documentary" to "Documentary",
     )
     val decades = (1900..2010 step 10).toList()
-    val autoName = listOfNotNull(decade?.let { "" + it + "s" }, genre,
-        type?.let { typeLabels[it] }).joinToString(" ").ifEmpty { "My Channel" }
+    val autoName = playlistID?.let { pid -> playlists.firstOrNull { it.id == pid }?.name }
+        ?: listOfNotNull(decade?.let { "" + it + "s" }, genre,
+            type?.let { typeLabels[it] }).joinToString(" ").ifEmpty { "My Channel" }
 
     androidx.compose.material3.AlertDialog(
         onDismissRequest = onDone,
@@ -570,11 +649,11 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
                 onClick = {
                     scope.launch {
                         container.userState.createUserChannel(
-                            name.trim().ifEmpty { autoName }, genre, type, decade)
+                            name.trim().ifEmpty { autoName }, genre, type, decade, playlistID)
                         onDone()
                     }
                 },
-                enabled = genre != null || type != null || decade != null,
+                enabled = playlistID != null || genre != null || type != null || decade != null,
             ) { Text("Create") }
         },
         dismissButton = {
@@ -582,12 +661,17 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
         },
         text = {
             Column {
-                PickRow("Genre", genres, genre) { genre = it }
-                PickRow("Type", typeLabels.values.toList(), type?.let { typeLabels[it] }) { sel ->
-                    type = typeLabels.entries.firstOrNull { it.value == sel }?.key
+                if (playlists.isNotEmpty()) {
+                    PlaysRow(playlists, playlistID) { playlistID = it }
                 }
-                PickRow("Era", decades.map { "" + it + "s" }, decade?.let { "" + it + "s" }) { sel ->
-                    decade = sel?.removeSuffix("s")?.toIntOrNull()
+                if (playlistID == null) {
+                    PickRow("Genre", genres, genre) { genre = it }
+                    PickRow("Type", typeLabels.values.toList(), type?.let { typeLabels[it] }) { sel ->
+                        type = typeLabels.entries.firstOrNull { it.value == sel }?.key
+                    }
+                    PickRow("Era", decades.map { "" + it + "s" }, decade?.let { "" + it + "s" }) { sel ->
+                        decade = sel?.removeSuffix("s")?.toIntOrNull()
+                    }
                 }
                 androidx.compose.material3.OutlinedTextField(
                     value = name, onValueChange = { name = it },
@@ -599,6 +683,149 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
                         Modifier.tvTextFieldEscape()
                     } else Modifier,
                 )
+            }
+        },
+    )
+}
+
+/** What a new channel plays: titles that match the filters, or one of the
+ *  viewer's playlists in its order. */
+@Composable
+private fun PlaysRow(playlists: List<app.archivewatch.android.data.UserPlaylist>, selected: String?,
+                     onPick: (String?) -> Unit) {
+    Column(Modifier.padding(vertical = 4.dp)) {
+        Text("Plays", style = MaterialTheme.typography.labelMedium,
+             color = MaterialTheme.colorScheme.onSurfaceVariant)
+        androidx.compose.foundation.lazy.LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            item(key = "match") {
+                androidx.compose.material3.FilterChip(
+                    selected = selected == null,
+                    onClick = { onPick(null) },
+                    label = { Text("Titles that match") },
+                )
+            }
+            items(playlists.size, key = { "pl:" + playlists[it].id }) { i ->
+                val p = playlists[i]
+                androidx.compose.material3.FilterChip(
+                    selected = selected == p.id,
+                    onClick = { onPick(p.id) },
+                    label = { Text(p.name, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                )
+            }
+        }
+    }
+}
+
+/** Arrange channels (ANDROID-DESIGN §4.6e): every channel in the guide's
+ *  order, moved a row at a time; a channel of your own can be deleted. The
+ *  order is saved whole on Done. */
+@Composable
+private fun ArrangeChannelsDialog(channels: List<GuideChannel>,
+                                  onDone: (List<String>?) -> Unit,
+                                  onDelete: (GuideChannel) -> Unit) {
+    var rows by remember { mutableStateOf(channels) }
+    var confirm by remember { mutableStateOf<GuideChannel?>(null) }
+    confirm?.let { ch ->
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirm = null },
+            title = { Text("Delete “${ch.title}”?") },
+            confirmButton = {
+                androidx.compose.material3.TextButton(onClick = {
+                    confirm = null
+                    rows = rows.filter { it.id != ch.id }
+                    onDelete(ch)
+                }) { Text("Delete") }
+            },
+            dismissButton = {
+                androidx.compose.material3.TextButton(onClick = { confirm = null }) { Text("Cancel") }
+            },
+        )
+    }
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = { onDone(null) },
+        title = { Text("Arrange Channels") },
+        confirmButton = {
+            androidx.compose.material3.TextButton(onClick = { onDone(rows.map { it.id }) }) { Text("Done") }
+        },
+        dismissButton = {
+            androidx.compose.material3.TextButton(onClick = { onDone(null) }) { Text("Cancel") }
+        },
+        text = {
+            LazyColumn(Modifier.heightIn(max = 440.dp)) {
+                items(rows.size, key = { rows[it].id }) { i ->
+                    val ch = rows[i]
+                    Row(
+                        Modifier.fillMaxWidth().animateItem(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Box(
+                            Modifier.size(26.dp).clip(RoundedCornerShape(6.dp))
+                                .background(colorFromHex(ch.accentHex) ?: MaterialTheme.colorScheme.primary),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Icon(channelIcon(ch.id), contentDescription = null, tint = Color.White,
+                                 modifier = Modifier.size(17.dp))
+                        }
+                        Text(ch.title, modifier = Modifier.weight(1f).padding(horizontal = 10.dp),
+                             maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        IconButton(onClick = {
+                            rows = rows.toMutableList().apply { add(i - 1, removeAt(i)) }
+                        }, enabled = i > 0) {
+                            Icon(Icons.Default.ArrowUpward, contentDescription = "Move ${ch.title} up")
+                        }
+                        IconButton(onClick = {
+                            rows = rows.toMutableList().apply { add(i + 1, removeAt(i)) }
+                        }, enabled = i < rows.size - 1) {
+                            Icon(Icons.Default.ArrowDownward, contentDescription = "Move ${ch.title} down")
+                        }
+                        if (ch.id.startsWith("user-")) {
+                            IconButton(onClick = { confirm = ch }) {
+                                Icon(Icons.Default.Delete, contentDescription = "Delete ${ch.title}")
+                            }
+                        } else if (rows.any { it.id.startsWith("user-") }) {
+                            Spacer(Modifier.width(48.dp))
+                        }
+                    }
+                }
+            }
+        },
+    )
+}
+
+/** A held Select on a guide row (television): the remote has no drag, so a
+ *  channel moves to the top, up or down from here, as on tvOS. */
+@Composable
+private fun ChannelMenuDialog(channel: GuideChannel, index: Int, count: Int,
+                              onMove: (Int) -> Unit, onDelete: (() -> Unit)?,
+                              onDismiss: () -> Unit) {
+    val first = remember { FocusRequester() }
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(channel.title) },
+        confirmButton = {},
+        dismissButton = {
+            androidx.compose.material3.TextButton(onClick = onDismiss) { Text("Cancel") }
+        },
+        text = {
+            Column {
+                val options = buildList<Pair<String, () -> Unit>> {
+                    if (index > 0) {
+                        add("Move to top" to { onMove(ChannelArrangement.TO_TOP) })
+                        add("Move up" to { onMove(-1) })
+                    }
+                    if (index in 0 until count - 1) add("Move down" to { onMove(1) })
+                    onDelete?.let { add("Delete channel" to it) }
+                }
+                options.forEachIndexed { i, (label, action) ->
+                    androidx.compose.material3.TextButton(
+                        onClick = action,
+                        modifier = Modifier.fillMaxWidth()
+                            .then(if (i == 0) Modifier.focusRequester(first) else Modifier),
+                    ) { Text(label, modifier = Modifier.fillMaxWidth()) }
+                }
+                if (options.isNotEmpty()) ClaimInitialFocus(first)
             }
         },
     )

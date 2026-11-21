@@ -9,6 +9,7 @@ import android.content.IntentSender
 import android.content.SharedPreferences
 import android.util.Log
 import app.archivewatch.android.BuildConfig
+import app.archivewatch.android.data.ChannelOrder
 import app.archivewatch.android.data.UserChannelRec
 import app.archivewatch.android.data.PlaylistOrder
 import app.archivewatch.android.data.UserPlaylist
@@ -48,7 +49,8 @@ import kotlin.coroutines.resume
  * Blob (v2, shared field names with the web):
  *   favorites  [{id, addedAt}]                       union minus tombstones
  *   playlists  [{id, name, archiveIDs, createdAt, modifiedAt, sortIndex}]  LWW by modifiedAt
- *   channels   [{id, name, genre, contentType, decade, createdAt}]  union minus tombstones
+ *   channels   [{id, name, genre, contentType, decade, createdAt, playlistID}]  union minus tombstones
+ *   channelOrder {ids: [guide id], at}                newest `at` wins
  *   progress   [{id, position(s), duration(s), at, firstAt, plays, everDone}]
  *              position LWW by `at`; HISTORY is a UNION (Decision 078)
  *   tombstones [{kind: fav|pl|ch|wp, id, at}]            union; a re-add newer
@@ -367,7 +369,16 @@ object DriveSync {
         val chans = LinkedHashMap<String, UserChannelRec>()
         for (c in store.userChannels()) chans[c.id] = c
         for (c in cloud.arr("channels")) {
-            val id = c.optString("id"); if (id.isEmpty() || chans.containsKey(id)) continue
+            val id = c.optString("id"); if (id.isEmpty()) continue
+            val cloudPlaylist = if (c.isNull("playlistID")) null
+                                else c.optString("playlistID").takeIf { it.isNotEmpty() }
+            val mine = chans[id]
+            if (mine != null) {
+                // A channel is never edited, so a copy without the playlist
+                // lost it to a writer that did not know the field.
+                if (mine.playlistID == null && cloudPlaylist != null) chans[id] = mine.copy(playlistID = cloudPlaylist)
+                continue
+            }
             chans[id] = UserChannelRec(
                 id, c.optString("name"),
                 c.optString("genre").takeIf { it.isNotEmpty() },
@@ -375,12 +386,23 @@ object DriveSync {
                     ?: c.optString("type").takeIf { it.isNotEmpty() }),
                 if (c.has("decade") && !c.isNull("decade")) c.optInt("decade") else null,
                 c.optLong("createdAt").takeIf { it > 0 } ?: now,
+                cloudPlaylist,
             )
         }
         for (id in chans.keys.toList()) if (dead("ch", id, chans[id]!!.createdAt)) chans.remove(id)
         val localCh = store.userChannels().associateBy { it.id }
-        for ((id, c) in chans) if (localCh[id] == null) { store.putChannelRaw(c); wrote = true }
+        for ((id, c) in chans) if (localCh[id] != c) { store.putChannelRaw(c); wrote = true }
         for (id in localCh.keys) if (id !in chans) { store.removeChannelRaw(id); wrote = true }
+
+        // Channel order: one record, newest `at` wins.
+        cloud?.optJSONObject("channelOrder")?.let { co ->
+            val at = co.optLong("at")
+            val ids = co.optJSONArray("ids")?.let { a -> (0 until a.length()).map { a.optString(it) } }
+                ?.filter { it.isNotEmpty() }
+            if (ids != null && at > (store.channelOrder()?.at ?: 0L)) {
+                store.putChannelOrderRaw(ChannelOrder(ids, at)); wrote = true
+            }
+        }
 
         // Progress: position LWW by `at`, history UNION (Decision 078).
         val byId = store.history(limit = 10_000).associateBy { it.archiveID }
@@ -435,8 +457,12 @@ object DriveSync {
                 .put("contentType", c.contentType ?: JSONObject.NULL)
                 .put("type", c.contentType ?: JSONObject.NULL)
                 .put("decade", c.decade ?: JSONObject.NULL)
-                .put("createdAt", c.createdAt))
+                .put("createdAt", c.createdAt)
+                .put("playlistID", c.playlistID ?: JSONObject.NULL))
         })
+        store.channelOrder()?.let { o ->
+            out.put("channelOrder", JSONObject().put("ids", JSONArray(o.ids)).put("at", o.at))
+        }
         out.put("progress", JSONArray().also { a ->
             for (w in store.history(limit = 10_000)) a.put(JSONObject()
                 .put("id", w.archiveID)

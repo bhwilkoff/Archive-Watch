@@ -54,7 +54,15 @@ data class UserChannelRec(
     val contentType: String?,
     val decade: Int?,
     val createdAt: Long,
+    /** A channel that plays one of the viewer's playlists, in its order; when
+     *  set the filters are unused. Every reader and writer carries it, sync
+     *  included (Decision 170). */
+    val playlistID: String? = null,
 )
+
+/** The viewer's own order of every guide channel ("drama", "user-<id>"),
+ *  synced as `channelOrder: {ids, at}`, newest `at` wins. */
+data class ChannelOrder(val ids: List<String>, val at: Long)
 
 data class UserPlaylist(
     val id: String,
@@ -129,6 +137,10 @@ class UserStateStore(context: Context) {
             "CREATE TABLE IF NOT EXISTS channels (" +
                 "id TEXT PRIMARY KEY, name TEXT, genre TEXT, " +
                 "contentType TEXT, decade INTEGER, createdAt INTEGER)",
+        )
+        try { connection.execSQL("ALTER TABLE channels ADD COLUMN playlistID TEXT") } catch (_: Exception) {}
+        connection.execSQL(
+            "CREATE TABLE IF NOT EXISTS channel_order (k TEXT PRIMARY KEY, ids TEXT, at INTEGER)",
         )
         // Deletion markers for cross-device sync (Decision 028 / the Apple
         // #84 lesson): without a tombstone, a favorite removed here is
@@ -482,26 +494,51 @@ class UserStateStore(context: Context) {
     // --- user channels ---
 
     suspend fun userChannels(): List<UserChannelRec> = dbCall {
-        query("SELECT id, name, genre, contentType, decade, createdAt FROM channels ORDER BY createdAt DESC") {
+        query("SELECT id, name, genre, contentType, decade, createdAt, playlistID FROM channels ORDER BY createdAt DESC") {
             UserChannelRec(
                 id = it.getText(0), name = it.getText(1),
                 genre = if (it.isNull(2)) null else it.getText(2),
                 contentType = if (it.isNull(3)) null else it.getText(3),
                 decade = if (it.isNull(4)) null else it.getLong(4).toInt(),
                 createdAt = it.getLong(5),
+                playlistID = if (it.isNull(6)) null else it.getText(6).takeIf { s -> s.isNotEmpty() },
             )
         }
     }
 
-    suspend fun createUserChannel(name: String, genre: String?, contentType: String?, decade: Int?) {
+    suspend fun createUserChannel(name: String, genre: String?, contentType: String?, decade: Int?,
+                                  playlistID: String? = null) {
         val now = System.currentTimeMillis()
+        val fromList = playlistID != null
         dbCall {
             exec(
-                "INSERT OR REPLACE INTO channels (id, name, genre, contentType, decade, createdAt) VALUES (?, ?, ?, ?, ?, ?)",
-                listOf("uc-" + now.toString(36), name, genre, contentType, decade, now),
+                "INSERT OR REPLACE INTO channels (id, name, genre, contentType, decade, createdAt, playlistID) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                listOf("uc-" + now.toString(36), name,
+                       if (fromList) null else genre, if (fromList) null else contentType,
+                       if (fromList) null else decade, now, playlistID),
             )
         }
         _changes.value += 1
+    }
+
+    // --- channel order ---
+
+    suspend fun channelOrder(): ChannelOrder? = dbCall {
+        query("SELECT ids, at FROM channel_order WHERE k = 'order'") {
+            ChannelOrder(it.getText(0).split('\n').filter { id -> id.isNotEmpty() }, it.getLong(1))
+        }.firstOrNull()
+    }
+
+    /** Stores the guide's full order as the viewer left it. */
+    suspend fun saveChannelOrder(ids: List<String>) {
+        putChannelOrderRaw(ChannelOrder(ids, System.currentTimeMillis()))
+        _changes.value += 1
+    }
+
+    suspend fun putChannelOrderRaw(o: ChannelOrder) = dbCall {
+        exec("INSERT OR REPLACE INTO channel_order (k, ids, at) VALUES ('order', ?, ?)",
+             listOf(o.ids.joinToString("\n"), o.at))
     }
 
     suspend fun deleteUserChannel(id: String) {
@@ -552,8 +589,9 @@ class UserStateStore(context: Context) {
 
     suspend fun putChannelRaw(c: UserChannelRec) = dbCall {
         exec(
-            "INSERT OR REPLACE INTO channels (id, name, genre, contentType, decade, createdAt) VALUES (?, ?, ?, ?, ?, ?)",
-            listOf(c.id, c.name, c.genre, c.contentType, c.decade, c.createdAt),
+            "INSERT OR REPLACE INTO channels (id, name, genre, contentType, decade, createdAt, playlistID) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            listOf(c.id, c.name, c.genre, c.contentType, c.decade, c.createdAt, c.playlistID),
         )
         exec("DELETE FROM tombstones WHERE kind = 'ch' AND id = ?", listOf(c.id))
     }

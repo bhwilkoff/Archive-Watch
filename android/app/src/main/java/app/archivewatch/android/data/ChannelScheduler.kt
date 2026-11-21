@@ -85,6 +85,44 @@ object ChannelScheduler {
         return out
     }
 
+    /** One clock for every playlist channel: 2026-01-01T00:00:00Z. */
+    const val LOOP_EPOCH_MS = 1_767_225_600_000L
+
+    /** A playlist channel's titles: the viewer's own choices in their order,
+     *  so no recommendation gate, only what has a file to play. */
+    fun playlistPrograms(items: List<CatalogItem>): List<CatalogItem> =
+        items.filter { it.contentType != "tv-series" && !it.downloadURL.isNullOrBlank() }
+
+    /** A playlist channel (Apple's `ChannelScheduler.loop`): the programs IN
+     *  ORDER, looping on one clock from [LOOP_EPOCH_MS], so every device airs
+     *  the same title at the same moment and a day picks up where the last
+     *  left off. Packed from the broadcast day anchor. */
+    fun loop(
+        programs: List<CatalogItem>,
+        nowMs: Long,
+        coverHours: Double = 26.0,
+        bufferSec: Long = 120,
+    ): List<ScheduledProgram> {
+        if (programs.isEmpty()) return emptyList()
+        val anchor = dayAnchorMs(nowMs)
+        val lengths = programs.map { (runtimeSec(it) + bufferSec) * 1000 }
+        val cycle = lengths.sum()
+        var into = (anchor - LOOP_EPOCH_MS).mod(cycle)
+        var i = 0
+        while (into >= lengths[i]) { into -= lengths[i]; i = (i + 1) % programs.size }
+        var cursor = anchor - into
+        val coverUntil = nowMs + (coverHours * 3600_000.0).toLong()
+        val out = ArrayList<ScheduledProgram>()
+        while (cursor < coverUntil && out.size < 2000) {
+            val item = programs[i]
+            val end = cursor + runtimeSec(item) * 1000
+            out.add(ScheduledProgram(item, cursor, end))
+            cursor = end + bufferSec * 1000
+            i = (i + 1) % programs.size
+        }
+        return out
+    }
+
     /** The lineup to hand the player when tuning in at `t`: the slot containing
      *  (or next after) `t`, then everything scheduled after it. */
     fun lineup(slots: List<ScheduledProgram>, atMs: Long): List<ScheduledProgram> {
