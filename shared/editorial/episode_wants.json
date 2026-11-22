@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-21T12:05:02Z",
+  "updated_at": "2026-11-22T12:19:29Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19530,
-    "wanted": 19260,
+    "total": 19531,
+    "wanted": 19261,
     "fulfilled": 270,
     "series_with_gaps": 400
   },
@@ -169214,6 +169214,16 @@
       "episodeImdbID": "tt0635494",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-lone-ranger-1949",
+      "seriesTitle": "The Lone Ranger",
+      "season": 4,
+      "episode": 1,
+      "title": "The Fugitive",
+      "episodeImdbID": "tt0635471",
+      "status": "wanted",
+      "added_at": "2026-11-22T12:19:29Z"
     },
     {
       "seriesID": "the-lone-ranger-1949",
