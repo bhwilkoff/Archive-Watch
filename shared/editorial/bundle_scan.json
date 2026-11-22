@@ -265,6 +265,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "01-01.-the-eye-and-the-ear": {
+  "checkedAt": "2026-11-22",
+  "isize": 5615017056,
+  "reason": "two works share a number",
+  "rule": 2,
+  "verdict": "single"
+ },
  "01-assignment-underwater-1": {
   "checkedAt": "2026-11-01",
   "isize": 1972590325,
@@ -3434,8 +3441,8 @@
   "verdict": "single"
  },
  "0846_Fences_and_Gates_09_29_02_00": {
-  "checkedAt": "2026-11-01",
-  "isize": 892579240,
+  "checkedAt": "2026-11-22",
+  "isize": 892577459,
   "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
@@ -4341,6 +4348,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "1308VisioningTheFuture": {
+  "checkedAt": "2026-11-22",
+  "isize": 5110212898,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "13th-man-1937-": {
   "checkedAt": "2026-10-18",
   "isize": 1313332111,
@@ -4351,6 +4365,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1348598217,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "1441HCEqbalAhmed101998": {
+  "checkedAt": "2026-11-22",
+  "isize": 8711421553,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "1475CommunityGovernment": {
@@ -4401,6 +4422,13 @@
   "checkedAt": "2026-10-20",
   "isize": 6785556691,
   "reason": "0 numbered of 34",
+  "verdict": "single"
+ },
+ "1601RogerTincknellStorytime": {
+  "checkedAt": "2026-11-22",
+  "isize": 3665450211,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "1682BothSidesOfTheQuestion": {
@@ -5199,8 +5227,8 @@
   "verdict": "single"
  },
  "1940publicdomainanimation": {
-  "checkedAt": "2026-11-01",
-  "isize": 19493289196,
+  "checkedAt": "2026-11-22",
+  "isize": 19493288597,
   "reason": "0 numbered of 54",
   "rule": 2,
   "verdict": "single"
@@ -7798,6 +7826,13 @@
   "rule": 2,
   "verdict": "single"
  },
+ "201433_Home_Movie_004523": {
+  "checkedAt": "2026-11-22",
+  "isize": 6252248782,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "201435_Home_Movie_004525": {
   "checkedAt": "2026-10-18",
   "isize": 6449161627,
@@ -7814,6 +7849,13 @@
   "checkedAt": "2026-10-18",
   "isize": 529828194641,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "201513_Home_Movie_004110": {
+  "checkedAt": "2026-11-22",
+  "isize": 9791722963,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "201553_Medina_Boe": {
@@ -7845,6 +7887,13 @@
   "checkedAt": "2026-10-18",
   "isize": 6112405109,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "201672_Home_Movie_003435": {
+  "checkedAt": "2026-11-22",
+  "isize": 3238847287,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "201677_America_the_Beautiful_R2": {
@@ -9416,6 +9465,13 @@
   "checkedAt": "2026-10-18",
   "isize": 6300221666,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "205086_Bitter_Welcome": {
+  "checkedAt": "2026-11-22",
+  "isize": 5809415392,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "205663_Sasaki_Collection_04": {
@@ -13184,6 +13240,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "7eme-compagnie-trilogy": {
+  "checkedAt": "2026-11-22",
+  "isize": 19172956211,
+  "reason": "0 numbered of 3",
+  "rule": 2,
+  "verdict": "single"
+ },
  "7th-heaven": {
   "checkedAt": "2026-10-18",
   "isize": 16493910601,
@@ -13194,6 +13257,13 @@
   "checkedAt": "2026-10-18",
   "isize": 27656217369,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "8-and-a-half-fellini": {
+  "checkedAt": "2026-11-22",
+  "isize": 31018305524,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "8-u-e-08-s-04f-i-vc-s-1": {
@@ -13661,9 +13731,10 @@
   "verdict": "single"
  },
  "ABoyAndHisDog1975FullHD": {
-  "checkedAt": "2026-10-18",
-  "isize": 2102289331,
+  "checkedAt": "2026-11-22",
+  "isize": 2102289730,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "ABucketOfBlood1959": {
@@ -26735,8 +26806,8 @@
   "verdict": "single"
  },
  "FourStarPlayhouse-48Episodes": {
-  "checkedAt": "2026-11-01",
-  "isize": 13050686466,
+  "checkedAt": "2026-11-22",
+  "isize": 13050686360,
   "reason": "numbers do not form a run (6..36 over 11)",
   "rule": 2,
   "verdict": "single"
@@ -33593,6 +33664,13 @@
   "checkedAt": "2026-10-20",
   "isize": 1701889504,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "JSC_1760_STS95_Post_Flight_Presentation.wmv": {
+  "checkedAt": "2026-11-22",
+  "isize": 2169146612,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "JSC_1866_STS98_Mission_Highlights_Resource_Tape_Part1.wmv": {
@@ -42236,8 +42314,8 @@
   "verdict": "single"
  },
  "MakingBo1947": {
-  "checkedAt": "2026-11-04",
-  "isize": 871995597,
+  "checkedAt": "2026-11-22",
+  "isize": 871995935,
   "reason": "2 playable works",
   "rule": 2,
   "verdict": "single"
@@ -45651,8 +45729,8 @@
   "verdict": "single"
  },
  "Night.Of.The.Living.Dead_1080p": {
-  "checkedAt": "2026-11-01",
-  "isize": 62255370127,
+  "checkedAt": "2026-11-22",
+  "isize": 62255370893,
   "reason": "1 numbered of 9",
   "rule": 2,
   "verdict": "single"
@@ -47252,8 +47330,8 @@
   "verdict": "single"
  },
  "ProjectKill": {
-  "checkedAt": "2026-11-15",
-  "isize": 2111885854,
+  "checkedAt": "2026-11-22",
+  "isize": 2111887086,
   "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
@@ -63812,9 +63890,10 @@
   "verdict": "bundle"
  },
  "TheVictoryOfFaithsiegDesGlaubens": {
-  "checkedAt": "2026-10-18",
-  "isize": 1327194126,
+  "checkedAt": "2026-11-22",
+  "isize": 1327194677,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "TheVillainStillPursuedHer1940": {
@@ -65803,6 +65882,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "Trypillia_tragedy": {
+  "checkedAt": "2026-11-22",
+  "isize": 4530785847,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "Tulsa1949": {
   "checkedAt": "2026-10-18",
   "isize": 1865546590,
@@ -67651,9 +67737,10 @@
   "verdict": "single"
  },
  "Werewolf_of_Washington": {
-  "checkedAt": "2026-10-18",
-  "isize": 3897024923,
+  "checkedAt": "2026-11-22",
+  "isize": 3897025537,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "WestOfTheBadlands1940": {
@@ -68474,6 +68561,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "a-bout-de-souffle-godard": {
+  "checkedAt": "2026-11-22",
+  "isize": 20307620183,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "a-case-of-spring-fever-1940": {
   "checkedAt": "2026-10-18",
   "isize": 2081256636,
@@ -68503,6 +68597,13 @@
   "checkedAt": "2026-11-01",
   "isize": 2564672056,
   "reason": "2 numbered of 3",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "a-fugitive-from-past-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 35444335437,
+  "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
  },
@@ -68546,6 +68647,13 @@
   "checkedAt": "2026-11-01",
   "isize": 2694711317,
   "reason": "0 numbered of 8",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "a-man-escaped-bresson": {
+  "checkedAt": "2026-11-22",
+  "isize": 20972855871,
+  "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
  },
@@ -70368,6 +70476,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "after-the-curfew-1954": {
+  "checkedAt": "2026-11-22",
+  "isize": 15168864908,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "after.-dark.-1932": {
   "checkedAt": "2026-10-18",
   "isize": 829157642,
@@ -70537,6 +70652,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "al-grito-de-este-pueblo-1972": {
+  "checkedAt": "2026-11-22",
+  "isize": 1099880555,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "alaska-s-silver-millions-1936": {
   "checkedAt": "2026-10-20",
   "isize": 7578242058,
@@ -70573,6 +70695,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2985037957,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "alexander-nevsky-ussr": {
+  "checkedAt": "2026-11-22",
+  "isize": 31726538519,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "alfred-hitchcock-presents-1959-s-5e-1-colorized-sd": {
@@ -72652,7 +72781,7 @@
   "verdict": "bundle"
  },
  "alfred-hitchcock-presents-s-3e-1-colorized-sd": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-11-22",
   "files": [
    {
     "format": "Matroska",
@@ -73357,8 +73486,9 @@
     "name": "alfred-hitchcock-presents-s-3e-1-colorized-sd.thumbs/alfred hitchcock presents-s3e39-colorized-sd_000898.jpg"
    }
   ],
-  "isize": 15042739189,
+  "isize": 15042740030,
   "reason": "ok",
+  "rule": 2,
   "verdict": "bundle"
  },
  "alfred-hitchcock-presents-s-4e-1-colorized-sd": {
@@ -77599,6 +77729,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "anonymoose-ai-dvd-10bit-fc-6-b-17-fc": {
+  "checkedAt": "2026-11-22",
+  "isize": 3463866554,
+  "reason": "0 numbered of 18",
+  "rule": 2,
+  "verdict": "single"
+ },
  "anorphan": {
   "checkedAt": "2026-10-18",
   "isize": 1717531674,
@@ -77609,6 +77746,13 @@
   "checkedAt": "2026-10-18",
   "isize": 34966785217,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "antonio-das-mortes-rocha": {
+  "checkedAt": "2026-11-22",
+  "isize": 8003195169,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "anxietytheendlesscrisisreel2": {
@@ -78940,10 +79084,24 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "ashes-and-diamonds-polish": {
+  "checkedAt": "2026-11-22",
+  "isize": 21026818282,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "asi-cantaba-carlos-gardel-1935": {
   "checkedAt": "2026-10-18",
   "isize": 748550526,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "asi-es-buenos-aires-1971": {
+  "checkedAt": "2026-11-22",
+  "isize": 1988423192,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "asi-es-la-vida-1939": {
@@ -79143,6 +79301,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1503944658,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "baal-german": {
+  "checkedAt": "2026-11-22",
+  "isize": 23476772993,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "baat-ek-raat-ki-1962-cd-1-dv-drip-dev-anand-classic-rd-y": {
@@ -80256,6 +80421,13 @@
   "checkedAt": "2026-10-18",
   "isize": 39994226801,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "battleship-potemkin-ussr": {
+  "checkedAt": "2026-11-22",
+  "isize": 17577147939,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "be-silent-my-sorrow-be-silent-molchi-grust-molchi-1918": {
@@ -81718,6 +81890,13 @@
   "rule": 2,
   "verdict": "single"
  },
+ "betty-boop_202605": {
+  "checkedAt": "2026-11-22",
+  "isize": 42213871527,
+  "reason": "0 numbered of 82",
+  "rule": 2,
+  "verdict": "single"
+ },
  "beverly-of-graustark-1926": {
   "checkedAt": "2026-10-18",
   "isize": 3484681314,
@@ -82311,6 +82490,20 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "blood-of-a-poet-cocteau": {
+  "checkedAt": "2026-11-22",
+  "isize": 11850968455,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "blood-of-the-condor-1969": {
+  "checkedAt": "2026-11-22",
+  "isize": 3238325763,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "blood_of_jesus": {
   "checkedAt": "2026-10-18",
   "isize": 3563791665,
@@ -82373,9 +82566,10 @@
   "verdict": "single"
  },
  "boob-tube-the-1975-colleen-brennan-john-alderman-lyllah-torena-elana-casey-jon-r": {
-  "checkedAt": "2026-10-18",
-  "isize": 1091702552,
+  "checkedAt": "2026-11-22",
+  "isize": 1091724115,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "boot_hill_bandits": {
@@ -83207,8 +83401,8 @@
   "verdict": "single"
  },
  "breer-robert-recreation-1956-57": {
-  "checkedAt": "2026-11-01",
-  "isize": 518551090,
+  "checkedAt": "2026-11-22",
+  "isize": 518551128,
   "reason": "1 numbered of 8",
   "rule": 2,
   "verdict": "single"
@@ -84213,6 +84407,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "cairo-station-1958-youssef-chahine": {
+  "checkedAt": "2026-11-22",
+  "isize": 20750445130,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "calendar_girl": {
   "checkedAt": "2026-10-18",
   "isize": 5405194050,
@@ -85059,6 +85260,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1183523145,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "captian-marvel-shazam-serials-1941": {
+  "checkedAt": "2026-11-22",
+  "isize": 3356645175,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "captivesofcare": {
@@ -88998,6 +89206,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "chronicle-of-the-years-of-fire-1975-arabic": {
+  "checkedAt": "2026-11-22",
+  "isize": 39792151494,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "cicc-tv-1994-commercials": {
   "checkedAt": "2026-10-18",
   "files": [
@@ -89910,6 +90125,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "cleo-from-5-to-7-agnes": {
+  "checkedAt": "2026-11-22",
+  "isize": 25422291172,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "climax_202103": {
   "checkedAt": "2026-11-01",
   "isize": 4951433906,
@@ -90435,6 +90657,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "confession-obayashi": {
+  "checkedAt": "2026-11-22",
+  "isize": 1971946126,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "conquest-of-the-hudson-1938": {
   "checkedAt": "2026-10-20",
   "isize": 4996714503,
@@ -90692,6 +90921,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "coup-d-etat-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 21481426993,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "courageous_dr_christian": {
   "checkedAt": "2026-10-18",
   "isize": 5175636152,
@@ -90894,6 +91130,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "crazed-fruit-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 16225577163,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "creehuntersofmistassini": {
   "checkedAt": "2026-10-18",
   "isize": 36207970453,
@@ -91083,6 +91326,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "cruel-story-of-youth-nagisa-oshima": {
+  "checkedAt": "2026-11-22",
+  "isize": 26817607868,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "cry-of-the-city-1948_202008": {
   "checkedAt": "2026-10-18",
   "isize": 3666959446,
@@ -91093,6 +91343,13 @@
   "checkedAt": "2026-10-18",
   "isize": 578258072,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "csillagosok-katonak-1967-hungarian": {
+  "checkedAt": "2026-11-22",
+  "isize": 28958551048,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "csmha_000014": {
@@ -91259,6 +91516,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1668042679,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "dablova-past-vlacil": {
+  "checkedAt": "2026-11-22",
+  "isize": 17768738822,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "dads-army-series-1": {
@@ -92313,6 +92577,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "days-and-nights-in-the-forest-1970-bengali": {
+  "checkedAt": "2026-11-22",
+  "isize": 38064074812,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "de-la-sierra-al-valle-1938": {
   "checkedAt": "2026-10-18",
   "isize": 1530051934,
@@ -92371,6 +92642,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2854846123,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "death-by-hanging-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 32932864960,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "death-drives-through": {
@@ -93561,6 +93839,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1034568603,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "diary-of-a-country-priest-bresson": {
+  "checkedAt": "2026-11-22",
+  "isize": 34818030605,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "diaryhomecome": {
@@ -95066,6 +95351,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "dragon-inn-chn": {
+  "checkedAt": "2026-11-22",
+  "isize": 31272073851,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "dragons-wagons-wax": {
   "checkedAt": "2026-10-25",
   "files": [
@@ -95570,6 +95862,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "drunken-angel-kurosawa": {
+  "checkedAt": "2026-11-22",
+  "isize": 30418154520,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "dublin_20170530": {
   "checkedAt": "2026-10-20",
   "isize": 24009517775,
@@ -95604,6 +95903,13 @@
   "checkedAt": "2026-10-18",
   "isize": 11847408569,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "early-summer-ozu": {
+  "checkedAt": "2026-11-22",
+  "isize": 39375497709,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "early-summer_202012": {
@@ -96367,6 +96673,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "edvard-munch-norwegian": {
+  "checkedAt": "2026-11-22",
+  "isize": 45134269561,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "edvardmunchpaintings": {
   "checkedAt": "2026-10-20",
   "isize": 23642549218,
@@ -96384,6 +96697,112 @@
   "checkedAt": "2026-10-18",
   "isize": 9133483080,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "eight-hours-dont-make-a-day": {
+  "checkedAt": "2026-11-22",
+  "files": [
+   {
+    "format": "Matroska",
+    "length": "6146.64",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 1.mkv",
+    "size": "22415308630",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "6146.64",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 1.mp4",
+    "original": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 1.mkv",
+    "size": "595875245",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "6012.72",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 2.mkv",
+    "size": "21915608089",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "6012.72",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 2.mp4",
+    "original": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 2.mkv",
+    "size": "583147868",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "5577.24",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 3.mkv",
+    "size": "22020387539",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "5577.24",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 3.mp4",
+    "original": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 3.mkv",
+    "size": "542399082",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "5429.68",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 4.mkv",
+    "size": "21411089213",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "5429.68",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 4.mp4",
+    "original": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 4.mkv",
+    "size": "524245456",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "5395.4",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 5.mkv",
+    "size": "20624629954",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "5395.4",
+    "name": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 5.mp4",
+    "original": "Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 5.mkv",
+    "size": "524418696",
+    "source": "derivative"
+   },
+   {
+    "name": "eight-hours-dont-make-a-day.thumbs/Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 1_002040.jpg"
+   },
+   {
+    "name": "eight-hours-dont-make-a-day.thumbs/Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 2_002000.jpg"
+   },
+   {
+    "name": "eight-hours-dont-make-a-day.thumbs/Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 3_001840.jpg"
+   },
+   {
+    "name": "eight-hours-dont-make-a-day.thumbs/Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 4_001800.jpg"
+   },
+   {
+    "name": "eight-hours-dont-make-a-day.thumbs/Eight Hours Don't Make a Day (1972) GBR Arrow Bluray Episode 5_001780.jpg"
+   }
+  ],
+  "isize": 111176314996,
+  "reason": "ok",
+  "rule": 2,
+  "verdict": "bundle"
+ },
+ "el-1953-spanish": {
+  "checkedAt": "2026-11-22",
+  "isize": 20391967970,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "el-alma-del-bandoneon-1935": {
@@ -96464,6 +96883,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "el-castillo-de-la-pureza-esp": {
+  "checkedAt": "2026-11-22",
+  "isize": 8567860176,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "el-circulo-rojo-vose-sellada": {
   "checkedAt": "2026-10-18",
   "isize": 9447663265,
@@ -96516,6 +96942,13 @@
   "checkedAt": "2026-10-18",
   "isize": 3291364800,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "el-fantasma-del-convento-1934-spanish": {
+  "checkedAt": "2026-11-22",
+  "isize": 18733516354,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "el-fin-de-la-noche-1944": {
@@ -98226,6 +98659,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "emotion-1966-obayashi": {
+  "checkedAt": "2026-11-22",
+  "isize": 10291672662,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "empresswu": {
   "checkedAt": "2026-10-18",
   "isize": 2147595134,
@@ -98770,6 +99210,13 @@
   "checkedAt": "2026-10-18",
   "isize": 9660388396,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "eros-plus-massacre": {
+  "checkedAt": "2026-11-22",
+  "isize": 43962539425,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "erotikon": {
@@ -103060,9 +103507,9 @@
   "verdict": "single"
  },
  "filmography-Alain-Delon": {
-  "checkedAt": "2026-11-15",
-  "isize": 295479126360,
-  "reason": "0 numbered of 60",
+  "checkedAt": "2026-11-22",
+  "isize": 316500618224,
+  "reason": "0 numbered of 81",
   "rule": 2,
   "verdict": "single"
  },
@@ -104125,6 +104572,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "flower-on-the-stone-1963-parajanov": {
+  "checkedAt": "2026-11-22",
+  "isize": 4962422292,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "flower-with-the-deadly-sting-the-il-fiore-dai-petali-d-acciaio-1973-gianni-garko": {
   "checkedAt": "2026-10-18",
   "isize": 1713481366,
@@ -104346,6 +104800,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1117238194,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "fruit-of-paradise-1970-cz": {
+  "checkedAt": "2026-11-22",
+  "isize": 6419012067,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "fugitive-in-the-sky-1936": {
@@ -109101,10 +109562,11 @@
   "rule": 2,
   "verdict": "bundle"
  },
- "gesetze-der-liebe-1927-1080p": {
-  "checkedAt": "2026-10-18",
-  "isize": 3422941311,
+ "germania-anno-zero": {
+  "checkedAt": "2026-11-22",
+  "isize": 20245035288,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "gesetze-der-liebe_1929": {
@@ -109799,8 +110261,8 @@
   "verdict": "single"
  },
  "gov.archives.arc.43452": {
-  "checkedAt": "2026-11-01",
-  "isize": 3349126315,
+  "checkedAt": "2026-11-22",
+  "isize": 3349124528,
   "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
@@ -110338,6 +110800,13 @@
   "checkedAt": "2026-10-18",
   "isize": 3157370193,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "gov.fl.doh.sp7-8": {
+  "checkedAt": "2026-11-22",
+  "isize": 5500499055,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "gov.gsa.b060726": {
@@ -111681,6 +112150,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "harakiri-1962-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 36760822557,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "hard_hombre": {
   "checkedAt": "2026-10-18",
   "isize": 5200243633,
@@ -113013,10 +113489,24 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "hermogenes-cayo-1969": {
+  "checkedAt": "2026-11-22",
+  "isize": 1036532103,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "heroes_in_blue": {
   "checkedAt": "2026-10-18",
   "isize": 4715082106,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "heroic-purgatory-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 22209129858,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "hi_de_ho": {
@@ -113078,6 +113568,20 @@
   "checkedAt": "2026-10-18",
   "isize": 2113930301,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "himiko-1974-japanese": {
+  "checkedAt": "2026-11-22",
+  "isize": 23647699057,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "hiroshima-mon-amour-resnais": {
+  "checkedAt": "2026-11-22",
+  "isize": 25047973950,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "hiroshimamonamourpart1": {
@@ -113376,6 +113880,13 @@
   "reason": "ok",
   "rule": 2,
   "verdict": "bundle"
+ },
+ "holubice-vlacil": {
+  "checkedAt": "2026-11-22",
+  "isize": 19570853793,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
  },
  "hometown_story": {
   "checkedAt": "2026-10-18",
@@ -114319,6 +114830,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "i-knew-her-well": {
+  "checkedAt": "2026-11-22",
+  "isize": 31504526214,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "i-led-3-lives-s1_202105": {
   "checkedAt": "2026-11-01",
   "isize": 57906548886,
@@ -114349,6 +114867,13 @@
   "checkedAt": "2026-10-18",
   "isize": 5454276110,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "i-vitelloni-fellini": {
+  "checkedAt": "2026-11-22",
+  "isize": 30170449534,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "i-was-born-but": {
@@ -114498,6 +115023,20 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "ikarie-xb-1-1963-cz": {
+  "checkedAt": "2026-11-22",
+  "isize": 19794154594,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "ikiru-1952-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 28911701242,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "il-caso-venere-privata": {
   "checkedAt": "2026-10-18",
   "isize": 1619051810,
@@ -114520,6 +115059,13 @@
   "checkedAt": "2026-10-18",
   "isize": 5280035729,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "ilya-muromets-ussr": {
+  "checkedAt": "2026-11-22",
+  "isize": 22104204837,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "im-land-der-saurier": {
@@ -114692,6 +115238,13 @@
   "checkedAt": "2026-10-18",
   "isize": 33058816154,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "insiang-1976-tagalog": {
+  "checkedAt": "2026-11-22",
+  "isize": 19911314941,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "inside-the-lines-1930-poor-audio-version": {
@@ -115573,6 +116126,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "invention-for-destruction-czech": {
+  "checkedAt": "2026-11-22",
+  "isize": 19098785394,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "invisible-agent_202106": {
   "checkedAt": "2026-10-18",
   "isize": 6637784336,
@@ -115602,6 +116162,13 @@
   "checkedAt": "2026-10-20",
   "isize": 31652274495,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "iphigenia-1977-greek": {
+  "checkedAt": "2026-11-22",
+  "isize": 30074773567,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "irelandthemakingofarepublic": {
@@ -117464,6 +118031,20 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "ivan-the-terrible-1": {
+  "checkedAt": "2026-11-22",
+  "isize": 27259047467,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "ivan-the-terrible-2": {
+  "checkedAt": "2026-11-22",
+  "isize": 24395918664,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "ivan-the-terrible-part-i-1944": {
   "checkedAt": "2026-10-18",
   "isize": 3333365698,
@@ -117474,6 +118055,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2879677392,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "ivans-childhood-tarkovsky": {
+  "checkedAt": "2026-11-22",
+  "isize": 52172622862,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "jack_and_the_beanstalk_ipod": {
@@ -118731,6 +119319,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "je-tu-il-elle": {
+  "checkedAt": "2026-11-22",
+  "isize": 13564205998,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "jean-de-la-tour-miracle": {
   "checkedAt": "2026-10-18",
   "files": [
@@ -118925,6 +119520,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "jeanne-dielman-fr": {
+  "checkedAt": "2026-11-22",
+  "isize": 35329923224,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "jecare": {
   "checkedAt": "2026-10-18",
   "isize": 2993011517,
@@ -118990,6 +119592,13 @@
   "checkedAt": "2026-10-18",
   "isize": 7150295288,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "journey-to-the-beginning-of-time-1955-cz": {
+  "checkedAt": "2026-11-22",
+  "isize": 23120999123,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "journey_by_a_london_bus_TNA": {
@@ -119885,6 +120494,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "kast-year-at-marienbad-resnais": {
+  "checkedAt": "2026-11-22",
+  "isize": 27588336720,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "katutura_201705": {
   "checkedAt": "2026-10-20",
   "isize": 23082569235,
@@ -120410,6 +121026,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "korkarlen_1921": {
+  "checkedAt": "2026-11-22",
+  "isize": 9610946975,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "krazy-kat-and-the-wireless-wire-walkers-february-26-1921": {
   "checkedAt": "2026-11-01",
   "files": [
@@ -120559,6 +121182,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "la-belle-et-la-bete-1946": {
+  "checkedAt": "2026-11-22",
+  "isize": 27451836316,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "la-bestia-debe-morir-1952": {
   "checkedAt": "2026-10-18",
   "isize": 7386934665,
@@ -120631,6 +121261,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "la-collectioneuse": {
+  "checkedAt": "2026-11-22",
+  "isize": 16308736062,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "la-coquille-et-le-clergyman-1928_202507": {
   "checkedAt": "2026-10-18",
   "isize": 2511618357,
@@ -120673,6 +121310,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "la-femme-qui-se-poudre-1972-patrick-bokanowski": {
+  "checkedAt": "2026-11-22",
+  "isize": 3238960267,
+  "reason": "0 numbered of 11",
+  "rule": 2,
+  "verdict": "single"
+ },
  "la-fiaca-1969": {
   "checkedAt": "2026-10-18",
   "isize": 2211477282,
@@ -120695,6 +121339,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1737508099,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "la-grande-illusion-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 22914037998,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "la-guerra-del-cerdo-1975": {
@@ -120745,6 +121396,120 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "la-maison-des-bois": {
+  "checkedAt": "2026-11-22",
+  "files": [
+   {
+    "format": "Matroska",
+    "length": "3215.39",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) Ep 01.mkv",
+    "size": "922217993",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "3215.39",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) Ep 01.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) Ep 01.mkv",
+    "size": "311190794",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "2872.1",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 02.mkv",
+    "size": "820485588",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2872.1",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 02.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 02.mkv",
+    "size": "277084007",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "2386.98",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 03.mkv",
+    "size": "675931542",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2386.98",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 03.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 03.mkv",
+    "size": "230309449",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "3150.3",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 04.mkv",
+    "size": "891980396",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "3150.3",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 04.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 04.mkv",
+    "size": "304625666",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "3177.41",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 05.mkv",
+    "size": "910430882",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "3177.41",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 05.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 05.mkv",
+    "size": "306477937",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "3411.55",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 06.mkv",
+    "size": "978727815",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "3411.55",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 06.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 06.mkv",
+    "size": "329445934",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "3531.68",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 07.mkv",
+    "size": "1013265360",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "3531.68",
+    "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 07.mp4",
+    "original": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 07.mkv",
+    "size": "341619728",
+    "source": "derivative"
+   }
+  ],
+  "isize": 8338449407,
+  "reason": "ok",
+  "rule": 2,
+  "verdict": "bundle"
+ },
  "la-mano-en-la-trampa-1961": {
   "checkedAt": "2026-10-18",
   "isize": 2390608748,
@@ -120755,6 +121520,13 @@
   "checkedAt": "2026-10-18",
   "isize": 5584747302,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "la-miel-amarga-aka-los-perturbados-1974": {
+  "checkedAt": "2026-11-22",
+  "isize": 2048037013,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "la-modelo-y-la-estrella-1939": {
@@ -120817,6 +121589,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "la-notte-antonioni": {
+  "checkedAt": "2026-11-22",
+  "isize": 33745204838,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "la-pelicula-1975": {
   "checkedAt": "2026-10-18",
   "isize": 2329781649,
@@ -120839,6 +121618,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1674944644,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "la-pointe-courte-agnes": {
+  "checkedAt": "2026-11-22",
+  "isize": 22944531603,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "la-poison": {
@@ -120914,6 +121700,13 @@
   "rule": 2,
   "verdict": "single"
  },
+ "la-terra-trema-1949": {
+  "checkedAt": "2026-11-22",
+  "isize": 37844685564,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "la-terre-andre-antoine-1921-vose_202210": {
   "checkedAt": "2026-11-01",
   "isize": 24504864314,
@@ -120938,6 +121731,393 @@
   "isize": 2343372373,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "la-tuerca-1965": {
+  "checkedAt": "2026-11-22",
+  "files": [
+   {
+    "format": "Cinepack",
+    "length": "2653.28",
+    "name": "La Tuerca - Programa 01.avi",
+    "size": "439105536",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2653.34",
+    "name": "La Tuerca - Programa 01.mp4",
+    "original": "La Tuerca - Programa 01.avi",
+    "size": "249569068",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2682.88",
+    "name": "La Tuerca - Programa 02.avi",
+    "size": "444272640",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2682.93",
+    "name": "La Tuerca - Programa 02.mp4",
+    "original": "La Tuerca - Programa 02.avi",
+    "size": "251611463",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2499.52",
+    "name": "La Tuerca - Programa 03.avi",
+    "size": "413868032",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2499.57",
+    "name": "La Tuerca - Programa 03.mp4",
+    "original": "La Tuerca - Programa 03.avi",
+    "size": "234661009",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2859.64",
+    "name": "La Tuerca - Programa 04.avi",
+    "size": "473305088",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2859.69",
+    "name": "La Tuerca - Programa 04.mp4",
+    "original": "La Tuerca - Programa 04.avi",
+    "size": "268773209",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2254.08",
+    "name": "La Tuerca - Programa 05.avi",
+    "size": "373057536",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2254.15",
+    "name": "La Tuerca - Programa 05.mp4",
+    "original": "La Tuerca - Programa 05.avi",
+    "size": "216125726",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2624.28",
+    "name": "La Tuerca - Programa 06.avi",
+    "size": "434409472",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2624.34",
+    "name": "La Tuerca - Programa 06.mp4",
+    "original": "La Tuerca - Programa 06.avi",
+    "size": "249613858",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2746.64",
+    "name": "La Tuerca - Programa 07.avi",
+    "size": "454555648",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2746.69",
+    "name": "La Tuerca - Programa 07.mp4",
+    "original": "La Tuerca - Programa 07.avi",
+    "size": "266893934",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2689.52",
+    "name": "La Tuerca - Programa 08.avi",
+    "size": "445167616",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2689.57",
+    "name": "La Tuerca - Programa 08.mp4",
+    "original": "La Tuerca - Programa 08.avi",
+    "size": "258700965",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2658.6",
+    "name": "La Tuerca - Programa 09.avi",
+    "size": "440053760",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2658.67",
+    "name": "La Tuerca - Programa 09.mp4",
+    "original": "La Tuerca - Programa 09.avi",
+    "size": "251485611",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2679.56",
+    "name": "La Tuerca - Programa 10.avi",
+    "size": "443449344",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2679.62",
+    "name": "La Tuerca - Programa 10.mp4",
+    "original": "La Tuerca - Programa 10.avi",
+    "size": "258088772",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2720.12",
+    "name": "La Tuerca - Programa 11.avi",
+    "size": "450207744",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2720.18",
+    "name": "La Tuerca - Programa 11.mp4",
+    "original": "La Tuerca - Programa 11.avi",
+    "size": "261181008",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2557.8",
+    "name": "La Tuerca - Programa 12.avi",
+    "size": "423278592",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2557.86",
+    "name": "La Tuerca - Programa 12.mp4",
+    "original": "La Tuerca - Programa 12.avi",
+    "size": "242879645",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2716.2",
+    "name": "La Tuerca - Programa 13.avi",
+    "size": "449579008",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2716.27",
+    "name": "La Tuerca - Programa 13.mp4",
+    "original": "La Tuerca - Programa 13.avi",
+    "size": "260198915",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2583.69",
+    "name": "La Tuerca - Programa 14.avi",
+    "size": "448251904",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2583.73",
+    "name": "La Tuerca - Programa 14.mp4",
+    "original": "La Tuerca - Programa 14.avi",
+    "size": "249274490",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2778.09",
+    "name": "La Tuerca - Programa 15.avi",
+    "size": "481865728",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2778.14",
+    "name": "La Tuerca - Programa 15.mp4",
+    "original": "La Tuerca - Programa 15.avi",
+    "size": "264392732",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2725.82",
+    "name": "La Tuerca - Programa 16.avi",
+    "size": "472748032",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2725.87",
+    "name": "La Tuerca - Programa 16.mp4",
+    "original": "La Tuerca - Programa 16.avi",
+    "size": "260320821",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2680.21",
+    "name": "La Tuerca - Programa 17.avi",
+    "size": "464891904",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2680.26",
+    "name": "La Tuerca - Programa 17.mp4",
+    "original": "La Tuerca - Programa 17.avi",
+    "size": "256447356",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2446.93",
+    "name": "La Tuerca - Programa 18.avi",
+    "size": "424247296",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2446.98",
+    "name": "La Tuerca - Programa 18.mp4",
+    "original": "La Tuerca - Programa 18.avi",
+    "size": "234818091",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2468.69",
+    "name": "La Tuerca - Programa 19.avi",
+    "size": "428294144",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2468.74",
+    "name": "La Tuerca - Programa 19.mp4",
+    "original": "La Tuerca - Programa 19.avi",
+    "size": "238404335",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "2569.37",
+    "name": "La Tuerca - Programa 20.avi",
+    "size": "445675520",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "2569.42",
+    "name": "La Tuerca - Programa 20.mp4",
+    "original": "La Tuerca - Programa 20.avi",
+    "size": "245699749",
+    "source": "derivative"
+   },
+   {
+    "format": "Cinepack",
+    "length": "3096.71",
+    "name": "La Tuerca - Programa primer aniversario.avi",
+    "size": "537126912",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "3096.76",
+    "name": "La Tuerca - Programa primer aniversario.mp4",
+    "original": "La Tuerca - Programa primer aniversario.avi",
+    "size": "299256582",
+    "source": "derivative"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 01_000965.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 02_000957.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 03_000903.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 04_001021.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 05_000854.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 06_000990.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 07_001037.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 08_001013.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 09_001057.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 10_001070.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 11_001084.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 12_001020.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 13_001198.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 14_001142.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 15_001219.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 16_001199.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 17_001234.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 18_001131.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 19_001140.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa 20_001087.jpg"
+   },
+   {
+    "name": "la-tuerca-1965.thumbs/La Tuerca - Programa primer aniversario_001307.jpg"
+   }
+  ],
+  "isize": 14719594672,
+  "reason": "ok",
+  "rule": 2,
+  "verdict": "bundle"
  },
  "la-vendedora-de-fantasias-1950": {
   "checkedAt": "2026-10-18",
@@ -120995,9 +122175,10 @@
   "verdict": "single"
  },
  "ladies-of-leisure_1930": {
-  "checkedAt": "2026-10-18",
-  "isize": 25893199250,
+  "checkedAt": "2026-11-22",
+  "isize": 25893199780,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "ladiesandgentlemenmrleonardcohen": {
@@ -121052,6 +122233,13 @@
   "checkedAt": "2026-10-18",
   "isize": 21679356507,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "lancelot-du-lac-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 48668485684,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "land-of-milk-and-honey": {
@@ -121238,6 +122426,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1741413415,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "last-crysanthemum": {
+  "checkedAt": "2026-11-22",
+  "isize": 39783717085,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "last-date-1950": {
@@ -121883,6 +123078,13 @@
   "checkedAt": "2026-10-18",
   "isize": 10553522060,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "late-spring-ozu": {
+  "checkedAt": "2026-11-22",
+  "isize": 23981326807,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "laugh-clown-laugh-1928_202401": {
@@ -123598,10 +124800,24 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "le-feu-follet": {
+  "checkedAt": "2026-11-22",
+  "isize": 26537218263,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "le-grand-amour": {
   "checkedAt": "2026-10-18",
   "isize": 7173466876,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "le-notti-bianche-ita": {
+  "checkedAt": "2026-11-22",
+  "isize": 19415140433,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "le-notti-porno-nel-mondo-emmanualle-sinnlickeit-1977": {
@@ -123614,6 +124830,13 @@
   "checkedAt": "2026-10-18",
   "isize": 7088316186,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "le-trou-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 30866366033,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "le_voyage_imaginaire": {
@@ -127286,6 +128509,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "les-diaboliques-1955-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 32374752691,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "les-miserables-1925": {
   "checkedAt": "2026-10-18",
   "files": [
@@ -129785,6 +131015,13 @@
   "reason": "ok",
   "verdict": "bundle"
  },
+ "looping-the-loop-arthur-robison-1928": {
+  "checkedAt": "2026-11-22",
+  "isize": 5863408439,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "looping-the-loop_1929": {
   "checkedAt": "2026-10-18",
   "isize": 14399530979,
@@ -129936,6 +131173,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2953609518,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "los-olvidados-1950-spanish": {
+  "checkedAt": "2026-11-22",
+  "isize": 15957377196,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "los-tres-berretines-1933": {
@@ -130692,6 +131936,13 @@
   "rule": 2,
   "verdict": "single"
  },
+ "macario-1960-mexican": {
+  "checkedAt": "2026-11-22",
+  "isize": 4412400665,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "machine_gun_mama_1944": {
   "checkedAt": "2026-10-18",
   "isize": 4872098146,
@@ -130758,6 +132009,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "mafalda-cortos-animados": {
+  "checkedAt": "2026-11-22",
+  "isize": 1170670165,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "mafalda-la-serie-1972-1080p": {
   "checkedAt": "2026-11-01",
   "files": [
@@ -130817,6 +132075,13 @@
   "rule": 2,
   "verdict": "bundle"
  },
+ "mafioso-ita": {
+  "checkedAt": "2026-11-22",
+  "isize": 6300148552,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "magic1952clown": {
   "checkedAt": "2026-10-18",
   "isize": 676708013,
@@ -130847,6 +132112,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "mamma-roma-ita": {
+  "checkedAt": "2026-11-22",
+  "isize": 30050464581,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "mammy-1930_202407": {
   "checkedAt": "2026-10-18",
   "isize": 4720707654,
@@ -130864,6 +132136,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1981911890,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "man-follows-birds-uzbek": {
+  "checkedAt": "2026-11-22",
+  "isize": 1896545862,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "man-from-atlantis-complete-series-1977": {
@@ -132222,6 +133501,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "manhandled-1924-bluray-1080p-dts-2.0-x264-latency": {
+  "checkedAt": "2026-11-22",
+  "isize": 5085188774,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "manhattan_tower": {
   "checkedAt": "2026-10-18",
   "isize": 4009934670,
@@ -132408,6 +133694,13 @@
   "checkedAt": "2026-10-18",
   "isize": 5158177999,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "manthan-1976": {
+  "checkedAt": "2026-11-22",
+  "isize": 36452948469,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "manwithacamera_202002": {
@@ -132723,6 +134016,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1372186352,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "medea-passolini": {
+  "checkedAt": "2026-11-22",
+  "isize": 30736376666,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "mediaburn": {
@@ -133527,9 +134827,10 @@
   "verdict": "single"
  },
  "metropolis-lang": {
-  "checkedAt": "2026-10-18",
-  "isize": 31487264168,
+  "checkedAt": "2026-11-22",
+  "isize": 31487264371,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "mexicanamericanstheinvisibleminority": {
@@ -137768,6 +139069,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "mother-joan-of-angels": {
+  "checkedAt": "2026-11-22",
+  "isize": 33760171809,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "movie-tammy-and-the-millionaire": {
   "checkedAt": "2026-10-18",
   "files": [
@@ -141365,6 +142673,13 @@
   "rule": 2,
   "verdict": "single"
  },
+ "near-orouet": {
+  "checkedAt": "2026-11-22",
+  "isize": 39419616870,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "neath_brooklyn_bridge": {
   "checkedAt": "2026-10-18",
   "isize": 3548563246,
@@ -141423,6 +142738,13 @@
   "checkedAt": "2026-11-01",
   "isize": 804657813,
   "reason": "2 numbered of 3",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "news-from-home-fr": {
+  "checkedAt": "2026-11-22",
+  "isize": 14678062321,
+  "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
  },
@@ -141583,6 +142905,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1467925830,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "no-regrets-for-our-youth-kurosawa": {
+  "checkedAt": "2026-11-22",
+  "isize": 34188406784,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "no_no_nanette": {
@@ -143107,6 +144436,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "oharu": {
+  "checkedAt": "2026-11-22",
+  "isize": 36806141032,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "old-and-new_1930": {
   "checkedAt": "2026-10-18",
   "isize": 22081039001,
@@ -143210,6 +144546,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1421400265,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "one-people-1976-suriname": {
+  "checkedAt": "2026-11-22",
+  "isize": 5335561773,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "one-shocking-moment-1965-gary-kent-lee-anna-verne-martine-maureen-gaffney-zenobi": {
@@ -144895,6 +146238,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2891626364,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "ordet-dreyer": {
+  "checkedAt": "2026-11-22",
+  "isize": 23606811231,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "org.ali.history.wechsler.1": {
@@ -148185,10 +149535,24 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "paisa-1946": {
+  "checkedAt": "2026-11-22",
+  "isize": 34976989082,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "pajarito-gomez-una-vida-feliz-1965": {
   "checkedAt": "2026-10-18",
   "isize": 5499668679,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "pale-flower-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 26612572544,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "palermo-1937": {
@@ -148201,6 +149565,13 @@
   "checkedAt": "2026-10-18",
   "isize": 3002457899,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "pan-wolodyjowski": {
+  "checkedAt": "2026-11-22",
+  "isize": 36516584351,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "panama-patrol-1939": {
@@ -148324,9 +149695,10 @@
   "verdict": "single"
  },
  "passion-joan-of-arc": {
-  "checkedAt": "2026-10-18",
-  "isize": 42343981037,
+  "checkedAt": "2026-11-22",
+  "isize": 42343981230,
   "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "passkey-to-danger-1946-": {
@@ -148858,6 +150230,13 @@
   "checkedAt": "2026-10-18",
   "isize": 13263846076,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "pepe-le-moko-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 22199200061,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "pepper-agent-00-x-checkmate-1973-diana-wilson-an-tsan-hu-jj-coyle-caren-kaye-ell": {
@@ -154195,6 +155574,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "potop-1974": {
+  "checkedAt": "2026-11-22",
+  "isize": 47372266794,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "power_dive": {
   "checkedAt": "2026-10-18",
   "isize": 5261572409,
@@ -154333,6 +155719,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "proces-de-jeanne-darc": {
+  "checkedAt": "2026-11-22",
+  "isize": 15584569105,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "produce-3_20240116": {
   "checkedAt": "2026-10-18",
   "isize": 3448160593,
@@ -154349,6 +155742,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2893673599,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "profound-desires-of-gods": {
+  "checkedAt": "2026-11-22",
+  "isize": 41178396894,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "prostitutka-1927": {
@@ -154496,6 +155896,13 @@
   "checkedAt": "2026-10-18",
   "isize": 5108090224,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "pyaasa-1957-hindi": {
+  "checkedAt": "2026-11-22",
+  "isize": 38013423053,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "pygmiesoftherainforest": {
@@ -156175,6 +157582,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "rashomon-kurosawa": {
+  "checkedAt": "2026-11-22",
+  "isize": 24477965281,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "raw-downlink-video-iss-earth-exterior": {
   "checkedAt": "2026-11-01",
   "isize": 8439906188,
@@ -156246,6 +157660,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2896146168,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "red-psalm-1972-hungarian": {
+  "checkedAt": "2026-11-22",
+  "isize": 26701907095,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "red_blood_of_courage": {
@@ -156860,6 +158281,13 @@
   "checkedAt": "2026-11-01",
   "isize": 8845893368,
   "reason": "numbers do not form a run (101..607 over 48)",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "rocco-and-his-brothers-1960": {
+  "checkedAt": "2026-11-22",
+  "isize": 40185275672,
+  "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
  },
@@ -157795,6 +159223,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "roma-citta-aperta": {
+  "checkedAt": "2026-11-22",
+  "isize": 28274514933,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "romance-of-the-rio-grande": {
   "checkedAt": "2026-10-18",
   "isize": 1442357204,
@@ -158268,6 +159703,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2822179102,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "ruslan-and-ludmila-ussr": {
+  "checkedAt": "2026-11-22",
+  "isize": 40149289278,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "russiatheunfinishedrevolution": {
@@ -162046,10 +163488,24 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "salvatore-giuliano-ita": {
+  "checkedAt": "2026-11-22",
+  "isize": 34341892663,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "samoa-regina-della-giungla-1968": {
   "checkedAt": "2026-10-18",
   "isize": 1959853245,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "sampo-1959-finnish": {
+  "checkedAt": "2026-11-22",
+  "isize": 25589247961,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "samurai-i-musashi-miyamoto": {
@@ -162113,6 +163569,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "sansho-dayo": {
+  "checkedAt": "2026-11-22",
+  "isize": 34377066242,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "sansho-the-bailiff": {
   "checkedAt": "2026-10-18",
   "isize": 8759512400,
@@ -162166,6 +163629,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1970772219,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "scenes-from-a-marriage-bergman": {
+  "checkedAt": "2026-11-22",
+  "isize": 72037126892,
+  "reason": "2 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "schizophreniatheshatteredmirror": {
@@ -163496,6 +164966,13 @@
   "checkedAt": "2026-10-18",
   "isize": 4965498671,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "shoot-the-piano-player-truffaut": {
+  "checkedAt": "2026-11-22",
+  "isize": 18351884716,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "shorelinesediments": {
@@ -169017,6 +170494,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "spring-in-a-small-town-chn": {
+  "checkedAt": "2026-11-22",
+  "isize": 10649065287,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "spring_in_a_small_town": {
   "checkedAt": "2026-10-18",
   "isize": 5515480444,
@@ -174318,6 +175802,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "stray-dog-kurosawa": {
+  "checkedAt": "2026-11-22",
+  "isize": 34101896959,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "street-angel-fox-film-corporation-1928": {
   "checkedAt": "2026-10-18",
   "isize": 9908665891,
@@ -174496,6 +175987,13 @@
   "checkedAt": "2026-10-18",
   "isize": 34946399405,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "summer-with-monika-bergman": {
+  "checkedAt": "2026-11-22",
+  "isize": 27003346308,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "sun-eclips-29-1-1431": {
@@ -175648,6 +177146,13 @@
   "rule": 2,
   "verdict": "single"
  },
+ "suzannes-career": {
+  "checkedAt": "2026-11-22",
+  "isize": 15628300042,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "svengali": {
   "checkedAt": "2026-10-18",
   "isize": 31023817863,
@@ -176091,6 +177596,20 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "szegenylegenyek-1966-hungarian": {
+  "checkedAt": "2026-11-22",
+  "isize": 29110838977,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "szindbad-1971-hungarian": {
+  "checkedAt": "2026-11-22",
+  "isize": 27014309533,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "take-a-chance_202106": {
   "checkedAt": "2026-10-18",
   "isize": 5876209587,
@@ -176495,6 +178014,13 @@
   "checkedAt": "2026-10-20",
   "isize": 5457016857,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "testament-of-orpheus-cocteau": {
+  "checkedAt": "2026-11-22",
+  "isize": 15763548756,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "texas_brooklyn_and_heaven": {
@@ -187014,6 +188540,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-ballad-of-narayama-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 27211732844,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-bat-1926-bluray-1080p-eac3-2.0-x265-r00t": {
   "checkedAt": "2026-10-18",
   "isize": 4501680993,
@@ -187956,6 +189489,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-cameraman-1928_202409": {
+  "checkedAt": "2026-11-22",
+  "isize": 1915287347,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-cameraman-1928_202507": {
   "checkedAt": "2026-10-18",
   "isize": 4256496363,
@@ -188562,6 +190102,13 @@
   "checkedAt": "2026-10-18",
   "isize": 6892631849,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "the-cloud-capped-star-ritwik-ghattak": {
+  "checkedAt": "2026-11-22",
+  "isize": 34740635535,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-club-of-the-big-deed-1927": {
@@ -190694,6 +192241,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-cranes-are-flying-ussr": {
+  "checkedAt": "2026-11-22",
+  "isize": 27289913182,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-creature-walks-among-us": {
   "checkedAt": "2026-10-18",
   "isize": 6442470863,
@@ -190711,6 +192265,13 @@
   "checkedAt": "2026-10-18",
   "isize": 3012119522,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the-desert-of-the-tatars-ita": {
+  "checkedAt": "2026-11-22",
+  "isize": 39133047265,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-desert-song-1929-restored-complete-from-35mm-nitrate-negative": {
@@ -194494,6 +196055,13 @@
   "rule": 2,
   "verdict": "bundle"
  },
+ "the-fabulous-baron-munchausen-1962-czech": {
+  "checkedAt": "2026-11-22",
+  "isize": 20681229892,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-fall-of-the-house-of-usher": {
   "checkedAt": "2026-10-18",
   "isize": 6739037143,
@@ -194693,6 +196261,13 @@
   "isize": 5569866038,
   "reason": "ok",
   "verdict": "bundle"
+ },
+ "the-fate-of-lee-khan-1973": {
+  "checkedAt": "2026-11-22",
+  "isize": 28667731599,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
  },
  "the-fearmakers-1958": {
   "checkedAt": "2026-10-18",
@@ -194966,6 +196541,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-flowers-of-st-francis": {
+  "checkedAt": "2026-11-22",
+  "isize": 11932277418,
+  "reason": "2 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-forgotten-frontier-1931": {
   "checkedAt": "2026-10-18",
   "isize": 11654479519,
@@ -195151,6 +196733,13 @@
   "checkedAt": "2026-10-18",
   "isize": 13590689350,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the-idiot-kurosawa": {
+  "checkedAt": "2026-11-22",
+  "isize": 17978198621,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-immigrant-1917-by-charlie-chaplin": {
@@ -199230,6 +200819,13 @@
   "reason": "ok",
   "verdict": "bundle"
  },
+ "the-little-mermaid-1976-cz": {
+  "checkedAt": "2026-11-22",
+  "isize": 3889262517,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-little-shop-of-horrors-1960": {
   "checkedAt": "2026-10-18",
   "isize": 2517227401,
@@ -203154,6 +204750,13 @@
   "checkedAt": "2026-10-18",
   "isize": 1340061610,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the-odyssey-1968-": {
+  "checkedAt": "2026-11-22",
+  "isize": 21260611305,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-olympic-games-amsterdam-1928_1928": {
@@ -208623,6 +210226,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "the-rules-of-the-game-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 22297437952,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-scarlet-claw": {
   "checkedAt": "2026-10-18",
   "isize": 5806287538,
@@ -209117,6 +210727,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-seventh-seal-bergman": {
+  "checkedAt": "2026-11-22",
+  "isize": 26659887423,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-shadow-1940": {
   "checkedAt": "2026-11-01",
   "files": [
@@ -209583,6 +211200,13 @@
   "checkedAt": "2026-10-18",
   "isize": 11736062688,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the-stranger-1967-ita": {
+  "checkedAt": "2026-11-22",
+  "isize": 19886283560,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-student-of-prague-1913": {
@@ -210216,6 +211840,13 @@
   "checkedAt": "2026-10-18",
   "isize": 3327216557,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the-travelling-players-greek": {
+  "checkedAt": "2026-11-22",
+  "isize": 9251211695,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-twilight-zone-1959-s-01-e-00-original-pilot": {
@@ -212687,6 +214318,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-water-was-so-clear-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 2000050659,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "the-way-ahead": {
   "checkedAt": "2026-10-18",
   "isize": 9015993288,
@@ -212727,6 +214365,13 @@
   "checkedAt": "2026-10-18",
   "isize": 8198350498,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the-white-bird-marked-with-black-1971-ukrainian": {
+  "checkedAt": "2026-11-22",
+  "isize": 1898020294,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "the-white-sheik": {
@@ -219662,6 +221307,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "throne-of-blood-kurosawa": {
+  "checkedAt": "2026-11-22",
+  "isize": 30425303349,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "throughconflicttonegotiation": {
   "checkedAt": "2026-10-20",
   "isize": 28220102688,
@@ -219711,9 +221363,10 @@
   "verdict": "single"
  },
  "till_the_clouds_roll_by": {
-  "checkedAt": "2026-10-18",
-  "isize": 6420928367,
+  "checkedAt": "2026-11-22",
+  "isize": 6420929339,
   "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "tillies-punctured-romance-1914": {
@@ -220349,6 +222002,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "tokyo-story-ozu": {
+  "checkedAt": "2026-11-22",
+  "isize": 26256632807,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "tokyo-twilight": {
   "checkedAt": "2026-10-18",
   "isize": 11547700624,
@@ -220402,6 +222062,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2065489314,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "toshio.-matsumoto.-.-experimental.film.works.-.-1.1.-.-the.-weavers.of.-nishijin.-1961.-dvdrip": {
+  "checkedAt": "2026-11-22",
+  "isize": 5940732697,
+  "reason": "two works share a number",
+  "rule": 2,
   "verdict": "single"
  },
  "touch-of-satan-1971": {
@@ -220609,6 +222276,13 @@
   "checkedAt": "2026-10-18",
   "isize": 4867529884,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "tsar-saltan-ussr": {
+  "checkedAt": "2026-11-22",
+  "isize": 18893338510,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "ttvoiceacting": {
@@ -221190,6 +222864,13 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "twenty-four-eyes-jpn": {
+  "checkedAt": "2026-11-22",
+  "isize": 27790711778,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "twilight-girls-the-les-collegiennes-1957-gaby-morlay-henri-guisol-marie-helene-a": {
   "checkedAt": "2026-10-18",
   "isize": 1637245884,
@@ -221213,6 +222894,13 @@
   "checkedAt": "2026-10-18",
   "isize": 2149313137,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "two-stage-sisters": {
+  "checkedAt": "2026-11-22",
+  "isize": 82945134942,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "two_gun_man_from_harlem": {
@@ -222167,6 +223855,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "under-the-flag-of-the-rising-sun": {
+  "checkedAt": "2026-11-22",
+  "isize": 7576164166,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "under-the-roofs-of-paris_1930": {
   "checkedAt": "2026-10-18",
   "isize": 18248819842,
@@ -222243,6 +223938,20 @@
   "checkedAt": "2026-11-01",
   "isize": 35891862554,
   "reason": "0 numbered of 51",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "une-femme-douce": {
+  "checkedAt": "2026-11-22",
+  "isize": 24114888787,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
+ "une-femme-est-une-femme": {
+  "checkedAt": "2026-11-22",
+  "isize": 22176342110,
+  "reason": "1 playable works",
   "rule": 2,
   "verdict": "single"
  },
@@ -222421,6 +224130,13 @@
   "checkedAt": "2026-10-18",
   "isize": 6052358492,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "vampyr-dreyer": {
+  "checkedAt": "2026-11-22",
+  "isize": 21429770758,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "vendemiaire-1918-eng-subs": {
@@ -222656,6 +224372,13 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "vivre-sa-vie-godard": {
+  "checkedAt": "2026-11-22",
+  "isize": 23317595040,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "vorticity": {
   "checkedAt": "2026-10-18",
   "isize": 26887001225,
@@ -222690,6 +224413,13 @@
   "checkedAt": "2026-10-18",
   "isize": 6514519167,
   "reason": "pieces of one film (VTS_01_1)",
+  "verdict": "single"
+ },
+ "wages-of-fear-fra": {
+  "checkedAt": "2026-11-22",
+  "isize": 31918293233,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "walk-cheerfully": {
@@ -223480,6 +225210,13 @@
   "checkedAt": "2026-10-18",
   "isize": 7445455221,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "wild-strawberries-bergman": {
+  "checkedAt": "2026-11-22",
+  "isize": 25615820433,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "wild_women_of_wongo_ipod": {
@@ -224576,6 +226313,13 @@
   "rule": 2,
   "verdict": "bundle"
  },
+ "witchhammer-1970-cz": {
+  "checkedAt": "2026-11-22",
+  "isize": 25656284153,
+  "reason": "1 playable works",
+  "rule": 2,
+  "verdict": "single"
+ },
  "with-byrd-at-the-south-pole": {
   "checkedAt": "2026-10-18",
   "isize": 4740212806,
@@ -224648,6 +226392,13 @@
   "checkedAt": "2026-10-18",
   "isize": 694581510,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "world-on-a-wire-fassbinder": {
+  "checkedAt": "2026-11-22",
+  "isize": 39021355059,
+  "reason": "1 playable works",
+  "rule": 2,
   "verdict": "single"
  },
  "worlds-oldest-movies-1897": {

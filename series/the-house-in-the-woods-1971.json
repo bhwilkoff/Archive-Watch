@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "seriesID": "the-house-in-the-woods-1971",
+  "sourceID": "la-maison-des-bois",
+  "tvmazeID": null,
+  "title": "The House in the Woods",
+  "yearStart": 1971,
+  "yearEnd": null,
+  "overview": "A collection of explicitly simulated sexual vignettes ranging from rape and orgy to historical events.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/8Uo2TxLSJmxDAoaFeXcORgGbVan.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xZ4kyJM3fCdUjN95t3uoNZHhhEl.jpg",
+  "genres": [
+    "Fantasy"
+  ],
+  "networks": [],
+  "creator": "Edward D. Wood Jr.",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "la-maison-des-bois@e01",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3215,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) Ep 01.mp4",
+            "format": "h.264",
+            "sizeBytes": 311190794,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20Ep%2001.mp4"
+        },
+        {
+          "archiveID": "la-maison-des-bois@e02",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "PAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2872,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 02.mp4",
+            "format": "h.264",
+            "sizeBytes": 277084007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20PAL%20DVDRip%20Ep%2002.mp4"
+        },
+        {
+          "archiveID": "la-maison-des-bois@e03",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "PAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2386,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 03.mp4",
+            "format": "h.264",
+            "sizeBytes": 230309449,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20PAL%20DVDRip%20Ep%2003.mp4"
+        },
+        {
+          "archiveID": "la-maison-des-bois@e04",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "PAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3150,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 304625666,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20PAL%20DVDRip%20Ep%2004.mp4"
+        },
+        {
+          "archiveID": "la-maison-des-bois@e05",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "PAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3177,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 05.mp4",
+            "format": "h.264",
+            "sizeBytes": 306477937,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20PAL%20DVDRip%20Ep%2005.mp4"
+        },
+        {
+          "archiveID": "la-maison-des-bois@e06",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "PAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3411,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 329445934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20PAL%20DVDRip%20Ep%2006.mp4"
+        },
+        {
+          "archiveID": "la-maison-des-bois@e07",
+          "sourceID": "la-maison-des-bois",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "PAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3531,
+          "videoFile": {
+            "name": "La Maison Des Bois/La Maison Des Bois (1971) PAL DVDRip Ep 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 341619728,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/la-maison-des-bois/La%20Maison%20Des%20Bois/La%20Maison%20Des%20Bois%20%281971%29%20PAL%20DVDRip%20Ep%2007.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Uschi Digard",
+      "character": null,
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Neola Graef",
+      "character": null,
+      "order": 1,
+      "profilePath": "/q4aXSTu9AC8nZS8psEOw8VVyTYV.jpg"
+    },
+    {
+      "name": "Jane Tsentas",
+      "character": null,
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Lynn Harris",
+      "character": null,
+      "order": 3,
+      "profilePath": "/gDR95fKQ8ZC6D7isveC7mXd0jgU.jpg"
+    },
+    {
+      "name": "Paul Sine",
+      "character": null,
+      "order": 4,
+      "profilePath": "/fL6TqLC9AVjYovxASdMwhExOh6j.jpg"
+    },
+    {
+      "name": "Marv Murray",
+      "character": null,
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Ron Polkee",
+      "character": null,
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

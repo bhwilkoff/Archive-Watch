@@ -1,0 +1,562 @@
+{
+  "version": 2,
+  "seriesID": "99-1918",
+  "sourceID": "1srh99",
+  "tvmazeID": null,
+  "title": "99",
+  "yearStart": 1918,
+  "yearEnd": null,
+  "overview": "Early Curtiz feature.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/hJOi5CDoQ0inCf0ykAJdXKdcZ7o.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Crime"
+  ],
+  "networks": [],
+  "creator": "Michael Curtiz",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "1srh99@e01",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "نشأة الفرق وأقوال المرجئة في مسمى الإيمان",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/01-%D9%86%D8%B4%D8%A3%D8%A9%20%D8%A7%D9%84%D9%81%D8%B1%D9%82%20%D9%88%D8%A3%D9%82%D9%88%D8%A7%D9%84%20%D8%A7%D9%84%D9%85%D8%B1%D8%AC%D8%A6%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B3%D9%85%D9%89%20%D8%A7%D9%84%D8%A5%D9%8A%D9%85%D8%A7%D9%86_000475.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1280,
+          "videoFile": {
+            "name": "01-نشأة الفرق وأقوال المرجئة في مسمى الإيمان.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 242867899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/01-%D9%86%D8%B4%D8%A3%D8%A9%20%D8%A7%D9%84%D9%81%D8%B1%D9%82%20%D9%88%D8%A3%D9%82%D9%88%D8%A7%D9%84%20%D8%A7%D9%84%D9%85%D8%B1%D8%AC%D8%A6%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B3%D9%85%D9%89%20%D8%A7%D9%84%D8%A5%D9%8A%D9%85%D8%A7%D9%86.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e02",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "أقوال الخوارج والمعتزلة والكرامية في مسمى الإيمان",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/02-%D8%A3%D9%82%D9%88%D8%A7%D9%84%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D8%B2%D9%84%D8%A9%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D8%A7%D9%85%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B3%D9%85%D9%89%20%D8%A7%D9%84%D8%A5%D9%8A%D9%85%D8%A7%D9%86_000633.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "02-أقوال الخوارج والمعتزلة والكرامية في مسمى الإيمان.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268482039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/02-%D8%A3%D9%82%D9%88%D8%A7%D9%84%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D8%B2%D9%84%D8%A9%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D8%A7%D9%85%D9%8A%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B3%D9%85%D9%89%20%D8%A7%D9%84%D8%A5%D9%8A%D9%85%D8%A7%D9%86.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e03",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "تعريف التكفير وضوابطه",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/03-%D8%AA%D8%B9%D8%B1%D9%8A%D9%81%20%D8%A7%D9%84%D8%AA%D9%83%D9%81%D9%8A%D8%B1%20%D9%88%D8%B6%D9%88%D8%A7%D8%A8%D8%B7%D9%87_000566.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1254,
+          "videoFile": {
+            "name": "03-تعريف التكفير وضوابطه.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 236491202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/03-%D8%AA%D8%B9%D8%B1%D9%8A%D9%81%20%D8%A7%D9%84%D8%AA%D9%83%D9%81%D9%8A%D8%B1%20%D9%88%D8%B6%D9%88%D8%A7%D8%A8%D8%B7%D9%87.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e04",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "شبهات الخوارج والرد عليها",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/04-%D8%B4%D8%A8%D9%87%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%8A%D9%87%D8%A7_000125.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 287,
+          "videoFile": {
+            "name": "04-شبهات الخوارج والرد عليها.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 53685879,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/04-%D8%B4%D8%A8%D9%87%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%8A%D9%87%D8%A7.ia.mp4",
+          "yearSource": "film"
+        },
+        {
+          "archiveID": "1srh99@e05",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "أصول ومقدمات في التكفير",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/05-%D8%A3%D8%B5%D9%88%D9%84%20%D9%88%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%83%D9%81%D9%8A%D8%B1_001091.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2446,
+          "videoFile": {
+            "name": "05-أصول ومقدمات في التكفير.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 460222221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/05-%D8%A3%D8%B5%D9%88%D9%84%20%D9%88%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%83%D9%81%D9%8A%D8%B1.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e06",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "الحكم بغير ما أنزل الله ونشأة الخوارج",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/06-%D8%A7%D9%84%D8%AD%D9%83%D9%85%20%D8%A8%D8%BA%D9%8A%D8%B1%20%D9%85%D8%A7%20%D8%A3%D9%86%D8%B2%D9%84%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D9%86%D8%B4%D8%A3%D8%A9%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC_000425.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 949,
+          "videoFile": {
+            "name": "06-الحكم بغير ما أنزل الله ونشأة الخوارج.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179321342,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/06-%D8%A7%D9%84%D8%AD%D9%83%D9%85%20%D8%A8%D8%BA%D9%8A%D8%B1%20%D9%85%D8%A7%20%D8%A3%D9%86%D8%B2%D9%84%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D9%86%D8%B4%D8%A3%D8%A9%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e07",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "من النهروان إلى عصرنا",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/07-%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D9%87%D8%B1%D9%88%D8%A7%D9%86%20%D8%A5%D9%84%D9%89%20%D8%B9%D8%B5%D8%B1%D9%86%D8%A7_000258.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 719,
+          "videoFile": {
+            "name": "07-من النهروان إلى عصرنا.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 134860137,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/07-%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D9%87%D8%B1%D9%88%D8%A7%D9%86%20%D8%A5%D9%84%D9%89%20%D8%B9%D8%B5%D8%B1%D9%86%D8%A7.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e08",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "الحكم بغير ما أنزل الله بين الكفر الأكبر والأصغر",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/08-%D8%A7%D9%84%D8%AD%D9%83%D9%85%20%D8%A8%D8%BA%D9%8A%D8%B1%20%D9%85%D8%A7%20%D8%A3%D9%86%D8%B2%D9%84%20%D8%A7%D9%84%D9%84%D9%87%20%D8%A8%D9%8A%D9%86%20%D8%A7%D9%84%D9%83%D9%81%D8%B1%20%D8%A7%D9%84%D8%A3%D9%83%D8%A8%D8%B1%20%D9%88%D8%A7%D9%84%D8%A3%D8%B5%D8%BA%D8%B1_000841.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1887,
+          "videoFile": {
+            "name": "08-الحكم بغير ما أنزل الله بين الكفر الأكبر والأصغر.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356327180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/08-%D8%A7%D9%84%D8%AD%D9%83%D9%85%20%D8%A8%D8%BA%D9%8A%D8%B1%20%D9%85%D8%A7%20%D8%A3%D9%86%D8%B2%D9%84%20%D8%A7%D9%84%D9%84%D9%87%20%D8%A8%D9%8A%D9%86%20%D8%A7%D9%84%D9%83%D9%81%D8%B1%20%D8%A7%D9%84%D8%A3%D9%83%D8%A8%D8%B1%20%D9%88%D8%A7%D9%84%D8%A3%D8%B5%D8%BA%D8%B1.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e09",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "منزلة الصحابة وأهل البيت",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/09-%D9%85%D9%86%D8%B2%D9%84%D8%A9%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A7%D8%A8%D8%A9%20%D9%88%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%AA_000833.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1855,
+          "videoFile": {
+            "name": "09-منزلة الصحابة وأهل البيت.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 348077375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/09-%D9%85%D9%86%D8%B2%D9%84%D8%A9%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A7%D8%A8%D8%A9%20%D9%88%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%AA.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e10",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "الخلفاء الراشدون ومسائل الخلافة",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/10-%D8%A7%D9%84%D8%AE%D9%84%D9%81%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%A7%D8%B4%D8%AF%D9%88%D9%86%20%D9%88%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%AE%D9%84%D8%A7%D9%81%D8%A9_001283.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2876,
+          "videoFile": {
+            "name": "10-الخلفاء الراشدون ومسائل الخلافة.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 544927663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/10-%D8%A7%D9%84%D8%AE%D9%84%D9%81%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%A7%D8%B4%D8%AF%D9%88%D9%86%20%D9%88%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%AE%D9%84%D8%A7%D9%81%D8%A9.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e11",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "من هم أهل البيت؟",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/11-%D9%85%D9%86%20%D9%87%D9%85%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%AA%D8%9F_000191.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 420,
+          "videoFile": {
+            "name": "11-من هم أهل البيت؟.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 78957088,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/11-%D9%85%D9%86%20%D9%87%D9%85%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%AA%D8%9F.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e12",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "الإمامة العظمى وطرق ثبوتها",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/12-%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B8%D9%85%D9%89%20%D9%88%D8%B7%D8%B1%D9%82%20%D8%AB%D8%A8%D9%88%D8%AA%D9%87%D8%A7_000625.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1402,
+          "videoFile": {
+            "name": "12-الإمامة العظمى وطرق ثبوتها.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 263497761,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/12-%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B8%D9%85%D9%89%20%D9%88%D8%B7%D8%B1%D9%82%20%D8%AB%D8%A8%D9%88%D8%AA%D9%87%D8%A7.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e13",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "أدلة السمع والطاعة وبيان معنى مفارقة الجماعة",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/13-%D8%A3%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D8%B3%D9%85%D8%B9%20%D9%88%D8%A7%D9%84%D8%B7%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A8%D9%8A%D8%A7%D9%86%20%D9%85%D8%B9%D9%86%D9%89%20%D9%85%D9%81%D8%A7%D8%B1%D9%82%D8%A9%20%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D8%A9_000575.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1290,
+          "videoFile": {
+            "name": "13-أدلة السمع والطاعة وبيان معنى مفارقة الجماعة.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 244696809,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/13-%D8%A3%D8%AF%D9%84%D8%A9%20%D8%A7%D9%84%D8%B3%D9%85%D8%B9%20%D9%88%D8%A7%D9%84%D8%B7%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A8%D9%8A%D8%A7%D9%86%20%D9%85%D8%B9%D9%86%D9%89%20%D9%85%D9%81%D8%A7%D8%B1%D9%82%D8%A9%20%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D8%A9.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e14",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "الرد على شبهات الخوارج",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/14-%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%89%20%D8%B4%D8%A8%D9%87%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC_001033.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2302,
+          "videoFile": {
+            "name": "14-الرد على شبهات الخوارج.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 434421538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/14-%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%89%20%D8%B4%D8%A8%D9%87%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e15",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "وجوب السمع والطاعة لولاة الأمر",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/15-%D9%88%D8%AC%D9%88%D8%A8%20%D8%A7%D9%84%D8%B3%D9%85%D8%B9%20%D9%88%D8%A7%D9%84%D8%B7%D8%A7%D8%B9%D8%A9%20%D9%84%D9%88%D9%84%D8%A7%D8%A9%20%D8%A7%D9%84%D8%A3%D9%85%D8%B1_000391.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "15-وجوب السمع والطاعة لولاة الأمر.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164460588,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/15-%D9%88%D8%AC%D9%88%D8%A8%20%D8%A7%D9%84%D8%B3%D9%85%D8%B9%20%D9%88%D8%A7%D9%84%D8%B7%D8%A7%D8%B9%D8%A9%20%D9%84%D9%88%D9%84%D8%A7%D8%A9%20%D8%A7%D9%84%D8%A3%D9%85%D8%B1.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e16",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "مفاسد الخروج على الحكام",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/16-%D9%85%D9%81%D8%A7%D8%B3%D8%AF%20%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D8%AC%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%AD%D9%83%D8%A7%D9%85_000608.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "16-مفاسد الخروج على الحكام.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 255385205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/16-%D9%85%D9%81%D8%A7%D8%B3%D8%AF%20%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D8%AC%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%AD%D9%83%D8%A7%D9%85.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e17",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "جرائم الخوارج وأساليبهم",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/17-%D8%AC%D8%B1%D8%A7%D8%A6%D9%85%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A3%D8%B3%D8%A7%D9%84%D9%8A%D8%A8%D9%87%D9%85_000800.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1780,
+          "videoFile": {
+            "name": "17-جرائم الخوارج وأساليبهم.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334363498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/17-%D8%AC%D8%B1%D8%A7%D8%A6%D9%85%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A3%D8%B3%D8%A7%D9%84%D9%8A%D8%A8%D9%87%D9%85.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e18",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "شبهات الخوارج والرد عليها",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/18-%D8%B4%D8%A8%D9%87%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%8A%D9%87%D8%A7_000875.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1946,
+          "videoFile": {
+            "name": "18-شبهات الخوارج والرد عليها.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 367234616,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/18-%D8%B4%D8%A8%D9%87%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%AC%20%D9%88%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%8A%D9%87%D8%A7.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e19",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "معنى لزوم الجماعة والرد على أهل البدع",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/19-%D9%85%D8%B9%D9%86%D9%89%20%D9%84%D8%B2%D9%88%D9%85%20%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%89%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%D8%AF%D8%B9_000391.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "19-معنى لزوم الجماعة والرد على أهل البدع.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162953362,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/19-%D9%85%D8%B9%D9%86%D9%89%20%D9%84%D8%B2%D9%88%D9%85%20%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A7%D9%84%D8%B1%D8%AF%20%D8%B9%D9%84%D9%89%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%D8%AF%D8%B9.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e20",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "موقف أهل السنة والجماعة من العلماء والمسائل الخلافية",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/20-%D9%85%D9%88%D9%82%D9%81%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%B3%D9%86%D8%A9%20%D9%88%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D9%84%D9%85%D8%A7%D8%A1%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%AE%D9%84%D8%A7%D9%81%D9%8A%D8%A9_000516.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1150,
+          "videoFile": {
+            "name": "20-موقف أهل السنة والجماعة من العلماء والمسائل الخلافية.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 217991079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/20-%D9%85%D9%88%D9%82%D9%81%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%B3%D9%86%D8%A9%20%D9%88%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B9%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D9%84%D9%85%D8%A7%D8%A1%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%AE%D9%84%D8%A7%D9%81%D9%8A%D8%A9.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e21",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "مقدمة في مسائل الصحب والآل ومعاني الولاية",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/21-%D9%85%D9%82%D8%AF%D9%85%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A8%20%D9%88%D8%A7%D9%84%D8%A2%D9%84%20%D9%88%D9%85%D8%B9%D8%A7%D9%86%D9%8A%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9_000200.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 544,
+          "videoFile": {
+            "name": "21-مقدمة في مسائل الصحب والآل ومعاني الولاية.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 102600168,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/21-%D9%85%D9%82%D8%AF%D9%85%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D8%B5%D8%AD%D8%A8%20%D9%88%D8%A7%D9%84%D8%A2%D9%84%20%D9%88%D9%85%D8%B9%D8%A7%D9%86%D9%8A%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e22",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "النصرة وأحكامها في الإسلام",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/22-%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A9%20%D9%88%D8%A3%D8%AD%D9%83%D8%A7%D9%85%D9%87%D8%A7%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85_000358.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1001,
+          "videoFile": {
+            "name": "22-النصرة وأحكامها في الإسلام.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 189011202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/22-%D8%A7%D9%84%D9%86%D8%B5%D8%B1%D8%A9%20%D9%88%D8%A3%D8%AD%D9%83%D8%A7%D9%85%D9%87%D8%A7%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e23",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "أولياء الرحمن وأولياء الشيطان",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/23-%20%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%88%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B4%D9%8A%D8%B7%D8%A7%D9%86_000900.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2012,
+          "videoFile": {
+            "name": "23- أولياء الرحمن وأولياء الشيطان.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 379458237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/23-%20%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D9%88%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B4%D9%8A%D8%B7%D8%A7%D9%86.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e24",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "حقيقة الولاية",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/24-%D8%AD%D9%82%D9%8A%D9%82%D8%A9%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9_000291.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 818,
+          "videoFile": {
+            "name": "24-حقيقة الولاية.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153302674,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/24-%D8%AD%D9%82%D9%8A%D9%82%D8%A9%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e25",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "كرامات الأولياء وخوارق الشياطين",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/25-%D9%83%D8%B1%D8%A7%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1%20%D9%88%D8%AE%D9%88%D8%A7%D8%B1%D9%82%20%D8%A7%D9%84%D8%B4%D9%8A%D8%A7%D8%B7%D9%8A%D9%86_001008.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 2254,
+          "videoFile": {
+            "name": "25-كرامات الأولياء وخوارق الشياطين.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 428084940,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/25-%D9%83%D8%B1%D8%A7%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1%20%D9%88%D8%AE%D9%88%D8%A7%D8%B1%D9%82%20%D8%A7%D9%84%D8%B4%D9%8A%D8%A7%D8%B7%D9%8A%D9%86.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e26",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "مقدمات في الولاية وأحوال الأولياء",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/26-%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A3%D8%AD%D9%88%D8%A7%D9%84%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1_000500.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1106,
+          "videoFile": {
+            "name": "26-مقدمات في الولاية وأحوال الأولياء.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208581911,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/26-%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A3%D8%AD%D9%88%D8%A7%D9%84%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%8A%D8%A7%D8%A1.ia.mp4"
+        },
+        {
+          "archiveID": "1srh99@e27",
+          "sourceID": "1srh99",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "ضلالات الصوفية في الولاية والكرامات",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1srh99/1srh99.thumbs/27-%D8%B6%D9%84%D8%A7%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B5%D9%88%D9%81%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D8%A7%D9%85%D8%A7%D8%AA_000666.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "27-ضلالات الصوفية في الولاية والكرامات.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 280156241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1srh99/27-%D8%B6%D9%84%D8%A7%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B5%D9%88%D9%81%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A9%20%D9%88%D8%A7%D9%84%D9%83%D8%B1%D8%A7%D9%85%D8%A7%D8%AA.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 27,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Victor Varconi",
+      "character": null,
+      "order": 0,
+      "profilePath": "/aX8xp2GEriKwjOf3t4MrTOHC00G.jpg"
+    },
+    {
+      "name": "Lajos Réthey",
+      "character": null,
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Jenö Balassa",
+      "character": null,
+      "order": 2,
+      "profilePath": null
+    }
+  ]
+}
