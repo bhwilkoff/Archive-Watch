@@ -12,7 +12,7 @@
 #                                                  byte for byte; --delete removes the file after (the owner approves it)
 #                                                  NAME: PLAY_SERVICE_ACCOUNT_JSON AMAZON_APPSTORE_JSON UPLOAD_KEYSTORE
 #                                                  ROKU_SIGNING_ENV ROKU_SIGNING_KEY ROKU_GENKEY_RAW PULSE_INGEST_ENV
-#                                                  SUBTITLE_KEYS_ENV TIZEN_AUTHOR_P12 TIZEN_DISTRIBUTOR_P12
+#                                                  SUBTITLE_KEYS_ENV TIZEN_AUTHOR_P12 TIZEN_DISTRIBUTOR_P12 TIZEN_AUTHOR_ENV
 #   tools/secrets.sh keychain-import-asc [P8] [ISSUER_ID] [--delete]
 #                                                  the ASC API key into the Keychain (ASC_KEY_P8, ASC_KEY_ID from the file
 #                                                  name, ASC_ISSUER_ID from the argument or tools/asc-credentials.env)
@@ -34,7 +34,7 @@ REPO="bhwilkoff/Archive-Watch"
 KC_ACCOUNT="archivewatch"
 KC_PREFIX="archivewatch:"
 CHUNK=2000
-FILE_NAMES=(PLAY_SERVICE_ACCOUNT_JSON AMAZON_APPSTORE_JSON UPLOAD_KEYSTORE ROKU_SIGNING_ENV ROKU_SIGNING_KEY ROKU_GENKEY_RAW PULSE_INGEST_ENV SUBTITLE_KEYS_ENV TIZEN_AUTHOR_P12 TIZEN_DISTRIBUTOR_P12)
+FILE_NAMES=(PLAY_SERVICE_ACCOUNT_JSON AMAZON_APPSTORE_JSON UPLOAD_KEYSTORE ROKU_SIGNING_ENV ROKU_SIGNING_KEY ROKU_GENKEY_RAW PULSE_INGEST_ENV SUBTITLE_KEYS_ENV TIZEN_AUTHOR_P12 TIZEN_DISTRIBUTOR_P12 TIZEN_AUTHOR_ENV)
 
 die() { echo "secrets.sh: $*" >&2; exit 2; }
 in_list() { local x=$1; shift; local n; for n in "$@"; do [ "$n" = "$x" ] && return 0; done; return 1; }
