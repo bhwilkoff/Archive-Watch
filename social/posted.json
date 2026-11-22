@@ -4993,6 +4993,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-22T03:05:00.239268+00:00",
+   "id": "gov.fdr.352.1.1",
+   "title": "The Road Is Open Again",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2umzjbm6u2n",
+   "format": "video",
+   "kind": "newsreel",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
