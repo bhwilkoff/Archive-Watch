@@ -65,8 +65,10 @@ binary items and `private_file(NAME, suffix)` for a tool that must have a file (
 deleted on close and at exit); `asc_certs.py` and `asc_profiles.py` take the ASC key, key id and issuer id through
 `keychain.asc_key_pem()` / `asc_value()` (`ASC_KEY_PATH` and the CI variables first). Nothing reads
 `secrets/tizen-certificate/*` (Tizen Studio's own profile points at `~/SamsungCertificate/archivewatchSamsung/`) or
-`~/keystores/roku-genkey.raw`. The one local Android release build still reads `~/keystores/archivewatch-upload.jks`
-through `UPLOAD_KEYSTORE_PATH` in `~/.gradle/gradle.properties`.
+`~/keystores/roku-genkey.raw`. The local Android release build gets its signing from the Keychain too: `tools/with_signing.sh COMMAND` writes
+`UPLOAD_KEYSTORE` to a private temporary file and exports `UPLOAD_KEYSTORE_PATH`, `UPLOAD_KEYSTORE_PASSWORD`,
+`UPLOAD_KEY_ALIAS`, `UPLOAD_KEY_PASSWORD` as `ORG_GRADLE_PROJECT_*` for that one command (`tools/submit-play.sh --local`
+does this); the alias and passwords were imported from `~/.gradle/gradle.properties` by `tools/secrets.sh keychain-import-gradle`.
 
 ## Phase 2: the Play service account, both apps together
 

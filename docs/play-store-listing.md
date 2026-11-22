@@ -38,8 +38,8 @@ copies — seed-only ids spin; check with the catalog-db release asset).
 ## Identifiers / basics
 - Package `com.archivewatch.app` · versionName **1.2.24** · versionCode 2
 - minSdk 29 (Android 10) · targetSdk 36
-- Upload key: `~/keystores/archivewatch-upload.jks` (creds in
-  `~/.gradle/gradle.properties` — NEVER in git)
+- Upload key: in the login Keychain (`UPLOAD_KEYSTORE`, `UPLOAD_STORE_PASSWORD`, `UPLOAD_KEY_PASSWORD`,
+  `UPLOAD_KEY_ALIAS`); local builds run under `tools/with_signing.sh` — NEVER in git, no file kept
 - **Price: Free** · no ads, no IAP (Decision 010)
 - Category: **Entertainment** · Tags: Movies & Video
 
@@ -237,9 +237,9 @@ Archive Watch arrives on Android — a cinematheque for the Internet Archive:
 
 ## Build commands (reference)
 ```bash
-cd android
-JAVA_HOME=$(/usr/libexec/java_home) ./gradlew bundleRelease   # → app/build/outputs/bundle/release/app-release.aab
-JAVA_HOME=$(/usr/libexec/java_home) ./gradlew assembleRelease # APK for emulator/device spot-checks
+# signing comes from the Keychain: wrap each gradle call in tools/with_signing.sh
+JAVA_HOME=$(/usr/libexec/java_home) tools/with_signing.sh sh -c 'cd android && ./gradlew bundleRelease'   # → android/app/build/outputs/bundle/release/app-release.aab
+JAVA_HOME=$(/usr/libexec/java_home) tools/with_signing.sh sh -c 'cd android && ./gradlew assembleRelease' # APK for emulator/device spot-checks
 ```
 versionCode must increase on every Play upload (versionName is free-form and
 tracks the Apple marketing version).

@@ -16,6 +16,11 @@
 #   tools/secrets.sh keychain-import-asc [P8] [ISSUER_ID] [--delete]
 #                                                  the ASC API key into the Keychain (ASC_KEY_P8, ASC_KEY_ID from the file
 #                                                  name, ASC_ISSUER_ID from the argument or tools/asc-credentials.env)
+#   tools/secrets.sh keychain-import-gradle
+#                                                  the Android upload key's alias and passwords from ~/.gradle/gradle.properties
+#                                                  (read by this script, never typed) into the Keychain: UPLOAD_KEY_ALIAS,
+#                                                  UPLOAD_STORE_PASSWORD (UPLOAD_KEYSTORE_PASSWORD there), UPLOAD_KEY_PASSWORD;
+#                                                  tools/with_signing.sh hands them to one gradle command
 #   tools/secrets.sh renew-signing                 mint new CI distribution AND Mac installer certificates (they share
 #                                                  APPLE_P12_PASSWORD) and set the four GitHub secrets
 #   tools/secrets.sh drop-takedown-token           delete the retired TAKEDOWN_TOKEN from GitHub and the Worker (Decision 186)
@@ -132,6 +137,31 @@ case "$recipe" in
     if [ "$delete" = 1 ]; then rm -f -- "$p8"; echo "the .p8 file is deleted"; else echo "the .p8 file is kept (--delete removes it)"; fi
     ;;
 
+  keychain-import-gradle)
+    [ $# -eq 0 ] || die "keychain-import-gradle takes no arguments"
+    props="$HOME/.gradle/gradle.properties"
+    [ -f "$props" ] && [ ! -L "$props" ] || die "no $props to read"
+    gp() {
+      python3 - "$props" "$1" <<'PY'
+import base64, re, sys
+want = sys.argv[2]
+for line in open(sys.argv[1]):
+    m = re.match(r"^\s*" + re.escape(want) + r"\s*[=:]\s*(.*?)\s*$", line)
+    if m and m.group(1):
+        sys.stdout.write(base64.b64encode(m.group(1).encode()).decode())
+        break
+PY
+    }
+    for pair in UPLOAD_KEY_ALIAS:UPLOAD_KEY_ALIAS UPLOAD_STORE_PASSWORD:UPLOAD_KEYSTORE_PASSWORD UPLOAD_KEY_PASSWORD:UPLOAD_KEY_PASSWORD; do
+      item="${pair%%:*}" prop="${pair##*:}"
+      v="$(gp "$prop")"
+      [ -n "$v" ] || die "$prop is not in $props"
+      printf '%s' "$v" | kc_put "$item"
+      cmp -s <(kc_get "$item") <(printf '%s' "$v") || die "the Keychain copy of $item does not match; $props is untouched"
+    done
+    echo "UPLOAD_KEY_ALIAS, UPLOAD_STORE_PASSWORD and UPLOAD_KEY_PASSWORD are in the Keychain, and match the file; $props is untouched"
+    ;;
+
   renew-signing)
     [ $# -eq 0 ] || die "renew-signing takes no arguments: both certificates share one password"
     dir="$(mktemp -d)"
@@ -162,6 +192,6 @@ case "$recipe" in
     ;;
 
   *)
-    die "unknown recipe; one of: list, keychain-import-file, keychain-import-asc, renew-signing, drop-takedown-token"
+    die "unknown recipe; one of: list, keychain-import-file, keychain-import-asc, keychain-import-gradle, renew-signing, drop-takedown-token"
     ;;
 esac

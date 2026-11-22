@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Build a signed Android App Bundle and publish it to Google Play from the command line — no Android
 # Studio, no manual upload (the Play analog of tools/submit-appstore.sh). Bumps versionCode, builds
-# the release AAB with the existing upload key (~/.gradle/gradle.properties), then uploads + releases
+# the release AAB with the upload key from the Keychain (tools/with_signing.sh), then uploads + releases
 # via tools/play-publish.py (Google Play Developer API v3).
 #
 #   tools/submit-play.sh [--track production|internal|alpha|beta] [--notes "..."] [--rollout 0.1] [--draft] [--no-bump]
@@ -82,7 +82,7 @@ echo "Building Android $VN (versionCode $VC) …"
 
 # GOOGLE flavor — Play is this flavor's store. The amazon flavor is the
 # GMS-free Fire TV build and must never be uploaded here (Decision 047 §6.6).
-( cd android && ./gradlew --quiet bundleGoogleRelease )
+tools/with_signing.sh sh -c 'cd android && ./gradlew --quiet bundleGoogleRelease'
 AAB="android/app/build/outputs/bundle/googleRelease/app-google-release.aab"
 [ -f "$AAB" ] || { echo "AAB not produced at $AAB"; exit 1; }
 echo "signed AAB: $AAB ($(du -h "$AAB" | cut -f1))"
@@ -138,7 +138,7 @@ PY
     exit 1
   fi
   echo "Smoke-testing the RELEASE build on $SMOKE_SERIAL …"
-  ( cd android && ./gradlew --quiet assembleGoogleRelease )
+  tools/with_signing.sh sh -c 'cd android && ./gradlew --quiet assembleGoogleRelease'
   APK="android/app/build/outputs/apk/google/release/app-google-release.apk"
   [ -f "$APK" ] || { echo "release APK not produced at $APK"; exit 1; }
   INSTALLED=""
