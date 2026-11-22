@@ -128,7 +128,6 @@ tools/submit-play.sh --track production --notes "…"     # bumps versionCode, b
 A zero-cost connectivity check before a real release (lists tracks; proves the key + permissions work):
 
 ```bash
-# needs the key as a file for the check: tools/keychain.py can write a temporary one
 cd tools && python3 - <<'PY'
 import keychain
 from googleapiclient.discovery import build
