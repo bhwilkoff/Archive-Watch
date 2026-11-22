@@ -20,7 +20,7 @@ LibreSSL 2.8.3 can't TLS-handshake with Cloudflare (subdl/subsource are behind i
 Node's modern OpenSSL works. Requires `node` on PATH (Homebrew: /opt/homebrew/bin/node).
 
 Auth (gitignored — NEVER commit):
-  source tools/subtitle_keys.env      # exports SUBDL_API_KEY + SUBSOURCE_API_KEY
+  keys come from the login Keychain (SUBTITLE_KEYS_ENV), or the env in CI
 
 Run (catalog_release.py fetch first):
   python3 tools/free_subtitles.py --provider subdl     --probe tt0063350   # verify shape
@@ -360,15 +360,18 @@ def main() -> int:
     if not HELPER.exists():
         print(f"[subs] missing {HELPER}"); return 2
 
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import keychain
+    keychain.load_env("SUBTITLE_KEYS_ENV")
     if args.provider == "subdl":
         key = os.environ.get("SUBDL_API_KEY")
         if not key:
-            print("[subs] SUBDL_API_KEY not set (source tools/subtitle_keys.env)"); return 2
+            print("[subs] SUBDL_API_KEY not set (tools/secrets.sh keychain-import-file SUBTITLE_KEYS_ENV FILE)"); return 2
         prov = SubDL(key)
     else:
         key = os.environ.get("SUBSOURCE_API_KEY")
         if not key:
-            print("[subs] SUBSOURCE_API_KEY not set (source tools/subtitle_keys.env)"); return 2
+            print("[subs] SUBSOURCE_API_KEY not set (tools/secrets.sh keychain-import-file SUBTITLE_KEYS_ENV FILE)"); return 2
         prov = SubSource(key)
 
     if args.probe:

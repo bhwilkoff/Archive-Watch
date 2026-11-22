@@ -8,8 +8,9 @@
 #
 # One-time setup (the only thing not already in place):
 #   A Google Play Developer API service-account JSON key, with release permission for the app granted
-#   in Play Console (Users and permissions). Put it at ~/.config/play/archivewatch-play.json (or set
-#   PLAY_SERVICE_ACCOUNT_JSON). It belongs in NO git repo.
+#   in Play Console (Users and permissions). It lives in the login Keychain
+#   (tools/secrets.sh keychain-import-file PLAY_SERVICE_ACCOUNT_JSON FILE); the old
+#   ~/.config/play/archivewatch-play.json or PLAY_SERVICE_ACCOUNT_JSON still work. It belongs in NO git repo.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -47,8 +48,11 @@ if [ -n "$NOTES" ]; then
   fi
 fi
 
+# The Play service account: the environment, else the login Keychain (tools/keychain.py), else the old file.
 KEY="${PLAY_SERVICE_ACCOUNT_JSON:-$HOME/.config/play/archivewatch-play.json}"
-[ -f "$KEY" ] || { echo "Missing service-account JSON at $KEY (see setup notes at top)"; exit 1; }
+if [ -z "${PLAY_SERVICE_ACCOUNT_JSON:-}" ] && [ ! -f "$KEY" ] && ! python3 tools/keychain.py has PLAY_SERVICE_ACCOUNT_JSON; then
+  echo "No Play service account: tools/secrets.sh keychain-import-file PLAY_SERVICE_ACCOUNT_JSON FILE"; exit 1
+fi
 
 # Bump versionCode (+1) — Play rejects any previously-uploaded versionCode, even unreleased ones.
 if [ "$BUMP" = 1 ]; then
@@ -193,6 +197,7 @@ ARGS=(--track "$TRACK")
 [ -n "$NOTES" ] && ARGS+=(--notes "$NOTES")
 [ -n "$ROLLOUT" ] && ARGS+=(--rollout "$ROLLOUT")
 [ -n "$DRAFT" ] && ARGS+=("$DRAFT")
-PLAY_SERVICE_ACCOUNT_JSON="$KEY" "$VENV/bin/python" tools/play-publish.py "$AAB" "${ARGS[@]}"
+[ -f "$KEY" ] && export PLAY_SERVICE_ACCOUNT_JSON="$KEY"
+"$VENV/bin/python" tools/play-publish.py "$AAB" "${ARGS[@]}"
 
 echo "✓ Android $VN (versionCode $VC) published to the '$TRACK' track."

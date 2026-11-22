@@ -742,3 +742,29 @@ lose them; that trade is the owner's. Roku has no user channels and no audio
 delay. Tests: `test_web_channel_order.mjs`, `ChannelArrangementTest`,
 `PlaylistChannelLoopTest`, `AudioSyncTest`, `test_fragmenter_audio_offset.swift`,
 `test_audio_sync_offset.swift`; iPhone `AuditUITests.test_40`/`test_41`.
+
+## 186 — No stored key for the owner's routes, and no secret in cleartext on disk (owner 2026-11-22)
+
+**Rule**: the take-down Worker routes accept only a GitHub Actions OIDC token for `takedown-check.yml` on `main`
+(`worker/src/github-oidc.js`), so `TAKEDOWN_TOKEN` is gone from GitHub, the Worker and the owner's disk. A secret
+that has to exist lives in exactly one of two places: a GitHub Actions secret (CI), or the login Keychain as
+`archivewatch:NAME` (a person's Mac, read at use time by `tools/keychain.py` and `tools/with_asc.sh`). The only
+tool that moves a value is `tools/secrets.sh`, with fixed recipes and names. Nothing tracked may look like a secret
+(`tools/test_no_secrets.py`, the `.githooks/pre-commit` hook, `secrets-check.yml`).
+
+**Why**: the owner, 2026-11-22: *"I do not want to set or keep track of keys and passwords for this repo."* and *"You
+should do all 4 if possible."* The plaintext copies (`~/.config/archivewatch/*.env`, the Play service account, the
+keystores, `tools/asc-credentials.env`) were the ones an agent or a stray backup could read. Ear Drama proved the pattern
+first (its Decision 085).
+
+**How to apply**:
+- A new owner route names its workflow in `OWNER_WORKFLOWS` and gets a refused-claims control in
+  `tools/test_takedown_worker.mjs`; never a new shared token. `INGEST_TOKEN` stays only because Roku's report delivery
+  puts it in a URL we do not control.
+- A Keychain value goes in through `tools/secrets.sh keychain-import-file NAME FILE`; a tool reads it with
+  `tools/keychain.py` and keeps its CI path (an environment variable) first. A `security -i` line holds about 2.6 KB, so
+  items are chunked.
+- The Play service account is still one file shared with Ear Drama; replacing it with workload identity federation is
+  phase 2 and moves both apps together (`docs/SECRETS-PLAN.md`).
+- `appstore-build.yml` and `appstore-submit.yml` are untouched on purpose (GitHub has held edits to them); the shell
+  scripts they call keep sourcing the runner's own `tools/asc-credentials.env` first.

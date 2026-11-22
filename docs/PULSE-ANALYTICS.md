@@ -178,7 +178,7 @@ In the Roku Developer Dashboard, open an analytics report → the ⋯ menu →
 
     https://archivewatch-pulse.benwilkoff.workers.dev/ingest/roku?t=<PULSE_INGEST_TOKEN>
 
-The token is at `~/.config/archivewatch/pulse-ingest.env` (mode 600), on the
+The token is in the login Keychain (`PULSE_INGEST_ENV`, Decision 186), on the
 Worker as the `INGEST_TOKEN` secret, and in the repo as `PULSE_INGEST_TOKEN`.
 It is in no commit. The first delivery is what teaches us Looker's payload
 shape, after which the parser gets written against a real body rather than a

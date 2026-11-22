@@ -3,10 +3,11 @@
  *
  * The form on takedown.html posts here. A requester's name and contact details
  * are stored in this private table and nowhere else: the repository is public,
- * and so are its Actions logs, so the check reads a case through a token and
+ * and so are its Actions logs, so the check reads a case through its GitHub OIDC token and
  * writes back only what it found about the file. No IP address is stored; the
  * rate limit is counted by Cloudflare for the window only.
  */
+import { githubCaller } from "./github-oidc.js";
 
 const RETAIN_MS = 3 * 365 * 24 * 3600 * 1000;   // the copyright limitation period
 const STATUSES = ["open", "held", "approved", "removed", "declined", "closed"];
@@ -69,16 +70,6 @@ async function insert(env, c, source, complete) {
   return ref;
 }
 
-async function authorized(request, env) {
-  const given = (request.headers.get("Authorization") || "").replace(/^Bearer /, "");
-  if (!env.TAKEDOWN_TOKEN || given.length !== env.TAKEDOWN_TOKEN.length) return false;
-  const a = new TextEncoder().encode(given);
-  const b = new TextEncoder().encode(env.TAKEDOWN_TOKEN);
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a[i] ^ b[i];
-  return diff === 0;
-}
-
 export async function handleTakedown(url, request, env, cors) {
   // The public door: the form, and nothing else.
   if (url.pathname === "/takedown") {
@@ -100,8 +91,8 @@ export async function handleTakedown(url, request, env, cors) {
     return json({ ref }, 200, cors);
   }
 
-  // Everything below is the owner's tools and the check, by token.
-  if (!(await authorized(request, env))) return json({ error: "forbidden" }, 403, cors);
+  // Everything below is the check's, by takedown-check.yml's GitHub OIDC token (github-oidc.js).
+  if (!(await githubCaller(request, env, url, "takedown"))) return json({ error: "forbidden" }, 403, cors);
 
   if (url.pathname === "/takedown/cases" && request.method === "POST") {
     // A notice that arrived some other way: Google, or email to the agent.

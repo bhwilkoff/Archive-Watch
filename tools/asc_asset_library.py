@@ -19,7 +19,7 @@ placementGroup values come from GET /v1/appAssetLibraryRefData (read 2026-10-08)
   IPHONE_DUO_PROFILE, IPHONE_DYNAMIC_ISLAND_MEDIUM_PROFILE, IPAD_13_PROFILE,
   MAC_PROFILE, TV_PROFILE; the header and search assets use DEFAULT_PROFILE.
 
-Usage (tools/.play-venv/bin/python, with tools/asc-credentials.env sourced):
+Usage (tools/.play-venv/bin/python, through tools/with_asc.sh):
   asc_asset_library.py refdata
   asc_asset_library.py upload FILE --category screens|creative [--name NAME]
   asc_asset_library.py place IMAGE_ID --type APP_SCREENSHOT|PRODUCT_PAGE_HEADER_ASSET|APP_STORE_SEARCH_RESULTS_ASSET

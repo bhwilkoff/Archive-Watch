@@ -39,12 +39,15 @@ PASS_FILE = os.path.expanduser("~/.config/roku/signing.env")
 
 
 def stored_password():
-    """The genkey password from ~/.config/roku/signing.env, or None."""
-    try:
-        with open(PASS_FILE) as fh:
-            body = fh.read()
-    except OSError:
-        return None
+    """The genkey password: the login Keychain (ROKU_SIGNING_ENV), else ~/.config/roku/signing.env, or None."""
+    import keychain
+    body = keychain.get("ROKU_SIGNING_ENV")
+    if body is None:
+        try:
+            with open(PASS_FILE) as fh:
+                body = fh.read()
+        except OSError:
+            return None
     m = re.search(r"^AW_ROKU_SIGN_PASS\s*=\s*'([^']+)'", body, re.M)
     return m.group(1) if m else None
 

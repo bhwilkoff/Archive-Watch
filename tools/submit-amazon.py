@@ -70,7 +70,12 @@ def creds():
     try:
         return json.load(open(CRED))
     except OSError:
-        sys.exit(f"No credentials at {CRED}. See the docstring.")
+        pass
+    import keychain
+    found = keychain.json_item("AMAZON_APPSTORE_JSON")
+    if found is None:
+        sys.exit("No Amazon credentials: tools/secrets.sh keychain-import-file AMAZON_APPSTORE_JSON FILE")
+    return found
 
 
 def token(c):

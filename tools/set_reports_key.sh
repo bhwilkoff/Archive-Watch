@@ -31,7 +31,6 @@ printf '%s' "$KID" | gh secret set ASC_REPORTS_KEY_ID
 echo "set ASC_REPORTS_KEY_ID ($KID) and ASC_REPORTS_KEY_P8"
 
 echo "verifying it can read a report…"
-set -a; . tools/asc-credentials.env 2>/dev/null || true; set +a
 ASC_REPORTS_KEY_ID="$KID" \
 ASC_REPORTS_KEY_P8="$(base64 < "$P8" | tr -d '\n')" \
 ASC_VENDOR_NUMBER="${ASC_VENDOR_NUMBER:-85339427}" \

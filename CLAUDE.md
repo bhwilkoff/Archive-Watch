@@ -151,7 +151,10 @@ Secrets.xcconfig                      ← gitignored; TMDb + OpenSubtitles keys
 - Version numbers via `AppVersion.xcconfig` only — never the Xcode identity
   panel (creates per-target overrides). Android `versionCode` in
   `android/app/build.gradle.kts`, bumped before every Play upload.
-- Never commit secrets. Never regenerate the Roku signing key.
+- Never commit secrets, and never leave one in cleartext on disk: values live in GitHub Actions secrets (CI)
+  or the login Keychain (a person's Mac), moved only by `tools/secrets.sh` (Decision 186,
+  `docs/SECRETS-PLAN.md`). *Check: `tools/test_no_secrets.py`, the pre-commit hook and `secrets-check.yml`.*
+  Never regenerate the Roku signing key.
 - Every catalog writer is additive and merge-guarded (Decision 020); a
   run that produced nothing goes red, a run that reported someone else's
   condition does not (Decisions 093/107).

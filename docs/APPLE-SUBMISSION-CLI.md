@@ -31,9 +31,8 @@ gh workflow run appstore-submit.yml \
 Locally the same thing, if credentials are on the machine:
 
 ```bash
-set -a; . tools/asc-credentials.env; set +a
-python3 tools/asc_release.py status
-python3 tools/asc_release.py ship --notes "What's new…" --submit
+tools/with_asc.sh python3 tools/asc_release.py status
+tools/with_asc.sh python3 tools/asc_release.py ship --notes "What's new…" --submit
 ```
 
 Then confirm — the tool's own success message is not evidence:
@@ -120,7 +119,8 @@ in review.
 ## Credentials
 
 `ASC_KEY_ID`, `ASC_ISSUER_ID`, and `~/.appstoreconnect/private_keys/AuthKey_<KEYID>.p8`.
-Locally they live in `tools/asc-credentials.env` (gitignored); in CI they are
+Locally they live in the login Keychain (`tools/secrets.sh keychain-import-asc`; `tools/with_asc.sh` hands them to a
+command and removes the temporary `.p8` after, Decision 186); in CI they are
 the `ASC_KEY_P8` / `ASC_KEY_ID` / `ASC_ISSUER_ID` secrets that
 `appstore-build.yml` already uses. `PyJWT` is required — system Python has none
 and PEP 668 blocks `pip install --user`, so use a venv locally.

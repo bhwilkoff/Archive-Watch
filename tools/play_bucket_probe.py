@@ -24,21 +24,15 @@ import sys
 import urllib.parse
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import keychain as _kc  # the login Keychain, never CI
+
 PKG = "com.archivewatch.app"
 
 
 def token():
-    from google.oauth2 import service_account
     import google.auth.transport.requests as gtr
-    raw = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON", "")
-    if raw.strip().startswith("{"):
-        info = json.loads(raw)
-        creds = service_account.Credentials.from_service_account_info(
-            info, scopes=["https://www.googleapis.com/auth/devstorage.read_only"])
-    else:
-        creds = service_account.Credentials.from_service_account_file(
-            os.path.expanduser(raw or "~/.config/play/archivewatch-play.json"),
-            scopes=["https://www.googleapis.com/auth/devstorage.read_only"])
+    creds = _kc.play_credentials(["https://www.googleapis.com/auth/devstorage.read_only"])
     creds.refresh(gtr.Request())
     return creds.token
 

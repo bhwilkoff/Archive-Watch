@@ -90,7 +90,9 @@ The repository and its Actions logs are public. The rule is structural:
   a case number, an archive id and a fixed sentence from `REASONS`, never a
   requester's words, including the name of the work.
 - `python3 tools/takedown_cases.py show <case>` is the owner's read. Never run it
-  in CI. The token is in `~/.config/archivewatch/takedown.env`.
+  in CI. It reads D1 through the owner's own wrangler login. There is no stored
+  token: the check calls the Worker with its GitHub OIDC token, and the Worker
+  accepts only `takedown-check.yml` on main (Decision 186).
 
 ## Answering a Google notice
 

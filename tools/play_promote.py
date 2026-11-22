@@ -16,18 +16,18 @@ import argparse
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import keychain as _kc  # the login Keychain, never CI
+
 PACKAGE = "com.archivewatch.app"
 
 
 def service():
-    from google.oauth2 import service_account
     from googleapiclient.discovery import build
-    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
-                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
-    if not os.path.exists(key):
-        sys.exit(f"no Play service-account key at {key}")
-    creds = service_account.Credentials.from_service_account_file(
-        key, scopes=["https://www.googleapis.com/auth/androidpublisher"])
+    try:
+        creds = _kc.play_credentials(["https://www.googleapis.com/auth/androidpublisher"])
+    except OSError:
+        sys.exit("no Play service account (tools/secrets.sh keychain-import-file PLAY_SERVICE_ACCOUNT_JSON FILE)")
     return build("androidpublisher", "v3", credentials=creds, cache_discovery=False)
 
 

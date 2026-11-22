@@ -1,0 +1,4 @@
+#!/bin/sh
+# No secret reaches a commit (tools/test_no_secrets.py; AGENTS.md hard rule).
+# Enabled once per clone: git config core.hooksPath .githooks
+exec python3 "$(git rev-parse --show-toplevel)/tools/test_no_secrets.py" --staged

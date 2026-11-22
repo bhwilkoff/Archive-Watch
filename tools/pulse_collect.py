@@ -46,6 +46,9 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import keychain as _kc  # noqa: E402  (the login Keychain, never CI)
+
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "ops" / "pulse.json"
 
@@ -199,8 +202,7 @@ def apple_rating(state):
 def _play():
     from google.oauth2 import service_account
     from googleapiclient.discovery import build
-    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
-                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    key = _kc.play_key()
     if key.strip().startswith("{"):          # the secret may arrive as JSON itself
         info = json.loads(key)
         creds = service_account.Credentials.from_service_account_info(
@@ -286,8 +288,7 @@ def play_reviews(state):
 def _reporting():
     from google.oauth2 import service_account
     from googleapiclient.discovery import build
-    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
-                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    key = _kc.play_key()
     scopes = ["https://www.googleapis.com/auth/playdeveloperreporting"]
     if key.strip().startswith("{"):
         creds = service_account.Credentials.from_service_account_info(json.loads(key), scopes=scopes)
@@ -536,8 +537,7 @@ def _gcs_bytes(bucket, obj):
     fallback is local-only by nature and simply does not fire in CI."""
     from google.oauth2 import service_account
     from googleapiclient.discovery import build as _build
-    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
-                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    key = _kc.play_key()
     scopes = ["https://www.googleapis.com/auth/devstorage.read_only"]
     try:
         if key.strip().startswith("{"):
@@ -564,8 +564,7 @@ def _gcs_updated(bucket, obj):
     still writing it (play_bucket_probe.py, 2026-09-14 and 2026-10-07)."""
     from google.oauth2 import service_account
     from googleapiclient.discovery import build as _build
-    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
-                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    key = _kc.play_key()
     scopes = ["https://www.googleapis.com/auth/devstorage.read_only"]
     try:
         if key.strip().startswith("{"):
@@ -2068,7 +2067,7 @@ def roku_engagement(state):
     for _r in ((state["health"].get("rokuEngagement") or {}).get("daily") or []):
         held = max(held, _r.get("date") or "")
 
-    tok = os.environ.get("PULSE_INGEST_TOKEN")
+    tok = os.environ.get("PULSE_INGEST_TOKEN") or _kc.env_file("PULSE_INGEST_ENV").get("PULSE_INGEST_TOKEN")
     if not tok:
         raise RuntimeError("no PULSE_INGEST_TOKEN in this environment — "
                            "the drop box cannot be read without it")
@@ -2449,8 +2448,7 @@ def _google(scopes):
     read-only, all granted by the owner on 2026-09-25."""
     from google.oauth2 import service_account
     from google.auth.transport.requests import Request
-    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
-                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    key = _kc.play_key()
     if key.strip().startswith("{"):
         creds = service_account.Credentials.from_service_account_info(json.loads(key), scopes=scopes)
     else:

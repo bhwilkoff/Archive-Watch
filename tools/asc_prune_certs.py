@@ -35,8 +35,8 @@ Usage:
     python3 tools/asc_prune_certs.py --apply    # revoke
     python3 tools/asc_prune_certs.py --apply --keep 2 --older-than-days 0
 
-Env: ASC_KEY_ID / ASC_ISSUER_ID / the .p8 in ~/.appstoreconnect/private_keys
-(the same credentials asc_certs.py uses; source tools/asc-credentials.env).
+Env: ASC_KEY_ID / ASC_ISSUER_ID / the key from the Keychain (tools/with_asc.sh)
+(the same credentials asc_certs.py uses; run it through tools/with_asc.sh).
 """
 
 from __future__ import annotations

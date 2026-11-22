@@ -295,10 +295,9 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 ## Running it
 
 ```bash
-# everything the local machine can reach (Play included, ASC from tools/asc-credentials.env)
-set -a; . tools/asc-credentials.env; set +a
-python3 tools/pulse_collect.py            # collect and print, write nothing
-python3 tools/pulse_collect.py --apply    # write ops/pulse.json
+# everything the local machine can reach (Play and the ingest token from the Keychain, ASC through with_asc.sh)
+tools/with_asc.sh python3 tools/pulse_collect.py            # collect and print, write nothing
+tools/with_asc.sh python3 tools/pulse_collect.py --apply    # write ops/pulse.json
 
 python3 tools/pulse_collect.py --only apple_reviews,mentions_hn   # one reader
 
