@@ -5005,6 +5005,54 @@
    "kind": "newsreel",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-22T21:07:38.634746+00:00",
+   "id": "skateboard_sense",
+   "title": "Skateboard Sense",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2wjjcupuh27",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "Robin_1990"
+  },
+  {
+   "at": "2026-11-22T21:07:38.634746+00:00",
+   "id": "skateboard_sense",
+   "title": "Skateboard Sense",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117662136656989317",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "Robin_1990"
+  },
+  {
+   "at": "2026-11-22T21:07:38.634746+00:00",
+   "id": "skateboard_sense",
+   "title": "Skateboard Sense",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DgDvHeblEUJ/",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": "117662133126088534",
+   "reviewer": "Robin_1990"
+  },
+  {
+   "at": "2026-11-22T21:07:38.634746+00:00",
+   "id": "skateboard_sense",
+   "title": "Skateboard Sense",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=TLeQVDW0SZE",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "Robin_1990"
   }
  ]
 }
