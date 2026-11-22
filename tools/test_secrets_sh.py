@@ -43,16 +43,17 @@ else:
 ''',
     "npx": r'''
 import json, os, sys
-S = os.environ["FAKE_STORE"]; a = [x for x in sys.argv[1:] if x != "--no-install"]
+S = os.environ["FAKE_STORE"]; a = [("wrangler" if x.startswith("wrangler@") else x) for x in sys.argv[1:] if x not in ("--no-install", "--yes")]
 open(os.path.join(S, "argv.log"), "a").write("npx " + " ".join(a) + "\n")
 d = os.path.join(S, "worker"); os.makedirs(d, exist_ok=True)
 if a[:3] == ["wrangler", "secret", "put"]:
     open(os.path.join(d, a[3]), "w").write(sys.stdin.read())
     print("Success! Uploaded secret " + a[3])
 elif a[:3] == ["wrangler", "secret", "delete"]:
+    sys.stdin.read()
+    if os.environ.get("FAKE_WRANGLER_FAILS"): sys.exit("fake wrangler: not logged in")
     p = os.path.join(d, a[3])
     if os.path.exists(p): os.remove(p)
-    sys.stdin.read()
 elif a[:3] == ["wrangler", "secret", "list"]:
     print(json.dumps([{"name": n, "type": "secret_text"} for n in sorted(os.listdir(d))]))
 else:
@@ -228,6 +229,18 @@ def suite(script_text):
         if code != 0 or read(w, "gh", "TAKEDOWN_TOKEN") is not None or read(w, "worker", "TAKEDOWN_TOKEN") is not None \
                 or read(w, "worker", "INGEST_TOKEN") is None:
             fails.append(f"drop-takedown-token: exit {code}, it left the token or took another")
+
+        # A Worker delete that fails must fail the recipe, never print "deleted" (2026-11-22: an old
+        # cached wrangler failed and the recipe still reported success).
+        open(os.path.join(w, "store", "gh", "TAKEDOWN_TOKEN"), "w").write("x")
+        open(os.path.join(w, "store", "worker", "TAKEDOWN_TOKEN"), "w").write("x")
+        os.environ["FAKE_WRANGLER_FAILS"] = "1"
+        try:
+            code, out = run(w, "drop-takedown-token")
+        finally:
+            del os.environ["FAKE_WRANGLER_FAILS"]
+        if code == 0 or "FAILED" not in out:
+            fails.append(f"drop-takedown-token: a failed Worker delete exited {code} without FAILED")
 
         code, out = run(w, "list")
         clean("list", out)

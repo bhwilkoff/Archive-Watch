@@ -33,7 +33,9 @@ FILE_NAMES=(PLAY_SERVICE_ACCOUNT_JSON AMAZON_APPSTORE_JSON UPLOAD_KEYSTORE ROKU_
 
 die() { echo "secrets.sh: $*" >&2; exit 2; }
 in_list() { local x=$1; shift; local n; for n in "$@"; do [ "$n" = "$x" ] && return 0; done; return 1; }
-wrangler() { (cd "$ROOT/worker" && npx --no-install wrangler "$@"); }
+# worker/ has no package.json, so pin a wrangler new enough to read the keyring login (4.152+);
+# an unpinned npx fell back to a cached 4.80 that asks for CLOUDFLARE_API_TOKEN (2026-11-22).
+wrangler() { (cd "$ROOT/worker" && npx --yes wrangler@4.152.0 "$@"); }
 
 kc_item_get() { security find-generic-password -a "$KC_ACCOUNT" -s "$KC_PREFIX$1" -w; }
 
@@ -149,9 +151,14 @@ case "$recipe" in
 
   drop-takedown-token)
     [ $# -eq 0 ] || die "drop-takedown-token takes no arguments"
-    gh secret delete TAKEDOWN_TOKEN --repo "$REPO" || true
-    printf 'y\n' | wrangler secret delete TAKEDOWN_TOKEN || true
-    echo "TAKEDOWN_TOKEN is deleted from GitHub Actions and the Worker (deploy the OIDC Worker first)"
+    ok=0
+    if gh secret delete TAKEDOWN_TOKEN --repo "$REPO" 2>/dev/null; then echo "TAKEDOWN_TOKEN deleted from GitHub Actions"
+    elif ! gh secret list --repo "$REPO" | grep -q '^TAKEDOWN_TOKEN'; then echo "TAKEDOWN_TOKEN was already gone from GitHub Actions"
+    else echo "FAILED: TAKEDOWN_TOKEN is still in GitHub Actions" >&2; ok=1; fi
+    if printf 'y\n' | wrangler secret delete TAKEDOWN_TOKEN >/dev/null 2>&1; then echo "TAKEDOWN_TOKEN deleted from the Worker"
+    elif ! wrangler secret list --format json 2>/dev/null | grep -q '"TAKEDOWN_TOKEN"'; then echo "TAKEDOWN_TOKEN was already gone from the Worker"
+    else echo "FAILED: TAKEDOWN_TOKEN is still on the Worker (is wrangler logged in?)" >&2; ok=1; fi
+    exit $ok
     ;;
 
   *)
