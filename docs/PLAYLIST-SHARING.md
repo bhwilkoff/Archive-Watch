@@ -510,9 +510,8 @@ A practical note for whoever checks this next: `tools/asc_release.py status` is
 the way to read where Apple actually stands, and on this Mac it needs `pyjwt`
 and a credential source. System Python has neither — `uv venv` plus
 `uv pip install pyjwt cryptography` works where `python3 -m venv` produced a
-venv with a broken pip, and `tools/asc-credentials.env` (gitignored) carries
-the key id and issuer, with the .p8 outside the repo in
-`~/.appstoreconnect/private_keys/`.
+venv with a broken pip, and the key id, issuer and .p8 come from the login Keychain
+(`tools/with_asc.sh`; no file on disk since 2026-11-22).
 
 ## Where the feature is complete, and the one place it is not (2026-09-13)
 

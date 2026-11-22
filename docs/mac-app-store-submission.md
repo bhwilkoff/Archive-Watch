@@ -173,7 +173,7 @@ xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj -scheme "Archive Watch M
 xcodebuild -exportArchive -archivePath build/ArchiveWatchMac.xcarchive -exportPath build/export \
   -exportOptionsPlist ExportOptions-appstore.plist \
   -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
-  -authenticationKeyPath ~/.appstoreconnect/private_keys/AuthKey_$ASC_KEY_ID.p8 \
+  -authenticationKeyPath "$ASC_KEY_PATH" \
   -allowProvisioningUpdates
 ```
 *Two-step variant* (export a local `.pkg`, then upload separately): drop `destination=upload` from

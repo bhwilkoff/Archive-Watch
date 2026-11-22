@@ -254,7 +254,7 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 ## Owner steps (each unlocks a panel that currently says "could not read")
 
 ~~`PLAY_SERVICE_ACCOUNT_JSON` as a repo secret~~ — **done 2026-09-09**, set from
-   `~/.config/play/archivewatch-play.json` with `gh secret set`. The collector
+   the Play service-account key with `gh secret set` (the file is gone; the key is now in the login Keychain, 2026-11-22). The collector
    accepts either a path or the JSON itself.
 ~~Downloads need a SECOND API key.~~ — **done 2026-09-09.** Key `3F84BHSMRC`,
    role **Sales and Reports** and nothing else, wired as `ASC_REPORTS_KEY_ID` /

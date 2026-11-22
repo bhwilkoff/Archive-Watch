@@ -87,7 +87,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="report the key status and stop")
     ap.add_argument("--password", help="the genkey password for this device "
-                                       "(default: read from ~/.config/roku/signing.env)")
+                                       "(default: read from the login Keychain)")
     ap.add_argument("--version", default=None, help="package version, e.g. 1.0.0")
     ap.add_argument("--no-deploy", action="store_true", help="package what is already sideloaded")
     args = ap.parse_args()

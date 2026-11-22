@@ -282,7 +282,7 @@ screen opened with no console errors.
 
 1. ~~Owner runs `genkey` and stores the password outside the repo.~~ DONE —
    the key is on the Streaming Stick 4K (10.0.0.155), dev id `429634ac…`, and
-   the password is at **`~/.config/roku/signing.env`** (mode 600), which
+   the password is in the login Keychain (`tools/secrets.sh`; the old `~/.config/roku/signing.env` is gone, 2026-11-22), which
    `roku_package.py` now reads by itself. `--password` is only an override.
    **Never run `genkey` again on that device**: it REPLACES the key and orphans
    every package signed with the old one, and Rekey needs the old password, so

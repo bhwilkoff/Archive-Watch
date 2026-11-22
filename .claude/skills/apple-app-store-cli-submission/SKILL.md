@@ -95,8 +95,7 @@ macOS** — use the cloud path above. The OWNER selects the build in ASC and hit
 ## Credentials & secrets (configured)
 
 - ASC API key (TEAM key): ID `G5549XF8RV`, issuer `69a6de74-3929-47e3-e053-5b8c7c11a4d1`,
-  `.p8` at `~/.appstoreconnect/private_keys/` (OUTSIDE the repo). IDs in gitignored
-  `tools/asc-credentials.env` (sourced by the script). Individual keys 401.
+  key and IDs in the login Keychain (`tools/secrets.sh`; `tools/with_asc.sh` hands them to a command, 2026-11-22), never a file. Individual keys 401.
 - Existing cert ids: Apple Distribution `7VDL7K5H79`, 3rd Party Mac Installer
   `T445JWG853` (reused find-first; created+imported only if absent).
 - Bundle ids embedded: iOS = main + `.widgets`; tvOS = main + `.topshelf`; macOS =

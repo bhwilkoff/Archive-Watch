@@ -7,7 +7,6 @@ at the new versionCode with release notes, then commit.
 Usage:  play-publish.py <app-release.aab> [--track production|internal|alpha|beta]
                         [--notes "release notes"] [--rollout 0.1] [--draft]
 Env:    PLAY_SERVICE_ACCOUNT_JSON  the service-account JSON text or a path (default: the Keychain)
-                                   (default ~/.config/play/archivewatch-play.json)
         PLAY_PACKAGE               package name (default com.archivewatch.app)
 
 The service account must be granted release permissions for the app in Play Console

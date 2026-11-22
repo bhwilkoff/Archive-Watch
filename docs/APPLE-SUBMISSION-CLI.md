@@ -118,7 +118,7 @@ in review.
 
 ## Credentials
 
-`ASC_KEY_ID`, `ASC_ISSUER_ID`, and `~/.appstoreconnect/private_keys/AuthKey_<KEYID>.p8`.
+`ASC_KEY_ID`, `ASC_ISSUER_ID`, and the `.p8` (no file on a Mac since 2026-11-22; see below).
 Locally they live in the login Keychain (`tools/secrets.sh keychain-import-asc`; `tools/with_asc.sh` hands them to a
 command and removes the temporary `.p8` after, Decision 186); in CI they are
 the `ASC_KEY_P8` / `ASC_KEY_ID` / `ASC_ISSUER_ID` secrets that

@@ -1193,7 +1193,7 @@ device — but it requires *both* a previously-signed `.pkg` *and* its original
 password. Lose both and there is no documented path back. *(Inferred from the
 rekey mechanism; Roku does not state "no recovery" explicitly.)* Back up the
 password and one signed `.pkg` the way we back up
-`~/keystores/archivewatch-upload.jks`.
+the Android upload keystore (now in the login Keychain via `tools/with_signing.sh`; the file is gone, 2026-11-22).
 
 ### 6.3 Channel types — the CI/testing story
 
