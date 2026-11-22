@@ -60,6 +60,14 @@ Tizen and Play imports omit it on purpose: those files are irreplaceable (or sha
 owner to confirm the Keychain copy. Then to the Trash: `~/.config/archivewatch/takedown.env`, the `aw-ci-*` files in
 `~/.appstoreconnect/private_keys/`, and `tools/asc-credentials.env` (after the ASC import).
 
+Local readers, 2026-11-22: no tool here reads a key file any more. `tools/keychain.py` has `get_bytes(NAME)` for the
+binary items and `private_file(NAME, suffix)` for a tool that must have a file (0600, in a 0700 temporary directory,
+deleted on close and at exit); `asc_certs.py` and `asc_profiles.py` take the ASC key, key id and issuer id through
+`keychain.asc_key_pem()` / `asc_value()` (`ASC_KEY_PATH` and the CI variables first). Nothing reads
+`secrets/tizen-certificate/*` (Tizen Studio's own profile points at `~/SamsungCertificate/archivewatchSamsung/`) or
+`~/keystores/roku-genkey.raw`. The one local Android release build still reads `~/keystores/archivewatch-upload.jks`
+through `UPLOAD_KEYSTORE_PATH` in `~/.gradle/gradle.properties`.
+
 ## Phase 2: the Play service account, both apps together
 
 One service account JSON serves Archive Watch and Ear Drama. Replace it with workload identity federation so no key

@@ -117,7 +117,7 @@ case "$recipe" in
       p8="${found[0]}"
     fi
     if [ -z "$issuer" ] && [ -f "$ROOT/tools/asc-credentials.env" ]; then
-      issuer="$(sed -n 's/^\(export \)\{0,1\}ASC_ISSUER_ID=//p' "$ROOT/tools/asc-credentials.env" | head -1 | tr -d "\"' ")"
+      issuer="$(sed -n 's/^\(export \)\{0,1\}ASC_ISSUER_ID=//p' "$ROOT/tools/asc-credentials.env" | head -1 | grep -oE '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}' | head -1 || true)"
       [[ "$issuer" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]] || issuer=""
     fi
     [ -f "$p8" ] && [ ! -L "$p8" ] || die "not a regular file: $p8"
