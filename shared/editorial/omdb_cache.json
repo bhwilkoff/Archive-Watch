@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-21T09:53:37Z",
+  "updated_at": "2026-11-22T09:50:44Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-21T09:53:37Z"
+      "last_tried": "2026-11-22T09:50:44Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-21T09:53:37Z"
+      "last_tried": "2026-11-22T09:50:44Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -408693,6 +408693,243 @@
         "mc": 91
       },
       "fetched_at": "2026-11-21T09:53:37Z",
+      "schema": 4
+    },
+    "tt0065598": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmVkZTkyMjktMTgwYy00NWZhLTkzZTMtYzNhNGY5ODgxZDc1XkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 58,
+      "content_rating": null,
+      "plot": "Following the death of a close friend, a woman caught in an unhappy marriage looks for ways to improve her life.",
+      "runtime_min": 100,
+      "director": "Raúl de la Torre",
+      "actors": [
+        "Graciela Borges",
+        "Mercedes Sombra",
+        "Lautaro Murúa"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0077645": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWRkOGE4NWQtNDE1Ny00NTM1LWJkNDktNmExOWUwMGQzNzVjXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 488,
+      "content_rating": null,
+      "plot": "Two CIA agents - a kung fu master and a suave womanizer - track the stolen formula for a super-sterility drug from Spain to Hong Kong, battling Neo-Nazi terrorists and a Vietnamese spy ring for its possession.",
+      "runtime_min": 88,
+      "director": "Bruce Le, Luigi Batzella, Richard Harrison",
+      "actors": [
+        "Bruce Le",
+        "Richard Harrison",
+        "Jeong-lee Hwang"
+      ],
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0089293": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmE4YmY2ZDQtZWY5Yy00NWIyLWI4YjgtMDMyNzZiMTMxZWNlXkEyXkFqcGdeQXVyNTI4NzA1OTk@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 191,
+      "content_rating": null,
+      "plot": "After receiving a life imprisonment sentence for a NY Chinatown massacre, Jia Shi Lan obtains a pardon through the Mafia's influence.",
+      "runtime_min": 95,
+      "director": "Lung-Wei Wang",
+      "actors": [
+        "Ka-Yan Leung",
+        "Norman Chu",
+        "Shu-Yuan Hsu"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0168469": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzljMzgyOWUtNzg5Ni00MjNlLTllMDAtMjFlY2JkY2MzNWYzXkEyXkFqcGdeQXVyMjU4MzA2Mjc@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 95,
+      "director": "Emilio Vieyra",
+      "actors": [
+        "Hugo Marcel",
+        "Soledad Silveyra",
+        "Ricardo Bauleo"
+      ],
+      "genres": [
+        "Comedy",
+        "Musical",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0178392": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGU4YTZiZTktNmNiYy00YTJhLWE5MzMtZDkwMWMyNjRkMzQ0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.9,
+      "imdb_votes": 481,
+      "content_rating": null,
+      "plot": "Riveting suspense thriller about a dedicated cop who leads an under-cover squad against a group of terrorists. He manages to capture their leader, but finds himself and his family mentally and physically manipulated by the wily terrorist and his followers.",
+      "runtime_min": 162,
+      "director": "Govind Nihalani",
+      "actors": [
+        "Om Puri",
+        "Naseeruddin Shah",
+        "Mita Vashisht"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0191636": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTA1ZGJlOTUtYmQ4NC00ODRjLWIzNjktZmFhZGYyMDE1ZDBmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 5760,
+      "content_rating": "R",
+      "plot": "In 1849, in the Archipelago of Saint-Pierre et Miquelon, the drunken Ariel Neel Auguste and his partner Louis Ollivier kill for a futile motive (to see if he is fat or just big) the fishing boat captain Coupard. Nell, who stabbed the victim, is sentenced to die with his head severed in the guillotine while Louis is sentenced to hard labor. During the transportation to the prison under the custody of Captain Jean, there is an accident and Louis dies. While spending his days in the cell waiting for the guillotine and the executioner, Neel is invited by the captain's wife Mrs. Pauline to help her in her garden and becomes her protégé. Later he has a process of rehabilitation helping the locals in minor works and becomes very popular in the island. When he saves the building Café du Nord and her owner from sinking in the sea, his popularity increases and nobody but the governor and politicians of the council wants his death. Neel marries Eleontine Jeanne-Marie, but sooner he is informed that the ship Marie Galante has just left Martinique bringing a guillotine. Now the Governor and politicians need to find an executioner in the population to execute the sentence.",
+      "runtime_min": 112,
+      "director": "Patrice Leconte",
+      "actors": [
+        "Juliette Binoche",
+        "Daniel Auteuil",
+        "Emir Kusturica"
+      ],
+      "genres": [
+        "Drama",
+        "History",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 91,
+        "mc": 73
+      },
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0198978": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGNmMmFiYmItMDAzMi00MDViLTlkYzUtMmRmNDRmMDE1NmQ5XkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 94,
+      "content_rating": null,
+      "plot": "Alberto, a divorce lawyer, is left a widower and since then has suffered a feeling of guilt because his wife died while he was cheating on her. This is how he meets Susana, a woman whose husband initiates a divorce trial, and they both fall in love. But she fears that her husband will see her with a man to use him in court and take away the possession of her children.",
+      "runtime_min": 90,
+      "director": "Hugo Sofovich",
+      "actors": [
+        "Alberto Olmedo",
+        "Susana Giménez",
+        "Fernando Siro"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0256692": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTM0YmFiMWItMGY4My00OGE0LWE1NjItNzRhMTg5YjRjMmQ5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 5416,
+      "content_rating": null,
+      "plot": "Raj and Priya are newly married. Priya is heavy with children, but due to unexpected circumstances, she loses her child and is unable to conceive again. Enter Madhoo, a prostitute who is willing to become surrogate mother for the couple. Their relationship becomes entangled with love triangle when Madhoo falls in love with Raj.",
+      "runtime_min": 165,
+      "director": "Abbas Alibhai Burmawalla, Mastan Alibhai Burmawalla",
+      "actors": [
+        "Salman Khan",
+        "Rani Mukerji",
+        "Preity G Zinta"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Musical"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0342032": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 65,
+      "director": "Humberto Ríos",
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0870211": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTk2NjU1ODEwMl5BMl5BanBnXkFtZTcwOTE0NTkxMg@@._V1_QL75_UY562_CR10,0,380,562_.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 7733,
+      "content_rating": "R",
+      "plot": "In November 2005, the U.S. Marines fell into an ambush by Iraqi insurgents and one officer got killed. The reprisals by the Americans were frightening, resulting in the massacre of 24 people, many of whom were women and children. \"Battle for Haditha\" is the faithful account of this tragic event which scandalized the world.",
+      "runtime_min": 97,
+      "director": "Nick Broomfield",
+      "actors": [
+        "Matthew Knoll",
+        "Elliot Ruiz",
+        "Eric Mehalacopoulos"
+      ],
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "critics": {
+        "rt": 70,
+        "mc": 65
+      },
+      "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt1056467": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTVkZDdiMjgtMWZiOS00N2U4LWE0YjAtMDNmYmQ5ZDBlMTFlXkEyXkFqcGdeQXVyODg3MzY5MjE@._V1_SX300.jpg",
+      "imdb_rating": 2.8,
+      "imdb_votes": 1104,
+      "content_rating": "R",
+      "plot": "In a dark and decadent city, Sean Fallon - a corrupt cop - will have to face his own demons to put an end to a series of brutal rapes and murders of the most weirdest kind. With the help of the local pimps, headed by Chance, Fallon will go the hunt for the serial killer, that may in the end not be human!",
+      "runtime_min": 85,
+      "director": "Fabrice Lambot",
+      "actors": [
+        "James Horan",
+        "Lance Henriksen",
+        "Erin Brown"
+      ],
+      "genres": [
+        "Horror",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-22T09:50:44Z",
       "schema": 4
     }
   },
