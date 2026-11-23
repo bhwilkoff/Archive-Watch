@@ -23,6 +23,16 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 
+import sys  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import attempt_ledger as L  # noqa: E402
+
+# A caption file that will not download, or holds no confident cue, is recorded
+# in `index_failures` (inside subtitle.sqlite) and waits 1, 7, then 30 days
+# (attempt_ledger) instead of being fetched again at the head of every run.
+# Bump to retry every recorded failure once.
+SUBTITLE_INDEX_VERSION = 1
+
 
 def parse_vtt(text: str) -> list[tuple[float, float, str]]:
     """(start, end, text) cues from WebVTT/SRT."""
@@ -133,6 +143,19 @@ def main() -> int:
     if "imdbID" not in cols:
         db.execute("ALTER TABLE cues ADD COLUMN imdbID TEXT")
     seen = {r[0] for r in db.execute("SELECT DISTINCT archiveID FROM cues")}
+    db.execute("""CREATE TABLE IF NOT EXISTS index_failures(
+        archiveID TEXT PRIMARY KEY, outcome TEXT, reason TEXT,
+        attempts INTEGER, at TEXT, v INTEGER)""")
+    ledger = {r[0]: {"outcome": r[1], "reason": r[2], "attempts": r[3], "at": r[4], "v": r[5]}
+              for r in db.execute("SELECT archiveID, outcome, reason, attempts, at, v FROM index_failures")}
+    now = L.now_utc()
+
+    def remember(aid, outcome, reason):
+        """Upsert, never delete: sqlite_publish_guard refuses a table that shrank."""
+        rec = L.record(ledger.get(aid), outcome, reason, now, SUBTITLE_INDEX_VERSION)
+        ledger[aid] = rec
+        db.execute("INSERT OR REPLACE INTO index_failures VALUES(?,?,?,?,?,?)",
+                   (aid, rec["outcome"], rec["reason"], rec["attempts"], rec["at"], rec["v"]))
 
     # The network fetch + parse is the cost and is thread-safe (no DB) — run it in PARALLEL on a
     # worker pool, sliding-window so we stop submitting once `limit` films have been indexed. DB
@@ -141,11 +164,15 @@ def main() -> int:
         vtt_url = human_vtt(it)
         vtt = fetch(vtt_url) if vtt_url else None
         if not vtt:
-            return None
+            return it, None, "unreadable", f"VTT did not download: {vtt_url}"
         cues = [(i, s, e, t) for i, (s, e, t) in enumerate(parse_vtt(vtt)) if _confident(t, s, e)]
-        return (it, cues) if cues else None
+        return (it, cues, "ok", "") if cues else (it, None, "no_cues", "no confident cue in the VTT")
 
-    candidates = [it for it in items if it["archiveID"] not in seen]
+    pending_items = [it for it in items if it["archiveID"] not in seen]
+    candidates, backoff, capped = L.partition(
+        ((it, ledger.get(it["archiveID"])) for it in pending_items), now, SUBTITLE_INDEX_VERSION)
+    print(L.summary("subindex", len(candidates), len(backoff), [it["archiveID"] for it in capped]),
+          flush=True)
     done = pending = 0
     workers = max(1, args.concurrency)
     with ThreadPoolExecutor(max_workers=workers) as ex:
@@ -155,9 +182,12 @@ def main() -> int:
         while inflight and done < args.limit:
             fut = next(as_completed(inflight))
             inflight.discard(fut)
-            res = fut.result()
-            if res:
-                it, cues = res
+            it, cues, outcome, reason = fut.result()
+            if not cues:
+                remember(it["archiveID"], outcome, reason)
+            else:
+                if it["archiveID"] in ledger:
+                    remember(it["archiveID"], "ok", "indexed")
                 aid, url = it["archiveID"], it["downloadURL"]
                 title, imdb = it.get("title", ""), it.get("imdbID") or ""
                 db.executemany("INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?,?)",
