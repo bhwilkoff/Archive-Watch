@@ -8,7 +8,8 @@ rating + full plot + runtime) for EVERY IMDb-keyed item, so the app gets
 ratings-based ranking and richer Detail screens — see
 docs/research/omdb-and-pd-discovery.md.
 
-Stays under the free-tier 1000 req/day (default --max-calls 950). Operates
+Stays under the free-tier 1000 req/day (default --max-calls 800; the key is
+shared with other workflows, so this never takes the whole day). Operates
 on the committed catalogs (not the gitignored SQLite), so it runs
 unattended in GitHub Actions. Writes:
 
@@ -23,7 +24,7 @@ re-fetched again (unless they were a transient error). A `poster_url: null`
 v2 entry still means "OMDb has nothing" and is not retried.
 
 Usage:
-    python tools/omdb_backfill.py                  # default 950 calls
+    python tools/omdb_backfill.py                  # default 800 calls
     python tools/omdb_backfill.py --max-calls 100  # smaller sample
     python tools/omdb_backfill.py --dry-run        # probe counts only
 """
@@ -135,7 +136,7 @@ def apply_cache_to_catalog(catalog, cache_entries):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--max-calls", type=int, default=950,
+    ap.add_argument("--max-calls", type=int, default=800,
                     help="Cap OMDb requests this run (free tier 1000/day).")
     ap.add_argument("--dry-run", action="store_true",
                     help="Print queue size only; no HTTP, no writes.")

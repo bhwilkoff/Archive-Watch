@@ -31,6 +31,15 @@ on:
         required: false
         default: 'false'
 
+# One run at a time: a run lasts hours and resumes from verdicts.jsonl on the
+# release, so two overlapping runs would decide the same films twice and the
+# later --clobber would erase the earlier one's verdicts. Its OWN fixed group,
+# not catalog-writers: a 5-hour holder there would leave the short catalog
+# writers queued behind it, and a group keeps only one pending run.
+concurrency:
+  group: subtitle-sync
+  cancel-in-progress: false
+
 # Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
 # the implicit default has no pipefail, so `tool | tee log` hid a crash).
 defaults:

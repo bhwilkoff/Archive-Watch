@@ -2,8 +2,11 @@ name: OMDb artwork backfill
 
 # Daily 1000-request budget pass against OMDb, targeting catalog items
 # that still show Archive first-frame thumbnails (or no artwork at all)
-# but have IMDb IDs. Free-tier OMDb is 1000 req/day; we cap at 950 to
-# stay clear of clock drift between CI and OMDb's rollover.
+# but have IMDb IDs. Free-tier OMDb is 1000 req/day and ONE key is shared
+# with the other OMDb workflows (metadata-enrich, discover-content,
+# match-unmatched, verify-matches, tv-canonical, backfill-language), so this
+# run takes 600 (the `|| '600'` below) and the script's own default is 800,
+# never the whole day: a run that spends it starves the rest with a quiet 401.
 #
 # The script operates on the committed catalogs + a persisted cache —
 # the 240 MB SQLite registry stays local. The cache negative-caches
