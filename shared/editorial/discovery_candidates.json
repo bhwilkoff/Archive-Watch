@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-22T12:19:08Z",
+  "updated_at": "2026-11-23T14:04:42Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 73562,
-    "new_this_run": 109,
-    "awaiting_ingest": 1119,
-    "with_archive_id": 65241
+    "total": 73575,
+    "new_this_run": 10,
+    "awaiting_ingest": 1020,
+    "with_archive_id": 65252
   },
   "candidates": [
     {
@@ -8125,6 +8125,33 @@
       "discovered_at": "2026-11-22T12:12:37Z"
     },
     {
+      "iaid": "tiger-on-the-beat-the-whole-tiger-affair",
+      "title": "Tiger On The Beat: The Whole Tiger Affair",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
+      "iaid": "bruce-lee-the-man-the-myth-1976NgSee-yuen",
+      "title": "Bruce Lee The Man, The Myth",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-23T13:59:15Z"
+    },
+    {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
       "title": "Drunken Master 醉拳 & Drunken Master II 醉拳 2 (GeekJuiceMedia) [Both ENG DUB & SUB]",
       "year": 2025,
@@ -10680,6 +10707,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "american-guerrilla-in-the-philippines-1950",
+      "title": "American Guerrilla In The Philippines (1950)",
+      "year": 2025,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
       "iaid": "20240229-r-7",
@@ -51657,6 +51698,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-18T12:28:09Z",
       "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
+      "iaid": "zimna-wojna-2018",
+      "title": "Cold War (2018)",
+      "year": 2018,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
       "iaid": "dead-girl-walking-reprise-heathers-musical-animatic",
@@ -256176,6 +256231,20 @@
       "ingested_at": "2026-11-17T12:50:12Z"
     },
     {
+      "iaid": "terrorizers-1986-twn",
+      "title": "Terrorizers (1986)",
+      "year": 1986,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
       "iaid": "ArchOfTriumph",
       "title": "Arch of Triumph",
       "year": 1985,
@@ -268171,6 +268240,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-18T12:28:09Z",
       "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
+      "iaid": "el-sur-1983",
+      "title": "El Sur (1983)",
+      "year": 1983,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
       "iaid": "piosenka",
@@ -387546,6 +387629,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-18T12:28:09Z",
       "ingested_at": "2026-11-18T12:35:42Z"
+    },
+    {
+      "iaid": "203365_Bunker_Hill_1956",
+      "title": "Bunker Hill 1956",
+      "year": 1956,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
       "wikidataQID": "Q1196288",
@@ -559349,6 +559446,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "employees-of-messrs-lumb-and-co.-leaving-the-works-huddersfield-1900-non-fiction-short-1900",
+      "title": "Employees of Messrs Lumb and Co. Leaving the Works, Huddersfield | 1900 | Non-Fiction, Short",
+      "year": 1900,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
       "wikidataQID": "Q2870319",
@@ -902883,6 +902994,49 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "cartoon-network-what-can-you-create-happy-meal-commercial-galaxy-unicorn-240p-h-264",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Cartoon Network - What Can You Create? ( Happy Meal Commercial)",
+      "year": null,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-22T12:18:17Z",
+      "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "203168_Hiroshima_Stills",
+      "title": "[Hiroshima Stills]",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
+      "iaid": "QAfQogBlYTqNPn7IBq9dW9WYNtDOII",
+      "title": "CASTLE FILMS NEWS PARADE OF 1950 STALIN'S BIRTHDAY BATTLE OF INCHON KOREAN WAR SEE 30374e XD1024",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T13:59:15Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -1007674,19 +1007828,49 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "cartoon-network-what-can-you-create-happy-meal-commercial-galaxy-unicorn-240p-h-264",
+      "iaid": "videoplayback-14_20261122",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Cartoon Network - What Can You Create? ( Happy Meal Commercial)",
-      "year": null,
+      "title": "Pepsi Emoji Commercial (2016)",
+      "year": 2016,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-22T12:18:17Z",
-      "ingested_at": "2026-11-22T12:19:08Z"
+      "discovered_at": "2026-11-23T14:03:48Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-sprout-online.com-promo-commercial-2013",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Sprout Online.com Promo Commercial (2013)",
+      "year": 2013,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T14:03:48Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
+      "iaid": "pepsi-emoji",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pepsi Emoji Commercial (2016)",
+      "year": 2016,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T14:03:48Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     }
   ]
 }
