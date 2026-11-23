@@ -6798,6 +6798,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2hq26vnif2d",
+   "platform": "bluesky",
+   "id": "manwithcamera4k",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-16T23:54:31.218502+00:00",
+   "sampled": "2026-11-23T03:46:24.781820+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117628816324093673",
+   "platform": "mastodon",
+   "id": "manwithcamera4k",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-16T23:54:31.218502+00:00",
+   "sampled": "2026-11-23T03:46:24.781820+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2umzjbm6u2n",
+   "platform": "bluesky",
+   "id": "gov.fdr.352.1.1",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-22T03:05:00.239268+00:00",
+   "sampled": "2026-11-23T03:46:24.781820+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
