@@ -20,7 +20,7 @@ studio_rights_coverage studio_rights_parity web_adult_gate hero_rule_parity
 search_rank_parity discovery_queue_merge private_derivative mcp_data bundle_series bundle_in_tvmaze
 best_rating tv_series_rating tv_episode_placement racist_caricature
 compilation_claims date_plausibility yearless_match_identity copyright_sibling title_identity_evidence merge_split_anchor catalog_release bake_fallbacks sqlite_atomic
-stock_attempts color_attempts codec_attempts
+stock_attempts color_attempts codec_attempts cover_attempts
 "
 fail=0; n=0
 for t in $TESTS; do

@@ -48,6 +48,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import frame_cover  # same dir; reuse its ffmpeg grab + crop primitives
+import attempt_ledger as L  # noqa: E402
+
+# A failed grab is recorded on the catalog as `coverTried`, which the workflow's
+# catalog_delta carries to the published catalog; it waits 1, 7, then 30 days
+# (attempt_ledger). The manifest alone could not do this: it lives on the
+# runner's disk and is never restored, so 259 of 300 items failed `no_frame`
+# in each of three runs, the same head every time (2026-11-23).
+# Bump when the grab changes, to retry every recorded failure once.
+COVER_VERSION = 1
 
 # On-device Apple Vision scorer (built from tools/CoverScorerCLI). When present,
 # it selects the cover (aesthetics + faces + text-card rejection) far better than
@@ -267,6 +276,11 @@ def main() -> int:
     done = load_done(manifest)
 
     work = select_items(items, args.content_type, args.retry_failed, done)
+    now = L.now_utc()
+    if not args.retry_failed:
+        work, backoff, capped = L.partition(
+            ((it, it.get("coverTried")) for it in work), now, COVER_VERSION)
+        print(L.summary("batch", len(work), len(backoff), [it.get("archiveID") for it in capped]))
     total_missing = sum(1 for it in items if needs_cover(it))
     if args.limit:
         work = work[:args.limit]
@@ -292,6 +306,7 @@ def main() -> int:
     # bounded by workers x one item, not by the whole queue.
     deadline = (started + args.max_minutes * 60) if args.max_minutes else None
     stopped_early = False
+    outcomes: dict[str, tuple[str, str]] = {}
 
     with open(manifest, "a") as mf, \
             ThreadPoolExecutor(max_workers=args.workers) as ex:
@@ -312,6 +327,8 @@ def main() -> int:
             with lock:
                 mf.write(json.dumps(rec) + "\n")
                 mf.flush()
+            outcomes[rec["archiveID"]] = (rec["status"],
+                                          rec.get("reason") or rec.get("error") or "")
             ok = rec["status"] == "ok"
             counts["ok" if ok else "fail"] += 1
             rate = i / max(time.time() - started, 1e-6)
@@ -319,6 +336,24 @@ def main() -> int:
             mark = "OK " if ok else "-- "
             print(f"[{i:>5}/{len(work)}] {mark}{rec['status']:9} "
                   f"{rec['archiveID'][:46]:46} | {rate*60:.1f}/min eta {eta/60:.0f}m")
+
+    # RECORD every outcome on the catalog, so the next run (a fresh runner with
+    # no manifest) knows what just failed.
+    by_id = {it.get("archiveID"): it for it in work}
+    changed = False
+    for aid, (status, reason) in outcomes.items():
+        it = by_id.get(aid)
+        if it is None:
+            continue
+        if status == "ok":
+            changed |= it.pop("coverTried", None) is not None
+        else:
+            it["coverTried"] = L.record(it.get("coverTried"), status, reason, now, COVER_VERSION)
+            changed = True
+    if changed:
+        tmp = args.catalog.with_suffix(".json.tmp")
+        json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
+        tmp.replace(args.catalog)
 
     dt = time.time() - started
     print(f"[batch] done: {counts['ok']} ok, {counts['fail']} fail in {dt/60:.1f}m")
