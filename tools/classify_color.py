@@ -39,9 +39,23 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import attempt_ledger as L  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 SAT_RE = re.compile(r"SATAVG=([0-9.]+)")
+
+# Bump when the probe changes, so every recorded failure gets one fresh try
+# (attempt_ledger). An unreadable item is written to `colorTried` and waits
+# 1, 7, then 30 days; after the 4th failure it is reported, not retried.
+#   1 — failures recorded; the probe identifies itself (2026-11-23).
+COLOR_CLASSIFY_VERSION = 1
+
+# The same identity stock-index found it needed: archive.org answers an
+# anonymous datacenter client with 401/403, and 1,195 of 1,200 probes a run
+# came back unreadable from the runner (2026-11-23).
+ARCHIVE_UA = "ArchiveWatch/1.0 (+https://archivewatch.org)"
 
 
 def video_url(it: dict):
@@ -59,7 +73,7 @@ def cover_url(it: dict):
     return None
 
 
-def _sat(args_in, frame_timeout: int = 90) -> float | None:
+def _sat(args_in, frame_timeout: int = 90) -> tuple[float | None, str]:
     """Run signalstats on one input (a URL + optional -ss seek) and read SATAVG.
 
     `frame_timeout` is a real measurement, not a formality. A targeted re-probe
@@ -68,18 +82,27 @@ def _sat(args_in, frame_timeout: int = 90) -> float | None:
     was killing live items and recording the verdict as a property of the film.
     A broad sweep still wants a short budget (it has thousands to get through);
     a targeted re-probe of a handful can afford to wait.
+
+    Returns (saturation, reason); the reason is ffmpeg's last words when it read
+    nothing, so a recorded failure says why.
     """
     try:
         err = subprocess.run(
-            ["ffmpeg", "-nostdin", "-rw_timeout", str(frame_timeout * 1_000_000),
+            ["ffmpeg", "-nostdin", "-user_agent", ARCHIVE_UA,
+             "-rw_timeout", str(frame_timeout * 1_000_000),
              *args_in,
              "-vf", "signalstats,metadata=print", "-frames:v", "1", "-an",
              "-f", "null", "-"],
             capture_output=True, text=True, timeout=frame_timeout + 30).stderr
         m = SAT_RE.search(err)
-        return float(m.group(1)) if m else None
-    except Exception:
-        return None
+        if m:
+            return float(m.group(1)), ""
+        last = [l.strip() for l in err.splitlines() if l.strip()]
+        return None, (last[-1][:160] if last else "no SATAVG in ffmpeg output")
+    except subprocess.TimeoutExpired:
+        return None, "ffmpeg timed out"
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}"[:160]
 
 
 # Fixed sample offsets for the video path — no separate ffprobe round-trip. The
@@ -89,28 +112,27 @@ VIDEO_OFFSETS = (20, 120, 420)
 
 
 def classify(it: dict, threshold: float, frame_timeout: int = 90):
-    """Return ("color"|"bw", mean_saturation) or (None, None) if unreadable.
+    """Return ("color"|"bw", mean_saturation, "") or (None, None, reason) if unreadable.
 
     FAST PATH: if the item has a hosted cover frame, read its saturation in one
     tiny fetch. Only trust it when CONFIDENT (clear of the threshold) — an
     ambiguous single frame falls through to multi-frame video sampling."""
     cu = cover_url(it)
     if cu:
-        s = _sat([*("-i", cu)], frame_timeout)
+        s, _ = _sat([*("-i", cu)], frame_timeout)
         if s is not None and (s < threshold - 3 or s > threshold + 4):
-            return ("bw" if s < threshold else "color"), round(s, 2)
+            return ("bw" if s < threshold else "color"), round(s, 2), ""
         # ambiguous single frame -> verify against the video below
 
     vu = video_url(it)
     if not vu:
-        return None, None
-    sats = [s for s in (_sat(["-ss", str(t), "-i", vu], frame_timeout)
-                        for t in VIDEO_OFFSETS)
-            if s is not None]
+        return None, None, "no video URL"
+    reads = [_sat(["-ss", str(t), "-i", vu], frame_timeout) for t in VIDEO_OFFSETS]
+    sats = [s for s, _ in reads if s is not None]
     if not sats:
-        return None, None
+        return None, None, next((r for _, r in reads if r), "unreadable")
     avg = sum(sats) / len(sats)
-    return ("bw" if avg < threshold else "color"), round(avg, 2)
+    return ("bw" if avg < threshold else "color"), round(avg, 2), ""
 
 
 def main() -> int:
@@ -168,6 +190,14 @@ def main() -> int:
                     or (only is None and it.get("colorMode") == "bw"
                         and it.get("colorSat") is None and (it.get("year") or 0) >= 1960))]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
+    # Skip what failed recently (attempt_ledger) BEFORE --limit, or the same
+    # unreadable head fills every run. A named re-probe or --refresh is a
+    # deliberate request and is not held back.
+    now = L.now_utc()
+    if only is None and not args.refresh:
+        targets, backoff, capped = L.partition(
+            ((it, it.get("colorTried")) for it in targets), now, COLOR_CLASSIFY_VERSION)
+        print(L.summary("color", len(targets), len(backoff), [it.get("archiveID") for it in capped]))
     if args.limit:
         targets = targets[:args.limit]
     print(f"[color] {len(targets)} items to classify "
@@ -192,7 +222,7 @@ def main() -> int:
                 for it in targets}
         for fut in as_completed(futs):
             it = futs[fut]
-            mode, avg = fut.result()
+            mode, avg, reason = fut.result()
             if mode:
                 if deltas:
                     deltas.write(json.dumps({"archiveID": it.get("archiveID"),
@@ -202,8 +232,17 @@ def main() -> int:
                     it["colorMode"] = mode
                     if avg is not None:
                         it["colorSat"] = avg
+                    it.pop("colorTried", None)
                 color += (mode == "color"); bw += (mode == "bw")
             else:
+                # RECORD IT. An unrecorded failure is one the next run retries.
+                rec = L.record(it.get("colorTried"), "unreadable", reason, now,
+                               COLOR_CLASSIFY_VERSION)
+                if deltas:
+                    deltas.write(json.dumps({"archiveID": it.get("archiveID"),
+                                             "colorTried": rec}) + "\n")
+                else:
+                    it["colorTried"] = rec
                 fail += 1
             done += 1
             if done % 100 == 0 or done == len(targets):
@@ -235,9 +274,13 @@ def apply_deltas(cat, items, path: Path) -> int:
         if it is None:
             missing += 1
             continue
-        it["colorMode"] = d["colorMode"]
-        if d.get("colorSat") is not None:
-            it["colorSat"] = d["colorSat"]
+        if d.get("colorMode"):
+            it["colorMode"] = d["colorMode"]
+            if d.get("colorSat") is not None:
+                it["colorSat"] = d["colorSat"]
+            it.pop("colorTried", None)
+        elif d.get("colorTried"):
+            it["colorTried"] = d["colorTried"]
         applied += 1
     tmp = CATALOG.with_suffix(".json.tmp")
     json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
