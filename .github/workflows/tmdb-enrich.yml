@@ -7,9 +7,10 @@ name: TMDb metadata enrich
 # it keeps newly-matched items enriched automatically as the catalog grows.
 #
 # TMDb is the no-daily-cap text/credits source (Decision 007), so unlike the
-# OMDb backfill this needs no committed negative-cache budget — it simply
-# re-fetches each run (a few minutes) and fills only currently-empty fields
-# (never overwrites, never fabricates, skips TMDb-empty).
+# OMDb backfill this needs no committed negative-cache budget. It fills only
+# currently-empty fields (never overwrites, never fabricates, skips TMDb-empty),
+# and a gap TMDb cannot fill is recorded on the item (`tmdbFillTried`) and
+# backs off 1/7/30 days instead of being re-fetched every day (2026-11-23).
 
 on:
   schedule:

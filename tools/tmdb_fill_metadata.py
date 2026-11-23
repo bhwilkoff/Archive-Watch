@@ -34,6 +34,13 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tmdb_lib as T  # noqa: E402
+import attempt_ledger as L  # noqa: E402
+
+# An item whose gap TMDb cannot fill (its record is empty too, or /find does not
+# know the imdbID) is recorded in `tmdbFillTried` and waits 1, 7, then 30 days
+# (attempt_ledger). Before, every daily run re-fetched all of them: the same
+# ~3,400 misses a day. Bump to retry every recorded miss once.
+TMDB_FILL_VERSION = 1
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -97,8 +104,11 @@ def main() -> int:
     items = catalog["items"]
 
     # 1) Resolve imdbID-only empty-synopsis items → tmdbID (so the main pass fills them).
+    now = L.now_utc()
     imdb_only = [it for it in items if not _syn(it) and it.get("imdbID")
                  and not it.get("tmdbID")]
+    imdb_only, b1, c1 = L.partition(((it, it.get("tmdbFillTried")) for it in imdb_only),
+                                    now, TMDB_FILL_VERSION)
     print(f"[tmdb-meta] resolving {len(imdb_only)} imdbID-only items via /find", flush=True)
     resolved = 0
     with cf.ThreadPoolExecutor(max_workers=8) as ex:
@@ -109,14 +119,24 @@ def main() -> int:
                 tid = f.result()
             except Exception:  # noqa: BLE001
                 pass
+            it = futs[f]
             if tid:
-                futs[f]["tmdbID"] = tid
+                it["tmdbID"] = tid
+                it.pop("tmdbFillTried", None)
                 resolved += 1
+            else:
+                it["tmdbFillTried"] = L.record(it.get("tmdbFillTried"), "no_match",
+                                               f"TMDb /find knows no {it['imdbID']}", now,
+                                               TMDB_FILL_VERSION)
     print(f"[tmdb-meta] resolved {resolved} new tmdbIDs from imdbID", flush=True)
 
     # 2) Main pass: any tmdbID item missing synopsis/cast/director.
     targets = [it for it in items if it.get("tmdbID") and
                (not _syn(it) or _blank(it.get("cast")) or _blank(it.get("director")))]
+    targets, b2, c2 = L.partition(((it, it.get("tmdbFillTried")) for it in targets),
+                                  now, TMDB_FILL_VERSION)
+    print(L.summary("tmdb-meta", len(imdb_only) + len(targets), len(b1) + len(b2),
+                    [it.get("archiveID") for it in c1 + c2]), flush=True)
     print(f"[tmdb-meta] {len(targets)} tmdbID items with a fillable gap", flush=True)
 
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
@@ -147,6 +167,8 @@ def main() -> int:
     for it in targets:
         rec = cache.get(str(it["tmdbID"]))
         if not rec:
+            it["tmdbFillTried"] = L.record(it.get("tmdbFillTried"), "error",
+                                           "TMDb detail fetch failed", now, TMDB_FILL_VERSION)
             continue
         if not _syn(it) and rec.get("plot") and len(rec["plot"]) > 20:
             it["synopsis"] = rec["plot"]; s_fill += 1
@@ -154,6 +176,13 @@ def main() -> int:
             it["cast"] = rec["cast"]; c_fill += 1
         if _blank(it.get("director")) and rec.get("director"):
             it["director"] = rec["director"]; d_fill += 1
+        still = [k for k, empty in (("synopsis", not _syn(it)), ("cast", _blank(it.get("cast"))),
+                                    ("director", _blank(it.get("director")))) if empty]
+        if still:
+            it["tmdbFillTried"] = L.record(it.get("tmdbFillTried"), "no_data",
+                                           "TMDb has no " + ", ".join(still), now, TMDB_FILL_VERSION)
+        else:
+            it.pop("tmdbFillTried", None)
 
     CATALOG.write_text(json.dumps(catalog, ensure_ascii=False))
     print(f"[tmdb-meta] filled synopsis={s_fill} cast={c_fill} director={d_fill} "
