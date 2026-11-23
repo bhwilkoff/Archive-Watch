@@ -21,6 +21,7 @@ search_rank_parity discovery_queue_merge private_derivative mcp_data bundle_seri
 best_rating tv_series_rating tv_episode_placement racist_caricature
 compilation_claims date_plausibility yearless_match_identity copyright_sibling title_identity_evidence merge_split_anchor catalog_release bake_fallbacks sqlite_atomic
 stock_attempts color_attempts codec_attempts cover_attempts subsync_attempts word_attempts
+wiki_attempts subindex_attempts tmdb_fill_attempts
 "
 fail=0; n=0
 for t in $TESTS; do
