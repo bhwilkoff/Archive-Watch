@@ -21,7 +21,15 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import attempt_ledger as L  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
+# Every item with no P18 image is recorded in `wdPosterTried` and waits 1, 7,
+# then 30 days (attempt_ledger); the same ~593 used to be re-queried weekly.
+# Bump to retry every recorded miss once.
+POSTERS_VERSION = 1
 CATALOG = REPO / "catalog.json"
 WD_API = "https://www.wikidata.org/w/api.php"
 UA = "ArchiveWatch/1.0 (+https://github.com/bhwilkoff/Archive-Watch)"
@@ -39,7 +47,7 @@ def commons_url(filename, width=600):
 
 
 def fetch_p18(qids):
-    """Return {qid: image_filename} for the P18 (image) claim of each QID."""
+    """Return ({qid: image_filename}, error) for each QID's P18 claim; error is "" on success."""
     ids = "|".join(qids)
     url = WD_API + "?" + urllib.parse.urlencode({
         "action": "wbgetentities", "ids": ids, "props": "claims",
@@ -58,7 +66,8 @@ def fetch_p18(qids):
                     out[qid] = val
     except Exception as e:
         print(f"[wd-posters] batch error: {type(e).__name__}: {e}", flush=True)
-    return out
+        return out, f"wikidata: {type(e).__name__}: {e}"[:160]
+    return out, ""
 
 
 def main():
@@ -70,6 +79,11 @@ def main():
 
     cat = json.loads(CATALOG.read_text(encoding="utf-8"))
     cands = candidates(cat["items"])
+    now = L.now_utc()
+    cands, backoff, capped = L.partition(
+        ((it, it.get("wdPosterTried")) for it in cands), now, POSTERS_VERSION)
+    print(L.summary("wd-posters", len(cands), len(backoff), [it.get("archiveID") for it in capped]),
+          flush=True)
     if args.limit:
         cands = cands[:args.limit]
     print(f"[wd-posters] candidates (QID + no real artwork): {len(cands)}", flush=True)
@@ -86,12 +100,21 @@ def main():
     filled = 0
     for i in range(0, len(qids), BATCH):
         chunk = qids[i:i+BATCH]
-        for qid, fname in fetch_p18(chunk).items():
+        found, err = fetch_p18(chunk)
+        for qid in chunk:
+            if qid in found:
+                continue
+            for it in by_qid.get(qid, []):
+                it["wdPosterTried"] = L.record(it.get("wdPosterTried"),
+                                               "error" if err else "no_image",
+                                               err or "no P18 image on Wikidata", now, POSTERS_VERSION)
+        for qid, fname in found.items():
             url = commons_url(fname)
             for it in by_qid.get(qid, []):
                 it["posterURL"] = url
                 it["artworkSource"] = "commons"
                 it["hasRealArtwork"] = True
+                it.pop("wdPosterTried", None)
                 filled += 1
         time.sleep(args.throttle)
     print(f"[wd-posters] filled posters: {filled}", flush=True)
@@ -102,5 +125,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import sys
     sys.exit(main())

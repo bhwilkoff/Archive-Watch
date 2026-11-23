@@ -54,6 +54,10 @@ FEATURED = REPO / "featured.json"
 # Adult-collection markers (Decision 012), from featured.json with a fallback.
 # isAdult is computed at build time so the app filters via a WHERE clause
 # instead of scanning each item's collections at runtime.
+LEDGER_FIELDS = frozenset({"colorTried", "codecProbeTried", "coverTried",
+                           "wpSynopsisTried", "wdPosterTried", "tmdbFillTried"})
+
+
 def _slim_for_blob(it):
     """The item as SHIPPED in item_json, with the noise stripped out.
 
@@ -68,11 +72,15 @@ def _slim_for_blob(it):
     the full archive is live. This is the cheapest slice of that to give back.
     """
     out = None
+    # Pipeline bookkeeping (attempt_ledger records: what failed, when, why) is
+    # for the next scheduled run, never for a client.
+    if any(k in it for k in LEDGER_FIELDS):
+        out = {k: v for k, v in it.items() if k not in LEDGER_FIELDS}
     cols = it.get("collections")
     if cols:
         kept = [c for c in cols if not str(c).startswith("fav-")]
         if len(kept) != len(cols):
-            out = dict(it)
+            out = out if out is not None else dict(it)
             out["collections"] = kept
     # The rights audit's verdict rides in the blob, because the clients decode
     # Catalog.Item FROM the blob — an `items` column alone would be invisible
