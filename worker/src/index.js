@@ -47,8 +47,10 @@ function shape(raw) {
     return "/other";
   }
   if (p === "" || p === "/" || p === "/index.html") return "/";
-  if (p.startsWith("/item/")) return "/item";
-  if (p.startsWith("/series/")) return "/series";
+  // Bare "/item" and "/series" are what a batched beacon sends: the client
+  // keys routes by surface, so a film id never sits in a route key.
+  if (p === "/item" || p.startsWith("/item/")) return "/item";
+  if (p === "/series" || p.startsWith("/series/")) return "/series";
   if (p.startsWith("/curate")) return "/curate";
   if (p.startsWith("/pulse")) return "/pulse";
   // The viewer's own surfaces, which arrive as hash routes. Without these every
@@ -86,6 +88,46 @@ function titleOf(raw, k) {
   // picked it). Summing them would answer none of the three.
   const kind = k === "play" ? "play" : k === "ambient" ? "ambient" : "open";
   return { id: (m[1] === "series" ? "series:" : "") + m[2], kind };
+}
+
+// Caps on one batch, so a crafted body cannot write more than a busy visit
+// would: a bounded number of rows, each with a bounded count.
+const BATCH_ROUTES = 32, BATCH_TITLES = 20, BATCH_COUNT_MAX = 500;
+const countOf = (n) => Math.min(BATCH_COUNT_MAX, Math.max(1, Math.floor(Number(n) || 1)));
+
+function addTitle(titles, t, n) {
+  if (!t) return;
+  const key = `${t.id}|${t.kind}`;
+  const prev = titles.get(key);
+  titles.set(key, { ...t, n: Math.min(BATCH_COUNT_MAX, (prev ? prev.n : 0) + n) });
+}
+
+function countsOfLegacy(raw, k) {
+  const views = new Map([[shape(raw), 1]]);
+  const titles = new Map();
+  addTitle(titles, titleOf(raw, k), 1);
+  return { views, titles };
+}
+
+// { visit: 1, routes: { "/item": 3, ... }, titles: [{ p, k?, n? }, ...] }
+// Duplicate routes (and routes that shape alike) fold into one row each. A
+// route cannot forge a visit: only `visit` counts one, and only one.
+function countsOfBatch(b) {
+  const views = new Map();
+  const titles = new Map();
+  if (b.visit) views.set("(visit)", 1);
+  const routes = b.routes && typeof b.routes === "object" ? Object.entries(b.routes) : [];
+  for (const [raw, n] of routes.slice(0, BATCH_ROUTES)) {
+    if (raw === "(visit)") continue;
+    const path = shape(raw);
+    views.set(path, Math.min(BATCH_COUNT_MAX, (views.get(path) || 0) + countOf(n)));
+  }
+  const list = Array.isArray(b.titles) ? b.titles : [];
+  for (const t of list.slice(0, BATCH_TITLES)) {
+    if (!t || typeof t.p !== "string") continue;
+    addTitle(titles, titleOf(t.p, t.k), countOf(t.n));
+  }
+  return { views, titles };
 }
 
 const cors = {
@@ -140,39 +182,55 @@ export default {
 
     // The beacon. Answers 204 with no body: nothing is set, nothing returned,
     // and a failure here must never be visible to a reader of the site.
-    if (url.pathname === "/beacon" && request.method === "POST") {
+    //
+    // Two shapes. The LEGACY one is one route per request (`?p=&k=`). The
+    // BATCHED one is a whole visit in one body, sent once when the page is
+    // hidden (owner, 2026-11-23: "We should not be anywhere close to the limits
+    // on any plan if we are using them correctly" — one request per route was
+    // 40% of the shared free account's daily Worker requests). The client posts
+    // batches to /beacon/v2 so a Worker that predates this falls through to the
+    // root handler and writes nothing, rather than miscounting the body as "/".
+    //
+    // A batch is aggregated HERE, on arrival, into the same day | thing | count
+    // rows as before and never stored as a batch: which titles shared a visit
+    // exists only for the length of this request.
+    if ((url.pathname === "/beacon" || url.pathname === "/beacon/v2") &&
+        request.method === "POST") {
       const day = new Date().toISOString().slice(0, 10);
-      const raw = url.searchParams.get("p") || "/";
-      const path = shape(raw);
+      let batch = null;
       try {
-        await env.DB.prepare(
-          "INSERT INTO views (day, path, count) VALUES (?1, ?2, 1) " +
-          "ON CONFLICT(day, path) DO UPDATE SET count = count + 1"
-        ).bind(day, path).run();
-      } catch {
-        // A counter is not worth an error page.
-      }
-      // WHICH TITLE, in its OWN table. The `views` table above is untouched
-      // and still holds exactly what privacy.html describes; this is a second
+        const text = await request.text();
+        if (text && text.length <= 8192) {
+          const b = JSON.parse(text);
+          if (b && typeof b === "object" && !Array.isArray(b)) batch = b;
+        }
+      } catch { /* not a batch */ }
+      const { views, titles } = batch
+        ? countsOfBatch(batch)
+        : countsOfLegacy(url.searchParams.get("p") || "/", url.searchParams.get("k"));
+      // WHICH TITLE, in its OWN table. The `views` table is untouched and still
+      // holds exactly what privacy.html describes; `titles` is a second
       // aggregate at the same grain — day, thing, count — and nothing else.
-      //
-      // It is the same shape of row as `/browse | 412`, about a FILM rather
-      // than a surface. Still no IP, no cookie, no session or visitor id, no
-      // user agent, no referrer, no country, no time of day — so a row here
-      // cannot be joined to a person, to another row, or to a second visit,
-      // including by us.
+      // Still no IP, no cookie, no session or visitor id, no user agent, no
+      // referrer, no country, no time of day.
       //
       // `kind` keeps OPENED apart from PLAYED, because they are different
-      // measurements and summing them would answer neither question: a detail
-      // page opened is interest, a film played is an audience.
-      const t = titleOf(raw, url.searchParams.get("k"));
-      if (t) {
-        try {
-          await env.DB.prepare(
-            "INSERT INTO titles (day, id, kind, count) VALUES (?1, ?2, ?3, 1) " +
-            "ON CONFLICT(day, id, kind) DO UPDATE SET count = count + 1"
-          ).bind(day, t.id, t.kind).run();
-        } catch { /* same rule: a counter is not worth an error page */ }
+      // measurements and summing them would answer neither question.
+      const stmts = [];
+      for (const [path, n] of views) {
+        stmts.push(env.DB.prepare(
+          "INSERT INTO views (day, path, count) VALUES (?1, ?2, ?3) " +
+          "ON CONFLICT(day, path) DO UPDATE SET count = count + excluded.count"
+        ).bind(day, path, n));
+      }
+      for (const t of titles.values()) {
+        stmts.push(env.DB.prepare(
+          "INSERT INTO titles (day, id, kind, count) VALUES (?1, ?2, ?3, ?4) " +
+          "ON CONFLICT(day, id, kind) DO UPDATE SET count = count + excluded.count"
+        ).bind(day, t.id, t.kind, t.n));
+      }
+      if (stmts.length) {
+        try { await env.DB.batch(stmts); } catch { /* a counter is not worth an error page */ }
       }
       return new Response(null, { status: 204, headers: cors });
     }
@@ -313,7 +371,7 @@ export default {
       }
     }
 
-    return new Response("archivewatch-pulse: /beacon, /views, /titles, /ingest/<vendor>, /drops", {
+    return new Response("archivewatch-pulse: /beacon, /beacon/v2, /views, /titles, /ingest/<vendor>, /drops", {
       status: 200, headers: { ...cors, "Content-Type": "text/plain" },
     });
   },

@@ -62,7 +62,7 @@ check("...and hashchange still records the route",
    is blocked. */
 {
   const beaconSrc = watch.slice(watch.indexOf("function awOnWebsite"),
-                                watch.indexOf("addEventListener(\"hashchange\""));
+                                watch.indexOf("addEventListener(\"hashchange\"", watch.indexOf("function awOnWebsite")));
   check("the beacon is gated on running as a website",
         /\/\^https\?:\$\/\.test\(location\.protocol\)/.test(beaconSrc), true);
   check("...and awCount refuses when it is not",
@@ -78,6 +78,44 @@ check("...and hashchange still records the route",
   } else {
     console.log("  --   tizen not staged, skipping the packaged-copy check");
   }
+}
+
+/* THE WORKER: accepts the batched body, keeps the legacy single-route shape,
+   writes with ONE env.DB.batch, one upsert per distinct row. */
+const worker = (await import("../worker/src/index.js")).default;
+function stubDB() {
+  const db = { batches: [], runs: [] };
+  db.prepare = (sql) => ({ sql, bind: (...args) => ({ sql, args, run: async () => { db.runs.push({ sql, args }); return {}; } }) });
+  db.batch = async (stmts) => { db.batches.push(stmts.map((s) => ({ sql: s.sql, args: s.args }))); return []; };
+  return db;
+}
+const rows = (db) => [...db.batches.flat(), ...db.runs].map(({ sql, args }) =>
+  [/INTO views/.test(sql) ? "views" : "titles", ...args.slice(1)]).sort((a, b) => JSON.stringify(a) < JSON.stringify(b) ? -1 : 1);
+{
+  const db = stubDB();
+  const body = JSON.stringify({ visit: 1, routes: { "/item": 3, "/browse?type=film": 1, "/browse": 1, "(visit)": 9 },
+    titles: [{ p: "/item/Metropolis", n: 2 }, { p: "/item/Metropolis", n: 1 }, { p: "/item/nosferatu", k: "play" }, { p: "/list/x" }] });
+  const r = await worker.fetch(new Request("https://w.example/beacon/v2", { method: "POST", body, headers: { "Content-Type": "text/plain" } }), { DB: db });
+  check("batched body answers 204", r.status, 204);
+  check("...in ONE env.DB.batch", [db.batches.length, db.runs.length], [1, 0]);
+  check("...duplicate routes aggregated, a route cannot forge a visit, ids keep their case", rows(db), [
+    ["titles", "Metropolis", "open", 3], ["titles", "nosferatu", "play", 1],
+    ["views", "(visit)", 1], ["views", "/browse", 2], ["views", "/item", 3],
+  ]);
+}
+{
+  const db = stubDB();
+  const body = JSON.stringify({ visit: 0, routes: { "/item": 99999 } });
+  await worker.fetch(new Request("https://w.example/beacon", { method: "POST", body }), { DB: db });
+  check("a batch to /beacon works too, and counts are capped", rows(db), [["views", "/item", 500]]);
+}
+{
+  const db = stubDB();
+  await worker.fetch(new Request("https://w.example/beacon?p=%2Fitem%2Fmetropolis&k=play", { method: "POST" }), { DB: db });
+  check("legacy single-route beacon still counts route and title", rows(db), [["titles", "metropolis", "play", 1], ["views", "/item", 1]]);
+  const db2 = stubDB();
+  await worker.fetch(new Request("https://w.example/beacon?p=(visit)", { method: "POST" }), { DB: db2 });
+  check("...and a legacy visit", rows(db2), [["views", "(visit)", 1]]);
 }
 
 console.log(`\n${pass} passed, ${fail} failed`);
