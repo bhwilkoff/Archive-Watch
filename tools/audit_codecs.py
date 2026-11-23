@@ -26,8 +26,16 @@ Usage (inside the fetch/publish wrap):
   python tools/audit_codecs.py [--limit N] [--workers 6] [--dry-run]
   python tools/catalog_release.py publish
 """
-import argparse, json, subprocess, time, urllib.parse, urllib.request
+import argparse, json, subprocess, sys, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import attempt_ledger as L  # noqa: E402
+
+# A failed probe is recorded in `codecProbeTried` and waits 1, 7, then 30 days
+# (attempt_ledger); bump this when the probe changes to retry them all once.
+CODEC_AUDIT_VERSION = 1
 
 CATALOG = "catalog.json"
 SAFE_FORMAT_TOKENS = ("264",)          # "h.264", "h.264 IA", ... = derived h264
@@ -48,15 +56,21 @@ def needs_probe(item):
 
 
 def probe(url):
+    """(codec, "") or (None, reason) — the reason is kept so a recorded failure says why."""
     try:
         out = subprocess.run(
             ["ffprobe", "-v", "error", "-select_streams", "v:0",
              "-show_entries", "stream=codec_name", "-of", "csv=p=0", url],
             capture_output=True, text=True, timeout=90)
         codec = out.stdout.strip().splitlines()[0].strip() if out.stdout.strip() else ""
-        return codec or None
-    except Exception:
-        return None
+        if codec:
+            return codec, ""
+        err = [l.strip() for l in out.stderr.splitlines() if l.strip()]
+        return None, (err[-1][:160] if err else "no video stream reported")
+    except subprocess.TimeoutExpired:
+        return None, "ffprobe timed out"
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}"[:160]
 
 
 def h264_derivative(item_id, current_name):
@@ -103,6 +117,8 @@ def apply_deltas(catalog, path):
             if item is None:
                 continue
             item.update(rec)
+            if rec.get("videoCodec"):
+                item.pop("codecProbeTried", None)
             applied += 1
     # SELF-HEAL. `excluded` is shared state and another tool can strip it —
     # audit_rights.py's reconcile did exactly that to all 137 undecodable films
@@ -155,6 +171,12 @@ def main():
 
     targets = [i for i in catalog["items"] if needs_probe(i)]
     targets.sort(key=lambda i: -(i.get("popularityScore") or 0))
+    # Skip recent failures BEFORE --limit, or the same unprobeable head fills
+    # every run (attempt_ledger).
+    now = L.now_utc()
+    targets, backoff, capped = L.partition(
+        ((i, i.get("codecProbeTried")) for i in targets), now, CODEC_AUDIT_VERSION)
+    print(L.summary("codec", len(targets), len(backoff), [i.get("archiveID") for i in capped]))
     if args.limit:
         targets = targets[: args.limit]
     print(f"probing {len(targets)} items", flush=True)
@@ -168,16 +190,26 @@ def main():
         return item, probe(item["downloadURL"])
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        for n, (item, codec) in enumerate(pool.map(work, targets)):
+        for n, (item, (codec, reason)) in enumerate(pool.map(work, targets)):
             if budget and time.monotonic() - started > budget:
                 stopped_early = True
                 print(f"  budget reached at {n}/{len(targets)} — stopping so the "
                       f"caller can publish", flush=True)
                 break
             if codec is None:
-                continue           # transient — never condemn on a failed probe
+                # Never condemn on a failed probe, but RECORD it, or the next
+                # run probes exactly the same items again.
+                tried = L.record(item.get("codecProbeTried"), "unreadable", reason, now,
+                                 CODEC_AUDIT_VERSION)
+                item["codecProbeTried"] = tried
+                if deltas:
+                    deltas.write(json.dumps({"archiveID": item["archiveID"],
+                                             "codecProbeTried": tried}) + "\n")
+                    deltas.flush()
+                continue
             stamped += 1
             item["videoCodec"] = codec
+            item.pop("codecProbeTried", None)
             if deltas:
                 rec = {"archiveID": item["archiveID"], "videoCodec": codec}
             if codec in APPLE_OK:
