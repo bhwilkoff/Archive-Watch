@@ -3,12 +3,17 @@ name: Stock shot index (#6/#7)
 # Creation Studio #6/#7 (Decision 042): detect REAL shot boundaries in clippable films via ffmpeg
 # scene detection (tools/build_stock_index.py) and publish clips.sqlite for the macOS stock-shot
 # browser. SHARDED across N runners (#7 — the single-runner 60/day was far too thin), each over a
-# disjoint popularity-interleaved slice, every 6h. A merge job unions the shard outputs into the
+# disjoint popularity-interleaved slice, daily. A merge job unions the shard outputs into the
 # published index. Resumable: shards skip films already in the existing index.
 
 on:
   schedule:
-    - cron: '0 */6 * * *'          # every 6h — 8 shards × per_shard films each run
+    # DAILY, not every 6h (2026-11-23). Four runs a day existed to push through
+    # a backlog that was really the same ~2,354 failures re-scanned each time.
+    # With failures recorded (attempt_ledger) and the scdet threshold fixed,
+    # one run of 8 x 150 clears most of the ~2,360 waiting films in two days,
+    # and after that only newly discovered films are left to scan.
+    - cron: '0 5 * * *'            # stock-tags (09:00) tags what this adds
   workflow_dispatch:
     inputs:
       per_shard:
