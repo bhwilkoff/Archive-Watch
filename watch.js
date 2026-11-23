@@ -5118,21 +5118,12 @@
    IP, no referrer, no user agent — nothing joinable to a person or to a second
    visit, including by us. See privacy.html and worker/src/index.js.
 
-   ONE BEACON PER VISIT, not one per route (owner, 2026-11-23: "We should not
-   be anywhere close to the limits on any plan if we are using them
-   correctly"). Counts gather in memory and go once, with sendBeacon, when the
-   page is hidden or left: { visit, routes: { "/item": 3 }, titles: [...] }.
-   Routes are keyed by SURFACE, so a film id is only ever in `titles`, which
-   carries what the per-route beacon always recorded. Every failure is
-   swallowed: a counter is never worth a broken page. */
+   `keepalive` so a view still counts when the reader leaves immediately, and
+   every failure is swallowed: a counter is never worth a broken page. */
 // Set by tools/set_counter_origin.py after `wrangler deploy` prints the URL.
 // Empty means the counter is not deployed, and then nothing is sent at all.
 const AW_BEACON_ORIGIN = "https://archivewatch-pulse.benwilkoff.workers.dev";
-// /beacon/v2, not /beacon: a Worker that predates batching answers this path
-// from its root handler and writes nothing, rather than counting the body as "/".
-const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon/v2` : "";
-const AW_TITLE_CAP = 20;
-let awVisit = 1, awRoutes = {}, awTitles = new Map();
+const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon` : "";
 /* THE PACKAGED APPS MUST NEVER BEACON. privacy.html says, in these words,
    "The apps collect nothing at all. The website keeps one aggregate counter" —
    so the counter is a property of the WEBSITE, and the same watch.js shipped
@@ -5146,24 +5137,10 @@ function awOnWebsite() {
 }
 function awCount(p, kind) {
   if (!AW_BEACON || !awOnWebsite()) return;
-  const surface = "/" + (p.split("?")[0].split("/")[1] || "");
-  awRoutes[surface] = (awRoutes[surface] || 0) + 1;
-  if (!/^\/(item|series)\/[^/]+\/?$/.test(p)) return;
-  const key = `${p}|${kind || ""}`;
-  if (!awTitles.has(key) && awTitles.size >= AW_TITLE_CAP) awFlush();
-  const t = awTitles.get(key) || (kind ? { p, k: kind, n: 0 } : { p, n: 0 });
-  t.n++;
-  awTitles.set(key, t);
-}
-function awFlush() {
-  if (!AW_BEACON || !awOnWebsite()) return;
-  if (!awVisit && !Object.keys(awRoutes).length && !awTitles.size) return;
-  const body = JSON.stringify({ visit: awVisit, routes: awRoutes, titles: [...awTitles.values()] });
-  awVisit = 0; awRoutes = {}; awTitles = new Map();
   try {
-    if (navigator.sendBeacon && navigator.sendBeacon(AW_BEACON, body)) return;
-    fetch(AW_BEACON, { method: "POST", mode: "cors", keepalive: true, cache: "no-store",
-                       headers: { "Content-Type": "text/plain" }, body })
+    const k = kind ? `&k=${encodeURIComponent(kind)}` : "";
+    fetch(`${AW_BEACON}?p=${encodeURIComponent(p)}${k}`,
+          { method: "POST", mode: "cors", keepalive: true, cache: "no-store" })
       .catch(() => {});
   } catch (_) {}
 }
@@ -5188,11 +5165,8 @@ function awRoute() {
 }
 /* A VISIT and a ROUTE VIEW are different things and must never be added
    together: one page load that walks six surfaces is one visit and seven
-   route views. `visit: 1` rides only the first beacon of a page load so the
-   dashboard can say both, rather than reporting navigation as audience. */
+   beacons. The visit is recorded under its own key so the dashboard can say
+   both, rather than reporting navigation as audience. */
+awCount("(visit)");
 awCount(awRoute());
 addEventListener("hashchange", () => awCount(awRoute()));
-addEventListener("pagehide", awFlush);
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") awFlush();
-});

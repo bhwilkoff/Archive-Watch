@@ -48,6 +48,10 @@ const watch = fs.readFileSync("watch.js", "utf8");
 const beacon = watch.slice(watch.indexOf("function awCount"));
 check("the client sends the hash route, not pathname",
       /location\.hash/.test(beacon) && /function awRoute/.test(beacon), true);
+check("...a visit is recorded under its own key",
+      /awCount\("\(visit\)"\)/.test(beacon), true);
+check("...exactly once, not on every hashchange",
+      (beacon.match(/awCount\("\(visit\)"\)/g) || []).length, 1);
 check("...and hashchange still records the route",
       /hashchange".*awCount\(awRoute\(\)\)/s.test(beacon), true);
 
@@ -74,87 +78,6 @@ check("...and hashchange still records the route",
   } else {
     console.log("  --   tizen not staged, skipping the packaged-copy check");
   }
-}
-
-/* ONE BEACON PER VISIT (owner, 2026-11-23: "We should not be anywhere close to
-   the limits on any plan if we are using them correctly"). Every hashchange used
-   to send its own request — ~2.7 Worker requests and D1 upserts per visit, 40%
-   of the shared free account's daily requests on Nov 18. The client now counts
-   in memory and sends once, when the page is hidden or left. Run the REAL
-   counter section of watch.js in a DOM shim. */
-import vm from "node:vm";
-const J = (s) => { try { return JSON.parse(s); } catch { return {}; } };
-function runCounter({ hash = "#/browse", sendBeaconOk = true, withSendBeacon = true, protocol = "https:" } = {}) {
-  const sent = [];
-  const listeners = {}, docListeners = {};
-  const location = { protocol, pathname: "/", hash };
-  const document = { visibilityState: "visible",
-    addEventListener: (t, f) => (docListeners[t] ||= []).push(f) };
-  const navigator = {};
-  if (withSendBeacon) navigator.sendBeacon = (url, body) => { sent.push({ via: "sendBeacon", url, body: String(body) }); return sendBeaconOk; };
-  const ctx = {
-    location, document, navigator, console,
-    addEventListener: (t, f) => (listeners[t] ||= []).push(f),
-    fetch: (url, opts = {}) => { sent.push({ via: "fetch", url, body: opts.body ? String(opts.body) : "" }); return Promise.resolve({}); },
-  };
-  ctx.window = ctx;
-  vm.createContext(ctx);
-  vm.runInContext(watch.slice(watch.indexOf("/* ── page-view counter")), ctx);
-  const fire = (t) => (listeners[t] || []).forEach((f) => f({}));
-  const hide = () => { document.visibilityState = "hidden"; (docListeners.visibilitychange || []).forEach((f) => f({})); };
-  return { ctx, location, sent, fire, hide };
-}
-{
-  const h = runCounter();
-  for (const r of ["#/item/metropolis", "#/browse?type=film", "#/item/nosferatu", "#/search?q=x", "#/item/metropolis"]) {
-    h.location.hash = r; h.fire("hashchange");
-  }
-  check("five hashchanges send nothing yet", h.sent.length, 0);
-  h.fire("pagehide");
-  check("...five hashchanges plus pagehide send exactly ONE beacon", h.sent.length, 1);
-  const b = h.sent[0] ? J(h.sent[0].body) : {};
-  check("...through sendBeacon", h.sent[0] && h.sent[0].via, "sendBeacon");
-  check("...the visit counted once", b.visit, 1);
-  check("...routes by surface, no film id in a route key", b.routes, { "/browse": 2, "/item": 3, "/search": 1 });
-  check("...the titles the old beacon recorded, aggregated",
-        b.titles, [{ p: "/item/metropolis", n: 2 }, { p: "/item/nosferatu", n: 1 }]);
-  check("...and the body carries no other field", Object.keys(b).sort(), ["routes", "titles", "visit"]);
-  h.fire("pagehide");
-  check("a second pagehide with nothing new sends nothing", h.sent.length, 1);
-  h.location.hash = "#/library"; h.fire("hashchange"); h.hide();
-  const b2 = h.sent[1] ? J(h.sent[1].body) : {};
-  check("visibilitychange to hidden flushes what came after", h.sent.length, 2);
-  check("...and does not count the visit twice", [b2.visit, b2.routes], [0, { "/library": 1 }]);
-}
-{
-  const h = runCounter();
-  h.ctx.awCount("/item/metropolis", "play");
-  h.fire("pagehide");
-  const b = h.sent[0] ? J(h.sent[0].body) : {};
-  check("a played film keeps its kind", b.titles, [{ p: "/item/metropolis", k: "play", n: 1 }]);
-}
-{
-  const h = runCounter();
-  for (let i = 0; i < 25; i++) { h.location.hash = `#/item/film${i}`; h.fire("hashchange"); }
-  const sizes = h.sent.map((s) => (J(s.body).titles || []).length);
-  check("titles cap at 20 per beacon, flushing early rather than dropping", sizes, [20]);
-  h.fire("pagehide");
-  check("...the rest go with the next", h.sent.map((s) => (J(s.body).titles || []).length), [20, 5]);
-}
-{
-  const h = runCounter({ hash: "#/list/abc123blob" });
-  h.fire("pagehide");
-  check("a shared playlist never reaches the beacon", /abc123blob/.test(h.sent[0] ? h.sent[0].body : "x"), false);
-}
-{
-  const h = runCounter({ sendBeaconOk: false });
-  h.fire("pagehide");
-  check("a refused sendBeacon falls back to one keepalive fetch", h.sent.map((s) => s.via), ["sendBeacon", "fetch"]);
-}
-{
-  const p = runCounter({ protocol: "file:" });
-  p.fire("hashchange"); p.fire("pagehide");
-  check("a packaged app (file://) never beacons", p.sent.length, 0);
 }
 
 /* THE WORKER: accepts the batched body, keeps the legacy single-route shape,

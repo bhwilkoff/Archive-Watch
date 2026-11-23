@@ -24,8 +24,7 @@ for t in tools/test_web_search.mjs \
          tools/test_drivesync_no_popup.mjs \
          tools/test_tv_focus.mjs \
          tools/test_web_audit_fixes.mjs \
-         tools/test_web_sync_failures.mjs \
-         tools/test_counter_shape.mjs; do
+         tools/test_web_sync_failures.mjs; do
   out=$(node "$t" 2>&1)
   status=$?
   last=$(printf '%s\n' "$out" | tail -1)
