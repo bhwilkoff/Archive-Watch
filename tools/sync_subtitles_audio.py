@@ -41,6 +41,12 @@ from pathlib import Path
 import sys as _sys
 _sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_subtitle_assets import pace_vtt
+import attempt_ledger as L  # noqa: E402
+
+# A film that cannot be synced (no URL, audio fails, ffsubsync fails) gets a
+# `failed` verdict and waits 1, 7, then 30 days (attempt_ledger) instead of
+# heading every run's queue. Bump to retry every recorded failure once.
+SYNC_VERSION = 1
 
 CUE_END = re.compile(r"-->\s*(\d+):(\d\d):(\d\d)[.,](\d\d\d)")
 CUE_START = re.compile(r"(?m)^(\d+):(\d\d):(\d\d)[.,](\d\d\d)\s*-->")
@@ -134,20 +140,37 @@ def main():
     args = ap.parse_args()
 
     subs = Path(args.subs)
-    done = set()
+    last = {}                       # the LATEST verdict per film decides
     if os.path.exists(args.verdicts):
         for line in open(args.verdicts):
             try:
                 v = json.loads(line)
-                if args.retry_rejected and v.get("result") == "rejected":
-                    continue
-                done.add(v["id"])
+                last[v["id"]] = v
             except Exception:
                 pass
+    done = {aid for aid, v in last.items()
+            if v.get("result") in ("fixed", "rejected")
+            and not (args.retry_rejected and v.get("result") == "rejected")}
+    failures = {aid: {**v, "outcome": "failed"} for aid, v in last.items()
+                if v.get("result") == "failed"}
 
     rows = [r for r in csv.DictReader(open(args.findings))
             if r["verdict"] == "overruns" and r["archiveID"] not in done]
     rows.sort(key=lambda r: -float(r.get("pop") or 0))
+    now = L.now_utc()
+    rows, backoff, capped = L.partition(
+        ((r, failures.get(r["archiveID"])) for r in rows), now, SYNC_VERSION)
+    print(L.summary("sync", len(rows), len(backoff), [r["archiveID"] for r in capped]), flush=True)
+
+    def fail(aid, reason):
+        """RECORD the failure, so the next run does not re-listen to it blindly."""
+        rec = L.record(failures.get(aid), "failed", reason, now, SYNC_VERSION)
+        rec.pop("outcome")
+        failures[aid] = {**rec, "outcome": "failed"}
+        if not args.dry_run:
+            with open(args.verdicts, "a") as f:
+                f.write(json.dumps({"id": aid, "result": "failed", **rec}) + "\n")
+
     if args.limit:
         rows = rows[: args.limit]
 
@@ -168,7 +191,9 @@ def main():
         vtt = subs / aid / "en.vtt"
         url = urls.get(aid)
         if not vtt.is_file() or not url:
-            print(f"  SKIP {aid}: missing {'vtt' if not vtt.is_file() else 'url'}", flush=True)
+            what = 'vtt' if not vtt.is_file() else 'url'
+            print(f"  SKIP {aid}: missing {what}", flush=True)
+            fail(aid, f"missing {what}")
             continue
 
         original = vtt.read_text(encoding="utf-8", errors="replace")
@@ -179,11 +204,13 @@ def main():
                 extract_audio(url, wav, args.audio_timeout)
             except subprocess.TimeoutExpired:
                 print(f"  AUDIO-TIMEOUT {aid}", flush=True)
+                fail(aid, f"audio timed out after {args.audio_timeout}s")
                 failed += 1
                 continue
             except subprocess.CalledProcessError as e:
                 msg = (e.stderr or b"").decode()[-120:].replace("\n", " ")
                 print(f"  AUDIO-FAIL {aid}: {msg}", flush=True)
+                fail(aid, f"audio: {msg.strip()}")
                 failed += 1
                 continue
             try:
@@ -192,6 +219,7 @@ def main():
                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             except Exception as e:
                 print(f"  SYNC-FAIL {aid}: {type(e).__name__}", flush=True)
+                fail(aid, f"ffsubsync: {type(e).__name__}")
                 failed += 1
                 continue
             new_text = out.read_text(encoding="utf-8", errors="replace")

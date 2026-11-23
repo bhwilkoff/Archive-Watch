@@ -72,9 +72,16 @@ jobs:
           # The findings carry each film's runtime; the DB carries its URL.
           gh release download catalog-db -p catalog.sqlite.zz -O catalog.sqlite.zz
           python -c "import zlib;open('catalog.sqlite','wb').write(zlib.decompress(open('catalog.sqlite.zz','rb').read(),-15))"
-          # Carry the resume ledger forward when one exists.
-          gh release download subtitle-assets -p subtitle_audio_verdicts.jsonl \
-            -O verdicts.jsonl || touch verdicts.jsonl
+          # Carry the resume ledger forward when one exists. Under the SAME
+          # name it is uploaded as below: this asked for
+          # subtitle_audio_verdicts.jsonl, matched nothing, and the swallow
+          # turned that into "0 already decided" every run (2026-11-23).
+          # Only a missing asset is a fresh start; a failed download fails.
+          if gh release view subtitle-assets --json assets -q '.assets[].name' | grep -qx verdicts.jsonl; then
+            bash tools/gh_retry.sh gh release download subtitle-assets -p verdicts.jsonl -O verdicts.jsonl
+          else
+            echo "no verdicts ledger yet"; touch verdicts.jsonl
+          fi
 
       - name: Sync against each film's audio
         # The budget stops the tool cleanly so the publish below always runs;
