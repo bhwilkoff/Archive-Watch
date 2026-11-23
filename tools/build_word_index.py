@@ -22,10 +22,59 @@ import re
 import sqlite3
 import subprocess
 import tempfile
+import sys
 import time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import attempt_ledger as L  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
+
+# A film whose audio cannot be fetched is recorded in `align_failures` (inside
+# subtitle.sqlite, published with `aligned`) and waits 1, 7, then 30 days
+# (attempt_ledger). Before, it was `continue`d unrecorded and the same films
+# failed in every run. Bump to retry every recorded failure once.
+WORD_INDEX_VERSION = 1
+
+
+def ensure_tables(db) -> None:
+    db.execute("CREATE TABLE IF NOT EXISTS aligned(archiveID TEXT PRIMARY KEY)")
+    db.execute("""CREATE TABLE IF NOT EXISTS align_failures(
+        archiveID TEXT PRIMARY KEY, outcome TEXT, reason TEXT,
+        attempts INTEGER, at TEXT, v INTEGER)""")
+
+
+def load_attempts(db) -> dict:
+    return {r[0]: {"outcome": r[1], "reason": r[2], "attempts": r[3], "at": r[4], "v": r[5]}
+            for r in db.execute("SELECT archiveID, outcome, reason, attempts, at, v FROM align_failures")}
+
+
+def save_attempt(db, aid: str, rec: dict) -> None:
+    db.execute("INSERT OR REPLACE INTO align_failures VALUES(?,?,?,?,?,?)",
+               (aid, rec["outcome"], rec["reason"], rec["attempts"], rec["at"], rec["v"]))
+    db.commit()
+
+
+def record_attempt(db, aid: str, outcome: str, reason: str, now) -> None:
+    """Upsert, never delete: sqlite_publish_guard refuses a table that shrank."""
+    prev = load_attempts(db).get(aid)
+    save_attempt(db, aid, L.record(prev, outcome, reason, now, WORD_INDEX_VERSION))
+
+
+def select_films(db, max_cues: int, limit: int, now):
+    """Unaligned films, longest first under the cap, minus recent failures
+    (dropped BEFORE the limit, or the same failures fill every run)."""
+    rows = db.execute("""
+        SELECT archiveID, sourceURL, count(*) c FROM cues
+        WHERE archiveID NOT IN (SELECT archiveID FROM aligned)
+        GROUP BY archiveID HAVING c <= ?
+        ORDER BY c DESC""", (max_cues,)).fetchall()
+    ledger = load_attempts(db)
+    eligible, backoff, capped = L.partition(
+        (((a, u), ledger.get(a)) for a, u, _c in rows), now, WORD_INDEX_VERSION)
+    line = L.summary("words", len(eligible), len(backoff), [a for a, _u in capped])
+    return eligible[:limit], line
 
 
 def norm_words(text: str) -> list[str]:
@@ -73,6 +122,7 @@ def main() -> int:
         archiveID TEXT, sourceURL TEXT, word TEXT, startSeconds REAL, endSeconds REAL)""")
     db.execute("CREATE INDEX IF NOT EXISTS words_aid ON words(archiveID, startSeconds)")
     db.execute("CREATE TABLE IF NOT EXISTS aligned(archiveID TEXT PRIMARY KEY)")
+    ensure_tables(db)
 
     bundle = torchaudio.pipelines.MMS_FA
     model = bundle.get_model()
@@ -83,12 +133,9 @@ def main() -> int:
     # compilations whose audio pull cannot finish, so the run burns its budget on
     # the three worst candidates and aligns nothing. Cap the cue count so the
     # queue is ordinary films.
-    films = db.execute("""
-        SELECT archiveID, sourceURL, count(*) c FROM cues
-        WHERE archiveID NOT IN (SELECT archiveID FROM aligned)
-        GROUP BY archiveID HAVING c <= ?
-        ORDER BY c DESC LIMIT ?""", (args.max_cues, args.limit)).fetchall()
-    films = [(a, u) for a, u, _c in films]
+    now = L.now_utc()
+    films, line = select_films(db, args.max_cues, args.limit, now)
+    print(line, flush=True)
 
     # The work is already resumable per film (each commits and marks `aligned`),
     # so stopping early costs nothing — but only if the process EXITS, letting
@@ -164,7 +211,11 @@ def main() -> int:
             stage = "decode" if last_err.startswith(("ImportError", "RuntimeError")) else "download"
             print(f"[words] {aid[:44]}: audio {stage} failed — "
                   f"{last_err or 'no error captured'}", flush=True)
-            continue   # transient — leave unaligned so a later run retries
+            # Leave it unaligned, but RECORD it: unrecorded, the same films
+            # failed in every run and spent the budget doing it.
+            record_attempt(db, aid, "unreadable" if stage == "download" else "error",
+                           last_err or f"audio {stage} failed", now)
+            continue
 
         rows = []
         # The budget must be able to fire INSIDE a film, not just between
@@ -209,6 +260,8 @@ def main() -> int:
             db.executemany("INSERT INTO words VALUES(?,?,?,?,?)", rows)
         db.execute("INSERT OR IGNORE INTO aligned VALUES(?)", (aid,))
         db.commit()
+        if aid in load_attempts(db):
+            record_attempt(db, aid, "ok", "aligned", now)
         done += 1
         if done % 10 == 0:
             print(f"[words] {done} films aligned…", flush=True)
