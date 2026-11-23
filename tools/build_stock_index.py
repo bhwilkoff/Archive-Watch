@@ -28,8 +28,27 @@ try:
 except ImportError:           # pragma: no cover
     resource = None
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import attempt_ledger as L  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
+
+# Bump when the detector changes, so every recorded failure gets one fresh try
+# (attempt_ledger: a fixed bug deserves a retry of what it broke).
+#   2 — scdet threshold 10 -> 4 (2026-11-23).
+STOCK_INDEX_VERSION = 2
+
+# scdet's score is the frame difference as a percentage of full scale, and
+# ffmpeg's suggested 8-14 assumes modern, full-contrast video. Archival film is
+# dim and grey: measured 2026-11-23 at the 4 fps this decodes, every real cut in
+# the first five minutes of Maniac (1934), House on Haunted Hill (1959), My Man
+# Godfrey (1936) and JFK's Rice University speech scored between 4 and 9, so a
+# threshold of 10 found NONE of them, and 2,340 of 2,362 films a run came back
+# "read it but found no scene changes". At 4 those films yield 11-13 cuts each,
+# checked against the frames either side; the odd false cut (a flag waving
+# across the lens) only splits a shot in two, which costs nothing.
+SCDET_THRESHOLD = 4
 
 # Per-ffmpeg virtual-memory ceiling. A single poison film (a corrupt/oversized stream that
 # makes the decoder attempt a huge allocation) used to OOM the whole runner — exit 143
@@ -88,7 +107,7 @@ def scene_cuts(url: str, max_seconds: int, fps: float) -> tuple[list[float], str
            # changes" while the same films yield cuts locally. With the filter the same
            # local film goes 7 -> 14 cuts, so it was under-detecting by half even where
            # it appeared to work.
-           "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold=10,metadata=print",
+           "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold={SCDET_THRESHOLD},metadata=print",
            "-f", "null", "-"]
     # stderr → a TEMP FILE, not capture_output (which holds ALL of ffmpeg's stderr in RAM — a
     # corrupt stream spamming per-frame decode errors could balloon it and OOM the runner). The
@@ -142,6 +161,40 @@ def shots_from_cuts(cuts: list[float], total: float,
     return shots
 
 
+UNREADABLE = re.compile(r"\b(40[0-9]|5\d\d)\b|Error opening input|Invalid data|"
+                        r"Connection|resolve|Forbidden|Not Found|Unauthorized", re.I)
+
+
+def outcome_for(cuts: list[float], shots: list, problem: str) -> tuple[str, str]:
+    """Name what one scan produced, so the ledger can tell a result from a breakage."""
+    if shots:
+        return "indexed", f"{len(shots)} shots"
+    if not cuts and problem:
+        return ("unreadable" if UNREADABLE.search(problem) else "error"), problem
+    if cuts:
+        return "no_shots", f"{len(cuts)} cuts but no usable shot window"
+    return "no_shots", problem or f"no scene changes above scdet threshold {SCDET_THRESHOLD}"
+
+
+ATTEMPTS_DDL = """CREATE TABLE IF NOT EXISTS attempts(
+    archiveID TEXT PRIMARY KEY, outcome TEXT, reason TEXT,
+    attempts INTEGER, at TEXT, v INTEGER)"""
+
+
+def load_attempts(path: str) -> dict:
+    """archiveID -> ledger record, from an index's `attempts` table (absent = none)."""
+    if not path or not Path(path).exists():
+        return {}
+    con = sqlite3.connect(path)
+    try:
+        return {r[0]: {"outcome": r[1], "reason": r[2], "attempts": r[3], "at": r[4], "v": r[5]}
+                for r in con.execute("SELECT archiveID, outcome, reason, attempts, at, v FROM attempts")}
+    except sqlite3.OperationalError:
+        return {}
+    finally:
+        con.close()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=50, help="films to add this run")
@@ -172,7 +225,12 @@ def main() -> int:
     db.execute("""CREATE TABLE IF NOT EXISTS shots(
         id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
         startSeconds REAL, endSeconds REAL, tags TEXT, title TEXT)""")
+    # EVERY attempt is recorded here and published with the index, so the next
+    # run knows what failed, why, how often, and when (attempt_ledger).
+    db.execute(ATTEMPTS_DDL)
     seen = {r[0] for r in db.execute("SELECT DISTINCT archiveID FROM shots")}
+    ledger = load_attempts(args.seen_from)
+    ledger.update(load_attempts(args.out))
     if args.seen_from and Path(args.seen_from).exists():
         sdb = sqlite3.connect(args.seen_from)
         try:
@@ -188,16 +246,17 @@ def main() -> int:
         # its log (a successful scan logs again, with the shot count, in the main loop below).
         print(f"[stock] scanning {it['archiveID']} (rt={it.get('runtimeSeconds')})", flush=True)
         cuts, problem = scene_cuts(it["downloadURL"], args.max_seconds, args.fps)
-        if not cuts:
+        shots = []
+        if cuts:
+            rt = it.get("runtimeSeconds") or 0
+            total = min(rt, args.max_seconds) if rt else args.max_seconds
+            shots = shots_from_cuts(cuts, total)
+        outcome, reason = outcome_for(cuts, shots, problem)
+        if not shots:
             # SAY WHY. "no cuts" from a film that played and "no cuts" from a
             # film ffmpeg never opened look identical, and only one is a result.
-            print(f"[stock] {it['archiveID']}: no shots — "
-                  f"{problem or 'ffmpeg read it but found no scene changes'}", flush=True)
-            return None
-        rt = it.get("runtimeSeconds") or 0
-        total = min(rt, args.max_seconds) if rt else args.max_seconds
-        shots = shots_from_cuts(cuts, total)
-        return (it, shots) if shots else None
+            print(f"[stock] {it['archiveID']}: {outcome} — {reason}", flush=True)
+        return it, shots, outcome, reason
 
     def write(it, shots):
         aid, url = it["archiveID"], it["downloadURL"]
@@ -211,7 +270,24 @@ def main() -> int:
                        (f"{aid}#{i}", aid, url, s, e, tags, it.get("title", "")))
         db.commit()
 
-    candidates = [it for it in items if it["archiveID"] not in seen]
+    pending = [it for it in items if it["archiveID"] not in seen]
+    now = L.now_utc()
+    eligible, backoff, capped = L.partition(
+        ((it, ledger.get(it["archiveID"])) for it in pending), now, STOCK_INDEX_VERSION)
+    candidates = eligible
+    print(L.summary("stock", len(eligible), len(backoff), [it["archiveID"] for it in capped],
+                    done_already=len(items) - len(pending)), flush=True)
+    outcomes: dict[str, int] = {}
+
+    def remember(it, outcome, reason):
+        aid = it["archiveID"]
+        rec = L.record(ledger.get(aid), outcome, reason, now, STOCK_INDEX_VERSION)
+        ledger[aid] = rec
+        db.execute("INSERT OR REPLACE INTO attempts VALUES(?,?,?,?,?,?)",
+                   (aid, rec["outcome"], rec["reason"], rec["attempts"], rec["at"], rec["v"]))
+        db.commit()
+        outcomes[outcome] = outcomes.get(outcome, 0) + 1
+
     done = 0
     workers = max(1, args.concurrency)
     with ThreadPoolExecutor(max_workers=workers) as ex:
@@ -221,12 +297,12 @@ def main() -> int:
         while inflight and done < args.limit:
             fut = next(as_completed(inflight))
             inflight.discard(fut)
-            res = fut.result()
-            if res:
-                it, shots = res
+            it, shots, outcome, reason = fut.result()
+            if shots:
                 write(it, shots)
                 done += 1
                 print(f"[stock] {it['archiveID']}: {len(shots)} shots ({done}/{args.limit})", flush=True)
+            remember(it, outcome, reason)
             if idx < len(candidates) and done < args.limit:         # keep the pool full
                 inflight.add(ex.submit(scan, candidates[idx])); idx += 1
         # Stop scanning the in-flight remainder once the quota is met (don't waste decode time).
@@ -234,6 +310,8 @@ def main() -> int:
 
     n = db.execute("SELECT count(*) FROM shots").fetchone()[0]
     print(f"[stock] +{done} films this run; {n} shots total in {args.out}")
+    print("[stock] outcomes: " + (", ".join(f"{k} {v}" for k, v in sorted(outcomes.items())) or "none"),
+          flush=True)
     if done == 0 and candidates:
         print(f"[stock] WARNING: scanned films and indexed NONE. If every line above "
               f"names an ffmpeg error, this is a fetch problem, not an empty backlog.",

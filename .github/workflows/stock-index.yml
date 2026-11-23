@@ -132,6 +132,9 @@ jobs:
           db.execute("""CREATE TABLE IF NOT EXISTS shots(
               id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
               startSeconds REAL, endSeconds REAL, tags TEXT, title TEXT)""")
+          db.execute("""CREATE TABLE IF NOT EXISTS attempts(
+              archiveID TEXT PRIMARY KEY, outcome TEXT, reason TEXT,
+              attempts INTEGER, at TEXT, v INTEGER)""")
           n0 = db.execute("SELECT count(*) FROM shots").fetchone()[0]
           # Be EXPLICIT about the 7 shard columns — the published clips.sqlite gains an 8th
           # `tagged` column from tag_stock_shots.py (ALTER TABLE ADD COLUMN), so a bare
@@ -141,10 +144,18 @@ jobs:
           for f in sorted(glob.glob("shards/**/clips-shard-*.sqlite", recursive=True)):
               db.execute("ATTACH ? AS s", (f,))
               db.execute(f"INSERT OR IGNORE INTO shots({COLS}) SELECT {COLS} FROM s.shots")
+              # Every scan's outcome rides along with the index, so the next run
+              # skips what just failed instead of re-scanning it (attempt_ledger).
+              # Shards are disjoint, and a shard's row is always the newest.
+              has = {r[0] for r in db.execute("SELECT name FROM s.sqlite_master WHERE type='table'")}
+              if "attempts" in has:
+                  db.execute("INSERT OR REPLACE INTO attempts SELECT archiveID, outcome, reason, attempts, at, v FROM s.attempts")
               db.commit(); db.execute("DETACH s")
           n1 = db.execute("SELECT count(*) FROM shots").fetchone()[0]
           films = db.execute("SELECT count(DISTINCT archiveID) FROM shots").fetchone()[0]
           print(f"merged: {n0} -> {n1} shots across {films} films")
+          for outcome, k in db.execute("SELECT outcome, count(*) FROM attempts GROUP BY outcome ORDER BY 2 DESC"):
+              print(f"attempts recorded: {outcome} {k}")
           db.close()
           PY
       - name: Publish index
