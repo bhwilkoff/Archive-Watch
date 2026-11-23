@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-22T09:50:44Z",
+  "updated_at": "2026-11-23T10:50:50Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-22T09:50:44Z"
+      "last_tried": "2026-11-23T10:50:50Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-22T09:50:44Z"
+      "last_tried": "2026-11-23T10:50:50Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -408930,6 +408930,53 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-22T09:50:44Z",
+      "schema": 4
+    },
+    "tt0107822": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGZiYTQ0MmEtY2RmYy00ZjRkLWI3NTctYTRhMGJlMzA4ZDg0XkEyXkFqcGc@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 102655,
+      "content_rating": "R",
+      "plot": "It is the mid-nineteenth century. Ada cannot speak and she has a young daughter, Flora. In an arranged marriage she leaves her native Scotland accompanied by her daughter and her beloved piano. Life in the rugged forests of New Zealand's North Island is not all she may have imagined and nor is her relationship with her new husband Stewart. She suffers torment and loss when Stewart sells her piano to a neighbor, George. Ada learns from George that she may earn back her piano by giving him piano lessons, but only with certain other conditions attached. At first Ada despises George but slowly their relationship is transformed and this propels them into a dire situation.",
+      "runtime_min": 121,
+      "director": "Jane Campion",
+      "actors": [
+        "Holly Hunter",
+        "Harvey Keitel",
+        "Sam Neill"
+      ],
+      "genres": [
+        "Drama",
+        "Music",
+        "Romance"
+      ],
+      "critics": {
+        "mc": 89
+      },
+      "fetched_at": "2026-11-23T10:50:50Z",
+      "schema": 4
+    },
+    "tt0420260": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTMzOTY1NDAwMl5BMl5BanBnXkFtZTcwMzY1MTUzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 5037,
+      "content_rating": null,
+      "plot": "Tony Takitani had a solitary childhood. At school he studied art, but while his sketches are accurate and detailed, they lack feeling. Used to being self-sufficient, Tony finds himself becoming more irrational and instinctive. After finding his true vocation as a technical illustrator, he becomes fascinated by Eiko, a client who in turn is fascinated by high end fashion.",
+      "runtime_min": 75,
+      "director": "Jun Ichikawa",
+      "actors": [
+        "Issei Ogata",
+        "Rie Miyazawa",
+        "Shinohara Takahumi"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 88,
+        "mc": 80
+      },
+      "fetched_at": "2026-11-23T10:50:50Z",
       "schema": 4
     }
   },
