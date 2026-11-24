@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-23T10:50:50Z",
+  "updated_at": "2026-11-24T12:33:11Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-23T10:50:50Z"
+      "last_tried": "2026-11-24T12:33:11Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-23T10:50:50Z"
+      "last_tried": "2026-11-24T12:33:11Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -408977,6 +408977,638 @@
         "mc": 80
       },
       "fetched_at": "2026-11-23T10:50:50Z",
+      "schema": 4
+    },
+    "tt0027985": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjZiOGM0ZWYtZjZlMS00MTQ5LWE2ZDAtNjE2NGNhNGM3MjYwXkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 658,
+      "content_rating": "Approved",
+      "plot": "When the co-owner of a secretarial school visits a magazine editor to find out why he runs through secretaries, she's mistaken for an applicant. Drawn to him, she accepts the position.",
+      "runtime_min": 77,
+      "director": "Alfred E. Green",
+      "actors": [
+        "Jean Arthur",
+        "George Brent",
+        "Lionel Stander"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0050634": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjVmNTllYjUtYTc2MS00OTZhLTllMWEtOWYzMGQ2YmYzMzgyXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      "imdb_rating": 8.3,
+      "imdb_votes": 23151,
+      "content_rating": "Not Rated",
+      "plot": "As the clouds of war spread over Russia during Germany's surprise invasion in 1941, the fervent young lovers - the sensitive Veronika and the stalwart Boris - are parted after the patriotic lad secretly volunteers for the war effort. During the following hard years, Veronika who serves her country as a wartime nurse will lose communication with Boris. After a devastating air raid destroys her house and Boris' father takes her in to live with the family, unexpectedly, things will take a turn for the worse. Before long, the worried fiancée will find herself dealing not only with the dark thoughts of Boris' potential loss but also with the burden of an unwelcome decision. Once, the star-crossed lovers swore eternal devotion under a flock of flying cranes but still, a war is always cruel and eternally disastrous.",
+      "runtime_min": 95,
+      "director": "Mikheil Kalatozishvili",
+      "actors": [
+        "Tatyana Samoylova",
+        "Aleksey Batalov",
+        "Vasiliy Merkurev"
+      ],
+      "genres": [
+        "Drama",
+        "Romance",
+        "War"
+      ],
+      "critics": {
+        "mc": 76
+      },
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0058043": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWIwNTNmNjMtYWIxMS00ZDFjLWFiOWItZWU2ZTVkYzhkNWJjXkEyXkFqcGdeQXVyMTQ3Njg3MQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 173,
+      "content_rating": null,
+      "plot": "Once upon a time there were born two twin boys to Emperor Marcus Aurelius and for reasons of dynasty the birth of twins was kept secret. One of the twins was supposed to be drowned at birth but fate intervenes and the kid is brought up in a good household and enters Rome's legions.",
+      "runtime_min": 100,
+      "director": "Mario Caiano",
+      "actors": [
+        "Richard Harrison",
+        "Moira Orfei",
+        "Alberto Farnese"
+      ],
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0068899": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTA5YzJjNTItZmFmYS00MGY1LWE1NWItNDgyNWEyNmRlYjY3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 431,
+      "content_rating": null,
+      "plot": "Set in Iraq (but shot in Syria), this is the story of three men who try to leave their impoverished and hopeless lives to get get work in Kuwait. They hire a water-truck driver to transport them illegally across the border in the tank of his truck...",
+      "runtime_min": 107,
+      "director": "Tewfik Saleh",
+      "actors": [
+        "Mohamed Kheir-Halouani",
+        "Abdul Rahman Al Rashi",
+        "Bassan Lofti Abou-Ghazala"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0083203": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDg0ZmFmMTAtYjExZC00NzM3LWJjOGMtMTVjMzQ5MzQ3YjcyXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 1609,
+      "content_rating": "R",
+      "plot": "A union organizing demolition worker and a friend of his decide to blackmail the corrupt company they work for setting up a fake accident. Because of a miscalculation the friend dies, but he sticks with the plan and demands a big sum of money as indemnity. When the company refuses to pay, determined to prove the worker is lying, he is forced to make a tragic decision in order to win.",
+      "runtime_min": 112,
+      "director": "Adolfo Aristarain",
+      "actors": [
+        "Federico Luppi",
+        "Haydée Padilla",
+        "Julio De Grazia"
+      ],
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0099995": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzg3OGExODMtODkzMi00MDljLThlOWMtN2JiMjZiMWM4ODk3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 214,
+      "content_rating": null,
+      "plot": "This film tells what it was like to live in the USSR with brutal reality. A convict is forced to hide within a model of a hammer and sickle. Here a tragic romance ensues between the convict and woman worker.",
+      "runtime_min": 96,
+      "director": "Yuri Ilyenko",
+      "actors": [
+        "Viktor Solovyov",
+        "Lyudmila Efimenko",
+        "Pylyp Illienko"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0102513": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjY1OTc1OGYtMzY2Ny00YWI2LWE5ZjQtZjM1ZWJjNjFlMmFhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 575,
+      "content_rating": "Not Rated",
+      "plot": "Narasimha a young and captive man lives a middle class life with his family in a quite neighbor hood. He gets his beautiful sister marry to an eligible young man in there vicinity. On the occasion of his sister giving birth, he returns home to find that a conflict arise between his neighbor hood and another neighbor hood where he seek refuge in a dwelling area nearby only to return and find out that his whole family has been murder. Without no aim left in life Narasimha decided to turn to crime and alcohol. He later decided to work for a man call Suraj Narayan Singh. But when Suraj asks him to kill Ravi Rastogi for falling in love with his daughter, Meenu. Narasimha refuses, and on the contrary joins forces with Ravi, his sister, Anita, to force Suraj to get the young couple married. This kind of conflict escalates to such proportions that Suraj finally gets arrested and lodged in a cell. Everything seems clear for Ravi and Meenu to get married, but Meenu wants proof that her dad is a criminal, and she gives Ravi 24 hours to find proof or she will marry the boy of her dad's choice. And ruin everything and every plans between them.",
+      "runtime_min": 214,
+      "director": "N. Chandra, Viraj A. Raje",
+      "actors": [
+        "Sunny Deol",
+        "Dimple Kapadia",
+        "Urmila Matondkar"
+      ],
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0107358": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2Q0ZDBkMTEtZDc1YS00YWU4LWI0ODMtM2Q1MzU1YmUxNjI4XkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 3538,
+      "content_rating": null,
+      "plot": "On Dry Well Lane in Beijing in 1953, Chen Shujuan and Lin Shaolong marry. A year later their son, nicknamed Tietou (Iron Head), is born. The Party is everywhere: Mao's photograph, loud-speaker announcements, visits from the neighborhood committee. Shaolong dies in a reform camp; a close family friend, who protects Shujuan and her son partly out of guilt for lying to authorities about Shaolong, succumbs to malnutrition; a confrontation with the Red Guard leads to injury, imprisonment and death. Shujuan's love for Tietou sustains her, and the child's blue kite embodies hope: \"I can make another for you,\" says Tietou's dad; by the end, Tietou promises this to a small child",
+      "runtime_min": 140,
+      "director": "Zhuangzhuang Tian",
+      "actors": [
+        "Tian Yi",
+        "Wenyao Zhang",
+        "Xiaoman Chen"
+      ],
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0112767": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTEzODEwNGEtNmQ2Ny00YjgxLTgyZjMtMmY4MWVmNDllMGYxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 5649,
+      "content_rating": null,
+      "plot": "A young man who struggles through life by earning some money with his bicycle-taxi in Saigon (Ho Chi Minh city) gets contact to a group of criminals. They introduce him to the mafia-world of drugs and crime.",
+      "runtime_min": 123,
+      "director": "Anh Hung Tran",
+      "actors": [
+        "Le Van Loc",
+        "Tony Leung Chiu-wai",
+        "Nu Yên-Khê Tran"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "mc": 76
+      },
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0114230": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjMyYmE3YWUtMjMzOS00OTE0LWIwYWUtNDVmMDBkMmFkMzVjXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 1055,
+      "content_rating": "Not Rated",
+      "plot": "Rana Mahednra Pratap Garewal (Mukesh Khanna) is a wealthy businessman along with his brother Vishwa (Dalip Tahil). They are both good friends with Brijnath (Paresh Rawal) who is not as wealthy. Rana's younger sister Madhu (Madhuri Dixit) is a good friend of Brijnath's younger brother Raja (Sanjay Kapoor). Seeing this Rana and Birju both arrange for Raja and Madhu to marry when they are older but Rana quickly backs out and insults Birju because of his social status. A accident causes Birju to become mental. Many years have passed and Raja and Madhu soon meet each other and fall in love. However Rana and Vishwa are determined to keep Madhu away from Raja. Eventually Rana gives in and accepts Raja into the family. When Raja leaves the city for a few days, Birju is invited to stay at the Garewal mansion. However, Madhu accuses Birju of rape when she is attacked by him. Rana immediately sends Birju to a mental hospital and Raja is forced to make a choice between his love and his brother. Believing in Birju innocence he breaks off his engagement with her. Madhu does not know that her own brothes had set Birju up so it looked like he had attacked her but in fact it was someone else who attacked her. Will Madhu find out what her brothers did? Will Raja be re-united with her?",
+      "runtime_min": 168,
+      "director": "Indra Kumar",
+      "actors": [
+        "Sanjay Kapoor",
+        "Madhuri Dixit",
+        "Mukesh Khanna"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0116295": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjlmNTFkNTQtZjEwZi00MDhmLWJjMGItYWJmMTBhOWU2MTlkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 2057,
+      "content_rating": "R",
+      "plot": "Not far from Shanghai, in a country town stands the palatial home of the Pang family. Old Master Pang is an addict who brings up his beautiful daughter Ruyi on opium smoke. Her older brother, Zhengda, is addicted as well, and then paralysed and effectively brain-dead. Zhongliang, Zhengda's brother-in-law, is a successful gigolo in Shanghai who seduces older married women and then blackmails them. When Older Master Pang dies, the clan elders make Ruyi take over the role as the head of the household. Zhongliang returns to the Pang family on the death of Old Master Pang, re-encounters Ruyi, and they are secretly attracted to each other. Wanting to seem sophisticated, she succumbs to Zhongliang's attempts to seduce her. But then an emotional maelstrom follows - for the angry, jealous and sexually frustrated sister (Zhengda's wife) is also part of the picture.",
+      "runtime_min": 130,
+      "director": "Kaige Chen",
+      "actors": [
+        "Leslie Cheung",
+        "Gong Li",
+        "Kevin Lin"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": {
+        "rt": 62
+      },
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0182251": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWI1YWY4MDMtOTc4MS00ODMzLTlmZDYtODZkZDA3ZGJkNjgyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 3122,
+      "content_rating": null,
+      "plot": "After the death of his parents Suraj Dhanrajgir is left in the care of his grandfather, Dadaji. Dadaji entrusts the task of his upbringing to Mahesh but unfortunately Suraj goes out of hand and gets accustom having his way with women and alcohol. When Dadaji learns of this he is apprehensive of the way Suraj treats women and he is instructed to abstain from this behavior. Suraj meets Komal Sinha and falls in love with her but Komal will have nothing to do with him due to his errant way of treating women. Then Suraj fakes his identity and is able to attain the love of Komal but when she finds out his identity she once again leave him forcing Dadaji to convince her. Unfortunately for Suraj a child suddenly shows up claiming that Suraj is his father which throws he and Kajal's life back to square one.",
+      "runtime_min": 154,
+      "director": "Deepak Sareen",
+      "actors": [
+        "Salman Khan",
+        "Twinkle Khanna",
+        "Johny Lever"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0182336": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzI1YTBlM2YtMjc4OS00ZDcxLThlYjYtNmY0YTliYTIyMTg1XkEyXkFqcGdeQXVyMjM5NDM1MTE@._V1_SX300.jpg",
+      "imdb_rating": 2.9,
+      "imdb_votes": 17,
+      "content_rating": null,
+      "plot": "A French reporter travels to Iguazú Falls, where a local has found an object that may or may not be a fragment of a UFO.",
+      "runtime_min": 95,
+      "director": "Oscar Barney Finn",
+      "actors": [
+        "Andy Pruna",
+        "Catherine Alric",
+        "Marcos Zucker"
+      ],
+      "genres": [
+        "Adventure",
+        "Family",
+        "Mystery"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0191197": {
+      "poster_url": null,
+      "imdb_rating": 8.4,
+      "imdb_votes": 29,
+      "content_rating": "Atp",
+      "plot": null,
+      "runtime_min": 68,
+      "director": "Jorge Preloran",
+      "actors": [
+        "Jorge Preloran"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0251356": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQyMzMxODYtZWY4YS00NTNmLWFiMTgtYmM4ZWRjZjFmZDdjXkEyXkFqcGdeQXVyMjU4NDY1ODA@._V1_SX300.jpg",
+      "imdb_rating": 3.8,
+      "imdb_votes": 225,
+      "content_rating": null,
+      "plot": "Crime is at its highest stage in a small locality all because of a small-time goon who calls himself Krishna and his pal, the big built and arrogant, Raja. Commissioner Kapoor is in charge of nabbing both goons but to no avail, frustrated of the goons he decides to summon, stern and strict police inspector Amar Kapoor. Amar does manage to arrest Krishna, but found out that Krishna is his brother and Raja is fighting a corrupt society for the brutal murder and rape of his sweetheart, Neelam and her family. The three men now join forces to destroy the evil Velji Patel and his gang.",
+      "runtime_min": null,
+      "director": "Rajkumar Kohli",
+      "actors": [
+        "Sunny Deol",
+        "Suniel Shetty",
+        "Arman Kohli"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0260332": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTM5NDA0NzU5Nl5BMl5BanBnXkFtZTcwNjM4NzAzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 1978,
+      "content_rating": null,
+      "plot": "A film comprised of three interconnected vignettes that depict women at three stages of life in Iran. The first part centers on a young girl on her ninth birthday who is told that she can no longer play with the boys she had been playing with only the day before because she is now a woman. Told from the perspective of a 9-year-old girl who does not feel like or know what the word \"woman\" refers to, we see how devastatingly this affects both the girl and the boy with whom she had been friends. The second part is about a young woman who decides to enter a bicycle race against her husband's wishes. As first, the husband and then increasing numbers of men from her village ride beside her on horseback to convince her to return home. The race begins to symbolize a freedom that she desperately wants from the limitations that have been placed on her. Finally, the third part shows us an old woman who has come into some money and is now free to do what she wants. The way she chooses to use this freedom, however, makes one wonder just how free she is.",
+      "runtime_min": 74,
+      "director": "Marzieh Makhmalbaf",
+      "actors": [
+        "Fatemeh Cherag Akhar",
+        "Hassan Nebhan",
+        "Shahr Banou Sisizadeh"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 88,
+        "mc": 84
+      },
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0290820": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTAyNGNmODktMGYyYi00OGZjLWIyNDktYzBkMzZmYzU4NWY5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 1224,
+      "content_rating": "Not Rated",
+      "plot": "After witnessing the public humiliation &amp; abuse of a female friend, a young man vows to avenge her by going after the hoodlums responsible. he is guided by a burnt out, cynical cop, who shows him the ropes as well as the realities of vigilante life.",
+      "runtime_min": 153,
+      "director": "Aditya Bhattacharya",
+      "actors": [
+        "Aamir Khan",
+        "Supriya Pathak",
+        "Pankaj Kapur"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0301115": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGMwYjIyNWMtNThjZC00ZWQzLWJkY2UtNDkwMTg4ZWRkNzg1XkEyXkFqcGdeQXVyMjQ0NzgwNzY@._V1_SX300.jpg",
+      "imdb_rating": 3.3,
+      "imdb_votes": 23,
+      "content_rating": null,
+      "plot": "An unemployed man pretends to be a nurse to work in a sex clinic, where he is mistaken for a German super-macho man.",
+      "runtime_min": 80,
+      "director": "Emilio Vieyra",
+      "actors": [
+        "Gerardo Romano",
+        "Mónica Gonzaga",
+        "Tito Mendoza"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0305455": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc3Mjk3MDMzNF5BMl5BanBnXkFtZTcwNjc1MjgxMQ@@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 839,
+      "content_rating": "Not Rated",
+      "plot": "Thakur Avadh Narayan Singh rules Shekhapur village.Due to his fear villagers don't dare to go against him for his wrong doings.His son Bhola and Bacchu are also to follow his part who spend their time in drinking and on girls.Rudra is a poor farmer living a happy life with is wife Paro and three children Durga,Luv and Kush.Bhola and Bacchu once go to attend Mujra and cant get their way with the woman.On their way they see 9 year old Durga and rape her.While he evidence are all against them the Sr Doctor prepare's his report and Inspector Ramnarayan Bhardwaj also finds evidence to arrest Bhola and Bacchu.The lawyer fighting the case bribe's the Sr Doctor and Ramnarayan Bhardwaj to tamper the evidence.Paro then convinces Rudra to take matters in his own hands as law cant give them justice.",
+      "runtime_min": 126,
+      "director": "Mahesh Manjrekar",
+      "actors": [
+        "Sanjay Dutt",
+        "Nandita Das",
+        "Sachin Khedekar"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0311413": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjg3MjNhMWYtMDM3Ni00OWE5LTlhYmMtMmU3M2ZhNzM3MGU3XkEyXkFqcGdeQXVyNTEyOTE5Mjc@._V1_SX300.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 301,
+      "content_rating": null,
+      "plot": "When Karan's mother passes away and his way-ward father abscond the responsibility of raising his 5 sisters goes into his hands. He does manage to carry out this task successfully and thus his sisters grow up to be respectable, educated and gain all the positive norms of society. He faces a major challenge of a lifetime when he must select suitable spouses for his sisters.",
+      "runtime_min": 141,
+      "director": "Ashok Honda",
+      "actors": [
+        "Suniel Shetty",
+        "Rambha",
+        "Apurva Agnihotri"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0347332": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2VmYzgwOTgtNDlmZC00ZjhjLWI3MGYtMWJiOGQwZjg0MjczXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 16868,
+      "content_rating": "Not Rated",
+      "plot": "DCP Anant Shrivastav (Amitabh Bachchan) has been assigned the mission to escort terrorist Iqbal Ansari (Atul Kulkarni) from Chandangarh to Mumbai. His terrorist organization are determined to obtain him again. The plan for this is led by Yashwant Angre (Ajay Devgan), a ruthless killer and a former police officer. Anant's team consists of Inspector Shekhar Sachdev (Akshay Kumar), rookie cop Ashwin Gupte (Tusshar Kapoor) and two more inspectors. Soon Mahalakshmi (Aishwarya Rai) joins them as she is the only witness to have seen Yashwant. The team are armed and ready to go but danger lurks everywhere as the terrorist organization are determined to make sure the officers do not make it to Mumbai. The trip turns into survival when the team are attacked at various times. Finally the team make it to an abandoned cottage in the forest but there is a shoot out and the team are heavily outnumbered. Shekhar tries to force an exchange but against Anant's and Ashwin's judgement. Finally Ansari, after weeks of frustration, reveals that the terrorists are also out to kill him. He reveals a corrupt world involving the police and politicians. The officers soon realize the enemy they have been fighting is closer to them...In the end, Shekhar is killed by Mahalakshmi and her associate Angre. This killing spites anger into Anant and he hunts down each one of the corrupt officers and in the end, captures Angre after a fight during which, Despite Anant needing his medication often, he wins, and Angre is successfully captured. The movie ends as Angre is tried and sentenced to prison, and is being carried to his sentence; when he decides to flee, as a nut is lose in the bar to which he is handcuffed in the police van. Angre has Ashwin on gun point using a constable's rifle, when Ashwin reveals that Angre's lose nut was a setup to allow the killing of Angre, and that the bullets of the rifle had been emptied. Ashwin then shoots Angre, and reports his death as murder in an encounter.",
+      "runtime_min": 174,
+      "director": "Rajkumar Santoshi",
+      "actors": [
+        "Amitabh Bachchan",
+        "Akshay Kumar",
+        "Ajay Devgn"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0385782": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTE3NWYxNDAtYWM4Zi00YmE2LWI3MmMtZTQwMmQ5NjNmZTMxXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 181,
+      "content_rating": "Not Rated",
+      "plot": "Tina Saxena lives a wealthy life-style with her widowed businessman dad. One day, all of a sudden, she gets a nasty shock when her dad informs her that he had a mistress before he was married to her mother, and that this affair had resulted in the birth of a daughter, Nandini. Much to Tina's distaste, he invites Nandini to live with them, and asks her to look after Tina after he passes away, as he has been ill for quite sometime. Mr. Saxena does pass away, leaving a grieving Tina and Nandini, with Tina still having nothing to do with her step-sister. Then a dashing young man, Ranbir Oberoi, enters Tina's life and it is love at first sight for them. Nandini also approves of him, and it looks like Tina has given up on her dislike for Nandini. After a few days, and a purse-snatching incident, Nandini counsels Tina that she should consider breaking up with Ranbir. Aghast at this sudden volte face, Tina refuses to listen, and carries on with her affair with Ranbir. Then a man named Anwar Hussain is killed, and Nandini informs the police that Ranbir is the killer, Ranbir is arrested, held in a cell, then ultimately released when Tina informs them that he was with her at the time of Anwar's death. A confrontation takes place between the two sisters, and it is Nandini who must now decide whether to stay on looking after Tina, or move on, leaving Tina to decide how to live her life on her own.",
+      "runtime_min": 155,
+      "director": "Vikram Bhatt",
+      "actors": [
+        "Ashmit Patel",
+        "Vidya Malvade",
+        "Nauheed Cyrusi"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0422236": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWIwOWZkZjYtMmZkMy00OTk1LTg4ZWMtNmE3YTJiYzA2NjU5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 2922,
+      "content_rating": "Not Rated",
+      "plot": "Fida tells the story of Jai who one day happen to meet a young and beautiful woman called Neha and he falls in love with her at first sight. However trying to persuade Neha was in vane to Jai, because she has no such feelings for him as he has for her. Jai turn crazy in love with Neha and couldn't find no more alternative to persuade her than suicide but his suicide attempt is unsuccessful since he is save by his best friend and Neha finally falls in love with Jai. Little by little Jai began to know that he is in love with a criminal daughter and her father owes 60 million to the underworld don. Jai decides to help Neha by grabbing the money for her because he is in love with her, to fulfilled his motive he decides to rob a bank but follow computer hacker Vikram to his house where he was trapped in a net. Neha his love turn against him and goes towards Vikram. The two accounts that were hacked by the bank belongs to underworld don Babu Anna and he also begins to chase Jai. Jai now has to run form the police and Babu Anna. But in the final showdown Jai was forced to kill Neha and rein Vikram in such a way that he had to distribute the remaining money to charity.",
+      "runtime_min": 122,
+      "director": "Ken Ghosh",
+      "actors": [
+        "Kareena Kapoor",
+        "Fardeen Khan",
+        "Shahid Kapoor"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0444820": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTFkYzdhYWItNjIwNi00NzE1LWI2NmEtZDBiMDRhNzdmNDlhXkEyXkFqcGdeQXVyNTM0MDc1ODE@._V1_SX300.jpg",
+      "imdb_rating": 4.2,
+      "imdb_votes": 202,
+      "content_rating": "Not Rated",
+      "plot": "Ria Singhania lives a wealthy lifestyle with her husband Amit in a spacious bungalow and runs a company, Spykar Jeans. One night she gets a call from the Police that her husband has been found dead, possibly murdered. She co-operates with the Police, who suspect her as she was having an affair with her subordinate, Siddharth Sardesai, who may have helped her kill Amit, who in turn was having an affair with Sonia Sharma, who works for an ad agency run by Divakar. Ria meets with Aditya, who works for the same ad agency, and is attracted to him. They get intimate, but Aditya, who is married to Neha and has a school-aged son, breaks off the relationship; Ria retaliates by acquiring the ad agency where he works. Aditya confronts her and returns home in a drunken state with blood on his clothes. Shortly thereafter Aditya is arrested by Police Inspector Kelly, who charges him with the murder of Ria Singhania. A frantic Neha hires Advocate Milind Mehta, but can he ensure Aditya's release, especially when the Police know that he had the motive and was possibly the last person to see Ria alive?",
+      "runtime_min": 129,
+      "director": "Deepak Tijori",
+      "actors": [
+        "Shilpa Shetty Kundra",
+        "Manoj Bajpayee",
+        "Shamita Shetty"
+      ],
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0772168": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTg0ODYwMzY0NF5BMl5BanBnXkFtZTYwNTcwMDM4._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 10014,
+      "content_rating": "PG-13",
+      "plot": "Stan Philipps's wife Grace is a sergeant with the U.S. Army. While she's posted to Iraq, the earnest Stan is home in Minnesota with their daughters, Heidi, 12, and Dawn, 8. He manages a home supply store. After morning visitors bring Stan news, he takes the girls for a car ride that turns into a spontaneous trip to Dawn's favorite place, a Florida amusement park. On the way, they stop at Stan's mother's house, where his brother is staying. Heidi is an insomniac, who tries to fathom her father's uncharacteristic behavior. Dawn is cheerfully unreflective. They have fun at the park. Stan summons his courage.",
+      "runtime_min": 85,
+      "director": "Jim Strouse",
+      "actors": [
+        "John Cusack",
+        "Emily Churchill",
+        "Rebecca Spence"
+      ],
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "critics": {
+        "mc": 65
+      },
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt15386390": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjQxYTQxYTEtNDk5NC00NmY4LTlkMGItMWU3OTgyODdjMTc1XkEyXkFqcGdeQXVyMTEyMzQyNTU1._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "The story of a taxi driver who lives with his mother, in addition to the bad luck he experiences with women, he is in love with his neighbor. Comedy of entanglements, and different situations.",
+      "runtime_min": null,
+      "director": "Carlos Galettini",
+      "actors": [],
+      "genres": [
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt1869480": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": "Advices older people how they can improve their road safety record.",
+      "runtime_min": null,
+      "director": "John Krish",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt1971463": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc2ZTgyZWEtOTBmNy00ZTM0LWE0YmYtZTQ2YmM0NmFlMmJlXkEyXkFqcGdeQXVyMTQwMzQ1MA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A look into life in an industrial town in Yorkshire.",
+      "runtime_min": 11,
+      "director": "Norman Hemsley",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt1971474": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": "Perky presenter Gamal Kinnay extols the joys of industrial Cardiff, in this recruitment film designed to encourage Arab workers to come to Britain.",
+      "runtime_min": 19,
+      "director": "J. Fares",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt4088252": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTgyOTMzMjEtMzhjMS00MzBlLWI3NjEtMWRkMDVlMmYwZGM5XkEyXkFqcGdeQXVyMTQwMzQ1MA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "John Adams",
+      "actors": [
+        "David Glass",
+        "John Stockbridge"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-24T12:33:11Z",
       "schema": 4
     }
   },
