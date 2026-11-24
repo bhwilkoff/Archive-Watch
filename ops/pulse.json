@@ -114,8 +114,8 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "caa7360",
-   "since": "2026-11-23T20:08:37Z",
+   "version": "498361b",
+   "since": "2026-11-23T21:33:18Z",
    "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
@@ -361,6 +361,81 @@
  "social": {
   "posts": [
    {
+    "at": "2026-11-24T02:12:59.664541+00:00",
+    "platform": "bluesky",
+    "title": "Fanny by Gaslight",
+    "id": "Gaslight_628",
+    "slot": "viewer-said",
+    "format": "video",
+    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2zl2delgt2o",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
+    "at": "2026-11-24T02:12:59.664541+00:00",
+    "platform": "mastodon",
+    "title": "Fanny by Gaslight",
+    "id": "Gaslight_628",
+    "slot": "viewer-said",
+    "format": "video",
+    "url": "https://mastodon.social/@archivewatch/117668996978820383",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
+    "at": "2026-11-24T02:12:59.664541+00:00",
+    "platform": "threads",
+    "title": "Fanny by Gaslight",
+    "id": "Gaslight_628",
+    "slot": "viewer-said",
+    "format": "card",
+    "url": "https://www.threads.com/@archivewatchapp/post/DgG2x2AFPs6",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": null
+   },
+   {
+    "at": "2026-11-24T02:12:59.664541+00:00",
+    "platform": "instagram",
+    "title": "Fanny by Gaslight",
+    "id": "Gaslight_628",
+    "slot": "viewer-said",
+    "format": "card",
+    "url": "https://www.instagram.com/p/DgG22b2FLlt/",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": null
+   },
+   {
+    "at": "2026-11-24T02:12:59.664541+00:00",
+    "platform": "youtube",
+    "title": "Fanny by Gaslight",
+    "id": "Gaslight_628",
+    "slot": "viewer-said",
+    "format": "video",
+    "url": "https://youtube.com/watch?v=1ze0bwYwLKU",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": null
+   },
+   {
     "at": "2026-11-23T03:46:13.576483+00:00",
     "platform": "bluesky",
     "title": "The Woman from Nowhere",
@@ -368,11 +443,11 @@
     "slot": "now-showing",
     "format": "video",
     "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2x7s2qx2w26",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null,
+    "window": "24h",
     "live": true
    },
    {
@@ -383,11 +458,11 @@
     "slot": "from-the-vaults",
     "format": "video",
     "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2wjjcupuh27",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null,
+    "window": "24h",
     "live": true
    },
    {
@@ -398,11 +473,11 @@
     "slot": "from-the-vaults",
     "format": "video",
     "url": "https://mastodon.social/@archivewatch/117662136656989317",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null,
+    "window": "24h",
     "live": true
    },
    {
@@ -807,7 +882,7 @@
     "reposts": 0,
     "replies": 0,
     "views": null,
-    "window": "24h",
+    "window": "7d",
     "live": true
    },
    {
@@ -822,7 +897,7 @@
     "reposts": 0,
     "replies": 0,
     "views": null,
-    "window": "24h",
+    "window": "7d",
     "live": true
    },
    {
@@ -882,7 +957,7 @@
     "reposts": 0,
     "replies": 0,
     "views": null,
-    "window": "24h",
+    "window": "7d",
     "live": true
    },
    {
@@ -2084,87 +2159,12 @@
     "views": null,
     "window": "7d",
     "live": true
-   },
-   {
-    "at": "2026-11-02T22:59:42.929685+00:00",
-    "platform": "instagram",
-    "title": "Dickson Experimental Sound Film",
-    "id": "the-gay-brothers-1895",
-    "slot": "now-showing",
-    "format": "card",
-    "url": "https://www.instagram.com/p/DfQb7VbH7fo/",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
-    "views": null,
-    "window": null,
-    "live": null
-   },
-   {
-    "at": "2026-11-02T02:21:37.847381+00:00",
-    "platform": "bluesky",
-    "title": "A Trip to the Moon",
-    "id": "a-trip-to-the-moon-1902-tmdbid-775",
-    "slot": "now-showing",
-    "format": "card",
-    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzcbb7lbpv26",
-    "likes": 1,
-    "reposts": 0,
-    "replies": 0,
-    "views": null,
-    "window": "7d",
-    "live": true
-   },
-   {
-    "at": "2026-11-01T19:34:45.636892+00:00",
-    "platform": "bluesky",
-    "title": "To Hear Your Banjo Play",
-    "id": "to_hear_your_banjo_play",
-    "slot": "from-the-vaults",
-    "format": "video",
-    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mzbkjwzfge2i",
-    "likes": 0,
-    "reposts": 0,
-    "replies": 0,
-    "views": null,
-    "window": "7d",
-    "live": true
-   },
-   {
-    "at": "2026-11-01T19:34:45.636892+00:00",
-    "platform": "mastodon",
-    "title": "To Hear Your Banjo Play",
-    "id": "to_hear_your_banjo_play",
-    "slot": "from-the-vaults",
-    "format": "video",
-    "url": "https://mastodon.social/@archivewatch/117542859908484163",
-    "likes": 0,
-    "reposts": 0,
-    "replies": 0,
-    "views": null,
-    "window": "7d",
-    "live": true
-   },
-   {
-    "at": "2026-11-01T19:34:45.636892+00:00",
-    "platform": "instagram",
-    "title": "To Hear Your Banjo Play",
-    "id": "to_hear_your_banjo_play",
-    "slot": "from-the-vaults",
-    "format": "card",
-    "url": "https://www.instagram.com/p/DfNftN_lH4n/",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
-    "views": null,
-    "window": null,
-    "live": null
    }
   ],
   "byPlatform": {
    "bluesky": {
-    "posts": 44,
-    "likes": 7,
+    "posts": 43,
+    "likes": 6,
     "replies": 0,
     "reposts": 0,
     "views": 0,
@@ -2178,8 +2178,16 @@
     "views": 0,
     "measured": 21
    },
+   "threads": {
+    "posts": 13,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "views": 0,
+    "measured": 0
+   },
    "instagram": {
-    "posts": 22,
+    "posts": 21,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2187,15 +2195,7 @@
     "measured": 0
    },
    "youtube": {
-    "posts": 20,
-    "likes": 0,
-    "replies": 0,
-    "reposts": 0,
-    "views": 0,
-    "measured": 0
-   },
-   "threads": {
-    "posts": 12,
+    "posts": 21,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2204,26 +2204,26 @@
    }
   },
   "totalPosts": 120,
-  "measured": 227,
+  "measured": 230,
   "reach": {
    "bluesky": {
     "followers": 51,
-    "posts": 153
+    "posts": 154
    },
    "mastodon": {
     "followers": 1,
-    "posts": 77
+    "posts": 78
    },
    "instagram": {
     "followers": 0,
-    "posts": 88
+    "posts": 90
    },
    "youtube": {
     "error": "the poster's token is youtube.upload only, by design — stats need youtube.readonly"
    }
   },
   "deleted": 0,
-  "unverified": 54
+  "unverified": 55
  },
  "health": {
   "applePerf": {
@@ -2233,15 +2233,6 @@
   },
   "appleDownloads": {
    "daily": [
-    {
-     "date": "2026-10-23",
-     "units": 18,
-     "byDevice": {
-      "iPhone": 10,
-      "iPad": 4,
-      "Apple TV": 4
-     }
-    },
     {
      "date": "2026-10-24",
      "units": 37,
@@ -2538,21 +2529,21 @@
    "total14d": 501,
    "total28d": 1001,
    "byDevice": {
-    "iPhone": 656,
-    "Apple TV": 227,
-    "iPad": 150,
+    "iPhone": 646,
+    "Apple TV": 223,
+    "iPad": 146,
     "Desktop": 48
    },
    "byCountry": {
-    "US": 491,
+    "US": 484,
     "GB": 60,
-    "CA": 48,
+    "CA": 47,
     "AU": 38,
-    "SA": 27,
+    "SA": 24,
     "IN": 23,
     "NG": 22,
     "FR": 20,
-    "DE": 20,
+    "DE": 19,
     "RU": 16,
     "IE": 14,
     "MX": 13,
@@ -2563,7 +2554,7 @@
     "1.47.3": 284,
     "1.47.28": 253,
     "1.47.45": 174,
-    "1.46.14": 171,
+    "1.46.14": 153,
     "1.47.42": 99,
     "1.48.2": 51,
     "1.47.41": 34,
@@ -2572,13 +2563,13 @@
    "perDevice": {
     "iPhone": {
      "byCountry": {
-      "US": 247,
+      "US": 244,
       "GB": 33,
-      "CA": 29,
+      "CA": 28,
       "NG": 22,
-      "SA": 18,
+      "SA": 17,
       "IN": 17,
-      "DE": 15,
+      "DE": 14,
       "AU": 14,
       "RU": 13,
       "FR": 12,
@@ -2591,13 +2582,13 @@
       "1.47.3": 173,
       "1.47.45": 149,
       "1.47.28": 134,
-      "1.46.14": 105,
+      "1.46.14": 95,
       "1.47.42": 36,
       "1.47.41": 27,
       "1.48.2": 19,
       "1.47.40": 13
      },
-     "units": 656
+     "units": 646
     },
     "Desktop": {
      "byCountry": {
@@ -2627,36 +2618,36 @@
     },
     "iPad": {
      "byCountry": {
-      "US": 71,
+      "US": 70,
       "GB": 14,
-      "SA": 8,
       "AU": 7,
+      "SA": 6,
       "AE": 5,
       "CA": 5,
       "IN": 4,
       "BE": 4,
-      "IQ": 3,
       "PH": 3,
       "MX": 2,
       "JP": 2,
       "RU": 2,
-      "IL": 2
+      "IL": 2,
+      "IQ": 2
      },
      "byVersion": {
       "1.47.3": 49,
       "1.47.28": 37,
       "1.47.45": 25,
-      "1.46.14": 22,
+      "1.46.14": 18,
       "1.47.41": 7,
       "1.48.2": 6,
       "1.47.42": 2,
       "1.47.40": 2
      },
-     "units": 150
+     "units": 146
     },
     "Apple TV": {
      "byCountry": {
-      "US": 155,
+      "US": 152,
       "AU": 14,
       "CA": 13,
       "IE": 9,
@@ -2667,23 +2658,23 @@
       "DE": 3,
       "BE": 3,
       "TR": 2,
-      "NL": 2,
       "SE": 2,
-      "ES": 1
+      "ES": 1,
+      "SG": 1
      },
      "byVersion": {
       "1.47.28": 79,
       "1.47.42": 49,
       "1.47.3": 45,
-      "1.46.14": 37,
+      "1.46.14": 33,
       "1.48.2": 17
      },
-     "units": 227
+     "units": 223
     }
    },
    "skippedProductTypes": {
-    "F7": 12301,
-    "F3": 328
+    "F7": 12244,
+    "F3": 318
    }
   },
   "playVitals": {
@@ -2697,8 +2688,8 @@
     "type": "APPLICATION_NOT_RESPONDING",
     "cause": "Native method - android.os.MessageQueue.nativePollOnce",
     "location": "Input dispatching timed out",
-    "users": 18,
-    "reports": 20,
+    "users": 17,
+    "reports": 18,
     "lastSeen": "2026-11-22T18:00:00Z",
     "firstBuild": "69",
     "lastBuild": "73",
@@ -2706,7 +2697,7 @@
     "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/a6de15e9a91794d45b55e1a9282d0460/details",
     "fixedIn": null,
-    "ours": "at app.archivewatch.android.data.CatalogRepository.inflateRawDeflate (CatalogRepository.kt:259)"
+    "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1399)"
    },
    {
     "type": "CRASH",
@@ -2725,21 +2716,6 @@
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
-    "cause": "Native method - android.os.MessageQueue.nativePollOnce",
-    "location": "Root cause for this ANR is unknown",
-    "users": 2,
-    "reports": 2,
-    "lastSeen": "2026-11-22T02:00:00Z",
-    "firstBuild": "69",
-    "lastBuild": "73",
-    "api": "34-34",
-    "stale": false,
-    "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/2508e2ae81cbc84f2269339a2da9988e/details",
-    "fixedIn": null,
-    "ours": null
-   },
-   {
-    "type": "APPLICATION_NOT_RESPONDING",
     "cause": "[libart.so] art::ConditionVariable::WaitHoldingLocks(art::Thread*)",
     "location": "Input dispatching timed out",
     "users": 1,
@@ -2750,6 +2726,21 @@
     "api": "34-34",
     "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/03910b9f3684bbbfd57b94d974411beb/details",
+    "fixedIn": null,
+    "ours": null
+   },
+   {
+    "type": "APPLICATION_NOT_RESPONDING",
+    "cause": "Native method - android.os.MessageQueue.nativePollOnce",
+    "location": "Root cause for this ANR is unknown",
+    "users": 1,
+    "reports": 1,
+    "lastSeen": "2026-11-22T02:00:00Z",
+    "firstBuild": "73",
+    "lastBuild": "73",
+    "api": "34-34",
+    "stale": false,
+    "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/2508e2ae81cbc84f2269339a2da9988e/details",
     "fixedIn": null,
     "ours": null
    },
@@ -2797,21 +2788,6 @@
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/3d01bb365ae1b81885bc90bd98925a5e/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.data.CatalogDatabase.queryRawOrThrow (CatalogDatabase.kt:977)"
-   },
-   {
-    "type": "APPLICATION_NOT_RESPONDING",
-    "cause": "[libart.so] art::ConditionVariable::WaitHoldingLocks",
-    "location": "Input dispatching timed out (No focused window)",
-    "users": 1,
-    "reports": 1,
-    "lastSeen": "2026-10-25T21:00:00Z",
-    "firstBuild": "69",
-    "lastBuild": "69",
-    "api": "34-34",
-    "stale": true,
-    "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/4135eb0481b5a7d4c89d3b1f2f7b7e27/details",
-    "fixedIn": null,
-    "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$2.intercept (AppContainer.java:1399)"
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -3381,7 +3357,7 @@
     "fr": 80
    },
    "readVia": "service account",
-   "staleDays": 5,
+   "staleDays": 6,
    "monthsFound": [
     "2026-10",
     "2026-11"
@@ -4425,46 +4401,13 @@
      "description": "App crash metrics",
      "metrics": [
       "distinctDevices",
-      "crashRate7dUserWeighted",
-      "crashRate",
-      "userPerceivedCrashRate",
-      "crashRate28dUserWeighted",
-      "userPerceivedCrashRate7dUserWeighted",
+      "crashCount",
       "userPerceivedCrashRate28dUserWeighted",
-      "crashCount"
-     ],
-     "dimensions": [
-      "deviceModel",
-      "countryCode",
-      "deviceType",
-      "osVersion",
-      "versionCode",
-      "deviceName",
-      "deviceOS"
-     ],
-     "freshnessInfo": [
-      {
-       "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-11-23T17"
-      },
-      {
-       "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-11-22"
-      }
-     ]
-    },
-    "anrMetricSet": {
-     "name": "anrMetricSet",
-     "description": "App ANR (Application Not Responding) metrics",
-     "metrics": [
-      "distinctDevices",
-      "userPerceivedAnrRate28dUserWeighted",
-      "anrRate28dUserWeighted",
-      "anrCount",
-      "userPerceivedAnrRate7dUserWeighted",
-      "userPerceivedAnrRate",
-      "anrRate",
-      "anrRate7dUserWeighted"
+      "userPerceivedCrashRate7dUserWeighted",
+      "crashRate28dUserWeighted",
+      "userPerceivedCrashRate",
+      "crashRate",
+      "crashRate7dUserWeighted"
      ],
      "dimensions": [
       "countryCode",
@@ -4478,7 +4421,40 @@
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-11-23T17"
+       "latestDataTimestamp": "2026-11-24T02"
+      },
+      {
+       "aggregationPeriod": "DAILY",
+       "latestDataTimestamp": "2026-11-22"
+      }
+     ]
+    },
+    "anrMetricSet": {
+     "name": "anrMetricSet",
+     "description": "App ANR (Application Not Responding) metrics",
+     "metrics": [
+      "anrCount",
+      "userPerceivedAnrRate7dUserWeighted",
+      "userPerceivedAnrRate",
+      "anrRate",
+      "anrRate7dUserWeighted",
+      "distinctDevices",
+      "userPerceivedAnrRate28dUserWeighted",
+      "anrRate28dUserWeighted"
+     ],
+     "dimensions": [
+      "deviceName",
+      "versionCode",
+      "osVersion",
+      "deviceType",
+      "countryCode",
+      "deviceModel",
+      "deviceOS"
+     ],
+     "freshnessInfo": [
+      {
+       "aggregationPeriod": "HOURLY",
+       "latestDataTimestamp": "2026-11-24T02"
       },
       {
        "aggregationPeriod": "DAILY",
@@ -4500,18 +4476,18 @@
       "userPerceivedLmkRate7dUserWeighted"
      ],
      "dimensions": [
-      "deviceModel",
       "countryCode",
       "deviceType",
       "osVersion",
       "versionCode",
       "deviceName",
-      "deviceOS"
+      "deviceOS",
+      "deviceModel"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-11-23T17"
+       "latestDataTimestamp": "2026-11-24T02"
       },
       {
        "aggregationPeriod": "DAILY",
@@ -4673,12 +4649,16 @@
     {
      "date": "2026-11-22",
      "installs": 2
+    },
+    {
+     "date": "2026-11-23",
+     "installs": 1
     }
    ],
    "byCountry": [
     {
      "key": "US",
-     "value": 40
+     "value": 41
     },
     {
      "key": "GB",
@@ -4721,14 +4701,14 @@
      "value": 1
     }
    ],
-   "total": 67,
+   "total": 68,
    "periods": [
     "2026-11",
     "2026-10"
    ],
    "noReport": [],
    "transactionTypes": {
-    "Charge": 67
+    "Charge": 68
    },
    "readVia": "Appstore Sales Reporting API (free installs are $0.00 Charge rows)",
    "console": "https://developer.amazon.com/apps-and-games/console/reports/download-center.html"
@@ -6240,11 +6220,11 @@
   "workflows": [
    {
     "severity": "FAILED",
-    "workflow": "Cover generation conclusion=failure"
+    "workflow": "Deploy Pages conclusion=failure"
    },
    {
     "severity": "FAILED",
-    "workflow": "Wikipedia synopses conclusion=failure"
+    "workflow": "Wikipedia synopses conclusion=failure — but a manual run on 2026-11-23 SUCCEEDED, so this may already be fixed and awaiting its next scheduled run"
    }
   ],
   "catalog": {
@@ -6634,33 +6614,38 @@
     },
     {
      "date": "2026-11-23",
-     "views": 3213,
-     "visits": 852
+     "views": 3760,
+     "visits": 1026
+    },
+    {
+     "date": "2026-11-24",
+     "views": 572,
+     "visits": 153
     }
    ],
-   "views28d": 145370,
-   "views7d": 55933,
-   "visits28d": 54679,
-   "visits7d": 26331,
+   "views28d": 143305,
+   "views7d": 50021,
+   "visits28d": 53970,
+   "visits7d": 23831,
    "byPath": {
-    "/item": 106205,
-    "/": 62596,
-    "/browse": 57377,
-    "/search": 22142,
-    "/other": 12592,
-    "/series": 10447,
-    "/channels": 4081,
-    "/library": 2969,
-    "/surprise": 2240,
-    "/collections": 1522,
-    "/collection": 1127,
-    "/about": 416
+    "/item": 106842,
+    "/": 62729,
+    "/browse": 57580,
+    "/search": 22224,
+    "/other": 12610,
+    "/series": 10464,
+    "/channels": 4090,
+    "/library": 2974,
+    "/surprise": 2246,
+    "/collections": 1527,
+    "/collection": 1128,
+    "/about": 418
    },
-   "since": "2026-08-25",
+   "since": "2026-08-26",
    "splitFrom": "2026-09-10"
   },
   "webTitles": {
-   "since": "2026-08-25",
+   "since": "2026-08-26",
    "topPlayed": [
     {
      "id": "boob-tube-the-1975-colleen-brennan-john-alderman-lyllah-torena-elana-casey-jon-r",
@@ -6687,6 +6672,10 @@
      "count": 101
     },
     {
+     "id": "the-twilight-zone-1959-s-01-e-00-original-pilot@s1e01",
+     "count": 96
+    },
+    {
      "id": "tarzans_revenge",
      "count": 95
     },
@@ -6695,12 +6684,8 @@
      "count": 95
     },
     {
-     "id": "the-twilight-zone-1959-s-01-e-00-original-pilot@s1e01",
-     "count": 93
-    },
-    {
      "id": "the-twilight-zone-1959-s-01-e-00-original-pilot@s1e00",
-     "count": 92
+     "count": 93
     },
     {
      "id": "she-killed-in-ecstasy-sie-totete-in-ekstase-1971-soledad-miranda-fred-williams-h",
@@ -6731,6 +6716,10 @@
      "count": 65
     },
     {
+     "id": "The_Little_Shop_of_Horrors.mpeg",
+     "count": 61
+    },
+    {
      "id": "dishonored_lady",
      "count": 60
     },
@@ -6739,12 +6728,8 @@
      "count": 58
     },
     {
-     "id": "The_Little_Shop_of_Horrors.mpeg",
-     "count": 58
-    },
-    {
      "id": "reefer_madness1938",
-     "count": 57
+     "count": 58
     },
     {
      "id": "fruit-is-ripe-the-griechische-feigen-1977-olivia-pascal-betty-verges-jessica-dub",
@@ -6802,7 +6787,7 @@
     },
     {
      "id": "series:the-twilight-zone-1959",
-     "count": 665
+     "count": 672
     },
     {
      "id": "ACanterburyTale_201605",
@@ -6826,7 +6811,7 @@
     },
     {
      "id": "series:alfred-hitchcock-presents-1955",
-     "count": 284
+     "count": 285
     },
     {
      "id": "charlie_chaplin_film_fest",
@@ -6846,7 +6831,7 @@
     },
     {
      "id": "suddenly",
-     "count": 143
+     "count": 145
     },
     {
      "id": "Horror_Hotel",
@@ -7219,15 +7204,20 @@
     },
     {
      "date": "2026-11-23",
-     "open": 980,
-     "play": 454
+     "open": 1157,
+     "play": 560
+    },
+    {
+     "date": "2026-11-24",
+     "open": 218,
+     "play": 140
     }
    ],
-   "distinctPlayed": 9194,
-   "distinctOpened": 12876,
+   "distinctPlayed": 9282,
+   "distinctOpened": 12988,
    "totals": {
-    "open": 81904,
-    "play": 29131
+    "open": 82299,
+    "play": 29377
    },
    "scope": "the WEBSITE only — the apps collect nothing, and they are most of the audience, so this is a sample rather than the platform"
   },
@@ -10102,24 +10092,17 @@
   "searchIndex": {
    "published": 41380,
    "sampled": 150,
-   "indexedShare": 0.627,
+   "indexedShare": 0.66,
    "byState": {
-    "Submitted and indexed": 94,
-    "Discovered - currently not indexed": 31,
-    "URL is unknown to Google": 25
+    "Submitted and indexed": 99,
+    "Discovered - currently not indexed": 34,
+    "URL is unknown to Google": 15,
+    "Crawled - currently not indexed": 2
    },
    "faults": [],
    "examples": [
     {
-     "url": "https://archivewatch.org/item/les-vampires-1915/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/Sogk0OxWF6uxU3TB6KANz4RJ91myDX/",
+     "url": "https://archivewatch.org/item/pinched-1917-directed-by-harold-lloyd-gilbert-pratt/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10127,7 +10110,39 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/edd809421_1771969895/",
+     "url": "https://archivewatch.org/item/citizenship_at_school-school_discipline/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/WhyWeFightPt4BattleOfBritain720p/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/BalletMcanique1924/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/the-timid-toreador-1940/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/HMCanadianRockies97417/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10135,15 +10150,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/44974-army-navy-screen-27-vwr/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/Assorted1970sTVSpots2/",
+     "url": "https://archivewatch.org/item/the-flying-scotsman-1929-by-castleton-knight/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10151,7 +10158,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/malizia-malicious-1973-laura-antonelli-turi-ferro-alessandro-momo-tina-aumont-an/",
+     "url": "https://archivewatch.org/item/ThePatriotTrailer/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10159,7 +10166,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/CallOfTheForest720p/",
+     "url": "https://archivewatch.org/item/6297_HM_Can_10587_San_Francisco_and_West_02_44_54_00/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10167,15 +10174,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/new_girl_in_the_office_2/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/201298_The_Experimental_Psychology_of_Vision/",
+     "url": "https://archivewatch.org/item/The_Mike_Wallace_Interview___Rod_Serling/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10183,7 +10182,23 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/intikam-melegi-kadin-hamlet_movie/",
+     "url": "https://archivewatch.org/item/1972MireilleMathieuKesselBuntes/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/SVS-2486/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/CHAN-297/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10191,23 +10206,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/202274_Golden_Horizons/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/dizzy-dishes_1930/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/im-in-the-army-now-1936/",
+     "url": "https://archivewatch.org/item/0929StoryOfAsbestos/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10215,7 +10214,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/futatsuno-sekai_1929/",
+     "url": "https://archivewatch.org/item/Kanai-Asia-Try-Zero-G-Experiment_HD-DL-2_2018_044_0746_617832.mxf/",
+     "state": "Crawled - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": "2026-10-20T00:42:16Z",
+     "fetch": "SUCCESSFUL",
+     "googleCanonical": "https://archivewatch.org/item/Kanai-Asia-Try-Zero-G-Experiment_HD-DL-2_2018_044_0746_617832.mxf/"
+    },
+    {
+     "url": "https://archivewatch.org/item/HMMontereyCarmelS11126/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10223,7 +10230,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/4-the-vale-of-tears/",
+     "url": "https://archivewatch.org/item/silent-the-bewitched-shepherd/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/0225_Science_in_Action_Drilling_for_Oil_19_58_10_00/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10231,7 +10246,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/52064TripToEruopeOnTheUSSMissouri/",
+     "url": "https://archivewatch.org/item/0354_Social_Seminar_The_Community_In_Quest_08_00_54_25/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10239,7 +10254,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/1938-verklungende-melodie-brigitte-horney-willy-birgel-carl-raddartz-hans-brausewetter-erich-fiedler/",
+     "url": "https://archivewatch.org/item/40284airlifttoberlinvwr/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10247,7 +10262,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/46464-giant-plane-for-new-york-to-paris-hop-vwr/",
+     "url": "https://archivewatch.org/item/speedway-1929/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10255,23 +10270,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/19944b-chevrolet-makes-sense-for-america-8mm-vwr/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/202388_Nicholson_Collection_004248/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/JackDempseyVsGeneTunney/",
+     "url": "https://archivewatch.org/item/UnitedRa1917/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10279,7 +10278,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/AllOverTown_OlsenJohnson/",
+     "url": "https://archivewatch.org/item/202330_Schmidt_Collection_10/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10287,7 +10286,39 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/0207_Gould_can_5360_1_San_Francisco_Garibaldi_Italian_Picnic_02_31_32_00/",
+     "url": "https://archivewatch.org/item/lost_city11/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/1959-02-19_Weather_Eye/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/47254OurColorfulWorld/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/silent-im-lebenswirbel/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/zorros_black_whip_chapter2/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10295,7 +10326,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/point-rationing-of-foods-1943/",
+     "url": "https://archivewatch.org/item/silent-the-ghost-train/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10303,7 +10334,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/unidentified_35mm_1920s_nitrate_home_movies/",
+     "url": "https://archivewatch.org/item/1944-spiel-oscar-sima-lucie-englisch-hilde-hildebrand/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10311,31 +10342,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/BorntoBattle/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/0031_Gracias_Amigos_07_43_26_00/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/la-familia-hippie-1971/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/1936-die-jugendsunde-max-schultes-else-elster/",
+     "url": "https://archivewatch.org/item/TheRomp/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10343,7 +10350,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/campbells-curly-noodle-soup-tv-commercial-game-show-spoof/",
+     "url": "https://archivewatch.org/item/BoskoTheTalkInkKid1929HughHarmamRudolfIsing/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10351,7 +10358,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/jet_national/",
+     "url": "https://archivewatch.org/item/HMHikingtheGrandCa97319/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10359,7 +10366,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/jsc2018m001032Space-Grown_Crystals_Offer_Clarity_on_Parkinsons_Disease/",
+     "url": "https://archivewatch.org/item/badman-4-k/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10367,7 +10374,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/silent-vive-la-vie-de-garon/",
+     "url": "https://archivewatch.org/item/1934-wenn-du-jung-bist-gehort-dir-die-welt-otto-tressler-joseph-schmidt-szoke-szakall/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10375,7 +10382,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/the-keystone-patrician_1928/",
+     "url": "https://archivewatch.org/item/crossroads_USA/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10383,7 +10390,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/luke-joins-the-navy-1916-directed-by-hal-roach/",
+     "url": "https://archivewatch.org/item/SergioValenteTVCommercial1982/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10391,7 +10398,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/ufa-con-el-sexo-1968/",
+     "url": "https://archivewatch.org/item/0864_Feet_First_22_27_49_00/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10399,15 +10406,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/0938ShoreLinesAndShoreDevelopment/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/gov.archives.341-roswell-4/",
+     "url": "https://archivewatch.org/item/tobacco_qja84e00/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -10415,16 +10414,8 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/1941-wetterleuchten-um-barbara-sybille-schmitz-viktor-staal-attila-horbiger-osca/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/manhandled-1924-bluray-1080p-dts-2.0-x264-latency/",
-     "state": "URL is unknown to Google",
+     "url": "https://archivewatch.org/item/gov.ntis.ava06050vnb1/",
+     "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
      "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
@@ -10734,79 +10725,84 @@
      "date": "2026-11-23",
      "rooms": 0,
      "guests": 0
+    },
+    {
+     "date": "2026-11-24",
+     "rooms": 0,
+     "guests": 0
     }
    ],
    "roomsSince": "2026-09-25",
    "youtubeDaily": [
     {
-     "date": "2026-09-18",
-     "calls": 95,
-     "errors": 35,
-     "units": 95,
-     "lives": 0
-    },
-    {
      "date": "2026-09-19",
-     "calls": 373,
-     "errors": 11,
-     "units": 2039,
-     "lives": 10
+     "calls": 275,
+     "errors": 46,
+     "units": 1059,
+     "lives": 4
     },
     {
      "date": "2026-09-20",
-     "calls": 121,
+     "calls": 261,
      "errors": 0,
-     "units": 2032,
-     "lives": 13
+     "units": 2319,
+     "lives": 14
     },
     {
      "date": "2026-09-21",
-     "calls": 84,
-     "errors": 2,
-     "units": 819,
-     "lives": 5
+     "calls": 125,
+     "errors": 0,
+     "units": 1595,
+     "lives": 10
     },
     {
      "date": "2026-09-22",
-     "calls": 169,
-     "errors": 0,
-     "units": 169,
+     "calls": 12,
+     "errors": 2,
+     "units": 12,
      "lives": 0
     },
     {
      "date": "2026-09-23",
-     "calls": 1605,
-     "errors": 4,
-     "units": 9276,
-     "lives": 11
+     "calls": 187,
+     "errors": 2,
+     "units": 383,
+     "lives": 1
     },
     {
      "date": "2026-09-24",
-     "calls": 408,
-     "errors": 1,
-     "units": 2026,
-     "lives": 5
+     "calls": 1848,
+     "errors": 3,
+     "units": 10177,
+     "lives": 13
+    },
+    {
+     "date": "2026-09-25",
+     "calls": 147,
+     "errors": 0,
+     "units": 911,
+     "lives": 2
     },
     {
      "date": "2026-09-26",
-     "calls": 262,
+     "calls": 139,
      "errors": 0,
-     "units": 2174,
-     "lives": 5
+     "units": 728,
+     "lives": 1
     },
     {
-     "date": "2026-09-30",
-     "calls": 43,
+     "date": "2026-09-27",
+     "calls": 123,
      "errors": 0,
-     "units": 392,
-     "lives": 1
+     "units": 1446,
+     "lives": 4
     },
     {
      "date": "2026-10-01",
-     "calls": 47,
+     "calls": 90,
      "errors": 0,
-     "units": 341,
-     "lives": 1
+     "units": 733,
+     "lives": 2
     },
     {
      "date": "2026-10-03",
@@ -10887,56 +10883,55 @@
    "livesNote": "YouTube sign-in shows only",
    "daily": [
     {
-     "date": "2026-09-18",
-     "lives": 0,
-     "units": 95
-    },
-    {
      "date": "2026-09-19",
-     "lives": 10,
-     "units": 2039
+     "lives": 4,
+     "units": 1059
     },
     {
      "date": "2026-09-20",
-     "lives": 13,
-     "units": 2032
+     "lives": 14,
+     "units": 2319
     },
     {
      "date": "2026-09-21",
-     "lives": 5,
-     "units": 819
+     "lives": 10,
+     "units": 1595
     },
     {
      "date": "2026-09-22",
      "lives": 0,
-     "units": 169
+     "units": 12
     },
     {
      "date": "2026-09-23",
-     "lives": 11,
-     "units": 9276
+     "lives": 1,
+     "units": 383
     },
     {
      "date": "2026-09-24",
-     "lives": 5,
-     "units": 2026
+     "lives": 13,
+     "units": 10177
     },
     {
      "date": "2026-09-25",
      "rooms": 1,
-     "guests": 1
+     "guests": 1,
+     "lives": 2,
+     "units": 911
     },
     {
      "date": "2026-09-26",
      "rooms": 12,
      "guests": 10,
-     "lives": 5,
-     "units": 2174
+     "lives": 1,
+     "units": 728
     },
     {
      "date": "2026-09-27",
      "rooms": 0,
-     "guests": 0
+     "guests": 0,
+     "lives": 4,
+     "units": 1446
     },
     {
      "date": "2026-09-28",
@@ -10951,16 +10946,14 @@
     {
      "date": "2026-09-30",
      "rooms": 0,
-     "guests": 0,
-     "lives": 1,
-     "units": 392
+     "guests": 0
     },
     {
      "date": "2026-10-01",
      "rooms": 0,
      "guests": 0,
-     "lives": 1,
-     "units": 341
+     "lives": 2,
+     "units": 733
     },
     {
      "date": "2026-10-02",
@@ -11226,6 +11219,11 @@
     },
     {
      "date": "2026-11-23",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-11-24",
      "rooms": 0,
      "guests": 0
     }
@@ -11623,23 +11621,30 @@
     },
     {
      "date": "2026-11-23",
-     "signin": 35,
+     "signin": 39,
      "play": 30,
-     "channel": 2508,
+     "channel": 2741,
+     "mcp": 0
+    },
+    {
+     "date": "2026-11-24",
+     "signin": 6,
+     "play": 0,
+     "channel": 1308,
      "mcp": 0
     }
    ],
    "since": "2026-09-27",
    "last28": {
-    "signin": 1329,
-    "play": 1158,
-    "channel": 42865,
+    "signin": 1267,
+    "play": 1045,
+    "channel": 44256,
     "mcp": 57
    },
    "prev28": {
-    "signin": 409,
-    "play": 843,
-    "channel": 2878,
+    "signin": 481,
+    "play": 956,
+    "channel": 3028,
     "mcp": 2
    }
   }
@@ -11725,222 +11730,222 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-11-23T20:17:36+00:00"
+   "at": "2026-11-24T04:46:43+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "8 review(s)",
-   "at": "2026-11-23T20:17:37+00:00"
+   "at": "2026-11-24T04:46:44+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.3 from 10",
-   "at": "2026-11-23T20:17:37+00:00"
+   "at": "2026-11-24T04:46:44+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-11-23T20:17:38+00:00"
+   "at": "2026-11-24T04:46:45+00:00"
   },
   "apple_downloads": {
    "ok": true,
-   "note": "1081 first-time download(s) over 31 day(s), 4 device type(s), 94 country/countries; skipped 12629 unit(s) across 2 other product type(s)",
-   "at": "2026-11-23T20:18:01+00:00"
+   "note": "1063 first-time download(s) over 30 day(s), 4 device type(s), 94 country/countries; skipped 12562 unit(s) across 2 other product type(s)",
+   "at": "2026-11-24T04:47:06+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-11-23T20:18:03+00:00"
+   "at": "2026-11-24T04:47:08+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-11-23T20:18:03+00:00"
+   "at": "2026-11-24T04:47:08+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.00153, anrRate=0.01812",
-   "at": "2026-11-23T20:18:05+00:00"
+   "at": "2026-11-24T04:47:10+00:00"
   },
   "play_crashes": {
    "ok": true,
-   "note": "19 cluster(s), 8 still on build 73",
-   "at": "2026-11-23T20:18:28+00:00"
+   "note": "18 cluster(s), 8 still on build 73",
+   "at": "2026-11-24T04:47:51+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "21 day(s) of users, 2 dimension(s)",
-   "at": "2026-11-23T20:18:33+00:00"
+   "at": "2026-11-24T04:47:55+00:00"
   },
   "play_reports": {
    "ok": true,
-   "note": "2737 install(s) over 28 day(s) to 2026-11-18 (5d behind — Play's normal reporting lag), 7 report(s)",
-   "at": "2026-11-23T20:18:41+00:00"
+   "note": "2737 install(s) over 28 day(s) to 2026-11-18 (6d behind — Play's normal reporting lag), 7 report(s)",
+   "at": "2026-11-24T04:48:04+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 73 day(s) to 2026-11-12, crashes: 54 day(s) to 2026-11-22",
-   "at": "2026-11-23T20:18:42+00:00"
+   "at": "2026-11-24T04:48:06+00:00"
   },
   "play_rating": {
    "ok": true,
    "note": "3.83 from an uncounted number of rating(s), via Play's daily export to 2026-11-12",
-   "at": "2026-11-23T20:18:43+00:00"
+   "at": "2026-11-24T04:48:06+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "2339 acquisition(s) from 4422 visitor(s) to 2026-11-16, 53% conversion",
-   "at": "2026-11-23T20:18:45+00:00"
+   "at": "2026-11-24T04:48:09+00:00"
   },
   "play_listing_manual": {
    "ok": true,
    "note": "1180 install click(s) to 2026-10-03, read by hand on 2026-10-07",
-   "at": "2026-11-23T20:18:45+00:00"
+   "at": "2026-11-24T04:48:09+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "3 metric set(s) with data, 0 empty",
-   "at": "2026-11-23T20:18:46+00:00"
+   "at": "2026-11-24T04:48:10+00:00"
   },
   "amazon_installs": {
    "ok": true,
-   "note": "67 install(s) across 2 month(s), 11 countries",
-   "at": "2026-11-23T20:18:47+00:00"
+   "note": "68 install(s) across 2 month(s), 11 countries",
+   "at": "2026-11-24T04:48:11+00:00"
   },
   "amazon_live": {
    "ok": true,
    "note": "versionCode 73 is live on Fire TV",
-   "at": "2026-11-23T20:18:58+00:00"
+   "at": "2026-11-24T04:48:21+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-11-23T20:18:58+00:00"
+   "at": "2026-11-24T04:48:22+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-11-23T20:18:58+00:00"
+   "at": "2026-11-24T04:48:22+00:00"
   },
   "social_program": {
    "ok": true,
-   "note": "423 post(s) across 5 platform(s), 227 measured",
-   "at": "2026-11-23T20:18:58+00:00"
+   "note": "428 post(s) across 5 platform(s), 230 measured",
+   "at": "2026-11-24T04:48:22+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=51, mastodon=1, instagram=0",
-   "at": "2026-11-23T20:19:00+00:00"
+   "at": "2026-11-24T04:48:23+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "2 reply/mention notification(s)",
-   "at": "2026-11-23T20:19:01+00:00"
+   "at": "2026-11-24T04:48:24+00:00"
   },
   "social_liveness": {
    "ok": true,
-   "note": "66 live, 0 deleted, 54 could not be checked",
-   "at": "2026-11-23T20:19:12+00:00"
+   "note": "65 live, 0 deleted, 55 could not be checked",
+   "at": "2026-11-24T04:48:33+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-11-23T20:19:14+00:00"
+   "at": "2026-11-24T04:48:35+00:00"
   },
   "mentions_reddit": {
    "ok": false,
    "note": "HTTP Error 404: Not Found",
-   "at": "2026-11-23T20:19:14+00:00"
+   "at": "2026-11-24T04:48:35+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-11-23T20:19:15+00:00"
+   "at": "2026-11-24T04:48:36+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-23T20:19:17+00:00"
+   "at": "2026-11-24T04:48:37+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-23T20:19:17+00:00"
+   "at": "2026-11-24T04:48:38+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-11-23T20:19:19+00:00"
+   "at": "2026-11-24T04:48:39+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-11-23T20:19:23+00:00"
+   "at": "2026-11-24T04:48:42+00:00"
   },
   "github": {
    "ok": true,
    "note": "2 star(s), 3 open issue(s), 2 from outside",
-   "at": "2026-11-23T20:19:24+00:00"
+   "at": "2026-11-24T04:48:43+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "2 finding(s), 0 urgent",
-   "at": "2026-11-23T20:21:17+00:00"
+   "at": "2026-11-24T04:50:12+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "41380 items, schema 16",
-   "at": "2026-11-23T20:21:17+00:00"
+   "at": "2026-11-24T04:50:13+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "284041 route view(s) and 94882 visit(s) over 76 day(s), 14 surface(s)",
-   "at": "2026-11-23T20:21:17+00:00"
+   "note": "285160 route view(s) and 95209 visit(s) over 77 day(s), 14 surface(s)",
+   "at": "2026-11-24T04:50:13+00:00"
   },
   "web_titles": {
    "ok": true,
-   "note": "9194 film(s) played, 12876 opened, over 71 day(s)",
-   "at": "2026-11-23T20:21:18+00:00"
+   "note": "9282 film(s) played, 12988 opened, over 72 day(s)",
+   "at": "2026-11-24T04:50:14+00:00"
   },
   "search_console": {
    "ok": true,
    "note": "7478 clicks / 233005 impressions in 28 days to 2026-11-21 (prior 28: 4821 / 126766)",
-   "at": "2026-11-23T20:21:24+00:00"
+   "at": "2026-11-24T04:50:20+00:00"
   },
   "search_index": {
    "ok": true,
-   "note": "94/150 sampled film pages indexed of 41,380 published; 0 technical fault(s)",
-   "at": "2026-11-23T20:23:27+00:00"
+   "note": "99/150 sampled film pages indexed of 41,380 published; 0 technical fault(s)",
+   "at": "2026-11-24T04:52:23+00:00"
   },
   "together_rooms": {
    "ok": true,
    "note": "32 room(s), 35 guest join(s) since the tally began",
-   "at": "2026-11-23T20:23:27+00:00"
+   "at": "2026-11-24T04:52:23+00:00"
   },
   "youtube_usage": {
    "ok": true,
-   "note": "52 YouTube broadcast(s) in 90 days; peak quota day 9,276/10,000 units",
-   "at": "2026-11-23T20:23:28+00:00"
+   "note": "52 YouTube broadcast(s) in 90 days; peak quota day 10,177/10,000 units",
+   "at": "2026-11-24T04:52:24+00:00"
   },
   "together_summary": {
    "ok": true,
    "note": "28 days: {'rooms': 7, 'guests': 8, 'lives': 0}",
-   "at": "2026-11-23T20:23:28+00:00"
+   "at": "2026-11-24T04:52:24+00:00"
   },
   "feeds_usage": {
    "ok": true,
-   "note": "28 days: 1329 player sign-in(s), 1158 play(s), 42865 channel tune(s), 57 assistant call(s)",
-   "at": "2026-11-23T20:23:29+00:00"
+   "note": "28 days: 1267 player sign-in(s), 1045 play(s), 44256 channel tune(s), 57 assistant call(s)",
+   "at": "2026-11-24T04:52:24+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 8 rated",
-   "at": "2026-11-23T20:23:29+00:00"
+   "at": "2026-11-24T04:52:24+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 8 bit(s) of praise",
-   "at": "2026-11-23T20:23:29+00:00"
+   "at": "2026-11-24T04:52:24+00:00"
   }
  },
  "_apply": true,
@@ -13282,9 +13287,27 @@
    "filmPagesIndexed": 0.627,
    "searchClicks28d": 7478,
    "urgent": 0
+  },
+  {
+   "date": "2026-11-24",
+   "appleRating": 4.3,
+   "appleRatings": 10,
+   "playRating": 3.83,
+   "playRatings": null,
+   "reviews": 10,
+   "mentions": 9,
+   "posts": 120,
+   "likes": 6,
+   "followers": 52,
+   "stars": 2,
+   "views14d": null,
+   "catalogItems": 41380,
+   "filmPagesIndexed": 0.66,
+   "searchClicks28d": 7478,
+   "urgent": 0
   }
  ],
- "generatedAt": "2026-11-23T20:23:29+00:00",
+ "generatedAt": "2026-11-24T04:52:24+00:00",
  "repoVersion": "1.48.3",
  "repoBuild": "2201",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
