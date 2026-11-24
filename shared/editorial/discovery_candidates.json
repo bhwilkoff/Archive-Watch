@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-23T14:04:42Z",
+  "updated_at": "2026-11-24T14:36:40Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 73575,
-    "new_this_run": 10,
-    "awaiting_ingest": 1020,
-    "with_archive_id": 65252
+    "total": 73633,
+    "new_this_run": 55,
+    "awaiting_ingest": 1066,
+    "with_archive_id": 65310
   },
   "candidates": [
     {
@@ -8152,6 +8152,87 @@
       "discovered_at": "2026-11-23T13:59:15Z"
     },
     {
+      "iaid": "weird-cinema-episode-one-ifd-fims-and-arts-directors-cut",
+      "title": "Weird Cinema Episode ONE IFD Fims And Arts Director's Cut",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the-young-master-1980-with-trailers",
+      "title": "The Young Master (1980) [with TRAILERS] (Subtitled & Dubbed DVD & VHS Versions)",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-24T14:29:28Z"
+    },
+    {
+      "iaid": "hero-1997-taiwanese-version-hong-kong-version",
+      "title": "Hero 1997 [Directed by Corey Yuen Kwai] (Starring Takeshi Kaneshiro, Yuen Biao, Yuen Wah, Corey Yuen, Yuen Tak, Valerie Chow and Jessica Hsuan [Taiwanese & Hong Kong Versions]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the-tattooed-dragon-dubbed-and-subbed",
+      "title": "The Tattooed Dragon 龍虎金剛 [dubbed & Subtitled] {DVDrip & VHSrip}",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-24T14:29:28Z"
+    },
+    {
+      "iaid": "the-fearless-hyena-saga",
+      "title": "The Fearless Hyena Saga",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-24T14:29:28Z"
+    },
+    {
+      "iaid": "the-leg-fighters-widescreen-fullscreen",
+      "title": "The Leg Fighters 南北腿王 [Widescreen & Fullscreen] 1980",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
       "title": "Drunken Master 醉拳 & Drunken Master II 醉拳 2 (GeekJuiceMedia) [Both ENG DUB & SUB]",
       "year": 2025,
@@ -10721,6 +10802,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-23T13:59:15Z",
       "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
+      "iaid": "the-purple-heart-1944",
+      "title": "The Purple Heart (1944)",
+      "year": 2025,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "20240229-r-7",
@@ -14261,6 +14356,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "mit15_773s24",
+      "title": "MIT 15.773 Hands-On Deep Learning Spring 2024",
+      "year": 2024,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "purowave-complete-archive",
@@ -34194,6 +34303,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "wagthedogASL2",
+      "title": "wag the dog",
+      "year": 2020,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "objectshowepisodes2019",
@@ -66888,6 +67011,36 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "videoplayback-14_20261122",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pepsi Emoji Commercial (2016)",
+      "year": 2016,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T14:03:48Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
+      "iaid": "pepsi-emoji",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Pepsi Emoji Commercial (2016)",
+      "year": 2016,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T14:03:48Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
+    },
+    {
       "iaid": "AdventuresOfRobinHoodep22KingRichard",
       "title": "Adventures Of Robin Hood (HQ) ep 22 King Richard",
       "year": 2015,
@@ -91910,6 +92063,21 @@
       "status": "ingested",
       "discovered_at": "2026-11-19T12:25:13Z",
       "ingested_at": "2026-11-19T12:30:56Z"
+    },
+    {
+      "iaid": "pbs-kids-sprout-sprout-online.com-promo-commercial-2013",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "PBS Kids Sprout - Sprout Online.com Promo Commercial (2013)",
+      "year": 2013,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-23T14:03:48Z",
+      "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
       "iaid": "LostLandscapesOfDetroitYear32012",
@@ -148830,6 +148998,20 @@
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
+      "iaid": "whatsup20080908-1280",
+      "title": "What's Up for September 2008",
+      "year": 2008,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "The_Vandhaal_Clash_with_the_Gibichungen_directors_cut_04",
       "title": "Clash with the Gibichungen The Directors cut DvD video",
       "year": 2007,
@@ -196416,6 +196598,20 @@
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
+      "iaid": "waiting-for-happiness-mauritania",
+      "title": "Waiting for Happiness (2002)",
+      "year": 2002,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "WILDJUNG2001",
       "title": "WILD JUNGLE - Motion Ride",
       "year": 2001,
@@ -215563,6 +215759,20 @@
       "ingested_at": "2026-11-20T12:35:55Z"
     },
     {
+      "iaid": "the-pear-tree-1998-farsi",
+      "title": "The Pear Tree (1998)",
+      "year": 1998,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "cbs-storybreak-17",
       "title": "CBS Storybreak - 17: Mama Don't Allow",
       "year": 1997,
@@ -218526,6 +218736,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "the-river-1997-chn",
+      "title": "The River (1997)",
+      "year": 1997,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "DiaryOfACamper",
@@ -256245,6 +256469,20 @@
       "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
+      "iaid": "trial-on-the-road-rus",
+      "title": "Trial on the Road (1986)",
+      "year": 1986,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "ArchOfTriumph",
       "title": "Arch of Triumph",
       "year": 1985,
@@ -264452,6 +264690,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-20T12:26:45Z",
       "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "the-runner-farsi",
+      "title": "The Runner (1984)",
+      "year": 1984,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "Mommartz_TISCH_STUHL_1983",
@@ -275068,6 +275320,20 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "trances-1981-arabic",
+      "title": "Trances (1981)",
+      "year": 1981,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "mama-dracula-1980",
       "title": "Mama Dracula (1980)",
       "year": 1980,
@@ -279905,6 +280171,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "mon-oncle-d-amerique",
+      "title": "My American Uncle (1980)",
+      "year": 1980,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "svtplay-8Wv63d7",
@@ -290038,6 +290318,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "the-hypothesis-of-the-stolen-painting",
+      "title": "The Hypothesis of the Stolen Painting (1978)",
+      "year": 1978,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "jamesbondthespywholovedme",
       "title": "The Spy Who Loved Me Movie CLIP (1977)",
       "year": 1977,
@@ -298388,6 +298682,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "the-fifth-seal-hun",
+      "title": "The Fifth Seal (1976)",
+      "year": 1976,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "wikidataQID": "Q111370017",
       "title": "200",
       "year": 1975,
@@ -302015,6 +302323,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "towers-of-silence-1975-jamil-dehlavi",
+      "title": "Towers of Silence (1975)",
+      "year": 1975,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "svtplay-KnDqMBL",
@@ -326192,6 +326514,20 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "viva-la-vida-1969",
+      "title": "Viva La Vida (1969)",
+      "year": 1969,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "night-of-the-living-dead_1968",
       "title": "Night of the Living Dead",
       "year": 1968,
@@ -344240,6 +344576,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "the-shop-on-main-street-1965-slovak",
+      "title": "The Shop on Main Street (1965)",
+      "year": 1965,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "the-addams-family__season-1",
@@ -366606,6 +366956,62 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "the-naked-island-jpn",
+      "title": "The Naked Island (1960)",
+      "year": 1960,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "tusk-tusk-1960",
+      "title": "Tusk, Tusk (1960)",
+      "year": 1960,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "two-ton-baby-sitter-1960",
+      "title": "Two-Ton Baby Sitter (1960)",
+      "year": 1960,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "un-un-v33-r74-s1-3",
+      "title": "Universal Newsreel Volume 33, Release 74",
+      "year": 1960,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "theManster1959OriginaltonMitDeutschenUntertiteln2.Versuch",
@@ -437838,6 +438244,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "un-un-v18-r423-s1",
+      "title": "Universal Newsreel Volume 18, Release 423",
+      "year": 1945,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "bees_in_paradise",
       "title": "Bees in Paradise",
       "year": 1944,
@@ -441220,6 +441640,20 @@
       "status": "ingested",
       "discovered_at": "2026-10-27T10:28:45Z",
       "ingested_at": "2026-10-27T10:32:14Z"
+    },
+    {
+      "iaid": "vredens-dag",
+      "title": "Day of Wrath (1943)",
+      "year": 1943,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "iaid": "sos_your_aunt_emma_1942",
@@ -461308,6 +461742,20 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "un-un-v7-r406-s1-2_4-9_lcl",
+      "title": "Universal Newsreel Volume 7, Release 406",
+      "year": 1935,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "iaid": "Nonesuch1934",
       "imdbID": null,
       "wikidataQID": null,
@@ -462216,6 +462664,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-17T12:44:35Z",
       "ingested_at": "2026-11-17T12:50:12Z"
+    },
+    {
+      "iaid": "the-goddess-chn",
+      "title": "The Goddess (1934)",
+      "year": 1934,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "wikidataQID": "Q369346",
@@ -468594,6 +469056,20 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "wbc-trc",
+      "title": "WB Cartoons: The Restored Collection",
+      "year": 1930,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "wikidataQID": "Q1603098",
       "title": "Prapancha Pash",
       "year": 1929,
@@ -472084,6 +472560,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-15T11:46:29Z",
       "ingested_at": "2026-11-15T11:56:59Z"
+    },
+    {
+      "iaid": "the-skeleton-dance-1928-4k-disney-rip",
+      "title": "The Skeleton Dance (1929) 4K HDR Disney+ Rip",
+      "year": 1929,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "wikidataQID": "Q1157116",
@@ -497785,6 +498275,48 @@
       "ingested_at": "2026-11-17T12:50:12Z"
     },
     {
+      "iaid": "turner_video_11216",
+      "title": "The Gold Rush",
+      "year": 1925,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "turner_video_11484",
+      "title": "Seven Chances",
+      "year": 1925,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the-lost-world-1925_202409",
+      "title": "The Lost World (1925)",
+      "year": 1925,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "wikidataQID": "Q872930",
       "title": "The Moon of Israel",
       "year": 1924,
@@ -502927,6 +503459,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "fc-fc-424",
+      "title": "[MODEL T ASSEMBLY AND LAUNCHING OF THE HENRY FORD II]",
+      "year": 1924,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "wikidataQID": "Q989866",
@@ -557388,6 +557934,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-20T12:26:45Z",
       "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "the_life_and_passion_of_jesus_christ",
+      "title": "The Life and Passion of Jesus Christ (1903)",
+      "year": 1903,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
       "wikidataQID": "Q3241260",
@@ -903037,6 +903597,256 @@
       "ingested_at": "2026-11-23T14:04:42Z"
     },
     {
+      "iaid": "the-naked-edge",
+      "title": "The Naked Edge",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "welcome-2007-dv-drip-charme-leon-silver-rg",
+      "title": "Welcome 2007 Dv DRip Charme Leon Silver RG",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "vishwatma-1992-dv-drip-charme-leon-silver-rg",
+      "title": "Vishwatma 1992 Dv DRip Charme Leon Silver RG",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the-flesh-eaters-1964",
+      "title": "The Flesh Eaters",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the-snake-woman-the-devils-hand",
+      "title": "The Snake Woman & The Devil's Hand",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "tropic-zone-1953",
+      "title": "Tropic Zone",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "tunes-of-glory-1960-full-movie-staring-alec-guinness-john-mills-susannah-york-drama",
+      "title": "Tunes Of Glory",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "ursula-haverbeck-fragen-uber-fragen",
+      "title": "Ursula Haverbeck Fragen Über Fragen",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the-devils-partner-1960",
+      "title": "The Devils Partner",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the.-tube.-1983.-s-01-e-19.uncut",
+      "title": "The.Tube.1983.S01E19.uncut",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the.-tube.-1984.-s-03-e-08.uncut",
+      "title": "The.Tube.1984.S03E08.uncut",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the.-tube.-1986.-s-05-e-06.uncut",
+      "title": "The.Tube.1986.S05E06.uncut",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the.-tube.-1984.-s-03-e-11.uncut",
+      "title": "The.Tube.1984.S03E11.uncut",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "the.-tube.-1985.-s-03-e-17.uncut",
+      "title": "The.Tube.1985.S03E17.uncut",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "un-un-v14-r43-s1_3-4",
+      "title": "Universal Newsreel Volume 14, Release 43",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "un-un-v35-r86",
+      "title": "Universal Newsreel Volume 35, Release 86",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "FedFlix",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:29:28Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "uncommon-ephemera-filmstrip-f5693-a381-10-feudalism-society-for-visual-education",
+      "title": "Pre-Sound Filmstrip: \"Feudalism\"",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "no_video",
+      "discovered_at": "2026-11-24T14:29:28Z"
+    },
+    {
+      "iaid": "uncommon-ephemera-filmstrip-3166-comets-visual-education-consultants-inc",
+      "title": "Pre-Sound Filmstrip: \"Comets\"",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "no_video",
+      "discovered_at": "2026-11-24T14:29:28Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -994606,6 +995416,20 @@
       "discovered_at": "2026-07-23T06:28:33Z"
     },
     {
+      "wikidataQID": "Q15865538",
+      "title": "Prehistoric Peeps",
+      "year": 1905,
+      "iaid": "prehistoric-peeps-1905",
+      "imdbID": "tt0278641",
+      "pdFlagged": false,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-24T14:14:33Z",
+      "resolvedVia": "title",
+      "resolveScore": 180.0,
+      "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
       "wikidataQID": "Q4092494",
       "title": "The Great Train Robbery",
       "year": 1904,
@@ -1007828,49 +1008652,34 @@
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
-      "iaid": "videoplayback-14_20261122",
+      "iaid": "commercial-fanon-disnird-channel-scandinavia-ending-for-the-day-ident",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "Pepsi Emoji Commercial (2016)",
-      "year": 2016,
+      "title": "[Commercial Fanon] Disnird Channel Scandinavia - ENDING FOR THE DAY - Ident (Long) (2017-2021)",
+      "year": 2020,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-23T14:03:48Z",
-      "ingested_at": "2026-11-23T14:04:42Z"
+      "discovered_at": "2026-11-24T14:35:55Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
-      "iaid": "pbs-kids-sprout-sprout-online.com-promo-commercial-2013",
+      "iaid": "vid-20261123-162021",
       "imdbID": null,
       "wikidataQID": null,
-      "title": "PBS Kids Sprout - Sprout Online.com Promo Commercial (2013)",
-      "year": 2013,
+      "title": "[FAKE!] Aah Bisto! - TV Advert (2020)",
+      "year": 2020,
       "source": "commercials",
       "archiveCollection": "aw_commercials",
       "contentTypeHint": "commercial",
       "pdFlagged": true,
       "rightsConfidence": "high",
       "status": "ingested",
-      "discovered_at": "2026-11-23T14:03:48Z",
-      "ingested_at": "2026-11-23T14:04:42Z"
-    },
-    {
-      "iaid": "pepsi-emoji",
-      "imdbID": null,
-      "wikidataQID": null,
-      "title": "Pepsi Emoji Commercial (2016)",
-      "year": 2016,
-      "source": "commercials",
-      "archiveCollection": "aw_commercials",
-      "contentTypeHint": "commercial",
-      "pdFlagged": true,
-      "rightsConfidence": "high",
-      "status": "ingested",
-      "discovered_at": "2026-11-23T14:03:48Z",
-      "ingested_at": "2026-11-23T14:04:42Z"
+      "discovered_at": "2026-11-24T14:35:55Z",
+      "ingested_at": "2026-11-24T14:36:40Z"
     }
   ]
 }
