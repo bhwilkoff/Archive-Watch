@@ -121,6 +121,12 @@ jobs:
           python3 tools/build_mcp_data.py --out _site --details details
           test -s _site/mcp/films/00.json
 
+      - name: Build the per-channel schedules (/channel-schedule/)
+        run: |
+          # worker/src/live.js reads one channel's slice; parsing the whole
+          # 275 KB schedule used 8 to 9 of the free plan's 10 ms CPU.
+          python3 tools/build_channel_slices.py --out _site
+
       - name: Build share pages (/item/<id>, /series/<slug>)
         run: |
           # Every share URL the apps, the QR cards and the social programme

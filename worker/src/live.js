@@ -19,9 +19,18 @@ import { tally } from "./tally.js";
 const SITE = "https://archivewatch.org";
 const SCHEDULE_TTL = 600;
 
-export async function schedule() {
-  const r = await fetch(`${SITE}/channel-schedule.json`,
-    { cf: { cacheTtl: SCHEDULE_TTL, cacheEverything: true } });
+const read = (path) => fetch(`${SITE}/${path}`,
+  { cf: { cacheTtl: SCHEDULE_TTL, cacheEverything: true } });
+
+/** One channel's schedule: its own slice (tools/build_channel_slices.py), or the
+ *  whole file when the slice cannot be read. The whole file costs 8 to 9 ms of
+ *  the free plan's 10 ms CPU to parse. */
+export async function schedule(channelId) {
+  try {
+    const r = await read(`channel-schedule/${channelId}.json`);
+    if (r.ok) return await r.json();
+  } catch { /* the whole file, below */ }
+  const r = await read("channel-schedule.json");
   if (!r.ok) throw new Error(`schedule ${r.status}`);
   return r.json();
 }
@@ -79,7 +88,7 @@ export async function handleLive(url, env) {
   if (!m) return new Response("Unknown channel\n", { status: 404, headers });
   let file;
   try {
-    file = await schedule();
+    file = await schedule(m[1]);
   } catch {
     return new Response("The channel guide could not be loaded.\n", { status: 503, headers });
   }

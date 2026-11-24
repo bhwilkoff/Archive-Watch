@@ -79,7 +79,7 @@ async function liveTarget(streamId) {
   const channels = await feed("live_streams.json");
   const ch = channels.find((c) => String(c.stream_id) === String(streamId));
   if (!ch) return null;
-  const p = onAir(await schedule(), ch.channel, Math.floor(Date.now() / 1000));
+  const p = onAir(await schedule(ch.channel), ch.channel, Math.floor(Date.now() / 1000));
   return p ? joinURL(p) : null;
 }
 
@@ -90,7 +90,7 @@ async function shortEpg(streamId, limit) {
   const channels = await feed("live_streams.json");
   const ch = channels.find((c) => String(c.stream_id) === String(streamId));
   if (!ch) return { epg_listings: [] };
-  const file = await schedule();
+  const file = await schedule(ch.channel);
   const c = file.channels.find((x) => x.id === ch.channel);
   const now = Math.floor(Date.now() / 1000);
   const out = [];
