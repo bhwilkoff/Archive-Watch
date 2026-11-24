@@ -5065,6 +5065,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-24T02:12:59.664541+00:00",
+   "id": "Gaslight_628",
+   "title": "Fanny by Gaslight",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2zl2delgt2o",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Ricardo PenaMcKnight"
+  },
+  {
+   "at": "2026-11-24T02:12:59.664541+00:00",
+   "id": "Gaslight_628",
+   "title": "Fanny by Gaslight",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117668996978820383",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Ricardo PenaMcKnight"
+  },
+  {
+   "at": "2026-11-24T02:12:59.664541+00:00",
+   "id": "Gaslight_628",
+   "title": "Fanny by Gaslight",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DgG2x2AFPs6",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Ricardo PenaMcKnight"
+  },
+  {
+   "at": "2026-11-24T02:12:59.664541+00:00",
+   "id": "Gaslight_628",
+   "title": "Fanny by Gaslight",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DgG22b2FLlt/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117668996326582866",
+   "reviewer": "Ricardo PenaMcKnight"
+  },
+  {
+   "at": "2026-11-24T02:12:59.664541+00:00",
+   "id": "Gaslight_628",
+   "title": "Fanny by Gaslight",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=1ze0bwYwLKU",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Ricardo PenaMcKnight"
   }
  ]
 }

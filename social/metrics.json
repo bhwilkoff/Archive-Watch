@@ -6845,6 +6845,100 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2ibpiiebc2h",
+   "platform": "bluesky",
+   "id": "noveltoon_casper_tfg_theres_good_boos_tonight",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-17T05:10:39.794593+00:00",
+   "sampled": "2026-11-24T02:14:16.550320+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2k5dma3fm2b",
+   "platform": "bluesky",
+   "id": "MyMovie_20180126",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-17T22:57:35.958039+00:00",
+   "sampled": "2026-11-24T02:14:16.550320+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117634254929582616",
+   "platform": "mastodon",
+   "id": "MyMovie_20180126",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-17T22:57:35.958039+00:00",
+   "sampled": "2026-11-24T02:14:16.550320+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2wjjcupuh27",
+   "platform": "bluesky",
+   "id": "skateboard_sense",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-22T21:07:38.634746+00:00",
+   "sampled": "2026-11-24T02:14:16.550320+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117662136656989317",
+   "platform": "mastodon",
+   "id": "skateboard_sense",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-22T21:07:38.634746+00:00",
+   "sampled": "2026-11-24T02:14:16.550320+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2x7s2qx2w26",
+   "platform": "bluesky",
+   "id": "silent-the-woman-from-nowhere",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-23T03:46:13.576483+00:00",
+   "sampled": "2026-11-24T02:14:16.550320+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
