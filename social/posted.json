@@ -5137,6 +5137,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": "justpatrick"
+  },
+  {
+   "at": "2026-11-24T23:57:02.874756+00:00",
+   "id": "Terrible1951",
+   "title": "The Terrible Truth",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n33tw35hkw24",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "SteveGus"
+  },
+  {
+   "at": "2026-11-24T23:57:02.874756+00:00",
+   "id": "Terrible1951",
+   "title": "The Terrible Truth",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117674125018408491",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "SteveGus"
+  },
+  {
+   "at": "2026-11-24T23:57:02.874756+00:00",
+   "id": "Terrible1951",
+   "title": "The Terrible Truth",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DgJMBjpFvCd",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "SteveGus"
+  },
+  {
+   "at": "2026-11-24T23:57:02.874756+00:00",
+   "id": "Terrible1951",
+   "title": "The Terrible Truth",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DgJMGPhFtiT/",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": "117674123831200750",
+   "reviewer": "SteveGus"
+  },
+  {
+   "at": "2026-11-24T23:57:02.874756+00:00",
+   "id": "Terrible1951",
+   "title": "The Terrible Truth",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=qFkOt--8em8",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "SteveGus"
   }
  ]
 }

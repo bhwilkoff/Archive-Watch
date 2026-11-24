@@ -6955,6 +6955,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2mmtl4dse2f",
+   "platform": "bluesky",
+   "id": "LeVoleurInvisible",
+   "slot": "double-bill",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-18T22:40:20.020440+00:00",
+   "sampled": "2026-11-24T23:58:25.801785+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117639849185810238",
+   "platform": "mastodon",
+   "id": "LeVoleurInvisible",
+   "slot": "double-bill",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-18T22:40:20.020440+00:00",
+   "sampled": "2026-11-24T23:58:25.801785+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2zl2delgt2o",
+   "platform": "bluesky",
+   "id": "Gaslight_628",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-24T02:12:59.664541+00:00",
+   "sampled": "2026-11-24T23:58:25.801785+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117668996978820383",
+   "platform": "mastodon",
+   "id": "Gaslight_628",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-24T02:12:59.664541+00:00",
+   "sampled": "2026-11-24T23:58:25.801785+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
