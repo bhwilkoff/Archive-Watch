@@ -359,6 +359,31 @@ _st = {"health": {}}
 _pc.web_titles(_st)
 check("both pages are counted", _st["health"]["webTitles"]["totals"], {"open": 2, "play": 3})
 check("...and the window is the first page's", _st["health"]["webTitles"]["since"], "2026-08-26")
+_calls, _sleep = [], _pc.time.sleep
+
+
+def _flaky(url, headers=None, timeout=25):
+    _calls.append(url)
+    if len(_calls) == 2:
+        raise _pc.urllib.error.URLError("dropped")
+    return _paged(url)
+
+
+def _down(url, headers=None, timeout=25):
+    raise _pc.urllib.error.URLError("down")
+
+
+_pc.time.sleep = lambda s: None
+_pc.get_json = _flaky
+check("one dropped page is read again, not counted twice", len(_pc.counter_titles()[1]), 2)
+_pc.get_json = _down
+try:
+    _pc.counter_titles()
+    _gone = False
+except OSError:
+    _gone = True
+check("a page that stays down is a failure", _gone, True)
+_pc.time.sleep = _sleep
 _pc.get_json = lambda *a, **k: {"since": "x", "rows": [{"id": "a"}]}
 check("a response with no next key is a failure", _raises(_pc.counter_titles), True)
 _pc.get_json = lambda *a, **k: {"since": "x", "rows": [], "next": "same"}

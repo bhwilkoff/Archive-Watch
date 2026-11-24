@@ -40,6 +40,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -2192,7 +2193,14 @@ def counter_titles(days=90):
     rows, since, after, pages = [], None, None, 0
     while True:
         q = f"days={days}" + (f"&after={urllib.parse.quote(after, safe='')}" if after else "")
-        d = get_json(f"{WEB_COUNTER}/titles?{q}", timeout=30)
+        for attempt in range(3):     # ~60 pages: one dropped connection is not the section
+            try:
+                d = get_json(f"{WEB_COUNTER}/titles?{q}", timeout=30)
+                break
+            except OSError:
+                if attempt == 2:
+                    raise
+                time.sleep(2 * (attempt + 1))
         if d.get("error") or "next" not in d:
             raise RuntimeError(f"/titles page {pages + 1}: {d.get('error') or 'no next key'}")
         since = since or d.get("since")
