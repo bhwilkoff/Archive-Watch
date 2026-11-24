@@ -2183,6 +2183,28 @@ def roku_engagement(state):
             f"[{', '.join(sorted(reports)) or 'unnamed'}]{kept}")
 
 
+def counter_titles(days=90):
+    """Every /titles row, following the Worker's pages to the end.
+
+    A page that cannot be read raises, and so does a response with no `next`
+    key: a partial read would rank the OLDEST days as if they were the window.
+    """
+    rows, since, after, pages = [], None, None, 0
+    while True:
+        q = f"days={days}" + (f"&after={urllib.parse.quote(after, safe='')}" if after else "")
+        d = get_json(f"{WEB_COUNTER}/titles?{q}", timeout=30)
+        if d.get("error") or "next" not in d:
+            raise RuntimeError(f"/titles page {pages + 1}: {d.get('error') or 'no next key'}")
+        since = since or d.get("since")
+        rows += d.get("rows") or []
+        pages += 1
+        if d["next"] is None:
+            return since, rows
+        if d["next"] == after or pages >= 500:
+            raise RuntimeError(f"/titles did not end after {pages} pages")
+        after = d["next"]
+
+
 def web_titles(state):
     """WHICH FILMS the website's visitors opened and played.
 
@@ -2210,8 +2232,7 @@ def web_titles(state):
     """
     if not WEB_COUNTER:
         raise RuntimeError("set AW_PULSE_COUNTER to the counter's origin")
-    d = get_json(f"{WEB_COUNTER}/titles?days=90", timeout=30)
-    rows = d.get("rows") or []
+    since, rows = counter_titles(90)
 
     per_kind: dict = {}
     daily: dict = {}
@@ -2229,7 +2250,7 @@ def web_titles(state):
                 sorted(per_kind.get(kind, {}).items(), key=lambda kv: -kv[1])[:n]]
 
     state["health"]["webTitles"] = {
-        "since": d.get("since"),
+        "since": since,
         "topPlayed": rank("play"),
         "topOpened": rank("open"),
         "topAmbient": rank("ambient"),

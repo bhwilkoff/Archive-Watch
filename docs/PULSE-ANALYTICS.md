@@ -438,3 +438,17 @@ when the page is hidden or left (`pagehide`, `visibilitychange` to hidden):
 Test: `tools/test_counter_shape.mjs` runs the shipped counter in a DOM shim
 (five hashchanges plus `pagehide` send exactly one beacon) and the Worker
 handler against a stub D1.
+
+## 13. `/titles` is read in pages (2026-11-24)
+
+A Cloudflare audit found one `/titles?days=90` request using 45 ms of CPU
+against the plan's 10 ms: 60,836 rows, 4.9 MB, parsed and serialized whole, and
+growing by about 1,200 rows a day. The Worker now returns at most 1,000 rows
+(61 pages measured with `wrangler tail`: median 3 ms, highest 8 ms; 5,000 rows
+reached 18 ms) and a `next` cursor, the primary key `day|id|kind`; pass it back as
+`after` until `next` is null. `pulse_collect.counter_titles` follows it and
+raises on a page it cannot read, so Pulse gets the same rows as before or none.
+
+Aggregating in SQL was measured and refused: the ranking and the daily totals
+read 400,000 D1 rows a run (8% of the account's 5 million a day), where the
+pages read the 60,836 they return.

@@ -330,5 +330,42 @@ check("...and the last", next(x for x in _v if x["version"] == "00071")["lastSee
 check("a row with no version is skipped rather than counted as one", len(_v), 2)
 check("no tables at all is empty, not an error", _pc.roku_versions_in({}), [])
 
+# ── /titles arrives in pages, and a partial read is a failure ───────────────
+print("\nweb titles are read to the last page")
+_PAGES = {
+    None: {"since": "2026-08-26", "next": "2026-09-01|a+b|open", "rows": [
+        {"day": "2026-09-01", "id": "a+b", "kind": "open", "count": 2}]},
+    "2026-09-01|a+b|open": {"since": "2026-08-27", "next": None, "rows": [
+        {"day": "2026-09-02", "id": "a+b", "kind": "play", "count": 3}]},
+}
+
+
+def _paged(url, headers=None, timeout=25):
+    q = _pc.urllib.parse.parse_qs(_pc.urllib.parse.urlsplit(url).query)
+    return _PAGES[q.get("after", [None])[0]]
+
+
+def _raises(fn):
+    try:
+        fn()
+    except RuntimeError:
+        return True
+    return False
+
+
+_keep = (_pc.get_json, _pc.WEB_COUNTER)
+_pc.WEB_COUNTER, _pc.get_json = "https://w.example", _paged
+_st = {"health": {}}
+_pc.web_titles(_st)
+check("both pages are counted", _st["health"]["webTitles"]["totals"], {"open": 2, "play": 3})
+check("...and the window is the first page's", _st["health"]["webTitles"]["since"], "2026-08-26")
+_pc.get_json = lambda *a, **k: {"since": "x", "rows": [{"id": "a"}]}
+check("a response with no next key is a failure", _raises(_pc.counter_titles), True)
+_pc.get_json = lambda *a, **k: {"since": "x", "rows": [], "next": "same"}
+check("a cursor that never moves is a failure", _raises(_pc.counter_titles), True)
+_pc.get_json = lambda *a, **k: {"error": "D1 down", "rows": [], "next": None}
+check("an error body is a failure", _raises(_pc.counter_titles), True)
+_pc.get_json, _pc.WEB_COUNTER = _keep
+
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)

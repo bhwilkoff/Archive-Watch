@@ -195,5 +195,39 @@ const rows = (db) => [...db.batches.flat(), ...db.runs].map(({ sql, args }) =>
   check("...and a legacy visit", rows(db2), [["views", "(visit)", 1]]);
 }
 
+/* /titles IN PAGES, through the real SQL: every row exactly once, in order, and
+   no response larger than one page. One response with the whole window was
+   4.9 MB and 45 ms of CPU. */
+{
+  const { DatabaseSync } = await import("node:sqlite");
+  const sq = new DatabaseSync(":memory:");
+  sq.exec("CREATE TABLE titles (day TEXT NOT NULL, id TEXT NOT NULL, kind TEXT NOT NULL, count INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (day, id, kind))");
+  const ins = sq.prepare("INSERT INTO titles VALUES (?,?,?,?)");
+  const dayOf = (back) => new Date(Date.now() - back * 864e5).toISOString().slice(0, 10);
+  for (let i = 0; i < 10007; i++) {
+    const id = i % 7 ? `Film_${i}+x@s1e1` : `series:f${i}`;
+    ins.run(dayOf(i % 20), id, "open", i);
+    ins.run(dayOf(i % 20), id, "play", 1);
+  }
+  // One single row first, so a page ends BETWEEN a title's two kinds.
+  ins.run(dayOf(19), "!", "open", 1);
+  ins.run(dayOf(40), "too-old", "open", 9);
+  const DB = { prepare: (sql) => ({ bind: (...a) => ({ all: async () => ({ results: sq.prepare(sql).all(...a) }) }) }) };
+  const get = async (q) => { const r = await worker.fetch(new Request(`https://w.example/titles?${q}`), { DB }); return { status: r.status, body: await r.json() }; };
+  const want = sq.prepare("SELECT day, id, kind, count FROM titles WHERE day >= ? ORDER BY day, id, kind").all(dayOf(28));
+  const got = [], sizes = [];
+  let after = null;
+  do {
+    const { body } = await get("days=28" + (after ? `&after=${encodeURIComponent(after)}` : ""));
+    got.push(...body.rows); sizes.push(body.rows.length); after = body.next;
+  } while (after && sizes.length < 50);
+  check("/titles pages are capped", sizes, [...Array(20).fill(1000), 15]);
+  check("...and together are every row in the window, once, in order", JSON.stringify(got) === JSON.stringify(want), true);
+  check("...a malformed cursor is refused", (await get("after=nonsense")).status, 400);
+  sq.exec("DELETE FROM titles");
+  const empty = (await get("days=28")).body;
+  check("...an empty window says it ended", [empty.rows, empty.next], [[], null]);
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

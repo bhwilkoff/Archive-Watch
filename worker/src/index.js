@@ -130,6 +130,10 @@ function countsOfBatch(b) {
   return { views, titles };
 }
 
+// Rows in one /titles response. Measured in production: 5,000 rows took a
+// median 9 ms and up to 18 ms of CPU, so the limit is well under that.
+const TITLES_PAGE = 1000;
+
 const cors = {
   "Access-Control-Allow-Origin": ALLOW,
   "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
@@ -270,14 +274,28 @@ export default {
 
     // The read side for titles. Public like /views: counts of PUBLIC films on
     // a public site, with nothing in them about anybody.
+    //
+    // IN PAGES. This table grows by ~1,200 rows a day, and one response with
+    // 90 days of it was 4.9 MB and 45 ms of CPU against the plan's 10 ms.
+    // Follow `next` (pass it back as `after`) until it is null. The cursor is
+    // the primary key, so a page reads only the rows it returns; aggregating in
+    // SQL instead was measured at 400,000 D1 rows a read.
     if (url.pathname === "/titles") {
       const days = Math.min(400, Math.max(1, Number(url.searchParams.get("days") || 28)));
       const since = new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
+      const after = url.searchParams.get("after");
+      const from = after === null ? [since, "", ""] : after.split("|");
+      if (from.length !== 3 || !/^\d{4}-\d{2}-\d{2}$/.test(from[0])) {
+        return Response.json({ error: "bad after" }, { status: 400, headers: cors });
+      }
       try {
         const { results } = await env.DB.prepare(
-          "SELECT day, id, kind, count FROM titles WHERE day >= ?1 ORDER BY day, id"
-        ).bind(since).all();
-        return Response.json({ since, rows: results || [] },
+          "SELECT day, id, kind, count FROM titles WHERE (day, id, kind) > (?1, ?2, ?3) " +
+          "ORDER BY day, id, kind LIMIT ?4"
+        ).bind(...from, TITLES_PAGE).all();
+        const rows = results || [];
+        const last = rows.length === TITLES_PAGE ? rows[rows.length - 1] : null;
+        return Response.json({ since, rows, next: last && `${last.day}|${last.id}|${last.kind}` },
                              { headers: { ...cors, "Cache-Control": "public, max-age=300" } });
       } catch (e) {
         return Response.json({ error: String(e) }, { status: 500, headers: cors });
