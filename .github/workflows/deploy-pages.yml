@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
 
@@ -238,5 +238,18 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # GitHub lists a just-uploaded artifact late: deploy-pages asked half a second
+      # after the upload, found 0, and failed most deploys on 2026-11-24 (10 of 14
+      # failed; the artifact was listed minutes later). A blip, not a broken
+      # publish: wait and deploy once more in the same run.
       - id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait out a Pages blip
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 90
+
+      - id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
