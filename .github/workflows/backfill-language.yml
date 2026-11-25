@@ -26,6 +26,7 @@ on:
 concurrency:
   group: catalog-writers      # serialize with every catalog-mutating workflow (Decision 018/020)
   cancel-in-progress: false
+  queue: max
 
 # Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
 # the implicit default has no pipefail, so `tool | tee log` hid a crash).

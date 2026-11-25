@@ -38,8 +38,7 @@ jobs:
           python-version: '3.11'
       - name: Install ffmpeg and numpy
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
+          bash tools/ci_apt.sh ffmpeg
           pip install -q numpy requests
       - name: Test the rule
         run: |

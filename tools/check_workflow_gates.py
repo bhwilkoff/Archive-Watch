@@ -130,7 +130,20 @@ for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
                 no_pipefail.append(f"{f.stem} [{jname}]: '{step.get('name')}' shell {s!r} "
                                    f"has no pipefail")
 
-for b in bad + untokened + reporting_fails + no_pipefail:
+# Every catalog writer waits in line. Without `queue: max` GitHub keeps ONE
+# pending job per group and CANCELS the rest (Decision 057): the work is lost,
+# and the cancelled run is mailed to the owner. One writer without it would
+# still be displaced, so they all carry it.
+no_queue = []
+for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
+    doc = yaml.safe_load(f.read_text()) or {}
+    for where, c in [("workflow", doc.get("concurrency"))] + [
+            (j, v.get("concurrency")) for j, v in (doc.get("jobs") or {}).items()]:
+        group = c.get("group") if isinstance(c, dict) else c
+        if group == "catalog-writers" and not (isinstance(c, dict) and c.get("queue") == "max"):
+            no_queue.append(f"{f.stem} [{where}]: catalog-writers without `queue: max`")
+
+for b in bad + untokened + reporting_fails + no_pipefail + no_queue:
     print("  " + b)
 print(f"{len(bad)} ungated step(s)" if bad else "every apply job is fully gated")
 print(f"{len(untokened)} gh step(s) with no token"
@@ -139,4 +152,6 @@ print(f"{len(reporting_fails)} reporting step(s) that can fail a run"
       if reporting_fails else "no reporting workflow fails on its findings")
 print(f"{len(no_pipefail)} workflow(s)/step(s) without pipefail"
       if no_pipefail else "every workflow runs bash with pipefail")
-sys.exit(1 if (bad or untokened or reporting_fails or no_pipefail) else 0)
+print(f"{len(no_queue)} catalog writer(s) that can be displaced"
+      if no_queue else "every catalog writer waits in line")
+sys.exit(1 if (bad or untokened or reporting_fails or no_pipefail or no_queue) else 0)

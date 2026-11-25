@@ -43,7 +43,7 @@ defaults:
 
 jobs:
   covers:
-    runs-on: macos-15
+    runs-on: macos-15-intel
     # No catalog-writers group: this job never mutates shared state.
     timeout-minutes: 330
     steps:
@@ -155,6 +155,7 @@ jobs:
     concurrency:
       group: catalog-writers
       cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       actions: write

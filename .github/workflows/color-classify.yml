@@ -58,7 +58,7 @@ jobs:
           python-version: '3.11'
       - run: pip install --quiet requests
       - name: Install ffmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+        run: bash tools/ci_apt.sh ffmpeg
 
       # Read-only: this is a download, and needs no lock.
       - name: Fetch catalog (read-only)
@@ -113,6 +113,7 @@ jobs:
     concurrency:
       group: catalog-writers
       cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       actions: write

@@ -52,7 +52,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install ffmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+        run: bash tools/ci_apt.sh ffmpeg
       - name: Fetch catalog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

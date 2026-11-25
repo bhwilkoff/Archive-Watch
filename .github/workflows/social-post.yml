@@ -87,7 +87,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          bash tools/ci_apt.sh ffmpeg
           # The burned caption is only allowed on screen if the film is HEARD
           # saying it (tools/social_hear.py). Without a recogniser the check
           # cannot be MADE, and the clip refuses to burn any quote — which is

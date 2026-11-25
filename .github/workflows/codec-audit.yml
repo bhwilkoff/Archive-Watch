@@ -48,7 +48,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install ffmpeg
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+        run: bash tools/ci_apt.sh ffmpeg
 
       - name: Fetch the catalog (read-only snapshot for the target list)
         env:
@@ -83,6 +83,7 @@ jobs:
     concurrency:
       group: catalog-writers
       cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       actions: write

@@ -72,7 +72,9 @@ jobs:
       fail-fast: false
       matrix:
         shard: [0, 1, 2, 3]
-    runs-on: macos-15
+    # Intel on purpose (Decision 187): GitHub has run short of Apple-silicon macOS
+    # runners since 2026-11-02 and cancels what it cannot place.
+    runs-on: macos-15-intel
     timeout-minutes: 300
     permissions:
       contents: read
@@ -147,6 +149,7 @@ jobs:
     concurrency:
       group: catalog-writers
       cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       actions: write
@@ -160,7 +163,7 @@ jobs:
       # apply-deltas re-runs the ffprobe disambiguation for every apple_container_
       # error / codec delta at apply time, so the publish job needs ffprobe too.
       - name: Ensure ffmpeg/ffprobe
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+        run: bash tools/ci_apt.sh ffmpeg
 
       - name: Fetch catalog
         env:

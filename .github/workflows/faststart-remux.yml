@@ -65,6 +65,7 @@ jobs:
     concurrency:
       group: catalog-writers
       cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       actions: write
@@ -78,7 +79,7 @@ jobs:
       - run: pip install requests
 
       - name: Install ffmpeg
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+        run: bash tools/ci_apt.sh ffmpeg
 
       - name: Fetch catalog
         env:
@@ -122,7 +123,7 @@ jobs:
   verify:
     needs: remux
     if: ${{ needs.remux.outputs.hosted == '1' }}
-    runs-on: macos-15
+    runs-on: macos-15-intel
     timeout-minutes: 120
     permissions:
       contents: read
@@ -172,6 +173,7 @@ jobs:
     concurrency:
       group: catalog-writers
       cancel-in-progress: false
+      queue: max
     permissions:
       contents: write
       actions: write
@@ -182,7 +184,7 @@ jobs:
           python-version: '3.11'
       - run: pip install requests
       - name: Ensure ffmpeg/ffprobe
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+        run: bash tools/ci_apt.sh ffmpeg
       - name: Fetch catalog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

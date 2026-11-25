@@ -90,6 +90,7 @@ concurrency:
   # prevents two discover runs racing the candidate queue.
   group: catalog-writers
   cancel-in-progress: false
+  queue: max
 
 # Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
 # the implicit default has no pipefail, so `tool | tee log` hid a crash).
