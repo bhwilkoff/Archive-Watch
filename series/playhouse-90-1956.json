@@ -144,5 +144,8 @@
   "canonicalEpisodesCount": 133,
   "tvmazeRating": null,
   "tvdbID": "73114",
-  "artworkSource": "tvdb"
+  "artworkSource": "tvdb",
+  "seriesImdbID": "tt0048893",
+  "canonicalEpisodeCount": 46,
+  "canonicalSeasons": 4
 }

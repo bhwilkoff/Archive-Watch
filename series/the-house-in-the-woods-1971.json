@@ -201,5 +201,7 @@
       "order": 6,
       "profilePath": null
     }
-  ]
+  ],
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
