@@ -7049,6 +7049,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2p5n7dn6d2o",
+   "platform": "bluesky",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-19T22:46:21.970282+00:00",
+   "sampled": "2026-11-25T23:31:36.612464+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117645535090352922",
+   "platform": "mastodon",
+   "id": "the-boat-1921-1080p-blu-ray-x-265-garshasp",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-19T22:46:21.970282+00:00",
+   "sampled": "2026-11-25T23:31:36.612464+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n33tw35hkw24",
+   "platform": "bluesky",
+   "id": "Terrible1951",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-24T23:57:02.874756+00:00",
+   "sampled": "2026-11-25T23:31:36.612464+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117674125018408491",
+   "platform": "mastodon",
+   "id": "Terrible1951",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-24T23:57:02.874756+00:00",
+   "sampled": "2026-11-25T23:31:36.612464+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
