@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-24T12:33:11Z",
+  "updated_at": "2026-11-25T11:22:44Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-24T12:33:11Z"
+      "last_tried": "2026-11-25T11:22:44Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-24T12:33:11Z"
+      "last_tried": "2026-11-25T11:22:44Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -409609,6 +409609,87 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-24T12:33:11Z",
+      "schema": 4
+    },
+    "tt0084740": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTE3ZTVlOTktZjg2Ni00MTM3LTk5ZTAtYTY5YzVkNmQ0YzAxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 6509,
+      "content_rating": "Not Rated",
+      "plot": "The movie tells a melancholic story of a little girl who is living in a city in the north of Spain. She is fascinated by the secrets of the south which seem to be hidden in the personality of her father.",
+      "runtime_min": 95,
+      "director": "Víctor Erice",
+      "actors": [
+        "Omero Antonutti",
+        "Sonsoles Aranguren",
+        "Icíar Bollaín"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-25T11:22:44Z",
+      "schema": 4
+    },
+    "tt0091355": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTBiNzQxZWYtNWRmMi00MjA1LWE0MjgtZjgzNTAzNmM4NWFhXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 7.7,
+      "imdb_votes": 6377,
+      "content_rating": null,
+      "plot": "A metaphysical mystery about the lives of three couples in Taipei that continually intersect over a span of several weeks.",
+      "runtime_min": 109,
+      "director": "Edward Yang",
+      "actors": [
+        "Cora Miao",
+        "Li-Chun Lee",
+        "Shih-Chieh King"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-25T11:22:44Z",
+      "schema": 4
+    },
+    "tt0278641": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "The scientist dreams of prehistoric monsters. He awakes in a cavern. A dino chases him, even though he tries to shoot it with his revolver. The chase continues on the surface. The professor meets a group of prehistoric women, who ...",
+      "runtime_min": 4,
+      "director": "Lewin Fitzhamon",
+      "actors": [
+        "Sebastian Smith",
+        "Hetty Potter",
+        "Lottie Martin"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-25T11:22:44Z",
+      "schema": 4
+    },
+    "tt10970238": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjE0OThiOGItNjZkMC00YzI4LWJiZjAtN2ZlZDg5OWMxZDdjXkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
+      "imdb_rating": 8.7,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 18,
+      "director": "Kent Mackenzie",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-25T11:22:44Z",
       "schema": 4
     }
   },
