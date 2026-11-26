@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-25T11:22:44Z",
+  "updated_at": "2026-11-26T10:58:13Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-25T11:22:44Z"
+      "last_tried": "2026-11-26T10:58:13Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-25T11:22:44Z"
+      "last_tried": "2026-11-26T10:58:13Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -199299,8 +199299,9 @@
         "Drama",
         "War"
       ],
-      "fetched_at": "2026-06-18T07:11:56Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
     },
     "tt0067636": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTRhODI4ODMtNTUzZC00MDJmLWI4M2QtNGNjYjczOGFiMDczXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
@@ -409690,6 +409691,388 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-25T11:22:44Z",
+      "schema": 4
+    },
+    "tt0037197": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDk0MDc1Njc0MV5BMl5BanBnXkFtZTgwNTY5NTY3MzE@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 1099,
+      "content_rating": "Approved",
+      "plot": "This is the story of the crew of a downed bomber, captured after a run over Tokyo, early in the war. Relates the hardships the men endure while in captivity, and their final humiliation: being tried and convicted as war criminals.",
+      "runtime_min": 99,
+      "director": "Lewis Milestone",
+      "actors": [
+        "Dana Andrews",
+        "Richard Conte",
+        "Farley Granger"
+      ],
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0046462": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDQ3NmVmN2EtZDU4Ny00OGY4LWJlNjEtNDNjYjU0ZDk5Yjg2XkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg",
+      "imdb_rating": 4.8,
+      "imdb_votes": 241,
+      "content_rating": "Approved",
+      "plot": "Soldier-of-fortune Dan McCloud is hired by a crooked exporter to disrupt the banana-plantation activities of the beautiful Flanders White, on the island of Puerto Barrancas. But McCloud falls in love with her and this leads to may complications for all concerned, especially McCloud's employer, who does not think he is getting what he paid for.",
+      "runtime_min": 94,
+      "director": "Lewis R. Foster",
+      "actors": [
+        "Ronald Reagan",
+        "Rhonda Fleming",
+        "Estelita Rodriguez"
+      ],
+      "genres": [
+        "Adventure",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0054412": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2FhMmI4ZTEtYmNhNC00YzIzLTg0ODMtNWJkM2FlMTY0ZGY1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 4735,
+      "content_rating": "Not Rated",
+      "plot": "Major Jock Sinclair has been in this Highland regiment since he joined as a boy piper. During World War II, as Second-in-Command, he was made acting Commanding Officer. Now the regiment has returned to Scotland, and a new commanding officer is to be appointed. Jock's own cleverness is pitted against his new C.O., his daughter, his girlfriend, and the other officers in the Mess.",
+      "runtime_min": 106,
+      "director": "Ronald Neame",
+      "actors": [
+        "Alec Guinness",
+        "John Mills",
+        "Susannah York"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0055214": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODhiOWExMmYtZGY1My00YmFhLTg1NDctODVjOWQyZmNjNGRlXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 1449,
+      "content_rating": "Approved",
+      "plot": "George Radcliffe's testimony sends Donald Heath to prison for murder and the theft of over 60,000 pounds. Soon after, Radcliffe invests a large sum of money in an ultimately profitable business venture. Martha Radcliffe begins to suspect her husband of the crime.",
+      "runtime_min": 97,
+      "director": "Michael Anderson",
+      "actors": [
+        "Gary Cooper",
+        "Deborah Kerr",
+        "Eric Portman"
+      ],
+      "genres": [
+        "Crime",
+        "Mystery",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0058101": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWY4Y2ZmZTMtOTA4NC00ZWYzLWJjOTgtYmQ1NGVjYjY0MWFkXkEyXkFqcGc@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 1625,
+      "content_rating": "Unrated",
+      "plot": "An alcoholic actress, her personal assistant, and their pilot are downed on a secluded isle by bad weather, where a renegade Nazi scientist is using ocean life to develop a solvent for human flesh. The tiny flesh-eating sea critters that result certainly give our heroes a run for their money - and lives.",
+      "runtime_min": 87,
+      "director": "Jack Curtis",
+      "actors": [
+        "Martin Kosleck",
+        "Byron Sanders",
+        "Barbara Wilkin"
+      ],
+      "genres": [
+        "Horror",
+        "Sci-Fi"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0075467": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDYyYmNmNjAtYjMyMS00N2UxLThjN2UtMTU4NWZkMmM2YmQ0XkEyXkFqcGc@._V1_QL75_UY562_CR6,0,380,562_.jpg",
+      "imdb_rating": 8.5,
+      "imdb_votes": 7452,
+      "content_rating": null,
+      "plot": "In Budapest in 1944, a watchmaker, a book seller and a carpenter are drinking in a bar with the owner, when they are joined by a stranger. The watchmaker asks a hypothetical question that will change their lives.",
+      "runtime_min": 116,
+      "director": "Zoltán Fábri",
+      "actors": [
+        "Lajos Oze",
+        "László Márkus",
+        "Ferenc Bencze"
+      ],
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0077707": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODQ1MzE4MDc5MF5BMl5BanBnXkFtZTcwNzQ3MjUzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 1240,
+      "content_rating": null,
+      "plot": "Two narrators, one seen and one unseen, discuss possible connections between a series of paintings. The on-screen narrator walks through three-dimensional reproductions of each painting, featuring real people, sometimes moving, in an effort to explain the series' significance.",
+      "runtime_min": 66,
+      "director": "Raúl Ruiz",
+      "actors": [
+        "Jean Rougeul",
+        "Chantal Paley",
+        "Jean Raynaud"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0081176": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTAzZjFhMmItMTQyNC00NTg2LWI3NzgtM2Y1YmI0MWU4YzljXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 7458,
+      "content_rating": "PG",
+      "plot": "Prof. Henri Laborit uses the stories of the lives of three people to discuss behaviorist theories of survival, combat, rewards and punishment, and anxiety. René is a technical manager at a textile factory and must face the anxiety caused by corporate downsizing. Janine is a self-educated actress/stylist who learns that the wife of her lover is dying and must decide to let them reunite. Jean is a controversial career-climbing writer/politician at a crossroads in life.",
+      "runtime_min": 126,
+      "director": "Alain Resnais",
+      "actors": [
+        "Gérard Depardieu",
+        "Nicole Garcia",
+        "Roger Pierre"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0081216": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTUzMTFhNDgtYjkzZS00NzQxLWJkYzQtMDFkNjhkODA4MzkxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 139,
+      "content_rating": null,
+      "plot": "Tan, a Northern Chinese kung fu expert, kills a man using his lethal bootwork in self defense. He is then hired to train a bratty princess and her servant in kung fu. In the meantime, the brother of the man Tan killed is out for revenge and he'll get him at any cost.",
+      "runtime_min": 90,
+      "director": "Tso Nam Lee",
+      "actors": [
+        "Tao-Liang Tan",
+        "Kuang-Li Hsia",
+        "Kang Peng"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0088992": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmQ2MGE1MmMtM2ZhNS00MTJmLTg5MzctNzZkNDRjNzhjN2UxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 2470,
+      "content_rating": "Not Rated",
+      "plot": "Amiro is a young boy who has lost his home during the war. He spends his days by working odd jobs, until he realizes that the only way that he can realize his dreams is by enrolling in school. In school, he has conflict with other students. Finally there is a competition to see who can say the whole alphabet in one breath.",
+      "runtime_min": 94,
+      "director": "Amir Naderi",
+      "actors": [
+        "Madjid Niroumand",
+        "Abbas Nazeri",
+        "Musa Torkizadeh"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0119263": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTEzMWZmMmYtMzBhOC00N2NlLTkzZTYtMzk1OTkzZWY5ODJlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 3413,
+      "content_rating": "Not Rated",
+      "plot": "A young man develops severe neck pain after swimming in a polluted river; his dysfunctional parents are unable to provide any relief for him or themselves.",
+      "runtime_min": 115,
+      "director": "Tsai Ming-liang",
+      "actors": [
+        "Miao Tien",
+        "Kang-sheng Lee",
+        "Yi-ching Lu"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": {
+        "mc": 55
+      },
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0136242": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzRlN2ViYTgtNjczOS00N2ZlLTg2MjEtZDA1NWJjYzEyMmYxXkEyXkFqcGc@._V1_QL75_UY562_CR3,0,380,562_.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 907,
+      "content_rating": "R",
+      "plot": "Ma Wing Jing and his older brother Ma Tai Chueng arrive in Shanghai to make their fortune at the end of the Qin Dynasty. Be-friending a powerful mobster (Tam Sei) Wing Jing is given his nightclub in return for saving Tam Sei's life. Unfortunately, another Gangster wants the territory a well. Corruption and violence rule the streets as Wing Jing and Tam Sei must battle not only the rival gangs but the corrupt police officials as well.",
+      "runtime_min": 97,
+      "director": "Corey Yuen",
+      "actors": [
+        "Takeshi Kaneshiro",
+        "Biao Yuen",
+        "Jessica Hester Hsuan"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0153339": {
+      "poster_url": null,
+      "imdb_rating": 5.1,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 6,
+      "director": "Martin Taras",
+      "actors": [
+        "Lionel Wilson"
+      ],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0153387": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDhlMWI0OGEtNWVmOC00ODNlLWJkZGYtM2Q4MGY1YTA2ZWM5XkEyXkFqcGdeQXVyMTM3MTY5NDM0._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 17,
+      "content_rating": null,
+      "plot": "Sidney the Elephant wants to start a babysitting service but his constant sneezing causes a lot of problems.",
+      "runtime_min": 6,
+      "director": "Dave Tendlar",
+      "actors": [
+        "Dayton Allen",
+        "Lionel Wilson"
+      ],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0179000": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzNiZTY3MDgtZDVlNC00ZTA1LTkwMTMtOWYzOWRhMjM3NjI4L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjQ2NTg5MTM@._V1_SX300.jpg",
+      "imdb_rating": 4.0,
+      "imdb_votes": 20,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 105,
+      "director": "Enrique Carreras",
+      "actors": [
+        "Mercedes Carreras",
+        "Juan Carlos Dual",
+        "Tita Merello"
+      ],
+      "genres": [
+        "Comedy",
+        "Musical"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0250059": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTMzMDk2YjktZTg0OS00OWM2LThlZTMtZTkzOWI4ZGEzYzI2XkEyXkFqcGdeQXVyMzU3MDEwMw@@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 101,
+      "content_rating": null,
+      "plot": "Tells a story of a Pakistani boy's experience and obsession with death and the Zoroastrian rituals of purification and regeneration. Shows how he develops into a young revolutionary and confronts love, religious conflict, and his own death.",
+      "runtime_min": 54,
+      "director": "Jamil Dehlavi",
+      "actors": [
+        "Judy Van Hook",
+        "Jamil Dehlavi",
+        "Jalal Khan"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0308363": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTI1MzA2NDc3Nl5BMl5BanBnXkFtZTcwNjcxNzY5MQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 1108,
+      "content_rating": null,
+      "plot": "On the seacoast of Mauritania, some wait to go to Europe. Khatra, a spirited boy, wants an electric light so he can read at night. A stoic older man, Maata, tries to wire the room. Abdallah, a youth on his way to Europe, says good-bye to his mother. Nana looks back on the death of her daughter and her trip to Europe to inform the father. A girl takes singing lessons. Rooms have small windows, looking out onto foot traffic; transistor radios provide some link beyond. Huge ships anchor in the distance. The train comes through, stopping briefly. Offering a cigarette is a gesture of hospitality. Sand dunes and the ocean dominate the landscape. Hope springs amidst small expectations.",
+      "runtime_min": 90,
+      "director": "Abderrahmane Sissako",
+      "actors": [
+        "Khatra Ould Abder Kader",
+        "Maata Ould Mohamed Abeid",
+        "Mohamed Mahmoud Ould Mohamed"
+      ],
+      "genres": [
+        "Drama",
+        "Music"
+      ],
+      "critics": {
+        "rt": 76
+      },
+      "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0406280": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODViMTdiNjItZmU0Yy00NmZhLThlZmMtOWE2YTU4ZTViM2Q5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 719,
+      "content_rating": "Not Rated",
+      "plot": "The group's \"Trances\" are our equivalent of \"soul music\", our irrationality. I followed the example of the Nass El Ghiwane themselves: I went back to the roots. They draw their music from the last thousand years of Moroccan and African history. the film sets out to reveal and emphasize this heritage. I chose the music of the Saharan brotherhood, The Gnawas, and the verses of the famous poet El Mejdoub, to underline the trances",
+      "runtime_min": 90,
+      "director": "Ahmed El Maanouni",
+      "actors": [
+        "Larbi Batma",
+        "Nass-El Ghiwane",
+        "Abderrahman Paco"
+      ],
+      "genres": [
+        "Documentary",
+        "Music"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-26T10:58:13Z",
       "schema": 4
     }
   },
