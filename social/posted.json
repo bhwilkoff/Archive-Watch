@@ -5269,6 +5269,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-26T23:41:34.467317+00:00",
+   "id": "divide-and-conquer-1943_202504",
+   "title": "Divide and Conquer",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n3atyf5af42l",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-26T23:41:34.467317+00:00",
+   "id": "divide-and-conquer-1943_202504",
+   "title": "Divide and Conquer",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117685388304531289",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-26T23:41:34.467317+00:00",
+   "id": "divide-and-conquer-1943_202504",
+   "title": "Divide and Conquer",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DgOT1KRGKBw",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-26T23:41:34.467317+00:00",
+   "id": "divide-and-conquer-1943_202504",
+   "title": "Divide and Conquer",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DgOT53pmNcD/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117685387953270830",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-26T23:41:34.467317+00:00",
+   "id": "divide-and-conquer-1943_202504",
+   "title": "Divide and Conquer",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=zI_5IsCpCsI",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

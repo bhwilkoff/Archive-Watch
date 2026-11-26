@@ -7143,6 +7143,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2rmkysmw62o",
+   "platform": "bluesky",
+   "id": "hearts_in_bondage",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-20T22:18:49.183466+00:00",
+   "sampled": "2026-11-26T23:42:51.328838+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117651090409413484",
+   "platform": "mastodon",
+   "id": "hearts_in_bondage",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-20T22:18:49.183466+00:00",
+   "sampled": "2026-11-26T23:42:51.328838+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n36cvmjonu2l",
+   "platform": "bluesky",
+   "id": "silent-the-pony-express",
+   "slot": "double-bill",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-11-25T23:30:40.963224+00:00",
+   "sampled": "2026-11-26T23:42:51.328838+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117679682005696398",
+   "platform": "mastodon",
+   "id": "silent-the-pony-express",
+   "slot": "double-bill",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-11-25T23:30:40.963224+00:00",
+   "sampled": "2026-11-26T23:42:51.328838+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
