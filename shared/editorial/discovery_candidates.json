@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-25T13:58:58Z",
+  "updated_at": "2026-11-26T13:35:48Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
-    "total": 73950,
-    "new_this_run": 317,
-    "awaiting_ingest": 1327,
-    "with_archive_id": 65630
+    "total": 73998,
+    "new_this_run": 46,
+    "awaiting_ingest": 1056,
+    "with_archive_id": 65676
   },
   "candidates": [
     {
@@ -8233,6 +8233,32 @@
       "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
+      "iaid": "cub-tiger-from-kwang-tung-1971-jackie-chans-first-starring-role",
+      "title": "Cub Tiger From Kwang Tung 廣東小老虎 [1971 Jackie Chan's First Starring Role]",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-26T13:28:05Z"
+    },
+    {
+      "iaid": "canton-iron-men-1979-bryan-ka-yan-leung-hua-chung-ting-kuo-chung-ching",
+      "title": "Cantonen Iron Kung Fu 廣東鐵橋三 (1979) \"Bryan\" Ka-Yan Leung, Hua Chung Ting, & Kuo Chung Ching",
+      "year": 2026,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "held_modern_license",
+      "discovered_at": "2026-11-26T13:28:05Z"
+    },
+    {
       "iaid": "drunken-master-1-and-2-geekjuicemedia",
       "title": "Drunken Master 醉拳 & Drunken Master II 醉拳 2 (GeekJuiceMedia) [Both ENG DUB & SUB]",
       "year": 2025,
@@ -10816,6 +10842,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-24T14:29:28Z",
       "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "commandos-strike-at-dawn-1942",
+      "title": "Commandos Strike At Dawn (1942)",
+      "year": 2025,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "20240229-r-7",
@@ -18093,6 +18133,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-22T12:12:37Z",
       "ingested_at": "2026-11-22T12:19:08Z"
+    },
+    {
+      "iaid": "copycat-complete-evil-glory-au-map",
+      "title": "Copycat ｜ Complete Evil Glory Au MAP",
+      "year": 2023,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "animationandcartoons",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "jenny-twisted4000-hyenaedon",
@@ -41247,6 +41301,34 @@
       "status": "ingested",
       "discovered_at": "2026-11-25T13:49:18Z",
       "ingested_at": "2026-11-25T13:58:58Z"
+    },
+    {
+      "iaid": "SallJessyRaphaelFood1988",
+      "title": "Sally Jessy Raphael: Hidden sicknesses and allergy supplements (1988)",
+      "year": 2019,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "bfdi-1a-1b-map",
+      "title": "BFDI 1a+1b Reanimated! Fan-made MAP (Multi Animator Project)",
+      "year": 2019,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "animationandcartoons",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "objectshowepisodes2018",
@@ -111750,6 +111832,34 @@
       "ingested_at": "2026-11-25T13:58:58Z"
     },
     {
+      "iaid": "an-insignificant-harvey-2011-vodrip-xvid",
+      "title": "An Insignificant Harvey",
+      "year": 2011,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "citizen-gangster-2011-bdrip",
+      "title": "Citizen Gangster 2011 Bdrip",
+      "year": 2011,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": "Verdura",
       "title": "Verdura",
       "year": 2010,
@@ -123408,6 +123518,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-25T13:49:18Z",
       "ingested_at": "2026-11-25T13:58:58Z"
+    },
+    {
+      "iaid": "bldgcuriosity0320100820-1280-i",
+      "title": "Building Curiosity: Robotic Arm Attached",
+      "year": 2010,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "nasa",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "Closing_Credits",
@@ -224061,6 +224185,20 @@
       "discovered_at": "2026-11-25T13:49:18Z"
     },
     {
+      "iaid": "cbs-19960515",
+      "title": "CBS Evening News May 15, 1996",
+      "year": 1996,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": "whisper.of.the.-heart.-1995.1080p.-bdrip.-dual.-audio.-aac-5.1.10bits.x-265-rapta",
       "title": "Whisper of the Heart",
       "year": 1995,
@@ -236769,6 +236907,20 @@
       "ingested_at": "2026-11-18T12:35:42Z"
     },
     {
+      "iaid": "club-connect-enviromental-aliens-s06e07",
+      "title": "Club Connect - Environmental Aliens (S06E07)",
+      "year": 1992,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": "raffle-the-la-riffa-1991-monica-bellucci-giulio-scarpati-massimo-ghini-elena-can",
       "title": "Raffle, The, La Riffa 1991 Monica Bellucci, Giulio Scarpati, Massimo Ghini, Elena Cantarone, Christina Engelhardt, Tiziana Pini, Vieri Rizzini + Francesco Laudadio",
       "year": 1991,
@@ -240107,6 +240259,20 @@
       "archiveCollection": "classic_tv",
       "status": "held_modern_license",
       "discovered_at": "2026-11-25T13:49:18Z"
+    },
+    {
+      "iaid": "club-connect-teen-film-makers-media-and-messages-s04e04",
+      "title": "Club Connect - Teen Film Makers - Media And Messages (S04E04)",
+      "year": 1991,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "MuchBetter",
@@ -247592,6 +247758,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-25T13:49:18Z",
       "ingested_at": "2026-11-25T13:58:58Z"
+    },
+    {
+      "iaid": "cuatro-caras-para-victoria-1989",
+      "title": "Cuatro Caras Para Victoria (1989)",
+      "year": 1989,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "las-puertitas-del-senor-lopez-1988",
@@ -266286,6 +266466,34 @@
       "status": "ingested",
       "discovered_at": "2026-11-25T13:49:18Z",
       "ingested_at": "2026-11-25T13:58:58Z"
+    },
+    {
+      "iaid": "cuarteles-de-invierno-1984",
+      "title": "Cuarteles De Invierno (1984)",
+      "year": 1984,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "cau-v-c-001-002",
+      "title": "Las Palmas. Crónica Urbana. 1984.",
+      "year": 1984,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "culturalandacademicfilms",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "Mommartz_TISCH_STUHL_1983",
@@ -315286,6 +315494,20 @@
       "ingested_at": "2026-11-22T12:19:08Z"
     },
     {
+      "iaid": "basuras-humanas-aka-la-bastarda-1972",
+      "title": "Basuras Humanas (aka La Bastarda)(1972)",
+      "year": 1972,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": "EvelKnievel",
       "title": "Evel Knievel",
       "year": 1971,
@@ -319249,6 +319471,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-21T11:59:30Z",
       "ingested_at": "2026-11-21T12:04:49Z"
+    },
+    {
+      "iaid": "arde-baby-arde-1971",
+      "title": "Arde baby, arde (1971)",
+      "year": 1971,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "0512_That_Junior_Miss_Spirit_03_01_00_05",
@@ -346230,6 +346466,20 @@
       "ingested_at": "2026-11-24T14:36:40Z"
     },
     {
+      "iaid": "amanti-doltretomba-1965",
+      "title": "Amanti d'oltretomba (1965)",
+      "year": 1965,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": "the-addams-family__season-1",
       "title": "The Addams Family (Season 1)",
       "year": 1964,
@@ -353665,6 +353915,34 @@
       "discovered_at": "2026-11-18T12:28:09Z"
     },
     {
+      "iaid": "brian-hendersons-bandstand-country-and-western-special-1963",
+      "title": "Brian Henderson's Bandstand - Country and Western Special",
+      "year": 1963,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-12-october-1963",
+      "title": "Brian Henderson's Bandstand - 12 October 1963",
+      "year": 1963,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": "PublicDomainMetheusFilmandMedalllionPicturesCaesartheConqueror",
       "title": "Caesar the Conqueror",
       "year": 1962,
@@ -357483,6 +357761,62 @@
       "status": "ingested",
       "discovered_at": "2026-11-25T13:49:18Z",
       "ingested_at": "2026-11-25T13:58:58Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-3-february-1962",
+      "title": "Brian Henderson's Bandstand - 3 February 1962",
+      "year": 1962,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-patsy-ann-nobles-final-show",
+      "title": "Brian Henderson's Bandstand - Patsy Ann Noble's final show",
+      "year": 1962,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-unknown-airdate-no.-6-1962",
+      "title": "Brian Henderson's Bandstand - Unknown airdate No. 6",
+      "year": 1962,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-17-november-1962",
+      "title": "Brian Henderson's Bandstand - 17 November 1962",
+      "year": 1962,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "wikidataQID": "Q2472283",
@@ -362732,6 +363066,33 @@
       "status": "ingested",
       "discovered_at": "2026-11-25T13:49:18Z",
       "ingested_at": "2026-11-25T13:58:58Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-unknown-airdate-no.-2",
+      "title": "Brian Henderson's Bandstand - Unknown airdate No. 2",
+      "year": 1961,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "no_video",
+      "discovered_at": "2026-11-26T13:28:05Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-11-march-1961",
+      "title": "Brian Henderson's Bandstand - 11 March 1961",
+      "year": 1961,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "wikidataQID": "Q126041319",
@@ -368678,6 +369039,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-24T14:29:28Z",
       "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "brian-hendersons-bandstand-unknown-airdate-no.-1",
+      "title": "Brian Henderson's Bandstand - Unknown airdate No. 1",
+      "year": 1960,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "iaid": "theManster1959OriginaltonMitDeutschenUntertiteln2.Versuch",
@@ -471002,6 +471377,20 @@
       "ingested_at": "2026-11-25T13:58:58Z"
     },
     {
+      "iaid": "s-1930-e-01-sinkin-in-the-bathtub",
+      "title": "Looney Tunes",
+      "year": 1930,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "wikidataQID": "Q1603098",
       "title": "Prapancha Pash",
       "year": 1929,
@@ -474506,6 +474895,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-24T14:29:28Z",
       "ingested_at": "2026-11-24T14:36:40Z"
+    },
+    {
+      "iaid": "cmarm_000082",
+      "title": "1929 Dedication of Mariposa County Courthouse monument and tour of Mariposa County towns",
+      "year": 1929,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "public_domain_day",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "wikidataQID": "Q1157116",
@@ -555415,6 +555818,20 @@
       "ingested_at": "2026-10-13T11:27:16Z"
     },
     {
+      "iaid": "cunegonde-aime-son-maitre-lux-fra-1911",
+      "title": "Cunégonde se apaixona pelo patrão (Lux, FRA, 1911)",
+      "year": 1911,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "wikidataQID": "Q3761343",
       "title": "The Crusaders",
       "year": 1910,
@@ -557216,6 +557633,19 @@
       "ingested_at": "2026-10-13T11:27:16Z"
     },
     {
+      "iaid": "chasing-the-panther-1909-silent-film-from-belgian-congo",
+      "title": "Chasing The Panther (1909 Silent film from Belgian Congo)",
+      "year": 1909,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "no_video",
+      "discovered_at": "2026-11-26T13:28:05Z"
+    },
+    {
       "wikidataQID": "Q3847882",
       "title": "Maria Stuarda",
       "year": 1908,
@@ -557985,6 +558415,20 @@
       "status": "ingested",
       "discovered_at": "2026-11-20T12:26:45Z",
       "ingested_at": "2026-11-20T12:35:55Z"
+    },
+    {
+      "iaid": "100-horror-themed-golden-age-cartoons",
+      "title": "100 Horror-Themed Golden-Age Cartoons",
+      "year": 1907,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "pd_age_backfill",
+      "archiveCollection": null,
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     },
     {
       "wikidataQID": "Q4530818",
@@ -908323,6 +908767,202 @@
       "ingested_at": "2026-11-25T13:58:58Z"
     },
     {
+      "iaid": "craze-1974_202410",
+      "title": "Craze",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "daraar-1996-dv-drip-xvid-ac-3-esubs-ddr",
+      "title": "Daraar 1996 Dv DRip Xvid AC 3 Esubs DDR",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "asa-wild-river-1960-a-film-directed-by-elia-kazan-with-montgomery-clift-lee-remi",
+      "title": "ASA 🎥📽🎬 Wild River ( 1960) A Film Directed By Elia Kazan With Montgomery Clift, Lee Remick, Jo Van Fleet, Albert Salmi",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "darna-zaroori-hai-2006-dv-drip-x-264-aac-5.1-chapters-esub",
+      "title": "Darna Zaroori Hai 2006 Dv DRip X 264 AAC 5.1 Chapters Esub",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "cilali-ibo-ve-kirk-haramiler_movie",
+      "title": "Cilalı İbo Ve Kırk Haramiler, Turkish Movie",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "beta-1992-dv-drip-xvi-d-mp-3-esubs-tmb",
+      "title": "Beta 1992 Dv DRip Xvi D Mp 3 Esubs [ TMB]",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "feature_films",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "ball-trap-on-the-cote-sauvage",
+      "title": "S01E09 Ball Trap On The Cote Sauvage",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "bbc-top-of-the-pops-1979-09-20",
+      "title": "BBC Top Of The Pops 1979 09 20 Mike read",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "classic_tv",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "203418_Henrich_Collection_003457",
+      "title": "Home Movie: Klaus Henrich Collection: 003457",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "prelinger",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "aqLK27ZwMbFwjhtidreuJsN1P5PM9z",
+      "title": "1937 INDIANAPOLIS 8MM HOME MOVIE RAILROAD FAN TRIP PACIFIC CLASS K-2 STEAM LOCOMOTIVE XD1434",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "bWUkMqXlOx69eRIq4MljOW86mBYTLv",
+      "title": "\"NURSING CARE OF THE SICK AND INJURED\" 1960S CIVIL DEFENSE FILM EMERGENCY MEDICAL CARE XD5154",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "dILz0v4Xy805vCmrKN2T14Wzb0ahu0",
+      "title": "“THE B-17 FLYING FORTRESS ENGINE STARTUP” 1942 U.S. ARMY AIR FORCE CREW TRAINING FILM XD5997",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "ephemera",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "cc1346_researchinsiliconglen",
+      "title": "cc1346_researchinsiliconglen",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "computerchronicles",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "cc1647_internetshowcase99",
+      "title": "cc1647 internetshowcase99",
+      "year": null,
+      "imdbID": null,
+      "wikidataQID": null,
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "source": "archive_collection",
+      "archiveCollection": "computerchronicles",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:28:05Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
       "iaid": null,
       "title": "The Three from the Filling Station",
       "year": 1930,
@@ -1013112,6 +1013752,36 @@
       "rightsConfidence": "low",
       "status": "new",
       "discovered_at": "2026-06-01T03:38:14Z"
+    },
+    {
+      "iaid": "scrubbing-bubbles-toilet-cleaning-gel-ewwww-dirty-clip-on-tv-commercial-2008-hq",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "Scrubbing Bubbles Toilet Cleaning Gel - Ewwww Dirty Clip On TV Commercial (2008) (HQ)",
+      "year": 2008,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:34:56Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
+    },
+    {
+      "iaid": "a-2-z-miss-universe-2026-commercial-break-11-25-2026",
+      "imdbID": null,
+      "wikidataQID": null,
+      "title": "A2Z 11 ALLTV 2 Metro Channel Kapamilya Channel Miss Universe 2026 Commercial AdBreaks and Broadcast Compilation (11 25 2026)",
+      "year": 2026,
+      "source": "commercials",
+      "archiveCollection": "aw_commercials",
+      "contentTypeHint": "commercial",
+      "pdFlagged": true,
+      "rightsConfidence": "high",
+      "status": "ingested",
+      "discovered_at": "2026-11-26T13:34:56Z",
+      "ingested_at": "2026-11-26T13:35:48Z"
     }
   ]
 }
