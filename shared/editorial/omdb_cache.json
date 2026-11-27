@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-26T10:58:13Z",
+  "updated_at": "2026-11-27T10:56:33Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-26T10:58:13Z"
+      "last_tried": "2026-11-27T10:56:33Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-26T10:58:13Z"
+      "last_tried": "2026-11-27T10:56:33Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -410073,6 +410073,320 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-26T10:58:13Z",
+      "schema": 4
+    },
+    "tt0017610": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTQxMTViZjYtZTlkNi00ZjE1LWExZjUtZWZiYWI5NDQ3OTI3XkEyXkFqcGdeQXVyNDcwNDI2MTk@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 34,
+      "content_rating": null,
+      "plot": "Alice, Julius and Peter enter a road race. Pete, of course, tries to cheat by pulling such stunts as switching road signs, but Julius is on to Pete's tricks.",
+      "runtime_min": 7,
+      "director": "Walt Disney",
+      "actors": [
+        "Margie Gay"
+      ],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0055093": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTA2NTQxNjAtZWZiOS00OGJjLWE5NmItMjBlMGU4ZTA2NWU5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 7888,
+      "content_rating": "Not Rated",
+      "plot": "Roland Cassard is a young man with no job and seemingly no prospects. By chance, he runs into his former girlfriend Cecile, who works as a dancer at a cabaret under the stage name Lola. She is now a single mom and works hard to provide her young son with all of the necessities of life. Lola still hopes that her son's father Michel, the true love of her life, will someday return to them. Seeing Lola again confirms to Roland that he's still in love with her, but she doesn't return his feelings. He has also met Madame Desnoyer and her 14-year-old daughter, also called Cecile. Madame Desnoyer, a widow, is quite taken with Roland but he has little interest in her. Roland sees no future if he stays in France.",
+      "runtime_min": 90,
+      "director": "Jacques Demy",
+      "actors": [
+        "Anouk Aimée",
+        "Marc Michel",
+        "Jacques Harden"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": {
+        "mc": 73
+      },
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0086308": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzdjMDM4OTItYWQxOS00NjIzLTk0OGItMzc0OTgyZDZkMWQ5XkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 3406,
+      "content_rating": "Unrated",
+      "plot": "A college student (Yuen Biao) at a university in Canada is a fencing champion and when he has an accident one day, he \"dreams\" of being transported to ancient China and enters a conflict on Zu, the Magic Mountain. At the end of the story, he regains consciousness (this is in the longer English international version). The first and shorter version is about a warrior (Yuen Biao) who has become disillusioned with the constant civil wars in China and goes to the Magic Mountain. There he encounters ghosts and devils, and also good masters and their disciples who are out to stop the Blood Monster and his demons from destroying the world.",
+      "runtime_min": 98,
+      "director": "Hark Tsui",
+      "actors": [
+        "Biao Yuen",
+        "Hoi Mang",
+        "Adam Cheng"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0087164": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYThmNDc5ZTktMWNlMS00NTA3LTkwMGMtNzUwMDQxNzUyMDhiXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 2154,
+      "content_rating": null,
+      "plot": "When a young brother and sister spend a pivotal summer away from home, they are changed. Ting-Ting and Tung-Tung (Wang Qiguang) are children of the city, but when their mother is struck ill, they must leave Taipei, Taiwan, behind and spend the summer with their grandfather and grandmother (Mei Fang) in the country. As they wile away the days at play, the elder Tung-Tung is garnering glimpses of adult responsibility and is slowly growing to realize what it means to be a grownup.",
+      "runtime_min": 93,
+      "director": "Hsiao-Hsien Hou",
+      "actors": [
+        "Chi-Kuang Wang",
+        "Shu-Chen Li",
+        "Bor-Jeng Chen"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0087608": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODk1Njk5YTAtYmE1NC00MDk2LWFhYTEtNWQ4OTQ4NmVmNjBiXkEyXkFqcGdeQXVyNjI1OTk5NzE@._V1_SX300.jpg",
+      "imdb_rating": 7.9,
+      "imdb_votes": 75,
+      "content_rating": null,
+      "plot": "A film that weaves together re-enactments, archive footage and fairy-tale sequences to create a testament to the history of Lebanese and Palestinian women to the political struggles of the twentieth century.",
+      "runtime_min": 90,
+      "director": "Heiny Srour",
+      "actors": [
+        "Rafik Ali Ahmad",
+        "Nabila Zeitouni"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0097195": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWI0YzhjY2MtNjliOS00ZDQ2LTg5YzctODExYzlhN2RmOWZlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 1472,
+      "content_rating": "Not Rated",
+      "plot": "Three people live in a remote Buddhist monastery near Mount Chonan: Hyegok, the old master; Yong Nan, a young man who has left his extended family in the city to seek enlightenment - Hyegok calls him Kibong!; and, an orphan lad Haejin, whom Hyegok has brought to the monastery to raise as a monk. The story is mostly Yong Nan's, told in flashbacks: how he came to the monastery, his brief return to the city, his vacillation between the turbulence of the world and his hope to overcome passions and escape the idea of self. We also see Hyegok as a teacher, a protector, and a father figure, and we watch Haejin make his way as a curious and nearly self-sufficient child.",
+      "runtime_min": 137,
+      "director": "Yong-Kyun Bae",
+      "actors": [
+        "Yi Pan-Yong",
+        "Sin Won-Sop",
+        "Hae-Jin Huang"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "rt": 100
+      },
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0098976": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2Y4NGUwMTYtZjYxNC00NmZlLTlkY2EtMmI3YmVlNDJjNTdjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+      "imdb_rating": 4.6,
+      "imdb_votes": 664,
+      "content_rating": null,
+      "plot": "Bhim Singh is an orphan who lives a poor life-style in a small community. He is the guardian to his only sister, Laxmi, who he has educated in the city, she meets Ajit Singh the son of Thakur Bhupendra Singh and both falls in love and gets married with the blessings of Bhim, but on there nuptial night, Ajit goes missing. Bhim finds out that Ajit has relocated to his dad's residence and he goes there to beg there pardon but is humiliated and witnesses Ajit knifes Laxmi to death. A grief-stricken Bhim murders Ajit publicly and goes on a rampage to rescue farmers in his community whose land are being snatched by Thakur Bhupendra Singh and his henchman Lakhan.",
+      "runtime_min": 164,
+      "director": "K.C. Bokadia",
+      "actors": [
+        "Amitabh Bachchan",
+        "Jaya Prada",
+        "Radhika Sarathkumar"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0141987": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjU0NjEyMzktZTE2Ny00MjlkLTg1MDktZGUwYjAxNzQ1N2ZkXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": "Not Rated",
+      "plot": "A professional boxer's manager takes the athlete to an isolated ranch to recover from his boozing and partying. While there, he gets mixed up with a pretty ranch girl and stolen jewels.",
+      "runtime_min": 52,
+      "director": "Harry L. Fraser",
+      "actors": [
+        "Gordon Clifford",
+        "Charlotte Pierce",
+        "Frank Bond"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Western"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0248617": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWE1MThiMzEtNjliZC00NzQxLWIzNzQtMzk2YWVmYjY1MTk0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.2,
+      "imdb_votes": 3866,
+      "content_rating": "Not Rated",
+      "plot": "Raj Singh Puri is best friends with L.K. Malhotra who is in turn younger brother to J.K. Malhotra. The brothers are business tycoons and Raj works in their company. Raj is father to three young daughters, the first one gets married through arrangement but the second one marries her lover. After a few weeks at her in-laws, the second daughter returns home asking for divorce. After this Raj and her last daughter become strictly against love and relationships. All this changes when Isha (the third daughter) falls in love with the heir to the Malhotra empire, Ronit, L.K. Malhotra's son. The ask for Raj's blessing but he bluntly refuses and Isha understandingly shuns Ronit and Raj arranges for Ronit to be married to the daughter of another tycoon. Ronit is unhappy and makes Raj realize that his fiancé's family is not right for them and Raj approaches the Malhotras to break off the engagement however J.K. Malhotra shuns him by calling him poor and small. The other Malhotras join forces to make J.K. to realize his mistake and Ronit is finally married to Isha.",
+      "runtime_min": 171,
+      "director": "Subhash Ghai",
+      "actors": [
+        "Hrithik Roshan",
+        "Jackie Shroff",
+        "Kareena Kapoor"
+      ],
+      "genres": [
+        "Musical",
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0402014": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjg5NmM2ZjktMDEwYi00Zjg1LTkyNTQtOTJjMzk3Zjk4YjJiXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 9766,
+      "content_rating": "Not Rated",
+      "plot": "An honest cop named Sadhu Agashe makes a name for himself by killing criminals in sting operations instead of locking them up in prison. The film follows his method of working, gives an insight into the Mumbai Police Crime Branch, and Agashe's alleged connection with the underworld.",
+      "runtime_min": 129,
+      "director": "Shimit Amin",
+      "actors": [
+        "Nana Patekar",
+        "Revathi",
+        "Yashpal Sharma"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0760157": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjA5MjkwMTQ2Nl5BMl5BanBnXkFtZTcwMDAxMTk0MQ@@._V1_SX300.jpg",
+      "imdb_rating": 2.9,
+      "imdb_votes": 789,
+      "content_rating": "R",
+      "plot": "Haunted by the fact that he left a man behind in Afghanistan, a soldier (Bacic) pulls together a special task force to save his comrade.",
+      "runtime_min": 90,
+      "director": "Allan Harmon",
+      "actors": [
+        "Steve Bacic",
+        "Michael Madsen",
+        "Colin Lawrence"
+      ],
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0816708": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 11,
+      "content_rating": null,
+      "plot": "This documentary short film, produced by the U.S. Army Air Forces, celebrates and delineates the history and service of the Negro pilots and crewmen trained at Tuskegee Air Field in Alabama. The Tuskegee Airmen, as they were known, were the first black troops to serve as flight personnel in the American armed forces during World War II. Several hundred pilots graduated from the program and made remarkable records against enemy aircraft and installations during the war.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [
+        "Ronald Reagan"
+      ],
+      "genres": [
+        "Documentary",
+        "Short",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt2008006": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTkwMTExNjkxM15BMl5BanBnXkFtZTgwODQzNDkyMjE@._V1_QL75_UY562_CR10,0,380,562_.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 6723,
+      "content_rating": "Not Rated",
+      "plot": "After suffering a stroke, an altruistic maid announces that she wants to quit her job and move into an old people's home.",
+      "runtime_min": 118,
+      "director": "Ann Hui",
+      "actors": [
+        "Andy Lau",
+        "Deanie Ip",
+        "Hailu Qin"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": {
+        "mc": 78
+      },
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt4289014": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTgxYTAzNzMtMGVmMC00Njg3LTk4YjktZmQ4ZjNkNzg4NTMxL2ltYWdlXkEyXkFqcGdeQXVyMDM0MzU2NA@@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 102,
+      "content_rating": null,
+      "plot": "SHOWS THE LIFE OF A NEGRO GIRL IN WATTS, Los Angeles, California. PRESENTS HER OBSERVATIONS ABOUT LIFE IN A SEGREGATED COMMUNITY, EXPRESSING SOME OF THE HOPES and FRUSTRATIONS OF THE NEGRO POPULATION AS A WHOLE. Shows the disadvantages, frustrations, and hopes of Negro life in an American ghetto as seen through the eyes of a young Negro girl living in Watts in suburban Los Angeles in the spring of 1965, a few months before rioting broke out.",
+      "runtime_min": 12,
+      "director": "Bob Dickson, Alan Gorg, Trevor Greenwood",
+      "actors": [
+        "Felicia Bragg"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt4914122": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2VhMWEyMjEtYWViZi00YmJiLWE0NGUtMDMwM2Q1M2ZlMDUwXkEyXkFqcGdeQXVyMjQ3Mzk2NTY@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 46,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 25,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-27T10:56:33Z",
       "schema": 4
     }
   },
