@@ -5329,6 +5329,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-27T05:02:23.754175+00:00",
+   "id": "the.-adventures.-of.-prince.-achmed.-1926.720p.-blu-ray.x-264-public-hd_202508",
+   "title": "The Adventures of Prince Achmed",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n3bfwjz3zh2t",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
