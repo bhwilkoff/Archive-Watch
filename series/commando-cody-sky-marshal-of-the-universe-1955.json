@@ -1,312 +1,314 @@
 {
- "version": 2,
- "seriesID": "commando-cody-sky-marshal-of-the-universe-1955",
- "tvmazeID": 21868,
- "title": "Commando Cody: Sky Marshal of the Universe",
- "yearStart": 1955,
- "yearEnd": 1955,
- "overview": "Earth is menaced by an evil alien \"Ruler\" who desires to add the Earth to his list of conquests. The Ruler uses a number of diabolical devices to carry out a series of attacks against the Earth. These devices generate floods and typhoons, spread germ warfare, block out the sun, generate additional suns, and pull the Earth and the moon out of their orbits. Scientist Commando Cody develops a \"Cosmic Dust Blanket\" to protect the Earth. However, the Ruler uses guided missiles to penetrate the shield. Cody, assisted by Joan Gilbert and Ted Richards, constructs an atomic-powered rocketship to travel into space and combat the Ruler and his evil henchmen and robots.",
- "posterURL": "https://artworks.thetvdb.com/banners/posters/78715-1.jpg",
- "backdropURL": null,
- "genres": [
-  "Children",
-  "Science-Fiction"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "commando-cody-sky-marshal-of-the-universe-1955",
+  "tvmazeID": 21868,
+  "title": "Commando Cody: Sky Marshal of the Universe",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Earth is menaced by an evil alien \"Ruler\" who desires to add the Earth to his list of conquests. The Ruler uses a number of diabolical devices to carry out a series of attacks against the Earth. These devices generate floods and typhoons, spread germ warfare, block out the sun, generate additional suns, and pull the Earth and the moon out of their orbits. Scientist Commando Cody develops a \"Cosmic Dust Blanket\" to protect the Earth. However, the Ruler uses guided missiles to penetrate the shield. Cody, assisted by Joan Gilbert and Ted Richards, constructs an atomic-powered rocketship to travel into space and combat the Ruler and his evil henchmen and robots.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78715-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Children",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e01",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Enemies of the Universe",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/01%20Enemies%20of%20the%20Universe_000661.jpg",
-     "airDate": "1955-07-16",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "01 Enemies of the Universe.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 248350435,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/01%20Enemies%20of%20the%20Universe.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e02",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Atomic Peril",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/02%20Atomic%20Peril_000594.jpg",
-     "airDate": "1955-07-23",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "02 Atomic Peril.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 174743130,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/02%20Atomic%20Peril.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e03",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Cosmic Vengeance",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/03%20Cosmic%20Vengeance_000598.jpg",
-     "airDate": "1955-07-30",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "03 Cosmic Vengeance.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 178994163,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/03%20Cosmic%20Vengeance.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e04",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Nightmare Typhoon",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/04%20Nightmare%20Typhoon_000599.jpg",
-     "airDate": "1955-08-06",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "04 Nightmare Typhoon.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 182553985,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/04%20Nightmare%20Typhoon.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e05",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "War of the Space Giants",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/05%20War%20of%20the%20Space%20Giants_000597.jpg",
-     "airDate": "1955-08-13",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "05 War of the Space Giants.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 176829996,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/05%20War%20of%20the%20Space%20Giants.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e06",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Destroyers of the Sun",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/06%20Destroyers%20of%20the%20Sun_000596.jpg",
-     "airDate": "1955-08-20",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "06 Destroyers of the Sun.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 180450076,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/06%20Destroyers%20of%20the%20Sun.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e07",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Robot Monster from Mars",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/07%20Robot%20Monster%20from%20Mars_000600.jpg",
-     "airDate": "1955-08-27",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "07 Robot Monster from Mars.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 169878138,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/07%20Robot%20Monster%20from%20Mars.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e08",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Hydrogen Hurricane",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/08%20The%20Hydrogen%20Hurricane_000598.jpg",
-     "airDate": "1955-09-03",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "08 The Hydrogen Hurricane.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 180395373,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/08%20The%20Hydrogen%20Hurricane.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e09",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Solar Sky Raiders",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/09%20Solar%20Sky%20Raiders_000595.jpg",
-     "airDate": "1955-09-10",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "09 Solar Sky Raiders.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 164846634,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/09%20Solar%20Sky%20Raiders.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e10",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "S.O.S. Ice Age",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/10%20S.O.S.%20Ice%20Age_000608.jpg",
-     "airDate": "1955-09-17",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "10 S.O.S. Ice Age.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 154846695,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/10%20S.O.S.%20Ice%20Age.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e11",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Lost in Outer Space",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/11%20Lost%20in%20Outer%20Space_000616.jpg",
-     "airDate": "1955-09-24",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "11 Lost in Outer Space.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 169186875,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/11%20Lost%20in%20Outer%20Space.mp4"
-    },
-    {
-     "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e12",
-     "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Captives of the Zero Hour",
-     "overview": null,
-     "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/12%20Captives%20of%20the%20Zero%20Hour_000606.jpg",
-     "airDate": "1955-10-08",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "12 Captives of the Zero Hour.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 160078890,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/12%20Captives%20of%20the%20Zero%20Hour.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e01",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Enemies of the Universe",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/01%20Enemies%20of%20the%20Universe_000661.jpg",
+          "airDate": "1955-07-16",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "01 Enemies of the Universe.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 248350435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/01%20Enemies%20of%20the%20Universe.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e02",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Atomic Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/02%20Atomic%20Peril_000594.jpg",
+          "airDate": "1955-07-23",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "02 Atomic Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174743130,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/02%20Atomic%20Peril.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e03",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Cosmic Vengeance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/03%20Cosmic%20Vengeance_000598.jpg",
+          "airDate": "1955-07-30",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "03 Cosmic Vengeance.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178994163,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/03%20Cosmic%20Vengeance.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e04",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Nightmare Typhoon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/04%20Nightmare%20Typhoon_000599.jpg",
+          "airDate": "1955-08-06",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "04 Nightmare Typhoon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182553985,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/04%20Nightmare%20Typhoon.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e05",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "War of the Space Giants",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/05%20War%20of%20the%20Space%20Giants_000597.jpg",
+          "airDate": "1955-08-13",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "05 War of the Space Giants.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176829996,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/05%20War%20of%20the%20Space%20Giants.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e06",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Destroyers of the Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/06%20Destroyers%20of%20the%20Sun_000596.jpg",
+          "airDate": "1955-08-20",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "06 Destroyers of the Sun.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180450076,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/06%20Destroyers%20of%20the%20Sun.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e07",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Robot Monster from Mars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/07%20Robot%20Monster%20from%20Mars_000600.jpg",
+          "airDate": "1955-08-27",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "07 Robot Monster from Mars.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169878138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/07%20Robot%20Monster%20from%20Mars.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e08",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Hydrogen Hurricane",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/08%20The%20Hydrogen%20Hurricane_000598.jpg",
+          "airDate": "1955-09-03",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "08 The Hydrogen Hurricane.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180395373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/08%20The%20Hydrogen%20Hurricane.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e09",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Solar Sky Raiders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/09%20Solar%20Sky%20Raiders_000595.jpg",
+          "airDate": "1955-09-10",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "09 Solar Sky Raiders.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 164846634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/09%20Solar%20Sky%20Raiders.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e10",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "S.O.S. Ice Age",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/10%20S.O.S.%20Ice%20Age_000608.jpg",
+          "airDate": "1955-09-17",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "10 S.O.S. Ice Age.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154846695,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/10%20S.O.S.%20Ice%20Age.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e11",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Lost in Outer Space",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/11%20Lost%20in%20Outer%20Space_000616.jpg",
+          "airDate": "1955-09-24",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "11 Lost in Outer Space.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169186875,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/11%20Lost%20in%20Outer%20Space.mp4"
+        },
+        {
+          "archiveID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe@e12",
+          "sourceID": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Captives of the Zero Hour",
+          "overview": null,
+          "stillURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe.thumbs/12%20Captives%20of%20the%20Zero%20Hour_000606.jpg",
+          "airDate": "1955-10-08",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "12 Captives of the Zero Hour.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 160078890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe/12%20Captives%20of%20the%20Zero%20Hour.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 12,
- "canonicalEpisodesCount": 12,
- "tvmazeRating": null,
- "tvdbID": "78715",
- "artworkSource": "tvdb",
- "cast": [
-  {
-   "name": "Gloria Pall",
-   "character": "",
-   "order": 0,
-   "profilePath": null
-  },
-  {
-   "name": "Judd Holdren",
-   "character": "",
-   "order": 1,
-   "profilePath": null
-  },
-  {
-   "name": "Gregory Gaye",
-   "character": "",
-   "order": 2,
-   "profilePath": null
-  },
-  {
-   "name": "Aline Towne",
-   "character": "",
-   "order": 3,
-   "profilePath": null
-  },
-  {
-   "name": "Craig Kelly",
-   "character": "",
-   "order": 4,
-   "profilePath": null
-  },
-  {
-   "name": "Lyle Talbot",
-   "character": "",
-   "order": 5,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258162/photo/66ab23ad7acf8.jpg"
-  },
-  {
-   "name": "Richard Crane",
-   "character": "",
-   "order": 6,
-   "profilePath": null
-  },
-  {
-   "name": "William Schallert",
-   "character": "",
-   "order": 7,
-   "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260004/photo/62f1c66a6ef1f.jpg"
-  }
- ],
- "seriesImdbID": "tt0045382",
- "imdbRating": 5.8,
- "imdbVotes": 202
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": 12,
+  "tvmazeRating": null,
+  "tvdbID": "78715",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Gloria Pall",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Judd Holdren",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Gregory Gaye",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Aline Towne",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Craig Kelly",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Lyle Talbot",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258162/photo/66ab23ad7acf8.jpg"
+    },
+    {
+      "name": "Richard Crane",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "William Schallert",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260004/photo/62f1c66a6ef1f.jpg"
+    }
+  ],
+  "seriesImdbID": "tt0045382",
+  "imdbRating": 5.8,
+  "imdbVotes": 202,
+  "canonicalEpisodeCount": 2,
+  "canonicalSeasons": 1
 }
