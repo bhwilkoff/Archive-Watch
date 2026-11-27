@@ -7237,6 +7237,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n2tyiz5vlj2d",
+   "platform": "bluesky",
+   "id": "TheAvengingConscience_201502",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-21T20:57:50.978741+00:00",
+   "sampled": "2026-11-27T23:25:38.195044+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117656432964494279",
+   "platform": "mastodon",
+   "id": "TheAvengingConscience_201502",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-11-21T20:57:50.978741+00:00",
+   "sampled": "2026-11-27T23:25:38.195044+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n3atyf5af42l",
+   "platform": "bluesky",
+   "id": "divide-and-conquer-1943_202504",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-26T23:41:34.467317+00:00",
+   "sampled": "2026-11-27T23:25:38.195044+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117685388304531289",
+   "platform": "mastodon",
+   "id": "divide-and-conquer-1943_202504",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-11-26T23:41:34.467317+00:00",
+   "sampled": "2026-11-27T23:25:38.195044+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

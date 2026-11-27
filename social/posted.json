@@ -5341,6 +5341,54 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-27T23:25:00.455976+00:00",
+   "id": "BillSpragueCollectionTHELOVEBUG",
+   "title": "The Love Bug",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n3ddjmb7462z",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-27T23:25:00.455976+00:00",
+   "id": "BillSpragueCollectionTHELOVEBUG",
+   "title": "The Love Bug",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117690985580052888",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-27T23:25:00.455976+00:00",
+   "id": "BillSpragueCollectionTHELOVEBUG",
+   "title": "The Love Bug",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DgQ2uz4FqY8/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117690984960059722",
+   "reviewer": null
+  },
+  {
+   "at": "2026-11-27T23:25:00.455976+00:00",
+   "id": "BillSpragueCollectionTHELOVEBUG",
+   "title": "The Love Bug",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=F46aNLjt_K4",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
