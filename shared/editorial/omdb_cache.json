@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-11-27T10:56:33Z",
+  "updated_at": "2026-11-28T10:31:25Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -33844,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-11-27T10:56:33Z"
+      "last_tried": "2026-11-28T10:31:25Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-11-27T10:56:33Z"
+      "last_tried": "2026-11-28T10:31:25Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -410387,6 +410387,195 @@
       ],
       "critics": null,
       "fetched_at": "2026-11-27T10:56:33Z",
+      "schema": 4
+    },
+    "tt0035746": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzhiNDA2ZTgtN2Y2Yi00M2M2LWEzMGMtNzI0ZjMzOGU2M2E1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 1011,
+      "content_rating": "Approved",
+      "plot": "Erik Toresen, widower and fishery observer, leads a quiet life in a small Norwegian town; but after the Nazi occupation, German abuses lead Erik to form a Resistance group. After a killing, Erik flees to the wilderness and finds a secret German air base; he resolves to escape to England with its location.",
+      "runtime_min": 98,
+      "director": "John Farrow",
+      "actors": [
+        "Paul Muni",
+        "Anna Lee",
+        "Lillian Gish"
+      ],
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt0069924": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTMyM2ViOGMtNWEwNy00OGQwLTkyMTYtYmYwZjE2YjJmMzVmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 837,
+      "content_rating": "R",
+      "plot": "Jack Palance plays as a demented art dealer &amp; antique-shop owner who performs nightly rituals in honor of the African god Chuku, whom he believes will reward him with unimaginable wealth and power if he merely offers up human sacrifice. His methods are fairly creative, ranging from impalement, slashing and burning, to scaring people to death with an ooga-booga fright mask.",
+      "runtime_min": 96,
+      "director": "Freddie Francis",
+      "actors": [
+        "Jack Palance",
+        "Diana Dors",
+        "Julie Ege"
+      ],
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt0083776": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTZjZWRmN2YtMWZhMC00NWJkLTk5YjEtNDE3OTA4ZmNiOTA5XkEyXkFqcGdeQXVyMTk0NjM1ODQ@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 45,
+      "content_rating": null,
+      "plot": "A boxer and a singer are hired by the Armed Forces to entertain the people of a small town. When their personalities and principles get them in trouble with the authorities, they support each other as they face their destiny.",
+      "runtime_min": 115,
+      "director": "Lautaro Murúa",
+      "actors": [
+        "Oscar Ferrigno",
+        "Eduardo Pavlovsky",
+        "Ulises Dumont"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt0101437": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGNkZDkwMjItOTYwZS00OTQxLWFhMDktOTcwN2ViYTI4NWU3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 2495,
+      "content_rating": "Not Rated",
+      "plot": "Beta is the story of Raju, the only child of a widowed multi millionaire. Raju's father can provide him anything he wants but Raju's only desire is to get mother's love, in order to please Raju, his father gets married to Nagmani, thinking that she will take care of Raju more than his real mother would. Raju becomes completely devoted to his stepmother, doing whatever she wishes. Time passes by, Raju grows up and gets married to Saraswati. Saraswati discovers that Nagmani's motherly love for Raju is fake and all what Nagmani is interested in, is capturing Raju's wealth.",
+      "runtime_min": 171,
+      "director": "Indra Kumar",
+      "actors": [
+        "Anil Kapoor",
+        "Madhuri Dixit",
+        "Aruna Irani"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt0116024": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTYzMzg2MzcxOV5BMl5BanBnXkFtZTcwMjk2ODgzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 616,
+      "content_rating": null,
+      "plot": "Raj is a rich industrialist he meets Priya in Shimla and is madly in love with her.But Priya ignores him all the time Priya's mother tells her that she should marry Raj as he is a good person and tell him everything about her past.Priya writes a letter to Raj which is misplaced by his servant Hari who replaces it with another letter.Raj is shocked to find from Priya's mother that she was married earlier and is angry that she never disclosed it.Hari finds Priya's letter in his coat and gives it to Raj.Priya has mentioned everything about her past in it that she was married to an abusive and over caring husband Vikram who had made her life hell.She managed to run away from him and started a new life in Shimla.Raj forgives and accepts Priya after finding the truth.Vikram who believed that Priya died due to drowning finds that she is alive and about to get married to Raj.Vikram manages to trace them in Shimla and tries to kill Raj on failing he send shim to jail and goes to kill Priya.",
+      "runtime_min": 105,
+      "director": "Abbas Alibhai Burmawalla, Mastan Alibhai Burmawalla",
+      "actors": [
+        "Rishi Kapoor",
+        "Juhi Chawla",
+        "Arbaaz Khan"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt0249391": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjYyZWQ0ZWQtMjc4My00YmRlLTgyZDktMDBjNzBiNWMwZjE5XkEyXkFqcGdeQXVyMTk4MDgwNA@@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 20,
+      "content_rating": null,
+      "plot": "Mario is married to a woman who was paralyzed from the waist down, Here is the seed of tragedy that will germinate.",
+      "runtime_min": 85,
+      "director": "Emilio Gómez Muriel",
+      "actors": [
+        "Isela Vega",
+        "Jorge Rivero",
+        "Luis Dávila"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt0476649": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2I2NGU4YzMtNzg2Zi00ODIyLWIzZWItZmFhNTdjYmU1MDM4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 2529,
+      "content_rating": "Not Rated",
+      "plot": "Pahwa is a film buff. He watches every new release in the night show on the first day itself. Just as he readies himself to visit a nearby theatre to catch the new release Darna Mana Hai, his mother cautions him against taking the route via the graveyard. It also happens to be Friday the 13th and Amavas ki raat (new moon). Pahwa dismisses his mother's plea since he doesn't believe in ghosts and goes through the graveyard, making fun of the dead and hitting a tree in the cemetery. The movie is boring and ends with no incident, but on the way back, for some reason he's a little more nervous than usual. He hears strange noises and someone seems to be pursuing him.",
+      "runtime_min": 108,
+      "director": "J.D. Chakravarthi, Manish Gupta, Sajid Khan",
+      "actors": [
+        "Amitabh Bachchan",
+        "Riteish Deshmukh",
+        "Arjun Rampal"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt1404386": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ1ODc4NDI1NF5BMl5BanBnXkFtZTcwNDAzNjI3Mg@@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 660,
+      "content_rating": "Not Rated",
+      "plot": "Harvey Lippe' works as a janitor at a small ski resort in the peculiar Northern community of WhiteFox. Standing three feet four inches and abandoned at an orphanage as a child, he has grown up angry and miserable. Now in his early twenties he lives like a hermit in a small trailer, his only friend being Lucas Harold, the town drug dealer. Lucas attended the orphanage for several months before being adopted and subsequently moved to several fosters homes. He is rough around the edges, but has a big heart and a perspective few people give home credit for. Every evening Harvey walks the same route from his trailer, several miles through farmer's fields and hillside forest to get to work. But on this day he has a run in with a stray husky, which he at first thinks is a wolf. She follows him and that night he reluctantly allows her inside his trailer. Through her he meets Dakota Dixon, a dancer at a bizarre local strip joint. Dakota, Lucas, and Inca (as Harvey names her) develop into something Harvey has never had before, a family. Dakota and himself grow close and their relationship becomes intimate. Just when Harvey thinks his life may be worth living Dakota turns on him and Inca is almost killed in a snowmobile accident. He must pull himself together and decide what is worth fighting for, which is where his true story begins.",
+      "runtime_min": 79,
+      "director": "Jeff Kopas",
+      "actors": [
+        "Jordan Prentice",
+        "Kristin Adams",
+        "Steven McCarthy"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-11-28T10:31:25Z",
+      "schema": 4
+    },
+    "tt1709654": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTg5NTk3MjQwNl5BMl5BanBnXkFtZTcwOTQ4MzA1Nw@@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 4630,
+      "content_rating": "Not Rated",
+      "plot": "Based on a real WWII vet and family man turned bank robber. Disillusioned by his post war circumstances, Eddie Boyd is torn between the need to provide for his young family and an unfulfilled dream to head to Hollywood to become a star. He discovers a way to do both, robbing banks Hollywood style, but his dream leads him down a path of danger and tragedy.",
+      "runtime_min": 105,
+      "director": "Nathan Morlando",
+      "actors": [
+        "Scott Speedman",
+        "Kelly Reilly",
+        "Kevin Durand"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "critics": {
+        "mc": 56
+      },
+      "fetched_at": "2026-11-28T10:31:25Z",
       "schema": 4
     }
   },
