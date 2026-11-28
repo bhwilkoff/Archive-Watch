@@ -5389,6 +5389,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-11-28T04:47:45.032416+00:00",
+   "id": "murder-over-new-york-1940",
+   "title": "Murder Over New York",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3n3dvko75lw2i",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
